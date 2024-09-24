@@ -1,1 +1,3 @@
 # Project-VOICE
+
+Today, non-verbal kids are thought to have minimal intelligence and cognitive abilities. We aim to prove this false. The Voice Project initiative aims to reverse biases in academia and show that communication is still possible even without words or signs. Our current work consists of integrating computer software with biomedical engineering and neurology to explore non-verbal and nonsymbolic communication through brain monitoring applications. For now, we plan on researching and making additions to the open-source project BCI2000 (https://www.bci2000.org/mediawiki/index.php/Main_Page). To ask questions or join us in this project: https://discord.gg/2gXxDNvCmx.
