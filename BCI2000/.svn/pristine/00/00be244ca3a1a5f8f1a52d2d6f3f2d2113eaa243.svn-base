@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>User Reference:BCI2000Analysis - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul><li class="toc1"><a href="User_Reference%253AOperator_Module.html">Operator Module</a></li><li class="toc1"><a href="User_Reference%253AOperator_Module_Scripting.html">Operator Scripting</a></li><li class="toc1"><a href="User_Reference%253AModule_Command_Line_Options.html">Module Command Line Options</a></li><li class="toc1"><a href="User_Reference%253AData_File_Formats.html">Data File Formats</a></li><li class="toc1"><a href="User_Reference%253AFilters.html">Configuration Guide</a></li><li class="toc1"><a href="User_FAQ.html">FAQ</a></li><li class="toc1">Applications</li><ul><li class="toc2"><a href="User_Reference%253ACursorTask.html">Cursor Task</a></li><li class="toc2"><a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:P3SpellerTask">P3Speller Task</a></li><li class="toc2"><a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:StimulusPresentation">Stimulus Presentation</a></li></ul><li class="toc1">Tools</li><ul><li class="toc2"><a href="User_Reference%253ABCI2000Certification.html">BCI2000Certification</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Launcher.html">BCI2000Launcher</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Viewer.html">BCI2000Viewer</a></li><li class="toc2"><a href="User_Reference%253ABCI2000FileInfo.html">BCI2000FileInfo</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Export.html">BCI2000Export</a></li><li class="toc2">BCI2000Analysis</li><li class="toc2"><a href="User_Reference%253ABCI2000_Offline_Analysis.html">BCI2000 Offline Analysis</a></li><li class="toc2"><a href="User_Reference%253AEloc_Helper.html">Eloc Helper</a></li><li class="toc2"><a href="User_Reference%253AEEGLabImport.html">EEGLabImport</a></li><li class="toc2"><a href="User_Reference%253AMatlab_Tools.html">Matlab Tools</a></li><li class="toc2"><a href="User_Reference%253AMatlab_MEX_Files.html">Matlab MEX Files</a></li><li class="toc2"><a href="User_Reference%253ACommand_Line_Processing.html">Command Line Processing</a></li></ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">BCI2000Analysis</h1>
+ <p class = "subtitle">User Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="User_Reference%253ABCI2000Analysis.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="User_Reference%253ABCI2000Analysis.html#The_BCI2000Analysis_main_window"><span class="tocnumber">2</span> <span class="toctext">The BCI2000Analysis main window</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="User_Reference%253ABCI2000Analysis.html#Editing_the_Filter_Graph"><span class="tocnumber">2.1</span> <span class="toctext">Editing the Filter Graph</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-4"><a href="User_Reference%253ABCI2000Analysis.html#Performing_Analysis"><span class="tocnumber">3</span> <span class="toctext">Performing Analysis</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="User_Reference%253ABCI2000Analysis.html#Using_the_Profiler"><span class="tocnumber">4</span> <span class="toctext">Using the Profiler</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="User_Reference%253ABCI2000Analysis.html#Training_a_Classifier"><span class="tocnumber">5</span> <span class="toctext">Training a Classifier</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="User_Reference%253ABCI2000Analysis.html#Saving_a_Classifier_as_a_Parameter_File"><span class="tocnumber">5.1</span> <span class="toctext">Saving a Classifier as a Parameter File</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="User_Reference%253ABCI2000Analysis.html#Applying_a_Classifier_to_the_Filter_Chain"><span class="tocnumber">5.2</span> <span class="toctext">Applying a Classifier to the Filter Chain</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-9"><a href="User_Reference%253ABCI2000Analysis.html#Training_a_Spatial_Filter"><span class="tocnumber">6</span> <span class="toctext">Training a Spatial Filter</span></a>
+<ul>
+<li class="toclevel-2 tocsection-10"><a href="User_Reference%253ABCI2000Analysis.html#Saving_a_Spatial_Filter_as_a_Parameter_File"><span class="tocnumber">6.1</span> <span class="toctext">Saving a Spatial Filter as a Parameter File</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="User_Reference%253ABCI2000Analysis.html#Applying_a_Spatial_Filter_to_the_Filter_Chain"><span class="tocnumber">6.2</span> <span class="toctext">Applying a Spatial Filter to the Filter Chain</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="User_Reference%253ABCI2000Analysis.html#Viewing_data_as_seen_by_the_Application"><span class="tocnumber">7</span> <span class="toctext">Viewing data as seen by the Application</span></a>
+<ul>
+<li class="toclevel-2 tocsection-13"><a href="User_Reference%253ABCI2000Analysis.html#SMR.2FERD_Data"><span class="tocnumber">7.1</span> <span class="toctext">SMR/ERD Data</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="User_Reference%253ABCI2000Analysis.html#P300_Spelling_Data"><span class="tocnumber">7.2</span> <span class="toctext">P300 Spelling Data</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-15"><a href="User_Reference%253ABCI2000Analysis.html#See_also"><span class="tocnumber">8</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Introduction">Introduction</span></h2>
+<p>The BCI2000Analysis program is a universal tool for
+</p>
+<ul><li>Applying Signal Processing filters to existing data,</li>
+<li>Testing and Benchmarking new Signal Processing filters,</li>
+<li>Training and testing Linear Classifier weights using various methods.</li></ul>
+<p>The program may be viewed as a more versatile version of the <a href="User_Reference%253ABCI2000_Offline_Analysis.html" title="User Reference:BCI2000 Offline Analysis">BCI2000 Offline Analysis</a> tool, and a complement of the <a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:P300Classifier" title="User Reference:P300Classifier">P300Classifier</a> tool. Unlike BCI2000 Offline Analysis, it does not require Matlab to run. Unlike the P300Classifier tool, it allows to use classifier training methods other than SWLDA, and to visualize time courses and topographic plots of P300 responses. For data recorded with the P300 speller online component, it will also translate classifications into spelling results.
+</p>
+<h2><span class="mw-headline" id="The_BCI2000Analysis_main_window">The BCI2000Analysis main window</span></h2>
+<p>The main window consists of 
+</p>
+<ul><li>areas for training and testing data,</li>
+<li>a pane containing the filter graph,</li>
+<li>a log area that holds log information produced by filters (if any).</li>
+<li>In the lower left, two condition fields exist to hold the conditions for collecting data into either of two sets that may then be used to train a classifier, or to view data as seen by the application node.</li>
+<li>In the lower right, a selection area allows to select the "target" of analysis, i.e. the filter graph node at which to observe and visualize data. By default, this is set to "Linear Classifier", and the Linear Classifier node in the filter graph is correspondingly highlighted by a black frame.</li>
+<li>At the bottom, there is a log window that holds log messages originating from the BCI2000Analysis program itself, such as information about newly loaded data files, modifications to the filter graph, or application of filter parameters from trained classifiers.</li></ul>
+<p><a href="https://www.bci2000.org/mediawiki/index.php/File:BCI2000Analysis_MainWindow.png" class="image"><img alt="BCI2000Analysis MainWindow.png" src="../images/5/55/BCI2000Analysis_MainWindow.png" decoding="async" width="942" height="652" /></a>
+</p><p>Clicking the “Add analysis files” or the “+” button below the analysis files field will open a file dialog that allows you to choose BCI2000 data files for analysis. Similarly, “Add testing files” or the “+” button below the testing files field will allow you to add BCI2000 data files for testing after a classifier has been trained. Analysis and testing files are tested for consistency when added.
+</p><p>By default, the filter graph is automatically populated when one or more training data files are added to the list, and so are the condition fields. If necessary, filter graph and conditions may be edited to fit special needs (see below).
+</p><p>Above the condition fields, a button will show the standard BCI2000 parameter configuration dialog when clicked. By default, parameter configuration is taken from the first data file in the “training data files” list, and parameter defaults if parameters are not present in that data file.
+</p>
+<h3><span class="mw-headline" id="Editing_the_Filter_Graph">Editing the Filter Graph</span></h3>
+<p>By default, a suitable filter graph is automatically chosen when specifying a data file. Still, you may edit such a default graph, choose a different one from the <i>Analysis→FilterGraph</i> menu, or build one from scratch by selecting <i>Analysis→FilterGraph→User defined</i>.
+</p><p>As it suits the BCI2000 model, a filter graph will always begin with a single Source node, and end in  a single Application node. In between, filtering may be split into multiple branches but must finally be joined into a single node. By the way filter graph editing works, it is not possible to produce invalid graphs. Whenever you insert a splitter node, a corresponding joint is automatically inserted for you. You may add and remove filters into and from the new branches but when you remove a splitter, all its branches and its joint node are removed.
+</p><p>You insert a filter between two nodes by right-clicking the connection between them, and choosing “Filter…” from the popup menu. A dialog window appears that contains a menu with all pre-existing types of filters, so you may select e.g. “SpatialFilter”, “P3TemporalFilter”, and so on. As a special entry, the list contains “Filter from DLL…” which allows you to choose a BCI2000 filter DLL. This is especially useful when developing a filter that is not part of the standard set of BCI2000 filters.
+</p><p>A special role plays the LinearClassifier filter, which is displayed in red. At its location, data is collected according to the conditions specified in the “Analysis conditions” field. When performing classifier training (see below), this data is then used to train the classifier, and training results are applied to test the classifier.
+</p><p>Similarly, there is a "CSPSpatialFilter" which is also displayed in red. Normally, it acts like a SpatialFilter, but when selected as an analysis target, it will observe its input data according to the conditions specified in the "Analysis conditions" field, and will then be able to do a "Common Spatial Patterns" analysis on this data, resulting in a SpatialFilter configuration that provides an optimal signal-to-noise ratio between the two conditions.
+</p><p>From the “File” menu, filter graphs may be saved and loaded to and from human readable .bcigraph files. Also, filter graphs may written into C++ PipeDefinition.cpp files suitable for use as a signal processing module’s pipe definition file.
+</p>
+<h2><span class="mw-headline" id="Performing_Analysis">Performing Analysis</span></h2>
+<p>You perform an analysis by pressing “Run analysis…” in the button bar, or by selecting “Run analysis…” from the “Analysis” menu. During analysis, a progress bar is displayed. Once done, a new window opens up, showing an r^2 plot. Depending on the input of the LinearClassifier filter, the x axis displays either time in milliseconds, or frequency in Hertz, whereas channels are numbered on the y axis. This is the same plot as displayed by the Offline Analysis tool, and shows the squared correlation between features and conditions at the input of the LinearClassifier filter.
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:BCI2000Analysis_AnalysisWindow.png" class="image"><img alt="BCI2000Analysis AnalysisWindow.png" src="../images/f/fc/BCI2000Analysis_AnalysisWindow.png" decoding="async" width="809" height="505" /></a>
+</p><p>In the r^2 plot, you may view an individual value by clicking its location, which will make a tooltip appear. Right-clicking a location in the plot will turn up a context menu offering to view a cross-section across channels (topographic plot), or a cross-section across frequencies/time points (curve plot). You may also manually enter the frequency/time point, or channel, in question by selecting the appropriate entry from the “View” menu.
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:BCI2000Analysis_ERDDistribution.png" class="image"><img alt="BCI2000Analysis ERDDistribution.png" src="../images/8/82/BCI2000Analysis_ERDDistribution.png" decoding="async" width="502" height="533" /></a>
+<a href="https://www.bci2000.org/mediawiki/index.php/File:BCI2000Analysis_ERDCurves.png" class="image"><img alt="BCI2000Analysis ERDCurves.png" src="../images/2/20/BCI2000Analysis_ERDCurves.png" decoding="async" width="402" height="352" /></a>
+</p>
+<h2><span class="mw-headline" id="Using_the_Profiler">Using the Profiler</span></h2>
+<p>If you choose “Profiler” as the analysis target, the behavior of “Run Analysis” will change. It will still run the specified data through the pipeline, but it will not produce an r^2 graph as a result. Rather, it will open a window that shows how much time a filter has been using, in terms of a sample block size. If any of these numbers approaches 1, this will be problematic for real-time operation, and the respective lines will be shown in red.
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:BCI2000Analysis_Profiler.png" class="image"><img alt="BCI2000Analysis Profiler.png" src="../images/1/1e/BCI2000Analysis_Profiler.png" decoding="async" width="276" height="361" /></a>
+</p>
+<h2><span class="mw-headline" id="Training_a_Classifier">Training a Classifier</span></h2>
+<p>The analysis window provides controls that allow you to train a linear classifier using four distinct methods: Linear Discriminant Analysis (LDA), Step-Wise Linear Discriminant Analysis (SWLDA), Support Vector Machine (SVM), and "Manual", i.e. choosing classifier weights by hand.
+</p><p>For all training algorithms, a downsampling factor may be chosen. For P300 data sampled at 250Hz, this would typically be 10; for ERD data, no downsampling would be appropriate (downsampling factor of 1). Note that downsampling will typically improve classifier performance because it reduces the dimensionality of the classifier, and results in a better ratio of sampled data to degrees of freedom in the classifier.
+</p><p>For the SWLDA training algorithm, three additional parameters are available. p_enter is the p-value for which a feature will be included in classification, p_remove is the p-value for which a feature will be removed from classification. max_iterations limits the number of iterations to perform. Typically, default values are fine.
+</p><p>Once a classifier has been trained, a window appears which shows classifier information on the left side, and a classifier plot on the right side. The classifier plot is similar to the r^2 plot but shows absolute values of classifier weights to give an impression which features are weighted strongly by the classifier.
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:BCI2000Analysis_ClassifierWindow.png" class="image"><img alt="BCI2000Analysis ClassifierWindow.png" src="../images/2/20/BCI2000Analysis_ClassifierWindow.png" decoding="async" width="594" height="408" /></a>
+</p><p>On the left, the classifier’s offset and variance are displayed, plus its performance on training and test data. Note that performance on training data is typically much better than on test data, which is due to overfitting of the classifier. Only the performance on test data should be taken as an indication how well the classifier will perform on unseen data. Performance is shown in&#160;% of correct classifications, for both the “normalized” and “raw” case. The difference is that the “normalized” case takes the bias due to unequal number of data samples in the two data sets into account. If the number of data samples in the two data sets agree, “normalized” and “raw” performance will agree as well.
+</p>
+<h3><span class="mw-headline" id="Saving_a_Classifier_as_a_Parameter_File">Saving a Classifier as a Parameter File</span></h3>
+<p>From the classifier window, choose <i>File→Save Classifier Parameters…</i> in order to save a parameter file with only LinearClassifier related parameters. You can then load this parameter file into BCI2000 using the Operator’s Config dialog, or the Load Parameter File scripting command. Similarly, you may save all parameters from the current analysis chain, including LinearClassifier, by choosing <i>File→Save All Filter Parameters…</i>
+</p>
+<h3><span class="mw-headline" id="Applying_a_Classifier_to_the_Filter_Chain">Applying a Classifier to the Filter Chain</span></h3>
+<p>If you want to apply the LinearClassifier to the chain without saving it to a file, choose <i>File→Apply Classifier Parameters</i>.
+</p>
+<h2><span class="mw-headline" id="Training_a_Spatial_Filter">Training a Spatial Filter</span></h2>
+<p>If there is a "CSPSpatialFilter" node present in the filter graph (a red "SpatialFilter" node), it may be selected as the analysis target. Then, clicking "Run analysis..." will result in a window like this:
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:BCI2000Analysis_CSPWindow.png" class="image"><img alt="BCI2000Analysis CSPWindow.png" src="../images/e/e9/BCI2000Analysis_CSPWindow.png" decoding="async" width="448" height="698" /></a>
+</p><p>At the top, CSP components are displayed in form of topographic plots. Below the topographic plot, there is a slider that allows to move through components; this works as well using shift-left arrow and shift-right arrow. Using the "Display pattern" and "Display field" radio buttons, a component may be viewed as a "pattern" (weights for component extraction) or "field" (weights for synthesizing the component). The "Retain" checkbox allows to select which components are supposed to be retained or removed from the data after applying the spatial filter. Finally, there is a graph showing the power log ratio of all components. Positive values correspond to greater amplitudes for condition 1, and negative values to greater amplitudes for condition 2. For the current component, power log ratio is also displayed at the top of the window, in both natural log and binary log units (bits). As can be seen from the graph, components are sorted according to power log ratio, such that the first components carry most information about the given conditions.
+</p>
+<h3><span class="mw-headline" id="Saving_a_Spatial_Filter_as_a_Parameter_File">Saving a Spatial Filter as a Parameter File</span></h3>
+<p>From the CSP window, choose <i>File→Save Spatial Filter Parameters…</i> in order to save a parameter file with only CSP spatial filter parameters. You can then load this parameter file into BCI2000 using the Operator’s Config dialog, or the Load Parameter File scripting command. Similarly, you may save all parameters from the current analysis chain, including CSP spatial filter, by choosing <i>File→Save All Filter Parameters…</i>
+</p>
+<h3><span class="mw-headline" id="Applying_a_Spatial_Filter_to_the_Filter_Chain">Applying a Spatial Filter to the Filter Chain</span></h3>
+<p>If you want to apply the CSP Spatial Filter to the chain without saving it to a file, choose <i>File→Apply Spatial Filter Parameters</i>.
+</p>
+<h2><span class="mw-headline" id="Viewing_data_as_seen_by_the_Application">Viewing data as seen by the Application</span></h2>
+<p>Finally, after training and applying classifier and/or spatial filter, you may be interested in the distribution of data as seen by the Application module. To this end, select the Application node as a target (its actual name depends on the kind of data analyzed).
+</p>
+<h3><span id="SMR/ERD_Data"></span><span class="mw-headline" id="SMR.2FERD_Data">SMR/ERD Data</span></h3>
+<p>For SMR/ERD data, the result may look like this:
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:BCI2000Analysis_ApplicationData1.png" class="image"><img alt="BCI2000Analysis ApplicationData1.png" src="../images/d/dd/BCI2000Analysis_ApplicationData1.png" decoding="async" width="515" height="496" /></a>
+</p><p>For training data, the classifier is able to perform a perfect separation.
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:BCI2000Analysis_ApplicationData2.png" class="image"><img alt="BCI2000Analysis ApplicationData2.png" src="../images/5/5b/BCI2000Analysis_ApplicationData2.png" decoding="async" width="515" height="496" /></a>
+</p><p>For test data, only partial separation is obtained.
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:BCI2000Analysis_ApplicationData3.png" class="image"><img alt="BCI2000Analysis ApplicationData3.png" src="../images/0/07/BCI2000Analysis_ApplicationData3.png" decoding="async" width="515" height="496" /></a>
+</p><p>By integrating over trials (as the actual SMR application does), good separation is still obtained for both training and test data.
+</p>
+<h3><span class="mw-headline" id="P300_Spelling_Data">P300 Spelling Data</span></h3>
+<p>For data recorded with the P300Speller online component, the result is not only displayed as a distribution but also evaluated in terms of spelling accuracy:
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:BCI2000Analysis_ApplicationData4.png" class="image"><img alt="BCI2000Analysis ApplicationData4.png" src="../images/3/39/BCI2000Analysis_ApplicationData4.png" decoding="async" width="432" height="592" /></a>
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Reference%253ABCI2000Viewer.html" title="User Reference:BCI2000Viewer">User Reference:BCI2000Viewer</a>, <a href="User_Reference%253ABCI2000FileInfo.html" title="User Reference:BCI2000FileInfo">User Reference:BCI2000FileInfo</a>, <a href="User_Reference%253ABCI2000_Offline_Analysis.html" title="User Reference:BCI2000 Offline Analysis">User Reference:BCI2000 Offline Analysis</a>, <a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:P300Classifier" title="User Reference:P300Classifier">User Reference:P300Classifier</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524193340
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.039 seconds
+Real time usage: 0.045 seconds
+Preprocessor visited node count: 57/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2449-0!canonical and timestamp 20230524193347 and revision id 10237
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=User_Reference:BCI2000Analysis&amp;oldid=10237">http://www.bci2000.org/mediawiki/index.php?title=User_Reference:BCI2000Analysis&amp;oldid=10237</a>"</div>
+ </div>
+</body>
+</html>

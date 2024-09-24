@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Programming Reference:Build System (obsolete) - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul><li class="toc1">Concepts</li><ul><li class="toc2"><a href="Programming_Reference%253AFilter_Chain.html">Filter Chain</a></li><li class="toc2"><a href="Programming_Reference%253ASignals.html">Signals</a></li><li class="toc2"><a href="Programming_Reference%253AError_Handling.html">Error Handling</a></li><li class="toc2"><a href="Programming_Reference%253ALocalization.html">Localization</a></li><li class="toc2"><a href="Programming_Reference%253ARapid_Development.html">Rapid Development</a></li></ul><li class="toc1">Reference</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFilter_Class.html">GenericFilter</a></li><li class="toc2"><a href="Programming_Reference%253AEnvironment_Class.html">Environment</a></li><li class="toc2"><a href="Programming_Reference%253AGenericVisualization_Class.html">GenericVisualization</a></li><li class="toc2"><a href="Programming_Reference%253AErrors_and_Warnings.html">Errors and Warnings</a></li><li class="toc2"><a href="Programming_Reference%253ADebug_Output.html">Debug Output</a></li></ul><li class="toc1">Data Acquisition</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericADC_Class.html">GenericADC</a></li></ul><li class="toc1">Data Storage</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFileWriter_Class.html">GenericFileWriter</a></li><li class="toc2"><a href="Programming_Reference%253ABCI2000FileReader_Class.html">BCI2000FileReader</a></li></ul><li class="toc1">Signal Processing</li><ul><li class="toc2"><a href="Programming_Reference%253AIIRFilterBase_Class.html">IIR Filters</a></li></ul><li class="toc1">Application Modules</li><ul><li class="toc2"><a href="Programming_Reference%253AApplicationBase_Class.html">ApplicationBase</a></li><li class="toc2"><a href="Programming_Reference%253AFeedbackTask_Class.html">FeedbackTask</a></li><li class="toc2"><a href="Programming_Reference%253AStimulusTask_Class.html">StimulusTask</a></li><li class="toc2"><a href="Programming_Reference%253A3D_API.html">3D API</a></li></ul><li class="toc1">Howtos</li><ul><li class="toc2"><a href="Programming_Howto%253ABuilding_BCI2000.html">Building BCI2000</a></li><li class="toc2"><a href="Programming_Howto%253ASVN_Client_Setup.html">SVN Client Setup</a></li><li class="toc2"><a href="Programming_Howto%253AUsing_TortoiseSVN.html">Using TortoiseSVN</a></li></ul><li class="toc1"><a href="Programming_FAQ.html">FAQ</a></li><li class="toc1">Tutorials</li><ul><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html">Data Acquisition</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html">Signal Processing</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html">Matlab Signal Processing</a></li></ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">Build System (obsolete)</h1>
+ <p class = "subtitle">Programming Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Programming_Reference%253ABuild_System.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Programming_Reference%253ABuild_System.html#Supported_Environments"><span class="tocnumber">2</span> <span class="toctext">Supported Environments</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Programming_Reference%253ABuild_System.html#How_To_Build_Using_CMake"><span class="tocnumber">3</span> <span class="toctext">How To Build Using CMake</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="Programming_Reference%253ABuild_System.html#Known_Issues"><span class="tocnumber">4</span> <span class="toctext">Known Issues</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="Programming_Reference%253ABuild_System.html#Conclusions"><span class="tocnumber">5</span> <span class="toctext">Conclusions</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="Programming_Reference%253ABuild_System.html#See_also"><span class="tocnumber">6</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Introduction">Introduction</span></h2>
+<p>Early versions of BCI2000 (2.x and earlier) were dependent on the visual components library (VCL) by Borland and could only be built using the Borland compiler.  Since version 3.0, Qt has replaced the VCL because it is not only compiler-independent, but also platform-independent. 
+</p><p>To support many platforms and compilers, BCI2000 is using CMake <a rel="nofollow" class="external free" href="https://www.cmake.org">https://www.cmake.org</a> to generate Makefiles, project files, and Visual Studio solutions.  CMake can be thought of as a meta-makefile; it examines your build environment and sets up a Visual Studio project, a Code::Blocks project, or a Unix Makefile which is custom tailored to your environment.  Due to the wide variation in possible build environments, BCI2000 can not come with a fixed Visual Studio solution file, or a fixed Eclipse project file (such fixed solutions would always end up costing users a lot of effort).  Thus, the number of platforms BCI2000 supports is mainly limited by the number of platforms and compilers for which CMake has generators.
+</p>
+<h2><span class="mw-headline" id="Supported_Environments">Supported Environments</span></h2>
+<ul><li><b>Supported Operating Systems</b>
+<ul><li>32 and 64-bit Windows systems</li>
+<li>Windows 7, 8, 10 (Vista not recommended)</li>
+<li>Support for Unix-like systems (macOS, Linux) is currently limited to building mex files</li></ul></li>
+<li><b>Supported Compilers</b>
+<ul><li>Visual Studio 2015, 2017, 2019 full and community editions</li>
+<li>MinGW is currently unsupported</li></ul></li>
+<li><b>Supported IDEs</b>
+<ul><li>Qt Creator</li>
+<li>Visual Studio 2015, 2017, 2019</li></ul></li></ul>
+<h2><span class="mw-headline" id="How_To_Build_Using_CMake">How To Build Using CMake</span></h2>
+<ol><li>Ensure that your compiler and IDE are installed on the computer.  This means that Visual Studio is installed if you intend to use Visual Studio, or that MinGW and QtCreator are installed if you intend to use QtCreator as your IDE and MinGW as your compiler.</li>
+<li>Download and install a recent version of cmake (Version 3.14.5 at the time of this writing) from <a rel="nofollow" class="external free" href="https://www.cmake.org/">https://www.cmake.org/</a> - <b>Add to path for all users.</b></li>
+<li>Download and install Qt based on your Visual Studio version, and system's architecture. For example, if you wanted to build BCI2000 as a 32 bit architecture on Visual Studio 2019, make sure that you choose the most recent Qt version which supports a 32 bit architecture and Visual Studio 2019; at the time of writing this, that would be Qt 5.15.2: MSVC 2019 32 bit. The same goes for if you want to compile BCI2000 for a 64 bit system, go to your most recent Qt version, and choose MSVC 2019 64 bit.</li>
+<li>Create a build directory inside or outside your BCI2000 source tree, open a Windows shell inside the build directory (e.g., "BCI2000_build64"), and run "cmake-gui path/to/bci2000/build/directory".</li>
+<li>In the cmake GUI, click "configure", and select the compiler of your choice.</li>
+<li>If you are using Visual Studio 2015, and cmake fails to find your compiler, then you may need to copy the files rc.exe and rcdll.dll from one of your Program Files (x86)/WindowsKits bin folders to Program Files (x86)/Microsoft Visual Studio 14.0/VC/bin.</li>
+<li>Now that you have Qt installed on your machine, you can now set the CMake variable Qt5_DIR to your Qt installation's lib/cmake/Qt5 directory, and click "configure" again.</li>
+<li>Finally, in the cmake GUI, click "generate" to generate a project or solution file.</li>
+<li>Open the generated project/solution (for Visual Studio, this is called "BCI2000.sln") in the IDE of your choice.  Or, if you are using MinGW make, run the make command from the command prompt using the Makefile in the top-level "build" directory.  Refer to your IDE's help for IDE-specific instructions on how to build an application.</li>
+<li>Even though CMake must always be run from one top-level place (the "build" directory), and will spend several seconds generating a Makefile or project file for the whole BCI2000 tree at once, this does not mean that you have to <b>compile</b> all of BCI2000 at once.  In the next step, if you're using MinGW-make on the command-line, you could for example type "make Operator" or "make SignalGenerator"  to build only selected modules (again, you should be in the top-level "build" directory when you do this).  Visual IDEs usually have their own equivalent of this:  for example, in Visual Studio 2019, you can right-click on a particular module and select "Build".</li>
+<li>If you build the targets "NewBCI2000Module"  and "NewBCI2000Filter", this will create two new binary executables with these names. They will be found in the top-level "build" directory (and, in common with CMake and make, they should be launched only from this location). Launch NewBCI2000Module to create a new project in order to compile your own custom module.  Launch NewBCI2000Filter to create a new filter and add it to a project you have already created.  In either case, you may need to re-run CMake (step 3) in order to ensure these changes are reflected in the project file.</li></ol>
+<h2><span class="mw-headline" id="Known_Issues">Known Issues</span></h2>
+<ul><li><b>MinGW, Borland</b> and other single configuration generators within CMake only generate one configuration at CMake Run-time.  By default, this is set to the release configuration.  It can be set - along with specific compiler options - in <tt>BCI2000/build/cmake/BuildConfigurations.cmake</tt>.  The Visual Studio generator will ignore settings in this file.  To turn on a debug build in a single configuration generator, run <tt>cmake -i</tt> in the build directory and set CMAKE_BUILD_TYPE to "Debug" when prompted.</li></ul>
+<ul><li><b>All Compilers</b> handle non standard characters, such as umlauts and characters with accents or tildes, differently.  Because BCI2000 currently has no standardized way of handling non standard characters in a cross-compiler environment, it is strongly recommended that - for the time being - special characters are not used in localizations during the development of BCI2000 Ver 3.0.</li></ul>
+<h2><span class="mw-headline" id="Conclusions">Conclusions</span></h2>
+<p>Now that BCI2000 is open to a number of platforms, and compilers, support may not exist for every possible compiler/platform available. Certain compilers do not optimize code as well as others, and this behavior may lead to poor system latencies during BCI2000 experiments. The supported compilers have been rigorously tested and confirmed to be adequate for compiling the BCI2000 sources.  If you wish to use a different compiler,
+be sure to run tools/BCI2000Certification in order to confirm your setup.  CMake is a powerful tool, but in the end, ability to compile the sources is completely up to the IDE/compiler choice.  If your IDE/compiler choice is not listed above, it is strongly urged that you to consider using one which is supported.  If you run into problems using an unsupported IDE/compiler combination, you can try to find help at the BBS - <a rel="nofollow" class="external free" href="https://www.bci2000.org/phpbb/index.php">https://www.bci2000.org/phpbb/index.php</a>.  BCI2000 should compile as effortlessly as possible on supported platforms.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Programming_Reference%253ABuilding_Qt_for_BCI2000.html" class="mw-redirect" title="Programming Reference:Building Qt for BCI2000">Programming Reference:Building Qt for BCI2000</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524075017
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.016 seconds
+Real time usage: 0.019 seconds
+Preprocessor visited node count: 17/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1937-0!canonical and timestamp 20230524075017 and revision id 8791
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:Build_System_(obsolete)&amp;oldid=8791">http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:Build_System_(obsolete)&amp;oldid=8791</a>"</div>
+ </div>
+</body>
+</html>

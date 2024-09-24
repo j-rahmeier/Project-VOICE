@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:FilePlayback - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">FilePlayback</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Contributions%253AFilePlayback.html#Synopsis"><span class="tocnumber">1</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Contributions%253AFilePlayback.html#Location"><span class="tocnumber">2</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Contributions%253AFilePlayback.html#Authors"><span class="tocnumber">3</span> <span class="toctext">Authors</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="Contributions%253AFilePlayback.html#Function"><span class="tocnumber">4</span> <span class="toctext">Function</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="Contributions%253AFilePlayback.html#IMPORTANT_CAVEAT"><span class="tocnumber">5</span> <span class="toctext">IMPORTANT CAVEAT</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="Contributions%253AFilePlayback.html#Parameters"><span class="tocnumber">6</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="Contributions%253AFilePlayback.html#SourceCh"><span class="tocnumber">6.1</span> <span class="toctext">SourceCh</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="Contributions%253AFilePlayback.html#SampleBlockSize"><span class="tocnumber">6.2</span> <span class="toctext">SampleBlockSize</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="Contributions%253AFilePlayback.html#SamplingRate"><span class="tocnumber">6.3</span> <span class="toctext">SamplingRate</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="Contributions%253AFilePlayback.html#PlaybackFileName"><span class="tocnumber">6.4</span> <span class="toctext">PlaybackFileName</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="Contributions%253AFilePlayback.html#PlaybackStartTime"><span class="tocnumber">6.5</span> <span class="toctext">PlaybackStartTime</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="Contributions%253AFilePlayback.html#PlaybackChList"><span class="tocnumber">6.6</span> <span class="toctext">PlaybackChList</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="Contributions%253AFilePlayback.html#PlaybackSpeed"><span class="tocnumber">6.7</span> <span class="toctext">PlaybackSpeed</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="Contributions%253AFilePlayback.html#PlaybackStates"><span class="tocnumber">6.8</span> <span class="toctext">PlaybackStates</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="Contributions%253AFilePlayback.html#PlaybackLooped"><span class="tocnumber">6.9</span> <span class="toctext">PlaybackLooped</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-16"><a href="Contributions%253AFilePlayback.html#Additional_Information"><span class="tocnumber">7</span> <span class="toctext">Additional Information</span></a>
+<ul>
+<li class="toclevel-2 tocsection-17"><a href="Contributions%253AFilePlayback.html#Data_Storage"><span class="tocnumber">7.1</span> <span class="toctext">Data Storage</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="Contributions%253AFilePlayback.html#Random_Sequences"><span class="tocnumber">7.2</span> <span class="toctext">Random Sequences</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="Contributions%253AFilePlayback.html#Data_Format"><span class="tocnumber">7.3</span> <span class="toctext">Data Format</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-20"><a href="Contributions%253AFilePlayback.html#Known_Issues"><span class="tocnumber">8</span> <span class="toctext">Known Issues</span></a></li>
+<li class="toclevel-1 tocsection-21"><a href="Contributions%253AFilePlayback.html#See_also"><span class="tocnumber">9</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>A source module that replays EEG data from BCI2000 .dat files.
+</p><p><b>NOTE:</b> Make sure you read the <a href="User_FAQ.html#Replaying_Recorded_Data" title="User FAQ">FAQ entry</a> on replaying a BCI2000 data file.
+</p>
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><a rel="nofollow" class="external free" href="http://www.bci2000.org/svn/trunk/src/contrib/SignalSource/FilePlayback">http://www.bci2000.org/svn/trunk/src/contrib/SignalSource/FilePlayback</a>
+</p>
+<h2><span class="mw-headline" id="Authors">Authors</span></h2>
+<p>Adam Wilson, Jeremy Hill
+</p>
+<h2><span class="mw-headline" id="Function">Function</span></h2>
+<p>The <i>FilePlaybackADC</i> module allows previously recorded BCI2000 data to be "acquired" into BCI2000 as though it was acquired from an amplifier. This functionality could be useful for testing new algorithms, debugging, or generating screenshots or video captures after an experiment.   The file will begin to be played back as soon as <i>Set Config</i> is pressed. However, it will jump back and play from the beginning (or other specified time-point) when the run starts.
+</p>
+<h2><span class="mw-headline" id="IMPORTANT_CAVEAT">IMPORTANT CAVEAT</span></h2>
+<p>Although playback mode is very useful during the development cycle of a BCI system, it is worth making the following caveat: if you record some EEG data, learn signal-processing parameters from it, slot those parameters into the config and replay the file, performance <i>will</i> probably be very good. Don't celebrate too soon (and please don't publish yet). Performance nearly always is very good when it's assessed on exactly the same data that you've just trained on. Performance on new data, which the parameter estimation procedure has not yet seen, is what counts.
+</p><p>So far so obvious, we hope. But note that the same principle applies, in perhaps a slightly less obvious manner, to cross-validation. If you train your classifier on file A and test it on file B, that's fine. However, you might then decide to go back, tweak the classification method, re-apply it to A and re-test it on B. Your tweaking-and-retesting has now become part of the learning procedure, and now B is "seen" (to more or less of an extent, depending on how much tweaking room you allowed yourself). So you can't report a truly honest assessment of your approach by reporting the performance-on-B of the classification approach that you have now found to perform best-on-B. To assess your method properly, you have to finish the A-B iteration, fix all possible learning parameters (including those optimized "by eye"), and test on new data C, D, E...
+</p>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<p>The <i>FilePlayback</i> module can be started using a command-line parameter, <code>--PlaybackFileName=FOO.DAT</code>. In this case, the named file (<code>FOO.DAT</code> in this example) is used as a template for the session: this means that all the file's recorded states are declared as states of the <i>FilePlayback</i> module, and all the file's parameters are read and declared as parameters of the <i>FilePlayback</i> module, with default values equal to the values they had in the file.  Exceptions to this are parameters from the <i>System</i> tab (which are set by the operator as appropriate for the playback session), and flags for enabling loggers (such as <i>LogMouse</i>), which are set to 0 by default.   To turn on logging, specify (for example) <code>--LogMouse=1</code> on the command-line as usual.  To play back logged mouse data from the file, leave <i>LogMouse</i> as 0 and set <i>PlaybackStates</i> to 1.
+</p><p>Without the command-line switch, the <i>FilePlayback</i> module provides just three basic parameters for recreating the original conditions: <i>SourceCh</i>, <i>SampleBlockSize</i> and <i>SamplingRate</i>.
+</p><p>In either case, the module declares several additional playback-specific parameters, whose names all start with "Playback" to avoid possible name conflicts.
+</p>
+<h3><span class="mw-headline" id="SourceCh">SourceCh</span></h3>
+<p>The number of digitized and stored channels that should be read from the file. This should be equal to or less than the <i>SourceCh</i> parameter in the dat file.
+</p>
+<h3><span class="mw-headline" id="SampleBlockSize">SampleBlockSize</span></h3>
+<p>The number of samples transmitted at a time. This value does not need to match the value stored in the dat file. However, it should be noted that the timing of events during the file playback may change relative to the event timing in the saved file, particularly if the event timing is specified in blocks, and not seconds.
+</p>
+<h3><span class="mw-headline" id="SamplingRate">SamplingRate</span></h3>
+<p>The data sampling rate in Hz. This must match the value in the dat file.
+</p>
+<h3><span class="mw-headline" id="PlaybackFileName">PlaybackFileName</span></h3>
+<p>The path to the BCI2000 data file to be played back. Note that this parameter may also be given as a command-line option when starting the module:  in this case, the file is also used as a template for the session (its recorded parameters and states are declared as parameters and states of the <i>FilePlayback</i> module).
+</p>
+<h3><span class="mw-headline" id="PlaybackStartTime">PlaybackStartTime</span></h3>
+<p>The starting time of the file (in blocks if no units or given, or in time units which you specify explicitly). This allows playback to begin at an arbitrary point in the file.
+</p>
+<h3><span class="mw-headline" id="PlaybackChList">PlaybackChList</span></h3>
+<p>Leave this list empty to play back all available channels (default behavior).   Or populate it, to specify a subset or re-ordering of the channels for playback. The length of the list must correspond to the value of <i>SourceCh</i> (and hence you must also adjust the lengths of your <i>ChannelNames</i>, <i>SourceChGain</i> and <i>SourceChOffset</i> parameters to match). Each element of the list must either be a valid index to a channel in the file that is being played back, or the label of a channel as given in the file's recorded ChannelNames parameter.
+</p>
+<h3><span class="mw-headline" id="PlaybackSpeed">PlaybackSpeed</span></h3>
+<p>A factor indicating the acquisition speed. For example, if a value of 2 is specified, then the data will be read back at double the speed implied by SamplingRate, if CPU resources allow. A factor of 0.5 slows the data playback to half speed (start the module with <code>--EvaluateTiming=0</code> to avoid any resulting error from violating the realtime constraint).  As a special case, a value of 0 indicates that there should be no pause in-between blocks of data, and that the data should be acquired as quickly as possible. This playback speed will be limited by the processing capabilities of the computer, including the time required to read the data from the file, and to do any signal processing required by the SignalProcessing module.
+</p>
+<h3><span class="mw-headline" id="PlaybackStates">PlaybackStates</span></h3>
+<p>This boolean value indicates whether the state variables recorded in the file should also be played back, along with the data. Playback is limited to state variables that are declared in both the file and  the current BCI2000 session. (You can specify the <code>--PlaybackFileName</code> parameter as a command-line argument in order to ensure that all the file's states are declared in the current session.) Furthermore, <i>SourceTime</i> and <i>StimulusTime</i> are not played back, but set according to the timing of the playback session, as usual.
+</p>
+<h3><span class="mw-headline" id="PlaybackLooped">PlaybackLooped</span></h3>
+<p>This boolean value indicates whether BCI2000 should loop around to the beginning of the file when reaching the end of the file, or Suspend at the end of the file.
+</p>
+<h2><span class="mw-headline" id="Additional_Information">Additional Information</span></h2>
+<h3><span class="mw-headline" id="Data_Storage">Data Storage</span></h3>
+<p>As with any acquisition module, the acquired data will be saved in a new dat file. While this may be desired in some instances, it usually makes sense to disable writing the data, since the raw signal will be identical. Therefore, you can pass <code>--FileFormat=Null</code> to prevent duplicate data being saved.
+</p>
+<h3><span class="mw-headline" id="Random_Sequences">Random Sequences</span></h3>
+<p>The Application module typically generates a random sequence of events, such as the target number in the cursor task, or the stimulus number in the stimulus presentation task. When playing back a file, there is no guarantee that the same sequence will be displayed during the playback as was stored in the file.
+</p><p>However, BCI2000 allows a RandomSeed parameter to be specified, that will ensure that the same sequences are generated each time. To do so, pass <code>--RandomSeed=10</code> to the Application module at the command line. Note, though, that the same seed must be used in both the original data file and the <i>FilePlayback</i> run. For more information on using this parameter, see <b>Random Sequences</b> in the <a href="User_FAQ.html" title="User FAQ">User FAQ</a>.
+</p>
+<h3><span class="mw-headline" id="Data_Format">Data Format</span></h3>
+<p>The data is acquired from the file uncalibrated; therefore, it is still necessary to enter appropriate SourceChGain and SourceChOffset values for correct processing.
+</p>
+<h2><span class="mw-headline" id="Known_Issues">Known Issues</span></h2>
+<p>The trick of specifying a template file on the command-line, and thereby making every parameter default to the value it had in the file, only works if the <i>FilePlayback</i> module is the last module to connect to the operator.  To make this more likely to happen, when a command-line template file is specified, the <i>FilePlayback</i> module waits for 2 seconds before connecting to the operator. However, if the SignalProcessing or Application module is started 2 sec or more later than the <i>FilePlayback</i> module, their parameter declarations may overwrite the default values from the template.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Reference%253ADataIOFilter.html" title="User Reference:DataIOFilter">User Reference:DataIOFilter</a>, <a href="Programming_Reference%253AGenericADC_Class.html" title="Programming Reference:GenericADC Class">Programming Reference:GenericADC Class</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230523221227
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.024 seconds
+Real time usage: 0.028 seconds
+Preprocessor visited node count: 67/1000000
+Post‐expand include size: 15/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1986-0!canonical and timestamp 20230523221227 and revision id 7322
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:FilePlayback&amp;oldid=7322">http://www.bci2000.org/mediawiki/index.php?title=Contributions:FilePlayback&amp;oldid=7322</a>"</div>
+ </div>
+</body>
+</html>

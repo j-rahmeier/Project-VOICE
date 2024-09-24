@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Glossary - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">Glossary</h1>
+ <p class = "subtitle"></p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>A glossary of general terms
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Glossary.html#Coefficient_of_Determination.2C_Determination_Coefficient.2C_RSquared.2C"><span class="tocnumber">1</span> <span class="toctext">Coefficient of Determination, Determination Coefficient, RSquared,</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="Glossary.html#Computation"><span class="tocnumber">1.1</span> <span class="toctext">Computation</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="Glossary.html#Relation_to_Classifier_Training.2C_and_Linear_Discriminant_Analysis_.28LDA.29"><span class="tocnumber">1.2</span> <span class="toctext">Relation to Classifier Training, and Linear Discriminant Analysis (LDA)</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="Glossary.html#Significance_Test"><span class="tocnumber">1.3</span> <span class="toctext">Significance Test</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="Glossary.html#Sensorimotor_Rhythm_.28SMR.29"><span class="tocnumber">2</span> <span class="toctext">Sensorimotor Rhythm (SMR)</span></a></li>
+</ul>
+</div>
+
+<h2><span id="Coefficient_of_Determination,_Determination_Coefficient,_RSquared,"></span><span class="mw-headline" id="Coefficient_of_Determination.2C_Determination_Coefficient.2C_RSquared.2C">Coefficient of Determination, Determination Coefficient, RSquared, <img class="mwe-math-fallback-image-inline tex" alt="r^2" src="../images/math/b/f/0/bf0e22b63959a3aae3c6c971f02227cb.png" /></span></h2>
+<p>The coefficient of determination, or <img class="mwe-math-fallback-image-inline tex" alt="r^2" src="../images/math/b/f/0/bf0e22b63959a3aae3c6c971f02227cb.png" /> value, is a statistical measure computed over a pair of sample distributions, giving a measure of how strongly the means of the two distributions differ in relation to variance. In a BCI context, the coefficient of determination is computed over signals that have been measured under two different task conditions, and represents the fraction of the total signal variance that is accounted for ("determined by") by the task condition. It is a measure of how well the original task condition ("user intent") may be inferred from a brain signal.
+</p>
+<h3><span class="mw-headline" id="Computation">Computation</span></h3>
+<p>The coefficient of determination is in fact the squared correlation coefficient for a single bivariate distribution constructed from two sets of univariate data as follows:
+</p>
+<ul><li>There are <img class="mwe-math-fallback-image-inline tex" alt="n_1" src="../images/math/c/a/2/ca28d2957bcfd844805dfd1c339dfc2f.png" /> values <img class="mwe-math-fallback-image-inline tex" alt="x^{(1)}_i" src="../images/math/8/c/f/8cf06a6698a95b90f3e366a05053da95.png" /> measured under condition 1, and <img class="mwe-math-fallback-image-inline tex" alt="n_2" src="../images/math/2/7/e/27e7b1346e011cf2896a04df87832534.png" /> values <img class="mwe-math-fallback-image-inline tex" alt="x^{(2)}_i" src="../images/math/f/e/8/fe828e027d83eebee5796a1a5ca3dd9a.png" /> measured under condition 2.</li>
+<li>From these two data sets, a single, two-dimensional data set is constructed, consisting of points <img class="mwe-math-fallback-image-inline tex" alt="(x,y)" src="../images/math/9/0/c/90cbc22edf225adf8a68974f51227f05.png" /> by assigning the measured value to <img class="mwe-math-fallback-image-inline tex" alt="x" src="../images/math/9/d/d/9dd4e461268c8034f5c8564e155c67a6.png" />, and setting <img class="mwe-math-fallback-image-inline tex" alt="y=+1" src="../images/math/d/f/5/df58ce483274e952e7a0febc6c0dcf25.png" /> if the value has been measured under condition 1, and <img class="mwe-math-fallback-image-inline tex" alt="y=-1" src="../images/math/0/e/d/0ed775167e5c7887ef5b798190d3ed1b.png" /> for condition 2. The actual label values assigned to <img class="mwe-math-fallback-image-inline tex" alt="y" src="../images/math/4/1/5/415290769594460e2e485922904f345d.png" /> do not matter, as long as they are distinct, but choosing +1 and -1 simplifies further computation.</li>
+<li>For any two-dimensional data set of points <img class="mwe-math-fallback-image-inline tex" alt="(x,y)" src="../images/math/9/0/c/90cbc22edf225adf8a68974f51227f05.png" />, the squared correlation coefficient is:</li></ul>
+<p><img class="mwe-math-fallback-image-inline tex" alt="r^2=\frac{\textrm{cov}(x,y)^2}{\textrm{var}(x) \textrm{var}(y)}" src="../images/math/6/6/c/66c7fe899c30c76ab83400f1e4de021f.png" />.
+</p><p>In the special case of the distribution defined above, defining
+</p><p><img class="mwe-math-fallback-image-inline tex" alt="s_k:=\sum_i x^{(k)}_i,\ q_k:=\sum_i {x^{(k)}_i}^2" src="../images/math/0/2/5/0255b4700aa844db5eddf3a9c3932c72.png" />,
+</p><p>we have
+</p><p><img class="mwe-math-fallback-image-inline tex" alt="\textrm{cov}(x,y) = \frac{s_1-s_2}{n_1+n_2}-\frac{(s_1+s_2)(n_1-n_2)}{(n_1+n_2)^2}=2\frac{s_1n_2-s_2n_1}{(n_1+n_2)^2}" src="../images/math/6/1/f/61fd69ff96088a6e53871a9bfcdc2b3a.png" />,
+</p><p><img class="mwe-math-fallback-image-inline tex" alt="\textrm{var}(x) = \frac{q_1 +q_2}{n_1+n_2}-\frac{(s_1 + s_2)^2}{(n_1+n_2)^2}" src="../images/math/e/4/1/e41b383e3239c654b9e65d16cd8a4643.png" />,
+</p><p><img class="mwe-math-fallback-image-inline tex" alt="\textrm{var}(y) = 1-\frac{\left(n_1-n_2\right)^2}{(n_1+n_2)^2} = \frac{4n_1n_2}{(n_1+n_2)^2}" src="../images/math/5/6/c/56c6816c7421a7879a5c3913a7b4d13d.png" />,
+</p><p><img class="mwe-math-fallback-image-inline tex" alt="r^2 = \frac{1}{n_1n_2} \frac{(s_1n_2-s_2n_1)^2}{(n_1+n_2)(q_1+q_2)-(s_1+s_2)^2} = \frac{{s_1^2}/{n_1}+{s_2^2}/{n_2}-G}{q_1+q_2-G}" src="../images/math/8/4/1/8411210b17cdd6f0448442faefaf48d0.png" />
+</p><p>where we have introduced <img class="mwe-math-fallback-image-inline tex" alt="G:=\frac{(s_1+s_2)^2}{n_1+n_2}" src="../images/math/0/2/8/0288e12d1824042f40bbc7d95a4e6fb9.png" /> to arrive at the last expression, which is useful for efficient computation of <img class="mwe-math-fallback-image-inline tex" alt="r^2" src="../images/math/b/f/0/bf0e22b63959a3aae3c6c971f02227cb.png" />.
+</p>
+<h3><span id="Relation_to_Classifier_Training,_and_Linear_Discriminant_Analysis_(LDA)"></span><span class="mw-headline" id="Relation_to_Classifier_Training.2C_and_Linear_Discriminant_Analysis_.28LDA.29">Relation to Classifier Training, and Linear Discriminant Analysis (LDA)</span></h3>
+<p>LDA is a training method for linear classifiers. A linear classifier is a classification algorithm that infers the condition (class, task, label) under which a point of data was recorded, simply by computing a weighted sum of the data point's dimensions, and comparing the result to a threshold. "Training" a classifier means that recorded data is used in order to determine a weighting that is "optimally suited" to do so. In high-dimensional space, weighting dimensions corresponds to the geometrical operation of projecting a data point onto a line. Thus, one also speaks of a "linear projection".
+</p><p>In case of LDA, the criterion of optimality is chosen as the ratio of "inter-class variance" and "within-class variance". The LDA algorithm determines a projection from high-dimensional data space onto a single dimension such that, for the resulting numbers, the ratio of mean difference between classes, and variance within classes, is as large as possible. Comparing this ratio to the above formulae, you may see that the numerator of the <img class="mwe-math-fallback-image-inline tex" alt="r^2" src="../images/math/b/f/0/bf0e22b63959a3aae3c6c971f02227cb.png" /> value is proportional to the squared mean difference between classes, and the denominator is proportional to the squared mean difference within each class (when assuming equal covariances, as LDA does in its simplest form).
+</p><p>Thus, we may say that LDA classifier training chooses a linear classifier such that the classifier's output has the highest possible <img class="mwe-math-fallback-image-inline tex" alt="r^2" src="../images/math/b/f/0/bf0e22b63959a3aae3c6c971f02227cb.png" /> value, given the data available.
+</p>
+<h3><span class="mw-headline" id="Significance_Test">Significance Test</span></h3>
+<p>For small numbers of trials (&lt;30 per label), determination coefficients can become rather large even if there is no significant effect. To assess significance under the (robust) assumption of Gaussianity, determination coefficients may be converted into t-values according to
+</p><p><img class="mwe-math-fallback-image-inline tex" alt="t^2=(n_1 + n_2 -2) \frac{r^2}{1-r^2}" src="../images/math/4/d/3/4d32ec2e5e583264a177b5959bd18ccc.png" />.
+</p><p>Such a t-value may be used in a one-tailed t-test against the "no correlation" null hypothesis.
+</p>
+<h2><span id="Sensorimotor_Rhythm_(SMR)"></span><span class="mw-headline" id="Sensorimotor_Rhythm_.28SMR.29">Sensorimotor Rhythm (SMR)</span></h2>
+<p>A general term referring to idling activity from the sensory and motor cortices.
+The <a href="https://www.bci2000.org/mediawiki/index.php/User_Tutorial:Introduction_to_the_Mu_Rhythm" title="User Tutorial:Introduction to the Mu Rhythm">mu rhythm</a> is the most prominent SMR activity.
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524030828
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.018 seconds
+Real time usage: 0.037 seconds
+Preprocessor visited node count: 128/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 3750/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1692-0!canonical!math=0 and timestamp 20230524030828 and revision id 7149
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Glossary&amp;oldid=7149">http://www.bci2000.org/mediawiki/index.php?title=Glossary&amp;oldid=7149</a>"</div>
+ </div>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>User Tutorial:Obtaining P300 Parameters in a Calibration Session - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul><li class="toc1"><a href="User_Tutorial%253ABCI2000_Tour.html">Tour</a></li><li class="toc1"><a href="User_Tutorial%253AMu_Rhythm_BCI_Tutorial.html">Mu Tutorial</a></li><li class="toc1"><a href="User_Tutorial%253AP300_BCI_Tutorial.html">P300 Tutorial</a></li></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">Obtaining P300 Parameters in a Calibration Session</h1>
+ <p class = "subtitle">User Tutorial</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc"><div class="toctitle" lang="en" dir="ltr"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="User_Tutorial%253AObtaining_P300_Parameters_in_a_Calibration_Session.html#Obtaining_P300_Parameters_in_the_Calibration_Session"><span class="tocnumber">1</span> <span class="toctext">Obtaining P300 Parameters in the Calibration Session</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="User_Tutorial%253AObtaining_P300_Parameters_in_a_Calibration_Session.html#Design_of_Calibration_Session"><span class="tocnumber">2</span> <span class="toctext">Design of Calibration Session</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="User_Tutorial%253AObtaining_P300_Parameters_in_a_Calibration_Session.html#Performing_the_Calibration_Session"><span class="tocnumber">3</span> <span class="toctext">Performing the Calibration Session</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="User_Tutorial%253AObtaining_P300_Parameters_in_a_Calibration_Session.html#Analyzing_The_Calibration_Session_with_Offline_Analysis"><span class="tocnumber">4</span> <span class="toctext">Analyzing The Calibration Session with Offline Analysis</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="User_Tutorial%253AObtaining_P300_Parameters_in_a_Calibration_Session.html#P300Classifier"><span class="tocnumber">5</span> <span class="toctext">P300Classifier</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="User_Tutorial%253AObtaining_P300_Parameters_in_a_Calibration_Session.html#Next_Step"><span class="tocnumber">6</span> <span class="toctext">Next Step</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="User_Tutorial%253AObtaining_P300_Parameters_in_a_Calibration_Session.html#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Obtaining_P300_Parameters_in_the_Calibration_Session">Obtaining P300 Parameters in the Calibration Session</span></h2>
+<p>Although the basic properties of the P300 evoked potential are the same for all individuals, the response's latency, width, and spatial pattern varies, and adaptation to individual parameters improves accuracy.
+</p><p>Thus, it is necessary to obtain these individual parameters prior to performing spelling experiments.
+</p>
+<h2><span class="mw-headline" id="Design_of_Calibration_Session">Design of Calibration Session</span></h2>
+<p>During the calibration session, the subject is asked to spell out a given word by using a P300 character matrix, pictured below. During each run, the subject is asked to focus on the next letter in the word he is spelling, as the rows and columns flash randomly and successively so that sometimes the flashing corresponds to the column or row containing the target character and sometimes it will not. As the subject counts the number of times the desired letter in the word flashes, a P300 response is generated. In our example, each letter will flash 30 times in total (15 rows and 15 columns). The purpose of the calibration session is to identify those features that discriminate between the desired and undesired rows/columns. Without that information, it is impossible to interpret the subject's brain signal. Thus, do not expect any correct letter selection during the calibration session.
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:P3SpellerMatrix.PNG" class="image"><img alt="P3SpellerMatrix.PNG" src="../images/thumb/e/ea/P3SpellerMatrix.PNG/450px-P3SpellerMatrix.PNG" width="450" height="253" srcset="../images/thumb/e/ea/P3SpellerMatrix.PNG/675px-P3SpellerMatrix.PNG 1.5x, ../images/e/ea/P3SpellerMatrix.PNG 2x" /></a>
+</p><p>After the first few runs are collected, we will use the BCI2000 "Offline Analysis" tool to determine which features (in this case, signals at a particular location and time after the stimulus) correspond to the row or column of the desired character.
+</p>
+<h2><span class="mw-headline" id="Performing_the_Calibration_Session">Performing the Calibration Session</span></h2>
+<ul><li>Start BCI2000 by running <tt>batch/P3Speller_&lt;Your_Amplifier&gt;.bat</tt></li>
+<li>Press <b>Config</b>, and load the baseline parameters for copy spelling that you made earlier.</li>
+<li>In the <b>Storage</b> tab:
+<ul><li>Set <i>SubjectName</i> to the subject's initials.</li>
+<li>Set <i>SubjectSession</i> to <tt>001</tt></li>
+<li>Set <i>SubjectRun</i> to <tt>01</tt></li></ul></li>
+<li>In the <b>Application</b> tab:
+<ul><li>Make sure that <i>InterpretMode</i> is set to <tt>copy mode</tt>, and <i>DisplayResults</i> (directly below InterpretMode) is unchecked</li>
+<li>Find the <i>TextToSpell</i> field. This should be set to ‘THEQUICKBROWNFOX’, and you will be changing it after each run.</li></ul></li>
+<li>Press <b>Set Config</b> to apply this configuration.</li></ul>
+<ul><li>Request that the subject sit in a relaxed position, and that the subject not move or speak during the runs.</li>
+<li>Turning off or dimming the lights can improve the subject's focus and performance.</li>
+<li>Showing the brain wave readouts to the subject can help understanding how artifact-generating behavior can be detrimental to the data.</li></ul>
+<p><br />
+</p>
+<div class="floatright"><a href="https://www.bci2000.org/mediawiki/index.php/File:RecordingEnd.PNG" class="image"><img alt="RecordingEnd.PNG" src="../images/thumb/2/28/RecordingEnd.PNG/500px-RecordingEnd.PNG" width="500" height="376" srcset="../images/thumb/2/28/RecordingEnd.PNG/750px-RecordingEnd.PNG 1.5x, ../images/2/28/RecordingEnd.PNG 2x" /></a></div>
+<p><br />
+</p>
+<ul><li>Press <b>Start</b> to show the flashing character matrix, and describe what the subject is expected to do.</li>
+<li>After you’ve explained the procedure, click <b>Suspend</b> to stop.</li>
+<li>Delete that run of data (the file will be found at <tt>data\P300\&lt;Subject Initials&gt;001\&lt;Subject Initials&gt;S001R01.dat</tt>).</li></ul>
+<table>
+<tbody><tr>
+<td height="200px">
+</td></tr></tbody></table>
+<ul><li>Press <b>Start</b> to record the run.</li>
+<li>Once this recording has finished, close BCI2000 and locate the saved data files below the BCI2000 <tt>data</tt> directory.</li></ul>
+<h2><span class="mw-headline" id="Analyzing_The_Calibration_Session_with_Offline_Analysis">Analyzing The Calibration Session with Offline Analysis</span></h2>
+<p>We will now use the BCI2000 "Offline Analysis" tool to analyze the subject's initial session.
+</p>
+<ul><li>Start the <a href="User_Reference%253ABCI2000_Offline_Analysis.html" title="User Reference:BCI2000 Offline Analysis">BCI2000 Offline Analysis</a> tool:
+<ul><li>If you have a version of Matlab installed, run <tt>tools/OfflineAnalysis/OfflineAnalysis.bat</tt>.</li>
+<li>Otherwise, follow the instructions provided <a href="User_Reference%253ABCI2000_Offline_Analysis.html#Systems_that_do_not_have_MATLAB_installed_or_with_versions_that_predate_MATLAB_v7.0" title="User Reference:BCI2000 Offline Analysis">elsewhere</a>.</li></ul></li></ul>
+<div class="floatright"><a href="https://www.bci2000.org/mediawiki/index.php/File:OfflineGUI.PNG" class="image"><img alt="OfflineGUI.PNG" src="../images/thumb/8/89/OfflineGUI.PNG/500px-OfflineGUI.PNG" width="500" height="465" srcset="../images/8/89/OfflineGUI.PNG 1.5x" /></a></div>
+<ul><li>In the <i>Analysis Domain</i> field, choose <b>Time (P300)</b></li>
+<li>In the <i>Acquisition Type</i> field, choose <b>EEG</b></li>
+<li>Next to <i>Spatial Filter</i>, choose <b>Common Average Reference (CAR)</b></li>
+<li>For <b>Trial Change Condition</b> enter <tt>auto</tt></li>
+<li>For <b>Target Condition 1</b> enter <tt>(states.StimulusCode &gt; 0) &amp; (states.StimulusType == 1)</tt></li>
+<li>For <b>Target Condition Label 1</b> enter <tt>Attended Stimuli</tt>
+<ul><li>‘Attended Stimuli’ refers to the letter or character the person is counting the flashes of, and triggers when the desired letter is flashed</li></ul></li>
+<li>For <b>Target Condition 2</b> enter <tt>(states.StimulusCode &gt; 0) &amp; (states.StimulusType == 0)</tt></li>
+<li>For <b>Target Condition Label 2</b> enter <tt>Unattended Stimuli</tt>
+<ul><li>‘Unattended stimulus’ refers to the letters or characters the person is not counting the flashes of, and triggers when the desired letter is not flashed</li></ul></li>
+<li>Click the <b>Add</b> button by <i>Data Files</i></li>
+<li>In this new dialog, select all of the data files taken during this configuration session, and click <b>Open</b></li></ul>
+<ul><li>Click <b>Generate Plots</b> and wait for the feature plot to appear</li></ul>
+<table>
+<tbody><tr>
+<td height="160px">
+</td></tr></tbody></table>
+<div class="floatright"><a href="https://www.bci2000.org/mediawiki/index.php/File:FeaturesPlot.PNG" class="image"><img alt="FeaturesPlot.PNG" src="../images/thumb/a/a9/FeaturesPlot.PNG/500px-FeaturesPlot.PNG" width="500" height="442" srcset="../images/thumb/a/a9/FeaturesPlot.PNG/750px-FeaturesPlot.PNG 1.5x, ../images/a/a9/FeaturesPlot.PNG 2x" /></a></div>
+<ul><li>When this is complete, you will see a feature plot similar to the one to the right. The vertical axis corresponds to the locations while the horizontal corresponds to the time delay after the stimulus. The color coding shows the r-squared value of that datapoint, with dark red colors indicating a high predictability that a response is produced by the desired letter being flashed.</li>
+<li>The largest of these r-squared values between 250 and 550ms are what we are interested in. Pick 2-4 points with the largest r-squared values between these times and record their time points and channels. The plot’s <i>Data Cursor</i> tool (Tools Menu &#8594; Data Cursor) allows for discrete identification of time points.</li></ul>
+<ul><li>With these points, close the feature plot, and enter the channels of the data points you found into the <i>Waveform Channels</i> field and the time points into the <i>Topo Times</i> field.
+<ul><li>In the example above, three data points have r-squared values <tt>0.032</tt>, <tt>0.055</tt>, and <tt>0.021</tt>, occur at times <tt>250ms</tt> around channel Po7, Po8, and Oz. <tt>6, 7, 8</tt> would be entered into <i>Waveform Channels</i> and <tt>250</tt> would be entered into the <i>Topo Times</i> field.</li></ul></li>
+<li>Click <b>Generate Plots</b> to create the features plot again with a set of three graphs that show the correlation between the selected times after the desired stimulus is given (the red line) and the brain’s responses to when the desired stimulus is not given (the blue line). Topographies is also given at <tt>250ms</tt>.
+<ul><li>As seen below, the attended-stimulus reaction will typically be stronger than for the unattended stimuli, but in some cases the reverse is true. If the ‘unattended’ curve is larger than the ‘attended’ curve then make a note of this before moving on. The waveform seen here is similar to the others generated, only one is shown here for simplicity.</li>
+<li>Additionally before moving on, determine the location of the response seen. The P300 response is generally observed centered on the Cz electrode, or just behind and directly in between the ears (example below), and does not involve the frontal regions of the brain. Assuming these characteristics are present, it is proper to proceed.</li></ul></li></ul>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Waveform.PNG" class="image"><img alt="Waveform.PNG" src="../images/thumb/1/1d/Waveform.PNG/800px-Waveform.PNG" width="800" height="474" srcset="../images/thumb/1/1d/Waveform.PNG/1200px-Waveform.PNG 1.5x, ../images/1/1d/Waveform.PNG 2x" /></a></div></div>
+<p><br />
+</p>
+<h2><span class="mw-headline" id="P300Classifier">P300Classifier</span></h2>
+<p>The use of the "Offline Analysis" program was provided to familiarize you with the characteristics of the P300 response. The feature graph above inspects the quality of the Calibration Session. Once the results above seams reasonable, we can obtain a subject specific parameter file using the <i>P300Classifier</i> under the <tt>tools/P300Classifier</tt> folder. This stand-alone program determines optimal features (i.e., signal times and channels) and corresponding weights automatically, and outputs those in a classifier matrix. Use of this program streamlines the configuration process at the expense of decreased hands-on experience with BCI data and the BCI2000 program itself.
+</p><p>For instructions on using the P300Classifier, see <a href="User_Reference%253AP300Classifier.html" title="User Reference:P300Classifier">User Reference:P300Classifier</a>.
+</p>
+<h2><span class="mw-headline" id="Next_Step">Next Step</span></h2>
+<p>To continue onto performing P300 spelling experiments, continue to <a href="User_Tutorial%253APerforming_a_P300_Spelling_Session.html" title="User Tutorial:Performing a P300 Spelling Session">Performing a P300 Spelling Session</a>.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Tutorial%253AP300_BCI_Tutorial.html" title="User Tutorial:P300 BCI Tutorial">User Tutorial:P300 BCI Tutorial</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20200807151312
+Cache expiry: 86400
+Dynamic content: false
+CPU time usage: 0.030 seconds
+Real time usage: 0.064 seconds
+Preprocessor visited node count: 26/1000000
+Preprocessor generated node count: 32/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+</div>
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1913-0!canonical and timestamp 20200807151312 and revision id 8334
+ -->
+</div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=User_Tutorial:Obtaining_P300_Parameters_in_a_Calibration_Session&amp;oldid=8334">http://www.bci2000.org/mediawiki/index.php?title=User_Tutorial:Obtaining_P300_Parameters_in_a_Calibration_Session&amp;oldid=8334</a>"</div>
+ </div>
+</body>
+</html>

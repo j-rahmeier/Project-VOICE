@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>User Reference:BCI2000Export - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul><li class="toc1"><a href="User_Reference%253AOperator_Module.html">Operator Module</a></li><li class="toc1"><a href="User_Reference%253AOperator_Module_Scripting.html">Operator Scripting</a></li><li class="toc1"><a href="User_Reference%253AModule_Command_Line_Options.html">Module Command Line Options</a></li><li class="toc1"><a href="User_Reference%253AData_File_Formats.html">Data File Formats</a></li><li class="toc1"><a href="User_Reference%253AFilters.html">Configuration Guide</a></li><li class="toc1"><a href="User_FAQ.html">FAQ</a></li><li class="toc1">Applications</li><ul><li class="toc2"><a href="User_Reference%253ACursorTask.html">Cursor Task</a></li><li class="toc2"><a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:P3SpellerTask">P3Speller Task</a></li><li class="toc2"><a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:StimulusPresentation">Stimulus Presentation</a></li></ul><li class="toc1">Tools</li><ul><li class="toc2"><a href="User_Reference%253ABCI2000Certification.html">BCI2000Certification</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Launcher.html">BCI2000Launcher</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Viewer.html">BCI2000Viewer</a></li><li class="toc2"><a href="User_Reference%253ABCI2000FileInfo.html">BCI2000FileInfo</a></li><li class="toc2">BCI2000Export</li><li class="toc2"><a href="User_Reference%253ABCI2000Analysis.html">BCI2000Analysis</a></li><li class="toc2"><a href="User_Reference%253ABCI2000_Offline_Analysis.html">BCI2000 Offline Analysis</a></li><li class="toc2"><a href="User_Reference%253AEloc_Helper.html">Eloc Helper</a></li><li class="toc2"><a href="User_Reference%253AEEGLabImport.html">EEGLabImport</a></li><li class="toc2"><a href="User_Reference%253AMatlab_Tools.html">Matlab Tools</a></li><li class="toc2"><a href="User_Reference%253AMatlab_MEX_Files.html">Matlab MEX Files</a></li><li class="toc2"><a href="User_Reference%253ACommand_Line_Processing.html">Command Line Processing</a></li></ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">BCI2000Export</h1>
+ <p class = "subtitle">User Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>BCI2000Export is a drag-and-drop-based program that allows to 
+</p>
+<ul><li>import BCI2000 *.dat files into BrainProduct's VisionAnalyzer program,</li>
+<li>convert BCI2000 *.dat files into ASCII files.</li></ul>
+<p><a href="https://www.bci2000.org/mediawiki/index.php/File:BCI2000Export.PNG" class="image"><img alt="BCI2000Export.PNG" src="../images/e/e9/BCI2000Export.PNG" decoding="async" width="446" height="420" /></a>
+</p>
+<h2><span class="mw-headline" id="General_Usage">General Usage</span></h2>
+<p>You may learn about the program's options by starting it and using the help hints that appear when stopping the mouse inside one of its four main areas.
+</p>
+<ul><li>Output Format</li></ul>
+<dl><dd>Choose between space-delimited, tabular ASCII output and BrainVisionAnalyzer Import formats.</dd></dl>
+<ul><li>Importing Files</li></ul>
+<dl><dd>To convert files, drop them onto the "drop area" located inside its main window, or onto its application icon. Previous settings apply; BCI2000 states not found in the "import states" list will be added to the list and imported.</dd></dl>
+<ul><li>Excluding States</li></ul>
+<dl><dd>To populate the list of import states, drop BCI2000 files onto the "import states" list. You can suppress the import of a state by unchecking its name in the list.</dd></dl>
+<ul><li>Channel Names</li></ul>
+<dl><dd>Channel names are given as a list of strings in the order in which the respective channels appear in the file.</dd></dl>
+<h2><span class="mw-headline" id="ASCII_Export">ASCII Export</span></h2>
+<p>An ASCII file is a space-delimited matrix with columns corresponding to channels and states, and rows corresponding to samples. The first row is a list of column headers.
+</p>
+<h2><span class="mw-headline" id="BrainVisionAnalyzer_Import">BrainVisionAnalyzer Import</span></h2>
+<p>To use BCI2000Export most conveniently with BrainVisionAnalyzer, use the VisionAnalyzer's "Edit Workspace..." command to set the raw files folder to your BCI2000 data file folder.
+</p><p>BCI2000 <a href="BCI2000_Glossary.html#State" title="BCI2000 Glossary">states</a> are mapped to the somewhat different concept of "Markers" used by the BrainVision software.
+Unlike states, which are written once for each sample, markers are given as ranges in the time domain, extending over arbitrary time intervals.
+In the importer program, the basic idea is to create one marker object for each state run except those runs during which the state is zero.
+For multi-bit states, the state's value enters into the marker's name, e.g. "Target Code 2".
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524000617
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.013 seconds
+Real time usage: 0.017 seconds
+Preprocessor visited node count: 10/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1624-0!canonical and timestamp 20230524000617 and revision id 2716
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=User_Reference:BCI2000Export&amp;oldid=2716">http://www.bci2000.org/mediawiki/index.php?title=User_Reference:BCI2000Export&amp;oldid=2716</a>"</div>
+ </div>
+</body>
+</html>

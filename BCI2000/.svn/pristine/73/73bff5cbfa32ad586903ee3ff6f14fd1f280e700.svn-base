@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>User Reference:NullFileWriter - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul><li class="toc1"><a href="User_Reference%253AOperator_Module.html">Operator Module</a></li><li class="toc1"><a href="User_Reference%253AOperator_Module_Scripting.html">Operator Scripting</a></li><li class="toc1"><a href="User_Reference%253AModule_Command_Line_Options.html">Module Command Line Options</a></li><li class="toc1"><a href="User_Reference%253AData_File_Formats.html">Data File Formats</a></li><li class="toc1"><a href="User_Reference%253AFilters.html">Configuration Guide</a></li><li class="toc1"><a href="User_FAQ.html">FAQ</a></li><li class="toc1">Applications</li><ul><li class="toc2"><a href="User_Reference%253ACursorTask.html">Cursor Task</a></li><li class="toc2"><a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:P3SpellerTask">P3Speller Task</a></li><li class="toc2"><a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:StimulusPresentation">Stimulus Presentation</a></li></ul><li class="toc1">Tools</li><ul><li class="toc2"><a href="User_Reference%253ABCI2000Certification.html">BCI2000Certification</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Launcher.html">BCI2000Launcher</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Viewer.html">BCI2000Viewer</a></li><li class="toc2"><a href="User_Reference%253ABCI2000FileInfo.html">BCI2000FileInfo</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Export.html">BCI2000Export</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Analysis.html">BCI2000Analysis</a></li><li class="toc2"><a href="User_Reference%253ABCI2000_Offline_Analysis.html">BCI2000 Offline Analysis</a></li><li class="toc2"><a href="User_Reference%253AEloc_Helper.html">Eloc Helper</a></li><li class="toc2"><a href="User_Reference%253AEEGLabImport.html">EEGLabImport</a></li><li class="toc2"><a href="User_Reference%253AMatlab_Tools.html">Matlab Tools</a></li><li class="toc2"><a href="User_Reference%253AMatlab_MEX_Files.html">Matlab MEX Files</a></li><li class="toc2"><a href="User_Reference%253ACommand_Line_Processing.html">Command Line Processing</a></li></ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">NullFileWriter</h1>
+ <p class = "subtitle">User Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="User_Reference%253ANullFileWriter.html#Function"><span class="tocnumber">1</span> <span class="toctext">Function</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="User_Reference%253ANullFileWriter.html#Parameters"><span class="tocnumber">2</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2"><a href="User_Reference%253ANullFileWriter.html#Common_Data_Storage_Parameters"><span class="tocnumber">2.1</span> <span class="toctext">Common Data Storage Parameters</span></a>
+<ul>
+<li class="toclevel-3"><a href="User_Reference%253ANullFileWriter.html#DataDirectory"><span class="tocnumber">2.1.1</span> <span class="toctext">DataDirectory</span></a></li>
+<li class="toclevel-3"><a href="User_Reference%253ANullFileWriter.html#DataFile"><span class="tocnumber">2.1.2</span> <span class="toctext">DataFile</span></a></li>
+<li class="toclevel-3"><a href="User_Reference%253ANullFileWriter.html#SubjectName"><span class="tocnumber">2.1.3</span> <span class="toctext">SubjectName</span></a></li>
+<li class="toclevel-3"><a href="User_Reference%253ANullFileWriter.html#SubjectSession"><span class="tocnumber">2.1.4</span> <span class="toctext">SubjectSession</span></a></li>
+<li class="toclevel-3"><a href="User_Reference%253ANullFileWriter.html#SubjectRun"><span class="tocnumber">2.1.5</span> <span class="toctext">SubjectRun</span></a></li>
+<li class="toclevel-3"><a href="User_Reference%253ANullFileWriter.html#ID_System.2C_ID_Amp.2C_ID_Montage"><span class="tocnumber">2.1.6</span> <span class="toctext">ID_System, ID_Amp, ID_Montage</span></a></li>
+<li class="toclevel-3"><a href="User_Reference%253ANullFileWriter.html#FileSplittingCondition"><span class="tocnumber">2.1.7</span> <span class="toctext">FileSplittingCondition</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-3"><a href="User_Reference%253ANullFileWriter.html#NullFileWriter_Specific_Parameters"><span class="tocnumber">2.2</span> <span class="toctext">NullFileWriter Specific Parameters</span></a>
+<ul>
+<li class="toclevel-3 tocsection-4"><a href="User_Reference%253ANullFileWriter.html#SavePrmFile"><span class="tocnumber">2.2.1</span> <span class="toctext">SavePrmFile</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="User_Reference%253ANullFileWriter.html#States"><span class="tocnumber">3</span> <span class="toctext">States</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="User_Reference%253ANullFileWriter.html#See_also"><span class="tocnumber">4</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Function">Function</span></h2>
+<p>The <i>NullFileWriter</i> component does not write brain signal data (<a href="User_Reference%253AData_File_Formats.html#Null_File_Format" title="User Reference:Data File Formats">Null File Format</a>).
+Individual filters may still write log files to the directory defined by the <code>DataDirectory</code>, <code>SubjectName</code>, and <code>SubjectSession</code> parameters.
+</p>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<h3><span class="mw-headline" id="Common_Data_Storage_Parameters">Common Data Storage Parameters</span></h3>
+<p>These are storage parameters common to all <a href="User_Reference%253AData_File_Formats.html" title="User Reference:Data File Formats">Data File Formats</a>.
+</p>
+<h4><span class="mw-headline" id="DataDirectory">DataDirectory</span></h4>
+<p>Path to an existing directory. Recorded data will be stored below that directory.
+The path may be absolute, or relative to the source module's working directory at startup. Usually, the working directory at startup matches the source module's executable location in the <tt>prog</tt> directory.
+</p>
+<h4><span class="mw-headline" id="DataFile">DataFile</span></h4>
+<p>The path to the data file relative to the directory, including the file name.
+</p><p>The <i>DataFile</i> parameter is a string that may contain references to other parameters in the form <tt>${Parameter}</tt>.
+By default, it contains a session directory, named according to the <tt>${SubjectSession}</tt> parameter, and a file name containing
+the <tt>${SubjectRun}</tt> parameter along with the session number, and a date.
+</p><p>Date variables: The user can introduce date and/or time into the file name. One may enter <tt>${DateTime:&lt;format string&gt;}</tt> to add date and/or time in an arbitrary format. <tt>&lt;format string&gt;</tt> must be a date-time format string as defined for the <a rel="nofollow" class="external text" href="https://pubs.opengroup.org/onlinepubs/009695399/functions/strftime.html">POSIX strftime() function</a>. For example, <tt>${DateTime:%F}</tt> will produce the date in the standard format YYYY-MM-DD. Be careful with time formats which will typically contain the&#160;: character, which is illegal in Windows file names. To produce both date and time, use <tt>${DateTime:%F-%H-%M-%S}</tt>.
+</p><p><b>NOTE:</b> When the file name contains both a run number, and a date/time string, auto-incrementing the run number will not work properly. Auto-incrementing the run number depends on all other components of the file name being constant, which is not the case for
+date and time.
+</p>
+<h4><span class="mw-headline" id="SubjectName">SubjectName</span></h4>
+<p>A textual ID for the subject. This text may appear in session directories, and data file names.
+</p>
+<h4><span class="mw-headline" id="SubjectSession">SubjectSession</span></h4>
+<p>A textual ID for the current session. Sessions correspond to data directories.
+By default, the path of a session directory is constructed according to
+</p>
+<pre>${DataDirectory}/${SubjectName}${SubjectSession}
+</pre>
+<h4><span class="mw-headline" id="SubjectRun">SubjectRun</span></h4>
+<p>A number indicating the current run. Runs correspond to data files. To avoid accidental loss of data, run numbers are auto-incremented to the largest unused value.
+Within a session directory, data file names are by default constructed according to
+</p>
+<pre>${SubjectName}S${SubjectSession}R${SubjectRun}.${FileFormat}
+</pre>
+<p>By default, a data file's extension depends on its <a href="User_Reference%253AData_File_Formats.html" title="User Reference:Data File Formats">File Format</a>.
+</p>
+<h4><span id="ID_System,_ID_Amp,_ID_Montage"></span><span class="mw-headline" id="ID_System.2C_ID_Amp.2C_ID_Montage">ID_System, ID_Amp, ID_Montage</span></h4>
+<p>These parameters are provided for documentation purposes and may contain arbitrary text.
+</p>
+<h4><span class="mw-headline" id="FileSplittingCondition">FileSplittingCondition</span></h4>
+<p>While recording, recorded files may be split into multiple files with <b>part2, part3, ... partN</b> appended to the file name (before the extension). The first file will not be renamed to <b>part1</b>, though.
+When a condition is entered into the <i>FileSplittingCondition</i> parameter, it will be evaluated after each block of data has been written. Each time the condition is fulfilled, the old file will be closed, and a new one will be opened. Each partial file will be a valid file in the chosen <i>FileWriter's</i> format in its own right; only file names will carry information about how files should be combined to result in the full run file.
+</p><p>Conditions are simple strings representing either 
+</p>
+<ul><li>a temporal duration, e.g. 00:00:30 for a duration of 30 seconds, or</li>
+<li>a file size, e.g. 1.5MB for a size of 1.5 megabytes. Units of kB, MB, GB, TB and kiB, MiB, GiB, and TiB are supported. Prefixes without the <i>i</i> will refer to powers of 1000, whereas prefixes with an <i>i</i> refer to powers of 1024.</li></ul>
+<p>By default, the <i>FileSplittingCondition</i> parameter is empty, i.e. no file splitting occurs.
+</p>
+<h3><span class="mw-headline" id="NullFileWriter_Specific_Parameters">NullFileWriter Specific Parameters</span></h3>
+<h4><span class="mw-headline" id="SavePrmFile">SavePrmFile</span></h4>
+<p>Specifies whether there should be a parameter file created for each run.
+This parameter is optional, and will not appear in the parameter configuration dialog by default. To use it, specify <tt>--SavePrmFile=1</tt> on the command line when starting up the source module.
+</p>
+<h2><span class="mw-headline" id="States">States</span></h2>
+<p>None.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Reference%253ADataIOFilter.html" title="User Reference:DataIOFilter">User Reference:DataIOFilter</a>, <a href="User_Reference%253AData_File_Formats.html" title="User Reference:Data File Formats">User Reference:Data File Formats</a>, <a href="Programming_Reference%253AGenericFileWriter_Class.html" title="Programming Reference:GenericFileWriter Class">Programming Reference:GenericFileWriter Class</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230523214307
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.021 seconds
+Real time usage: 0.023 seconds
+Preprocessor visited node count: 33/1000000
+Post‐expand include size: 4013/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    3.623      1 Template:StorageParams
+100.00%    3.623      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1506-0!canonical and timestamp 20230523214307 and revision id 6126
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=User_Reference:NullFileWriter&amp;oldid=6126">http://www.bci2000.org/mediawiki/index.php?title=User_Reference:NullFileWriter&amp;oldid=6126</a>"</div>
+ </div>
+</body>
+</html>

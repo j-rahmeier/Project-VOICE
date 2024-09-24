@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:AmpServerProADC - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">AmpServerProADC</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Contributions%253AAmpServerProADC.html#Synopsis"><span class="tocnumber">1</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Contributions%253AAmpServerProADC.html#Location"><span class="tocnumber">2</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Contributions%253AAmpServerProADC.html#Versioning"><span class="tocnumber">3</span> <span class="toctext">Versioning</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Contributions%253AAmpServerProADC.html#Author"><span class="tocnumber">3.1</span> <span class="toctext">Author</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Contributions%253AAmpServerProADC.html#Version_History"><span class="tocnumber">3.2</span> <span class="toctext">Version History</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Contributions%253AAmpServerProADC.html#Source_Code_Revisions"><span class="tocnumber">3.3</span> <span class="toctext">Source Code Revisions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="Contributions%253AAmpServerProADC.html#Video_Overview"><span class="tocnumber">4</span> <span class="toctext">Video Overview</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="Contributions%253AAmpServerProADC.html#Using_the_AmpServerPro_Source_Module"><span class="tocnumber">5</span> <span class="toctext">Using the AmpServerPro Source Module</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="Contributions%253AAmpServerProADC.html#Setting_Up_the_Hardware"><span class="tocnumber">6</span> <span class="toctext">Setting Up the Hardware</span></a>
+<ul>
+<li class="toclevel-2 tocsection-10"><a href="Contributions%253AAmpServerProADC.html#Setting_up_the_Power_Supplies"><span class="tocnumber">6.1</span> <span class="toctext">Setting up the Power Supplies</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="Contributions%253AAmpServerProADC.html#Setting_up_the_Network_Cables"><span class="tocnumber">6.2</span> <span class="toctext">Setting up the Network Cables</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="Contributions%253AAmpServerProADC.html#Configuring_and_Setting_Up_BCI2000_on_the_Research_PC"><span class="tocnumber">7</span> <span class="toctext">Configuring and Setting Up BCI2000 on the Research PC</span></a>
+<ul>
+<li class="toclevel-2 tocsection-13"><a href="Contributions%253AAmpServerProADC.html#Starting_Amp_Server_Pro"><span class="tocnumber">7.1</span> <span class="toctext">Starting Amp Server Pro</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="Contributions%253AAmpServerProADC.html#Creating_a_BCI2000_Batch_File"><span class="tocnumber">7.2</span> <span class="toctext">Creating a BCI2000 Batch File</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="Contributions%253AAmpServerProADC.html#Using_Amp_Server_Pro_with_BCI2000"><span class="tocnumber">7.3</span> <span class="toctext">Using Amp Server Pro with BCI2000</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-16"><a href="Contributions%253AAmpServerProADC.html#Parameters"><span class="tocnumber">8</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-17"><a href="Contributions%253AAmpServerProADC.html#SourceCh"><span class="tocnumber">8.1</span> <span class="toctext">SourceCh</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="Contributions%253AAmpServerProADC.html#BlockSize"><span class="tocnumber">8.2</span> <span class="toctext">BlockSize</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="Contributions%253AAmpServerProADC.html#ServerIP"><span class="tocnumber">8.3</span> <span class="toctext">ServerIP</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="Contributions%253AAmpServerProADC.html#CommandPort"><span class="tocnumber">8.4</span> <span class="toctext">CommandPort</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="Contributions%253AAmpServerProADC.html#NotificationPort"><span class="tocnumber">8.5</span> <span class="toctext">NotificationPort</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="Contributions%253AAmpServerProADC.html#StreamPort"><span class="tocnumber">8.6</span> <span class="toctext">StreamPort</span></a></li>
+<li class="toclevel-2 tocsection-23"><a href="Contributions%253AAmpServerProADC.html#AmplifierID"><span class="tocnumber">8.7</span> <span class="toctext">AmplifierID</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-24"><a href="Contributions%253AAmpServerProADC.html#Packet_Format_2_Parameter"><span class="tocnumber">9</span> <span class="toctext">Packet Format 2 Parameter</span></a>
+<ul>
+<li class="toclevel-2 tocsection-25"><a href="Contributions%253AAmpServerProADC.html#SampleBlockSize"><span class="tocnumber">9.1</span> <span class="toctext">SampleBlockSize</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-26"><a href="Contributions%253AAmpServerProADC.html#GTEN_Parameters"><span class="tocnumber">10</span> <span class="toctext">GTEN Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-27"><a href="Contributions%253AAmpServerProADC.html#RunTranscranialStim"><span class="tocnumber">10.1</span> <span class="toctext">RunTranscranialStim</span></a></li>
+<li class="toclevel-2 tocsection-28"><a href="Contributions%253AAmpServerProADC.html#ModulationPlanFile"><span class="tocnumber">10.2</span> <span class="toctext">ModulationPlanFile</span></a></li>
+<li class="toclevel-2 tocsection-29"><a href="Contributions%253AAmpServerProADC.html#StimulationExpression"><span class="tocnumber">10.3</span> <span class="toctext">StimulationExpression</span></a></li>
+<li class="toclevel-2 tocsection-30"><a href="Contributions%253AAmpServerProADC.html#AbortExpression"><span class="tocnumber">10.4</span> <span class="toctext">AbortExpression</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-31"><a href="Contributions%253AAmpServerProADC.html#States"><span class="tocnumber">11</span> <span class="toctext">States</span></a>
+<ul>
+<li class="toclevel-2 tocsection-32"><a href="Contributions%253AAmpServerProADC.html#GTENStimulationTriggered"><span class="tocnumber">11.1</span> <span class="toctext">GTENStimulationTriggered</span></a></li>
+<li class="toclevel-2 tocsection-33"><a href="Contributions%253AAmpServerProADC.html#GTENTrainRunning"><span class="tocnumber">11.2</span> <span class="toctext">GTENTrainRunning</span></a></li>
+<li class="toclevel-2 tocsection-34"><a href="Contributions%253AAmpServerProADC.html#EGIDigitalInputStream"><span class="tocnumber">11.3</span> <span class="toctext">EGIDigitalInputStream</span></a></li>
+<li class="toclevel-2 tocsection-35"><a href="Contributions%253AAmpServerProADC.html#DigitalInput1-4"><span class="tocnumber">11.4</span> <span class="toctext">DigitalInput1-4</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-36"><a href="Contributions%253AAmpServerProADC.html#Certification_Results"><span class="tocnumber">12</span> <span class="toctext">Certification Results</span></a>
+<ul>
+<li class="toclevel-2 tocsection-37"><a href="Contributions%253AAmpServerProADC.html#PC_Specifications"><span class="tocnumber">12.1</span> <span class="toctext">PC Specifications</span></a></li>
+<li class="toclevel-2 tocsection-38"><a href="Contributions%253AAmpServerProADC.html#Certification_Tests_Performed"><span class="tocnumber">12.2</span> <span class="toctext">Certification Tests Performed</span></a></li>
+<li class="toclevel-2 tocsection-39"><a href="Contributions%253AAmpServerProADC.html#Success_Criteria_and_Overall_Results"><span class="tocnumber">12.3</span> <span class="toctext">Success Criteria and Overall Results</span></a></li>
+<li class="toclevel-2 tocsection-40"><a href="Contributions%253AAmpServerProADC.html#Stimulation_Latency"><span class="tocnumber">12.4</span> <span class="toctext">Stimulation Latency</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-41"><a href="Contributions%253AAmpServerProADC.html#See_also"><span class="tocnumber">13</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>The <i>AmpServerProADC</i> component implements the client side of EGI's TCP/IP-based Amp Server Pro (ASP) protocol. Thus, it may be used to interface BCI2000 with an EGI amplifier. Amplifiers that record data and administer transcranial direct current stimulation (GTEN devices) are supported.
+</p>
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><a rel="nofollow" class="external free" href="http://www.bci2000.org/svn/trunk/src/contrib/SignalSource/AmpServerPro">http://www.bci2000.org/svn/trunk/src/contrib/SignalSource/AmpServerPro</a>
+</p>
+<h2><span class="mw-headline" id="Versioning">Versioning</span></h2>
+<h3><span class="mw-headline" id="Author">Author</span></h3>
+<p>Joshua Fialkoff, (c) 2008 Wadsworth Center, New York State Department of Health. (V1)
+</p><p>Alex Belsten (belsten@neurotechcenter.org), NCAN. (V2)
+</p>
+<h3><span class="mw-headline" id="Version_History">Version History</span></h3>
+<ul><li>V1.00 - 06/11/2008 - First working version</li>
+<li>V2.00 - 05/10/2020 - Added support for GTEN devices and packet format 2</li></ul>
+<h3><span class="mw-headline" id="Source_Code_Revisions">Source Code Revisions</span></h3>
+<ul><li>Initial development: 1998</li>
+<li>Tested under: 6138</li>
+<li>Known to compile under: 6138</li>
+<li>Broken since: --</li></ul>
+<h2><span class="mw-headline" id="Video_Overview">Video Overview</span></h2>
+<div class="thumb embedvideo  ev_center autoResize" style="width: 648px;"><div class="embedvideo autoResize" style=" width: 646px;"><div class="embedvideowrap" style="width: 640px;"><iframe title="Play video" src="https://www.youtube.com/embed/wW-xEy9e5ps?" width="640" height="360" frameborder="0" allowfullscreen="true"></iframe></div></div></div>
+<h2><span class="mw-headline" id="Using_the_AmpServerPro_Source_Module">Using the AmpServerPro Source Module</span></h2>
+<p>For using the AmpServerPro source module, you will need to obtain a license for the AmpServerPro SDK. Without such a license, you may be able to connect to the machine running the EGI software, but it will not send any real-time data when asked to. In order to obtain an AmpServerPro SDK license, you will need to contact EGI at <a rel="nofollow" class="external free" href="http://www.egi.com">http://www.egi.com</a>.
+</p>
+<h2><span class="mw-headline" id="Setting_Up_the_Hardware">Setting Up the Hardware</span></h2>
+<p>The EGI system comes with many hardware and cables, so connecting everything in a step-by-step manner is helpful for getting everything connected correctly. There are a few steps to this process. First, make sure you have all of the necessary cables and hardware. These items can be seen in the two images below (Fig. 1 and Fig. 2). 
+</p>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 402px"><div style="width: 402px">
+			<div class="thumb" style="width: 400px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:EGI-cables.jpeg" class="image"><img alt="" src="../images/thumb/a/a5/EGI-cables.jpeg/600px-EGI-cables.jpeg" decoding="async" width="400" height="300" srcset="../images/thumb/a/a5/EGI-cables.jpeg/900px-EGI-cables.jpeg 1.5x, ../images/thumb/a/a5/EGI-cables.jpeg/1200px-EGI-cables.jpeg 2x" /></a></div></div>
+			<div class="gallerytext">
+<p>Figure 1: The necessary cables.
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 364px"><div style="width: 364px">
+			<div class="thumb" style="width: 362px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:EGI-boxes.jpg" class="image"><img alt="" src="../images/thumb/0/09/EGI-boxes.jpg/543px-EGI-boxes.jpg" decoding="async" width="362" height="300" srcset="../images/thumb/0/09/EGI-boxes.jpg/814px-EGI-boxes.jpg 1.5x, ../images/thumb/0/09/EGI-boxes.jpg/1085px-EGI-boxes.jpg 2x" /></a></div></div>
+			<div class="gallerytext">
+<p>Figure 2: EGI hardware.
+</p>
+			</div>
+		</div></li>
+</ul>
+<p>In addition to the hardware shown in Fig. 1 and 2, you will need the EGI iMac that comes with the amplifier and a research PC. This PC must be running Windows and needs an ethernet port or an adapter that connects to an ethernet cable.
+Once sure that all of the necessary hardware/cables are present, it is time to connect all the hardware. For your reference, the general architecture is shown in the figure below. 
+</p>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 384.66666666667px"><div style="width: 384.66666666667px">
+			<div class="thumb" style="width: 382.66666666667px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:EGI-power_and_network.png" class="image"><img alt="" src="../images/thumb/b/b0/EGI-power_and_network.png/574px-EGI-power_and_network.png" decoding="async" width="383" height="300" srcset="../images/thumb/b/b0/EGI-power_and_network.png/860px-EGI-power_and_network.png 1.5x, ../images/thumb/b/b0/EGI-power_and_network.png/1147px-EGI-power_and_network.png 2x" /></a></div></div>
+			<div class="gallerytext">
+<p>Figure 3: General hardware architecture.
+</p>
+			</div>
+		</div></li>
+</ul>
+<h3><span class="mw-headline" id="Setting_up_the_Power_Supplies">Setting up the Power Supplies</span></h3>
+<p>The transformer is the first piece of hardware to set up. It provides isolated power to the EGI amplifier, switch box, and EGI iMac. Each of these devices connects to the plugs on the back of the transformer, as shown in Fig. 4. 
+</p>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 601.33333333333px"><div style="width: 601.33333333333px">
+			<div class="thumb" style="width: 599.33333333333px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:EGI-transformer_connections.jpeg" class="image"><img alt="" src="../images/thumb/5/5e/EGI-transformer_connections.jpeg/899px-EGI-transformer_connections.jpeg" decoding="async" width="600" height="300" srcset="../images/thumb/5/5e/EGI-transformer_connections.jpeg/1348px-EGI-transformer_connections.jpeg 1.5x, ../images/thumb/5/5e/EGI-transformer_connections.jpeg/1797px-EGI-transformer_connections.jpeg 2x" /></a></div></div>
+			<div class="gallerytext">
+<p>Figure 4: Three different types of plugs on the back of the transformer.
+</p>
+			</div>
+		</div></li>
+</ul>
+<p>Verify that the transformer is off and use plug type 3 in Fig. 4 to plug into a standard wall socket. Now, connect the EGI iMac to plug type 2. Next, you will need two cables of type 1 (IEC plug cable). Connect one to the amplifier power supply and the other to the switch box. Keep the transformer off for now. Lastly, you will need to use the amplifier power cable to connect the amplifier power supply to the amplifier.
+</p>
+<h3><span class="mw-headline" id="Setting_up_the_Network_Cables">Setting up the Network Cables</span></h3>
+<p>Next, the network cables need to be connected. Fig. 5 and 6 serve as a reference through this process. 
+</p>
+<ul class="gallery mw-gallery-nolines center">
+		<li class="gallerybox" style="width: 505px"><div style="width: 505px">
+			<div class="thumb" style="width: 500px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:EGI-back-of-amp.jpeg" class="image"><img alt="" src="../images/thumb/d/d5/EGI-back-of-amp.jpeg/500px-EGI-back-of-amp.jpeg" decoding="async" width="500" height="327" srcset="../images/thumb/d/d5/EGI-back-of-amp.jpeg/750px-EGI-back-of-amp.jpeg 1.5x, ../images/thumb/d/d5/EGI-back-of-amp.jpeg/1000px-EGI-back-of-amp.jpeg 2x" /></a></div></div>
+			<div class="gallerytext">
+<p>Figure 5: Connections to back of amplifier.
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 505px"><div style="width: 505px">
+			<div class="thumb" style="width: 500px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:EGI-switch-box.jpeg" class="image"><img alt="" src="../images/thumb/1/14/EGI-switch-box.jpeg/500px-EGI-switch-box.jpeg" decoding="async" width="500" height="148" srcset="../images/thumb/1/14/EGI-switch-box.jpeg/750px-EGI-switch-box.jpeg 1.5x, ../images/thumb/1/14/EGI-switch-box.jpeg/1000px-EGI-switch-box.jpeg 2x" /></a></div></div>
+			<div class="gallerytext">
+<p>Figure 6: Network connections to switch box.
+</p>
+			</div>
+		</div></li>
+</ul>
+<p>Start by connecting the orange fiber optic cable to the back of the amplifier and then connect the other end to the front of the switch box. Then, connect one of the network cables to the EGI iMac and connect the other end to any one of the eight ports on the switch box. Lastly, connect the other network cable to your research PC and then to the switch box. Now that everything is connected, the transformer and amplifier power supply can be turned on. Next, boot up the EGI iMac. Navigate to the browser and enter the amplifier's IPv4 address into the address bar. You can find the IPv4 address of your amplifier by launching Net Station Acquisition on the EGI iMac and expanding the <i>sharing</i> tab. All of the EGI amplifiers have an IPv4 address of the form <code>10.10.10.X</code> where <code>X</code> is some integer between 0 and 256. You should now see the amplifier's web page, similar to the one shown in Fig. 7. If you cannot see this web page, verify that all network connections are secure and the amplifier is powered on.  
+</p>
+<ul class="gallery mw-gallery-nolines center">
+		<li class="gallerybox" style="width: 605px"><div style="width: 605px">
+			<div class="thumb" style="width: 600px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:EGI-amp_webserver.jpg" class="image"><img alt="" src="../images/thumb/0/07/EGI-amp_webserver.jpg/600px-EGI-amp_webserver.jpg" decoding="async" width="600" height="352" srcset="../images/thumb/0/07/EGI-amp_webserver.jpg/900px-EGI-amp_webserver.jpg 1.5x, ../images/thumb/0/07/EGI-amp_webserver.jpg/1200px-EGI-amp_webserver.jpg 2x" /></a></div></div>
+			<div class="gallerytext">
+<p>Figure 7: Amplifier webpage that is accessible from amplifier's IPv4 address.
+</p>
+			</div>
+		</div></li>
+</ul>
+<h2><span class="mw-headline" id="Configuring_and_Setting_Up_BCI2000_on_the_Research_PC">Configuring and Setting Up BCI2000 on the Research PC</span></h2>
+<p>Now it is time to set up the research PC. First, install BCI2000 (a guide to do this can be found at <a href="Programming_Howto%253ABuilding_and_Customizing_BCI2000.html" title="Programming Howto:Building and Customizing BCI2000">Programming_Howto:Building_and_Customizing_BCI2000</a>) and make sure the <code>BUILD_CONTRIB</code> option is enabled in CMake before compiling. 
+</p><p>The research PC's IP address must be configured to allow the amplifier and Net Station to recognize it. On the research PC, configure the IP (IPv4) for a manual IP address (<code>10.10.10.Y</code> where <code>Y</code> is any digits other than the last two digits used by the amp); with the manual IPv4 address configured, set the subnet mask to 255.255.255.0. Once this has been completed, open a browser on the research PC and enter the amplifier's IPv4 address into the address bar. If the research PC's IP address is set correctly, the page will populate with information about the amplifier shown in Fig. 7. If the web page fails to load, then the PC's IPv4 address may not have been set correctly, or the research PC has a firewall that is blocking the amplifier. Verify that the research IPv4 address is correct and firewalls have been disabled. 
+</p>
+<h3><span class="mw-headline" id="Starting_Amp_Server_Pro">Starting Amp Server Pro</span></h3>
+<p>Amp Server Pro is capable of working with many amplifiers concurrently.  To begin using Amp Server Pro with BCI2000, ensure that at least one amplifier is connected to the server.  If no amplifier is connected, the Amp Server software emulates an amplifier.  If you choose to use the emulated amplifier, you should expect to see a smooth sine wave signal for all channels.  To start the amp server simply navigate to the Amp Server Pro directory and double click the file named "<tt>Amp Server</tt>".
+</p>
+<h3><span class="mw-headline" id="Creating_a_BCI2000_Batch_File">Creating a BCI2000 Batch File</span></h3>
+<p>Although it is not necessary, it is convenient to create a batch file to run BCI2000 with the Amp Server Pro module.  To create the batch file, start out with a copy of a suitable batch file in <tt>BCI2000/batch/</tt>, and open it in a text editor.
+</p><p>Towards the end of the file, you will see a sequence of lines beginning with
+</p>
+<pre>start executable 
+</pre>
+<p>These lines are responsible for starting up source, signal processing, and application module, in that sequence. To use the AmpServerPro module, you will need to replace the executable name in the first entry, e.g.
+</p>
+<pre>start executable SignalGenerator --local
+</pre>
+<p>becomes
+</p>
+<pre>start executable AmpServerPro --local
+</pre>
+<p>For more information, see <a href="Contributions%253AHow_to_use_a_Contributed_Source_Module.html#Creating_batch_files" title="Contributions:How to use a Contributed Source Module">this page</a>.
+</p>
+<h3><span class="mw-headline" id="Using_Amp_Server_Pro_with_BCI2000">Using Amp Server Pro with BCI2000</span></h3>
+<p>Once you have started the Amp Server and compiled the Amp Server Pro module, you can begin collecting data with BCI2000 by following the steps below.
+</p>
+<ol><li>Double click <tt>BCI2000/batch/CursorTask_AmpServerPro.bat</tt> - the batch file that was created in the previous section - to start BCI2000.</li>
+<li>Click the "Configure" button.</li>
+<li>Set the appropriate parameters.  The Amp Server Pro module is initialized with a number of parameters that can be configured from the "Source" tab.  A summary and description of these parameters can be found below.</li>
+<li>Click "Set Config".</li>
+<li>Click "Start" to begin your experiment.</li></ol>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<h3><span class="mw-headline" id="SourceCh">SourceCh</span></h3>
+<p>Enter the number of channels that have electrodes connected (32, 64, 128, or 256).
+Make sure that <b>SourceChOffset</b> and <b>SourceChGain</b> are set to "auto" or you may get an error message about a mismatching number of entries.
+</p>
+<h3><span class="mw-headline" id="BlockSize">BlockSize</span></h3>
+<p>This parameter should always be set to <i>auto</i>. If the amp uses packet format 1, then the block size is fixed at 40 samples per block. If the amp uses packet format 2 then the block size specified by <i>SampleBlockSize</i> will be used. The packet format will be displayed in the operator window of BCI2000 after clicking 'Set Config' and successful connection to amp.
+</p>
+<h3><span class="mw-headline" id="ServerIP">ServerIP</span></h3>
+<p>The IP address of the amplifier (e.g. <code>10.10.10.51</code>)
+</p>
+<h3><span class="mw-headline" id="CommandPort">CommandPort</span></h3>
+<p>The port number of the port used for command layer communication.  Unless you have explicitly set the port number via Amp Server's configuration, the default of 9877 should be correct.
+</p>
+<h3><span class="mw-headline" id="NotificationPort">NotificationPort</span></h3>
+<p>The port number of the port used for notification layer communication.  Unless you have explicitly set the port number via Amp Server's configuration, the default of 9878 should be correct.
+</p>
+<h3><span class="mw-headline" id="StreamPort">StreamPort</span></h3>
+<p>The port number of the port used for data streaming.  Unless you have explicitly set the port number via Amp Server's configuration, the default of 9879 should be correct.
+</p>
+<h3><span class="mw-headline" id="AmplifierID">AmplifierID</span></h3>
+<p>Amp Server Pro is capable of managing many amplifiers concurrently.  BCI2000, however, operates with a single amplifier.  If only a single amplifier is connected, you may enter the value "auto" here and allow BCI2000 to automatically determine the Amplifier ID.  If multiple amplifiers are connected, however, you must enter a valid ID from 0 to N-1, where N is the number of amplifiers connected.
+</p>
+<h2><span class="mw-headline" id="Packet_Format_2_Parameter">Packet Format 2 Parameter</span></h2>
+<h3><span class="mw-headline" id="SampleBlockSize">SampleBlockSize</span></h3>
+<p>If the connected amp uses packet format 2, then the user can configure the number of samples per block using this parameter. 
+</p>
+<h2><span class="mw-headline" id="GTEN_Parameters">GTEN Parameters</span></h2>
+<p>The GTEN parameters are only used when using a GTEN device. If the connected amp cannot perform stimulation, disable <i>RunTranscranialStim</i>.
+</p>
+<h3><span class="mw-headline" id="RunTranscranialStim">RunTranscranialStim</span></h3>
+<p>Enables stimulation. If stimulation is enabled, the following parameters are used. 
+</p>
+<h3><span class="mw-headline" id="ModulationPlanFile">ModulationPlanFile</span></h3>
+<p>The modulation plan file contains all of the information about the stimulation train. This file is created on the Net Station iMac with the EGI program Reciprocity. Reciprocity allows the user to configure all of the parameters of the stimulation train such as electrode location, waveform amplitude, duration, etc. See EGI's GTEN manual for information related to Reciprocity use. 
+</p><p>Once the train is designed in Reciprocity, save the .mcb plan file and note its location. Copy the .mcb file and transfer it to the research PC. Launch BCI2000 and click the browse button for the <i>ModulationPlanFile</i> parameter. On windows, the .mcb file will now be a folder. Navigate to this folder and inside, there will be multiple files and two other folders. Select the file called 'plan.mcf' as the <i>ModulationPlanFile</i>. Select ONLY the 'plan.mcf' file as the BCI2000 parameter value, but also DO NOT change any of the other contents of the .mcb folder.
+</p>
+<h3><span class="mw-headline" id="StimulationExpression">StimulationExpression</span></h3>
+<p>Expression that triggers stimulation. For more info on expressions, see <a href="User_Reference%253AExpression_Syntax.html" title="User Reference:Expression Syntax">User Reference:Expression Syntax</a>.
+</p>
+<h3><span class="mw-headline" id="AbortExpression">AbortExpression</span></h3>
+<p>Expression that aborts stimulation. If this is never triggered, the stimulation will continue until the <code>duration_ms</code>, specified in the uploaded Modulation Plan, runs to its full duration. 
+</p>
+<h2><span class="mw-headline" id="States">States</span></h2>
+<h3><span class="mw-headline" id="GTENStimulationTriggered">GTENStimulationTriggered</span></h3>
+<p>This binary state is set to 1 when stimulation is triggered. 
+</p>
+<h3><span class="mw-headline" id="GTENTrainRunning">GTENTrainRunning</span></h3>
+<p>This state is one byte in size and contains information sent back from the amplifier about stimulation. If bit 2 is low (XXXX X0XX) then current is being injected by the amp. If bit 4 is low (XXX0 XXXX) then a new block in the neuromodulation train has just begun.
+</p>
+<h3><span class="mw-headline" id="EGIDigitalInputStream">EGIDigitalInputStream</span></h3>
+<p>This state is 16 bits and records the digital inputs on the back of the amplifier as seen in Fig. 5.
+</p>
+<h3><span class="mw-headline" id="DigitalInput1-4">DigitalInput1-4</span></h3>
+<p>These 4 binary states are 1 when there is a digital input, or 0 in the absence of one. This information is parsed from the EGIDigitalInputStream, but separated for user convenience. 
+</p><p><br />
+</p>
+<h2><span class="mw-headline" id="Certification_Results">Certification Results</span></h2>
+<p>The AmpServerPro certification was performed to give a better understanding of the restraints that must be placed on the system when using this device. Certification success criteria was determined internally and without rigor, and reflects our experience with psychophysical experiments and the performance we expect to need for the system. More information about certification testing can be found on the <a href="User_Reference%253ABCI2000Certification.html" title="User Reference:BCI2000Certification">certification wiki page</a>. 
+</p>
+<h3><span class="mw-headline" id="PC_Specifications">PC Specifications</span></h3>
+<ul><li>Lenovo Thinkpad E580 (<a rel="nofollow" class="external free" href="https://www.lenovo.com/us/en/laptops/thinkpad/thinkpad-e-series/ThinkPad-E580/p/22TP2TEE580">https://www.lenovo.com/us/en/laptops/thinkpad/thinkpad-e-series/ThinkPad-E580/p/22TP2TEE580</a>)</li>
+<li>Processor: Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz 2.7GHz</li>
+<li>Installed Ram: 8.00 GB</li>
+<li>Graphics Card: Intel(R) HD Graphics 620</li>
+<li>System Type: 64-bit operating system, x64-based processor</li>
+<li>BCI2000 compiled with MSVC2019 and Qt 5.15.2</li></ul>
+<h3><span class="mw-headline" id="Certification_Tests_Performed">Certification Tests Performed</span></h3>
+<p>Certification testing varied block size (50, 100 ms), and task (P3Spell (7x7 grid), P3Spell (1x1 grid), CursorTask, CursorTaskLow, and StimulusPresentation), and tested audio and video latency, for a total of 12 performed tasks. The audio latency and video latency are partitioned into separate windows, as we tested them in different runs. 
+</p>
+<h3><span class="mw-headline" id="Success_Criteria_and_Overall_Results">Success Criteria and Overall Results</span></h3>
+<table border="1">
+<tbody><tr>
+<td>Name
+</td>
+<td>Actual Latency
+</td>
+<td>Success Criteria
+</td>
+<td>Result
+</td></tr>
+<tr>
+<td>Timestamp Latency Mean
+</td>
+<td>509µs
+</td>
+<td>1 ms
+</td>
+<td>passed
+</td></tr>
+<tr>
+<td>Timestamp Latency STD
+</td>
+<td>2.02ms
+</td>
+<td>1 ms
+</td>
+<td>failed
+</td></tr>
+<tr>
+<td>Processing Latency Mean
+</td>
+<td>44.7ms
+</td>
+<td>20 ms
+</td>
+<td>failed
+</td></tr>
+<tr>
+<td>Processing Latency STD
+</td>
+<td>20.3ms
+</td>
+<td>10 ms
+</td>
+<td>failed
+</td></tr>
+<tr>
+<td>Video Latency Mean
+</td>
+<td>73.1ms
+</td>
+<td>65 ms
+</td>
+<td>failed
+</td></tr>
+<tr>
+<td>Video Latency STD
+</td>
+<td>17.7ms
+</td>
+<td>20 ms
+</td>
+<td>passed
+</td></tr>
+<tr>
+<td>Audio Latency Mean
+</td>
+<td>62.9ms
+</td>
+<td>65 ms
+</td>
+<td>passed
+</td></tr>
+<tr>
+<td>Audio Latency STD
+</td>
+<td>3.33ms
+</td>
+<td>20 ms
+</td>
+<td>passed
+</td></tr></tbody></table>
+<p><br />
+</p>
+<h3><span class="mw-headline" id="Stimulation_Latency">Stimulation Latency</span></h3>
+<p>The Stimulation Latency for the EGI system seems to be dependent on the stimulation width and ISI width. When the <b>stimulation width plus the ISI width is less than 8 seconds</b>, it has a large latency and can also miss stimulation (see Figure 8).
+</p><p><br />
+</p>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 602px"><div style="width: 602px">
+			<div class="thumb" style="width: 600px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:EGILatency_2sStim.png" class="image"><img alt="" src="../images/3/38/EGILatency_2sStim.png" decoding="async" width="600" height="450" /></a></div></div>
+			<div class="gallerytext">
+<p>Figure 8: The jitter of the stimulation latency, showing a large mean and variation of latency for ISI's less than 6 seconds.
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 602px"><div style="width: 602px">
+			<div class="thumb" style="width: 600px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:EGILatencyHist.png" class="image"><img alt="" src="../images/3/3f/EGILatencyHist.png" decoding="async" width="600" height="450" /></a></div></div>
+			<div class="gallerytext">
+<p>Figure 9: The latency of the EGI system. Run for 100 trials, with a 2s stimulation width and an 8s ISI width. The block size was 40 ms with a sampling rate of 1 kHz.
+</p>
+			</div>
+		</div></li>
+</ul>
+<p>The stimulation latency seems to be inconsistent, however for large enough ISI widths, it is usually around 1.1 seconds. For the trial shown in Figure 9, the average latency was 1,159 ± 5 ms.
+</p><p><br />
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Reference%253AFilters.html" title="User Reference:Filters">User Reference:Filters</a>, <a href="Contributions%253AADCs.html" title="Contributions:ADCs">Contributions:ADCs</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230523233229
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.071 seconds
+Real time usage: 0.083 seconds
+Preprocessor visited node count: 175/1000000
+Post‐expand include size: 15/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 6346/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1790-0!canonical and timestamp 20230523233229 and revision id 9942
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:AmpServerProADC&amp;oldid=9942">http://www.bci2000.org/mediawiki/index.php?title=Contributions:AmpServerProADC&amp;oldid=9942</a>"</div>
+ </div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+###########################################################################
+## $Id$
+## Authors: mellinger@neurotechcenter.org
+
+SET( BCI2000_SIGSRC_FILES
+   ${BCI2000_SIGSRC_FILES}
+   ${BCI2000_EXTENSION_DIR}/EyetrackerLoggerSimulator.cpp
+)
+

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Programming Howto:SVN Client Setup - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul><li class="toc1">Concepts</li><ul><li class="toc2"><a href="Programming_Reference%253AFilter_Chain.html">Filter Chain</a></li><li class="toc2"><a href="Programming_Reference%253ASignals.html">Signals</a></li><li class="toc2"><a href="Programming_Reference%253AError_Handling.html">Error Handling</a></li><li class="toc2"><a href="Programming_Reference%253ALocalization.html">Localization</a></li><li class="toc2"><a href="Programming_Reference%253ARapid_Development.html">Rapid Development</a></li></ul><li class="toc1">Reference</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFilter_Class.html">GenericFilter</a></li><li class="toc2"><a href="Programming_Reference%253AEnvironment_Class.html">Environment</a></li><li class="toc2"><a href="Programming_Reference%253AGenericVisualization_Class.html">GenericVisualization</a></li><li class="toc2"><a href="Programming_Reference%253AErrors_and_Warnings.html">Errors and Warnings</a></li><li class="toc2"><a href="Programming_Reference%253ADebug_Output.html">Debug Output</a></li></ul><li class="toc1">Data Acquisition</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericADC_Class.html">GenericADC</a></li></ul><li class="toc1">Data Storage</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFileWriter_Class.html">GenericFileWriter</a></li><li class="toc2"><a href="Programming_Reference%253ABCI2000FileReader_Class.html">BCI2000FileReader</a></li></ul><li class="toc1">Signal Processing</li><ul><li class="toc2"><a href="Programming_Reference%253AIIRFilterBase_Class.html">IIR Filters</a></li></ul><li class="toc1">Application Modules</li><ul><li class="toc2"><a href="Programming_Reference%253AApplicationBase_Class.html">ApplicationBase</a></li><li class="toc2"><a href="Programming_Reference%253AFeedbackTask_Class.html">FeedbackTask</a></li><li class="toc2"><a href="Programming_Reference%253AStimulusTask_Class.html">StimulusTask</a></li><li class="toc2"><a href="Programming_Reference%253A3D_API.html">3D API</a></li></ul><li class="toc1">Howtos</li><ul><li class="toc2"><a href="Programming_Howto%253ABuilding_BCI2000.html">Building BCI2000</a></li><li class="toc2">SVN Client Setup</li><li class="toc2"><a href="Programming_Howto%253AUsing_TortoiseSVN.html">Using TortoiseSVN</a></li></ul><li class="toc1"><a href="Programming_FAQ.html">FAQ</a></li><li class="toc1">Tutorials</li><ul><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html">Data Acquisition</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html">Signal Processing</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html">Matlab Signal Processing</a></li></ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">SVN Client Setup</h1>
+ <p class = "subtitle">Programming Howto</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Programming_Howto%253ASVN_Client_Setup.html#Setting_up_TortoiseSVN_to_access_the_BCI2000_code_repository"><span class="tocnumber">1</span> <span class="toctext">Setting up TortoiseSVN to access the BCI2000 code repository</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Programming_Howto%253ASVN_Client_Setup.html#Checking_out_older_versions"><span class="tocnumber">2</span> <span class="toctext">Checking out older versions</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Programming_Howto%253ASVN_Client_Setup.html#Working_on_Branches"><span class="tocnumber">3</span> <span class="toctext">Working on Branches</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="Programming_Howto%253ASVN_Client_Setup.html#Troubleshooting"><span class="tocnumber">4</span> <span class="toctext">Troubleshooting</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="Programming_Howto%253ASVN_Client_Setup.html#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Setting_up_TortoiseSVN_to_access_the_BCI2000_code_repository">Setting up TortoiseSVN to access the BCI2000 code repository</span></h2>
+<p>To set up TortoiseSVN and download the BCI2000 source code to your computer, follow these steps:
+</p>
+<ul><li>Download the latest stable version from <a rel="nofollow" class="external free" href="http://tortoisesvn.net/">http://tortoisesvn.net/</a>, and execute the installer program. This page has been written for version 1.40, but should be rather independent of TortoiseSVN's version number.</li>
+<li>Create or pick an empty folder located on your machine’s harddrive. This will hold your working copy of the BCI2000 source tree, in an automatically created subfolder called "BCI2000."</li>
+<li>Right-click the folder you picked in the last step. From the context menu, choose the "SVN Checkout..." option – a dialog window appears.</li>
+<li>In the dialog window, enter the repository URL: <code>http://www.bci2000.org/svn/tags/releases/current</code>, choose "HEAD revision" and "include externals". Then, click OK.</li>
+<li>You will be prompted for your user name and password. This account is the same that you use to log into <a rel="nofollow" class="external text" href="http://www.bci2000.org/tracproj">Trac</a> and <a href="https://www.bci2000.org/mediawiki/index.php/Special:UserLogin" title="Special:UserLogin">into this Wiki</a>.</li></ul>
+<h2><span class="mw-headline" id="Checking_out_older_versions">Checking out older versions</span></h2>
+<p>If you think that the current version of BCI2000 is not working properly, or would like to work with an older version for some other reason, you should first check whether one of the releases in <tt><a rel="nofollow" class="external free" href="http://www.bci2000.org/svn/tags/releases">http://www.bci2000.org/svn/tags/releases</a></tt> suits you needs.
+</p><p>Otherwise, to obtain a revision that is newer than the latest binary release, you will need to do a checkout of <tt><a rel="nofollow" class="external free" href="http://www.bci2000.org/svn/trunk">http://www.bci2000.org/svn/trunk</a></tt>.
+</p><p>In both cases, you may enter a "Revision number" into the checkout dialog in order to obtain an older revision.
+The "Show Log" button will provide you with an overview of the latest changes and their associated revision numbers.
+</p>
+<h2><span class="mw-headline" id="Working_on_Branches">Working on Branches</span></h2>
+<p>Branches are versions of the source code that are developed in parallel to the main code version, e.g. to incorporate new features without affecting the stable version that is intended for end users.
+To checkout a branch called "myBranch", the repository URL would be:
+<code>http://www.bci2000.org/svn/branches/myBranch</code>.
+Otherwise, the checkout process remains the same.
+</p>
+<h2><span class="mw-headline" id="Troubleshooting">Troubleshooting</span></h2>
+<ul><li><b>Symptom:</b> When trying to checkout, update, or commit, you get an error message: "PROPFIND request failed", "OPTIONS request failed", "could not connect to server", or the like.
+<ul><li><b>Cause:</b> Quite likely, you are behind a firewall, and internet access is over a proxy server.</li>
+<li><b>Fix:</b> To configure TortoiseSVN for use with a proxy server, right-click your desktop,  choose TortoiseSVN-&gt;Settings-&gt;Network, check "Enable Proxy" and enter the appropriate information. If unsure, contact your local system administrator.</li></ul></li></ul>
+<ul><li><b>Symptom:</b> You configured TortoiseSVN for use with a proxy server as described above. Now, checking out works fine, however on updates or commits, you get strange errors about failed requests.
+<ul><li><b>Cause:</b> Your proxy server is not forwarding SVN's WebDAV requests correctly.</li>
+<li><b>Fix:</b> To keep the proxy from interfering with the protocol, change your setup to use an encrypted connection:</li></ul></li></ul>
+<dl><dd><ul><li>Right-click on your source tree's top folder, choose TortoiseSVN-&gt;Relocate.</li>
+<li>In the "to URL" edit field, modify <code>http://</code> to read <code>https://</code>.</li>
+<li>On the first connection, TortoiseSVN will display a warning message: <div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:TortoiseCertificateWarning.PNG" class="image"><img alt="TortoiseCertificateWarning.PNG" src="../images/5/5c/TortoiseCertificateWarning.PNG" decoding="async" width="457" height="136" /></a></div></div></li></ul>
+<dl><dd>Click "Accept permanently" to continue.</dd></dl></dd></dl>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Programming_Howto%253AUsing_TortoiseSVN.html" title="Programming Howto:Using TortoiseSVN">Programming Howto:Using TortoiseSVN</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524001207
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.017 seconds
+Real time usage: 0.025 seconds
+Preprocessor visited node count: 39/1000000
+Post‐expand include size: 15/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 107/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1377-0!canonical and timestamp 20230524001206 and revision id 7418
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Programming_Howto:SVN_Client_Setup&amp;oldid=7418">http://www.bci2000.org/mediawiki/index.php?title=Programming_Howto:SVN_Client_Setup&amp;oldid=7418</a>"</div>
+ </div>
+</body>
+</html>

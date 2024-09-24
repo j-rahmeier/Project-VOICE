@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Programming Reference:BCI2000Remote Class - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul><li class="toc1">Concepts</li><ul><li class="toc2"><a href="Programming_Reference%253AFilter_Chain.html">Filter Chain</a></li><li class="toc2"><a href="Programming_Reference%253ASignals.html">Signals</a></li><li class="toc2"><a href="Programming_Reference%253AError_Handling.html">Error Handling</a></li><li class="toc2"><a href="Programming_Reference%253ALocalization.html">Localization</a></li><li class="toc2"><a href="Programming_Reference%253ARapid_Development.html">Rapid Development</a></li></ul><li class="toc1">Reference</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFilter_Class.html">GenericFilter</a></li><li class="toc2"><a href="Programming_Reference%253AEnvironment_Class.html">Environment</a></li><li class="toc2"><a href="Programming_Reference%253AGenericVisualization_Class.html">GenericVisualization</a></li><li class="toc2"><a href="Programming_Reference%253AErrors_and_Warnings.html">Errors and Warnings</a></li><li class="toc2"><a href="Programming_Reference%253ADebug_Output.html">Debug Output</a></li></ul><li class="toc1">Data Acquisition</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericADC_Class.html">GenericADC</a></li></ul><li class="toc1">Data Storage</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFileWriter_Class.html">GenericFileWriter</a></li><li class="toc2"><a href="Programming_Reference%253ABCI2000FileReader_Class.html">BCI2000FileReader</a></li></ul><li class="toc1">Signal Processing</li><ul><li class="toc2"><a href="Programming_Reference%253AIIRFilterBase_Class.html">IIR Filters</a></li></ul><li class="toc1">Application Modules</li><ul><li class="toc2"><a href="Programming_Reference%253AApplicationBase_Class.html">ApplicationBase</a></li><li class="toc2"><a href="Programming_Reference%253AFeedbackTask_Class.html">FeedbackTask</a></li><li class="toc2"><a href="Programming_Reference%253AStimulusTask_Class.html">StimulusTask</a></li><li class="toc2"><a href="Programming_Reference%253A3D_API.html">3D API</a></li></ul><li class="toc1">Howtos</li><ul><li class="toc2"><a href="Programming_Howto%253ABuilding_BCI2000.html">Building BCI2000</a></li><li class="toc2"><a href="Programming_Howto%253ASVN_Client_Setup.html">SVN Client Setup</a></li><li class="toc2"><a href="Programming_Howto%253AUsing_TortoiseSVN.html">Using TortoiseSVN</a></li></ul><li class="toc1"><a href="Programming_FAQ.html">FAQ</a></li><li class="toc1">Tutorials</li><ul><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html">Data Acquisition</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html">Signal Processing</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html">Matlab Signal Processing</a></li></ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">BCI2000Remote Class</h1>
+ <p class = "subtitle">Programming Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Programming_Reference%253ABCI2000Remote_Class.html#Synopsis"><span class="tocnumber">1</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Programming_Reference%253ABCI2000Remote_Class.html#Location"><span class="tocnumber">2</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Programming_Reference%253ABCI2000Remote_Class.html#Functional_Description"><span class="tocnumber">3</span> <span class="toctext">Functional Description</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="Programming_Reference%253ABCI2000Remote_Class.html#BCI2000Remote_Members"><span class="tocnumber">4</span> <span class="toctext">BCI2000Remote Members</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="Programming_Reference%253ABCI2000Remote_Class.html#Properties"><span class="tocnumber">4.1</span> <span class="toctext">Properties</span></a>
+<ul>
+<li class="toclevel-3 tocsection-6"><a href="Programming_Reference%253ABCI2000Remote_Class.html#double_Timeout.3D5_.28rw.29"><span class="tocnumber">4.1.1</span> <span class="toctext">double Timeout=5 (rw)</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="Programming_Reference%253ABCI2000Remote_Class.html#string_OperatorPath.3D.22.22_.28rw.29"><span class="tocnumber">4.1.2</span> <span class="toctext">string OperatorPath="" (rw)</span></a></li>
+<li class="toclevel-3 tocsection-8"><a href="Programming_Reference%253ABCI2000Remote_Class.html#string_TelnetAddress.3D.22localhost:3999.22_.28rw.29"><span class="tocnumber">4.1.3</span> <span class="toctext">string TelnetAddress="localhost:3999" (rw)</span></a>
+<ul>
+<li class="toclevel-4 tocsection-9"><a href="Programming_Reference%253ABCI2000Remote_Class.html#bool_WindowVisible.3D2_.28rw.29"><span class="tocnumber">4.1.3.1</span> <span class="toctext">bool WindowVisible=2 (rw)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-3 tocsection-10"><a href="Programming_Reference%253ABCI2000Remote_Class.html#string_WindowTitle_.28rw.29"><span class="tocnumber">4.1.4</span> <span class="toctext">string WindowTitle (rw)</span></a></li>
+<li class="toclevel-3 tocsection-11"><a href="Programming_Reference%253ABCI2000Remote_Class.html#string_Result_.28r.29"><span class="tocnumber">4.1.5</span> <span class="toctext">string Result (r)</span></a></li>
+<li class="toclevel-3 tocsection-12"><a href="Programming_Reference%253ABCI2000Remote_Class.html#Recording_information"><span class="tocnumber">4.1.6</span> <span class="toctext">Recording information</span></a>
+<ul>
+<li class="toclevel-4 tocsection-13"><a href="Programming_Reference%253ABCI2000Remote_Class.html#string_SubjectID_.28rw.29"><span class="tocnumber">4.1.6.1</span> <span class="toctext">string SubjectID (rw)</span></a></li>
+<li class="toclevel-4 tocsection-14"><a href="Programming_Reference%253ABCI2000Remote_Class.html#string_SessionID_.28rw.29"><span class="tocnumber">4.1.6.2</span> <span class="toctext">string SessionID (rw)</span></a></li>
+<li class="toclevel-4 tocsection-15"><a href="Programming_Reference%253ABCI2000Remote_Class.html#string_DataDirectory_.28rw.29"><span class="tocnumber">4.1.6.3</span> <span class="toctext">string DataDirectory (rw)</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-16"><a href="Programming_Reference%253ABCI2000Remote_Class.html#Connection_methods"><span class="tocnumber">4.2</span> <span class="toctext">Connection methods</span></a>
+<ul>
+<li class="toclevel-3 tocsection-17"><a href="Programming_Reference%253ABCI2000Remote_Class.html#bool_Connect.28.29"><span class="tocnumber">4.2.1</span> <span class="toctext">bool Connect()</span></a></li>
+<li class="toclevel-3 tocsection-18"><a href="Programming_Reference%253ABCI2000Remote_Class.html#bool_Connect.28_BCI2000Remote_.29"><span class="tocnumber">4.2.2</span> <span class="toctext">bool Connect( BCI2000Remote )</span></a></li>
+<li class="toclevel-3 tocsection-19"><a href="Programming_Reference%253ABCI2000Remote_Class.html#bool_Disconnect.28.29"><span class="tocnumber">4.2.3</span> <span class="toctext">bool Disconnect()</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-20"><a href="Programming_Reference%253ABCI2000Remote_Class.html#Control_of_operation"><span class="tocnumber">4.3</span> <span class="toctext">Control of operation</span></a>
+<ul>
+<li class="toclevel-3 tocsection-21"><a href="Programming_Reference%253ABCI2000Remote_Class.html#bool_StartupModules.28_vector.28string.29_modules_.29"><span class="tocnumber">4.3.1</span> <span class="toctext">bool StartupModules( vector(string) modules )</span></a></li>
+<li class="toclevel-3 tocsection-22"><a href="Programming_Reference%253ABCI2000Remote_Class.html#bool_SetConfig.28.29"><span class="tocnumber">4.3.2</span> <span class="toctext">bool SetConfig()</span></a></li>
+<li class="toclevel-3 tocsection-23"><a href="Programming_Reference%253ABCI2000Remote_Class.html#bool_Start.28.29"><span class="tocnumber">4.3.3</span> <span class="toctext">bool Start()</span></a></li>
+<li class="toclevel-3 tocsection-24"><a href="Programming_Reference%253ABCI2000Remote_Class.html#bool_Stop.28.29"><span class="tocnumber">4.3.4</span> <span class="toctext">bool Stop()</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-25"><a href="Programming_Reference%253ABCI2000Remote_Class.html#Parameters_and_system_state"><span class="tocnumber">4.4</span> <span class="toctext">Parameters and system state</span></a>
+<ul>
+<li class="toclevel-3 tocsection-26"><a href="Programming_Reference%253ABCI2000Remote_Class.html#bool_GetParameter.28_string_name.2C_string.26_value_.29"><span class="tocnumber">4.4.1</span> <span class="toctext">bool GetParameter( string name, string&amp; value )</span></a></li>
+<li class="toclevel-3 tocsection-27"><a href="Programming_Reference%253ABCI2000Remote_Class.html#bool_SetParameter.28_string_name.2C_string_value_.29"><span class="tocnumber">4.4.2</span> <span class="toctext">bool SetParameter( string name, string value )</span></a></li>
+<li class="toclevel-3 tocsection-28"><a href="Programming_Reference%253ABCI2000Remote_Class.html#bool_LoadParametersLocal.28_string_file_.29"><span class="tocnumber">4.4.3</span> <span class="toctext">bool LoadParametersLocal( string file )</span></a></li>
+<li class="toclevel-3 tocsection-29"><a href="Programming_Reference%253ABCI2000Remote_Class.html#bool_LoadParametersRemote.28_string_file_.29"><span class="tocnumber">4.4.4</span> <span class="toctext">bool LoadParametersRemote( string file )</span></a></li>
+<li class="toclevel-3 tocsection-30"><a href="Programming_Reference%253ABCI2000Remote_Class.html#bool_AddStateVariable.28_string_name.2C_int_bitWidth.2C_double_initialValue_.29"><span class="tocnumber">4.4.5</span> <span class="toctext">bool AddStateVariable( string name, int bitWidth, double initialValue )</span></a></li>
+<li class="toclevel-3 tocsection-31"><a href="Programming_Reference%253ABCI2000Remote_Class.html#bool_GetStateVariable.28_string_name.2C_double.26_value_.29"><span class="tocnumber">4.4.6</span> <span class="toctext">bool GetStateVariable( string name, double&amp; value )</span></a></li>
+<li class="toclevel-3 tocsection-32"><a href="Programming_Reference%253ABCI2000Remote_Class.html#bool_SetStateVariable.28_string_name.2C_double_value_.29"><span class="tocnumber">4.4.7</span> <span class="toctext">bool SetStateVariable( string name, double value )</span></a></li>
+<li class="toclevel-3 tocsection-33"><a href="Programming_Reference%253ABCI2000Remote_Class.html#bool_AddEventVariable.28_string_name.2C_int_bitWidth.2C_double_initialValue_.29"><span class="tocnumber">4.4.8</span> <span class="toctext">bool AddEventVariable( string name, int bitWidth, double initialValue )</span></a></li>
+<li class="toclevel-3 tocsection-34"><a href="Programming_Reference%253ABCI2000Remote_Class.html#bool_GetEventVariable.28_string_name.2C_double.26_value_.29"><span class="tocnumber">4.4.9</span> <span class="toctext">bool GetEventVariable( string name, double&amp; value )</span></a></li>
+<li class="toclevel-3 tocsection-35"><a href="Programming_Reference%253ABCI2000Remote_Class.html#bool_SetEventVariable.28_string_name.2C_double_value_.29"><span class="tocnumber">4.4.10</span> <span class="toctext">bool SetEventVariable( string name, double value )</span></a></li>
+<li class="toclevel-3 tocsection-36"><a href="Programming_Reference%253ABCI2000Remote_Class.html#bool_PulseEventVariable.28_string_name.2C_double_value_.29"><span class="tocnumber">4.4.11</span> <span class="toctext">bool PulseEventVariable( string name, double value )</span></a></li>
+<li class="toclevel-3 tocsection-37"><a href="Programming_Reference%253ABCI2000Remote_Class.html#bool_GetSystemState.28_string.26_state_.29"><span class="tocnumber">4.4.12</span> <span class="toctext">bool GetSystemState( string&amp; state )</span></a></li>
+<li class="toclevel-3 tocsection-38"><a href="Programming_Reference%253ABCI2000Remote_Class.html#bool_GetControlSignal.28_int_channel.2C_int_element.2C_double.26_value_.29"><span class="tocnumber">4.4.13</span> <span class="toctext">bool GetControlSignal( int channel, int element, double&amp; value )</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-39"><a href="Programming_Reference%253ABCI2000Remote_Class.html#Scripting_methods"><span class="tocnumber">4.5</span> <span class="toctext">Scripting methods</span></a>
+<ul>
+<li class="toclevel-3 tocsection-40"><a href="Programming_Reference%253ABCI2000Remote_Class.html#bool_Execute.28_string_command.2C_int.2A_exitCode_.3D_0_.29"><span class="tocnumber">4.5.1</span> <span class="toctext">bool Execute( string command, int* exitCode = 0 )</span></a></li>
+<li class="toclevel-3 tocsection-41"><a href="Programming_Reference%253ABCI2000Remote_Class.html#bool_SetScript.28_string_handlers.2C_string_script_.29"><span class="tocnumber">4.5.2</span> <span class="toctext">bool SetScript( string handlers, string script )</span></a></li>
+<li class="toclevel-3 tocsection-42"><a href="Programming_Reference%253ABCI2000Remote_Class.html#bool_GetScript.28_string_handler.2C_string.26_script_.29"><span class="tocnumber">4.5.3</span> <span class="toctext">bool GetScript( string handler, string&amp; script )</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-43"><a href="Programming_Reference%253ABCI2000Remote_Class.html#Watches"><span class="tocnumber">4.6</span> <span class="toctext">Watches</span></a>
+<ul>
+<li class="toclevel-3 tocsection-44"><a href="Programming_Reference%253ABCI2000Remote_Class.html#Watch.2A_NewWatch.28_string_expression.2C_WatchCallback.2C_void.2A_callbackData_.29"><span class="tocnumber">4.6.1</span> <span class="toctext">Watch* NewWatch( string expression, WatchCallback, void* callbackData )</span></a></li>
+<li class="toclevel-3 tocsection-45"><a href="Programming_Reference%253ABCI2000Remote_Class.html#void_WatchCallback.28_void.2A_callbackData.2C_const_char.2A_values_.29"><span class="tocnumber">4.6.2</span> <span class="toctext">void WatchCallback( void* callbackData, const char* values )</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-46"><a href="Programming_Reference%253ABCI2000Remote_Class.html#Dependencies"><span class="tocnumber">5</span> <span class="toctext">Dependencies</span></a></li>
+<li class="toclevel-1 tocsection-47"><a href="Programming_Reference%253ABCI2000Remote_Class.html#BCI2000RemoteLib"><span class="tocnumber">6</span> <span class="toctext">BCI2000RemoteLib</span></a></li>
+<li class="toclevel-1 tocsection-48"><a href="Programming_Reference%253ABCI2000Remote_Class.html#C.2B.2B_Example"><span class="tocnumber">7</span> <span class="toctext">C++ Example</span></a></li>
+<li class="toclevel-1 tocsection-49"><a href="Programming_Reference%253ABCI2000Remote_Class.html#Matlab_Example"><span class="tocnumber">8</span> <span class="toctext">Matlab Example</span></a></li>
+<li class="toclevel-1 tocsection-50"><a href="Programming_Reference%253ABCI2000Remote_Class.html#See_also"><span class="tocnumber">9</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>BCI2000Remote is a proxy interface class to the BCI2000 Operator module, and allows to start up, configure, and control BCI2000 from other applications. Internally, it maintains a telnet connection to the Operator module, and sends <a href="User_Reference%253AOperator_Module_Scripting.html" title="User Reference:Operator Module Scripting">Operator Scripting commands</a> to control it. However, no knowledge of these scripting commands is required in order to use the BCI2000Remote class from your own application.
+</p><p>BCI2000Remote is most useful when writing applications in C++, or in another language for which bindings to the <a href="Programming_Reference%253ABCI2000Remote_Class.html#BCI2000RemoteLib">BCI2000RemoteLib</a> library exist, such as Python, or MATLAB through the <tt>loadlibrary</tt> command, specifying <tt>src/core/Operator/BCI2000Remote/BCI2000RemoteLib.h</tt> as the header file associated with the library.
+</p><p>For controlling BCI2000 under Windows from MATLAB, Windows Automation compatible scripting languages, or .NET languages, there exists a separate <a href="Contributions%253ABCI2000Automation.html" title="Contributions:BCI2000Automation">automation interface</a>. For controlling BCI2000 from shell scripts (such as the Windows command interpreter, or Unix shells like bash), there exists a <a href="Contributions%253ABCI2000Command.html" title="Contributions:BCI2000Command">BCI2000 command executable</a> and the <a href="User_Reference%253ABCI2000Shell.html" title="User Reference:BCI2000Shell">BCI2000Shell</a>.
+</p>
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p>BCI2000/src/core/Operator/BCI2000Remote
+</p>
+<h2><span class="mw-headline" id="Functional_Description">Functional Description</span></h2>
+<p>After instantiating a BCI2000Remote object, set its OperatorPath property to point to the desired BCI2000 Operator module. Then, call its Connect() method to start up that module, and connect to it. You may then use the StartupModules() method in order to start up BCI2000 core modules.
+</p><p>Alternatively, you may specify the path to a BCI2000 batch file in the BCI2000/batch directory. An appropriate batch file should start up Operator and core modules, and needs to forward its command line arguments to the Operator module. All batch files coming with BCI2000 fulfill this condition. When a batch file is specified, there is no need to call the StartupModules() method.
+</p><p>As yet another option, you may connect to an Operator module that is already running, e.g., on a remote machine on the network. In this case, set the BCI2000Remote object's OperatorPath property to an empty string, and its TelnetAddress property to the address that the remote Operator module is listening on, i.e. the remote machine's IP address, followed with a colon, and the port specified when starting up the remote Operator module. The remote Operator module must have been started with the "--Telnet" command line option, followed with the address to listen on. On the remote machine, this would typically be "localhost:3999". Don't use any of the ports between 4000 and 4002, as this will interfere with the communication between the Operator module, and BCI2000 core modules. Depending on whether the remote Operator module has been started up together with its core modules, or not, you may then call the StartupModules() method in order to start up BCI2000 core modules on the remote machine.
+</p><p>Once all BCI2000 modules are running, you may load parameter files locally or remotely using the LoadParametersLocal() and LoadParametersRemote() methods. Subject ID, Session ID, and data directory are set using the respective BCI2000Remote properties.
+</p><p>A recording may then be started by calling the Start() method. Depending on configuration, the recording will terminate automatically, or needs to be terminated by a call to the Stop() method.
+</p><p>To run BCI2000 in a different configuration (i.e., with different core modules), it is not necessary to terminate the Operator module. Rather, you may execute StartupModules() multiple times in order to terminate currently running core modules, and start different ones.
+</p><p>Once you are done using BCI2000, you may close the connection by calling the Disconnect() method, or by deleting the BCI2000Remote object. Depending on whether the Operator module was started up by the previous Connect() call, this will terminate the Operator module as well. When connection was made to an already running Operator module, local or remote, the connection will be closed but the Operator module will remain running.
+</p>
+<h2><span class="mw-headline" id="BCI2000Remote_Members">BCI2000Remote Members</span></h2>
+<p>The BCI2000Remote class has the following members:
+</p>
+<h3><span class="mw-headline" id="Properties">Properties</span></h3>
+<h4><span id="double_Timeout=5_(rw)"></span><span class="mw-headline" id="double_Timeout.3D5_.28rw.29">double Timeout=5 (rw)</span></h4>
+<p>Timeout in seconds. Applies when establishing communication between BCI2000Remote and BCI2000.
+</p>
+<h4><span id="string_OperatorPath=&quot;&quot;_(rw)"></span><span class="mw-headline" id="string_OperatorPath.3D.22.22_.28rw.29">string OperatorPath="" (rw)</span></h4>
+<p>Path to Operator module, or batch file. When empty, BCI2000Remote tries to connect to an already running Operator module which may be on a different machine.
+</p>
+<h4><span id="string_TelnetAddress=&quot;localhost:3999&quot;_(rw)"></span><span class="mw-headline" id="string_TelnetAddress.3D.22localhost:3999.22_.28rw.29">string TelnetAddress="localhost:3999" (rw)</span></h4>
+<p>Telnet address to use for connection. Defaults to localhost:3999. When an operator path is specified, this must be a local address which will be used for communication. To connect to a remote machine, specify the machine's IP address, followed with BCI2000's listening port. You should take care to avoid specifying a port that is used by BCI2000's internal connections between Operator and core modules. By default, these are 4000, 4001, and 4002.
+</p>
+<h5><span id="bool_WindowVisible=2_(rw)"></span><span class="mw-headline" id="bool_WindowVisible.3D2_.28rw.29">bool WindowVisible=2 (rw)</span></h5>
+<p>Visibility of the BCI2000 main window. 0: Invisible, 1: visible, 2: don't change.
+</p>
+<h4><span id="string_WindowTitle_(rw)"></span><span class="mw-headline" id="string_WindowTitle_.28rw.29">string WindowTitle (rw)</span></h4>
+<p>The title of the BCI2000 main window.
+</p>
+<h4><span id="string_Result_(r)"></span><span class="mw-headline" id="string_Result_.28r.29">string Result (r)</span></h4>
+<p>Text output of the previously executed command, or an error message when the previously executed command failed.
+</p>
+<h4><span class="mw-headline" id="Recording_information">Recording information</span></h4>
+<h5><span id="string_SubjectID_(rw)"></span><span class="mw-headline" id="string_SubjectID_.28rw.29">string SubjectID (rw)</span></h5>
+<p>The subject ID for the next recording. When this property is empty, the subject ID is taken from the current value of the SubjectName parameter.
+</p>
+<h5><span id="string_SessionID_(rw)"></span><span class="mw-headline" id="string_SessionID_.28rw.29">string SessionID (rw)</span></h5>
+<p>The session ID for the next recording. When this property is empty, the session ID is taken from the SubjectSession parameter.
+</p>
+<h5><span id="string_DataDirectory_(rw)"></span><span class="mw-headline" id="string_DataDirectory_.28rw.29">string DataDirectory (rw)</span></h5>
+<p>The data directory for the next recording. When a relative path is given, it is taken relative to BCI2000/data. When this property is empty, the data directory is taken from the DataDirectory parameter.
+</p>
+<h3><span class="mw-headline" id="Connection_methods">Connection methods</span></h3>
+<h4><span id="bool_Connect()"></span><span class="mw-headline" id="bool_Connect.28.29">bool Connect()</span></h4>
+<p>Connect to BCI2000. When OperatorPath is not empty, and no operator module is listening at TelnetAddress, this starts up the operator module before connecting. Will return true on success.
+</p>
+<h4><span id="bool_Connect(_BCI2000Remote_)"></span><span class="mw-headline" id="bool_Connect.28_BCI2000Remote_.29">bool Connect( BCI2000Remote )</span></h4>
+<p>Connects to the same Operator module as the BCI2000Remote instance given as an argument. This will not start BCI2000 when it is not running, thus it is necessary that the argument instance's Connect() method has been called before.
+</p>
+<h4><span id="bool_Disconnect()"></span><span class="mw-headline" id="bool_Disconnect.28.29">bool Disconnect()</span></h4>
+<p>Disconnect from an existing connection. Terminates the running operator module if it was started by the previous Connect() call.
+</p>
+<h3><span class="mw-headline" id="Control_of_operation">Control of operation</span></h3>
+<h4><span id="bool_StartupModules(_vector(string)_modules_)"></span><span class="mw-headline" id="bool_StartupModules.28_vector.28string.29_modules_.29">bool StartupModules( vector(string) modules )</span></h4>
+<p>Start BCI2000 core modules, listed by executable name, including possible command line arguments. Each entry in the array corresponds to a single core module, given relative to the Operator module's working directory, which defaults to BCI2000/prog. You do not need to call this function if the OperatorPath property specifies a batch file rather than the Operator module itself.
+</p>
+<h4><span id="bool_SetConfig()"></span><span class="mw-headline" id="bool_SetConfig.28.29">bool SetConfig()</span></h4>
+<p>Applies the current set of parameters. Will be called from Start() automatically. Returns false if parameters could not be set, e.g. because the system was in running state, or because there was a preflight error when applying parameters. Use the Result property to obtain more error information.
+</p>
+<h4><span id="bool_Start()"></span><span class="mw-headline" id="bool_Start.28.29">bool Start()</span></h4>
+<p>Starts a new run (recording) with current parameters. Returns false if the run could not be started. Use the Result property to obtain more error information.
+</p>
+<h4><span id="bool_Stop()"></span><span class="mw-headline" id="bool_Stop.28.29">bool Stop()</span></h4>
+<p>Stops the current run (recording).
+</p>
+<h3><span class="mw-headline" id="Parameters_and_system_state">Parameters and system state</span></h3>
+<h4><span id="bool_GetParameter(_string_name,_string&amp;_value_)"></span><span class="mw-headline" id="bool_GetParameter.28_string_name.2C_string.26_value_.29">bool GetParameter( string name, string&amp; value )</span></h4>
+<p>Copies the specified parameter's value into the <i>value</i> output argument. Returns false if parameter does not exist.
+</p>
+<h4><span id="bool_SetParameter(_string_name,_string_value_)"></span><span class="mw-headline" id="bool_SetParameter.28_string_name.2C_string_value_.29">bool SetParameter( string name, string value )</span></h4>
+<p>Sets the specified parameter to the given value. The parameter must exist in the system. To add a parameter, use the Execute() method in conjunction with the <a href="User_Reference%253AOperator_Module_Scripting.html#ADD_PARAMETER_.3Cparameter_definition.3E" title="User Reference:Operator Module Scripting">ADD PARAMETER</a> scripting command.
+</p>
+<h4><span id="bool_LoadParametersLocal(_string_file_)"></span><span class="mw-headline" id="bool_LoadParametersLocal.28_string_file_.29">bool LoadParametersLocal( string file )</span></h4>
+<p>Load parameters from a file, relative to the working directory of the calling application. This function returns false if the specified file was not found but will not provide information whether parameters were sent successfully. Rather, illegal parameter lines will be silently ignored.
+</p>
+<h4><span id="bool_LoadParametersRemote(_string_file_)"></span><span class="mw-headline" id="bool_LoadParametersRemote.28_string_file_.29">bool LoadParametersRemote( string file )</span></h4>
+<p>Load parameters from a file, relative to the working directory of the Operator module connected to. Unless explicitly changed, that working directory is the BCI2000/prog directory in which the Operator module resides.
+</p>
+<h4><span id="bool_AddStateVariable(_string_name,_int_bitWidth,_double_initialValue_)"></span><span class="mw-headline" id="bool_AddStateVariable.28_string_name.2C_int_bitWidth.2C_double_initialValue_.29">bool AddStateVariable( string name, int bitWidth, double initialValue )</span></h4>
+<p>Adds a <a href="Technical_Reference%253AState_Definition.html" title="Technical Reference:State Definition">state variable</a> to the system. This is only possible before core modules have connected to the Operator module.
+State variables added by <i>AddStateVariable()</i> are plain state variables (i.e., not event or stream state variables).
+</p>
+<h4><span id="bool_GetStateVariable(_string_name,_double&amp;_value_)"></span><span class="mw-headline" id="bool_GetStateVariable.28_string_name.2C_double.26_value_.29">bool GetStateVariable( string name, double&amp; value )</span></h4>
+<p>Gets the value of a named BCI2000 state variable. If no error occurred, the value will be copied into the "value" output variable.
+<i>GetStateVariable()</i> will retrieve values of plain state variables as well as stream state variables, but not event state variables.
+</p>
+<h4><span id="bool_SetStateVariable(_string_name,_double_value_)"></span><span class="mw-headline" id="bool_SetStateVariable.28_string_name.2C_double_value_.29">bool SetStateVariable( string name, double value )</span></h4>
+<p>Sets the value of the named BCI2000 state variable to the given value. Returns false on error.
+<i>SetStateVariable()</i> can set values of plain state variables as well as stream state variables, but not event state variables.
+</p>
+<h4><span id="bool_AddEventVariable(_string_name,_int_bitWidth,_double_initialValue_)"></span><span class="mw-headline" id="bool_AddEventVariable.28_string_name.2C_int_bitWidth.2C_double_initialValue_.29">bool AddEventVariable( string name, int bitWidth, double initialValue )</span></h4>
+<p>Adds an <a href="Technical_Reference%253AState_Definition.html#Events" title="Technical Reference:State Definition">event variable</a> to the system. This is only possible before core modules have connected to the Operator module.	
+</p>
+<h4><span id="bool_GetEventVariable(_string_name,_double&amp;_value_)"></span><span class="mw-headline" id="bool_GetEventVariable.28_string_name.2C_double.26_value_.29">bool GetEventVariable( string name, double&amp; value )</span></h4>
+<p>Gets the value of a named BCI2000 event variable. If no error occurred, the value will be copied into the "value" output variable.
+</p>
+<h4><span id="bool_SetEventVariable(_string_name,_double_value_)"></span><span class="mw-headline" id="bool_SetEventVariable.28_string_name.2C_double_value_.29">bool SetEventVariable( string name, double value )</span></h4>
+<p>Asynchronously sets the value of the named BCI2000 event variable to the given value. Returns false on error.
+</p>
+<h4><span id="bool_PulseEventVariable(_string_name,_double_value_)"></span><span class="mw-headline" id="bool_PulseEventVariable.28_string_name.2C_double_value_.29">bool PulseEventVariable( string name, double value )</span></h4>
+<p>Asynchronously sets the value of the named BCI2000 event variable to the given value, for the duration of a single sample.
+Returns false on error.
+</p>
+<h4><span id="bool_GetSystemState(_string&amp;_state_)"></span><span class="mw-headline" id="bool_GetSystemState.28_string.26_state_.29">bool GetSystemState( string&amp; state )</span></h4>
+<p>Gets the current system state (i.e., state of operation). If no error occurred, the "state" output variable will contain the name of the current system state, which will be one of the names listed at <a href="User_Reference%253AOperator_Module_Scripting.html#GET_SYSTEM_STATE" title="User Reference:Operator Module Scripting">User Reference:Operator Module Scripting#GET_SYSTEM_STATE</a>.
+</p>
+<h4><span id="bool_GetControlSignal(_int_channel,_int_element,_double&amp;_value_)"></span><span class="mw-headline" id="bool_GetControlSignal.28_int_channel.2C_int_element.2C_double.26_value_.29">bool GetControlSignal( int channel, int element, double&amp; value )</span></h4>
+<p>Copies the value of the control signal at the given indices into the "value" output variable. Indices are 1-based. Typically, the control signal has only a single element, and the number of output channels corresponds to the number of feedback dimensions in feedback experiments, or is 1 in evoked potential experiments.
+</p>
+<h3><span class="mw-headline" id="Scripting_methods">Scripting methods</span></h3>
+<h4><span id="bool_Execute(_string_command,_int*_exitCode_=_0_)"></span><span class="mw-headline" id="bool_Execute.28_string_command.2C_int.2A_exitCode_.3D_0_.29">bool Execute( string command, int* exitCode = 0 )</span></h4>
+<p>Execute an arbitrary BCI2000 scripting command. A return value of "true" does not indicate successful execution of the command; rather, it indicates that the command was sent, and its result was received. In general, the <b>Result</b> property needs to be examined in order to determine whether the command was executed successfully.
+</p><p>In many cases, the optional <i>exitCode</i> argument may be specified to obtain the result status of a command in an integer variable that the <i>exitCode</i> pointer points to.
+The exact meaning of the exit code depends on the command that has been executed, so it is necessary to be aware of a command's possible responses before evaluating an exit code.
+</p><p>In detail, the exit code is determined as follows:
+</p>
+<ul><li>When Execute() is used to execute a SYSTEM command, the exit code will match the exit code of the program that was run through the SYSTEM command. By convention, such exit codes are nonzero on failure, and zero on success.</li>
+<li>For other commands, the exit code is derived from the <b>Result</b> property as follows:
+<ul><li>If <b>Result</b> may be interpreted as a single floating point number, the exit code will be 0 for a nonzero number, and 1 if the number is zero.</li>
+<li>If <b>Result</b> is "true" or "false" (without considering case), the exit code will be 0 for "true", and 1 for "false".</li>
+<li>If <b>Result</b> is empty, the exit code will be 0.</li>
+<li>If <b>Result</b> does not match any of the previous conditions, the exit code will be -1 to indicate that there was no obvious interpretation.</li></ul></li></ul>
+<p>This scheme is chosen to simplify client code for the most common cases:
+</p>
+<ul><li>external programs run through the SYSTEM command,</li>
+<li>commands which do not have an output except in case of failure,</li>
+<li>functions returning binary values, such as the test command,</li>
+<li>expressions evaluated as logical conditions.</li></ul>
+<p>In all these cases, the exit code will be 0 on success, and 1 on failure.
+</p><p>When executing a command that may return an arbitrary string (e.g., EXECUTE SCRIPT, or ECHO), the exit code should not be used. In this case, the <i>exitCode</i> argument may be omitted, or may be NULL.
+</p><p>A full documentation of BCI2000 Operator scripting commands is available under <a href="User_Reference%253AOperator_Module_Scripting.html" title="User Reference:Operator Module Scripting">User Reference:Operator Module Scripting</a>.
+</p>
+<h4><span id="bool_SetScript(_string_handlers,_string_script_)"></span><span class="mw-headline" id="bool_SetScript.28_string_handlers.2C_string_script_.29">bool SetScript( string handlers, string script )</span></h4>
+<p>Associate a sequence of BCI2000 scripting commands with the specified events. Events are given by name, as defined in the <a href="User_Reference%253AOperator_Module_Scripting.html" title="User Reference:Operator Module Scripting">scripting reference</a>. Multiple handler names may be specified, concatenated with a pipe '|' character.
+</p>
+<h4><span id="bool_GetScript(_string_handler,_string&amp;_script_)"></span><span class="mw-headline" id="bool_GetScript.28_string_handler.2C_string.26_script_.29">bool GetScript( string handler, string&amp; script )</span></h4>
+<p>Copy the handler script into the <i>script</i> output variable.
+</p>
+<h3><span class="mw-headline" id="Watches">Watches</span></h3>
+<h4><span id="Watch*_NewWatch(_string_expression,_WatchCallback,_void*_callbackData_)"></span><span class="mw-headline" id="Watch.2A_NewWatch.28_string_expression.2C_WatchCallback.2C_void.2A_callbackData_.29">Watch* NewWatch( string expression, WatchCallback, void* callbackData )</span></h4>
+<p>Creates a new watch object that watches on the expression or expressions given, and calls the specified callback each time the expression value changes. CallbackData is arbitrary user data (e.g., a pointer to an object) required for processing the callback.
+If multiple expressions are given, they must be separated by tab characters.
+</p><p>The watch object may be disposed of by calling an ordinary delete.
+</p>
+<h4><span id="void_WatchCallback(_void*_callbackData,_const_char*_values_)"></span><span class="mw-headline" id="void_WatchCallback.28_void.2A_callbackData.2C_const_char.2A_values_.29">void WatchCallback( void* callbackData, const char* values )</span></h4>
+<p>Signature of a user-defined callback function that receives expression values, along with the arbitrary user data stored in callbackData. The values string starts with millisecond timestamp, followed with one value for each expression, and a trailing CRLF. Values are separated by tab characters.
+</p>
+<h2><span class="mw-headline" id="Dependencies">Dependencies</span></h2>
+<p>To facilitate the use of BCI2000Remote, it only depends on very few files from the BCI2000 framework. To use BCI2000Remote in a C++ project, you will need to add the following cpp files to the project, and their parent directories to the list of include paths:
+</p>
+<pre>BCI2000/src/core/Operator/BCI2000Remote/BCI2000Remote.cpp
+BCI2000/src/core/Operator/BCI2000Remote/BCI2000Connection.cpp
+BCI2000/src/shared/utils/Lib/sockstream.cpp
+BCI2000/src/shared/utils/Lib/selfpipe.cpp
+</pre>
+<p>Also, on Windows you will need to link against this additional library:
+</p>
+<pre>WS2_32
+</pre>
+<h2><span class="mw-headline" id="BCI2000RemoteLib">BCI2000RemoteLib</span></h2>
+<p>The BCI2000RemoteLib is a dynamic library that exports a C-style wrapper around the BCI2000Remote class, such that it may be used from scripting languages that support execution of library code. A C-style wrapper is required because no stable conventions exist regarding the export of classes and objects from dynamic libraries.
+</p><p>BCI2000Remote member functions are directly mapped on C functions by adding an object handle as a first argument, and by replacing <tt>std::string</tt> arguments with C string arguments. To instantiate a BCI2000Remote object, and obtain an object handle, call <tt>BCI2000Remote_New()</tt>; specify this handle as a first argument to any BCI2000Remote member function you would like to call, and finally delete the object by specifying its handle as an argument to <tt>BCI2000Remote_Delete()</tt>. An object handle should always be treated as an opaque reference, and never be cast to a pointer of type <tt>BCI2000Remote*</tt>.
+</p><p>Similarly, <tt>BCI20000Remote_NewWatch()</tt> returns a reference to a watch object as a <tt>void*</tt>. Once you are done with the watch object, call <tt>BCI2000Remote_DeleteWatch()</tt> to dispose of it.
+</p><p>Any function that returns a C string as a <tt>const char*</tt> may return a zero pointer, indicating failure, or a valid pointer to a C string, indicating success. If a valid pointer is returned, the associated memory has been allocated by the library, and will be invalidated by the next call to a C string returning function. Earlier versions of BCI2000RemoteLib required to call <tt>BCI2000Release()</tt> after receiving a C string. This is no longer the case. Instead, the memory allocated for the C string is deallocated on the next call that returns a C string.
+</p>
+<h2><span id="C++_Example"></span><span class="mw-headline" id="C.2B.2B_Example">C++ Example</span></h2>
+<pre>#include "BCI2000Remote.h"
+#include &lt;string&gt;
+#include &lt;vector&gt;
+#include &lt;iostream&gt;
+
+int main( int argc, char* argv[] )
+{
+  // Instantiate a BCI2000Remote object
+  BCI2000Remote bci;
+  // Assume that Operator executable resides in the same directory as this program.
+  std::string path = ( argc &gt; 0 )&#160;? argv[0]&#160;: "";
+  size_t pos = path.find_last_of( "\\/" );
+  path = ( pos&#160;!= std::string::npos )&#160;? path.substr( 0, pos + 1 )&#160;: "";
+  // Start the Operator module, and connect
+  bci.OperatorPath( path + "Operator" );
+  if( !bci.Connect() )
+  {
+    std::cerr &lt;&lt; bci.Result();
+    return -1;
+  }
+  // Startup modules
+  const char* modules[] = { "SignalGenerator --LogMouse=1", "ARSignalProcessing", "CursorTask" };
+  std::vector&lt;std::string&gt; vModules( &amp;modules[0], &amp;modules[0] + sizeof( modules ) / sizeof( *modules ) );
+  if( !bci.StartupModules( vModules ) )
+  {
+    std::cerr &lt;&lt; bci.Result();
+    return -1;
+  }
+  // Load a parameter file, and set subject information
+  bci.LoadParametersRemote( "../parms/examples/CursorTask_SignalGenerator.prm" );
+  bci.SubjectID( "SUB" );
+  // Start a run
+  if( !bci.Start() )
+  {
+    std::cerr &lt;&lt; bci.Result();
+    return -1;
+  }
+  // Print feedback signal
+  std::string state;
+  while( bci.GetSystemState( state ) &amp;&amp; state == "Running" )
+  {
+    double value = 0;
+    bci.GetControlSignal( 1, 1, value );
+    std::cout &lt;&lt; "Control signal: " &lt;&lt; value &lt;&lt; ", press Enter to proceed" &lt;&lt; std::flush;
+    std::string line;
+    std::getline( std::cin, line );
+  }
+  return 0;
+}
+</pre>
+<h2><span class="mw-headline" id="Matlab_Example">Matlab Example</span></h2>
+<pre>%% c library load, initial part
+clc;clear;
+if not(libisloaded('bci'))
+    loadlibrary('C:\BCI2000.x64\prog\BCI2000RemoteLib64','C:\BCI2000.x64\src\core\Operator\BCI2000Remote\BCI2000RemoteLib.h', 'alias', 'bci')
+end
+libfunctions('bci')
+%need to call BCI2000Remote_Delete to recover the memory
+bciHandle = calllib('bci', 'BCI2000Remote_New');
+calllib('bci', 'BCI2000Remote_SetOperatorPath', bciHandle,'C:/BCI2000.x64/prog/Operator');
+if calllib('bci', 'BCI2000Remote_Connect', bciHandle) ~= 1
+    fprintf('Could not connect to BCI2000, aborting.')
+    calllib('bci', 'BCI2000Remote_Delete', bciHandle);
+    return
+end
+calllib('bci', 'BCI2000Remote_Execute', bciHandle,'Change directory $BCI2000LAUNCHDIR',0);
+
+calllib('bci', 'BCI2000Remote_SetWindowVisible', bciHandle,1);
+modules = libpointer('stringPtrPtr', {'SignalGenerator', 'SpectralSignalProcessing', 'CursorTask'});
+calllib('bci', 'BCI2000Remote_StartupModules2', bciHandle, modules, 3);
+calllib('bci', 'BCI2000Remote_LoadParametersRemote', bciHandle, '../parms/examples/CursorTask_SignalGenerator.prm');
+%%
+%add states
+calllib('bci', 'BCI2000Remote_AddStateVariable', bciHandle,'matlab',8, 0);
+
+calllib('bci', 'BCI2000Remote_SetConfig', bciHandle);
+
+calllib('bci', 'BCI2000Remote_Execute', bciHandle,'Show window watches',0);
+calllib('bci', 'BCI2000Remote_Execute', bciHandle,'visualize watch matlab',0);
+%start
+calllib('bci', 'BCI2000Remote_Start', bciHandle);
+pause(5);
+
+%% send the behavior data to BCI2000
+for i = 1:10
+    calllib('bci', 'BCI2000Remote_SetStateVariable', bciHandle,'matlab', i);
+    pause(1);
+end
+
+calllib('bci', 'BCI2000Remote_Delete', bciHandle);
+
+</pre>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Contributions%253ABCI2000Automation.html" title="Contributions:BCI2000Automation">Contributions:BCI2000Automation</a>, <a href="Contributions%253ABCI2000PresentationLink.html" title="Contributions:BCI2000PresentationLink">Contributions:BCI2000PresentationLink</a>, <a href="Contributions%253ABCI2000Command.html" title="Contributions:BCI2000Command">Contributions:BCI2000Command</a>, <a href="Contributions%253ABCI2000PythonBindings.html" title="Contributions:BCI2000PythonBindings">Contributions:BCI2000PythonBindings</a>, <a href="Contributions%253AApplications.html" title="Contributions:Applications">Contributions:Applications</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524175536
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.042 seconds
+Real time usage: 0.048 seconds
+Preprocessor visited node count: 170/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 3232/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2040-0!canonical and timestamp 20230524175536 and revision id 10143
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:BCI2000Remote_Class&amp;oldid=10143">http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:BCI2000Remote_Class&amp;oldid=10143</a>"</div>
+ </div>
+</body>
+</html>

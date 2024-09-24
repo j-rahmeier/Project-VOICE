@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Technical Reference:BCI2000Remote Library - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul><li class="toc1">System Design and Communication Protocols</li><ul><li class="toc2"><a href="Technical_Reference%253ASystem_Design.html">System Design</a></li><li class="toc2"><a href="Technical_Reference%253ACore_Modules.html">Core Modules</a></li><li class="toc2"><a href="Technical_Reference%253AStates_of_Operation.html">States of Operation</a></li></ul><li class="toc1">Transmission Protocol Specification</li><ul><li class="toc2"><a href="Technical_Reference%253ABCI2000_Messages.html">BCI2000 Messages</a></li><li class="toc2"><a href="Technical_Reference%253AParameter_Definition.html">Parameter Definition</a></li><li class="toc2"><a href="Technical_Reference%253AState_Definition.html">State Definition</a></li><li class="toc2"><a href="Technical_Reference%253AVisualization_Properties.html">Visualization Properties</a></li></ul><li class="toc1">File Formats</li><ul><li class="toc2"><a href="Technical_Reference%253ABCI2000_File_Format.html">Data File Format</a></li><li class="toc2"><a href="Technical_Reference%253AParameter_File.html">Parameter File Format</a></li></ul><li class="toc1">External Interfaces</li><ul><li class="toc2"><a href="Technical_Reference%253AApp_Connector.html">App Connector</a></li><li class="toc2"><a href="Technical_Reference%253AOperator_Library.html">Operator Library</a></li><li class="toc2">BCI2000Remote</li></ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">BCI2000Remote Library</h1>
+ <p class = "subtitle">Technical Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>The BCI2000Remote Library provides a C interface to the <a href="Programming_Reference%253ABCI2000Remote_Class.html" title="Programming Reference:BCI2000Remote Class">BCI2000Remote</a> C++ class. It may be used to control the BCI2000 Operator module from external applications. The BCI2000Remote library can be used from any programming language that allows using a shared library (DLL). Although the BCI2000Remote library is written in C++, its DLL interface is plain C, and can be used with compiled languages such as C, C++, C#, Pascal, but also with interpreted languages that can call functions in a DLL, such as Python, Matlab, VisualBasic, etc. Interfacing with Java requires a JNI (Java Native Interface) wrapper, which is currently not provided by BCI2000.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Technical_Reference%253ABCI2000Remote_Library.html#Functions_specific_to_the_Library"><span class="tocnumber">1</span> <span class="toctext">Functions specific to the Library</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="Technical_Reference%253ABCI2000Remote_Library.html#void.2A_BCI2000Remote_New.28_void_.29"><span class="tocnumber">1.1</span> <span class="toctext">void* BCI2000Remote_New( void )</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="Technical_Reference%253ABCI2000Remote_Library.html#int_BCI2000Remote_Delete.28_void.2A_.29"><span class="tocnumber">1.2</span> <span class="toctext">int BCI2000Remote_Delete( void* )</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="Technical_Reference%253ABCI2000Remote_Library.html#void_WatchCallback.28_void.2A.2C_const_char.2A_.29"><span class="tocnumber">1.3</span> <span class="toctext">void WatchCallback( void*, const char* )</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Technical_Reference%253ABCI2000Remote_Library.html#void.2A_BCI2000Remote_NewWatch.28_void.2A_bci2000RemoteObject.2C_const_char.2A_expression.2C_WatchCallback.2C_void.2A_.29"><span class="tocnumber">1.4</span> <span class="toctext">void* BCI2000Remote_NewWatch( void* bci2000RemoteObject, const char* expression, WatchCallback, void* )</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Technical_Reference%253ABCI2000Remote_Library.html#int_BCI2000Remote_DeleteWatch.28_void.2A_.29"><span class="tocnumber">1.5</span> <span class="toctext">int BCI2000Remote_DeleteWatch( void* )</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="Technical_Reference%253ABCI2000Remote_Library.html#BCI2000Remote_Member_Functions"><span class="tocnumber">2</span> <span class="toctext">BCI2000Remote Member Functions</span></a>
+<ul>
+<li class="toclevel-2 tocsection-8"><a href="Technical_Reference%253ABCI2000Remote_Library.html#double_BCI2000Remote_GetTimeout.28_void.2A_.29"><span class="tocnumber">2.1</span> <span class="toctext">double BCI2000Remote_GetTimeout( void* )</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="Technical_Reference%253ABCI2000Remote_Library.html#void_BCI2000Remote_SetTimeout.28_void.2A.2C_double_timeout_.29"><span class="tocnumber">2.2</span> <span class="toctext">void BCI2000Remote_SetTimeout( void*, double timeout )</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="Technical_Reference%253ABCI2000Remote_Library.html#const_char.2A_BCI2000Remote_GetOperatorPath.28_void.2A_.29"><span class="tocnumber">2.3</span> <span class="toctext">const char* BCI2000Remote_GetOperatorPath( void* )</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="Technical_Reference%253ABCI2000Remote_Library.html#void_BCI2000Remote_SetOperatorPath.28_void.2A.2C_const_char.2A_.29"><span class="tocnumber">2.4</span> <span class="toctext">void BCI2000Remote_SetOperatorPath( void*, const char* )</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="Technical_Reference%253ABCI2000Remote_Library.html#int_BCI2000Remote_GetWindowVisible.28_void.2A_.29"><span class="tocnumber">2.5</span> <span class="toctext">int BCI2000Remote_GetWindowVisible( void* )</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="Technical_Reference%253ABCI2000Remote_Library.html#void_BCI2000Remote_SetWindowVisible.28_void.2A.2C_int_visible_.29"><span class="tocnumber">2.6</span> <span class="toctext">void BCI2000Remote_SetWindowVisible( void*, int visible )</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="Technical_Reference%253ABCI2000Remote_Library.html#const_char.2A_BCI2000Remote_GetWindowTitle.28_void.2A_.29"><span class="tocnumber">2.7</span> <span class="toctext">const char* BCI2000Remote_GetWindowTitle( void* )</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="Technical_Reference%253ABCI2000Remote_Library.html#void_BCI2000Remote_SetWindowTitle.28_void.2A.2C_const_char.2A_.29"><span class="tocnumber">2.8</span> <span class="toctext">void BCI2000Remote_SetWindowTitle( void*, const char* )</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="Technical_Reference%253ABCI2000Remote_Library.html#const_char.2A_BCI2000Remote_GetTelnetAddress.28_void.2A_.29"><span class="tocnumber">2.9</span> <span class="toctext">const char* BCI2000Remote_GetTelnetAddress( void* )</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="Technical_Reference%253ABCI2000Remote_Library.html#void_BCI2000Remote_SetTelnetAddress.28_void.2A.2C_const_char.2A_.29"><span class="tocnumber">2.10</span> <span class="toctext">void BCI2000Remote_SetTelnetAddress( void*, const char* )</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="Technical_Reference%253ABCI2000Remote_Library.html#int_BCI2000Remote_GetConnected.28_void.2A_.29"><span class="tocnumber">2.11</span> <span class="toctext">int BCI2000Remote_GetConnected( void* )</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="Technical_Reference%253ABCI2000Remote_Library.html#const_char.2A_BCI2000Remote_GetResult.28_void.2A_.29"><span class="tocnumber">2.12</span> <span class="toctext">const char* BCI2000Remote_GetResult( void* )</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="Technical_Reference%253ABCI2000Remote_Library.html#const_char.2A_BCI2000Remote_GetSubjectID.28_void.2A_.29"><span class="tocnumber">2.13</span> <span class="toctext">const char* BCI2000Remote_GetSubjectID( void* )</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="Technical_Reference%253ABCI2000Remote_Library.html#void_BCI2000Remote_SetSubjectID.28_void.2A.2C_const_char.2A_.29"><span class="tocnumber">2.14</span> <span class="toctext">void BCI2000Remote_SetSubjectID( void*, const char* )</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="Technical_Reference%253ABCI2000Remote_Library.html#const_char.2A_BCI2000Remote_GetSessionID.28_void.2A_.29"><span class="tocnumber">2.15</span> <span class="toctext">const char* BCI2000Remote_GetSessionID( void* )</span></a></li>
+<li class="toclevel-2 tocsection-23"><a href="Technical_Reference%253ABCI2000Remote_Library.html#void_BCI2000Remote_SetSessionID.28_void.2A.2C_const_char.2A_.29"><span class="tocnumber">2.16</span> <span class="toctext">void BCI2000Remote_SetSessionID( void*, const char* )</span></a></li>
+<li class="toclevel-2 tocsection-24"><a href="Technical_Reference%253ABCI2000Remote_Library.html#const_char.2A_BCI2000Remote_GetDataDirectory.28_void.2A_.29"><span class="tocnumber">2.17</span> <span class="toctext">const char* BCI2000Remote_GetDataDirectory( void* )</span></a></li>
+<li class="toclevel-2 tocsection-25"><a href="Technical_Reference%253ABCI2000Remote_Library.html#void_BCI2000Remote_SetDataDirectory.28_void.2A.2C_const_char.2A_.29"><span class="tocnumber">2.18</span> <span class="toctext">void BCI2000Remote_SetDataDirectory( void*, const char* )</span></a></li>
+<li class="toclevel-2 tocsection-26"><a href="Technical_Reference%253ABCI2000Remote_Library.html#int_BCI2000Remote_Connect.28_void.2A_.29"><span class="tocnumber">2.19</span> <span class="toctext">int BCI2000Remote_Connect( void* )</span></a></li>
+<li class="toclevel-2 tocsection-27"><a href="Technical_Reference%253ABCI2000Remote_Library.html#int_BCI2000Remote_Disconnect.28_void.2A_.29"><span class="tocnumber">2.20</span> <span class="toctext">int BCI2000Remote_Disconnect( void* )</span></a></li>
+<li class="toclevel-2 tocsection-28"><a href="Technical_Reference%253ABCI2000Remote_Library.html#int_BCI2000Remote_Execute.28_void.2A.2C_const_char.2A_.29"><span class="tocnumber">2.21</span> <span class="toctext">int BCI2000Remote_Execute( void*, const char* )</span></a></li>
+<li class="toclevel-2 tocsection-29"><a href="Technical_Reference%253ABCI2000Remote_Library.html#int_BCI2000Remote_StartupModules.28_void.2A.2C_const_char.2A_.29"><span class="tocnumber">2.22</span> <span class="toctext">int BCI2000Remote_StartupModules( void*, const char* )</span></a></li>
+<li class="toclevel-2 tocsection-30"><a href="Technical_Reference%253ABCI2000Remote_Library.html#int_BCI2000Remote_StartupModules2.28_void.2A.2C_const_char.2A.2A.2C_int_.29"><span class="tocnumber">2.23</span> <span class="toctext">int BCI2000Remote_StartupModules2( void*, const char**, int )</span></a></li>
+<li class="toclevel-2 tocsection-31"><a href="Technical_Reference%253ABCI2000Remote_Library.html#int_BCI2000Remote_LoadParametersLocal.28_void.2A.2C_const_char.2A_.29"><span class="tocnumber">2.24</span> <span class="toctext">int BCI2000Remote_LoadParametersLocal( void*, const char* )</span></a></li>
+<li class="toclevel-2 tocsection-32"><a href="Technical_Reference%253ABCI2000Remote_Library.html#int_BCI2000Remote_LoadParametersRemote.28_void.2A.2C_const_char.2A_.29"><span class="tocnumber">2.25</span> <span class="toctext">int BCI2000Remote_LoadParametersRemote( void*, const char* )</span></a></li>
+<li class="toclevel-2 tocsection-33"><a href="Technical_Reference%253ABCI2000Remote_Library.html#int_BCI2000Remote_SetConfig.28_void.2A_.29"><span class="tocnumber">2.26</span> <span class="toctext">int BCI2000Remote_SetConfig( void* )</span></a></li>
+<li class="toclevel-2 tocsection-34"><a href="Technical_Reference%253ABCI2000Remote_Library.html#int_BCI2000Remote_Start.28_void.2A_.29"><span class="tocnumber">2.27</span> <span class="toctext">int BCI2000Remote_Start( void* )</span></a></li>
+<li class="toclevel-2 tocsection-35"><a href="Technical_Reference%253ABCI2000Remote_Library.html#int_BCI2000Remote_Stop.28_void.2A_.29"><span class="tocnumber">2.28</span> <span class="toctext">int BCI2000Remote_Stop( void* )</span></a></li>
+<li class="toclevel-2 tocsection-36"><a href="Technical_Reference%253ABCI2000Remote_Library.html#int_BCI2000Remote_Quit.28_void.2A_.29"><span class="tocnumber">2.29</span> <span class="toctext">int BCI2000Remote_Quit( void* )</span></a></li>
+<li class="toclevel-2 tocsection-37"><a href="Technical_Reference%253ABCI2000Remote_Library.html#const_char.2A_BCI2000Remote_GetSystemState.28_void.2A_.29"><span class="tocnumber">2.30</span> <span class="toctext">const char* BCI2000Remote_GetSystemState( void* )</span></a></li>
+<li class="toclevel-2 tocsection-38"><a href="Technical_Reference%253ABCI2000Remote_Library.html#int_BCI2000Remote_GetControlSignal.28_void.2A.2C_int.2C_int.2C_double.2A_.29"><span class="tocnumber">2.31</span> <span class="toctext">int BCI2000Remote_GetControlSignal( void*, int, int, double* )</span></a></li>
+<li class="toclevel-2 tocsection-39"><a href="Technical_Reference%253ABCI2000Remote_Library.html#int_BCI2000Remote_SetParameter.28_void.2A.2C_const_char.2A_name.2C_const_char.2A_value_.29"><span class="tocnumber">2.32</span> <span class="toctext">int BCI2000Remote_SetParameter( void*, const char* name, const char* value )</span></a></li>
+<li class="toclevel-2 tocsection-40"><a href="Technical_Reference%253ABCI2000Remote_Library.html#const_char.2A_BCI2000Remote_GetParameter.28_void.2A.2C_const_char.2A_name_.29"><span class="tocnumber">2.33</span> <span class="toctext">const char* BCI2000Remote_GetParameter( void*, const char* name )</span></a></li>
+<li class="toclevel-2 tocsection-41"><a href="Technical_Reference%253ABCI2000Remote_Library.html#int_BCI2000Remote_AddStateVariable.28_void.2A.2C_const_char.2A_name.2C_unsigned_int_bitWidth.2C_double_initialValue_.29"><span class="tocnumber">2.34</span> <span class="toctext">int BCI2000Remote_AddStateVariable( void*, const char* name, unsigned int bitWidth, double initialValue )</span></a></li>
+<li class="toclevel-2 tocsection-42"><a href="Technical_Reference%253ABCI2000Remote_Library.html#int_BCI2000Remote_SetStateVariable.28_void.2A.2C_const_char.2A.2C_double_.29"><span class="tocnumber">2.35</span> <span class="toctext">int BCI2000Remote_SetStateVariable( void*, const char*, double )</span></a></li>
+<li class="toclevel-2 tocsection-43"><a href="Technical_Reference%253ABCI2000Remote_Library.html#int_BCI2000Remote_GetStateVariable.28_void.2A.2C_const_char.2A.2C_double.2A_.29"><span class="tocnumber">2.36</span> <span class="toctext">int BCI2000Remote_GetStateVariable( void*, const char*, double* )</span></a></li>
+<li class="toclevel-2 tocsection-44"><a href="Technical_Reference%253ABCI2000Remote_Library.html#int_BCI2000Remote_AddEventVariable.28_void.2A.2C_const_char.2A_name.2C_unsigned_int_bitWidth.2C_double_initialValue_.29"><span class="tocnumber">2.37</span> <span class="toctext">int BCI2000Remote_AddEventVariable( void*, const char* name, unsigned int bitWidth, double initialValue )</span></a></li>
+<li class="toclevel-2 tocsection-45"><a href="Technical_Reference%253ABCI2000Remote_Library.html#int_BCI2000Remote_SetEventVariable.28_void.2A.2C_const_char.2A.2C_double_.29"><span class="tocnumber">2.38</span> <span class="toctext">int BCI2000Remote_SetEventVariable( void*, const char*, double )</span></a></li>
+<li class="toclevel-2 tocsection-46"><a href="Technical_Reference%253ABCI2000Remote_Library.html#int_BCI2000Remote_PulseEventVariable.28_void.2A.2C_const_char.2A.2C_double_.29"><span class="tocnumber">2.39</span> <span class="toctext">int BCI2000Remote_PulseEventVariable( void*, const char*, double )</span></a></li>
+<li class="toclevel-2 tocsection-47"><a href="Technical_Reference%253ABCI2000Remote_Library.html#int_BCI2000Remote_GetEventVariable.28_void.2A.2C_const_char.2A.2C_double.2A_.29"><span class="tocnumber">2.40</span> <span class="toctext">int BCI2000Remote_GetEventVariable( void*, const char*, double* )</span></a></li>
+<li class="toclevel-2 tocsection-48"><a href="Technical_Reference%253ABCI2000Remote_Library.html#int_BCI2000Remote_SetScript.28_void.2A.2C_const_char.2A.2C_const_char.2A_.29"><span class="tocnumber">2.41</span> <span class="toctext">int BCI2000Remote_SetScript( void*, const char*, const char* )</span></a></li>
+<li class="toclevel-2 tocsection-49"><a href="Technical_Reference%253ABCI2000Remote_Library.html#const_char.2A_BCI2000Remote_GetScript.28_const_char.2A_.29"><span class="tocnumber">2.42</span> <span class="toctext">const char* BCI2000Remote_GetScript( const char* )</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-50"><a href="Technical_Reference%253ABCI2000Remote_Library.html#See_also"><span class="tocnumber">3</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Functions_specific_to_the_Library">Functions specific to the Library</span></h2>
+<h3><span id="void*_BCI2000Remote_New(_void_)"></span><span class="mw-headline" id="void.2A_BCI2000Remote_New.28_void_.29">void* BCI2000Remote_New( void )</span></h3>
+<p>purpose:   Creates a new BCI2000Remote object.
+</p><p>arguments: None.
+</p><p>returns:   A handle to the newly created object.
+</p>
+<h3><span id="int_BCI2000Remote_Delete(_void*_)"></span><span class="mw-headline" id="int_BCI2000Remote_Delete.28_void.2A_.29">int BCI2000Remote_Delete( void* )</span></h3>
+<p>purpose:   Deletes a BCI2000Remote object.
+</p><p>arguments: Handle to an existing BCI2000Remote object.
+</p><p>returns:   1 if successful, 0 otherwise.
+</p>
+<h3><span id="void_WatchCallback(_void*,_const_char*_)"></span><span class="mw-headline" id="void_WatchCallback.28_void.2A.2C_const_char.2A_.29">void WatchCallback( void*, const char* )</span></h3>
+<p>purpose:   Prototype for a callback function that is called when a watch is triggered.
+</p><p>arguments: Pointer to user data as specified when <tt>BCI2000Remote_NewWatch()</tt> was called; values of expressions that triggered the watch.
+</p>
+<h3><span id="void*_BCI2000Remote_NewWatch(_void*_bci2000RemoteObject,_const_char*_expression,_WatchCallback,_void*_)"></span><span class="mw-headline" id="void.2A_BCI2000Remote_NewWatch.28_void.2A_bci2000RemoteObject.2C_const_char.2A_expression.2C_WatchCallback.2C_void.2A_.29">void* BCI2000Remote_NewWatch( void* bci2000RemoteObject, const char* expression, WatchCallback, void* )</span></h3>
+<p>purpose:   Creates a new BCI2000Remote watch object.
+</p><p>arguments: Handle to an existing BCI2000Remote object; Expression to watch; Pointer to callback function; Pointer to user data for callback function.
+</p><p>returns:   Handle to newly created watch, or NULL if not successful.
+</p>
+<h3><span id="int_BCI2000Remote_DeleteWatch(_void*_)"></span><span class="mw-headline" id="int_BCI2000Remote_DeleteWatch.28_void.2A_.29">int BCI2000Remote_DeleteWatch( void* )</span></h3>
+<p>purpose:   Deletes a BCI2000Remote watch object.
+</p><p>arguments: Handle to an existing BCI2000Remote watch object.
+</p><p>returns:   1 if successful, 0 otherwise.
+</p>
+<h2><span class="mw-headline" id="BCI2000Remote_Member_Functions">BCI2000Remote Member Functions</span></h2>
+<p>The following functions are property accessors, and member functions of BCI2000Remote
+objects. For documentation, see "Programming Reference:BCI2000Remote Class" on
+the BCI2000 wiki.
+In the C-style interface, each function takes a handle to an existing BCI2000Remote
+object as its first argument. Use BCI2000Remote_New() to create such objects.
+When a function returns a C string, the string exists in a per-thread buffer, and may not be
+released by the caller. For backward compatibility, calling BCI2000Release() on the string is allowed but will have no effect.
+Functions that return a C string may return NULL to indicate failure.
+</p>
+<h3><span id="double_BCI2000Remote_GetTimeout(_void*_)"></span><span class="mw-headline" id="double_BCI2000Remote_GetTimeout.28_void.2A_.29">double BCI2000Remote_GetTimeout( void* )</span></h3>
+<h3><span id="void_BCI2000Remote_SetTimeout(_void*,_double_timeout_)"></span><span class="mw-headline" id="void_BCI2000Remote_SetTimeout.28_void.2A.2C_double_timeout_.29">void BCI2000Remote_SetTimeout( void*, double timeout )</span></h3>
+<h3><span id="const_char*_BCI2000Remote_GetOperatorPath(_void*_)"></span><span class="mw-headline" id="const_char.2A_BCI2000Remote_GetOperatorPath.28_void.2A_.29">const char* BCI2000Remote_GetOperatorPath( void* )</span></h3>
+<h3><span id="void_BCI2000Remote_SetOperatorPath(_void*,_const_char*_)"></span><span class="mw-headline" id="void_BCI2000Remote_SetOperatorPath.28_void.2A.2C_const_char.2A_.29">void BCI2000Remote_SetOperatorPath( void*, const char* )</span></h3>
+<h3><span id="int_BCI2000Remote_GetWindowVisible(_void*_)"></span><span class="mw-headline" id="int_BCI2000Remote_GetWindowVisible.28_void.2A_.29">int BCI2000Remote_GetWindowVisible( void* )</span></h3>
+<h3><span id="void_BCI2000Remote_SetWindowVisible(_void*,_int_visible_)"></span><span class="mw-headline" id="void_BCI2000Remote_SetWindowVisible.28_void.2A.2C_int_visible_.29">void BCI2000Remote_SetWindowVisible( void*, int visible )</span></h3>
+<pre>enum
+{
+  BCI2000Remote_Invisible = 0,
+  BCI2000Remote_Visible = 1,
+  BCI2000Remote_NoChange = 2,
+};
+</pre>
+<h3><span id="const_char*_BCI2000Remote_GetWindowTitle(_void*_)"></span><span class="mw-headline" id="const_char.2A_BCI2000Remote_GetWindowTitle.28_void.2A_.29">const char* BCI2000Remote_GetWindowTitle( void* )</span></h3>
+<h3><span id="void_BCI2000Remote_SetWindowTitle(_void*,_const_char*_)"></span><span class="mw-headline" id="void_BCI2000Remote_SetWindowTitle.28_void.2A.2C_const_char.2A_.29">void BCI2000Remote_SetWindowTitle( void*, const char* )</span></h3>
+<h3><span id="const_char*_BCI2000Remote_GetTelnetAddress(_void*_)"></span><span class="mw-headline" id="const_char.2A_BCI2000Remote_GetTelnetAddress.28_void.2A_.29">const char* BCI2000Remote_GetTelnetAddress( void* )</span></h3>
+<h3><span id="void_BCI2000Remote_SetTelnetAddress(_void*,_const_char*_)"></span><span class="mw-headline" id="void_BCI2000Remote_SetTelnetAddress.28_void.2A.2C_const_char.2A_.29">void BCI2000Remote_SetTelnetAddress( void*, const char* )</span></h3>
+<h3><span id="int_BCI2000Remote_GetConnected(_void*_)"></span><span class="mw-headline" id="int_BCI2000Remote_GetConnected.28_void.2A_.29">int BCI2000Remote_GetConnected( void* )</span></h3>
+<h3><span id="const_char*_BCI2000Remote_GetResult(_void*_)"></span><span class="mw-headline" id="const_char.2A_BCI2000Remote_GetResult.28_void.2A_.29">const char* BCI2000Remote_GetResult( void* )</span></h3>
+<h3><span id="const_char*_BCI2000Remote_GetSubjectID(_void*_)"></span><span class="mw-headline" id="const_char.2A_BCI2000Remote_GetSubjectID.28_void.2A_.29">const char* BCI2000Remote_GetSubjectID( void* )</span></h3>
+<h3><span id="void_BCI2000Remote_SetSubjectID(_void*,_const_char*_)"></span><span class="mw-headline" id="void_BCI2000Remote_SetSubjectID.28_void.2A.2C_const_char.2A_.29">void BCI2000Remote_SetSubjectID( void*, const char* )</span></h3>
+<h3><span id="const_char*_BCI2000Remote_GetSessionID(_void*_)"></span><span class="mw-headline" id="const_char.2A_BCI2000Remote_GetSessionID.28_void.2A_.29">const char* BCI2000Remote_GetSessionID( void* )</span></h3>
+<h3><span id="void_BCI2000Remote_SetSessionID(_void*,_const_char*_)"></span><span class="mw-headline" id="void_BCI2000Remote_SetSessionID.28_void.2A.2C_const_char.2A_.29">void BCI2000Remote_SetSessionID( void*, const char* )</span></h3>
+<h3><span id="const_char*_BCI2000Remote_GetDataDirectory(_void*_)"></span><span class="mw-headline" id="const_char.2A_BCI2000Remote_GetDataDirectory.28_void.2A_.29">const char* BCI2000Remote_GetDataDirectory( void* )</span></h3>
+<h3><span id="void_BCI2000Remote_SetDataDirectory(_void*,_const_char*_)"></span><span class="mw-headline" id="void_BCI2000Remote_SetDataDirectory.28_void.2A.2C_const_char.2A_.29">void BCI2000Remote_SetDataDirectory( void*, const char* )</span></h3>
+<h3><span id="int_BCI2000Remote_Connect(_void*_)"></span><span class="mw-headline" id="int_BCI2000Remote_Connect.28_void.2A_.29">int BCI2000Remote_Connect( void* )</span></h3>
+<h3><span id="int_BCI2000Remote_Disconnect(_void*_)"></span><span class="mw-headline" id="int_BCI2000Remote_Disconnect.28_void.2A_.29">int BCI2000Remote_Disconnect( void* )</span></h3>
+<h3><span id="int_BCI2000Remote_Execute(_void*,_const_char*_)"></span><span class="mw-headline" id="int_BCI2000Remote_Execute.28_void.2A.2C_const_char.2A_.29">int BCI2000Remote_Execute( void*, const char* )</span></h3>
+<p>NB: This function returns the last command's execution status, which
+is a true integer, with a value of 0 indicating success in most cases.
+All other int-returning functions return a boolean integer which is
+1 on success, and 0 on failure.
+</p>
+<h3><span id="int_BCI2000Remote_StartupModules(_void*,_const_char*_)"></span><span class="mw-headline" id="int_BCI2000Remote_StartupModules.28_void.2A.2C_const_char.2A_.29">int BCI2000Remote_StartupModules( void*, const char* )</span></h3>
+<p>Provide a zero-delimited list of C strings, containing module names
+with command line arguments in the form
+</p>
+<pre>const char* list = "module1 -arg1 -arg2\0module2 -arg1\0module3 -arg1\0\0";
+</pre>
+<h3><span id="int_BCI2000Remote_StartupModules2(_void*,_const_char**,_int_)"></span><span class="mw-headline" id="int_BCI2000Remote_StartupModules2.28_void.2A.2C_const_char.2A.2A.2C_int_.29">int BCI2000Remote_StartupModules2( void*, const char**, int )</span></h3>
+<p>As an alternative to <tt>StartupModules()</tt>, provide an array of <tt>const char*</tt> in the second argument, 
+and the number of entries in the array in the third:
+</p>
+<pre>const char* list[] = { "module1 -arg1 -arg2", "module2 -arg1", "module3 -arg1" };
+int result = BCI2000Remote_StartupModules2(handle, list, 3);
+</pre>
+<h3><span id="int_BCI2000Remote_LoadParametersLocal(_void*,_const_char*_)"></span><span class="mw-headline" id="int_BCI2000Remote_LoadParametersLocal.28_void.2A.2C_const_char.2A_.29">int BCI2000Remote_LoadParametersLocal( void*, const char* )</span></h3>
+<h3><span id="int_BCI2000Remote_LoadParametersRemote(_void*,_const_char*_)"></span><span class="mw-headline" id="int_BCI2000Remote_LoadParametersRemote.28_void.2A.2C_const_char.2A_.29">int BCI2000Remote_LoadParametersRemote( void*, const char* )</span></h3>
+<h3><span id="int_BCI2000Remote_SetConfig(_void*_)"></span><span class="mw-headline" id="int_BCI2000Remote_SetConfig.28_void.2A_.29">int BCI2000Remote_SetConfig( void* )</span></h3>
+<h3><span id="int_BCI2000Remote_Start(_void*_)"></span><span class="mw-headline" id="int_BCI2000Remote_Start.28_void.2A_.29">int BCI2000Remote_Start( void* )</span></h3>
+<h3><span id="int_BCI2000Remote_Stop(_void*_)"></span><span class="mw-headline" id="int_BCI2000Remote_Stop.28_void.2A_.29">int BCI2000Remote_Stop( void* )</span></h3>
+<h3><span id="int_BCI2000Remote_Quit(_void*_)"></span><span class="mw-headline" id="int_BCI2000Remote_Quit.28_void.2A_.29">int BCI2000Remote_Quit( void* )</span></h3>
+<h3><span id="const_char*_BCI2000Remote_GetSystemState(_void*_)"></span><span class="mw-headline" id="const_char.2A_BCI2000Remote_GetSystemState.28_void.2A_.29">const char* BCI2000Remote_GetSystemState( void* )</span></h3>
+<h3><span id="int_BCI2000Remote_GetControlSignal(_void*,_int,_int,_double*_)"></span><span class="mw-headline" id="int_BCI2000Remote_GetControlSignal.28_void.2A.2C_int.2C_int.2C_double.2A_.29">int BCI2000Remote_GetControlSignal( void*, int, int, double* )</span></h3>
+<h3><span id="int_BCI2000Remote_SetParameter(_void*,_const_char*_name,_const_char*_value_)"></span><span class="mw-headline" id="int_BCI2000Remote_SetParameter.28_void.2A.2C_const_char.2A_name.2C_const_char.2A_value_.29">int BCI2000Remote_SetParameter( void*, const char* name, const char* value )</span></h3>
+<h3><span id="const_char*_BCI2000Remote_GetParameter(_void*,_const_char*_name_)"></span><span class="mw-headline" id="const_char.2A_BCI2000Remote_GetParameter.28_void.2A.2C_const_char.2A_name_.29">const char* BCI2000Remote_GetParameter( void*, const char* name )</span></h3>
+<h3><span id="int_BCI2000Remote_AddStateVariable(_void*,_const_char*_name,_unsigned_int_bitWidth,_double_initialValue_)"></span><span class="mw-headline" id="int_BCI2000Remote_AddStateVariable.28_void.2A.2C_const_char.2A_name.2C_unsigned_int_bitWidth.2C_double_initialValue_.29">int BCI2000Remote_AddStateVariable( void*, const char* name, unsigned int bitWidth, double initialValue )</span></h3>
+<h3><span id="int_BCI2000Remote_SetStateVariable(_void*,_const_char*,_double_)"></span><span class="mw-headline" id="int_BCI2000Remote_SetStateVariable.28_void.2A.2C_const_char.2A.2C_double_.29">int BCI2000Remote_SetStateVariable( void*, const char*, double )</span></h3>
+<h3><span id="int_BCI2000Remote_GetStateVariable(_void*,_const_char*,_double*_)"></span><span class="mw-headline" id="int_BCI2000Remote_GetStateVariable.28_void.2A.2C_const_char.2A.2C_double.2A_.29">int BCI2000Remote_GetStateVariable( void*, const char*, double* )</span></h3>
+<h3><span id="int_BCI2000Remote_AddEventVariable(_void*,_const_char*_name,_unsigned_int_bitWidth,_double_initialValue_)"></span><span class="mw-headline" id="int_BCI2000Remote_AddEventVariable.28_void.2A.2C_const_char.2A_name.2C_unsigned_int_bitWidth.2C_double_initialValue_.29">int BCI2000Remote_AddEventVariable( void*, const char* name, unsigned int bitWidth, double initialValue )</span></h3>
+<h3><span id="int_BCI2000Remote_SetEventVariable(_void*,_const_char*,_double_)"></span><span class="mw-headline" id="int_BCI2000Remote_SetEventVariable.28_void.2A.2C_const_char.2A.2C_double_.29">int BCI2000Remote_SetEventVariable( void*, const char*, double )</span></h3>
+<h3><span id="int_BCI2000Remote_PulseEventVariable(_void*,_const_char*,_double_)"></span><span class="mw-headline" id="int_BCI2000Remote_PulseEventVariable.28_void.2A.2C_const_char.2A.2C_double_.29">int BCI2000Remote_PulseEventVariable( void*, const char*, double )</span></h3>
+<h3><span id="int_BCI2000Remote_GetEventVariable(_void*,_const_char*,_double*_)"></span><span class="mw-headline" id="int_BCI2000Remote_GetEventVariable.28_void.2A.2C_const_char.2A.2C_double.2A_.29">int BCI2000Remote_GetEventVariable( void*, const char*, double* )</span></h3>
+<h3><span id="int_BCI2000Remote_SetScript(_void*,_const_char*,_const_char*_)"></span><span class="mw-headline" id="int_BCI2000Remote_SetScript.28_void.2A.2C_const_char.2A.2C_const_char.2A_.29">int BCI2000Remote_SetScript( void*, const char*, const char* )</span></h3>
+<h3><span id="const_char*_BCI2000Remote_GetScript(_const_char*_)"></span><span class="mw-headline" id="const_char.2A_BCI2000Remote_GetScript.28_const_char.2A_.29">const char* BCI2000Remote_GetScript( const char* )</span></h3>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Programming_Reference%253ABCI2000Remote_Class.html" title="Programming Reference:BCI2000Remote Class">Programming Reference:BCI2000Remote Class</a>, <a href="Contributions%253ABCI2000Command.html" title="Contributions:BCI2000Command">Contributions:BCI2000Command</a>, <a href="Contributions%253ABCI2000PresentationLink.html" title="Contributions:BCI2000PresentationLink">Contributions:BCI2000PresentationLink</a>, <a href="Contributions%253ABCI2000Automation.html" title="Contributions:BCI2000Automation">Contributions:BCI2000Automation</a>
+<a href="Contributions%253AApplications.html" title="Contributions:Applications">Contributions:Applications</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524175606
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.033 seconds
+Real time usage: 0.036 seconds
+Preprocessor visited node count: 151/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2053-0!canonical and timestamp 20230524175606 and revision id 10139
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Technical_Reference:BCI2000Remote_Library&amp;oldid=10139">http://www.bci2000.org/mediawiki/index.php?title=Technical_Reference:BCI2000Remote_Library&amp;oldid=10139</a>"</div>
+ </div>
+</body>
+</html>

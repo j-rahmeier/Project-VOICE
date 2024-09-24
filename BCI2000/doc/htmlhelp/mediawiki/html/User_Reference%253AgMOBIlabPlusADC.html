@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>User Reference:gMOBIlabPlusADC - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul><li class="toc1"><a href="User_Reference%253AOperator_Module.html">Operator Module</a></li><li class="toc1"><a href="User_Reference%253AOperator_Module_Scripting.html">Operator Scripting</a></li><li class="toc1"><a href="User_Reference%253AModule_Command_Line_Options.html">Module Command Line Options</a></li><li class="toc1"><a href="User_Reference%253AData_File_Formats.html">Data File Formats</a></li><li class="toc1"><a href="User_Reference%253AFilters.html">Configuration Guide</a></li><li class="toc1"><a href="User_FAQ.html">FAQ</a></li><li class="toc1">Applications</li><ul><li class="toc2"><a href="User_Reference%253ACursorTask.html">Cursor Task</a></li><li class="toc2"><a href="User_Reference%253AP3SpellerTask.html">P3Speller Task</a></li><li class="toc2"><a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:StimulusPresentation">Stimulus Presentation</a></li></ul><li class="toc1">Tools</li><ul><li class="toc2"><a href="User_Reference%253ABCI2000Certification.html">BCI2000Certification</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Launcher.html">BCI2000Launcher</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Viewer.html">BCI2000Viewer</a></li><li class="toc2"><a href="User_Reference%253ABCI2000FileInfo.html">BCI2000FileInfo</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Export.html">BCI2000Export</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Analysis.html">BCI2000Analysis</a></li><li class="toc2"><a href="User_Reference%253ABCI2000_Offline_Analysis.html">BCI2000 Offline Analysis</a></li><li class="toc2"><a href="User_Reference%253AEloc_Helper.html">Eloc Helper</a></li><li class="toc2"><a href="User_Reference%253AEEGLabImport.html">EEGLabImport</a></li><li class="toc2"><a href="User_Reference%253AMatlab_Tools.html">Matlab Tools</a></li><li class="toc2"><a href="User_Reference%253AMatlab_MEX_Files.html">Matlab MEX Files</a></li><li class="toc2"><a href="User_Reference%253ACommand_Line_Processing.html">Command Line Processing</a></li></ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">gMOBIlabPlusADC</h1>
+ <p class = "subtitle">User Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="User_Reference%253AgMOBIlabPlusADC.html#Function"><span class="tocnumber">1</span> <span class="toctext">Function</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="User_Reference%253AgMOBIlabPlusADC.html#g.MOBIlab_Hardware"><span class="tocnumber">1.1</span> <span class="toctext">g.MOBIlab Hardware</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-3"><a href="User_Reference%253AgMOBIlabPlusADC.html#Installation"><span class="tocnumber">2</span> <span class="toctext">Installation</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="User_Reference%253AgMOBIlabPlusADC.html#Parameters"><span class="tocnumber">3</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="User_Reference%253AgMOBIlabPlusADC.html#COMport"><span class="tocnumber">3.1</span> <span class="toctext">COMport</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="User_Reference%253AgMOBIlabPlusADC.html#SourceCh"><span class="tocnumber">3.2</span> <span class="toctext">SourceCh</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="User_Reference%253AgMOBIlabPlusADC.html#SampleBlockSize"><span class="tocnumber">3.3</span> <span class="toctext">SampleBlockSize</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="User_Reference%253AgMOBIlabPlusADC.html#SamplingRate"><span class="tocnumber">3.4</span> <span class="toctext">SamplingRate</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="User_Reference%253AgMOBIlabPlusADC.html#InfoMode"><span class="tocnumber">3.5</span> <span class="toctext">InfoMode</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="User_Reference%253AgMOBIlabPlusADC.html#DigitalEnable"><span class="tocnumber">3.6</span> <span class="toctext">DigitalEnable</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="User_Reference%253AgMOBIlabPlusADC.html#DigitalOutBlock"><span class="tocnumber">3.7</span> <span class="toctext">DigitalOutBlock</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="User_Reference%253AgMOBIlabPlusADC.html#DigitalOutputEx"><span class="tocnumber">3.8</span> <span class="toctext">DigitalOutputEx</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-13"><a href="User_Reference%253AgMOBIlabPlusADC.html#States"><span class="tocnumber">4</span> <span class="toctext">States</span></a></li>
+<li class="toclevel-1 tocsection-14"><a href="User_Reference%253AgMOBIlabPlusADC.html#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Function">Function</span></h2>
+<p>The <i>gMOBIlabPlusADC</i> acquires data from a <i>g.MOBIlab+</i> device.
+The <i>g.MOBIlab+</i> is an amplifier/digitizer combination from g.tec medical engineering GmbH/Guger Technologies OEG (<a rel="nofollow" class="external free" href="http://www.gtec.at">http://www.gtec.at</a>) which can transmit data wirelessly via a Bluetooth connection. 
+</p>
+<h3><span class="mw-headline" id="g.MOBIlab_Hardware">g.MOBIlab Hardware</span></h3>
+<p>The MOBIlab device supports 8 analog input channels digitized at 16 bit 
+resolution and sampled at a fixed 256 Hz sampling rate. Additionally, 8 digital input lines can be sampled with the analog data, so that behavioral information (e.g., button presses) can be recorded as well. The amplifier has a sensitivity of  <img class="mwe-math-fallback-image-inline tex" alt="\pm500\mu V" src="../images/math/3/4/c/34c12b0fa022a7712b99a3209a8d5ea0.png" />, 
+</p><p>This device only has one A/D converter and thus samples are digitized at slightly different times. BCI2000 has a feature that can align samples in time (parameter <a href="User_Reference%253AAlignmentFilter.html#AlignChannels" title="User Reference:AlignmentFilter">AlignChannels</a>, which needs to be turned on (i.e., <i>AlignChannels</i> needs to be 1).
+</p><p>An additional feature of the MOBIlab+ is 4 digital input lines, and 4 digital input/output lines. The MOBIlab+ source module is configured such that channels 9-16 corresponds to the value of the digital lines, which are configured as input lines. It is possible to configure one digital line in the output configuration, so that the line is pulsed during a data read. This is described further in the parameters section under <b>DigitalOutBlock</b>.
+</p>
+<h2><span class="mw-headline" id="Installation">Installation</span></h2>
+<p>Prior to using the g.MOBIlab+, the bluetooth software must be installed, and the serial port configured to connect to the device. The instructions can be found in this PDF.
+</p>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<h3><span class="mw-headline" id="COMport">COMport</span></h3>
+<p>Serial port of the attached MOBIlab+ device, e.g., <i>COM7:</i> This value is determined when the Bluetooth serial port is configured during installation.
+</p>
+<h3><span class="mw-headline" id="SourceCh">SourceCh</span></h3>
+<p>The total number of channels. This number can be 1 to 8, or 16.
+If it is set to between 1 and 8, then channels 1-8 represent 8 analog input channels. If it is set to 16, then channels 1-8 are analog, and channels 9-16 are digital inputs (see <b>DigitalEnable</b>).
+</p>
+<h3><span class="mw-headline" id="SampleBlockSize">SampleBlockSize</span></h3>
+<p>Samples per digitized block. 
+A value of 8 corresponds to a BCI2000 system rate of 32 Hz (<img class="mwe-math-fallback-image-inline tex" alt="\frac{8 samples}{256 Hz}" src="../images/math/b/b/f/bbfca6fc50268b6500d29fdcf24c052d.png" />).
+</p>
+<h3><span class="mw-headline" id="SamplingRate">SamplingRate</span></h3>
+<p>The sampling rate of the MOBIlab+. This value has to be 256.
+</p>
+<h3><span class="mw-headline" id="InfoMode">InfoMode</span></h3>
+<p>Displays information about the MOBIlab+ device.
+</p>
+<h3><span class="mw-headline" id="DigitalEnable">DigitalEnable</span></h3>
+<p>If this is true, then the 8 digital lines are read as inputs. In this case, the total number of channels <b>SourceCh</b> must equal 16.
+</p>
+<h3><span class="mw-headline" id="DigitalOutBlock">DigitalOutBlock</span></h3>
+<p>If this is true, then digital line 8 is set to output mode, and is set low at the onset of block acquisition, and set high after the block is read. This allows the system timing to be measured, or to synchronize with other external device.
+</p>
+<h3><span class="mw-headline" id="DigitalOutputEx">DigitalOutputEx</span></h3>
+<p><b>New in Version 3.0</b>
+If an expression is put here, digital output 4 will be set high whenever this expression evaluates true (nonzero) and low when the expression evaluates false (zero).  Boolean expressions work well for this (ex. <tt>( (StimulusCode == 0) &amp;&amp; Running )</tt>).
+</p>
+<h2><span class="mw-headline" id="States">States</span></h2>
+<p>None.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Reference%253ADataIOFilter.html" title="User Reference:DataIOFilter">User Reference:DataIOFilter</a>, <a href="Programming_Reference%253AGenericADC_Class.html" title="Programming Reference:GenericADC Class">Programming Reference:GenericADC Class</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20220610133130
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.016 seconds
+Real time usage: 0.019 seconds
+Preprocessor visited node count: 52/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 293/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1922-0!canonical!math=0 and timestamp 20220610133130 and revision id 5101
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=User_Reference:gMOBIlabPlusADC&amp;oldid=5101">http://www.bci2000.org/mediawiki/index.php?title=User_Reference:gMOBIlabPlusADC&amp;oldid=5101</a>"</div>
+ </div>
+</body>
+</html>

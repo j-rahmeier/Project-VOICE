@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>User Tutorial:Obtaining Mu Rhythm Parameters in an Initial Session - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul><li class="toc1"><a href="User_Tutorial%253ABCI2000_Tour.html">Tour</a></li><li class="toc1"><a href="User_Tutorial%253AMu_Rhythm_BCI_Tutorial.html">Mu Tutorial</a></li><li class="toc1"><a href="User_Tutorial%253AP300_BCI_Tutorial.html">P300 Tutorial</a></li></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">Obtaining Mu Rhythm Parameters in an Initial Session</h1>
+ <p class = "subtitle">User Tutorial</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>Although the <a href="User_Tutorial%253AIntroduction_to_the_Mu_Rhythm.html" title="User Tutorial:Introduction to the Mu Rhythm">basic properties of the Mu rhythm</a> are identical for all humans, spatial patterns and exact frequencies are different across people. Thus, it is necessary to obtain these individual parameters prior to any feedback experiments, i.e., to calibrate the BCI system using data acquired from an initial session.
+</p>
+<div id="toc" class="toc"><div class="toctitle" lang="en" dir="ltr"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="User_Tutorial%253AObtaining_Mu_Rhythm_Parameters_in_an_Initial_Session.html#Experimental_Design"><span class="tocnumber">1</span> <span class="toctext">Experimental Design</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="User_Tutorial%253AObtaining_Mu_Rhythm_Parameters_in_an_Initial_Session.html#Preparing_for_the_Initial_.28Screening.29_Session"><span class="tocnumber">2</span> <span class="toctext">Preparing for the Initial (Screening) Session</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="User_Tutorial%253AObtaining_Mu_Rhythm_Parameters_in_an_Initial_Session.html#Configuring_BCI2000"><span class="tocnumber">3</span> <span class="toctext">Configuring BCI2000</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="User_Tutorial%253AObtaining_Mu_Rhythm_Parameters_in_an_Initial_Session.html#Instructions_to_the_Subject"><span class="tocnumber">4</span> <span class="toctext">Instructions to the Subject</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="User_Tutorial%253AObtaining_Mu_Rhythm_Parameters_in_an_Initial_Session.html#Performing_the_Initial_Session"><span class="tocnumber">5</span> <span class="toctext">Performing the Initial Session</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="User_Tutorial%253AObtaining_Mu_Rhythm_Parameters_in_an_Initial_Session.html#Next_Step"><span class="tocnumber">6</span> <span class="toctext">Next Step</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="User_Tutorial%253AObtaining_Mu_Rhythm_Parameters_in_an_Initial_Session.html#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Experimental_Design">Experimental Design</span></h2>
+<p>In this initial session, the subject is instructed to incorporate hand and/or foot movements in response to visual cues.
+To identify a subject's Mu Rhythm, offline analyses then determine the frequency and location whose activity changes the most across conditions (e.g., hand movement and rest). These analyses result in spectra calculated at different locations or in topographical plots at particular frequencies. For the purpose of conceptual demonstration, the tutorial will mainly focus on one dimension control (up and down of a cursor) using hand movements. Once familiarized, one can then engage foot movements for more tasks.
+</p>
+<h2><span id="Preparing_for_the_Initial_(Screening)_Session"></span><span class="mw-headline" id="Preparing_for_the_Initial_.28Screening.29_Session">Preparing for the Initial (Screening) Session</span></h2>
+<p>To begin, you first need to gather some system data. This tutorial will assume that you will be using a dual-monitor setup as shown below, with the experimenter of the sessions operating on monitor 1, and the subject will be watching monitor 2. 
+</p><p>Open Display Properties by right-clicking on an empty portion of the desktop and clicking <b>Properties</b>, and navigating to the <b>Settings</b> tab.
+</p>
+<table>
+<tbody><tr>
+<td colspan="2" align="center"><div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:MonitorSetupOrientation.PNG" class="image"><img alt="MonitorSetupOrientation.PNG" src="../images/thumb/b/b5/MonitorSetupOrientation.PNG/400px-MonitorSetupOrientation.PNG" width="400" height="407" srcset="../images/thumb/b/b5/MonitorSetupOrientation.PNG/600px-MonitorSetupOrientation.PNG 1.5x, ../images/thumb/b/b5/MonitorSetupOrientation.PNG/800px-MonitorSetupOrientation.PNG 2x" /></a></div></div>
+</td></tr>
+<tr>
+<td colspan="2" align="center">Make sure that Monitor 2, (which displays the instructions to the subject), is on the right of Monitor 1, (the experimenter's screen), and is aligned along the top.
+</td></tr>
+<tr>
+<td colspan="2" align="center" height="50px">
+</td></tr>
+<tr>
+<td align="center"><div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:MonitorSetupPrimaryRes.PNG" class="image"><img alt="MonitorSetupPrimaryRes.PNG" src="../images/thumb/a/a2/MonitorSetupPrimaryRes.PNG/400px-MonitorSetupPrimaryRes.PNG" width="400" height="599" srcset="../images/thumb/a/a2/MonitorSetupPrimaryRes.PNG/600px-MonitorSetupPrimaryRes.PNG 1.5x, ../images/a/a2/MonitorSetupPrimaryRes.PNG 2x" /></a></div></div>
+</td>
+<td><div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:MonitorSetupSecondaryRes.PNG" class="image"><img alt="MonitorSetupSecondaryRes.PNG" src="../images/thumb/1/11/MonitorSetupSecondaryRes.PNG/400px-MonitorSetupSecondaryRes.PNG" width="400" height="608" srcset="../images/thumb/1/11/MonitorSetupSecondaryRes.PNG/600px-MonitorSetupSecondaryRes.PNG 1.5x, ../images/1/11/MonitorSetupSecondaryRes.PNG 2x" /></a></div></div>
+</td></tr>
+<tr>
+<td colspan="2" align="center">What we need to make a note of is the <b>width</b> of monitor 1, and the <b>width and height</b> of monitor 2.
+</td></tr>
+<tr>
+<td colspan="2" align="center">In this example we see that Monitor 1 is 1920 pixels wide, and monitor 2 is 1600 pixels wide by 900 pixels tall.
+</td></tr>
+<tr>
+<td colspan="2" align="center" height="50px">
+</td></tr></tbody></table>
+<p>Connect your amplifier to the computer, and turn it on.
+</p><p>If your amplifier is from the gUSBamp family, drivers can be downloaded from official website of gtec. In this example we are using a gUSBamp-8 amplifier.
+</p><p>If your amplifier is from the gMOBIlab family, you will need to make a note of the port it is connected to. In order to determine that port, in Windows XP, go to the Windows Start Menu, and choose <b>Start &#8594;  Control Panel &#8594; System &#8594; Hardware &#8594; Device Manager &#8594; Ports (COM &amp; LPT)</b>. Different versions of Windows may have the Device Manager in a different location. 
+</p>
+<ul class="gallery mw-gallery-traditional" style="max-width: 1372px;_width: 1372px;">
+	<li class="gallerycaption">Finding the COM port</li>
+		<li class="gallerybox" style="width: 335px"><div style="width: 335px">
+			<div class="thumb" style="width: 330px;"><div style="margin:62.5px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:ControlPanel-Circled.PNG" class="image"><img alt="" src="../images/thumb/7/7c/ControlPanel-Circled.PNG/300px-ControlPanel-Circled.PNG" width="300" height="205" srcset="../images/7/7c/ControlPanel-Circled.PNG 1.5x" /></a></div></div>
+			<div class="gallerytext">
+<p>Accessing the Control Panel
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 335px"><div style="width: 335px">
+			<div class="thumb" style="width: 330px;"><div style="margin:34px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:System.PNG" class="image"><img alt="" src="../images/thumb/2/26/System.PNG/300px-System.PNG" width="300" height="262" srcset="../images/thumb/2/26/System.PNG/450px-System.PNG 1.5x, ../images/thumb/2/26/System.PNG/600px-System.PNG 2x" /></a></div></div>
+			<div class="gallerytext">
+<p>Opening the System Properties
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 335px"><div style="width: 335px">
+			<div class="thumb" style="width: 330px;"><div style="margin:15px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:DeviceManager.PNG" class="image"><img alt="" src="../images/thumb/3/39/DeviceManager.PNG/262px-DeviceManager.PNG" width="262" height="300" srcset="../images/thumb/3/39/DeviceManager.PNG/393px-DeviceManager.PNG 1.5x, ../images/3/39/DeviceManager.PNG 2x" /></a></div></div>
+			<div class="gallerytext">
+<p>Opening the Device Manager
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 335px"><div style="width: 335px">
+			<div class="thumb" style="width: 330px;"><div style="margin:15px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:COMCircled.PNG" class="image"><img alt="" src="../images/thumb/7/77/COMCircled.PNG/217px-COMCircled.PNG" width="217" height="300" srcset="../images/thumb/7/77/COMCircled.PNG/326px-COMCircled.PNG 1.5x, ../images/7/77/COMCircled.PNG 2x" /></a></div></div>
+			<div class="gallerytext">
+<p>Identifying the COM Port
+</p>
+			</div>
+		</div></li>
+</ul>
+<p>You can now close all open windows.
+</p>
+<h2><span class="mw-headline" id="Configuring_BCI2000">Configuring BCI2000</span></h2>
+<ul><li>When you are using a source module that is not part of the BCI2000 core distribution, you will need to create a batch file and parameter file for your amplifier first. Please follow the steps described <a href="Contributions%253AHow_to_use_a_Contributed_Source_Module.html#Creating_batch_files" title="Contributions:How to use a Contributed Source Module">on this page</a>.</li>
+<li>Start BCI2000 by double-clicking <tt>batch/StimulusPresentation_&lt;YourAmplifier&gt;.bat</tt>.
+<ul><li>For repeated use, placing a link to this file on the desktop might be a good idea.</li></ul></li>
+<li>In the operator module, click <b>Config</b>.</li>
+<li>Click <b>Load Parameters</b>, and load <tt>parms/examples/SMR_screening_left_vs_right.prm</tt>. Then, load <tt>parms/fragments/amplifiers/&lt;YourAmplifier&gt;.prm</tt>.</li>
+<li>In the <b>Storage</b> tab:
+<ul><li>Set <i>SubjectName</i> to the subject’s initials.</li>
+<li>Set <i>SubjectSession</i> to <tt>001</tt></li>
+<li>Set <i>SubjectRun</i> to <tt>01</tt></li></ul></li></ul>
+<div class="floatright"><a href="https://www.bci2000.org/mediawiki/index.php/File:WindowSize.PNG" class="image"><img alt="WindowSize.PNG" src="../images/thumb/f/f1/WindowSize.PNG/500px-WindowSize.PNG" width="500" height="512" srcset="../images/f/f1/WindowSize.PNG 1.5x" /></a></div>
+<p>In the <b>Source</b> tab, set:
+</p>
+<ul><li><i>ChannelNames</i> to the electrode positions according to the 10-20 convention.
+<ul><li>This names the channels according to their respective electrode positions.</li>
+<li>In our example, <tt>F3 F4 T7 C3 Cz C4 T8 Pz</tt> has been entered.</li></ul></li>
+<li><i>TransmitChList</i> to the channel names entered into the <i>ChannelNames</i> parameter</li>
+<li>If using a gMOBIlab amplifier, set <i>COM port</i> to the port name that you found earlier.</li></ul>
+<p><br />
+</p>
+<table>
+<tbody><tr>
+<td height="180px">
+</td></tr></tbody></table>
+<p>In the <b>Application</b> tab, set:
+</p>
+<ul><li><i>WindowWidth</i> to the width of the display monitor, found earlier.</li>
+<li><i>WindowHeight</i> to the height of the display monitor, found earlier.
+<ul><li>In our example, <i>WindowWidth</i> would be set to <tt>1600</tt> and <i>WindowHeight</i> would be set to <tt>900</tt>.</li></ul></li>
+<li><i>WindowLeft</i> to the width of the experimenter’s monitor.
+<ul><li>In our example, this would be <tt>1920</tt>.</li>
+<li>This shifts the character display to the right 1920 pixels, making it display on the secondary monitor.</li></ul></li>
+<li>Take note of the <i>Sequence</i> field:
+<ul><li>This field contains four single-digit numbers separated by one space. Initially it will be <tt>1 1 0 0</tt>.</li>
+<li>These numbers are frequencies of calling for the different subject activity. The first number corresponds to the left hand, the second is the right hand, the third for both hands, the fourth for both feet (details can be inspected under <i>Stimuli</i> &#8594; <b>Edit</b>).</li>
+<li>Therefore, setting this field to <tt>2 1 0 1</tt> will call for the subject to move the left hand twice as often as the right or both feet, and will never call for both hands to be moved. In our example, <tt>1 1 0 0</tt> (equally distributed left and right hand) is recommended as a initial session.</li></ul></li>
+<li>Finally, save the parameter file where you deem appropriate.</li>
+<li>Click <b>Set Config</b>.</li>
+<li>Instruct the subject as described in the section below.</li></ul>
+<div class="floatright"><a href="https://www.bci2000.org/mediawiki/index.php/File:Stimuli.PNG" class="image"><img alt="Stimuli.PNG" src="../images/thumb/8/87/Stimuli.PNG/700px-Stimuli.PNG" width="700" height="419" srcset="../images/thumb/8/87/Stimuli.PNG/1050px-Stimuli.PNG 1.5x, ../images/8/87/Stimuli.PNG 2x" /></a></div>
+<table>
+<tbody><tr>
+<td height="400px">
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="Instructions_to_the_Subject">Instructions to the Subject</span></h2>
+<p>During the initial session, the subject's screen will either be blank, or displaying a command of left or right.
+</p>
+<ul><li>When a left or right command is displayed, engage movement of the respective hand. It is recommended that the movement be continuous opening and closing of the hand (e.g., squeezing a tennis ball) at a rate of about one opening/closing per second.</li></ul>
+<p>For future sessions with hands and feet involved,the subject's screen will either be blank, or displaying an arrow pointing up, down, left, or right.
+</p>
+<ul><li>When an up arrow is displayed, engage simultaneous movement of both hands. This should be the same kind of movement as described for a single hand.</li>
+<li>When a down arrow is displayed, engage movements of both feet. The movement should be similar to the one described for hands, i.e., opening and closing your feet as if you could use them to grip an object.</li>
+<li>When you see a blank screen, please relax and stop any movement. This is crucial as it takes time for mu rhythm to settle and ready for the next peak.</li></ul>
+<h2><span class="mw-headline" id="Performing_the_Initial_Session">Performing the Initial Session</span></h2>
+<p>To start an experimental run, click <b>Run</b> in the operator window. Each run takes five minutes and gathers 25 data points, or "trials", that differentiate between moving the left hand and the right hand. Ideally, there should be 100 trials, meaning that four runs are suggested. This is done as four separate runs instead of one to allow the subject a chance between each run to rest, blink, swallow, speak, or have some water if so desired.
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:InitialSession.PNG" class="image"><img alt="InitialSession.PNG" src="../images/thumb/2/2e/InitialSession.PNG/400px-InitialSession.PNG" width="400" height="225" srcset="../images/thumb/2/2e/InitialSession.PNG/600px-InitialSession.PNG 1.5x, ../images/2/2e/InitialSession.PNG 2x" /></a></div></div>
+<h2><span class="mw-headline" id="Next_Step">Next Step</span></h2>
+<p>Once all data have been collected, the <a href="User_Tutorial%253AAnalyzing_the_Initial_Mu_Rhythm_Session.html" title="User Tutorial:Analyzing the Initial Mu Rhythm Session">Analyzing the Initial Mu Rhythm Session</a> page shows you how to analyze data from the initial session in order to determine parameters for online feedback.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Tutorial%253AMu_Rhythm_BCI_Tutorial.html" title="User Tutorial:Mu Rhythm BCI Tutorial">User Tutorial:Mu Rhythm BCI Tutorial</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20200807151312
+Cache expiry: 86400
+Dynamic content: false
+CPU time usage: 0.042 seconds
+Real time usage: 0.103 seconds
+Preprocessor visited node count: 40/1000000
+Preprocessor generated node count: 68/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 2301/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+</div>
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1477-0!canonical and timestamp 20200807151312 and revision id 8486
+ -->
+</div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=User_Tutorial:Obtaining_Mu_Rhythm_Parameters_in_an_Initial_Session&amp;oldid=8486">http://www.bci2000.org/mediawiki/index.php?title=User_Tutorial:Obtaining_Mu_Rhythm_Parameters_in_an_Initial_Session&amp;oldid=8486</a>"</div>
+ </div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+###########################################################################
+## $Id$
+## Description: Build information for BCI2000 and CMake
+
+# Set directory name in IDE
+SET( DIR_NAME "${DIR_NAME}Hyperscanning/" )
+
+ADD_SUBDIRECTORY( HyperscanningTest )
+ADD_SUBDIRECTORY( HyperscanningApplicationBase )

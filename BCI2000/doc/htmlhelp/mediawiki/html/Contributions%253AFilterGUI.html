@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:FilterGUI - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">FilterGUI</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Contributions%253AFilterGUI.html#Synopsis"><span class="tocnumber">1</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Contributions%253AFilterGUI.html#Location"><span class="tocnumber">2</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Contributions%253AFilterGUI.html#Versioning"><span class="tocnumber">3</span> <span class="toctext">Versioning</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Contributions%253AFilterGUI.html#Author"><span class="tocnumber">3.1</span> <span class="toctext">Author</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Contributions%253AFilterGUI.html#Version_History"><span class="tocnumber">3.2</span> <span class="toctext">Version History</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Contributions%253AFilterGUI.html#Source_Code_Revisions"><span class="tocnumber">3.3</span> <span class="toctext">Source Code Revisions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="Contributions%253AFilterGUI.html#Functional_Description"><span class="tocnumber">4</span> <span class="toctext">Functional Description</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="Contributions%253AFilterGUI.html#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>FilterGUI is a Matlab-based GUI application that allows to apply high pass/low pass/notch filtering to existing BCI2000 data files.
+</p>
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><a rel="nofollow" class="external free" href="http://www.bci2000.org/svn/trunk/src/contrib/Tools/FilterGUI">http://www.bci2000.org/svn/trunk/src/contrib/Tools/FilterGUI</a>
+</p>
+<h2><span class="mw-headline" id="Versioning">Versioning</span></h2>
+<h3><span class="mw-headline" id="Author">Author</span></h3>
+<p>juergen.mellinger@uni-tuebingen.de
+</p>
+<h3><span class="mw-headline" id="Version_History">Version History</span></h3>
+<p>Initial version.
+</p>
+<h3><span class="mw-headline" id="Source_Code_Revisions">Source Code Revisions</span></h3>
+<ul><li>Initial development: 2815</li>
+<li>Tested under: 2815</li>
+<li>Known to compile under: N/A</li>
+<li>Broken since: N/A</li></ul>
+<h2><span class="mw-headline" id="Functional_Description">Functional Description</span></h2>
+<p><a href="https://www.bci2000.org/mediawiki/index.php/File:FilterGUI.png" class="image"><img alt="FilterGUI.png" src="../images/5/56/FilterGUI.png" decoding="async" width="248" height="346" /></a>
+</p><p>The FilterGUI application will apply high pass, low pass, and notch filter settings to existing data files. To use it, make sure that the <tt>BCI2000/tools/mex</tt> directory is in the Matlab path. Then, change directory to the FilterGUI directory, and execute <tt>FilterGUI.m</tt>.
+Filter settings are selected from the GUI, and applied to a set of files by clicking the <i>Apply to files...</i> button. Resulting files will exist in the original files' location, and will have "filtered" appended to their filename before the <tt>.dat</tt> extension.
+</p><p>For high pass filtering, the FilterGUI application uses a 1st order Butterworth filter. It uses a 2nd order Butterworth filter for low pass filtering, and a 2x2nd order Chebychev bandstop filter for notch filtering between 0.9 and 1.1 times the notch filter frequency.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Contributions%253ATools.html" title="Contributions:Tools">Contributions:Tools</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524182033
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.017 seconds
+Real time usage: 0.019 seconds
+Preprocessor visited node count: 27/1000000
+Post‐expand include size: 15/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1980-0!canonical and timestamp 20230524182033 and revision id 5666
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:FilterGUI&amp;oldid=5666">http://www.bci2000.org/mediawiki/index.php?title=Contributions:FilterGUI&amp;oldid=5666</a>"</div>
+ </div>
+</body>
+</html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Programming Reference:SignalSharingDemo Signal Processing - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul><li class="toc1">Concepts</li><ul><li class="toc2"><a href="Programming_Reference%253AFilter_Chain.html">Filter Chain</a></li><li class="toc2"><a href="Programming_Reference%253ASignals.html">Signals</a></li><li class="toc2"><a href="Programming_Reference%253AError_Handling.html">Error Handling</a></li><li class="toc2"><a href="Programming_Reference%253ALocalization.html">Localization</a></li><li class="toc2"><a href="Programming_Reference%253ARapid_Development.html">Rapid Development</a></li></ul><li class="toc1">Reference</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFilter_Class.html">GenericFilter</a></li><li class="toc2"><a href="Programming_Reference%253AEnvironment_Class.html">Environment</a></li><li class="toc2"><a href="Programming_Reference%253AGenericVisualization_Class.html">GenericVisualization</a></li><li class="toc2"><a href="Programming_Reference%253AErrors_and_Warnings.html">Errors and Warnings</a></li><li class="toc2"><a href="Programming_Reference%253ADebug_Output.html">Debug Output</a></li></ul><li class="toc1">Data Acquisition</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericADC_Class.html">GenericADC</a></li></ul><li class="toc1">Data Storage</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFileWriter_Class.html">GenericFileWriter</a></li><li class="toc2"><a href="Programming_Reference%253ABCI2000FileReader_Class.html">BCI2000FileReader</a></li></ul><li class="toc1">Signal Processing</li><ul><li class="toc2"><a href="Programming_Reference%253AIIRFilterBase_Class.html">IIR Filters</a></li></ul><li class="toc1">Application Modules</li><ul><li class="toc2"><a href="Programming_Reference%253AApplicationBase_Class.html">ApplicationBase</a></li><li class="toc2"><a href="Programming_Reference%253AFeedbackTask_Class.html">FeedbackTask</a></li><li class="toc2"><a href="Programming_Reference%253AStimulusTask_Class.html">StimulusTask</a></li><li class="toc2"><a href="Programming_Reference%253A3D_API.html">3D API</a></li></ul><li class="toc1">Howtos</li><ul><li class="toc2"><a href="Programming_Howto%253ABuilding_BCI2000.html">Building BCI2000</a></li><li class="toc2"><a href="Programming_Howto%253ASVN_Client_Setup.html">SVN Client Setup</a></li><li class="toc2"><a href="Programming_Howto%253AUsing_TortoiseSVN.html">Using TortoiseSVN</a></li></ul><li class="toc1"><a href="Programming_FAQ.html">FAQ</a></li><li class="toc1">Tutorials</li><ul><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html">Data Acquisition</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html">Signal Processing</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html">Matlab Signal Processing</a></li></ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">SignalSharingDemo Signal Processing</h1>
+ <p class = "subtitle">Programming Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Programming_Reference%253ASignalSharingDemo_Signal_Processing.html#Location"><span class="tocnumber">1</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Programming_Reference%253ASignalSharingDemo_Signal_Processing.html#Synopsis"><span class="tocnumber">2</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Programming_Reference%253ASignalSharingDemo_Signal_Processing.html#Inheritance"><span class="tocnumber">3</span> <span class="toctext">Inheritance</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="Programming_Reference%253ASignalSharingDemo_Signal_Processing.html#Function"><span class="tocnumber">4</span> <span class="toctext">Function</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="Programming_Reference%253ASignalSharingDemo_Signal_Processing.html#Filter_Code"><span class="tocnumber">5</span> <span class="toctext">Filter Code</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="Programming_Reference%253ASignalSharingDemo_Signal_Processing.html#Declaration_of_internal_variables"><span class="tocnumber">5.1</span> <span class="toctext">Declaration of internal variables</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="Programming_Reference%253ASignalSharingDemo_Signal_Processing.html#Initialization_of_internal_variables"><span class="tocnumber">5.2</span> <span class="toctext">Initialization of internal variables</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="Programming_Reference%253ASignalSharingDemo_Signal_Processing.html#Sender_thread"><span class="tocnumber">5.3</span> <span class="toctext">Sender thread</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="Programming_Reference%253ASignalSharingDemo_Signal_Processing.html#Filter_Initialize.28.29_function"><span class="tocnumber">5.4</span> <span class="toctext">Filter Initialize() function</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="Programming_Reference%253ASignalSharingDemo_Signal_Processing.html#Filter_StartRun.28.29_and_StopRun.28.29_functions"><span class="tocnumber">5.5</span> <span class="toctext">Filter StartRun() and StopRun() functions</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="Programming_Reference%253ASignalSharingDemo_Signal_Processing.html#Filter_Process.28.29_function"><span class="tocnumber">5.6</span> <span class="toctext">Filter Process() function</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="Programming_Reference%253ASignalSharingDemo_Signal_Processing.html#Client_application_code"><span class="tocnumber">6</span> <span class="toctext">Client application code</span></a>
+<ul>
+<li class="toclevel-2 tocsection-13"><a href="Programming_Reference%253ASignalSharingDemo_Signal_Processing.html#Declaration_of_internal_variables_2"><span class="tocnumber">6.1</span> <span class="toctext">Declaration of internal variables</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="Programming_Reference%253ASignalSharingDemo_Signal_Processing.html#Initialization_of_internal_variables_2"><span class="tocnumber">6.2</span> <span class="toctext">Initialization of internal variables</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="Programming_Reference%253ASignalSharingDemo_Signal_Processing.html#Receiving_thread_function"><span class="tocnumber">6.3</span> <span class="toctext">Receiving thread function</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="Programming_Reference%253ASignalSharingDemo_Signal_Processing.html#The_widget.27s_paintEvent.28.29"><span class="tocnumber">6.4</span> <span class="toctext">The widget's paintEvent()</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-17"><a href="Programming_Reference%253ASignalSharingDemo_Signal_Processing.html#Parameters"><span class="tocnumber">7</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-18"><a href="Programming_Reference%253ASignalSharingDemo_Signal_Processing.html#SignalSharingDemoClientAddress"><span class="tocnumber">7.1</span> <span class="toctext">SignalSharingDemoClientAddress</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-19"><a href="Programming_Reference%253ASignalSharingDemo_Signal_Processing.html#See_also"><span class="tocnumber">8</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><tt>src/contrib/SignalProcessing/SignalSharingDemo</tt>
+</p>
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>The <i>SignalSharingDemo</i> signal processing module demonstrates how to share signal data with an external application, using shared memory.
+</p>
+<h2><span class="mw-headline" id="Inheritance">Inheritance</span></h2>
+<p>The <i>SignalSharingDemoFilter</i> signal processing filter derives from <i>GenericFilter</i>.
+</p>
+<h2><span class="mw-headline" id="Function">Function</span></h2>
+<p>The <i>SignalSharingDemoFilter</i> shares its input signal through a <tt>GenericSignal</tt> object which has been linked to a shared memory block using <tt>GenericSignal::ShareAcrossModules()</tt>. A dedicated thread waits for signal updates, and sends signal data out to a separate application waiting on a TCP/IP connection.
+</p><p>When the client application is running on a separate machine, full signal data are sent over the network. When the client is running on the same machine, only a reference to a shared memory block is sent. On the application side, unserializing the signal will transparently bind it to the shared memory block if available.
+</p><p>The client application visualizes signal data by plotting normalized signals on a circle.
+</p>
+<ul class="gallery mw-gallery-nolines">
+		<li class="gallerybox" style="width: 327px"><div style="width: 327px">
+			<div class="thumb" style="width: 322px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:SignalSharingDemo1.PNG" class="image"><img alt="" src="../images/6/6e/SignalSharingDemo1.PNG" decoding="async" width="322" height="352" /></a></div></div>
+			<div class="gallerytext">
+<p>Client application waiting for data
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 327px"><div style="width: 327px">
+			<div class="thumb" style="width: 322px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:SignalSharingDemo2.PNG" class="image"><img alt="" src="../images/4/49/SignalSharingDemo2.PNG" decoding="async" width="322" height="352" /></a></div></div>
+			<div class="gallerytext">
+<p>Client application displaying data
+</p>
+			</div>
+		</div></li>
+</ul>
+<h2><span class="mw-headline" id="Filter_Code">Filter Code</span></h2>
+<p>The code example uses a pointer to an internal private <tt>struct</tt> to hide implementation details from the outer header file of the filter class (PIMPL idiom).
+</p>
+<h3><span class="mw-headline" id="Declaration_of_internal_variables">Declaration of internal variables</span></h3>
+<div class="mw-highlight mw-highlight-lang-cpp mw-content-ltr" dir="ltr"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;Thread.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;WaitableEvent.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;Sockets.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;Streambuf.h&quot;</span><span class="cp"></span>
+
+<span class="k">struct</span> <span class="nc">SignalSharingDemoFilter</span><span class="o">::</span><span class="n">Private</span>
+<span class="p">{</span>
+  <span class="c1">// A socket for a connection to the client application.</span>
+  <span class="n">ClientTCPSocket</span> <span class="n">mSocket</span><span class="p">;</span>
+  <span class="c1">// A signal to be shared.</span>
+  <span class="n">GenericSignal</span> <span class="n">mSharedSignal</span><span class="p">;</span>
+  <span class="c1">// An event to notify the sender thread when new signal data is available.</span>
+  <span class="n">WaitableEvent</span> <span class="n">mSignalAvailable</span><span class="p">;</span>
+
+  <span class="c1">// An object to wrap a call to SenderThreadFunc().</span>
+  <span class="n">MemberCall</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="n">Private</span><span class="o">*</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">mSenderThreadCall</span><span class="p">;</span>
+  <span class="c1">// The sender thread.</span>
+  <span class="n">Thread</span> <span class="n">mSenderThread</span><span class="p">;</span>
+
+  <span class="n">Private</span><span class="p">();</span>
+  <span class="kt">void</span> <span class="nf">SenderThreadFunc</span><span class="p">();</span>
+<span class="p">};</span>
+</pre></div>
+<h3><span class="mw-headline" id="Initialization_of_internal_variables">Initialization of internal variables</span></h3>
+<div class="mw-highlight mw-highlight-lang-cpp mw-content-ltr" dir="ltr"><pre><span></span><span class="n">SignalSharingDemoFilter</span><span class="o">::</span><span class="n">Private</span><span class="o">::</span><span class="n">Private</span><span class="p">()</span>
+<span class="o">:</span> <span class="n">mSenderThreadCall</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Private</span><span class="o">::</span><span class="n">SenderThreadFunc</span><span class="p">,</span> <span class="k">this</span><span class="p">),</span>
+  <span class="n">mSenderThread</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mSenderThreadCall</span><span class="p">,</span> <span class="s">&quot;Signal Sharing Demo Sender&quot;</span><span class="p">),</span>
+  <span class="n">mSignalAvailable</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">mSocket</span><span class="p">.</span><span class="n">SetTCPNodelay</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+  <span class="n">mSocket</span><span class="p">.</span><span class="n">SetFlushAfterWrite</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+<h3><span class="mw-headline" id="Sender_thread">Sender thread</span></h3>
+<p>The sender thread waits for the "signal available" event to be triggered, and then calls <tt>Serialize()</tt> on the shared signal in order to notify the client.
+</p>
+<div class="mw-highlight mw-highlight-lang-cpp mw-content-ltr" dir="ltr"><pre><span></span><span class="kt">void</span>
+<span class="n">SignalSharingDemoFilter</span><span class="o">::</span><span class="n">Private</span><span class="o">::</span><span class="n">SenderThreadFunc</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">mSocket</span><span class="p">.</span><span class="n">Connected</span><span class="p">())</span>
+  <span class="p">{</span>
+    <span class="n">UnbufferedIO</span> <span class="n">buf</span><span class="p">;</span>
+    <span class="n">buf</span><span class="p">.</span><span class="n">SetOutput</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mSocket</span><span class="p">.</span><span class="n">Output</span><span class="p">());</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">ostream</span> <span class="n">clientConnection</span><span class="p">(</span><span class="o">&amp;</span><span class="n">buf</span><span class="p">);</span>
+    <span class="n">GenericSignal</span><span class="p">().</span><span class="n">Serialize</span><span class="p">(</span><span class="n">clientConnection</span><span class="p">);</span> <span class="c1">// empty signal to indicate beginning of data</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">mSignalAvailable</span><span class="p">.</span><span class="n">Wait</span><span class="p">())</span> <span class="c1">// will return false when Thread::Terminate() has been called</span>
+    <span class="p">{</span>
+      <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">mSharedSignal</span><span class="p">.</span><span class="n">Serialize</span><span class="p">(</span><span class="n">clientConnection</span><span class="p">))</span> <span class="c1">// will transmit memory reference, or signal, depending on whether ShareAcrossModules() has been called</span>
+      <span class="p">{</span>
+        <span class="n">bciwarn</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Could not send signal, giving up&quot;</span><span class="p">;</span>
+        <span class="n">mSenderThread</span><span class="p">.</span><span class="n">Terminate</span><span class="p">();</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">GenericSignal</span><span class="p">().</span><span class="n">Serialize</span><span class="p">(</span><span class="n">clientConnection</span><span class="p">);</span> <span class="c1">// empty signal to indicate end of data</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+<h3><span id="Filter_Initialize()_function"></span><span class="mw-headline" id="Filter_Initialize.28.29_function">Filter <tt>Initialize()</tt> function</span></h3>
+<p>The filter connects to the local or remote network address in the <tt>SignalSharingDemoClientAddress</tt> parameter and allocates signal data according to input
+signal properties. If the connection is through a local socket, the filter switches the signal to shared memory by calling <tt>GenericSignal::ShareAcrossModules()</tt>. Otherwise, it proceeds with a standard <tt>GenericSignal</tt>, which is transmitted in full rather than as a shared memory reference.
+</p>
+<div class="mw-highlight mw-highlight-lang-cpp mw-content-ltr" dir="ltr"><pre><span></span><span class="kt">void</span>
+<span class="n">SignalSharingDemoFilter</span><span class="o">::</span><span class="n">Initialize</span><span class="p">(</span><span class="k">const</span> <span class="n">SignalProperties</span><span class="o">&amp;</span> <span class="n">Input</span><span class="p">,</span> <span class="k">const</span> <span class="n">SignalProperties</span><span class="o">&amp;</span> <span class="n">Output</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">addr</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="s">&quot;SignalSharingDemoClientAddress&quot;</span><span class="p">);</span>
+  <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">addr</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>
+  <span class="p">{</span> <span class="c1">// connect to the client side</span>
+    <span class="n">p</span><span class="o">-&gt;</span><span class="n">mSocket</span><span class="p">.</span><span class="n">Open</span><span class="p">(</span><span class="n">addr</span><span class="p">);</span>
+    <span class="c1">// initialize shared signal from input signal properties</span>
+    <span class="n">p</span><span class="o">-&gt;</span><span class="n">mSharedSignal</span> <span class="o">=</span> <span class="n">GenericSignal</span><span class="p">(</span><span class="n">Input</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">mSocket</span><span class="p">.</span><span class="n">Connected</span><span class="p">())</span>
+    <span class="p">{</span>
+      <span class="n">bciwarn</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Cannot connect to &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">addr</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">mSocket</span><span class="p">.</span><span class="n">Connected</span><span class="p">()</span> <span class="o">==</span> <span class="n">Socket</span><span class="o">::</span><span class="n">local</span><span class="p">)</span> <span class="c1">// only use shared memory when connected locally</span>
+    <span class="p">{</span>
+      <span class="n">p</span><span class="o">-&gt;</span><span class="n">mSharedSignal</span><span class="p">.</span><span class="n">ShareAcrossModules</span><span class="p">();</span>
+      <span class="n">bciwarn</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Locally connected to &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">addr</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;, using shared memory&quot;</span><span class="p">;</span>
+    <span class="p">}</span> 
+    <span class="k">else</span> <span class="c1">// otherwise, full data will be transmitted over network (slower)</span>
+    <span class="p">{</span>
+      <span class="n">bciwarn</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Remotely connected to &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">addr</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;, transmitting data through network&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+<h3><span id="Filter_StartRun()_and_StopRun()_functions"></span><span class="mw-headline" id="Filter_StartRun.28.29_and_StopRun.28.29_functions">Filter <tt>StartRun()</tt> and <tt>StopRun()</tt> functions</span></h3>
+<p><tt>StartRun()</tt> and <tt>StopRun()</tt> start resp. stop the sender thread.
+</p>
+<div class="mw-highlight mw-highlight-lang-cpp mw-content-ltr" dir="ltr"><pre><span></span><span class="kt">void</span>
+<span class="n">SignalSharingDemoFilter</span><span class="o">::</span><span class="n">StartRun</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">p</span><span class="o">-&gt;</span><span class="n">mSenderThread</span><span class="p">.</span><span class="n">Start</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span>
+<span class="n">SignalSharingDemoFilter</span><span class="o">::</span><span class="n">StopRun</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">p</span><span class="o">-&gt;</span><span class="n">mSenderThread</span><span class="p">.</span><span class="n">Terminate</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+<h3><span id="Filter_Process()_function"></span><span class="mw-headline" id="Filter_Process.28.29_function">Filter <tt>Process()</tt> function</span></h3>
+<p>The <tt>Process()</tt> function calls <tt>GenericSignal::AssignValues()</tt> to assign the shared signal's entries without affecting its shared memory representation. Then, it sets the "signal available" event to the signaled state.
+</p>
+<div class="mw-highlight mw-highlight-lang-cpp mw-content-ltr" dir="ltr"><pre><span></span><span class="kt">void</span>
+<span class="n">SignalSharingDemoFilter</span><span class="o">::</span><span class="n">Process</span><span class="p">(</span><span class="k">const</span> <span class="n">GenericSignal</span><span class="o">&amp;</span> <span class="n">Input</span><span class="p">,</span> <span class="n">GenericSignal</span><span class="o">&amp;</span> <span class="n">Output</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">Output</span> <span class="o">=</span> <span class="n">Input</span><span class="p">;</span>
+  <span class="n">p</span><span class="o">-&gt;</span><span class="n">mSharedSignal</span><span class="p">.</span><span class="n">AssignValues</span><span class="p">(</span><span class="n">Input</span><span class="p">);</span>
+  <span class="n">p</span><span class="o">-&gt;</span><span class="n">mSignalAvailable</span><span class="p">.</span><span class="n">Set</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+<h2><span class="mw-headline" id="Client_application_code">Client application code</span></h2>
+<h3><span class="mw-headline" id="Declaration_of_internal_variables_2">Declaration of internal variables</span></h3>
+<div class="mw-highlight mw-highlight-lang-cpp mw-content-ltr" dir="ltr"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;SignalSharingDemoWidget.h&quot;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&quot;Sockets.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;StringUtils.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;Streambuf.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;Thread.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;GenericSignal.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;Synchronized.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;Runnable.h&quot;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;QPaintEvent&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;QPainter&gt;</span><span class="cp"></span>
+
+<span class="k">struct</span> <span class="nc">SignalSharingDemoWidget</span><span class="o">::</span><span class="n">Private</span>
+<span class="p">{</span>
+  <span class="n">SignalSharingDemoWidget</span><span class="o">*</span> <span class="n">mpSelf</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">QColor</span><span class="o">&gt;</span> <span class="n">mSignalColors</span><span class="p">;</span>
+
+  <span class="n">ServerTCPSocket</span> <span class="n">mListeningSocket</span><span class="p">;</span>
+  <span class="n">Synchronized</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span> <span class="n">mConnected</span><span class="p">;</span>
+  <span class="n">SynchronizedObject</span><span class="o">&lt;</span><span class="n">GenericSignal</span><span class="o">&gt;</span> <span class="n">mpSignal</span><span class="p">;</span>
+
+  <span class="n">Thread</span> <span class="n">mThread</span><span class="p">;</span>
+  <span class="kt">void</span> <span class="nf">ThreadFunc</span><span class="p">();</span>
+  <span class="n">MemberCall</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="n">Private</span><span class="o">*</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">mThreadCall</span><span class="p">;</span>
+  <span class="kt">void</span> <span class="nf">Invalidate</span><span class="p">();</span>
+  <span class="n">Private</span><span class="p">();</span>
+<span class="p">};</span>
+</pre></div>
+<h3><span class="mw-headline" id="Initialization_of_internal_variables_2">Initialization of internal variables</span></h3>
+<div class="mw-highlight mw-highlight-lang-cpp mw-content-ltr" dir="ltr"><pre><span></span><span class="n">SignalSharingDemoWidget</span><span class="o">::</span><span class="n">Private</span><span class="o">::</span><span class="n">Private</span><span class="p">()</span>
+<span class="o">:</span> <span class="n">mThreadCall</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Private</span><span class="o">::</span><span class="n">ThreadFunc</span><span class="p">,</span> <span class="k">this</span><span class="p">),</span>
+  <span class="n">mThread</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mThreadCall</span><span class="p">,</span> <span class="s">&quot;SignalSharingDemoWidget listening/receiving thread&quot;</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">mSignalColors</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">8</span><span class="p">);</span>
+  <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">mSignalColors</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">mSignalColors</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">setHsvF</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="mf">1.0</span><span class="o">/</span><span class="n">mSignalColors</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+<h3><span class="mw-headline" id="Receiving_thread_function">Receiving thread function</span></h3>
+<div class="mw-highlight mw-highlight-lang-cpp mw-content-ltr" dir="ltr"><pre><span></span><span class="kt">void</span>
+<span class="n">SignalSharingDemoWidget</span><span class="o">::</span><span class="n">Private</span><span class="o">::</span><span class="n">ThreadFunc</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">mThread</span><span class="p">.</span><span class="n">Terminating</span><span class="p">())</span>
+  <span class="p">{</span> <span class="c1">// wait for a connection</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">mListeningSocket</span><span class="p">.</span><span class="n">Input</span><span class="p">().</span><span class="n">Wait</span><span class="p">())</span>
+    <span class="p">{</span> <span class="c1">// accept connection</span>
+      <span class="n">ClientTCPSocket</span> <span class="n">clientSocket</span><span class="p">;</span>
+      <span class="k">if</span><span class="p">(</span><span class="n">mListeningSocket</span><span class="p">.</span><span class="n">WaitForAccept</span><span class="p">(</span><span class="n">clientSocket</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+      <span class="p">{</span>
+        <span class="n">mConnected</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="n">Invalidate</span><span class="p">();</span> <span class="c1">// calls the widget&#39;s update() method</span>
+        <span class="n">UnbufferedIO</span> <span class="n">buf</span><span class="p">;</span>
+        <span class="n">buf</span><span class="p">.</span><span class="n">SetInput</span><span class="p">(</span><span class="o">&amp;</span><span class="n">clientSocket</span><span class="p">.</span><span class="n">Input</span><span class="p">());</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">istream</span> <span class="n">stream</span><span class="p">(</span><span class="o">&amp;</span><span class="n">buf</span><span class="p">);</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">stream</span> <span class="o">&amp;&amp;</span> <span class="n">clientSocket</span><span class="p">.</span><span class="n">Input</span><span class="p">().</span><span class="n">Wait</span><span class="p">())</span> <span class="c1">// will be interrupted by Thread::Terminate()</span>
+        <span class="p">{</span>
+          <span class="n">mpSignal</span><span class="p">.</span><span class="n">Mutable</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Unserialize</span><span class="p">(</span><span class="n">stream</span><span class="p">);</span> <span class="c1">// get current signal content</span>
+          <span class="n">Invalidate</span><span class="p">();</span> <span class="c1">// call update() on the widget</span>
+        <span class="p">}</span>
+        <span class="o">*</span><span class="n">mpSignal</span><span class="p">.</span><span class="n">Mutable</span><span class="p">()</span> <span class="o">=</span> <span class="n">GenericSignal</span><span class="p">();</span>
+        <span class="n">mConnected</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+        <span class="n">Invalidate</span><span class="p">();</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+<h3><span id="The_widget's_paintEvent()"></span><span class="mw-headline" id="The_widget.27s_paintEvent.28.29">The widget's paintEvent()</span></h3>
+<div class="mw-highlight mw-highlight-lang-cpp mw-content-ltr" dir="ltr"><pre><span></span><span class="kt">void</span>
+<span class="n">SignalSharingDemoWidget</span><span class="o">::</span><span class="n">paintEvent</span><span class="p">(</span><span class="n">QPaintEvent</span><span class="o">*</span> <span class="n">ev</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">ev</span><span class="o">-&gt;</span><span class="n">accept</span><span class="p">();</span>
+  <span class="n">WithLocked</span><span class="p">(</span><span class="n">pSignal</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">mpSignal</span><span class="p">.</span><span class="n">Const</span><span class="p">())</span> <span class="c1">// lock the signal while reading from it</span>
+  <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">pSignal</span><span class="o">-&gt;</span><span class="n">Empty</span><span class="p">())</span>
+    <span class="p">{</span>
+      <span class="n">QPainter</span> <span class="nf">painter</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+      <span class="n">painter</span><span class="p">.</span><span class="n">fillRect</span><span class="p">(</span><span class="n">ev</span><span class="o">-&gt;</span><span class="n">rect</span><span class="p">(),</span> <span class="n">Qt</span><span class="o">::</span><span class="n">gray</span><span class="p">);</span>
+      <span class="n">painter</span><span class="p">.</span><span class="n">setPen</span><span class="p">(</span><span class="n">Qt</span><span class="o">::</span><span class="n">white</span><span class="p">);</span>
+      <span class="n">painter</span><span class="p">.</span><span class="n">drawText</span><span class="p">(</span><span class="n">geometry</span><span class="p">(),</span> <span class="n">Qt</span><span class="o">::</span><span class="n">AlignCenter</span><span class="p">,</span> 
+        <span class="n">p</span><span class="o">-&gt;</span><span class="n">mConnected</span> <span class="o">?</span> <span class="s">&quot;Waiting for signal ...&quot;</span> <span class="o">:</span> <span class="s">&quot;Waiting for connection ...&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+       <span class="c1">// draw some visualization into the widget</span>
+       <span class="p">...</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<h3><span class="mw-headline" id="SignalSharingDemoClientAddress">SignalSharingDemoClientAddress</span></h3>
+<p>IP address and port number of the client application.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Programming_Reference%253AGenericSignal_Class.html" title="Programming Reference:GenericSignal Class">Programming Reference:GenericSignal Class</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230523233916
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.063 seconds
+Real time usage: 0.070 seconds
+Preprocessor visited node count: 113/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 23903/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2230-0!canonical and timestamp 20230523233916 and revision id 8187
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:SignalSharingDemo_Signal_Processing&amp;oldid=8187">http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:SignalSharingDemo_Signal_Processing&amp;oldid=8187</a>"</div>
+ </div>
+</body>
+</html>

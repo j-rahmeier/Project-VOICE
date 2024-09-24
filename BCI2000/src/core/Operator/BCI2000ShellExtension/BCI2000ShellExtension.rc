@@ -1,0 +1,4 @@
+1 REGISTRY BCI2000ShellExtension.rgs
+2 REGISTRY ContextMenuExtension.rgs
+3 REGISTRY QueryInfoExtension.rgs
+4 REGISTRY ExtractIconExtension.rgs

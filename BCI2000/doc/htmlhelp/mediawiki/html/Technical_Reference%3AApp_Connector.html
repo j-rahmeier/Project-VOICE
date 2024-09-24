@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Technical Reference:App Connector - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul><li class="toc1">System Design and Communication Protocols</li><ul><li class="toc2"><a href="Technical_Reference%253ASystem_Design.html">System Design</a></li><li class="toc2"><a href="Technical_Reference%253ACore_Modules.html">Core Modules</a></li><li class="toc2"><a href="Technical_Reference%253AStates_of_Operation.html">States of Operation</a></li></ul><li class="toc1">Transmission Protocol Specification</li><ul><li class="toc2"><a href="Technical_Reference%253ABCI2000_Messages.html">BCI2000 Messages</a></li><li class="toc2"><a href="Technical_Reference%253AParameter_Definition.html">Parameter Definition</a></li><li class="toc2"><a href="Technical_Reference%253AState_Definition.html">State Definition</a></li><li class="toc2"><a href="Technical_Reference%253AVisualization_Properties.html">Visualization Properties</a></li></ul><li class="toc1">File Formats</li><ul><li class="toc2"><a href="Technical_Reference%253ABCI2000_File_Format.html">Data File Format</a></li><li class="toc2"><a href="Technical_Reference%253AParameter_File.html">Parameter File Format</a></li></ul><li class="toc1">External Interfaces</li><ul><li class="toc2">App Connector</li><li class="toc2"><a href="Technical_Reference%253AOperator_Library.html">Operator Library</a></li><li class="toc2"><a href="Technical_Reference%253ABCI2000Remote_Library.html">BCI2000Remote</a></li></ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">App Connector</h1>
+ <p class = "subtitle">Technical Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Technical_Reference%253AApp_Connector.html#NOTE"><span class="tocnumber">1</span> <span class="toctext">NOTE</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="Technical_Reference%253AApp_Connector.html#Instead_of_AppConnector_ConnectorOutput.2C_use_WATCHes_as_follows:"><span class="tocnumber">1.1</span> <span class="toctext">Instead of AppConnector ConnectorOutput, use WATCHes as follows:</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="Technical_Reference%253AApp_Connector.html#Instead_of_AppConnector_ConnectorInput.2C_use_a_TCP_connection_as_follows:"><span class="tocnumber">1.2</span> <span class="toctext">Instead of AppConnector ConnectorInput, use a TCP connection as follows:</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="Technical_Reference%253AApp_Connector.html#For_more_information_about_controlling_BCI2000_from_other_applications.2C_see"><span class="tocnumber">1.3</span> <span class="toctext">For more information about controlling BCI2000 from other applications, see</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="Technical_Reference%253AApp_Connector.html#Obsolete_AppConnector_documentation"><span class="tocnumber">2</span> <span class="toctext">Obsolete AppConnector documentation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="Technical_Reference%253AApp_Connector.html#Introduction"><span class="tocnumber">2.1</span> <span class="toctext">Introduction</span></a>
+<ul>
+<li class="toclevel-3 tocsection-7"><a href="Technical_Reference%253AApp_Connector.html#Scope"><span class="tocnumber">2.1.1</span> <span class="toctext">Scope</span></a></li>
+<li class="toclevel-3 tocsection-8"><a href="Technical_Reference%253AApp_Connector.html#Design"><span class="tocnumber">2.1.2</span> <span class="toctext">Design</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-9"><a href="Technical_Reference%253AApp_Connector.html#Description"><span class="tocnumber">2.2</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="Technical_Reference%253AApp_Connector.html#Protocol"><span class="tocnumber">2.3</span> <span class="toctext">Protocol</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="Technical_Reference%253AApp_Connector.html#Examples"><span class="tocnumber">2.4</span> <span class="toctext">Examples</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="Technical_Reference%253AApp_Connector.html#Parameterization_from_within_BCI2000"><span class="tocnumber">2.5</span> <span class="toctext">Parameterization from within BCI2000</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="Technical_Reference%253AApp_Connector.html#Examples_2"><span class="tocnumber">2.6</span> <span class="toctext">Examples</span></a>
+<ul>
+<li class="toclevel-3 tocsection-14"><a href="Technical_Reference%253AApp_Connector.html#BCI2000_example_code"><span class="tocnumber">2.6.1</span> <span class="toctext">BCI2000 example code</span></a></li>
+<li class="toclevel-3 tocsection-15"><a href="Technical_Reference%253AApp_Connector.html#An_external_application_reading_information_from_BCI2000.2C_running_locally"><span class="tocnumber">2.6.2</span> <span class="toctext">An external application reading information from BCI2000, running locally</span></a></li>
+<li class="toclevel-3 tocsection-16"><a href="Technical_Reference%253AApp_Connector.html#An_external_application_reading_information_from_BCI2000.2C_running_on_a_remote_machine"><span class="tocnumber">2.6.3</span> <span class="toctext">An external application reading information from BCI2000, running on a remote machine</span></a></li>
+<li class="toclevel-3 tocsection-17"><a href="Technical_Reference%253AApp_Connector.html#An_external_application_sending_information_to_BCI2000.2C_running_locally"><span class="tocnumber">2.6.4</span> <span class="toctext">An external application sending information to BCI2000, running locally</span></a></li>
+<li class="toclevel-3 tocsection-18"><a href="Technical_Reference%253AApp_Connector.html#An_external_application_sending_information_to_BCI2000.2C_running_on_a_remote_machine"><span class="tocnumber">2.6.5</span> <span class="toctext">An external application sending information to BCI2000, running on a remote machine</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-19"><a href="Technical_Reference%253AApp_Connector.html#See_also"><span class="tocnumber">2.7</span> <span class="toctext">See also</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="NOTE">NOTE</span></h2>
+<p>The <b>AppConnector</b> interface has been <b>superseded</b> by a variety of BCI2000 scripting and remote control options. It is being kept for backward compatibility.
+</p>
+<h3><span id="Instead_of_AppConnector_ConnectorOutput,_use_WATCHes_as_follows:"></span><span class="mw-headline" id="Instead_of_AppConnector_ConnectorOutput.2C_use_WATCHes_as_follows:">Instead of AppConnector ConnectorOutput, use WATCHes as follows:</span></h3>
+<p>As a functional equivalent to the <tt>ConnectorOutput</tt> filter, execute the following <a href="User_Reference%253AOperator_Module_Scripting.html" title="User Reference:Operator Module Scripting">scripting code</a> at startup, e.g., from a batch file:
+</p>
+<pre>ADD WATCH State1 State2 State3 ... StateN AT localhost:12345
+</pre>
+<p>As a result, the values of the state variables listed will be sent to the named UDP port whenever one of them changes. Multiple ADD WATCH commands may be used to send change notifications for different states (or expressions) to different UDP ports:
+</p>
+<pre>ADD WATCH TargetCode AT localhost:2006
+ADD WATCH ResultCode AT localhost:2007
+</pre>
+<h3><span id="Instead_of_AppConnector_ConnectorInput,_use_a_TCP_connection_as_follows:"></span><span class="mw-headline" id="Instead_of_AppConnector_ConnectorInput.2C_use_a_TCP_connection_as_follows:">Instead of AppConnector ConnectorInput, use a TCP connection as follows:</span></h3>
+<p>As a functional equivalent to the <tt>ConnectorInput</tt> filter, you may establish a TCP connection to <tt>localhost:3999</tt> and issue a SET STATE command, e.g.
+</p>
+<pre>SET STATE TargetCode 3
+</pre>
+<p>in order to set <tt>TargetCode</tt> to 3.
+</p>
+<h3><span id="For_more_information_about_controlling_BCI2000_from_other_applications,_see"></span><span class="mw-headline" id="For_more_information_about_controlling_BCI2000_from_other_applications.2C_see">For more information about controlling BCI2000 from other applications, see</span></h3>
+<p><a href="User_Reference%253AOperator_Module_Scripting.html#Commands_operating_on_States" title="User Reference:Operator Module Scripting">User Reference:Operator Module Scripting#Commands operating on States</a>
+</p><p><a href="User_Reference%253AOperator_Module_Scripting.html#Commands_operating_on_Events" title="User Reference:Operator Module Scripting">User Reference:Operator Module Scripting#Commands operating on Events</a>
+</p><p><a href="User_Reference%253AOperator_Module_Scripting.html#Commands_operating_on_Watches" title="User Reference:Operator Module Scripting">User Reference:Operator Module Scripting#Commands operating on Watches</a>
+</p><p><a href="Programming_Reference%253ABCI2000Remote_Class.html" title="Programming Reference:BCI2000Remote Class">Programming Reference:BCI2000Remote Class</a>
+</p><p><a href="User_Reference%253AModule_Command_Line_Options.html#Operator_Module" title="User Reference:Module Command Line Options">User Reference:Module Command Line Options#Operator Module</a>
+</p><p><br />
+</p>
+<h1><span class="mw-headline" id="Obsolete_AppConnector_documentation">Obsolete AppConnector documentation</span></h1>
+<h2><span class="mw-headline" id="Introduction">Introduction</span></h2>
+<p>The BCI2000 external application interface provides a bi-directional link to exchange 
+information with external processes running on the same machine, or on a different machine
+over a local network.
+Via the external application interface, read/write access to BCI2000 <a href="BCI2000_Glossary.html#State_Vector" title="BCI2000 Glossary">state vector</a> information and to the <a href="BCI2000_Glossary.html#Control_Signal" title="BCI2000 Glossary">control signal</a> is possible. An external application may 
+read the <tt>ResultCode</tt> state to access the classification result, set the 
+<tt>TargetCode</tt> state to control the user's task, or get access to the 
+control signal that is calculated by SignalProcessing so as to control an 
+external output device (such as a robotic arm or a web browser). Multiple 
+instances of BCI2000 running on separate machines may share sequencing and 
+control signal information, allowing for interactive applications such as games.
+</p>
+<h3><span class="mw-headline" id="Scope">Scope</span></h3>
+<p>The scope of this interface is to provide access to internal BCI2000 information 
+for cases in which the generation of a full-fledged BCI2000 module is 
+impractical. Such a case might be the control of external applications that 
+practically do not allow full incorporation into the BCI2000 framework (such as 
+the Dasher system for efficient low-bandwidth spelling). 
+</p><p>This interface is <b>not</b> intended to replace the existing BCI2000 framework for BCI2000 
+communication. The advantages of writing modules that are fully integrated into 
+the BCI2000 framework are that their configuration is achieved through the same 
+interface as other BCI2000 configuration, that this configuration is stored in 
+the data file along with all other system parameters, and that the state of the 
+module at any given time is encoded in event markers that are also stored in the 
+data file. In contrast, control of an external device using the External 
+Application Interface implies that the configuration of the external device has 
+to be done outside of BCI2000, that this corresponding configuration is not 
+stored along with the data file, and that the internal state of the output 
+device is not automatically saved together with the brain signals 
+(although it is possible to introduce your own state variables
+for this purpose using the operator module's <a href="User_Reference%253AOperator_Module_Scripting.html#INSERT_STATE_.3Cname.3E_.3Cbit_width.3E_.3Cinitial_value.3E" title="User Reference:Operator Module Scripting">INSERT STATE</a> scripting command).
+Having no configuration and state information present in the data file will make it more 
+difficult to reconstruct what exactly was going on during an experimental 
+session. It is thus important to keep this in mind when using this 
+possibility.
+</p>
+<h3><span class="mw-headline" id="Design">Design</span></h3>
+<p>The design of the external application interface aims at simplicity, and at minimal 
+interference with the timing of the signal flow through the BCI2000 system. With 
+this in mind, a connection-less, UDP based transmission protocol was chosen 
+rather than one based on TCP. This comes at the cost of a possible loss, or 
+reordering of protocol messages. To keep the probability for such losses as low 
+as possible, and their consequences as local as possible, messages have been 
+designed to be short, self-contained, and redundantly encoded in a human 
+readable fashion.
+</p><p>The connectionless nature of UDP implies that there is no <i>server</i> or <i>client</i> in the asymmetric sense that applies for TCP connections. Rather, processes write to local or remote UDP ports, and read from local UDP ports, whenever applicable.
+Thus, for bi-directional communication between machine A running BCI2000 and machine B running the external application, there will be two UDP ports involved:
+</p>
+<ul><li>a port on machine B into which BCI2000 writes out its messages to the external application, and</li>
+<li>a port on machine A into which the external application writes its messages to BCI2000.</li></ul>
+<p>In most cases, both BCI2000 and the external application will run on the same machine, i.e., A and B will refer to the same machine, and both ports will be local. Still, they are distinct ports.
+</p><p>For communication involving a large number of network nodes, or unreliable connections, we suggest 
+using local UDP communication, in conjunction with locally executed TCP/IP server processes that forward messages to a TCP connection between the two remote machines.
+</p>
+<h2><span class="mw-headline" id="Description">Description</span></h2>
+<p>For each block of data processed by the BCI2000 system, two types of information are sent out
+and may be received from the external application interface:
+</p>
+<ul><li>the BCI2000 internal state as defined by the values of all <a href="BCI2000_Glossary.html#State" title="BCI2000 Glossary">BCI2000 states</a>, and</li>
+<li>the BCI2000 <a href="BCI2000_Glossary.html#Control_Signal" title="BCI2000 Glossary">control signal</a>.</li></ul>
+<p>Sending data occurs immediately after the task filter of the application module processes the data; 
+receiving occurs immediately before the task filter.
+This ensures that changes resulting from user choices are sent out immediately, and that 
+received information will immediately be available to the task filter.
+IP addresses and ports used are user-configurable. Sending and receiving may not use the same address and port.
+</p>
+<h2><span class="mw-headline" id="Protocol">Protocol</span></h2>
+<p>Messages consist of a name and a value, separated by white space
+and terminated with a single newline (<code>'\n'==0x0a</code>) character.
+Names may identify
+</p>
+<ul><li>BCI2000 states by name -- then followed by an integer value in decimal ASCII representation;</li>
+<li>Signal elements in the form <tt>Signal(&lt;channel&gt;,&lt;element&gt;)</tt> -- then followed by a float value in decimal ASCII representation. Channel and element indices are given in zero-based form.</li></ul>
+<h2><span class="mw-headline" id="Examples">Examples</span></h2>
+<pre>Running 0\n
+ResultCode 2\n
+Signal(1,0) 1e-8\n
+</pre>
+<p>Note that the first example will switch BCI2000 into a suspended state.
+While the system is in that state, no communication is possible over the application protocol.
+</p><p>The meaning of control signal indices depends on the application module used. For the <a href="BCI2000_Glossary.html#Control_Signal" title="BCI2000 Glossary">control signal</a> in a typical <a href="User_Reference%253ACursorTask.html#Control_Signal" title="User Reference:CursorTask">cursor task</a>, there are up to three channels holding a single element each, with channel indices 0, 1, and 2 corresponding to movement in X, Y, and Z direction, such that
+</p>
+<pre>Signal(1,0) 1e-2\n
+</pre>
+<p>would indicate a value of 1e-2 for the control signal representing movement in Y direction.
+</p>
+<h2><span class="mw-headline" id="Parameterization_from_within_BCI2000">Parameterization from within BCI2000</span></h2>
+<p>BCI2000 reads data from a local IP socket specified by the 
+<tt>ConnectorInputAddress</tt> parameter, and writes data out into the socket specified by the 
+<tt>ConnectorOutputAddress</tt> parameter.
+Sockets are specified by an address/port combination.
+Addresses may be host names, or numerical IP addresses. Address and port are separated by
+a colon as in
+</p>
+<pre>localhost:5000
+134.2.103.151:20321
+</pre>
+<p>For incoming values, messages are filtered by name using a list of allowed names 
+present in the <tt>ConnectorInputFilter</tt> parameter. 
+To allow signal messages, allowed signal elements must be specified including their
+indices.
+To allow all names, enter an asterisk (*) as the only list entry.
+</p>
+<h2><span class="mw-headline" id="Examples_2">Examples</span></h2>
+<h3><span class="mw-headline" id="BCI2000_example_code">BCI2000 example code</span></h3>
+<ul><li>A simple few-line program that uses AppConnector information from BCI2000 to control the state of the parallel port is found at <a rel="nofollow" class="external text" href="http://www.bci2000.org/tracproj/browser/trunk/src/contrib/AppConnectorApplications/ParallelSwitch/ParallelSwitch.cpp">BCI2000/src/contrib/AppConnectorApplications/ParallelSwitch/</a>.</li>
+<li>A GUI application that allows to interactively play with BCI2000 states is found at <a rel="nofollow" class="external text" href="http://www.bci2000.org/tracproj/browser/trunk/src/contrib/AppConnectorApplications/AppConnectorExample">BCI2000/src/contrib/AppConnectorApplications/AppConnectorExample</a>.</li>
+<li>A MATLAB example is available at <a rel="nofollow" class="external text" href="http://www.bci2000.org/tracproj/browser/trunk/src/contrib/AppConnectorApplications/readudp.m">BCI2000/src/contrib/AppConnectorApplications/readudp.m</a>.</li>
+<li>A minimal C++ program forwarding BCI2000 AppConnector messages to stdout (using the BCI2000 <code>sockstream</code> class) reads</li></ul>
+<pre>#include &lt;iostream&gt;
+#include "SockStream.h"
+
+using namespace std;
+
+int main( int argc, char** argv )
+{
+  const char* address = "localhost:5000";
+  if( argc &gt; 1 )
+    address = argv[ 1 ];
+
+  receiving_udpsocket socket( address );
+  sockstream connection( socket );
+  string line;
+  // Print each line of BCI2000 input to stdout.
+  while( getline( connection, line ) )
+    cout &lt;&lt; line &lt;&lt; endl;
+
+  return 0;
+}
+</pre>
+<ul><li><i>Note:</i> The above example program use BCI2000 socket stream utility classes contained in <tt>src/shared/utils/SockStream.cpp</tt>. You will need to add this file to your project to build the example program.</li></ul>
+<h3><span id="An_external_application_reading_information_from_BCI2000,_running_locally"></span><span class="mw-headline" id="An_external_application_reading_information_from_BCI2000.2C_running_locally">An external application reading information from BCI2000, running locally</span></h3>
+<ul><li>Set the <tt>ConnectorOutputAddress</tt> parameter to a local address above 1024, such as <code>localhost:5000</code>.</li>
+<li>In the external application, create a UDP socket and bind it to BCI2000's output port, i.e. <code>localhost:5000</code>.</li>
+<li>Read from that socket as you would from a TCP socket.</li></ul>
+<h3><span id="An_external_application_reading_information_from_BCI2000,_running_on_a_remote_machine"></span><span class="mw-headline" id="An_external_application_reading_information_from_BCI2000.2C_running_on_a_remote_machine">An external application reading information from BCI2000, running on a remote machine</span></h3>
+<ul><li>Set the <tt>ConnectorOutputAddress</tt> parameter to a remote address with a port above 1024, such as <code>134.2.102.151:20321</code>.</li>
+<li>In the external program, create a UDP socket, and bind it to the remote machine's external address, i.e. <code>134.2.102.151:20321</code> rather than <code>localhost:20321</code>.</li>
+<li>Read from that socket as you would from a TCP socket.</li></ul>
+<h3><span id="An_external_application_sending_information_to_BCI2000,_running_locally"></span><span class="mw-headline" id="An_external_application_sending_information_to_BCI2000.2C_running_locally">An external application sending information to BCI2000, running locally</span></h3>
+<ul><li>Set the <tt>ConnectorInputAddress</tt> parameter to a local address with a port above 1024, such as <code>localhost:5001</code>.</li>
+<li>Set the <tt>ConnectorInputFilter</tt> to <code>*</code> (a single asterisk).</li>
+<li>In the external application, create a UDP socket and bind it to BCI2000's input port, i.e. <code>localhost:5001</code>.</li>
+<li>Write to that socket whenever appropriate, without waiting for a connection to be established.</li></ul>
+<h3><span id="An_external_application_sending_information_to_BCI2000,_running_on_a_remote_machine"></span><span class="mw-headline" id="An_external_application_sending_information_to_BCI2000.2C_running_on_a_remote_machine">An external application sending information to BCI2000, running on a remote machine</span></h3>
+<ul><li>Set the <tt>ConnectorInputAddress</tt> parameter to the local machine's external address, and a port above 1024, such as <code>bci2000machine.yourdomain.org:20320</code>.</li>
+<li>In the external program, create a UDP socket and bind it to the BCI2000 machine's external address, i.e. <code>bci2000machine.yourdomain.org:20320</code>.</li>
+<li>Write to that socket whenever appropriate, without waiting for a connection to be established.</li></ul>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Technical_Reference%253ASystem_Design.html" title="Technical Reference:System Design">Technical Reference:System Design</a>, <a href="Technical_Reference%253AState_Definition.html" title="Technical Reference:State Definition">Technical Reference:State Definition</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524175606
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.027 seconds
+Real time usage: 0.032 seconds
+Preprocessor visited node count: 93/1000000
+Post‐expand include size: 45/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 546/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1421-0!canonical and timestamp 20230524175606 and revision id 8498
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Technical_Reference:App_Connector&amp;oldid=8498">http://www.bci2000.org/mediawiki/index.php?title=Technical_Reference:App_Connector&amp;oldid=8498</a>"</div>
+ </div>
+</body>
+</html>

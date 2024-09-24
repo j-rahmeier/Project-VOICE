@@ -1,0 +1,1 @@
+Source:Online%20Processing list TransmitChList= 2 0 1 // list of transmitted channels: Channel names may contain * and ? wildcards,  and character ranges enclosed in []; wildcard patterns may be negated by prepending an exclamation mark.  Ranges of channels may be specified using : or - to separate begin from end.

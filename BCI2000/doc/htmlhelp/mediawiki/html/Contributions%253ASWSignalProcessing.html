@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:SWSignalProcessing - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">SWSignalProcessing</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Contributions%253ASWSignalProcessing.html#Synopsis"><span class="tocnumber">1</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Contributions%253ASWSignalProcessing.html#Location"><span class="tocnumber">2</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Contributions%253ASWSignalProcessing.html#Versioning"><span class="tocnumber">3</span> <span class="toctext">Versioning</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Contributions%253ASWSignalProcessing.html#Authors"><span class="tocnumber">3.1</span> <span class="toctext">Authors</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Contributions%253ASWSignalProcessing.html#Source_Code_Revisions"><span class="tocnumber">3.2</span> <span class="toctext">Source Code Revisions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="Contributions%253ASWSignalProcessing.html#Description"><span class="tocnumber">4</span> <span class="toctext">Description</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="Contributions%253ASWSignalProcessing.html#Temporal_SW-Filter"><span class="tocnumber">4.1</span> <span class="toctext">Temporal SW-Filter</span></a>
+<ul>
+<li class="toclevel-3 tocsection-8"><a href="Contributions%253ASWSignalProcessing.html#Parameters"><span class="tocnumber">4.1.1</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="Contributions%253ASWSignalProcessing.html#States"><span class="tocnumber">4.1.2</span> <span class="toctext">States</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-10"><a href="Contributions%253ASWSignalProcessing.html#Baseline_Setting"><span class="tocnumber">4.2</span> <span class="toctext">Baseline Setting</span></a>
+<ul>
+<li class="toclevel-3 tocsection-11"><a href="Contributions%253ASWSignalProcessing.html#Parameters_2"><span class="tocnumber">4.2.1</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-3 tocsection-12"><a href="Contributions%253ASWSignalProcessing.html#States_2"><span class="tocnumber">4.2.2</span> <span class="toctext">States</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-13"><a href="Contributions%253ASWSignalProcessing.html#Artifact_Correction"><span class="tocnumber">4.3</span> <span class="toctext">Artifact Correction</span></a>
+<ul>
+<li class="toclevel-3 tocsection-14"><a href="Contributions%253ASWSignalProcessing.html#Parameters_3"><span class="tocnumber">4.3.1</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-3 tocsection-15"><a href="Contributions%253ASWSignalProcessing.html#States_3"><span class="tocnumber">4.3.2</span> <span class="toctext">States</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-16"><a href="Contributions%253ASWSignalProcessing.html#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>A signal processing module for slow wave feedback.
+</p>
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><a rel="nofollow" class="external free" href="http://www.bci2000.org/svn/trunk/src/contrib/SignalProcessing/SW">http://www.bci2000.org/svn/trunk/src/contrib/SignalProcessing/SW</a>
+</p>
+<h2><span class="mw-headline" id="Versioning">Versioning</span></h2>
+<h3><span class="mw-headline" id="Authors">Authors</span></h3>
+<p>Dr. Thilo Hinterberger, J&#252;rgen Mellinger, University of T&#252;bingen.
+</p>
+<h3><span class="mw-headline" id="Source_Code_Revisions">Source Code Revisions</span></h3>
+<ul><li>Initial development: 45</li>
+<li>Tested under: 946</li>
+<li>Known to compile under: 1528</li>
+<li>Broken since: --</li></ul>
+<h2><span class="mw-headline" id="Description">Description</span></h2>
+<p>The calculation of the Slow-Wave feedback signal is subdivided into three 
+modules: The SW-Filter, which is realized as an efficient boxcar-filter, the 
+SetBaseline module, which subtracts a defined baseline from the signal and an 
+artifact correction module, which contains two different artifact correction 
+modes.  
+</p>
+<h3><span class="mw-headline" id="Temporal_SW-Filter">Temporal SW-Filter</span></h3>
+<h4><span class="mw-headline" id="Parameters">Parameters</span></h4>
+<p>The SW-Filter uses the following parameters:
+</p>
+<pre>SWFilter int SWAvgSpan= 0.5 0.5 0 10 
+         // Averaging window in s
+SWFilter intlist SWInChList= 3 0 1 2 0 0 63 
+         // Channel index of input signal (include artifact channel!)
+SWFilter intlist SWOutChList= 3 0 1 2 0 0 63 
+         // Channel index of output signal (include artifact channel!)
+SWFilter floatlist ThresholdAmp= 3 100 100 400 200 -2000 2000 
+         // Threshold for invalid Trial in uV
+SWFilter float Tc= 0 16 0 1024 
+         // Time constant filter settings in s
+Visualize int VisualizeSWFiltering= 1 0 0 1  
+          // visualize SW filtered signals (0=no 1=yes)
+</pre>
+<p>SWAvgSpan defines the time window of the boxcar-filter. SWInChList defines, 
+which channels from Signal B are filtered. They are sorted to the channels in 
+Signal C which are selected in SWOutChList. In the Standard setting, three 
+channels are filtered. The ThresholdAmp is an artifact control parameter. In 
+between one trial (from one BeginOfTrial to the next), the amplitude is not 
+allowed to vary more than the in ThresholdAmp defined size in muV. Otherwise the 
+trial should be neglected and set as invalid in the application module (state 
+Artifact is set to one).
+</p><p>A time constant (Tc) correction function simulates a 
+real DC-behaviour, even if the amplifier has no DC-option. This can be done by 
+the knowledge of the amplifiers' time constant, which is set as the parameter 
+Tc. To avoid that the signal will drift towards very high positive or negative 
+values, the correction signal is set to zero each time, when BeginOfTrial is 
+one. Tc=0 will switch off the Tc-correction. Note: The Tc-correction will only 
+work properly, when the A/D-converter and the amplifier puts out 0 when the 
+input is 0 muV and there is no electrode polarization! If you are not sure, 
+switch off this correction.
+</p>
+<h4><span class="mw-headline" id="States">States</span></h4>
+<p>Following states are used:
+Artifact (bool) is set to 1 when the signal changes exceed the threshold values defined in ThresholdAmp (see below).  
+BeginOfTrial is checked to trigger the start of the trial and reset the internal counter.
+</p>
+<h3><span class="mw-headline" id="Baseline_Setting">Baseline Setting</span></h3>
+<h4><span class="mw-headline" id="Parameters_2">Parameters</span></h4>
+<p>The SW-Filter uses the following parameters:
+</p>
+<pre>BLFilter float BaseBegin= 0.9 1.9 0 60 
+         // Begin of Baseline in s
+BLFilter float BaseEnd= 1.0 2.0 0 60 
+         // End of Baseline in s
+BLFilter intlist BaseChList= 3 1 1 1 1 0 1 
+         // 1 to mark that BL is subtracted
+Visualize int VisualizeBaselineFiltering= 1 0 0 1  
+          // visualize baseline filtered signals (0=no 1=yes)
+</pre>
+<p>The baseline is set each trial at the time point BaseEnd seconds after 
+BeginOfTrial was set to one. The baseline amplitude is the average amplitude in 
+the time interval between BaseBegin and BaseEnd. The baseline is subtracted of 
+all channels marked with 1 in the BaseChList. As default, baseline subtraction 
+is applied on all three channels.
+</p><p>This version still uses the parameters BIPts and FIPts, which define the 
+duration of the baseline-interval and the feedback-interval in seconds. These 
+parameters are used for the buffer, which needs the duration of a trial. They 
+will be no longer used in the next version.  
+</p>
+<h4><span class="mw-headline" id="States_2">States</span></h4>
+<p>Following states are used:
+Baseline (bool) is set to 1 during the baseline period between BaseBegin and BaseEnd. Otherwise it is zero.
+BeginOfTrial is checked to trigger the start of the trial and reset the internal counter.
+</p>
+<h3><span class="mw-headline" id="Artifact_Correction">Artifact Correction</span></h3>
+<h4><span class="mw-headline" id="Parameters_3">Parameters</span></h4>
+<p>The SW-Filter uses the following parameters:
+</p>
+<pre>ArteFilter intlist ArteChList= 3 2 2 -1 2 -1 63
+  // Assignment of artefact channels, -1: no artifact channel
+ArteFilter floatlist ArteFactorList= 7 0.15 0.15 0 0 0 0 0 0 -1 1
+  // Influence of artefact channel on input channel,
+     -1: no artifact channel
+ArteFilter int ArteMode= 0 1 0 3
+  // Artefact correction mode, 0 off, 1 continuous, 2 conditioned
+Visualize int VisualizeFBArteCorFiltering= 1 0 0 1 
+  // visualize FBArte corrected signals (0=no 1=yes)
+</pre>
+<p>Artifacts are corrected on all channels which are not marked with -1
+in the ArteChList. For the correction, the channel number at the
+position of the channel in the ArteChList is used as artifact channel.
+For example, the standard setting corrects the channels 0 and 1 by using
+channel 2 for the correction. The correction factor is the factor set
+in ArteFactorList, 0.15 in the standard setting.
+</p><p>For the ArteMode parameter, the following values are possible: 
+</p>
+<ul><li>ArteMode 0 switches this filter off.</li>
+<li>ArteMode 1 will subtract the artifact channel multiplied with a constant factor.</li>
+<li>ArteMode 2 will correct the signal according to Koutchoubey, 1997: If the artifact signal has the same sign as the control signal, a correction is applied by subtracting the artifact signal; otherwise, no correction is performed. If the artifact crosses a threshold value, feedback is suppressed.</li>
+<li>ArteMode 3 is working identically to ArteMode 2 but sets the Artifact state to 1 when the feedback is set to zero.</li></ul>
+<h4><span class="mw-headline" id="States_3">States</span></h4>
+<p>Following states are used:
+Artifact (bool) is set to 1 only in ArteMode=3 when the feedback signal is set 
+to zero due to the EOG artifact BeginOfTrial is checked to trigger the start of 
+the trial and reset the internal counter.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Reference%253AFilters.html" title="User Reference:Filters">User Reference:Filters</a>, <a href="Contributions%253ASignalProcessing.html" title="Contributions:SignalProcessing">Contributions:SignalProcessing</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524001320
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.016 seconds
+Real time usage: 0.018 seconds
+Preprocessor visited node count: 65/1000000
+Post‐expand include size: 15/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 1440/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1657-0!canonical and timestamp 20230524001320 and revision id 2787
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:SWSignalProcessing&amp;oldid=2787">http://www.bci2000.org/mediawiki/index.php?title=Contributions:SWSignalProcessing&amp;oldid=2787</a>"</div>
+ </div>
+</body>
+</html>

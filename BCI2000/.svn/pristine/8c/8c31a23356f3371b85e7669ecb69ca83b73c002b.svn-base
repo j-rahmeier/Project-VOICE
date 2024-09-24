@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>MARIO:Contents - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">Contents</h1>
+ <p class = "subtitle">MARIO</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>MARIO is a collection of Matlab programs for off-line BCI2000 data analysis and prototyping of processing algorithms.
+The following information is available about MARIO:
+</p>
+<ul><li><a href="MARIO_Technical_Documentation.html" title="MARIO Technical Documentation">MARIO Technical Documentation</a></li></ul>
+<dl><dd>A conceptual description of the MARIO software and its design.</dd></dl>
+<ul><li><a href="Mu_Rhythm_Off-line_Analysis_Tutorial.html" title="Mu Rhythm Off-line Analysis Tutorial">Mu Rhythm Off-line Analysis Tutorial</a></li></ul>
+<dl><dd>Introduction to the use of the MARIO tool to analyze recorded sessions of mu rhythm modulation</dd></dl>
+<ul><li><a href="P300_Off-line_Analysis_Tutorial.html" title="P300 Off-line Analysis Tutorial">P300 Off-line Analysis Tutorial</a></li></ul>
+<dl><dd>Introduction to the use of the MARIO tool to analyze recorded sessions of mu P300 letter spelling</dd></dl>
+<p><br />
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524175521
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.003 seconds
+Real time usage: 0.004 seconds
+Preprocessor visited node count: 1/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 1/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1676-0!canonical and timestamp 20230524175521 and revision id 6096
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=MARIO:Contents&amp;oldid=6096">http://www.bci2000.org/mediawiki/index.php?title=MARIO:Contents&amp;oldid=6096</a>"</div>
+ </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.0-b2</Version>
+    <Authors>Ty Butler</Authors>
+    <Company>BCI2000</Company>
+    <Product />
+    <Description>Interface for controlling BCI2000 remotely.</Description>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <RepositoryUrl>https://github.com/neurotechcenter/BCI2000RemoteNET</RepositoryUrl>
+    <PackageIcon>prompt256.png</PackageIcon>
+    <PackageIconUrl />
+    <RepositoryType>Git</RepositoryType>
+    <Nullable>enable</Nullable>
+    <AssemblyName>BCI2000RemoteNETStandard</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="LICENSE.md">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="prompt256.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <Content Include="README.md">
+      <Pack>true</Pack>
+      <PackagePath>\</PackagePath>
+    </Content>
+  </ItemGroup>
+
+</Project>

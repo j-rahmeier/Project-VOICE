@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:ANTTask - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">ANTTask</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Contributions%253AANTTask.html#Synopsis"><span class="tocnumber">1</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Contributions%253AANTTask.html#Timeline"><span class="tocnumber">2</span> <span class="toctext">Timeline</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Contributions%253AANTTask.html#Visual_Representation"><span class="tocnumber">3</span> <span class="toctext">Visual Representation</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="Contributions%253AANTTask.html#Versioning"><span class="tocnumber">4</span> <span class="toctext">Versioning</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="Contributions%253AANTTask.html#Authors"><span class="tocnumber">4.1</span> <span class="toctext">Authors</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Contributions%253AANTTask.html#Version_History"><span class="tocnumber">4.2</span> <span class="toctext">Version History</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="Contributions%253AANTTask.html#Parameters"><span class="tocnumber">5</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-8"><a href="Contributions%253AANTTask.html#WindowDiagonalInCm"><span class="tocnumber">5.1</span> <span class="toctext">WindowDiagonalInCm</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="Contributions%253AANTTask.html#ViewingDistanceInCm"><span class="tocnumber">5.2</span> <span class="toctext">ViewingDistanceInCm</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="Contributions%253AANTTask.html#EyeOpenTextDuration.2C_EyeCloseTextDuration"><span class="tocnumber">5.3</span> <span class="toctext">EyeOpenTextDuration, EyeCloseTextDuration</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="Contributions%253AANTTask.html#TimerValueOpen.2C_TimerValueClose"><span class="tocnumber">5.4</span> <span class="toctext">TimerValueOpen, TimerValueClose</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="Contributions%253AANTTask.html#BlankEverySecondTrial"><span class="tocnumber">5.5</span> <span class="toctext">BlankEverySecondTrial</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="Contributions%253AANTTask.html#TrialDuration"><span class="tocnumber">5.6</span> <span class="toctext">TrialDuration</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="Contributions%253AANTTask.html#FirstFixationDurationMin.2C_FirstFixationDurationMax"><span class="tocnumber">5.7</span> <span class="toctext">FirstFixationDurationMin, FirstFixationDurationMax</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="Contributions%253AANTTask.html#CueDuration"><span class="tocnumber">5.8</span> <span class="toctext">CueDuration</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="Contributions%253AANTTask.html#MiddleFixationDuration"><span class="tocnumber">5.9</span> <span class="toctext">MiddleFixationDuration</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="Contributions%253AANTTask.html#ReactionTimeMin.2C_ReactionTimeMax"><span class="tocnumber">5.10</span> <span class="toctext">ReactionTimeMin, ReactionTimeMax</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="Contributions%253AANTTask.html#CueIconList"><span class="tocnumber">5.11</span> <span class="toctext">CueIconList</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="Contributions%253AANTTask.html#TargetMatrix"><span class="tocnumber">5.12</span> <span class="toctext">TargetMatrix</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="Contributions%253AANTTask.html#TargetR90Matrix"><span class="tocnumber">5.13</span> <span class="toctext">TargetR90Matrix</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="Contributions%253AANTTask.html#BlockSequence"><span class="tocnumber">5.14</span> <span class="toctext">BlockSequence</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="Contributions%253AANTTask.html#PracticeBlockSize"><span class="tocnumber">5.15</span> <span class="toctext">PracticeBlockSize</span></a></li>
+<li class="toclevel-2 tocsection-23"><a href="Contributions%253AANTTask.html#EnableEyeOpenOrClose"><span class="tocnumber">5.16</span> <span class="toctext">EnableEyeOpenOrClose</span></a></li>
+<li class="toclevel-2 tocsection-24"><a href="Contributions%253AANTTask.html#EnableRotate90"><span class="tocnumber">5.17</span> <span class="toctext">EnableRotate90</span></a></li>
+<li class="toclevel-2 tocsection-25"><a href="Contributions%253AANTTask.html#EnableFirstDurExternally"><span class="tocnumber">5.18</span> <span class="toctext">EnableFirstDurExternally</span></a></li>
+<li class="toclevel-2 tocsection-26"><a href="Contributions%253AANTTask.html#NumberOfStimTrialTypes"><span class="tocnumber">5.19</span> <span class="toctext">NumberOfStimTrialTypes</span></a></li>
+<li class="toclevel-2 tocsection-27"><a href="Contributions%253AANTTask.html#StimulusEccentricityInDegrees"><span class="tocnumber">5.20</span> <span class="toctext">StimulusEccentricityInDegrees</span></a></li>
+<li class="toclevel-2 tocsection-28"><a href="Contributions%253AANTTask.html#CrossToCueDistance"><span class="tocnumber">5.21</span> <span class="toctext">CrossToCueDistance</span></a></li>
+<li class="toclevel-2 tocsection-29"><a href="Contributions%253AANTTask.html#CrossToTargetDistance"><span class="tocnumber">5.22</span> <span class="toctext">CrossToTargetDistance</span></a></li>
+<li class="toclevel-2 tocsection-30"><a href="Contributions%253AANTTask.html#CrossWidth.2C_CrossHeight"><span class="tocnumber">5.23</span> <span class="toctext">CrossWidth, CrossHeight</span></a></li>
+<li class="toclevel-2 tocsection-31"><a href="Contributions%253AANTTask.html#CueWidth.2C_CueHeight"><span class="tocnumber">5.24</span> <span class="toctext">CueWidth, CueHeight</span></a></li>
+<li class="toclevel-2 tocsection-32"><a href="Contributions%253AANTTask.html#TargetWidth.2C_TargetHeight"><span class="tocnumber">5.25</span> <span class="toctext">TargetWidth, TargetHeight</span></a></li>
+<li class="toclevel-2 tocsection-33"><a href="Contributions%253AANTTask.html#ProgressBar"><span class="tocnumber">5.26</span> <span class="toctext">ProgressBar</span></a></li>
+<li class="toclevel-2 tocsection-34"><a href="Contributions%253AANTTask.html#ProgressBarHeight.2C_ProgressBarWidth"><span class="tocnumber">5.27</span> <span class="toctext">ProgressBarHeight, ProgressBarWidth</span></a></li>
+<li class="toclevel-2 tocsection-35"><a href="Contributions%253AANTTask.html#ProgressBarBackgroundColor.2C_ProgressBarForegroundColor"><span class="tocnumber">5.28</span> <span class="toctext">ProgressBarBackgroundColor, ProgressBarForegroundColor</span></a></li>
+<li class="toclevel-2 tocsection-36"><a href="Contributions%253AANTTask.html#PhotoDiodePatch"><span class="tocnumber">5.29</span> <span class="toctext">PhotoDiodePatch</span></a></li>
+<li class="toclevel-2 tocsection-37"><a href="Contributions%253AANTTask.html#PhotoDiodePatchHeight.2C_PhotoDiodePatchWidth"><span class="tocnumber">5.30</span> <span class="toctext">PhotoDiodePatchHeight, PhotoDiodePatchWidth</span></a></li>
+<li class="toclevel-2 tocsection-38"><a href="Contributions%253AANTTask.html#PhotoDiodePatchLeft.2C_PhotoDiodePatchTop"><span class="tocnumber">5.31</span> <span class="toctext">PhotoDiodePatchLeft, PhotoDiodePatchTop</span></a></li>
+<li class="toclevel-2 tocsection-39"><a href="Contributions%253AANTTask.html#PhotoDiodePatchShape"><span class="tocnumber">5.32</span> <span class="toctext">PhotoDiodePatchShape</span></a></li>
+<li class="toclevel-2 tocsection-40"><a href="Contributions%253AANTTask.html#PhotoDiodePatchActiveColor"><span class="tocnumber">5.33</span> <span class="toctext">PhotoDiodePatchActiveColor</span></a></li>
+<li class="toclevel-2 tocsection-41"><a href="Contributions%253AANTTask.html#PhotoDiodePatchInactiveColor"><span class="tocnumber">5.34</span> <span class="toctext">PhotoDiodePatchInactiveColor</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-42"><a href="Contributions%253AANTTask.html#States"><span class="tocnumber">6</span> <span class="toctext">States</span></a>
+<ul>
+<li class="toclevel-2 tocsection-43"><a href="Contributions%253AANTTask.html#PhaseNumber"><span class="tocnumber">6.1</span> <span class="toctext">PhaseNumber</span></a></li>
+<li class="toclevel-2 tocsection-44"><a href="Contributions%253AANTTask.html#TrialNumber"><span class="tocnumber">6.2</span> <span class="toctext">TrialNumber</span></a></li>
+<li class="toclevel-2 tocsection-45"><a href="Contributions%253AANTTask.html#FirstFixationDuration"><span class="tocnumber">6.3</span> <span class="toctext">FirstFixationDuration</span></a></li>
+<li class="toclevel-2 tocsection-46"><a href="Contributions%253AANTTask.html#ReactionTime"><span class="tocnumber">6.4</span> <span class="toctext">ReactionTime</span></a></li>
+<li class="toclevel-2 tocsection-47"><a href="Contributions%253AANTTask.html#LastFixationDuration"><span class="tocnumber">6.5</span> <span class="toctext">LastFixationDuration</span></a></li>
+<li class="toclevel-2 tocsection-48"><a href="Contributions%253AANTTask.html#BlockNumber"><span class="tocnumber">6.6</span> <span class="toctext">BlockNumber</span></a></li>
+<li class="toclevel-2 tocsection-49"><a href="Contributions%253AANTTask.html#TargetDirection"><span class="tocnumber">6.7</span> <span class="toctext">TargetDirection</span></a></li>
+<li class="toclevel-2 tocsection-50"><a href="Contributions%253AANTTask.html#FlankerDirection"><span class="tocnumber">6.8</span> <span class="toctext">FlankerDirection</span></a></li>
+<li class="toclevel-2 tocsection-51"><a href="Contributions%253AANTTask.html#TargetLocation"><span class="tocnumber">6.9</span> <span class="toctext">TargetLocation</span></a></li>
+<li class="toclevel-2 tocsection-52"><a href="Contributions%253AANTTask.html#CueLocation"><span class="tocnumber">6.10</span> <span class="toctext">CueLocation</span></a></li>
+<li class="toclevel-2 tocsection-53"><a href="Contributions%253AANTTask.html#CueVisible"><span class="tocnumber">6.11</span> <span class="toctext">CueVisible</span></a></li>
+<li class="toclevel-2 tocsection-54"><a href="Contributions%253AANTTask.html#TargetVisible"><span class="tocnumber">6.12</span> <span class="toctext">TargetVisible</span></a></li>
+<li class="toclevel-2 tocsection-55"><a href="Contributions%253AANTTask.html#TrialType"><span class="tocnumber">6.13</span> <span class="toctext">TrialType</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-56"><a href="Contributions%253AANTTask.html#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>The main purpose of the Attention Network Test (ANT) task is to test the alerting, orienting, and executive control networks in children and adults. It is based on the ANT task designed by J. Fan (Fan, J., McCandliss, B. D., Sommer, T., Raz, A., &amp; Posner, M. I. (2002). Testing the efficiency and independence of attentional networks. Journal of Cognitive Neuroscience, 14(3), 340-7.) This task presents sequential visual stimuli to the user of the BCI2000 system. The subject will be shown an arrow on the screen pointing either to the left or to the right. In some trials, the arrow will be flanked by two arrows to the left and two arrows to the right. The subject's task is to respond to the direction of the CENTRAL arrow. The subject should hold the mouse in both hands and press the left mouse button with the left thumb if the central arrow points to the left, or press the right mouse button with the right thumb if the central arrow points to the right.
+</p><p>In some trials, there will be asterisk cues indicating when or where the arrow will occur. If the cue is at the center or both above and below fixation it indicates that the arrow will appear shortly. If the cue is only above or below fixation it indicates both that the trial will occur shortly and where it will occur.
+</p>
+<h2><span class="mw-headline" id="Timeline">Timeline</span></h2>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 794px"><div style="width: 794px">
+			<div class="thumb" style="width: 792px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:ANT_wiki_1.jpg" class="image"><img alt="" src="../images/thumb/3/39/ANT_wiki_1.jpg/1188px-ANT_wiki_1.jpg" decoding="async" width="792" height="500" srcset="../images/thumb/3/39/ANT_wiki_1.jpg/1782px-ANT_wiki_1.jpg 1.5x, ../images/thumb/3/39/ANT_wiki_1.jpg/2376px-ANT_wiki_1.jpg 2x" /></a></div></div>
+			<div class="gallerytext">
+<p>Figure 1: Single trial timeline.
+</p>
+			</div>
+		</div></li>
+</ul>
+<p><br />
+</p><p><br />
+</p>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 936.66666666667px"><div style="width: 936.66666666667px">
+			<div class="thumb" style="width: 934.66666666667px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:ANT_wiki_2.jpg" class="image"><img alt="" src="../images/thumb/9/99/ANT_wiki_2.jpg/1402px-ANT_wiki_2.jpg" decoding="async" width="935" height="180" srcset="../images/thumb/9/99/ANT_wiki_2.jpg/2103px-ANT_wiki_2.jpg 1.5x, ../images/thumb/9/99/ANT_wiki_2.jpg/2804px-ANT_wiki_2.jpg 2x" /></a></div></div>
+			<div class="gallerytext">
+<p>Figure 2: State value in different target condition
+</p>
+			</div>
+		</div></li>
+</ul>
+<p><br />
+</p><p><br />
+</p>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 522.66666666667px"><div style="width: 522.66666666667px">
+			<div class="thumb" style="width: 520.66666666667px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:ANT_wiki_3.jpg" class="image"><img alt="" src="../images/thumb/2/20/ANT_wiki_3.jpg/781px-ANT_wiki_3.jpg" decoding="async" width="521" height="100" srcset="../images/thumb/2/20/ANT_wiki_3.jpg/1172px-ANT_wiki_3.jpg 1.5x, ../images/thumb/2/20/ANT_wiki_3.jpg/1562px-ANT_wiki_3.jpg 2x" /></a></div></div>
+			<div class="gallerytext">
+<p>Figure 3: Cue value in different cue condition
+</p>
+			</div>
+		</div></li>
+</ul>
+<p><br />
+</p>
+<h2><span class="mw-headline" id="Visual_Representation">Visual Representation</span></h2>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 1246.6666666667px"><div style="width: 1246.6666666667px">
+			<div class="thumb" style="width: 1244.6666666667px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:ANT_Visual.gif" class="image"><img alt="ANT Visual.gif" src="../images/thumb/0/02/ANT_Visual.gif/1867px-ANT_Visual.gif" decoding="async" width="1245" height="700" srcset="../images/0/02/ANT_Visual.gif 1.5x" /></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+</ul>
+<p>We also have the lateral version of ANTTask
+</p>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 1588.6666666667px"><div style="width: 1588.6666666667px">
+			<div class="thumb" style="width: 1586.6666666667px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:ANT_task_lateral.gif" class="image"><img alt="ANT task lateral.gif" src="../images/e/e3/ANT_task_lateral.gif" decoding="async" width="1587" height="700" /></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+</ul>
+<h2><span class="mw-headline" id="Versioning">Versioning</span></h2>
+<h3><span class="mw-headline" id="Authors">Authors</span></h3>
+<p>Huiling Huang (huiling@neurotechcenter.org)
+</p>
+<h3><span class="mw-headline" id="Version_History">Version History</span></h3>
+<ul><li>2022-05-04: Initial public release by Huiling Huang (huiling@neurotechcenter.org)</li></ul>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<h3><span class="mw-headline" id="WindowDiagonalInCm">WindowDiagonalInCm</span></h3>
+<p>The value of the window diagonal in inches (most common screens are 22 inches = 55.88cm).
+</p>
+<h3><span class="mw-headline" id="ViewingDistanceInCm">ViewingDistanceInCm</span></h3>
+<p>The distance of the screen from the eyes(cm).
+</p>
+<h3><span id="EyeOpenTextDuration,_EyeCloseTextDuration"></span><span class="mw-headline" id="EyeOpenTextDuration.2C_EyeCloseTextDuration">EyeOpenTextDuration, EyeCloseTextDuration</span></h3>
+<p>Duration of introduction of eyes open/close.
+</p>
+<h3><span id="TimerValueOpen,_TimerValueClose"></span><span class="mw-headline" id="TimerValueOpen.2C_TimerValueClose">TimerValueOpen, TimerValueClose</span></h3>
+<p>Duration of eyes open/close.
+</p>
+<h3><span class="mw-headline" id="BlankEverySecondTrial">BlankEverySecondTrial</span></h3>
+<p>Make things dark and boring to encourage alpha on trials when we are not stimulating.
+</p>
+<h3><span class="mw-headline" id="TrialDuration">TrialDuration</span></h3>
+<p>Duration of one trial.
+</p>
+<h3><span id="FirstFixationDurationMin,_FirstFixationDurationMax"></span><span class="mw-headline" id="FirstFixationDurationMin.2C_FirstFixationDurationMax">FirstFixationDurationMin, FirstFixationDurationMax</span></h3>
+<p>Minimum/Maximum duration of First Fixation phase.
+</p>
+<h3><span class="mw-headline" id="CueDuration">CueDuration</span></h3>
+<p>Duration of cue.
+</p>
+<h3><span class="mw-headline" id="MiddleFixationDuration">MiddleFixationDuration</span></h3>
+<p>Duration of Middle Fixation phase.
+</p>
+<h3><span id="ReactionTimeMin,_ReactionTimeMax"></span><span class="mw-headline" id="ReactionTimeMin.2C_ReactionTimeMax">ReactionTimeMin, ReactionTimeMax</span></h3>
+<p>Minimum/Maximum duration of reaction time.
+</p>
+<h3><span class="mw-headline" id="CueIconList">CueIconList</span></h3>
+<p>List of cue images path.
+</p>
+<h3><span class="mw-headline" id="TargetMatrix">TargetMatrix</span></h3>
+<p>Matrix of target images path.
+</p>
+<h3><span class="mw-headline" id="TargetR90Matrix">TargetR90Matrix</span></h3>
+<p>Target rotates 90-degree stimulus matrix.
+</p>
+<h3><span class="mw-headline" id="BlockSequence">BlockSequence</span></h3>
+<p>The sequence of the number of trials in each experiment block.
+</p>
+<h3><span class="mw-headline" id="PracticeBlockSize">PracticeBlockSize</span></h3>
+<p>The number of trials in practice block.
+</p>
+<h3><span class="mw-headline" id="EnableEyeOpenOrClose">EnableEyeOpenOrClose</span></h3>
+<p>Enable or disable the countdown timer at the beginning of the experiment.
+</p>
+<h3><span class="mw-headline" id="EnableRotate90">EnableRotate90</span></h3>
+<p>Enable or disable to rotate cue and target 90 degrees.
+</p>
+<h3><span class="mw-headline" id="EnableFirstDurExternally">EnableFirstDurExternally</span></h3>
+<p>Enable set firstFixationDuration by other modules.
+</p>
+<h3><span class="mw-headline" id="NumberOfStimTrialTypes">NumberOfStimTrialTypes</span></h3>
+<p>The default value is 2, which means there are two stimulation types: <br />    
+0: no stimulation;<br />
+1: In-phase stimulation;<br />
+2: Out-of-phase stimulation.<br />
+</p>
+<h3><span class="mw-headline" id="StimulusEccentricityInDegrees">StimulusEccentricityInDegrees</span></h3>
+<p>Used to compute CrossToTargetDistance and CrossToCueDistance if these are set to 'auto'.
+</p>
+<h3><span class="mw-headline" id="CrossToCueDistance">CrossToCueDistance</span></h3>
+<p>The distance between fixation cross and cue in relative coordinates (between 0 and 1)(set to auto to compute from StimulusEccentricityInDegrees).
+</p>
+<h3><span class="mw-headline" id="CrossToTargetDistance">CrossToTargetDistance</span></h3>
+<p>The distance between fixation cross and target in relative coordinates (between 0 and 1)(set to auto to compute from StimulusEccentricityInDegrees).
+</p>
+<h3><span id="CrossWidth,_CrossHeight"></span><span class="mw-headline" id="CrossWidth.2C_CrossHeight">CrossWidth, CrossHeight</span></h3>
+<p>The width/height of fixation cross in relative coordinates (between 0 and 1).
+</p>
+<h3><span id="CueWidth,_CueHeight"></span><span class="mw-headline" id="CueWidth.2C_CueHeight">CueWidth, CueHeight</span></h3>
+<p>The width/height of cue in relative coordinates (between 0 and 1).
+</p>
+<h3><span id="TargetWidth,_TargetHeight"></span><span class="mw-headline" id="TargetWidth.2C_TargetHeight">TargetWidth, TargetHeight</span></h3>
+<p>The width/height of the target in relative coordinates (between 0 and 1).
+</p>
+<h3><span class="mw-headline" id="ProgressBar">ProgressBar</span></h3>
+<p>Display progress bar.
+</p>
+<h3><span id="ProgressBarHeight,_ProgressBarWidth"></span><span class="mw-headline" id="ProgressBarHeight.2C_ProgressBarWidth">ProgressBarHeight, ProgressBarWidth</span></h3>
+<p>Progress bar height/width in pixels.
+</p>
+<h3><span id="ProgressBarBackgroundColor,_ProgressBarForegroundColor"></span><span class="mw-headline" id="ProgressBarBackgroundColor.2C_ProgressBarForegroundColor">ProgressBarBackgroundColor, ProgressBarForegroundColor</span></h3>
+<p>Color of progress bar background/foreground.
+</p>
+<h3><span class="mw-headline" id="PhotoDiodePatch">PhotoDiodePatch</span></h3>
+<p>Display a photo diode patch on the stimulus window. Recording from a photo diode located on that patch will allow triggering on actual stimulus delivery (see User_Reference:P3TemporalFilter#OnsetExpression).
+</p>
+<h3><span id="PhotoDiodePatchHeight,_PhotoDiodePatchWidth"></span><span class="mw-headline" id="PhotoDiodePatchHeight.2C_PhotoDiodePatchWidth">PhotoDiodePatchHeight, PhotoDiodePatchWidth</span></h3>
+<p>Photo diode patch height/width in relative coordinates (between 0 and 1).
+</p>
+<h3><span id="PhotoDiodePatchLeft,_PhotoDiodePatchTop"></span><span class="mw-headline" id="PhotoDiodePatchLeft.2C_PhotoDiodePatchTop">PhotoDiodePatchLeft, PhotoDiodePatchTop</span></h3>
+<p>Photo diode patch left/top position in relative coordinates (between 0 and 1).
+</p>
+<h3><span class="mw-headline" id="PhotoDiodePatchShape">PhotoDiodePatchShape</span></h3>
+<p>Photo diode patch shape: 0 rectangle, 1 ellipse.
+</p>
+<h3><span class="mw-headline" id="PhotoDiodePatchActiveColor">PhotoDiodePatchActiveColor</span></h3>
+<p>Photo diode patch color when active (RGB color in format 0xrrggbb).
+</p>
+<h3><span class="mw-headline" id="PhotoDiodePatchInactiveColor">PhotoDiodePatchInactiveColor</span></h3>
+<p>Photo diode patch color when inactive, (RGB color in format 0xrrggbb, use 0xff000000 for transparent).
+</p>
+<h2><span class="mw-headline" id="States">States</span></h2>
+<h3><span class="mw-headline" id="PhaseNumber">PhaseNumber</span></h3>
+<p>The index of phase in each trial. (8 bits)
+1: Pre Cue; 2: Cue; 3: Pre Stimulus; 4: Stimulus; 5: Post Stimulus.
+</p>
+<h3><span class="mw-headline" id="TrialNumber">TrialNumber</span></h3>
+<p>Index of trials. (16 bits)
+</p>
+<h3><span class="mw-headline" id="FirstFixationDuration">FirstFixationDuration</span></h3>
+<p>List of the duration of first fixation phase in each trial. (microsecond, 32 bits)
+</p>
+<h3><span class="mw-headline" id="ReactionTime">ReactionTime</span></h3>
+<p>List of reaction time in each trial.(microsecond, 32 bit)
+</p>
+<h3><span class="mw-headline" id="LastFixationDuration">LastFixationDuration</span></h3>
+<p>List of the duration of last fixation phase in each trial. (microsecond, 32 bits)
+</p>
+<h3><span class="mw-headline" id="BlockNumber">BlockNumber</span></h3>
+<p>Index of experiment block.
+</p>
+<h3><span class="mw-headline" id="TargetDirection">TargetDirection</span></h3>
+<p>Regular:<br />
+1: pointing left; 2: pointing right.<br />
+Rotate 90 degrees:<br />
+1: pointing up; 2: pointing down.
+</p>
+<h3><span class="mw-headline" id="FlankerDirection">FlankerDirection</span></h3>
+<p>Regular:<br />
+1: pointing left; 2: pointing right.<br />
+Rotate 90 degrees:<br />
+1: pointing up; 2: pointing down.
+</p>
+<h3><span class="mw-headline" id="TargetLocation">TargetLocation</span></h3>
+<p>Regular:<br />
+1: low; 2: high.<br />
+Rotate 90 degrees:<br />
+1: right; 2: left. 
+</p>
+<h3><span class="mw-headline" id="CueLocation">CueLocation</span></h3>
+<p>Regular:<br />
+1: low; 2: high; 3: middle; 4 = there was/is/will be no cue on this trial.<br />
+Rotate 90 degrees:<br />
+1: right; 2: left; 3: middle; 4 = there was/is/will be no cue on this trial.
+</p>
+<h3><span class="mw-headline" id="CueVisible">CueVisible</span></h3>
+<p>0: cue is not visible right now; 1 = cue is visible right now.
+</p>
+<h3><span class="mw-headline" id="TargetVisible">TargetVisible</span></h3>
+<p>0: target is not visible right now; 1: target is visible right now.
+</p>
+<h3><span class="mw-headline" id="TrialType">TrialType</span></h3>
+<p>0: no stimulation;<br />
+1: In-phase stimulation;<br />
+2: Out-of-phase stimulation.<br />
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Contributions%253AApplications.html" title="Contributions:Applications">Contributions:Applications</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524175441
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.053 seconds
+Real time usage: 0.058 seconds
+Preprocessor visited node count: 207/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 3069/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2427-0!canonical and timestamp 20230524175441 and revision id 9957
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:ANTTask&amp;oldid=9957">http://www.bci2000.org/mediawiki/index.php?title=Contributions:ANTTask&amp;oldid=9957</a>"</div>
+ </div>
+</body>
+</html>

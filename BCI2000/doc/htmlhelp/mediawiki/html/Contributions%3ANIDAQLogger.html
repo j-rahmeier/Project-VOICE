@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:NIDAQLogger - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">NIDAQLogger</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Contributions%253ANIDAQLogger.html#Synopsis"><span class="tocnumber">1</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Contributions%253ANIDAQLogger.html#Location"><span class="tocnumber">2</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Contributions%253ANIDAQLogger.html#Versioning"><span class="tocnumber">3</span> <span class="toctext">Versioning</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Contributions%253ANIDAQLogger.html#Author"><span class="tocnumber">3.1</span> <span class="toctext">Author</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Contributions%253ANIDAQLogger.html#Version_History"><span class="tocnumber">3.2</span> <span class="toctext">Version History</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Contributions%253ANIDAQLogger.html#Source_Code_Revisions"><span class="tocnumber">3.3</span> <span class="toctext">Source Code Revisions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="Contributions%253ANIDAQLogger.html#Testing"><span class="tocnumber">4</span> <span class="toctext">Testing</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="Contributions%253ANIDAQLogger.html#Known_Issues"><span class="tocnumber">5</span> <span class="toctext">Known Issues</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="Contributions%253ANIDAQLogger.html#Functional_Description"><span class="tocnumber">6</span> <span class="toctext">Functional Description</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="Contributions%253ANIDAQLogger.html#Adding_and_Compiling"><span class="tocnumber">7</span> <span class="toctext">Adding and Compiling</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="Contributions%253ANIDAQLogger.html#Parameters"><span class="tocnumber">8</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-12"><a href="Contributions%253ANIDAQLogger.html#Command_Line_Parameters"><span class="tocnumber">8.1</span> <span class="toctext">Command Line Parameters</span></a>
+<ul>
+<li class="toclevel-3 tocsection-13"><a href="Contributions%253ANIDAQLogger.html#Initializing_NIDAQLogger"><span class="tocnumber">8.1.1</span> <span class="toctext">Initializing NIDAQLogger</span></a></li>
+<li class="toclevel-3 tocsection-14"><a href="Contributions%253ANIDAQLogger.html#Device_Specification"><span class="tocnumber">8.1.2</span> <span class="toctext">Device Specification</span></a></li>
+<li class="toclevel-3 tocsection-15"><a href="Contributions%253ANIDAQLogger.html#Port_Specifications"><span class="tocnumber">8.1.3</span> <span class="toctext">Port Specifications</span></a></li>
+<li class="toclevel-3 tocsection-16"><a href="Contributions%253ANIDAQLogger.html#Example"><span class="tocnumber">8.1.4</span> <span class="toctext">Example</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-17"><a href="Contributions%253ANIDAQLogger.html#BCI2000_Parameters"><span class="tocnumber">8.2</span> <span class="toctext">BCI2000 Parameters</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-18"><a href="Contributions%253ANIDAQLogger.html#States"><span class="tocnumber">9</span> <span class="toctext">States</span></a></li>
+<li class="toclevel-1 tocsection-19"><a href="Contributions%253ANIDAQLogger.html#Acquired_Data"><span class="tocnumber">10</span> <span class="toctext">Acquired Data</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>National Instruments Data Acquisition Module
+</p>
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p>The file(s) should be in the following directory:
+<a rel="nofollow" class="external free" href="http://www.bci2000.org/svn/trunk/src/contrib/SignalSource/NIDAQ-MX/NIDAQ-Logging/">http://www.bci2000.org/svn/trunk/src/contrib/SignalSource/NIDAQ-MX/NIDAQ-Logging/</a>
+</p>
+<h2><span class="mw-headline" id="Versioning">Versioning</span></h2>
+<h3><span class="mw-headline" id="Author">Author</span></h3>
+<p>Justin Renga (justin.renga@gmail.com)
+</p>
+<h3><span class="mw-headline" id="Version_History">Version History</span></h3>
+<h3><span class="mw-headline" id="Source_Code_Revisions">Source Code Revisions</span></h3>
+<ul><li>Initial development: --</li>
+<li>Tested under: --</li>
+<li>Known to compile under: --</li>
+<li>Broken since: --</li></ul>
+<h2><span class="mw-headline" id="Testing">Testing</span></h2>
+<p>The NIDAQLogger has been tested with the USB-6009 and PCI-6024E National Instruments boards at sampling rates up to and including 4096Hz, with sample block sizes up to and including 1024 samples/block. Both devices were running under DAQmx driver version 8.9.5 .
+</p>
+<h2><span class="mw-headline" id="Known_Issues">Known Issues</span></h2>
+<p>There are a couple of known issues with the NIDAQLogger that are listed below:
+</p>
+<ul><li>Occasional "glitching" may occur&#160;: the condition known as "glitching" is when some data gets swapped with slightly older data, producing a result that looks wrong.</li>
+<li>The NIDAQLogger, when coupled with the NIDAQmx Source Module, does not currently work at sampling rates above 8192Hz.</li>
+<li>Poor results may occur if the NIDAQLogger is used within 5 minutes of starting the BCI2000 computer up.</li></ul>
+<h2><span class="mw-headline" id="Functional_Description">Functional Description</span></h2>
+<p>Acquires signals using National Instruments Data Acquisition boards, other devices, and the computer. Device(s) must be connected to computer beforehand.
+</p>
+<h2><span class="mw-headline" id="Adding_and_Compiling">Adding and Compiling</span></h2>
+<p>To add and compile the NIDAQLogger module, make sure the latest NIDAQ MX drivers are installed on your computer.
+When that is done, go into the C:\Program Files\National Instruments\NI-DAQ\DAQmx ANSI C Dev\ folder. Inside are two folders: lib and include. The lib folder will contain the NIDAQmx.lib file (inside of the folder msvc). Copy that into the project's library folder. Inside of the include folder is the NIDAQmx.h file, which contains the function prototypes needed to use the NIDAQLogger module. Move this file into the project's include folder. Make sure the project links the new .lib file, and that the NIDAQLogger.h and NIDAQLogger.cpp files include the NIDAQmx.h file correctly. The NIDAQLogger should now be able to compile normally.
+</p>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<h3><span class="mw-headline" id="Command_Line_Parameters">Command Line Parameters</span></h3>
+<h4><span class="mw-headline" id="Initializing_NIDAQLogger">Initializing NIDAQLogger</span></h4>
+<p>To begin using the NIDAQLogger module, use the <code>--LogNIDAQin</code> flag, and set it equal to <b>1</b>.
+To activate device(s) for specific functions, use the following flags:
+</p>
+<ul><li><code>--LogDigiIn</code> (for digital input)</li>
+<li><code>--LogAnaIn</code> (for analog input)</li></ul>
+<p>The format for the inputs for the above flags is as follows: <code>[flag]="[device name]-[port specification]"</code>
+Note that if <code>--LogNIDAQ</code> is used, that at least one of the two above flags MUST be used.
+</p>
+<h4><span class="mw-headline" id="Device_Specification">Device Specification</span></h4>
+<p>The device name (usually) is to be written as "Dev1" or "Dev2" (without the ""). Afterwards, use a - to indicate the device name is finished. If the device number is unclear, run the program with the <code>--LogNIDAQin</code> flag activated, and look at the Operator Log. The devices (along with their number) will be listed.
+</p>
+<h4><span class="mw-headline" id="Port_Specifications">Port Specifications</span></h4>
+<p>There are two acceptable states that the user can specify for each port:
+</p>
+<ul><li><b>0</b> - this indicates the port is <b>INACTIVE</b>.</li>
+<li><b>1</b> - this indicates the port is <b>ACTIVE</b></li></ul>
+<p><i>Important: If both the NIDAQLogger and the NIDAQFilter (see <a href="Contributions%253ANIDAQFilter.html" title="Contributions:NIDAQFilter">Contributions:NIDAQFilter</a>) are being used, and both are using the digital lines on the same device, make sure that any port that is being referenced in a parameter is referenced only once. One port cannot use both digital input and digital output functionality, and will cause BCI2000 to throw an error, saying that the line is RESERVED. </i>
+</p>
+<h4><span class="mw-headline" id="Example">Example</span></h4>
+<p>Let's assume that the user wants to use one device for both analog and digital input. The device has 8 Analog Input ports and 12 Digital I/O ports.
+The user also wants to use the 3rd and 4th analog input ports, and the 4th and 10th digital ports for digital input.
+</p><p>The user needs to use 3 flags to accomplish this:
+</p>
+<ul><li><code>--LogNIDAQin=1</code> -&gt; This flag activates the NIDAQLogger for use.</li>
+<li><code>--LogDigiIn="Dev1-000100000100"</code> -&gt; This flag indicates that the user wants to use digital I/O. "Dev1" is the name of the device connected to the computer that she wants to use. <code>0001000000100</code> indicates that the user wants ports 4 and 10 (the <b>1</b>'s) as <b>ACTIVE</b>.</li>
+<li><code>--LogAnaIn="Dev1-00011000"</code> -&gt; This flag indicates that she wants to use analog output. "Dev1" is the name of the device connected to the computer that she wants to use. <code>00011000</code> indicates that she wants to the use ports 3 and 4 on analog input.</li></ul>
+<p>The full command (assuming she uses this with SignalGenerator.exe) that the user would use is the following:
+</p><p><code>SignalGenerator.exe --LogNIDAQin=1 --LogDigiIn="Dev1-000100000100" --LogAnaIn="Dev1-00011000"</code>
+</p>
+<h3><span class="mw-headline" id="BCI2000_Parameters">BCI2000 Parameters</span></h3>
+<p>There are two possible parameters that the user will be able to use. They are outlined below:
+</p>
+<ul><li><b>#IVRanges</b> - the available voltage ranges for analog input for the given device (where <b>#</b> will be replaced by the device name)
+<ul><li><i>This parameter will only be enabled if the </i><code>--LogAnaIn</code><i> flag is being used</i>.</li></ul></li>
+<li><b>#InSampleRate</b> - the sampling rate for the NIDAQLogger
+<ul><li><i>This parameter will be here if the </i><code>--LogNIDAQ</code><i> flag is being used</i>.</li></ul></li></ul>
+<p>The parameters will be located under the <b>Source</b> tab, in the section labeled <i>NILogger</i>.
+</p>
+<h2><span class="mw-headline" id="States">States</span></h2>
+<p>The states that are available are dependent on the port specifications declared in the command line parameters. The format for the states is the following:
+</p><p><b>NIDev#[A:D]INPUT#</b>
+</p>
+<ul><li>The first <b>#</b> refers to the device number.</li>
+<li>The second <b>#</b> refers to the line number (starting at <b>0</b>).</li>
+<li>The <b>[A:D]</b> denotes if the state refers to an analog (<b>A</b>) or a digital (<b>D</b>) channel.</li></ul>
+<p>For example, if the command parameters look like this:
+</p><p><code>SignalGenerator.exe --LogNIDAQin=1 --LogDigiIn="Dev1-000100000100" --LogAnaIn="Dev1-10011000"</code>
+</p><p>the states that will be created are the following:
+</p><p><code>
+</code></p><code><pre>     NIDev1DINPUT3     NIDev1DINPUT9     NIDev1AINPUT0
+             NIDev1AINPUT2     NIDev1AINPUT3
+</pre></code><code></code><p><code></code>
+</p>
+<h2><span class="mw-headline" id="Acquired_Data">Acquired Data</span></h2>
+<p>The data (analog) that is acquired by the device is translated to make sure that all of the data will fit inside of the state's parameters. Due to this fact, the data needs to be translated back in order to return it to units of milliVolts (mV). This can be done by subtracting the data by (2000*upper voltage bound). For example, if the data was logged with the range -10V to 10V, then the data must be subtracted by 20,000.
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524001152
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.021 seconds
+Real time usage: 0.024 seconds
+Preprocessor visited node count: 60/1000000
+Post‐expand include size: 15/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1982-0!canonical and timestamp 20230524001152 and revision id 6071
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:NIDAQLogger&amp;oldid=6071">http://www.bci2000.org/mediawiki/index.php?title=Contributions:NIDAQLogger&amp;oldid=6071</a>"</div>
+ </div>
+</body>
+</html>

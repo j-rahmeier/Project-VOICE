@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:EyetrackerLoggerEyeLink - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">EyetrackerLoggerEyeLink</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>An BCI2000 extension that records synchronized physiological data, such as gaze position, pupil size, and blinks, from <i>EyeLink Eyetrackers</i>  into state variables.
+</p>
+<div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:Eyelink.png" class="image"><img alt="" src="../images/thumb/2/2d/Eyelink.png/300px-Eyelink.png" decoding="async" width="300" height="200" class="thumbimage" srcset="../images/thumb/2/2d/Eyelink.png/450px-Eyelink.png 1.5x, ../images/thumb/2/2d/Eyelink.png/600px-Eyelink.png 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://www.bci2000.org/mediawiki/index.php/File:Eyelink.png" class="internal" title="Enlarge"></a></div>An image of the EyeLink 1000 Plus eye tracker</div></div></div>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Contributions%253AEyetrackerLoggerEyeLink.html#Location"><span class="tocnumber">1</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Contributions%253AEyetrackerLoggerEyeLink.html#Versioning"><span class="tocnumber">2</span> <span class="toctext">Versioning</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="Contributions%253AEyetrackerLoggerEyeLink.html#Authors"><span class="tocnumber">2.1</span> <span class="toctext">Authors</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="Contributions%253AEyetrackerLoggerEyeLink.html#Version_History"><span class="tocnumber">2.2</span> <span class="toctext">Version History</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Contributions%253AEyetrackerLoggerEyeLink.html#Source_Code_Revisions"><span class="tocnumber">2.3</span> <span class="toctext">Source Code Revisions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="Contributions%253AEyetrackerLoggerEyeLink.html#Video_Overview"><span class="tocnumber">3</span> <span class="toctext">Video Overview</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="Contributions%253AEyetrackerLoggerEyeLink.html#Functional_Description"><span class="tocnumber">4</span> <span class="toctext">Functional Description</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="Contributions%253AEyetrackerLoggerEyeLink.html#Integration_into_BCI2000"><span class="tocnumber">5</span> <span class="toctext">Integration into BCI2000</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="Contributions%253AEyetrackerLoggerEyeLink.html#Installation_and_Set-Up"><span class="tocnumber">6</span> <span class="toctext">Installation and Set-Up</span></a>
+<ul>
+<li class="toclevel-2 tocsection-10"><a href="Contributions%253AEyetrackerLoggerEyeLink.html#Downloading_EyeLink_software"><span class="tocnumber">6.1</span> <span class="toctext">Downloading EyeLink software</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="Contributions%253AEyetrackerLoggerEyeLink.html#Physical_Set-Up"><span class="tocnumber">6.2</span> <span class="toctext">Physical Set-Up</span></a>
+<ul>
+<li class="toclevel-3 tocsection-12"><a href="Contributions%253AEyetrackerLoggerEyeLink.html#IP_address"><span class="tocnumber">6.2.1</span> <span class="toctext">IP address</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-13"><a href="Contributions%253AEyetrackerLoggerEyeLink.html#Software_Set-Up"><span class="tocnumber">6.3</span> <span class="toctext">Software Set-Up</span></a>
+<ul>
+<li class="toclevel-3 tocsection-14"><a href="Contributions%253AEyetrackerLoggerEyeLink.html#Experimental_Set-Up"><span class="tocnumber">6.3.1</span> <span class="toctext">Experimental Set-Up</span></a></li>
+<li class="toclevel-3 tocsection-15"><a href="Contributions%253AEyetrackerLoggerEyeLink.html#With_BCI2000"><span class="tocnumber">6.3.2</span> <span class="toctext"><i>With BCI2000</i></span></a></li>
+<li class="toclevel-3 tocsection-16"><a href="Contributions%253AEyetrackerLoggerEyeLink.html#Without_BCI2000"><span class="tocnumber">6.3.3</span> <span class="toctext"><i>Without BCI2000</i></span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-17"><a href="Contributions%253AEyetrackerLoggerEyeLink.html#Gaze_calibration"><span class="tocnumber">6.4</span> <span class="toctext">Gaze calibration</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-18"><a href="Contributions%253AEyetrackerLoggerEyeLink.html#Coordinate_System"><span class="tocnumber">7</span> <span class="toctext">Coordinate System</span></a></li>
+<li class="toclevel-1 tocsection-19"><a href="Contributions%253AEyetrackerLoggerEyeLink.html#Parameters"><span class="tocnumber">8</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-20"><a href="Contributions%253AEyetrackerLoggerEyeLink.html#User_configurable_Parameters"><span class="tocnumber">8.1</span> <span class="toctext">User configurable Parameters</span></a>
+<ul>
+<li class="toclevel-3 tocsection-21"><a href="Contributions%253AEyetrackerLoggerEyeLink.html#LogEyetrackerEyeLink"><span class="tocnumber">8.1.1</span> <span class="toctext">LogEyetrackerEyeLink</span></a></li>
+<li class="toclevel-3 tocsection-22"><a href="Contributions%253AEyetrackerLoggerEyeLink.html#DataType"><span class="tocnumber">8.1.2</span> <span class="toctext">DataType</span></a></li>
+<li class="toclevel-3 tocsection-23"><a href="Contributions%253AEyetrackerLoggerEyeLink.html#SaveEDF"><span class="tocnumber">8.1.3</span> <span class="toctext">SaveEDF</span></a></li>
+<li class="toclevel-3 tocsection-24"><a href="Contributions%253AEyetrackerLoggerEyeLink.html#EyeLinkHostAddress"><span class="tocnumber">8.1.4</span> <span class="toctext">EyeLinkHostAddress</span></a></li>
+<li class="toclevel-3 tocsection-25"><a href="Contributions%253AEyetrackerLoggerEyeLink.html#ExperimentParams"><span class="tocnumber">8.1.5</span> <span class="toctext">ExperimentParams</span></a></li>
+<li class="toclevel-3 tocsection-26"><a href="Contributions%253AEyetrackerLoggerEyeLink.html#GazeScale.2C_GazeOffset_.28deprecated.29"><span class="tocnumber">8.1.6</span> <span class="toctext">GazeScale, GazeOffset (deprecated)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-27"><a href="Contributions%253AEyetrackerLoggerEyeLink.html#Descriptive_Parameters"><span class="tocnumber">8.2</span> <span class="toctext">Descriptive Parameters</span></a>
+<ul>
+<li class="toclevel-3 tocsection-28"><a href="Contributions%253AEyetrackerLoggerEyeLink.html#EyeLinkInfo"><span class="tocnumber">8.2.1</span> <span class="toctext">EyeLinkInfo</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-29"><a href="Contributions%253AEyetrackerLoggerEyeLink.html#Converting_to_Signed_Values"><span class="tocnumber">9</span> <span class="toctext">Converting to Signed Values</span></a></li>
+<li class="toclevel-1 tocsection-30"><a href="Contributions%253AEyetrackerLoggerEyeLink.html#State_Variables"><span class="tocnumber">10</span> <span class="toctext">State Variables</span></a>
+<ul>
+<li class="toclevel-2 tocsection-31"><a href="Contributions%253AEyetrackerLoggerEyeLink.html#EyetrackerTime"><span class="tocnumber">10.1</span> <span class="toctext">EyetrackerTime</span></a></li>
+<li class="toclevel-2 tocsection-32"><a href="Contributions%253AEyetrackerLoggerEyeLink.html#EyetrackerLeftEyePosX.2C_EyetrackerLeftEyePosY.2C_EyetrackerRightEyePosX.2C_EyetrackerRightEyePosY"><span class="tocnumber">10.2</span> <span class="toctext">EyetrackerLeftEyePosX, EyetrackerLeftEyePosY, EyetrackerRightEyePosX, EyetrackerRightEyePosY</span></a></li>
+<li class="toclevel-2 tocsection-33"><a href="Contributions%253AEyetrackerLoggerEyeLink.html#EyetrackerLeftEyeGazeX.2C_EyetrackerLeftEyeGazeY.2C_EyetrackerRightEyeGazeX.2C_EyetrackerRightEyeGazeY"><span class="tocnumber">10.3</span> <span class="toctext">EyetrackerLeftEyeGazeX, EyetrackerLeftEyeGazeY, EyetrackerRightEyeGazeX, EyetrackerRightEyeGazeY</span></a></li>
+<li class="toclevel-2 tocsection-34"><a href="Contributions%253AEyetrackerLoggerEyeLink.html#EyetrackerLeftEyeHRefX.2C_EyetrackerLeftEyeHRefY.2C_EyetrackerRightEyeHRefX.2C_EyetrackerRightEyeHRefY"><span class="tocnumber">10.4</span> <span class="toctext">EyetrackerLeftEyeHRefX, EyetrackerLeftEyeHRefY, EyetrackerRightEyeHRefX, EyetrackerRightEyeHRefY</span></a></li>
+<li class="toclevel-2 tocsection-35"><a href="Contributions%253AEyetrackerLoggerEyeLink.html#EyetrackerEyeResX.2C_EyetrackerEyeResY"><span class="tocnumber">10.5</span> <span class="toctext">EyetrackerEyeResX, EyetrackerEyeResY</span></a></li>
+<li class="toclevel-2 tocsection-36"><a href="Contributions%253AEyetrackerLoggerEyeLink.html#EyetrackerLeftEyePupilSize.2C_EyetrackerRightEyePupilSize"><span class="tocnumber">10.6</span> <span class="toctext">EyetrackerLeftEyePupilSize, EyetrackerRightEyePupilSize</span></a></li>
+<li class="toclevel-2 tocsection-37"><a href="Contributions%253AEyetrackerLoggerEyeLink.html#EyetrackerLeftEyeValidity.2C_EyetrackerRightEyeValidity"><span class="tocnumber">10.7</span> <span class="toctext">EyetrackerLeftEyeValidity, EyetrackerRightEyeValidity</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-38"><a href="Contributions%253AEyetrackerLoggerEyeLink.html#GazeMonitorFilter_Implementation"><span class="tocnumber">11</span> <span class="toctext">GazeMonitorFilter Implementation</span></a></li>
+<li class="toclevel-1 tocsection-39"><a href="Contributions%253AEyetrackerLoggerEyeLink.html#See_also"><span class="tocnumber">12</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><a rel="nofollow" class="external free" href="http://www.bci2000.org/svn/trunk/src/contrib/Extensions/EyetrackerLoggerEyeLink">http://www.bci2000.org/svn/trunk/src/contrib/Extensions/EyetrackerLoggerEyeLink</a>
+</p>
+<h2><span class="mw-headline" id="Versioning">Versioning</span></h2>
+<h3><span class="mw-headline" id="Authors">Authors</span></h3>
+<p>William Engelhardt (engelhardt@neurotechcenter.org)
+</p>
+<h3><span class="mw-headline" id="Version_History">Version History</span></h3>
+<ul><li>2021-06-15: Initial public release by William Engelhardt (engelhardt@neurotechcenter.org)</li></ul>
+<h3><span class="mw-headline" id="Source_Code_Revisions">Source Code Revisions</span></h3>
+<ul><li>Initial development: 6309</li>
+<li>Tested under: 6433</li>
+<li>Known to compile under: 6433</li>
+<li>Broken since: --</li></ul>
+<h2><span class="mw-headline" id="Video_Overview">Video Overview</span></h2>
+<p><br />
+</p>
+<div class="thumb embedvideo  ev_center autoResize" style="width: 908px;"><div class="embedvideo autoResize" style=" width: 906px;"><div class="embedvideowrap" style="width: 900px;"><iframe title="Play video" src="https://www.youtube.com/embed/MYie72oDVnI?" width="900" height="506" frameborder="0" allowfullscreen="true"></iframe></div></div></div>
+<p><br />
+</p>
+<h2><span class="mw-headline" id="Functional_Description">Functional Description</span></h2>
+<p>Records data collected by a EyeLink eye tracker to BCI2000 states, using the EyeLink SDK.
+</p>
+<h2><span class="mw-headline" id="Integration_into_BCI2000">Integration into BCI2000</span></h2>
+<p>To enable the extension in your CMake configuration, enable <tt>EXTENSIONS_EYETRACKERLOGGEREYELINK=On</tt> in the Extensions folder of the CMake GUI and then generate the BCI2000 Visual Studio solution in CMake. Next, open the solution with Visual Studio and rebuild the  <tt>BCI2000FrameworkSigSrcModule</tt>,  and then rebuild any signal source module you want to use the extension with.
+Once the extension is built into the source module, you can enable it by appending <code>--LogEyetrackerEyeLink=1</code>  to the source module <tt>start executable</tt> command in your batch file. 
+</p><p>You can also optionally add <code>--WhichEye=</code>, where you can specify left eye: <code>Left</code> or <code>0</code> or right eye: <code>Right</code> or <code>1</code>. The specified eye much match the eye that EyeLink is recording. If EyeLink is not recording the desired eye, this must be changed in the EyeLink software. If "Which Eye" is not specified, BCI2000 will show states from both eyes. 
+</p>
+<h2><span class="mw-headline" id="Installation_and_Set-Up">Installation and Set-Up</span></h2>
+<h3><span class="mw-headline" id="Downloading_EyeLink_software">Downloading EyeLink software</span></h3>
+<p>To best calibrate the EyeLink eye tracker, some of EyeLink's software has to be downloaded. This can be found online at <a rel="nofollow" class="external text" href="https://www.sr-support.com/forum-3.html">SR Support Forum</a>. This "Downloads" page is the last accessible page without having an account, however an account is free to make. Register for an account, filling out all the required information. Once this is done, click on "EyeLink Developers Kit / API", then click on "EyeLink Developers Kit / API Downloads (Windows, macOS, Linux)". After this, download the correct "EyeLink Developers Kit" for your operating system. 
+</p>
+<h3><span class="mw-headline" id="Physical_Set-Up">Physical Set-Up</span></h3>
+<p>There are two computers needed, one that runs BCI2000 (Display PC) and one that runs the EyeLink system (Host PC). To set this up, follow steps 1-3 in their <a rel="nofollow" class="external text" href="https://www.sr-support.com/attachment.php?aid=576">Quick Start Guide</a>. The number of monitors needed can vary, but the ideal set-up would have 3 monitors. If only 2 monitors are available, the "EyeLink Display" can be taken out. The "EyeLink Display" shows the lens's image of the eye and the eye's gaze on the "Stimuli" monitor. This is nice for validation that the eye is tracking, however is not necessary for data collection. The ideal example set-up is shown below.
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:EyeLinkSetUp.png" class="image" title="Image: 700 pixels"><img alt="Image: 700 pixels" src="../images/thumb/8/82/EyeLinkSetUp.png/700px-EyeLinkSetUp.png" decoding="async" width="700" height="479" srcset="../images/thumb/8/82/EyeLinkSetUp.png/1050px-EyeLinkSetUp.png 1.5x, ../images/8/82/EyeLinkSetUp.png 2x" /></a></div></div>
+<p>The participant should be positioned in front of the eye tracker and the display monitor that will be showing the stimuli. The experimenter will want to be looking at the information from the EyeLink system and also be running BCI2000. The EyeLink system will show the real-time video of the eye, so the experimenter will be able to verify the eye is tracking throughout the experiment, and can give the participant feedback if it is not. By viewing the BCI2000 monitor, the experimenter will be able to monitor the status of the experiment, as well as the electrophysiological recordings.
+</p><p><i>Important Note</i>: The EyeLink lens does NOT autofocus! If the image is blurry, you must physically adjust the lens to focus on your eye. 
+</p>
+<h4><span class="mw-headline" id="IP_address">IP address</span></h4>
+<p>To connect to the EyeLink eye tracker, the IP address of the BCI2000 PC must be configured. In the Control Panel, go to "Change Adapter Settings", then go to the Ethernet's properties, to where "Internet Protocol Version 4 (ICP/IPv4)" is listed. Change the IP address from automatic to 100.1.1.X, where X is an integer between 0-255 (and not equal to the EyeLink's IP address - usually 100.1.1.1). Then change the Subnet mask to 255.255.255.0. After this is configured, BCI2000 should be able to connect to the Host PC. If not, verify the ethernet connection.
+</p>
+<h3><span class="mw-headline" id="Software_Set-Up">Software Set-Up</span></h3>
+<h4><span class="mw-headline" id="Experimental_Set-Up">Experimental Set-Up</span></h4>
+<p>Before continuing, make sure everything is set-up as previously mentioned. The next step can either be done with or without BCI2000. If using BCI2000, all the parameters are set remotely. <i>The only parameter that can't be set remotely is the Lens Type</i>, which can either be 16mm or 25mm. If this is changed, you must go into the EyeLink software and change it manually. Every other parameter can be either set from BCI2000 or the EyeLink software, as described below:
+</p>
+<h4><span class="mw-headline" id="With_BCI2000"><i>With BCI2000</i></span></h4>
+<p>The “Display Resolution” parameter is taken from “WindowHeight” and “WindowWidth” in the Application tab. All the other configurable settings are located in the parameter <code>ExperimentParams</code>. Look at the parameter definition below for details in measurements. 
+</p>
+<h4><span class="mw-headline" id="Without_BCI2000"><i>Without BCI2000</i></span></h4>
+<ol><li>Open the EyeLink File Manager
+<ol><li>If the EyeLink eye tracking program has already been started, you must click on the “Offline” button, then click on the “Exit EyeLink”</li></ol></li>
+<li>Click on the “Configuration” button</li>
+<li>Click on the "Screen Settings" button</li>
+<li>Enter the applicable settings:
+<ol><li>“Screen Dimensions” and “Display Resolution” always need to be entered.</li>
+<li>“Eye-to-Screen”: For all non-remote tracking modes.</li>
+<li>“Camera-to-Screen”: Only for remote tracking mode. Both the distance and the lens type should be checked.</li></ol></li></ol>
+<h3><span class="mw-headline" id="Gaze_calibration">Gaze calibration</span></h3>
+<p>Once the measurements are set, the EyeLink needs to be calibrated. If using Remote tracking mode, you must have a calibrating sticker on your forehead, which tracks your head movements via the sticker. This method theoretically maintains the calibration, but to have the most accurate data, re-calibrate whenever the subject has left and returned to the field of view, or if any external conditions have changed. 
+</p><p>The only application that you'll need is called "Track.exe". If missing, follow steps from "Downloading EyeLink software". To open this application, open the Start Menu on the Display PC, go to SR Research folder, and click on "Track". This will allow access of the EyeLink system from your Display PC. The screen should show up on the "Stimuli" screen, as this is the screen that needs to be calibrated. If it shows up on the other screen, you must make the "Stimuli" monitor your main display in the window's display settings and restart the Track application. Follow the steps to get to the calibration screen. Once the target is shown in the middle of the screen, you can watch it on the EyeLink display. 
+</p><p>Press "Space" or "Enter" to start the calibration, then the targets will be automatically displayed until they are fixated upon. Once the cycle is done, the person's gaze is calibrated. The software can now be quit and BCI2000 can be started, ensuring that the <code>--LogEyetrackerEyeLink=1</code> command line parameter is set. 
+</p><p>Upon opening and closing the “Track” software, it will ask you to save to a file. When opening, you must accept that you will save to a file. However, when closing, you can press cancel and not save anything. Unless you record data with this application, the saving of the file is useless. 
+</p>
+<h2><span class="mw-headline" id="Coordinate_System">Coordinate System</span></h2>
+<p>The EyeLink eye tracker records numerous types of data, as listed below:
+</p>
+<ul><li><i>Position</i>: The raw X and Y coordinates recorded by the camera. This is converted to more useful types of data by a successful calibration.</li>
+<li><i>Head-referenced (HREF)</i>: Measures eye rotation angles relative to the head. The X and Y coordinates reflect the line of sight at an arbitrary distance of 15,000 units from the eye. Eye rotation angles can be calculated from the raw data. See page 108-109 in the EyeLink User Manual for additional information.</li>
+<li><i>Gaze</i>: The actual X and Y coordinates of the eye position on the display screen. The units are pixels, with maximum width and height specified by “Display Resolution” (i.e. 1920 x 1080).</li>
+<li><i>Gaze resolution</i>: The X and Y angular resolution of the gaze position, in pixels per degree of visual angle. Unlike the previous 3 coordinate systems, this data is independent of which eye is being used, or if multiple eyes are used.</li>
+<li><i>Pupil size</i>: The area of the pupil, in arbitrary units. Best recorded as a percent change relative to a baseline.</li></ul>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:EyeLinkCoordinateSystem.png" class="image"><img alt="EyeLinkCoordinateSystem.png" src="../images/1/16/EyeLinkCoordinateSystem.png" decoding="async" width="960" height="720" /></a></div></div>
+<p>The above figure displays the different coordinate systems. The HREF coordinate system records x and y positions at a distance of 15,000 units away from the pupil, the gaze coordinates are relative to the screen resolution, and the pupil position coordinates are in-line with the pupil. Both the HREF and the pupil coordinate systems have arbitrary units, and HREF has an arbitrary (0,0) point. More details can be found in the EyeLink 1000 Plus user manual on page 108. 
+</p>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:EyeLinkParameters.PNG" class="image"><img alt="EyeLinkParameters.PNG" src="../images/c/cc/EyeLinkParameters.PNG" decoding="async" width="508" height="467" /></a></div></div>
+<h3><span class="mw-headline" id="User_configurable_Parameters">User configurable Parameters</span></h3>
+<p>The eye tracker is configured in the Source tab within the EyetrackerLogger section.
+</p>
+<h4><span class="mw-headline" id="LogEyetrackerEyeLink">LogEyetrackerEyeLink</span></h4>
+<p>Set to 0 (uncheck) to disable the eye tracker logger. This should be set in your batch file by appending <code>--LogEyetrackerEyeLink=1</code> to the source module <tt>start executable</tt> command. 
+</p>
+<h4><span class="mw-headline" id="DataType">DataType</span></h4>
+<p>The data type that will be recorded. The default is GAZE. In 99% of the cases, the gaze data will be desired. However for the 1% of cases, the hREF data can be recorded instead. When hREF is selected, the GazeMonitorFilter can't be used. 
+</p>
+<h4><span class="mw-headline" id="SaveEDF">SaveEDF</span></h4>
+<p>Set to 1 (check) to save an EDF file along with the BCI2000 data file. An EDF file is the EyeLink's main file type, and the EDF will record all possible data, such as blinks, saccades, and eye velocity. This data can be viewed in EyeLink's Data Viewer or in Matlab. However, most of this additional data is derived from the foundational variables that BCI2000 records, so recording to the EDF file is unnecessary and could slow down BCI2000. The additional extra physiological data contained in the EDF file can be calculated from the foundational data BCI2000 records during offline analysis. Thus, it is not recommended to save the EDF file during experiments. However, it is useful for validating the data BCI2000 records during experiment testing.
+</p>
+<h4><span class="mw-headline" id="EyeLinkHostAddress">EyeLinkHostAddress</span></h4>
+<p>The IP address of the Host PC. The standard is 100.1.1.1, but this parameter allows for other configurations in case the IP of the Host PC needs to be changed. 
+</p>
+<h4><span class="mw-headline" id="ExperimentParams">ExperimentParams</span></h4>
+<p>An array of parameters that are specific to the experimental set-up:
+</p>
+<ul><li>Use: 1 to use the following parameters, 0 to ignore parameters listed. If 0, EyeLink will use the values that are listed in its software.</li>
+<li>Remote: 1 for Remote tracking mode, 0 for any other mode. If 1, “EyeToTop” and “EyeToBottom” will not be used. If 0, “LensToScreen” will not be used.</li>
+<li>PhysX: The physical width of the visible part of the screen (mm).</li>
+<li>PhysY: The physical height of the visible part of the screen (mm).</li>
+<li>EyeToTop: The distance from the subject’s eye to the top of the screen (mm).</li>
+<li>EyeTo Bottom: The distance from the subject’s eye to the bottom of the screen (mm).</li>
+<li>LensToScreen: The distance from the lens to the screen (mm). This is most accurately measured from the base of the lens to the front of the visible part of the screen.</li></ul>
+<h4><span id="GazeScale,_GazeOffset_(deprecated)"></span><span class="mw-headline" id="GazeScale.2C_GazeOffset_.28deprecated.29">GazeScale, GazeOffset (deprecated)</span></h4>
+<p>Only included for compatibility with the <a href="Contributions%253AEyetrackerLogger.html" title="Contributions:EyetrackerLogger">EyetrackerLogger</a> and <a href="Contributions%253AGazeMonitorFilter.html" title="Contributions:GazeMonitorFilter">GazeMonitorFilter</a>; is not used in this source code. When used by the other programs, incoming gaze and position data are transformed by first multiplying with <tt>GazeScale</tt>, then subtracting <tt>GazeOffset</tt>.
+</p><p><tt>GazeScale</tt> and <tt>GazeOffset</tt> were hacks introduced in the original
+<a href="Contributions%253AEyetrackerLogger.html" title="Contributions:EyetrackerLogger">EyetrackerLogger</a> to address an issue with gaze data being clamped around the edges of the screen.
+EyetrackerLoggerEyeLink uses additional bits to avoid issues with values being out of range, so these parameters serve no useful purpose any more, and are kept solely for backward compatibility.
+</p>
+<h3><span class="mw-headline" id="Descriptive_Parameters">Descriptive Parameters</span></h3>
+<p>These parameters are used by the eye tracker logger in order to store information about
+the eye tracker's configuration, and to help interpretation of logged data in data analysis.
+</p>
+<h4><span class="mw-headline" id="EyeLinkInfo">EyeLinkInfo</span></h4>
+<p>A list-valued parameter with a variable number of named entries, providing information about the eye tracker's properties and configuration.
+</p>
+<ul><li><i>WhichEye</i>: Tells which eye is being recorded. If both eyes are being used, will state "Both eyes".</li>
+<li><i>Tracker Version</i>: Records which version of the tracker, for future analysis.</li>
+<li><i>Prescaler</i>: Used to keep a high resolution of data.  The gaze data is divided by this prescaler and then multiplied again before writing to the link or to the EDF. Useful for troubleshooting if gaze data is off by some factor.</li>
+<li><i>Width</i>: The width of the display, in pixels.</li>
+<li><i>Height</i>: The height of the display, in pixels.</li>
+<li><i>FrameRate</i>: The frequency at which data is being collected.</li></ul>
+<h2><span class="mw-headline" id="Converting_to_Signed_Values">Converting to Signed Values</span></h2>
+<p>The gaze states and HRef states routinely need to record negative values (pupil size and position data occasionally do as well), but BCI2000 states only record unsigned (positive) values. To encode negative numbers to the states, potentially negative numbers are written in signed magnitude representation, where the most significant bit denotes the sign of the value (1 for negative, 0 for positive). 
+</p><p>To convert the data back to signed (negative) values, some simple processing is needed. Below is a Matlab function that converts unsigned values to signed:
+</p>
+<pre>function s = ToSigned(u)
+  dU = double(u);
+  iU = (dU &gt;= 2^15);
+  tempU = dU - iU*(2^15-1);
+  s = tempU - 2*tempU.*iU;
+end
+</pre>
+<p>Where your input is <code>u</code>, the raw unsigned state variables, and the returned value <code>s</code> is the original signed data.
+</p><p><br />
+</p>
+<h2><span class="mw-headline" id="State_Variables">State Variables</span></h2>
+<h3><span class="mw-headline" id="EyetrackerTime">EyetrackerTime</span></h3>
+<p>Time stamp of eye data as reported by the eye tracker. The time stamp occurs at the same time that the other sample data is recorded. If processes are slightly delayed, the value of <tt>EyetrackerTime</tt> might differ from the value of <a href="User_Reference%253ADataIOFilter.html#SourceTime" title="User Reference:DataIOFilter">SourceTime</a> by more than a sample block duration in milliseconds.
+</p>
+<h3><span id="EyetrackerLeftEyePosX,_EyetrackerLeftEyePosY,_EyetrackerRightEyePosX,_EyetrackerRightEyePosY"></span><span class="mw-headline" id="EyetrackerLeftEyePosX.2C_EyetrackerLeftEyePosY.2C_EyetrackerRightEyePosX.2C_EyetrackerRightEyePosY">EyetrackerLeftEyePosX, EyetrackerLeftEyePosY, EyetrackerRightEyePosX, EyetrackerRightEyePosY</span></h3>
+<p>The raw X and Y coordinates recorded by the camera, kept separately for each eye. Recorded as an <code>unsigned int16</code> so it must be converted back. It is reported with 200 to 400 units per visual degree. This data is most useful when auto-sequencing calibrations or performing your own calibration. 
+</p>
+<h3><span id="EyetrackerLeftEyeGazeX,_EyetrackerLeftEyeGazeY,_EyetrackerRightEyeGazeX,_EyetrackerRightEyeGazeY"></span><span class="mw-headline" id="EyetrackerLeftEyeGazeX.2C_EyetrackerLeftEyeGazeY.2C_EyetrackerRightEyeGazeX.2C_EyetrackerRightEyeGazeY">EyetrackerLeftEyeGazeX, EyetrackerLeftEyeGazeY, EyetrackerRightEyeGazeX, EyetrackerRightEyeGazeY</span></h3>
+<p>The actual X and Y coordinates of the eye position on the display screen, kept separately for each eye. Also recorded as an <code>unsigned int16</code> so it must be converted back. The top left corner is (0,0) and the bottom right corner of the visible screen is (screen width, screen height). The screen resolution values should have been specified by the user before the calibration. They are also recorded in the parameter "EyeLinkInfo".
+</p>
+<h3><span id="EyetrackerLeftEyeHRefX,_EyetrackerLeftEyeHRefY,_EyetrackerRightEyeHRefX,_EyetrackerRightEyeHRefY"></span><span class="mw-headline" id="EyetrackerLeftEyeHRefX.2C_EyetrackerLeftEyeHRefY.2C_EyetrackerRightEyeHRefX.2C_EyetrackerRightEyeHRefY">EyetrackerLeftEyeHRefX, EyetrackerLeftEyeHRefY, EyetrackerRightEyeHRefX, EyetrackerRightEyeHRefY</span></h3>
+<p>Measures eye rotation angles relative to the head for each eye. The X and Y coordinates reflect the line of sight at an arbitrary distance of 15,000 units from the eye. Because of this standardization, the units are independent of system setup. The (0,0) point is also arbitrary, so this data type is best used for looking at data relative to a known eye position. These coordinates may be converted to eye rotation angles, as well as the resolution for the HREF position. 
+</p>
+<h3><span id="EyetrackerEyeResX,_EyetrackerEyeResY"></span><span class="mw-headline" id="EyetrackerEyeResX.2C_EyetrackerEyeResY">EyetrackerEyeResX, EyetrackerEyeResY</span></h3>
+<p>The X and Y angular resolution of the gaze position, in pixels per degree of visual angle. Unlike the previous 3 coordinate systems, this data is independent of which eye is being used. This can be used to compute the velocity from gaze data. 
+</p>
+<h3><span id="EyetrackerLeftEyePupilSize,_EyetrackerRightEyePupilSize"></span><span class="mw-headline" id="EyetrackerLeftEyePupilSize.2C_EyetrackerRightEyePupilSize">EyetrackerLeftEyePupilSize, EyetrackerRightEyePupilSize</span></h3>
+<p>The area of the pupil, in arbitrary units. Typical values range from 100 to 10000 units. Pupil data should be positive, but if there were any abnormally high values (above 2^15 in this case), that means there are negative values. These can be converted back using the same method as mentioned in "Converting to Signed Values]". It is noise-limited with close than 0.2% of the diameter, which results in a resolution of 0.01 mm for a 5 mm pupil. To compare pupil data across subjects, the data should be converted to percentages of a baseline pupil size for each subject. 
+</p>
+<h3><span id="EyetrackerLeftEyeValidity,_EyetrackerRightEyeValidity"></span><span class="mw-headline" id="EyetrackerLeftEyeValidity.2C_EyetrackerRightEyeValidity">EyetrackerLeftEyeValidity, EyetrackerRightEyeValidity</span></h3>
+<p>There are 5 states of validity, resulting in a validity being anywhere between 0-31. Each data type is either valid (0) or invalid (1). The data types are combined by using binary, in order to maintain their exclusivity. For example, if the validity was reported as 13, it would be 01101 in binary. This means that the gaze, position, and HRef data are invalid. The invalid values for each data type is shown in the table below. 
+</p>
+<table class="wikitable">
+<caption><b>Values if data is exclusively INVALID</b>
+</caption>
+<tbody><tr>
+<th>Data type
+</th>
+<th>Validity Number
+</th>
+<th>Binary
+</th></tr>
+<tr>
+<td>Gaze
+</td>
+<td>1
+</td>
+<td>0 0 0 0 <b>1</b>
+</td></tr>
+<tr>
+<td>Pupil Size
+</td>
+<td>2
+</td>
+<td>0 0 0 <b>1</b> 0
+</td></tr>
+<tr>
+<td>Position
+</td>
+<td>4
+</td>
+<td>0 0 <b>1</b> 0 0
+</td></tr>
+<tr>
+<td>Head-ref
+</td>
+<td>8
+</td>
+<td>0 <b>1</b> 0 0 0
+</td></tr>
+<tr>
+<td>Gaze resolution
+</td>
+<td>16
+</td>
+<td><b>1</b> 0 0 0 0
+</td></tr></tbody></table>
+<p><tt>EyetrackerLoggerEyeLink</tt> will report all data, regardless of its validity. If a certain data type is invalid, the most recent valid value will be recorded. Every other data type will continue updating as usual. 
+</p>
+<h2><span class="mw-headline" id="GazeMonitorFilter_Implementation">GazeMonitorFilter Implementation</span></h2>
+<p>EyeLink is fully functional with <a href="Contributions%253AGazeMonitorFilter.html" title="Contributions:GazeMonitorFilter"> GazeMonitorFilter</a> which allows you to set fixation points and view the gaze data with BCI2000. To use, implement the filter, following the steps in the wiki. Here are some important notes:
+</p>
+<ul><li>To visualize any data, make sure that <code>VisualizeGazeMonitorFilter</code> (in the GazeMonitor section of the application tab) and <code>VisualizeApplicationWindow</code> (in the Application Window section of the Visualize tab) are both on</li>
+<li><a href="Contributions%253AGazeMonitorFilter.html" title="Contributions:GazeMonitorFilter"> GazeMonitorFilter</a> can get rid of the need of a third monitor. By visualizing the gaze data on the "BCI2000" monitor, there is not a big need for the "EyeLink display" monitor. The only information that <a href="Contributions%253AGazeMonitorFilter.html" title="Contributions:GazeMonitorFilter"> GazeMonitorFilter</a> doesn't contain is the image of the eye (which helps with focusing the lens). This problem can be overcome by using the "Track" application to initially focus the lens on the eye. With these two additions, there is no need for the "EyeLink display" for most experimental runs.</li></ul>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Reference%253ALogging_Input.html" title="User Reference:Logging Input">User Reference:Logging Input</a>, <a href="Contributions%253AExtensions.html" title="Contributions:Extensions">Contributions:Extensions</a>, <a href="Contributions%253AEyetrackerLogger.html" title="Contributions:EyetrackerLogger">Contributions:EyetrackerLogger</a>, <a href="Contributions%253AEyetrackerLoggerTobiiPro.html" title="Contributions:EyetrackerLoggerTobiiPro">Contributions:EyetrackerLoggerTobiiPro</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524175454
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.050 seconds
+Real time usage: 0.057 seconds
+Preprocessor visited node count: 136/1000000
+Post‐expand include size: 15/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 343/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2350-0!canonical and timestamp 20230524175454 and revision id 9273
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:EyetrackerLoggerEyeLink&amp;oldid=9273">http://www.bci2000.org/mediawiki/index.php?title=Contributions:EyetrackerLoggerEyeLink&amp;oldid=9273</a>"</div>
+ </div>
+</body>
+</html>

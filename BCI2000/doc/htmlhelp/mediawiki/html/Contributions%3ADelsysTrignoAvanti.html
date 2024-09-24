@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:DelsysTrignoAvanti - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">DelsysTrignoAvanti</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Contributions%253ADelsysTrignoAvanti.html#Synopsis"><span class="tocnumber">1</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Contributions%253ADelsysTrignoAvanti.html#Location"><span class="tocnumber">2</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Contributions%253ADelsysTrignoAvanti.html#Versioning"><span class="tocnumber">3</span> <span class="toctext">Versioning</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Contributions%253ADelsysTrignoAvanti.html#Author"><span class="tocnumber">3.1</span> <span class="toctext">Author</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Contributions%253ADelsysTrignoAvanti.html#Version_History"><span class="tocnumber">3.2</span> <span class="toctext">Version History</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Contributions%253ADelsysTrignoAvanti.html#Source_Code_Revisions"><span class="tocnumber">3.3</span> <span class="toctext">Source Code Revisions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="Contributions%253ADelsysTrignoAvanti.html#Functional_Description"><span class="tocnumber">4</span> <span class="toctext">Functional Description</span></a>
+<ul>
+<li class="toclevel-2 tocsection-8"><a href="Contributions%253ADelsysTrignoAvanti.html#System_Setup"><span class="tocnumber">4.1</span> <span class="toctext">System Setup</span></a>
+<ul>
+<li class="toclevel-3 tocsection-9"><a href="Contributions%253ADelsysTrignoAvanti.html#Windows"><span class="tocnumber">4.1.1</span> <span class="toctext">Windows</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="Contributions%253ADelsysTrignoAvanti.html#Linux"><span class="tocnumber">4.1.2</span> <span class="toctext">Linux</span></a></li>
+<li class="toclevel-3 tocsection-11"><a href="Contributions%253ADelsysTrignoAvanti.html#MacOS"><span class="tocnumber">4.1.3</span> <span class="toctext">MacOS</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="Contributions%253ADelsysTrignoAvanti.html#Parameters"><span class="tocnumber">5</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-13"><a href="Contributions%253ADelsysTrignoAvanti.html#ServerAddress"><span class="tocnumber">5.1</span> <span class="toctext">ServerAddress</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="Contributions%253ADelsysTrignoAvanti.html#SourceCh"><span class="tocnumber">5.2</span> <span class="toctext">SourceCh</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="Contributions%253ADelsysTrignoAvanti.html#ChannelNames"><span class="tocnumber">5.3</span> <span class="toctext">ChannelNames</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="Contributions%253ADelsysTrignoAvanti.html#SensorMode"><span class="tocnumber">5.4</span> <span class="toctext">SensorMode</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="Contributions%253ADelsysTrignoAvanti.html#SensorIsRequired"><span class="tocnumber">5.5</span> <span class="toctext">SensorIsRequired</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="Contributions%253ADelsysTrignoAvanti.html#MuscleNames"><span class="tocnumber">5.6</span> <span class="toctext">MuscleNames</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="Contributions%253ADelsysTrignoAvanti.html#SegmentNames"><span class="tocnumber">5.7</span> <span class="toctext">SegmentNames</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="Contributions%253ADelsysTrignoAvanti.html#SampleBlockSize"><span class="tocnumber">5.8</span> <span class="toctext">SampleBlockSize</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="Contributions%253ADelsysTrignoAvanti.html#SamplingRate"><span class="tocnumber">5.9</span> <span class="toctext">SamplingRate</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="Contributions%253ADelsysTrignoAvanti.html#SourceChOffset.2FSourceChGain"><span class="tocnumber">5.10</span> <span class="toctext">SourceChOffset/SourceChGain</span></a></li>
+<li class="toclevel-2 tocsection-23"><a href="Contributions%253ADelsysTrignoAvanti.html#BackwardsCompatibility"><span class="tocnumber">5.11</span> <span class="toctext">BackwardsCompatibility</span></a></li>
+<li class="toclevel-2 tocsection-24"><a href="Contributions%253ADelsysTrignoAvanti.html#Upsampling"><span class="tocnumber">5.12</span> <span class="toctext">Upsampling</span></a></li>
+<li class="toclevel-2 tocsection-25"><a href="Contributions%253ADelsysTrignoAvanti.html#ImuSamplingRate"><span class="tocnumber">5.13</span> <span class="toctext">ImuSamplingRate</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-26"><a href="Contributions%253ADelsysTrignoAvanti.html#Streams"><span class="tocnumber">6</span> <span class="toctext">Streams</span></a>
+<ul>
+<li class="toclevel-2 tocsection-27"><a href="Contributions%253ADelsysTrignoAvanti.html#ErrorStream"><span class="tocnumber">6.1</span> <span class="toctext">ErrorStream</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-28"><a href="Contributions%253ADelsysTrignoAvanti.html#Known_Issues"><span class="tocnumber">7</span> <span class="toctext">Known Issues</span></a></li>
+<li class="toclevel-1 tocsection-29"><a href="Contributions%253ADelsysTrignoAvanti.html#Troubleshooting"><span class="tocnumber">8</span> <span class="toctext">Troubleshooting</span></a></li>
+<li class="toclevel-1 tocsection-30"><a href="Contributions%253ADelsysTrignoAvanti.html#Example_param_file"><span class="tocnumber">9</span> <span class="toctext">Example param file</span></a></li>
+<li class="toclevel-1 tocsection-31"><a href="Contributions%253ADelsysTrignoAvanti.html#See_also"><span class="tocnumber">10</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>The Delsys Trigno Avanti acquisition module enables to read signal from the Delsys Trigno Wireless acquisition hardware through the Trigno Control Server.
+</p>
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><a rel="nofollow" class="external free" href="http://www.bci2000.org/svn/trunk/src/contrib/SignalSource/DelsysTrignoAvanti">http://www.bci2000.org/svn/trunk/src/contrib/SignalSource/DelsysTrignoAvanti</a>
+</p>
+<h2><span class="mw-headline" id="Versioning">Versioning</span></h2>
+<h3><span class="mw-headline" id="Author">Author</span></h3>
+<p>Lorenzo Lombardi (l.lombardi@wustl.edu)
+</p><p>credits also to Juergen Muller and Nicholas Luczak.
+</p>
+<h3><span class="mw-headline" id="Version_History">Version History</span></h3>
+<ul><li>V1.0 -- Initial release</li></ul>
+<h3><span class="mw-headline" id="Source_Code_Revisions">Source Code Revisions</span></h3>
+<ul><li>Initial development: 6972</li>
+<li>Tested under: 6972</li>
+<li>Known to compile under: 6972</li>
+<li>Broken since: N/A</li></ul>
+<h2><span class="mw-headline" id="Functional_Description">Functional Description</span></h2>
+<p>The Delsys Trigno Avanti source module is used to acquire EMG, IMU and other sensors belonging to the Trigno Wireless class from Delsys Systems. The full list of sensors supported can be found in the SDK User Guide <a rel="nofollow" class="external autonumber" href="https://www.delsys.com/downloads/USERSGUIDE/trigno/sdk.pdf">[1]</a>. The Avanti sensor is one such instance, which was originally developed and tested for. This documentation explains the parameterization and specifics on how to set up the system.
+</p>
+<h3><span class="mw-headline" id="System_Setup">System Setup</span></h3>
+<ol><li>Download the server indicated as 'Trigno Software Development Kit (SDK) Server' from the Delsys website under support/software <a rel="nofollow" class="external autonumber" href="https://delsys.com/support/software">[2]</a>.</li>
+<li>Run and install all components. This should install an app called Trigno Control Utility to run the server. Do not run it yet.</li>
+<li>Physically connect to the Trigno Control Box using the USB provided by the manufacturer. For more details, refer to the trigno wireless biofeedback user guide <a rel="nofollow" class="external autonumber" href="https://www.delsys.com/downloads/USERSGUIDE/trigno/wireless-biofeedback-system.pdf">[3]</a></li>
+<li>Check you have the drivers installed: On windows for instance, you can go to Device Manager and look up USBXpressDevice. If you don't find the device, you should see a device called DelsysTrigno with a yellow alert sign. If that's the case, update its drivers manually. You can find them at C:\Program Files (x86)\Delsys, Inc\TrignoSDK\Drivers.</li>
+<li>Make sure that in your network the following IPs/ports are not occupied yourip:50040-43. The source code assumes these ports will be used. On windows, you can run a powershell and use the command: netstat -p tcp -a to get a full list of tcp ports in your system.</li>
+<li>Run the Trigno Control Utility. A window should pop up with all sensors greyed out.</li>
+<li>Pair the sensors of interest using the magnetic pairing system in the Delsys Trigno Box. You should see the icons turning green on the Trigno Control Utility. For more details, refer to <a rel="nofollow" class="external autonumber" href="https://www.delsys.com/downloads/USERSGUIDE/trigno/wireless-biofeedback-system.pdf">[4]</a></li>
+<li>Leave the server running. It has to be running for the source to work.</li>
+<li>Build the source module if necessary.</li>
+<li>Create a new .bat file that uses the DelsysTrignoAvanti as a source. You can find a template in the amplifiers category.</li></ol>
+<h4><span class="mw-headline" id="Windows">Windows</span></h4>
+<p>This source was tested with Windows 10.  
+</p>
+<h4><span class="mw-headline" id="Linux">Linux</span></h4>
+<p>The source was not tested under Linux OS.
+</p>
+<h4><span class="mw-headline" id="MacOS">MacOS</span></h4>
+<p>The source was not tested under MacOS.
+</p>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<p>The following parameters are available for configuring the DelsysTrignoAvanti source module. You will find these parameters in the Source -- Signal Properties section. 
+</p>
+<h3><span class="mw-headline" id="ServerAddress">ServerAddress</span></h3>
+<p>String with the Ip address of the machine running the Trigno Control Utility. Acceptable values are "localhost" or IPv4 dotted notation "192.120.0.1" (without the quotes). 
+</p>
+<h3><span class="mw-headline" id="SourceCh">SourceCh</span></h3>
+<p>Integer containing the number of channels to read. Note that each sensor has 10 channels, so the total number of channels is 10 times the number of sensors. Within the source, EMG and non-EMG (e.g. IMU) channels are concatenated and upsampled to the EMG sampling rate. The content of channel depends on the mode (see later) as described in the SDK User Guide <a rel="nofollow" class="external autonumber" href="https://www.delsys.com/downloads/USERSGUIDE/trigno/sdk.pdf">[5]</a>
+Example: a system with 16 Avanti sensors in Mode 67, has 16 sensors * 10 channels/sensor = 160 channels. For each sensor, only 5 will actually contain data, respectively EMG, QuaterionW, QuaternionX, QuaternionY and Quaternion Z. The other channels will be all zeros.
+</p><p><br />
+<a href="https://www.bci2000.org/mediawiki/index.php/File:Emgpacket.PNG" class="image"><img alt="Emgpacket.PNG" src="../images/9/91/Emgpacket.PNG" decoding="async" width="660" height="142" /></a>
+</p><p><br />
+<a href="https://www.bci2000.org/mediawiki/index.php/File:Imupacket.PNG" class="image"><img alt="Imupacket.PNG" src="../images/7/77/Imupacket.PNG" decoding="async" width="661" height="157" /></a>
+</p><p><br />
+</p>
+<h3><span class="mw-headline" id="ChannelNames">ChannelNames</span></h3>
+<p>List of strings containing the name of each channel for reference.
+Example: EMG1, EMG2, ... ,EMG16, IMU1 , IMU2, ... ,IMU144.
+</p>
+<h3><span class="mw-headline" id="SensorMode">SensorMode</span></h3>
+<p>This is probably the key parameter to set. List of integers, one per sensor, to set the mode of the sensor from the SDK user guide <a rel="nofollow" class="external autonumber" href="https://www.delsys.com/downloads/USERSGUIDE/trigno/sdk.pdf">[6]</a>.
+It defines sampling rate and content of each channel for the sensor.
+Example: 67, 67, ... ,67. To set each sensor to mode 67. From the SDK User guide <a rel="nofollow" class="external autonumber" href="https://www.delsys.com/downloads/USERSGUIDE/trigno/sdk.pdf">[7]</a>, this corresponds to EMG (1482Hz) plus Orientation (74Hz, 32bits).  
+</p>
+<h3><span class="mw-headline" id="SensorIsRequired">SensorIsRequired</span></h3>
+<p>List of booleans to indicate which sensor we will actually be using from the total pool.
+Example 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 to use only sensor 3 from the full set of 16. 
+</p>
+<h3><span class="mw-headline" id="MuscleNames">MuscleNames</span></h3>
+<p>List of strings containing the name of the muscles the sensor is fitted to. This parameter is purely for offline use, and has no effect on the source module operations.
+Example: Left Rectus Femoris, Left Vastus Lateralis, ..., Right Tibilialis Anterior.
+</p>
+<h3><span class="mw-headline" id="SegmentNames">SegmentNames</span></h3>
+<p>List of strings containing the name of the segments the sensor is fitted to. This parameter is purely for offline use, and has no effect on the source module operations.
+Example: Left Leg, Left Leg, ..., Right Shank.
+</p>
+<h3><span class="mw-headline" id="SampleBlockSize">SampleBlockSize</span></h3>
+<p>This is the other key parameter to set up. It defines how many samples will be acquired. There are a number of possible choices, but they have to respect the following constraint:
+because the sensor might have channels with different rates, we need to choose a block size that will contain an integer number of samples for all channels. You should also make sure
+that a block should take longer than 13.5ms, so the product of SampleBlockSize and sampling frequency should be larger then 13.5ms. Performance around 30-50ms is typically stable.
+Example: in mode 67, EMGs are sampled at 1482 and IMUs are sampled at 74Hz. This implies that the block size should be an integer multiple of 1482/74 = 20. 
+</p>
+<h3><span class="mw-headline" id="SamplingRate">SamplingRate</span></h3>
+<p>The sampling rate is not editable in this module, left as auto. The sensor mode is actually used to configure the sampling rate. A sampling rate can be shown purely for quick reference.
+Example: auto
+</p>
+<h3><span id="SourceChOffset/SourceChGain"></span><span class="mw-headline" id="SourceChOffset.2FSourceChGain">SourceChOffset/SourceChGain</span></h3>
+<p>These are populated automatically.  Use 'auto' to configure this parameter.
+Example: auto
+</p>
+<h3><span class="mw-headline" id="BackwardsCompatibility">BackwardsCompatibility</span></h3>
+<p>This parameter can be used to force a fixed sampling rate of 2000Hz for EMG. This is a legacy mode for the wireless sensors. For more information
+<a href="https://www.bci2000.org/mediawiki/index.php/File:Backwards.PNG" class="image"><img alt="Backwards.PNG" src="../images/f/f4/Backwards.PNG" decoding="async" width="674" height="570" /></a>
+Example: auto
+</p>
+<h3><span class="mw-headline" id="Upsampling">Upsampling</span></h3>
+<p>This parameter can be used to force upsampling when in backwards compatibility mode. This is a legacy mode for the wireless sensors. For more information
+<a href="https://www.bci2000.org/mediawiki/index.php/File:Backwards.PNG" class="image"><img alt="Backwards.PNG" src="../images/f/f4/Backwards.PNG" decoding="async" width="674" height="570" /></a>
+Example: auto
+</p>
+<h3><span class="mw-headline" id="ImuSamplingRate">ImuSamplingRate</span></h3>
+<p>Again, the sampling rate is not editable in this module, left as auto. The sensor mode is actually used to configure the sampling rate. A sampling rate can be shown purely for quick reference.
+Example: auto
+</p>
+<h2><span class="mw-headline" id="Streams">Streams</span></h2>
+<h3><span class="mw-headline" id="ErrorStream">ErrorStream</span></h3>
+<p>This stream records the error flag returned during block reading. The meaning of each error is stored into a table from TRIGNOSDK_ERROR enum. OF these, most likely only errors (11) TRIGNOSDK_TIMEOUT_READ_EMG_FAIL, (12) TRIGNOSDK_TIMEOUT_READ_IMU_FAIL and (13) TRIGNOSDK_TIMEOUT_READ_BOTH_FAIL are expected to occurr during a run. These are non-blocking errors.
+</p>
+<table class="wikitable">
+<caption>Error stream meaning
+</caption>
+<tbody><tr>
+<th>Value</th>
+<th>Error name</th>
+<th>Possible reasons
+</th></tr>
+<tr>
+<td>11</td>
+<td>TRIGNOSDK_TIMEOUT_READ_EMG_FAIL</td>
+<td>EMG port timed-out
+</td></tr>
+<tr>
+<td>12</td>
+<td>TRIGNOSDK_TIMEOUT_READ_IMU_FAIL</td>
+<td>non-EMG port timed-out
+</td></tr>
+<tr>
+<td>13</td>
+<td>TRIGNOSDK_TIMEOUT_READ_BOTH_FAIL</td>
+<td>Both EMG and non-EMG ports timed-out
+</td></tr></tbody></table>
+<p>The first 10 values are reserved for setup errors, which will not appear in the stream. For more info, refer to the Doxygen documentation in the source code.
+</p>
+<h2><span class="mw-headline" id="Known_Issues">Known Issues</span></h2>
+<p>Note the the server has to be running alongside BCI2000 for the source module to work. However, it does not need to be running physically on the same machine, since a static ip address can be provided.
+A known issue of the current implementation of the source is that the communication is slower and less stable when running the server and the source in different machines, so we recommend whenever possible to opt for a solution with the server and bci2000 running on the same physical machine (and therefore use localhost ip address).
+So far, never tested using IPv6 server addresses.
+</p>
+<h2><span class="mw-headline" id="Troubleshooting">Troubleshooting</span></h2>
+<ol><li>Double check drivers. It has happened in the past that, after some updates, the drivers would automatically switch from 64 to 32 bit version or viceversa. Make sure that the version is correct.</li>
+<li>Double check Trigno Control Utility is on.</li>
+<li>Once the Trigno Control Utility is running, you should see that ports 50040-43 are now in listening mode.</li></ol>
+<p>General TCP debugging: Wireshark can be useful to double check the low level TCP communication occurs as expected. Use the following filter: tcp.port == 50040 or tcp.port == 50043 or tcp.port == 50044.
+For coding issues, the module comes with a Doxygen file that explains each function in more detail.
+</p>
+<h2><span class="mw-headline" id="Example_param_file">Example param file</span></h2>
+<p>Below an example of param file for a system with 16 Trigno Avanti sensors of which 13 are used in mode 67 (EMG + IMU with 32bit, quaternion representation):
+</p><p><small style="font-size:80%;">
+Source:Signal%20Properties int SourceCh= 160 // number of digitized and stored channels (allow_override)
+Source:Signal%20Properties int SampleBlockSize= 60 // number of samples transmitted at a time (allow_override)
+Source:Signal%20Properties int SamplingRate= 1482 // sampling rate (allow_override)
+Source:Signal%20Properties list ChannelNames= 160 Emg1 Emg2 Emg3 Emg4 Emg5 Emg6 Emg7 Emg8 Emg9 Emg10 Emg11 Emg12 Emg13 Emg14 Emg15 Emg16 IMU1 IMU2 IMU3 IMU4 IMU5 IMU6 IMU7 IMU8 IMU9 IMU10 IMU11 IMU12 IMU13 IMU14 IMU15 IMU16 IMU17 IMU18 IMU19 IMU20 IMU21 IMU22 IMU23 IMU24 IMU25 IMU26 IMU27 IMU28 IMU29 IMU30 IMU31 IMU32 IMU33 IMU34 IMU35 IMU36 IMU37 IMU38 IMU39 IMU40 IMU41 IMU42 IMU43 IMU44 IMU45 IMU46 IMU47 IMU48 IMU49 IMU50 IMU51 IMU52 IMU53 IMU54 IMU55 IMU56 IMU57 IMU58 IMU59 IMU60 IMU61 IMU62 IMU63 IMU64 IMU65 IMU66 IMU67 IMU68 IMU69 IMU70 IMU71 IMU72 IMU73 IMU74 IMU75 IMU76 IMU77 IMU78 IMU79 IMU80 IMU81 IMU82 IMU83 IMU84 IMU85 IMU86 IMU87 IMU88 IMU89 IMU90 IMU91 IMU92 IMU93 IMU94 IMU95 IMU96 IMU97 IMU98 IMU99 IMU100 IMU101 IMU102 IMU103 IMU104 IMU105 IMU106 IMU107 IMU108 IMU109 IMU110 IMU111 IMU112 IMU113 IMU114 IMU115 IMU116 IMU117 IMU118 IMU119 IMU120 IMU121 IMU122 IMU123 IMU124 IMU125 IMU126 IMU127 IMU128 IMU129 IMU130 IMU131 IMU132 IMU133 IMU134 IMU135 IMU136 IMU137 IMU138 IMU139 IMU140 IMU141 IMU142 IMU143 IMU144 // list of channel names (allow_override)
+Source:Signal%20Properties list SourceChOffset= 160 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 // Offset for channels in A/D units (allow_override)
+</small></p><p><small style="font-size:80%;">Source:Signal%20Properties list SourceChGain= 160 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 // gain for each channel (A/D units per physical unit) (allow_override)
+</small></p><p><small style="font-size:80%;">Source:Signal%20Properties list SensorMode= 160 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 67 // mode of the sensor (e.g. 67: 1xEMG (1482Hz) 4xOrientation (74Hz, 32bits)). cfr SDK User Guide
+</small></p><p><small style="font-size:80%;">Source:Signal%20Properties list SensorIsRequired= 16 0 0 1 1 1 1 1 1 1 1 1 1 1 1 0 1 // 0 = sensor not used, 1 = sensor is used
+</small></p><p><small style="font-size:80%;">Source:Signal%20Properties list MuscleNames= 16 RectusFemorisLx RectusFemorisRx None None SemitendineousLx SemitendineousRx VastusLateralisLx VastusLateralisRx TibialisAnteriorLx TibialisAnteriorRx GastrocemiusLx GastrocemiusRx SoleusLx SoleousRx None Analog // names of muscles the sensor is on. e.g. vastus lateralis
+</small></p><p><small style="font-size:80%;">Source:Signal%20Properties list SegmentNames= 16 LegLx LegRx None None ShankLx ShankRx LegLx LegLx ShankLx ShankRx ShankLx ShankRx ShankLx ShankRx None None // names of segment the sensor is placed on. e.g. leg, shank, foot
+</small></p><p><small style="font-size:80%;">Source:Signal%20Properties int IMUCh= 144 auto 1 144 // number of digitized and stored channels
+</small></p><p><small style="font-size:80%;">Source:Legacy string BackwardCompatibilityMode= NO NO&#160;%&#160;% // A mode that forces sample rate to fixed values. cfr SDK User Guide 
+</small></p><p><small style="font-size:80%;">Source:Legacy string Upsampling= OFF OFF&#160;%&#160;% // A mode that forces sample rate. cfr SDK User Guide 
+<small style="font-size:125%;">
+</small></small></p><small style="font-size:80%;"><small style="font-size:125%;"><h2><span class="mw-headline" id="See_also">See also</span></h2></small></small><p><small style="font-size:80%;"><small style="font-size:125%;"><a href="Contributions%253AADCs.html" title="Contributions:ADCs">Contributions:ADCs</a></small></small></p>
+<!-- 
+NewPP limit report
+Cached time: 20230524175451
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.037 seconds
+Real time usage: 0.042 seconds
+Preprocessor visited node count: 101/1000000
+Post‐expand include size: 15/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2521-0!canonical and timestamp 20230524175451 and revision id 10058
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:DelsysTrignoAvanti&amp;oldid=10058">http://www.bci2000.org/mediawiki/index.php?title=Contributions:DelsysTrignoAvanti&amp;oldid=10058</a>"</div>
+ </div>
+</body>
+</html>

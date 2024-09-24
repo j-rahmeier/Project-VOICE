@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Programming Reference:TrialStatistics Class - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul><li class="toc1">Concepts</li><ul><li class="toc2"><a href="Programming_Reference%253AFilter_Chain.html">Filter Chain</a></li><li class="toc2"><a href="Programming_Reference%253ASignals.html">Signals</a></li><li class="toc2"><a href="Programming_Reference%253AError_Handling.html">Error Handling</a></li><li class="toc2"><a href="Programming_Reference%253ALocalization.html">Localization</a></li><li class="toc2"><a href="Programming_Reference%253ARapid_Development.html">Rapid Development</a></li></ul><li class="toc1">Reference</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFilter_Class.html">GenericFilter</a></li><li class="toc2"><a href="Programming_Reference%253AEnvironment_Class.html">Environment</a></li><li class="toc2"><a href="Programming_Reference%253AGenericVisualization_Class.html">GenericVisualization</a></li><li class="toc2"><a href="Programming_Reference%253AErrors_and_Warnings.html">Errors and Warnings</a></li><li class="toc2"><a href="Programming_Reference%253ADebug_Output.html">Debug Output</a></li></ul><li class="toc1">Data Acquisition</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericADC_Class.html">GenericADC</a></li></ul><li class="toc1">Data Storage</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFileWriter_Class.html">GenericFileWriter</a></li><li class="toc2"><a href="Programming_Reference%253ABCI2000FileReader_Class.html">BCI2000FileReader</a></li></ul><li class="toc1">Signal Processing</li><ul><li class="toc2"><a href="Programming_Reference%253AIIRFilterBase_Class.html">IIR Filters</a></li></ul><li class="toc1">Application Modules</li><ul><li class="toc2"><a href="Programming_Reference%253AApplicationBase_Class.html">ApplicationBase</a></li><li class="toc2"><a href="Programming_Reference%253AFeedbackTask_Class.html">FeedbackTask</a></li><li class="toc2"><a href="Programming_Reference%253AStimulusTask_Class.html">StimulusTask</a></li><li class="toc2"><a href="Programming_Reference%253A3D_API.html">3D API</a></li></ul><li class="toc1">Howtos</li><ul><li class="toc2"><a href="Programming_Howto%253ABuilding_BCI2000.html">Building BCI2000</a></li><li class="toc2"><a href="Programming_Howto%253ASVN_Client_Setup.html">SVN Client Setup</a></li><li class="toc2"><a href="Programming_Howto%253AUsing_TortoiseSVN.html">Using TortoiseSVN</a></li></ul><li class="toc1"><a href="Programming_FAQ.html">FAQ</a></li><li class="toc1">Tutorials</li><ul><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html">Data Acquisition</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html">Signal Processing</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html">Matlab Signal Processing</a></li></ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">TrialStatistics Class</h1>
+ <p class = "subtitle">Programming Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Programming_Reference%253ATrialStatistics_Class.html#Location"><span class="tocnumber">1</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Programming_Reference%253ATrialStatistics_Class.html#Synopsis"><span class="tocnumber">2</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Programming_Reference%253ATrialStatistics_Class.html#Properties"><span class="tocnumber">3</span> <span class="toctext">Properties</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Programming_Reference%253ATrialStatistics_Class.html#int_Hits_.28r.29"><span class="tocnumber">3.1</span> <span class="toctext">int Hits (r)</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Programming_Reference%253ATrialStatistics_Class.html#int_Total_.28r.29"><span class="tocnumber">3.2</span> <span class="toctext">int Total (r)</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Programming_Reference%253ATrialStatistics_Class.html#int_Invalid_.28r.29"><span class="tocnumber">3.3</span> <span class="toctext">int Invalid (r)</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="Programming_Reference%253ATrialStatistics_Class.html#float_Bits_.28r.29"><span class="tocnumber">3.4</span> <span class="toctext">float Bits (r)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="Programming_Reference%253ATrialStatistics_Class.html#Events"><span class="tocnumber">4</span> <span class="toctext">Events</span></a>
+<ul>
+<li class="toclevel-2 tocsection-9"><a href="Programming_Reference%253ATrialStatistics_Class.html#Initialize"><span class="tocnumber">4.1</span> <span class="toctext">Initialize</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="Programming_Reference%253ATrialStatistics_Class.html#Methods"><span class="tocnumber">5</span> <span class="toctext">Methods</span></a>
+<ul>
+<li class="toclevel-2 tocsection-11"><a href="Programming_Reference%253ATrialStatistics_Class.html#Reset.28.29"><span class="tocnumber">5.1</span> <span class="toctext">Reset()</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="Programming_Reference%253ATrialStatistics_Class.html#Update.28int_TargetCode.2C_int_ResultCode.29"><span class="tocnumber">5.2</span> <span class="toctext">Update(int TargetCode, int ResultCode)</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="Programming_Reference%253ATrialStatistics_Class.html#UpdateInvalid.28.29"><span class="tocnumber">5.3</span> <span class="toctext">UpdateInvalid()</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-14"><a href="Programming_Reference%253ATrialStatistics_Class.html#Remarks"><span class="tocnumber">6</span> <span class="toctext">Remarks</span></a></li>
+<li class="toclevel-1 tocsection-15"><a href="Programming_Reference%253ATrialStatistics_Class.html#Limitations"><span class="tocnumber">7</span> <span class="toctext">Limitations</span></a></li>
+<li class="toclevel-1 tocsection-16"><a href="Programming_Reference%253ATrialStatistics_Class.html#See_also"><span class="tocnumber">8</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><tt>BCI2000/src/shared//modules/application/utils</tt>
+</p>
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>The <tt>TrialStatistics</tt> class provides bookkeeping for trial outcomes in form of a frequency matrix recording target and result of each trial.
+</p><p>The <tt>TrialStatistics</tt> class is a descendant of the <a href="Programming_Reference%253AEnvironmentExtension_Class.html" title="Programming Reference:EnvironmentExtension Class"><tt>EnvironmentExtension</tt></a> class.
+</p>
+<h2><span class="mw-headline" id="Properties">Properties</span></h2>
+<h3><span id="int_Hits_(r)"></span><span class="mw-headline" id="int_Hits_.28r.29">int Hits (r)</span></h3>
+<p>The number of trials where the result matched the target.
+</p>
+<h3><span id="int_Total_(r)"></span><span class="mw-headline" id="int_Total_.28r.29">int Total (r)</span></h3>
+<p>The total number of trials recorded.
+</p>
+<h3><span id="int_Invalid_(r)"></span><span class="mw-headline" id="int_Invalid_.28r.29">int Invalid (r)</span></h3>
+<p>The number of trials recorded as "invalid". Invalid trials do not enter into performance computation.
+</p>
+<h3><span id="float_Bits_(r)"></span><span class="mw-headline" id="float_Bits_.28r.29">float Bits (r)</span></h3>
+<p>The amount of information transferred since the last reset, given in bits. See the notes below for details.
+</p>
+<h2><span class="mw-headline" id="Events">Events</span></h2>
+<h3><span class="mw-headline" id="Initialize">Initialize</span></h3>
+<p>During system initialization, <tt>TrialStatistics</tt> uses the <a href="User_Reference%253ACursorTask.html#NumberTargets" title="User Reference:CursorTask">NumberTargets</a> parameter to determine the size of its internal frequency matrix.
+</p>
+<h2><span class="mw-headline" id="Methods">Methods</span></h2>
+<h3><span id="Reset()"></span><span class="mw-headline" id="Reset.28.29">Reset()</span></h3>
+<p>Resets the invalid trials counter, and all entries of the frequency matrix to 0.
+</p>
+<h3><span id="Update(int_TargetCode,_int_ResultCode)"></span><span class="mw-headline" id="Update.28int_TargetCode.2C_int_ResultCode.29">Update(int TargetCode, int ResultCode)</span></h3>
+<p>Adds the outcome of a trial to the frequency matrix.
+</p>
+<h3><span id="UpdateInvalid()"></span><span class="mw-headline" id="UpdateInvalid.28.29">UpdateInvalid()</span></h3>
+<p>Increments the invalid trials counter.
+</p>
+<h2><span class="mw-headline" id="Remarks">Remarks</span></h2>
+<p>The <i>Bits()</i> function computes the amount of information transferred through
+a noisy channel when for each combination of input and output symbols
+(target and result codes) the number of occurrences is given in form of
+the elements of a frequency matrix.
+</p><p>The computation uses the formula for information transfer through a noisy channel as given in
+Shannon, A Mathematical Theory of Communication, in: The Bell System Technical Journal, Vol. 27, 1948, section 16:
+<img class="mwe-math-fallback-image-inline tex" alt="&#10;      H = - \sum_{i,j}{P_i p_{ij}} \log\sum_i{P_i p_{ij}}&#10;          + \sum_{i,j}{P_i (p_{ij} \log{p_{ij}})}&#10;" src="../images/math/b/2/a/b2a0308b0873fa5037c0ee7f8e92861e.png" />
+where <img class="mwe-math-fallback-image-inline tex" alt="H" src="../images/math/c/1/d/c1d9f50f86825a1a2302ec2449c17196.png" /> is the information transferred per symbol, <img class="mwe-math-fallback-image-inline tex" alt="P_i" src="../images/math/9/e/5/9e5fb72f12371dd00668ac0423d3aec1.png" /> is a probability distribution over input symbols, and noise is represented as a ``transition matrix<i> <img class="mwe-math-fallback-image-inline tex" alt="p_{ij}" src="../images/math/7/2/3/723d2e1c8a2b25f0ea1435cdd0ab1394.png" /> that contains the probability for output <img class="mwe-math-fallback-image-inline tex" alt="j" src="../images/math/3/6/3/363b122c528f54df4a0446b6bab05515.png" /> if the input is <img class="mwe-math-fallback-image-inline tex" alt="i" src="../images/math/8/6/5/865c0c0b4ab0e063e5caa3387c1a8741.png" />.</i>
+</p><p>In the expression, the first term represents the entropy of the distribution of output symbols
+(result codes); the second term represents the reduction of this entropy
+introduced by noise, and is given as the negative of the entropy for each
+<img class="mwe-math-fallback-image-inline tex" alt="p_{ij}" src="../images/math/7/2/3/723d2e1c8a2b25f0ea1435cdd0ab1394.png" /> row: <img class="mwe-math-fallback-image-inline tex" alt="\sum_j p_{ij}\log p_{ij}" src="../images/math/3/8/2/3826fb4360ac6507b9510692eb165f04.png" />, weighted by the probability <img class="mwe-math-fallback-image-inline tex" alt="P_i" src="../images/math/9/e/5/9e5fb72f12371dd00668ac0423d3aec1.png" /> for the occurrence of its input symbol, i.e. for its actual occurrence during transmission.
+</p><p>We consider the elements of the frequency matrix as an estimate
+for <img class="mwe-math-fallback-image-inline tex" alt="N P_i p_{ij}" src="../images/math/c/7/3/c738af8ee340c53abd21df000ccc735e.png" /> where <img class="mwe-math-fallback-image-inline tex" alt="N" src="../images/math/8/d/9/8d9c307cb7f3c4a32822a51922d1ceaa.png" /> is the number of symbols transferred, i.e. the number of trials, and the relative frequencies of target codes as an estimate for the <img class="mwe-math-fallback-image-inline tex" alt="P_i" src="../images/math/9/e/5/9e5fb72f12371dd00668ac0423d3aec1.png" />. From this, we compute the total number of bits transferred, i.e. Shannon's expression multiplied by <img class="mwe-math-fallback-image-inline tex" alt="N" src="../images/math/8/d/9/8d9c307cb7f3c4a32822a51922d1ceaa.png" />.
+</p>
+<h2><span class="mw-headline" id="Limitations">Limitations</span></h2>
+<p>Shannon's expression is based on assumptions that are likely to be violated in practice, most notably
+</p>
+<ul><li>the assumption that successive input symbols (target codes) are independent of each other -- this is clearly violated by obtaining target codes from a block randomization scheme, implying an over-estimate of the bit rate, but also</li>
+<li>the assumption that noise affects successive input independently is not necessarily fulfilled, especially in the presence of an adaptive algorithm.</li></ul>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Programming_Reference%253AApplicationBase_Class.html" title="Programming Reference:ApplicationBase Class">Programming Reference:ApplicationBase Class</a>, <a href="Programming_Reference%253AEnvironmentExtension_Class.html" title="Programming Reference:EnvironmentExtension Class">Programming Reference:EnvironmentExtension Class</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524001215
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.023 seconds
+Real time usage: 0.028 seconds
+Preprocessor visited node count: 114/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 1860/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1807-0!canonical!math=0 and timestamp 20230524001215 and revision id 4112
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:TrialStatistics_Class&amp;oldid=4112">http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:TrialStatistics_Class&amp;oldid=4112</a>"</div>
+ </div>
+</body>
+</html>

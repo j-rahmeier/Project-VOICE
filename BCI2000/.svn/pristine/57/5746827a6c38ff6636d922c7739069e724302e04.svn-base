@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:HyperScanningTask - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">HyperScanningTask</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Contributions%253AHyperScanningTask.html#Synopsis"><span class="tocnumber">1</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Contributions%253AHyperScanningTask.html#Timeline"><span class="tocnumber">2</span> <span class="toctext">Timeline</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Contributions%253AHyperScanningTask.html#Visual_Representation"><span class="tocnumber">3</span> <span class="toctext">Visual Representation</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="Contributions%253AHyperScanningTask.html#Versioning"><span class="tocnumber">4</span> <span class="toctext">Versioning</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="Contributions%253AHyperScanningTask.html#Authors"><span class="tocnumber">4.1</span> <span class="toctext">Authors</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="Contributions%253AHyperScanningTask.html#Parameters"><span class="tocnumber">5</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="Contributions%253AHyperScanningTask.html#StimuliMatrix"><span class="tocnumber">5.1</span> <span class="toctext">StimuliMatrix</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="Contributions%253AHyperScanningTask.html#StimuliWidth"><span class="tocnumber">5.2</span> <span class="toctext">StimuliWidth</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="Contributions%253AHyperScanningTask.html#InstructionImagesSeque"><span class="tocnumber">5.3</span> <span class="toctext">InstructionImagesSeque</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="Contributions%253AHyperScanningTask.html#InstructionWidth"><span class="tocnumber">5.4</span> <span class="toctext">InstructionWidth</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="Contributions%253AHyperScanningTask.html#BreakTrialSequece"><span class="tocnumber">5.5</span> <span class="toctext">BreakTrialSequece</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="Contributions%253AHyperScanningTask.html#FeedbackDuration"><span class="tocnumber">5.6</span> <span class="toctext">FeedbackDuration</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="Contributions%253AHyperScanningTask.html#SliderWidth"><span class="tocnumber">5.7</span> <span class="toctext">SliderWidth</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="Contributions%253AHyperScanningTask.html#BarColor"><span class="tocnumber">5.8</span> <span class="toctext">BarColor</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="Contributions%253AHyperScanningTask.html#AxeActiveColor"><span class="tocnumber">5.9</span> <span class="toctext">AxeActiveColor</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="Contributions%253AHyperScanningTask.html#AxeInActiveColor"><span class="tocnumber">5.10</span> <span class="toctext">AxeInActiveColor</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="Contributions%253AHyperScanningTask.html#DimensionFontColor"><span class="tocnumber">5.11</span> <span class="toctext">DimensionFontColor</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="Contributions%253AHyperScanningTask.html#DimensionHeight"><span class="tocnumber">5.12</span> <span class="toctext">DimensionHeight</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="Contributions%253AHyperScanningTask.html#OptionFontActiveColor"><span class="tocnumber">5.13</span> <span class="toctext">OptionFontActiveColor</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="Contributions%253AHyperScanningTask.html#OptionFontInActiveColor"><span class="tocnumber">5.14</span> <span class="toctext">OptionFontInActiveColor</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="Contributions%253AHyperScanningTask.html#OptionHeight"><span class="tocnumber">5.15</span> <span class="toctext">OptionHeight</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="Contributions%253AHyperScanningTask.html#RoleFontColor"><span class="tocnumber">5.16</span> <span class="toctext">RoleFontColor</span></a></li>
+<li class="toclevel-2 tocsection-23"><a href="Contributions%253AHyperScanningTask.html#RoleHeight"><span class="tocnumber">5.17</span> <span class="toctext">RoleHeight</span></a></li>
+<li class="toclevel-2 tocsection-24"><a href="Contributions%253AHyperScanningTask.html#FeedbackWidth"><span class="tocnumber">5.18</span> <span class="toctext">FeedbackWidth</span></a></li>
+<li class="toclevel-2 tocsection-25"><a href="Contributions%253AHyperScanningTask.html#PhotoDiodePatch"><span class="tocnumber">5.19</span> <span class="toctext">PhotoDiodePatch</span></a></li>
+<li class="toclevel-2 tocsection-26"><a href="Contributions%253AHyperScanningTask.html#PhotoDiodePatchHeight.2C_PhotoDiodePatchWidth"><span class="tocnumber">5.20</span> <span class="toctext">PhotoDiodePatchHeight, PhotoDiodePatchWidth</span></a></li>
+<li class="toclevel-2 tocsection-27"><a href="Contributions%253AHyperScanningTask.html#PhotoDiodePatchLeft.2C_PhotoDiodePatchTop"><span class="tocnumber">5.21</span> <span class="toctext">PhotoDiodePatchLeft, PhotoDiodePatchTop</span></a></li>
+<li class="toclevel-2 tocsection-28"><a href="Contributions%253AHyperScanningTask.html#PhotoDiodePatchShape"><span class="tocnumber">5.22</span> <span class="toctext">PhotoDiodePatchShape</span></a></li>
+<li class="toclevel-2 tocsection-29"><a href="Contributions%253AHyperScanningTask.html#PhotoDiodePatchActiveColor"><span class="tocnumber">5.23</span> <span class="toctext">PhotoDiodePatchActiveColor</span></a></li>
+<li class="toclevel-2 tocsection-30"><a href="Contributions%253AHyperScanningTask.html#PhotoDiodePatchInactiveColor"><span class="tocnumber">5.24</span> <span class="toctext">PhotoDiodePatchInactiveColor</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-31"><a href="Contributions%253AHyperScanningTask.html#States"><span class="tocnumber">6</span> <span class="toctext">States</span></a>
+<ul>
+<li class="toclevel-2 tocsection-32"><a href="Contributions%253AHyperScanningTask.html#PhaseNumber"><span class="tocnumber">6.1</span> <span class="toctext">PhaseNumber</span></a></li>
+<li class="toclevel-2 tocsection-33"><a href="Contributions%253AHyperScanningTask.html#TrialNumber"><span class="tocnumber">6.2</span> <span class="toctext">TrialNumber</span></a></li>
+<li class="toclevel-2 tocsection-34"><a href="Contributions%253AHyperScanningTask.html#BarOneValue"><span class="tocnumber">6.3</span> <span class="toctext">BarOneValue</span></a></li>
+<li class="toclevel-2 tocsection-35"><a href="Contributions%253AHyperScanningTask.html#BarTwoValue"><span class="tocnumber">6.4</span> <span class="toctext">BarTwoValue</span></a></li>
+<li class="toclevel-2 tocsection-36"><a href="Contributions%253AHyperScanningTask.html#BarOneActive.2C_BarTwoActive"><span class="tocnumber">6.5</span> <span class="toctext">BarOneActive, BarTwoActive</span></a></li>
+<li class="toclevel-2 tocsection-37"><a href="Contributions%253AHyperScanningTask.html#ResponseValue"><span class="tocnumber">6.6</span> <span class="toctext">ResponseValue</span></a></li>
+<li class="toclevel-2 tocsection-38"><a href="Contributions%253AHyperScanningTask.html#SenderLock.2C_ReceiverLock"><span class="tocnumber">6.7</span> <span class="toctext">SenderLock, ReceiverLock</span></a></li>
+<li class="toclevel-2 tocsection-39"><a href="Contributions%253AHyperScanningTask.html#isReadyStart0.2C_isReadyStart1"><span class="tocnumber">6.8</span> <span class="toctext">isReadyStart0, isReadyStart1</span></a></li>
+<li class="toclevel-2 tocsection-40"><a href="Contributions%253AHyperScanningTask.html#ClientNumber"><span class="tocnumber">6.9</span> <span class="toctext">ClientNumber</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>The hyperScanning task is a communication task that is played between two clients. The two clients exchange information through the hyperScanning backend. The backend uses a client-server model to share the states. For more information, please refer to xxx.
+</p>
+<h2><span class="mw-headline" id="Timeline">Timeline</span></h2>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 602px"><div style="width: 602px">
+			<div class="thumb" style="height: 500px;">Xxx.jpg</div>
+			<div class="gallerytext">
+<p>Figure 1: Single trial timeline.
+</p>
+			</div>
+		</div></li>
+</ul>
+<h2><span class="mw-headline" id="Visual_Representation">Visual Representation</span></h2>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 802px"><div style="width: 802px">
+			<div class="thumb" style="height: 700px;">Xxx.gif</div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+</ul>
+<h2><span class="mw-headline" id="Versioning">Versioning</span></h2>
+<h3><span class="mw-headline" id="Authors">Authors</span></h3>
+<p>Huiling Huang (huiling@neurotechcenter.org)
+Max Marcus (bigmaxmarcus@gmail.com)
+</p>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<h3><span class="mw-headline" id="StimuliMatrix">StimuliMatrix</span></h3>
+<p>Matrix of images path, options, dimensions, duration of jitter, etc.
+</p>
+<h3><span class="mw-headline" id="StimuliWidth">StimuliWidth</span></h3>
+<p>StimulusWidth in percent of screen width (zero for original pixel size).
+</p>
+<h3><span class="mw-headline" id="InstructionImagesSeque">InstructionImagesSeque</span></h3>
+<p>The sequence of instruction images path.
+</p>
+<h3><span class="mw-headline" id="InstructionWidth">InstructionWidth</span></h3>
+<p>Instruction width in percent of screen width (zero for original pixel size).
+</p>
+<h3><span class="mw-headline" id="BreakTrialSequece">BreakTrialSequece</span></h3>
+<p>The sequence of break trials, a break will happen after the break trial.
+</p>
+<h3><span class="mw-headline" id="FeedbackDuration">FeedbackDuration</span></h3>
+<p>Duration of feedback(ITI).
+</p>
+<h3><span class="mw-headline" id="SliderWidth">SliderWidth</span></h3>
+<p>SliderWidth in percent of screen width (zero for original pixel size).
+</p>
+<h3><span class="mw-headline" id="BarColor">BarColor</span></h3>
+<p>Color of the slider bar.
+</p>
+<h3><span class="mw-headline" id="AxeActiveColor">AxeActiveColor</span></h3>
+<p>Color of active slider axe.
+</p>
+<h3><span class="mw-headline" id="AxeInActiveColor">AxeInActiveColor</span></h3>
+<p>Color of inactive slider axe.
+</p>
+<h3><span class="mw-headline" id="DimensionFontColor">DimensionFontColor</span></h3>
+<p>Color of the text under the slider.
+</p>
+<h3><span class="mw-headline" id="DimensionHeight">DimensionHeight</span></h3>
+<p>Height of text in percent of screen height.
+</p>
+<h3><span class="mw-headline" id="OptionFontActiveColor">OptionFontActiveColor</span></h3>
+<p>Color of the active options.
+</p>
+<h3><span class="mw-headline" id="OptionFontInActiveColor">OptionFontInActiveColor</span></h3>
+<p>Color of the inactive options.
+</p>
+<h3><span class="mw-headline" id="OptionHeight">OptionHeight</span></h3>
+<p>Height of text in percent of screen height.
+</p>
+<h3><span class="mw-headline" id="RoleFontColor">RoleFontColor</span></h3>
+<p>Color of the role text.
+</p>
+<h3><span class="mw-headline" id="RoleHeight">RoleHeight</span></h3>
+<p>Height of text in percent of screen height.
+</p>
+<h3><span class="mw-headline" id="FeedbackWidth">FeedbackWidth</span></h3>
+<p>Width of feedback in percent of screen width.
+</p>
+<h3><span class="mw-headline" id="PhotoDiodePatch">PhotoDiodePatch</span></h3>
+<p>Display a photo diode patch on the stimulus window. Recording from a photo diode located on that patch will allow triggering on actual stimulus delivery (see User_Reference:P3TemporalFilter#OnsetExpression).
+</p>
+<h3><span id="PhotoDiodePatchHeight,_PhotoDiodePatchWidth"></span><span class="mw-headline" id="PhotoDiodePatchHeight.2C_PhotoDiodePatchWidth">PhotoDiodePatchHeight, PhotoDiodePatchWidth</span></h3>
+<p>Photo diode patch height/width in relative coordinates (between 0 and 1).
+</p>
+<h3><span id="PhotoDiodePatchLeft,_PhotoDiodePatchTop"></span><span class="mw-headline" id="PhotoDiodePatchLeft.2C_PhotoDiodePatchTop">PhotoDiodePatchLeft, PhotoDiodePatchTop</span></h3>
+<p>Photo diode patch left/top position in relative coordinates (between 0 and 1).
+</p>
+<h3><span class="mw-headline" id="PhotoDiodePatchShape">PhotoDiodePatchShape</span></h3>
+<p>Photo diode patch shape: 0 rectangle, 1 ellipse.
+</p>
+<h3><span class="mw-headline" id="PhotoDiodePatchActiveColor">PhotoDiodePatchActiveColor</span></h3>
+<p>Photo diode patch color when active (RGB color in format 0xrrggbb).
+</p>
+<h3><span class="mw-headline" id="PhotoDiodePatchInactiveColor">PhotoDiodePatchInactiveColor</span></h3>
+<p>Photo diode patch color when inactive, (RGB color in format 0xrrggbb, use 0xff000000 for transparent).
+</p>
+<h2><span class="mw-headline" id="States">States</span></h2>
+<h3><span class="mw-headline" id="PhaseNumber">PhaseNumber</span></h3>
+<p>The index of phase in each trial. (8 bits)   
+0: instruction; 1: wait_to_begin; 2: role_text; 3: image_present; 4: feedback; 5: break; 6: end.
+</p>
+<h3><span class="mw-headline" id="TrialNumber">TrialNumber</span></h3>
+<p>Index of trials. (8 bits)
+</p>
+<h3><span class="mw-headline" id="BarOneValue">BarOneValue</span></h3>
+<p>Value of slider#1. (32 bits)
+</p>
+<h3><span class="mw-headline" id="BarTwoValue">BarTwoValue</span></h3>
+<p>Value of slider#2. (32 bits)
+</p>
+<h3><span id="BarOneActive,_BarTwoActive"></span><span class="mw-headline" id="BarOneActive.2C_BarTwoActive">BarOneActive, BarTwoActive</span></h3>
+<p>0: slider is not selected.  1: slider is selected. (8 bits)
+</p>
+<h3><span class="mw-headline" id="ResponseValue">ResponseValue</span></h3>
+<p>1: object.    2: animal. (8 bits)
+</p>
+<h3><span id="SenderLock,_ReceiverLock"></span><span class="mw-headline" id="SenderLock.2C_ReceiverLock">SenderLock, ReceiverLock</span></h3>
+<p>0: client has locked the answer.   1: client is moving the slider/making choose. (8 bits)
+</p>
+<h3><span id="isReadyStart0,_isReadyStart1"></span><span class="mw-headline" id="isReadyStart0.2C_isReadyStart1">isReadyStart0, isReadyStart1</span></h3>
+<p>0: client isn't ready to start/resume/continue the game.  1: client is ready to start/resume/continue the game. (8 bits)
+</p>
+<h3><span class="mw-headline" id="ClientNumber">ClientNumber</span></h3>
+<p>Client index, either 0 or 1. (8 bits)
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524175458
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.032 seconds
+Real time usage: 0.046 seconds
+Preprocessor visited node count: 130/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 492/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2550-0!canonical and timestamp 20230524175458 and revision id 10211
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:HyperScanningTask&amp;oldid=10211">http://www.bci2000.org/mediawiki/index.php?title=Contributions:HyperScanningTask&amp;oldid=10211</a>"</div>
+ </div>
+</body>
+</html>

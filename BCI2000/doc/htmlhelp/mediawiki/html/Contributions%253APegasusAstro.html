@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:PegasusAstro - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">PegasusAstro</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div class="thumb tright"><div class="thumbinner" style="width:502px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:PegasusAstro_Display.png" class="image"><img alt="" src="../images/thumb/6/6e/PegasusAstro_Display.png/500px-PegasusAstro_Display.png" decoding="async" width="500" height="272" class="thumbimage" srcset="../images/thumb/6/6e/PegasusAstro_Display.png/750px-PegasusAstro_Display.png 1.5x, ../images/thumb/6/6e/PegasusAstro_Display.png/1000px-PegasusAstro_Display.png 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://www.bci2000.org/mediawiki/index.php/File:PegasusAstro_Display.png" class="internal" title="Enlarge"></a></div>The PegasusAstro USB Control Hub</div></div></div>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Contributions%253APegasusAstro.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Contributions%253APegasusAstro.html#Location"><span class="tocnumber">2</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Contributions%253APegasusAstro.html#Versioning"><span class="tocnumber">3</span> <span class="toctext">Versioning</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Contributions%253APegasusAstro.html#Authors"><span class="tocnumber">3.1</span> <span class="toctext">Authors</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Contributions%253APegasusAstro.html#Version_History"><span class="tocnumber">3.2</span> <span class="toctext">Version History</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Contributions%253APegasusAstro.html#Source_Code_Revisions"><span class="tocnumber">3.3</span> <span class="toctext">Source Code Revisions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="Contributions%253APegasusAstro.html#Integration_into_BCI2000"><span class="tocnumber">4</span> <span class="toctext">Integration into BCI2000</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="Contributions%253APegasusAstro.html#Parameters"><span class="tocnumber">5</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-9"><a href="Contributions%253APegasusAstro.html#EnableUSBHub"><span class="tocnumber">5.1</span> <span class="toctext">EnableUSBHub</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="Contributions%253APegasusAstro.html#COMPort"><span class="tocnumber">5.2</span> <span class="toctext">COMPort</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="Contributions%253APegasusAstro.html#ToggleUSBs"><span class="tocnumber">5.3</span> <span class="toctext">ToggleUSBs</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="Contributions%253APegasusAstro.html#States"><span class="tocnumber">6</span> <span class="toctext">States</span></a>
+<ul>
+<li class="toclevel-2 tocsection-13"><a href="Contributions%253APegasusAstro.html#Port1_-_Port6"><span class="tocnumber">6.1</span> <span class="toctext">Port1 - Port6</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-14"><a href="Contributions%253APegasusAstro.html#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Introduction">Introduction</span></h2>
+<p>The PegasusAstro USB Control Hub allows for easy control of up to 6 USBs. This can be used for robust control of switching between different units. See the <a rel="nofollow" class="external text" href="https://pegasusastro.com/products/usb-control-hub/">PegasusAstro USB Control Hub website</a> for more information. 
+</p>
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><a rel="nofollow" class="external free" href="http://www.bci2000.org/svn/trunk/src/contrib/SignalProcessing/PegasusAstroFilter">http://www.bci2000.org/svn/trunk/src/contrib/SignalProcessing/PegasusAstroFilter</a>
+</p>
+<h2><span class="mw-headline" id="Versioning">Versioning</span></h2>
+<h3><span class="mw-headline" id="Authors">Authors</span></h3>
+<ul><li>Will Engelhardt (wengelhardt@wustl.edu)</li>
+<li>Alexander Belsten (belsten@neurotechcenter.org)</li></ul>
+<h3><span class="mw-headline" id="Version_History">Version History</span></h3>
+<ul><li>06/08/2021 - First working version</li></ul>
+<h3><span class="mw-headline" id="Source_Code_Revisions">Source Code Revisions</span></h3>
+<ul><li>Initial development: 6304</li>
+<li>Tested under: 6304</li>
+<li>Known to compile under: 6306</li>
+<li>Broken since: --</li></ul>
+<h2><span class="mw-headline" id="Integration_into_BCI2000">Integration into BCI2000</span></h2>
+<p>Insert <code>Start executable PegasusAstroFilter --local</code> into the batch file that you want to run. 
+</p>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<h3><span class="mw-headline" id="EnableUSBHub">EnableUSBHub</span></h3>
+<p>When false (the box is not checked), this parameter keeps any processing from happening. When true (the box is checked), the program runs as it should.
+</p>
+<h3><span class="mw-headline" id="COMPort">COMPort</span></h3>
+<p>This is where the active COM port is defined. This COM Port is the location that the USB Hub is connected to. This information can be found on Device Manager, where it should list the COM port that is being used by the USB. If incorrect, the program will not run. 
+</p>
+<h3><span class="mw-headline" id="ToggleUSBs">ToggleUSBs</span></h3>
+<p>This parameter defines the trigger expressions to turn off the USB. Each row label contains the USB number it corresponds to. Each input must be a <a rel="nofollow" class="external text" href="User_Reference%253AExpression_Syntax.html">BCI Expression</a>. In the example shown in the figures, StimulusCode is the used expression. When the condition expressed in each row is met, that USB will be turned off. 
+</p>
+<div class="thumb tright"><div class="thumbinner" style="width:147px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:PegasusAstro_ParameterMatrix.png" class="image"><img alt="" src="../images/f/f2/PegasusAstro_ParameterMatrix.png" decoding="async" width="145" height="133" class="thumbimage" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://www.bci2000.org/mediawiki/index.php/File:PegasusAstro_ParameterMatrix.png" class="internal" title="Enlarge"></a></div>An example of expressions in the ToggleUSBs parameter matrix</div></div></div>
+<div class="center"><div class="thumb tnone"><div class="thumbinner" style="width:902px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:PegasusAstro_States.png" class="image"><img alt="" src="../images/thumb/2/25/PegasusAstro_States.png/900px-PegasusAstro_States.png" decoding="async" width="900" height="299" class="thumbimage" srcset="../images/2/25/PegasusAstro_States.png 1.5x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://www.bci2000.org/mediawiki/index.php/File:PegasusAstro_States.png" class="internal" title="Enlarge"></a></div>Viewing each USB's state and the StimulusCode together. This example has the expressions listed in the figure to the right.</div></div></div></div>
+<h2><span class="mw-headline" id="States">States</span></h2>
+<h3><span class="mw-headline" id="Port1_-_Port6">Port1 - Port6</span></h3>
+<p>1 bit states that relay when a USB port is on or off. There are 6 separate state variables, one for each USB. 1 for on, 0 for off. The default state is that they are on. 
+</p>
+<div class="center"><div class="thumb tnone"><div class="thumbinner" style="width:646px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:PegasusAstroNumbering.png" class="image"><img alt="" src="../images/5/58/PegasusAstroNumbering.png" decoding="async" width="644" height="311" class="thumbimage" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://www.bci2000.org/mediawiki/index.php/File:PegasusAstroNumbering.png" class="internal" title="Enlarge"></a></div>The layout of the numbers of the USBs</div></div></div></div>
+<p><br />
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Reference%253AFilters.html" title="User Reference:Filters">User Reference:Filters</a>, <a href="Contributions%253ASignalProcessing.html" title="Contributions:SignalProcessing">Contributions:SignalProcessing</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524175509
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.028 seconds
+Real time usage: 0.038 seconds
+Preprocessor visited node count: 45/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2347-0!canonical and timestamp 20230524175509 and revision id 10151
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:PegasusAstro&amp;oldid=10151">http://www.bci2000.org/mediawiki/index.php?title=Contributions:PegasusAstro&amp;oldid=10151</a>"</div>
+ </div>
+</body>
+</html>

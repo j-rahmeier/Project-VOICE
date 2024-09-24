@@ -1,0 +1,39 @@
+Filtering%3a%20Phase:IIRBandpass float Phase/IIRBandpass/HighPassCorner= 8Hz 0Hz % % // High pass corner frequency
+Filtering%3a%20Phase:IIRBandpass int Phase/IIRBandpass/HighPassOrder= 4 2 0 % // High pass order
+Filtering%3a%20Phase:IIRBandpass float Phase/IIRBandpass/LowPassCorner= 25Hz 0Hz % % // Low pass corner frequency
+Filtering%3a%20Phase:IIRBandpass int Phase/IIRBandpass/LowPassOrder= 4 4 0 % // Low pass order
+Filtering%3a%20Phase:IIRBandpass float Phase/IIRBandpass/NotchCenter= 0Hz 60Hz % % // Notch center frequency
+Filtering%3a%20Phase:IIRBandpass int Phase/IIRBandpass/NotchOrder= 4 4 0 % // Notch order
+Filtering%3a%20Phase:IIRBandpass float Phase/IIRBandpass/FilterGain= 1.0 1.0 0 % // Overall filter gain
+Filtering%3a%20Phase:IIRBandpass int Phase/IIRBandpass/Downsample= 0 1 0 1 // Downsample to >= 4*LowPassCorner (boolean)
+Filtering%3a%20Phase:IIRBandpass int Phase/IIRBandpass/Rectification= 0 0 0 2 // Rectify output: 0 No Rectification, 1 Half-Wave, 2 Full-Wave (enumeration)
+Filtering%3a%20Phase:Analytic%20Signal int Phase/HilbertFilter/OutputSignal= 2 1 0 4 // Signal provided to the next filter: 0: Input Signal, 1: Hilbert envelope 2: Hilbert phase 3: Real part - delayed original signal 4: Imaginary part - Hilbert transform (enumeration)
+Filtering%3a%20Phase:Analytic%20Signal float Phase/HilbertFilter/Delay= 0.5s 0.1s % % // Delay for convolution with FIR Hilbert transformer
+
+Filtering%3a%20Amplitude:IIRBandpass float Amplitude/IIRBandpass/HighPassCorner= 70Hz 0Hz % % // High pass corner frequency
+Filtering%3a%20Amplitude:IIRBandpass int Amplitude/IIRBandpass/HighPassOrder= 4 2 0 % // High pass order
+Filtering%3a%20Amplitude:IIRBandpass float Amplitude/IIRBandpass/LowPassCorner= 200Hz 0Hz % % // Low pass corner frequency
+Filtering%3a%20Amplitude:IIRBandpass int Amplitude/IIRBandpass/LowPassOrder= 4 4 0 % // Low pass order
+Filtering%3a%20Amplitude:IIRBandpass float Amplitude/IIRBandpass/NotchCenter= 0Hz 60Hz % % // Notch center frequency
+Filtering%3a%20Amplitude:IIRBandpass int Amplitude/IIRBandpass/NotchOrder= 4 4 0 % // Notch order
+Filtering%3a%20Amplitude:IIRBandpass float Amplitude/IIRBandpass/FilterGain= 1.0 1.0 0 % // Overall filter gain
+Filtering%3a%20Amplitude:IIRBandpass int Amplitude/IIRBandpass/Downsample= 0 1 0 1 // Downsample to >= 4*LowPassCorner (boolean)
+Filtering%3a%20Amplitude:IIRBandpass int Amplitude/IIRBandpass/Rectification= 0 0 0 2 // Rectify output: 0 No Rectification, 1 Half-Wave, 2 Full-Wave (enumeration)
+Filtering%3a%20Amplitude:Analytic%20Signal int Amplitude/HilbertFilter/OutputSignal= 1 1 0 4 // Signal provided to the next filter: 0: Input Signal, 1: Hilbert envelope 2: Hilbert phase 3: Real part - delayed original signal 4: Imaginary part - Hilbert transform (enumeration)
+Filtering%3a%20Amplitude:Analytic%20Signal float Amplitude/HilbertFilter/Delay= 0.5s 0.1s % % // Delay for convolution with FIR Hilbert transformer
+
+Source:Decimation float SourceDecimationFilter/LowPassCorner= 250 0Hz % % // Low pass corner frequency
+Source:Decimation int SourceDecimationFilter/LowPassOrder= 4 4 0 % // Low pass order
+Source:Decimation int SourceDecimationFilter/Downsample= 1 1 1 % // Decimation order
+
+Filtering:SpatialFilter int SpatialFilterType= 3 0 0 3 // spatial filter type 0: none, 1: full matrix, 2: sparse matrix, 3: common average reference (CAR) (enumeration)
+Filtering:SpatialFilter matrix SpatialFilter= 4 4 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 % % // columns represent input channels, rows represent output channels
+Filtering:SpatialFilter intlist SpatialFilterCAROutput= 0 // when using CAR filter type: list of output channels, or empty for all channels
+Filtering:SpatialFilter int SpatialFilterMissingChannels= 1 0 0 1 // how to handle missing channels 0: ignore, 1: report error (enumeration)
+
+Filtering:Normalizer intlist Adaptation= 2 0 0 0 0 2 // 0: no adaptation, 1: zero mean, 2: zero mean, unit variance (enumeration)
+
+Filtering:MyParallelFilter matrix MyParallelFilterChannels= { Phase Amplitude } 1 * * // list of channels transmitted to separate chains: Channel names may contain * and ? wildcards,  and character ranges enclosed in []; wildcard patterns may be negated by prepending an exclamation mark.  Ranges of channels may be specified using : or - to separate begin from end.
+Filtering:PACFilter int AngleDecimation= 10 auto 1 180 // Number of degrees of resolution (e.g., 1 = every 1
+
+SignalSharing:Processing%20Stages string SharePACFilter= localhost:1879 localhost:1879 % % // port client is listening on, empty to disable

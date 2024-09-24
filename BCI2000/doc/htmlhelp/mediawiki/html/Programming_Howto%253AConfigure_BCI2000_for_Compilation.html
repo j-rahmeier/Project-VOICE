@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Programming Howto:Configure BCI2000 for Compilation - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul><li class="toc1">Concepts</li><ul><li class="toc2"><a href="Programming_Reference%253AFilter_Chain.html">Filter Chain</a></li><li class="toc2"><a href="Programming_Reference%253ASignals.html">Signals</a></li><li class="toc2"><a href="Programming_Reference%253AError_Handling.html">Error Handling</a></li><li class="toc2"><a href="Programming_Reference%253ALocalization.html">Localization</a></li><li class="toc2"><a href="Programming_Reference%253ARapid_Development.html">Rapid Development</a></li></ul><li class="toc1">Reference</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFilter_Class.html">GenericFilter</a></li><li class="toc2"><a href="Programming_Reference%253AEnvironment_Class.html">Environment</a></li><li class="toc2"><a href="Programming_Reference%253AGenericVisualization_Class.html">GenericVisualization</a></li><li class="toc2"><a href="Programming_Reference%253AErrors_and_Warnings.html">Errors and Warnings</a></li><li class="toc2"><a href="Programming_Reference%253ADebug_Output.html">Debug Output</a></li></ul><li class="toc1">Data Acquisition</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericADC_Class.html">GenericADC</a></li></ul><li class="toc1">Data Storage</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFileWriter_Class.html">GenericFileWriter</a></li><li class="toc2"><a href="Programming_Reference%253ABCI2000FileReader_Class.html">BCI2000FileReader</a></li></ul><li class="toc1">Signal Processing</li><ul><li class="toc2"><a href="Programming_Reference%253AIIRFilterBase_Class.html">IIR Filters</a></li></ul><li class="toc1">Application Modules</li><ul><li class="toc2"><a href="Programming_Reference%253AApplicationBase_Class.html">ApplicationBase</a></li><li class="toc2"><a href="Programming_Reference%253AFeedbackTask_Class.html">FeedbackTask</a></li><li class="toc2"><a href="Programming_Reference%253AStimulusTask_Class.html">StimulusTask</a></li><li class="toc2"><a href="Programming_Reference%253A3D_API.html">3D API</a></li></ul><li class="toc1">Howtos</li><ul><li class="toc2"><a href="Programming_Howto%253ABuilding_BCI2000.html">Building BCI2000</a></li><li class="toc2"><a href="Programming_Howto%253ASVN_Client_Setup.html">SVN Client Setup</a></li><li class="toc2"><a href="Programming_Howto%253AUsing_TortoiseSVN.html">Using TortoiseSVN</a></li></ul><li class="toc1"><a href="Programming_FAQ.html">FAQ</a></li><li class="toc1">Tutorials</li><ul><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html">Data Acquisition</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html">Signal Processing</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html">Matlab Signal Processing</a></li></ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">Configure BCI2000 for Compilation</h1>
+ <p class = "subtitle">Programming Howto</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Programming_Howto%253AConfigure_BCI2000_for_Compilation.html#Back"><span class="tocnumber">1</span> <span class="toctext">Back</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Programming_Howto%253AConfigure_BCI2000_for_Compilation.html#Run_the_CMake_GUI"><span class="tocnumber">2</span> <span class="toctext">Run the CMake GUI</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Programming_Howto%253AConfigure_BCI2000_for_Compilation.html#Tell_CMake_which_Qt_installation_to_use"><span class="tocnumber">3</span> <span class="toctext">Tell CMake which Qt installation to use</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="Programming_Howto%253AConfigure_BCI2000_for_Compilation.html#Perform_the_configuration_step"><span class="tocnumber">4</span> <span class="toctext">Perform the configuration step</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="Programming_Howto%253AConfigure_BCI2000_for_Compilation.html#Choose_build_options"><span class="tocnumber">5</span> <span class="toctext">Choose build options</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="Programming_Howto%253AConfigure_BCI2000_for_Compilation.html#Next_step"><span class="tocnumber">6</span> <span class="toctext">Next step</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="Programming_Howto%253AConfigure_BCI2000_for_Compilation.html#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Back">Back</span></h2>
+<p>To <a href="Programming_Howto%253ABuilding_and_Customizing_BCI2000.html" title="Programming Howto:Building and Customizing BCI2000">this howto's overview page</a>.
+</p>
+<h2><span class="mw-headline" id="Run_the_CMake_GUI">Run the CMake GUI</span></h2>
+<p>Double-click "Configure.sh.cmd" in your BCI2000 build directory.
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Use_cmake_1.PNG" class="image"><img alt="Use cmake 1.PNG" src="../images/9/9c/Use_cmake_1.PNG" decoding="async" width="770" height="871" /></a></div></div>
+<h2><span class="mw-headline" id="Tell_CMake_which_Qt_installation_to_use">Tell CMake which Qt installation to use</span></h2>
+<p>Click "AddEntry" in the CMake window ...
+<br />
+</p>
+<ul><li><i>Note that checking of "Advanced" in Cmake is optional and does not impact the compilation</i></li></ul>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Use_cmake_2.PNG" class="image"><img alt="Use cmake 2.PNG" src="../images/0/0e/Use_cmake_2.PNG" decoding="async" width="691" height="693" /></a></div></div>
+<p>... and enter the path to a Qt directory that is consistent with the compiler you are going to use. Use CMAKE_PREFIX_PATH as the name for the new entry. Be aware that the entry's name is case sensitive. Be sure to download the correct version of Qt for the build version you plan to use, and verify the compatibility of the versions of Qt and Visual Studio used. 
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th colspan="6">Visual Studio and Qt Compatibility
+</th></tr>
+<tr>
+<td rowspan="1"><b>Visual Studio 2017</b>
+</td>
+<td>Qt 5.12.12
+</td></tr>
+<tr>
+<td rowspan="1"><b>Visual Studio 2019</b>
+</td>
+<td>Qt 5.15.2
+</td></tr>
+<tr>
+<td rowspan="1"><b>Visual Studio 2022</b>
+</td>
+<td>Qt 6.2.4
+</td></tr></tbody></table>
+<p><i> Note that BCI2000 is most frequently tested using Visual Studio 2019 and Qt 5.15.2, and that the table above shows the suggested versions of Visual Studio and Qt to use together.</i>
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Use_cmake_3.PNG" class="image"><img alt="Use cmake 3.PNG" src="../images/f/f8/Use_cmake_3.PNG" decoding="async" width="402" height="232" /></a></div></div>
+<h2><span class="mw-headline" id="Perform_the_configuration_step">Perform the configuration step</span></h2>
+<p>In the CMake window, click "Configure" ...
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Use_cmake_4.PNG" class="image"><img alt="Use cmake 4.PNG" src="../images/d/dc/Use_cmake_4.PNG" decoding="async" width="691" height="693" /></a></div></div>
+<p>... and choose a generator that is consistent with your compiler, and with the Qt directory chosen above. Then click "Finish" to perform the configuration step.
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Use_cmake_5.PNG" class="image"><img alt="Use cmake 5.PNG" src="../images/5/56/Use_cmake_5.PNG" decoding="async" width="502" height="379" /></a></div></div>
+<p>You will see a list of targets scrolling by, and a number of new entries in the variable list at the top of the window, marked in red.
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Use_cmake_6.PNG" class="image"><img alt="Use cmake 6.PNG" src="../images/8/80/Use_cmake_6.PNG" decoding="async" width="691" height="693" /></a></div></div>
+<h2><span class="mw-headline" id="Choose_build_options">Choose build options</span></h2>
+<p>Make sure the "Grouped" checkbox is checked, and configure the build by customizing values in the "BUILD" ...
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Use_cmake_7.PNG" class="image"><img alt="Use cmake 7.PNG" src="../images/f/f9/Use_cmake_7.PNG" decoding="async" width="691" height="693" /></a></div></div>
+<p>... "EXTENSIONS" group, 
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Use_cmake_8.PNG" class="image"><img alt="Use cmake 8.PNG" src="../images/9/9f/Use_cmake_8.PNG" decoding="async" width="691" height="693" /></a></div></div>
+<p>... and "USE" group. Make sure to uncheck USE_APPLICATION_BUNDLES to avoid problems with compiling. Then, click "Generate" to create build files.
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:USE_APPLICATION_BUNDLES.PNG" class="image"><img alt="USE APPLICATION BUNDLES.PNG" src="../images/3/32/USE_APPLICATION_BUNDLES.PNG" decoding="async" width="955" height="836" /></a></div></div>
+<p>When CMake displays its "Generating done" message, ...
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Use_cmake_9.PNG" class="image"><img alt="Use cmake 9.PNG" src="../images/3/32/Use_cmake_9.PNG" decoding="async" width="691" height="693" /></a></div></div>
+<p>... your BCI2000 build directory will now contain a VisualStudio solution file, as well as a number of additional CMake-generated files.
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Use_cmake_10.PNG" class="image"><img alt="Use cmake 10.PNG" src="../images/3/31/Use_cmake_10.PNG" decoding="async" width="770" height="871" /></a></div></div>
+<h2><span class="mw-headline" id="Next_step">Next step</span></h2>
+<p>As a next step, learn how to <a href="Programming_Howto%253ACompile_BCI2000.html" title="Programming Howto:Compile BCI2000">compile BCI2000</a>.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Programming_Howto%253ABuilding_and_Customizing_BCI2000.html" title="Programming Howto:Building and Customizing BCI2000">Programming Howto:Building and Customizing BCI2000</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524065341
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.041 seconds
+Real time usage: 0.049 seconds
+Preprocessor visited node count: 34/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2170-0!canonical and timestamp 20230524065341 and revision id 9978
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Programming_Howto:Configure_BCI2000_for_Compilation&amp;oldid=9978">http://www.bci2000.org/mediawiki/index.php?title=Programming_Howto:Configure_BCI2000_for_Compilation&amp;oldid=9978</a>"</div>
+ </div>
+</body>
+</html>

@@ -1,0 +1,5 @@
+Source:Signal%20Properties int SourceCh= 32 // number of digitized and stored channels (allow_override)
+Source:Signal%20Properties int SampleBlockSize= 3000 // number of samples transmitted at a time (allow_override)
+Source:Signal%20Properties int SamplingRate= 30000Hz // sampling rate (allow_override)
+Source:Signal%20Properties int DataStream= 1 1 1 7 // type of data stream to acquire: 1 macro, 2 lfp, 3 hires, 4 hifreq, 5 emg, 6 status, 7 micro (enumeration)
+Source:Signal%20Properties intlist SpecificChannels= 32 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 0 0 15 // list of channels to acquire data from

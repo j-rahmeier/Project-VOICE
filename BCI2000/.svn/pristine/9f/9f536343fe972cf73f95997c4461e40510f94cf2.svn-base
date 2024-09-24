@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>User Tutorial:P300 GUI for Offline Analysis Tutorial - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul><li class="toc1"><a href="User_Tutorial%253ABCI2000_Tour.html">Tour</a></li><li class="toc1"><a href="User_Tutorial%253AMu_Rhythm_BCI_Tutorial.html">Mu Tutorial</a></li><li class="toc1"><a href="User_Tutorial%253AP300_BCI_Tutorial.html">P300 Tutorial</a></li></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">P300 GUI for Offline Analysis Tutorial</h1>
+ <p class = "subtitle">User Tutorial</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p><b>Note</b>:
+This page talks about the Matlab-based P300GUI tool, which is now outdated, as of BCI2000 v3.0. It is still available at
+<a rel="nofollow" class="external free" href="http://www.bci2000.org/svn/tags/BCI2000.v2.1/src/contrib/Tools/P300GUI">http://www.bci2000.org/svn/tags/BCI2000.v2.1/src/contrib/Tools/P300GUI</a>
+but is no longer under development. It has been superseded by the standalone <a href="User_Reference%253AP300Classifier.html" title="User Reference:P300Classifier">P300Classifier tool</a>, which is part of the BCI2000 core distribution. There are minor differences between the two user interfaces.
+</p><p><br />
+</p>
+<div class="floatright"><a href="https://www.bci2000.org/mediawiki/index.php/File:P300_GUI.PNG" class="image"><img alt="P300 GUI.PNG" src="../images/thumb/1/11/P300_GUI.PNG/700px-P300_GUI.PNG" width="700" height="558" srcset="../images/1/11/P300_GUI.PNG 1.5x" /></a></div>
+<ul><li>Run <tt>src/contrib./Tools/P300GUI/P300_GUI.m</tt></li>
+<li>Close the Editor window that appears, and type in <tt>P300_GUI</tt></li>
+<li>A GUI such as the one to the right will appear</li>
+<li>In the upper left-hand column, click on <b>Select Training Data</b></li>
+<li>Select the data files collected from the runs for <tt>THE</tt>, <tt>QUICK</tt>, <tt>BROWN</tt>, and <tt>FOX</tt></li>
+<li>In the lower left-hand column, press the <b>Generate Feature Weights</b> button</li>
+<li>A pair of graphs should be displayed, similar to those below.
+<ul><li>The important feature is to notice that the red line in the upper graph, the accuracy, increases with more flashes</li></ul></li>
+<li>Close the window of the graphs</li>
+<li>In the lower-middle column, type <tt>Training</tt> for <i>File Prefix:</i>, and <tt>1</tt> for <i>File #s to Save</i></li>
+<li>Click on <b>*.prm (v2)</b>
+<ul><li>This will generate a <tt>.prm</tt> (parameter) file in the same folder as the data files</li></ul></li></ul>
+<table>
+<tbody><tr>
+<td height="200px">
+</td></tr></tbody></table>
+<p><br />
+</p>
+<ul><li>Returning to BCI2000, click on <b>Config</b> and <b>Load Parameters</b>, selecting the new <tt>.prm</tt> file</li>
+<li>In the <b>Application</b> tab, change <i>TextToSpell</i> to <tt>JUMPS</tt>, and click <b>Set Config</b></li>
+<li>Press <b>Start</b> to collect one more run of data</li>
+<li>Once the last run of data has finished, go back to the P300_GUI program and click <b>Add Test Data</b> in the upper right-hand column</li>
+<li>Select the newest set of data, and click <b>Apply Feature Weights</b> in the lower right-hand column - A new window of graphs will appear</li>
+<li>The important thing to see from these graphs is where the red line in the upper graph reaches 100%.
+<ul><li>In the example below, this is from 9 to 11, and then drops. This means that 10 flashes gives the best accuracy.</li></ul></li></ul>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:9to11.PNG" class="image"><img alt="9to11.PNG" src="../images/a/ac/9to11.PNG" width="568" height="495" /></a></div></div>
+<p><br />
+</p>
+<ul><li>If this does not give an acceptable level of accuracy, (typically 95% or higher), repeat more test runs to collect more data files. Add these data files as above, and click <b>Apply Feature Weights</b> in the lower right-hand column to look for how many flashes is needed. Repeat as necessary.</li>
+<li>In the lower middle column, type <tt>Trained</tt> for <i>File Prefix</i> and <tt>1</tt> for <i>File #s to Save</i></li>
+<li>Click <b>*.prm (v2)</b> again to generate a <tt>Trained</tt> parameter file</li>
+<li>Close BCI2000, MatLab, and the P300_GUI programs</li>
+<li>Open BCI2000 with the batch\P3Speller_&lt;Your_Amplifier&gt;.bat file</li>
+<li>Click on <b>Config</b>, and <b>Load Parameters</b></li>
+<li>Load the base parameter file for your amplifier, and then the <tt>Trained</tt> parameter file.</li>
+<li>In the <b>Filtering</b> tab, set <i>EpochsToAverage</i> to the ideal number found by how many flashes were needed to attain maximum accuracy. In our example, this would be 10.</li>
+<li>In the <b>Application</b> tab:
+<ul><li><i>NumberOfSequences</i> to this number as well</li>
+<li>Delete the contents of the <i>Text to Spell</i> field</li>
+<li>Set <i>InterpretMode</i> &#8594; <tt>online free mode</tt></li>
+<li>Make sure the <i>DisplayResults</i> box is checked</li>
+<li>Click on <b>Target Matrix,</b> and scroll to the bottom:
+<ul><li>In the first column replace <tt>9</tt> with <tt>BS</tt></li>
+<li>In the second column replace <tt>9</tt> with <tt>&lt;BS&gt;</tt></li></ul></li></ul></li>
+<li>Click <b>Save Parameters</b> and name as you see fit. Typically this parameter file would be <tt>P300_&lt;Your Amplifier&gt;_&lt;Volunteer's Intials&gt;_Free_Spelling.prm</tt> This file is now the file used for that volunteer in later P300 Spelling sessions</li></ul>
+<p>For full details regarding the P300 GUI, the User's Guide is available <a href="P300_GUI_Guide.html" title="P300 GUI Guide">here.</a>
+</p><p>To continue onto performing P300 spelling experiments, continue to <a href="User_Tutorial%253APerforming_a_P300_Spelling_Session.html" title="User Tutorial:Performing a P300 Spelling Session">Performing a P300 Spelling Session</a>.
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20200807151313
+Cache expiry: 86400
+Dynamic content: false
+CPU time usage: 0.017 seconds
+Real time usage: 0.034 seconds
+Preprocessor visited node count: 2/1000000
+Preprocessor generated node count: 12/1000000
+Post‐expand include size: 15/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+</div>
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1911-0!canonical and timestamp 20200807151313 and revision id 6472
+ -->
+</div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=User_Tutorial:P300_GUI_for_Offline_Analysis_Tutorial&amp;oldid=6472">http://www.bci2000.org/mediawiki/index.php?title=User_Tutorial:P300_GUI_for_Offline_Analysis_Tutorial&amp;oldid=6472</a>"</div>
+ </div>
+</body>
+</html>

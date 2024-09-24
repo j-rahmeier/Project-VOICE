@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Programming Howto:Compile BCI2000 - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul><li class="toc1">Concepts</li><ul><li class="toc2"><a href="Programming_Reference%253AFilter_Chain.html">Filter Chain</a></li><li class="toc2"><a href="Programming_Reference%253ASignals.html">Signals</a></li><li class="toc2"><a href="Programming_Reference%253AError_Handling.html">Error Handling</a></li><li class="toc2"><a href="Programming_Reference%253ALocalization.html">Localization</a></li><li class="toc2"><a href="Programming_Reference%253ARapid_Development.html">Rapid Development</a></li></ul><li class="toc1">Reference</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFilter_Class.html">GenericFilter</a></li><li class="toc2"><a href="Programming_Reference%253AEnvironment_Class.html">Environment</a></li><li class="toc2"><a href="Programming_Reference%253AGenericVisualization_Class.html">GenericVisualization</a></li><li class="toc2"><a href="Programming_Reference%253AErrors_and_Warnings.html">Errors and Warnings</a></li><li class="toc2"><a href="Programming_Reference%253ADebug_Output.html">Debug Output</a></li></ul><li class="toc1">Data Acquisition</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericADC_Class.html">GenericADC</a></li></ul><li class="toc1">Data Storage</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFileWriter_Class.html">GenericFileWriter</a></li><li class="toc2"><a href="Programming_Reference%253ABCI2000FileReader_Class.html">BCI2000FileReader</a></li></ul><li class="toc1">Signal Processing</li><ul><li class="toc2"><a href="Programming_Reference%253AIIRFilterBase_Class.html">IIR Filters</a></li></ul><li class="toc1">Application Modules</li><ul><li class="toc2"><a href="Programming_Reference%253AApplicationBase_Class.html">ApplicationBase</a></li><li class="toc2"><a href="Programming_Reference%253AFeedbackTask_Class.html">FeedbackTask</a></li><li class="toc2"><a href="Programming_Reference%253AStimulusTask_Class.html">StimulusTask</a></li><li class="toc2"><a href="Programming_Reference%253A3D_API.html">3D API</a></li></ul><li class="toc1">Howtos</li><ul><li class="toc2"><a href="Programming_Howto%253ABuilding_BCI2000.html">Building BCI2000</a></li><li class="toc2"><a href="Programming_Howto%253ASVN_Client_Setup.html">SVN Client Setup</a></li><li class="toc2"><a href="Programming_Howto%253AUsing_TortoiseSVN.html">Using TortoiseSVN</a></li></ul><li class="toc1"><a href="Programming_FAQ.html">FAQ</a></li><li class="toc1">Tutorials</li><ul><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html">Data Acquisition</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html">Signal Processing</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html">Matlab Signal Processing</a></li></ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">Compile BCI2000</h1>
+ <p class = "subtitle">Programming Howto</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Programming_Howto%253ACompile_BCI2000.html#Back"><span class="tocnumber">1</span> <span class="toctext">Back</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Programming_Howto%253ACompile_BCI2000.html#Open_the_solution_file"><span class="tocnumber">2</span> <span class="toctext">Open the solution file</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Programming_Howto%253ACompile_BCI2000.html#Build_the_solution"><span class="tocnumber">3</span> <span class="toctext">Build the solution</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="Programming_Howto%253ACompile_BCI2000.html#Next_step"><span class="tocnumber">4</span> <span class="toctext">Next step</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="Programming_Howto%253ACompile_BCI2000.html#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Back">Back</span></h2>
+<p>To <a href="Programming_Howto%253ABuilding_and_Customizing_BCI2000.html" title="Programming Howto:Building and Customizing BCI2000">this howto's overview page</a>.
+</p>
+<h2><span class="mw-headline" id="Open_the_solution_file">Open the solution file</span></h2>
+<p>Your BCI2000 "prog" folder does not contain any executables yet:
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Use_vs2017_0.png" class="image"><img alt="Use vs2017 0.png" src="../images/d/dc/Use_vs2017_0.png" decoding="async" width="679" height="677" /></a></div></div>
+<p>Open the solution file in your BCI2000 "build" folder by double-clicking it ...
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Use_cmake_10.PNG" class="image"><img alt="Use cmake 10.PNG" src="../images/3/31/Use_cmake_10.PNG" decoding="async" width="770" height="871" /></a></div></div>
+<p>... and view it in the VisualStudio IDE.
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Use_vs2017_1.png" class="image"><img alt="Use vs2017 1.png" src="../images/a/ad/Use_vs2017_1.png" decoding="async" width="998" height="758" /></a></div></div>
+<h2><span class="mw-headline" id="Build_the_solution">Build the solution</span></h2>
+<p>Switch the build type to "release".
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Use_vs2017_2.png" class="image"><img alt="Use vs2017 2.png" src="../images/1/18/Use_vs2017_2.png" decoding="async" width="998" height="758" /></a></div></div>
+<p>From the "build" menu, choose "Build solution":
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Use_vs2017_3.png" class="image"><img alt="Use vs2017 3.png" src="../images/8/83/Use_vs2017_3.png" decoding="async" width="998" height="758" /></a></div></div>
+<p>Once the build is finished, ...
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Use_vs2017_4.png" class="image"><img alt="Use vs2017 4.png" src="../images/1/15/Use_vs2017_4.png" decoding="async" width="998" height="758" /></a></div></div>
+<p>... your BCI2000 "prog" folder will contain a number of executables, one for each module, plus a few helper executables.
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Use_vs2017_5.png" class="image"><img alt="Use vs2017 5.png" src="../images/f/f7/Use_vs2017_5.png" decoding="async" width="679" height="677" /></a></div></div>
+<h2><span class="mw-headline" id="Next_step">Next step</span></h2>
+<p>As a next step, learn how to <a href="Programming_Howto%253ACreate_a_custom_Signal_Processing_Module.html" title="Programming Howto:Create a custom Signal Processing Module">Create a custom Signal Processing Module</a>.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Programming_Howto%253ABuilding_and_Customizing_BCI2000.html" title="Programming Howto:Building and Customizing BCI2000">Programming Howto:Building and Customizing BCI2000</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524082151
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.029 seconds
+Real time usage: 0.033 seconds
+Preprocessor visited node count: 23/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2171-0!canonical and timestamp 20230524082151 and revision id 8020
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Programming_Howto:Compile_BCI2000&amp;oldid=8020">http://www.bci2000.org/mediawiki/index.php?title=Programming_Howto:Compile_BCI2000&amp;oldid=8020</a>"</div>
+ </div>
+</body>
+</html>

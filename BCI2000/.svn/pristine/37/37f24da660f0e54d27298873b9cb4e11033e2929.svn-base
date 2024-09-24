@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>BCI2000MediaPlayer</string>
+	<key>CFBundleGetInfoString</key>
+	<string>BCI2000 MediaPlayer Tool, © 2000-2023 BCI2000 Project</string>
+	<key>CFBundleIconFile</key>
+	<string>wrench.icns</string>
+	<key>CFBundleIdentifier</key>
+	<string>org.bci2000.mediaplayer</string>
+	<key>CFBundleName</key>
+	<string>BCI2000 MediaPlayer Tool</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>????</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>10.15</string>
+	<key>CFBundleSignature</key>
+	<string>bciM</string>
+</dict>
+</plist>

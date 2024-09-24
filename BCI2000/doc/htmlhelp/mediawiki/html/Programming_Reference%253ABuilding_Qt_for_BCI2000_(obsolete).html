@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Programming Reference:Building Qt for BCI2000 (obsolete) - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul><li class="toc1">Concepts</li><ul><li class="toc2"><a href="Programming_Reference%253AFilter_Chain.html">Filter Chain</a></li><li class="toc2"><a href="Programming_Reference%253ASignals.html">Signals</a></li><li class="toc2"><a href="Programming_Reference%253AError_Handling.html">Error Handling</a></li><li class="toc2"><a href="Programming_Reference%253ALocalization.html">Localization</a></li><li class="toc2"><a href="Programming_Reference%253ARapid_Development.html">Rapid Development</a></li></ul><li class="toc1">Reference</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFilter_Class.html">GenericFilter</a></li><li class="toc2"><a href="Programming_Reference%253AEnvironment_Class.html">Environment</a></li><li class="toc2"><a href="Programming_Reference%253AGenericVisualization_Class.html">GenericVisualization</a></li><li class="toc2"><a href="Programming_Reference%253AErrors_and_Warnings.html">Errors and Warnings</a></li><li class="toc2"><a href="Programming_Reference%253ADebug_Output.html">Debug Output</a></li></ul><li class="toc1">Data Acquisition</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericADC_Class.html">GenericADC</a></li></ul><li class="toc1">Data Storage</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFileWriter_Class.html">GenericFileWriter</a></li><li class="toc2"><a href="Programming_Reference%253ABCI2000FileReader_Class.html">BCI2000FileReader</a></li></ul><li class="toc1">Signal Processing</li><ul><li class="toc2"><a href="Programming_Reference%253AIIRFilterBase_Class.html">IIR Filters</a></li></ul><li class="toc1">Application Modules</li><ul><li class="toc2"><a href="Programming_Reference%253AApplicationBase_Class.html">ApplicationBase</a></li><li class="toc2"><a href="Programming_Reference%253AFeedbackTask_Class.html">FeedbackTask</a></li><li class="toc2"><a href="Programming_Reference%253AStimulusTask_Class.html">StimulusTask</a></li><li class="toc2"><a href="Programming_Reference%253A3D_API.html">3D API</a></li></ul><li class="toc1">Howtos</li><ul><li class="toc2"><a href="Programming_Howto%253ABuilding_BCI2000.html">Building BCI2000</a></li><li class="toc2"><a href="Programming_Howto%253ASVN_Client_Setup.html">SVN Client Setup</a></li><li class="toc2"><a href="Programming_Howto%253AUsing_TortoiseSVN.html">Using TortoiseSVN</a></li></ul><li class="toc1"><a href="Programming_FAQ.html">FAQ</a></li><li class="toc1">Tutorials</li><ul><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html">Data Acquisition</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html">Signal Processing</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html">Matlab Signal Processing</a></li></ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">Building Qt for BCI2000 (obsolete)</h1>
+ <p class = "subtitle">Programming Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>This document describes how to build Qt for installation in the BCI2000 source tree. It is current as of Qt 5.3.
+</p><p><b>Note:</b> Following this procedure is only required if you are a member of the BCI2000 team, and if your task is to update the Qt build coming with BCI2000. In case you just want to build BCI2000 against a version of Qt outside the source tree, run CMake a first time, then open the file <tt>BCI2000/build/CMakeCache.txt</tt> in the CMake GUI, or in a text editor, and set the value of the USE_EXTERNAL_QT option to "ON".
+</p>
+<h2><span class="mw-headline" id="Build_and_copy_MSVC_libraries_and_auxiliary_files">Build and copy MSVC libraries and auxiliary files</span></h2>
+<ul><li>Download the Qt source code <a rel="nofollow" class="external autonumber" href="http://qt-project.org/downloads">[1]</a> to your machine.</li>
+<li>Outside the Qt source tree, create a directory tree, e.g. <tt>d:\Qt\5.3\build-msvc12</tt>. A Qt build may require an enormous amount of temporary disk space (50GB and more), so it is recommended to build Qt on a separate (virtual) empty disk drive.</li>
+<li>Into the newly created empty build directory, place a <tt>do_configure.bat</tt> script file with the following content:</li></ul>
+<pre>c:\Qt\5.3\Src\configure ^
+-platform win32-msvc2012 ^
+-static ^
+-prefix d:\Qt\deployment\qt-5.3.2\win32-msvc2012 ^
+-headerdir ..\include ^
+-no-vcproj -mp ^
+-no-openssl -no-qml-debug ^
+-opengl desktop ^
+-skip qtdeclarative ^
+-skip qtquick1 ^
+-skip qtquickcontrols ^
+-skip qtscript ^
+-skip qtwebkit ^
+-skip qtwebkit-examples ^
+-skip qtxmlpatterns ^
+-nomake tests ^
+-nomake examples 
+</pre>
+<ul><li>This should be a single command line, so make sure that the caret character is actually the last character in each line, and not followed by white space.</li>
+<li>Note that the first path should point to your Qt source location, and the "prefix" path should point to a location on your build drive. This is the path that will contain Qt headers and libraries after the build.</li>
+<li>In your Qt source directory, open the file <tt>qtbase/mkspecs/win32-msvc2012/qmake.conf</tt> in a text editor. In <tt>QMAKE_CFLAGS_RELEASE</tt> and <tt>QMAKE_CFLAGS_DEBUG</tt>, replace the <tt>-MD</tt> and <tt>-MDd</tt> with <tt>-MT</tt> and  <tt>-MTd</tt>, respectively.</li>
+<li>Open an appropriate Visual Studio console window from the start menu. Whether you build a 64 or 32 bit version of Qt will depend on the type of VS Command Prompt you choose.</li>
+<li>Change directory to the build directory containing the script described above, and execute it.</li>
+<li>When prompted for the type of license, choose "Open Source", and answer "yes" when asked whether you accept the terms of the license.</li>
+<li>Run <tt>nmake</tt> as suggested by <tt>configure</tt>.</li>
+<li>After a successful build, <tt>nmake install</tt> will copy libraries and headers to the location specified by the <tt>-prefix</tt> option.</li>
+<li>The following files must be present in bin:</li></ul>
+<pre>moc.exe
+qmake.exe
+rcc.exe
+uic.exe
+
+</pre>
+<ul><li>For 64-bit versions of the libraries, proceed as above, but run <tt>configure</tt> and <tt>nmake</tt> steps from a 64-bit Visual Studio command line prompt. The target directory should be named <tt>win32-amd64-msvc2012</tt> for MSVC 2012 64-bit builds.</li></ul>
+<h2><span class="mw-headline" id="Upload_Qt_to_the_BCI2000_server">Upload Qt to the BCI2000 server</span></h2>
+<ul><li>Create a self-extracting 7z archive from each subfolder of the <tt>qt-x.y.z</tt> directory. In order to expand correctly, the archive must contain the <tt>qt-x.y.z</tt> directory as well.</li>
+<li>For CMake to find an archive on the server, it must be located at the following http path: <tt>/externals/qt/qt-x.y.z.subdirname</tt></li></ul>
+<p>Note that archives may not have an <tt>.exe</tt> file extension on the server. It will be added when the file is downloaded by CMake (see <tt>BCI2000/build/cmake/FindQt.cmake</tt> for details).
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Programming_Reference%253ABuild_System.html" class="mw-redirect" title="Programming Reference:Build System">Programming Reference:Build System</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524175540
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.009 seconds
+Real time usage: 0.012 seconds
+Preprocessor visited node count: 11/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1972-0!canonical and timestamp 20230524175540 and revision id 8500
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:Building_Qt_for_BCI2000_(obsolete)&amp;oldid=8500">http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:Building_Qt_for_BCI2000_(obsolete)&amp;oldid=8500</a>"</div>
+ </div>
+</body>
+</html>

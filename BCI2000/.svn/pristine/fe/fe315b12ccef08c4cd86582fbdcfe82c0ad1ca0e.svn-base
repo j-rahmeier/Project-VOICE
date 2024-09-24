@@ -1,0 +1,65 @@
+HKCR
+{
+  NoRemove bcidatfile
+  {
+    ShellEx
+    {
+      ContextMenuHandlers
+      {
+        ForceRemove BCI2000ContextMenu = s '{DEFE0E20-067C-4455-B031-E1FBB3AAFC91}'
+      }
+    }
+  }
+  NoRemove bciprmfile
+  {
+    ShellEx
+    {
+      ContextMenuHandlers
+      {
+        ForceRemove BCI2000ContextMenu = s '{DEFE0E20-067C-4455-B031-E1FBB3AAFC91}'
+      }
+    }
+  }
+  NoRemove bciscriptfile
+  {
+    ShellEx
+    {
+      ContextMenuHandlers
+      {
+        ForceRemove BCI2000ContextMenu = s '{DEFE0E20-067C-4455-B031-E1FBB3AAFC91}'
+      }
+    }
+  }
+  NoRemove CLSID
+  {
+    ForceRemove {DEFE0E20-067C-4455-B031-E1FBB3AAFC91} = s 'BCI2000ContextMenu Class'
+    {
+      InprocServer32 = s '%MODULE%'
+      {
+        val ThreadingModel = s 'Apartment'
+      }
+    }
+  }
+}
+HKLM
+{
+  NoRemove Software
+  {
+    NoRemove Microsoft
+    {
+      NoRemove Windows
+      {
+        NoRemove CurrentVersion
+        {
+          NoRemove 'Shell Extensions'
+          {
+            NoRemove Approved
+            {
+              ForceRemove {DEFE0E20-067C-4455-B031-E1FBB3AAFC91} = s 'BCI2000ContextMenu Class'
+            }
+          }
+        }
+      }
+    }
+  }
+}

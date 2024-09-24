@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>User Reference:BCI2000Certification - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul><li class="toc1"><a href="User_Reference%253AOperator_Module.html">Operator Module</a></li><li class="toc1"><a href="User_Reference%253AOperator_Module_Scripting.html">Operator Scripting</a></li><li class="toc1"><a href="User_Reference%253AModule_Command_Line_Options.html">Module Command Line Options</a></li><li class="toc1"><a href="User_Reference%253AData_File_Formats.html">Data File Formats</a></li><li class="toc1"><a href="User_Reference%253AFilters.html">Configuration Guide</a></li><li class="toc1"><a href="User_FAQ.html">FAQ</a></li><li class="toc1">Applications</li><ul><li class="toc2"><a href="User_Reference%253ACursorTask.html">Cursor Task</a></li><li class="toc2"><a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:P3SpellerTask">P3Speller Task</a></li><li class="toc2"><a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:StimulusPresentation">Stimulus Presentation</a></li></ul><li class="toc1">Tools</li><ul><li class="toc2">BCI2000Certification</li><li class="toc2"><a href="User_Reference%253ABCI2000Launcher.html">BCI2000Launcher</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Viewer.html">BCI2000Viewer</a></li><li class="toc2"><a href="User_Reference%253ABCI2000FileInfo.html">BCI2000FileInfo</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Export.html">BCI2000Export</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Analysis.html">BCI2000Analysis</a></li><li class="toc2"><a href="User_Reference%253ABCI2000_Offline_Analysis.html">BCI2000 Offline Analysis</a></li><li class="toc2"><a href="User_Reference%253AEloc_Helper.html">Eloc Helper</a></li><li class="toc2"><a href="User_Reference%253AEEGLabImport.html">EEGLabImport</a></li><li class="toc2"><a href="User_Reference%253AMatlab_Tools.html">Matlab Tools</a></li><li class="toc2"><a href="User_Reference%253AMatlab_MEX_Files.html">Matlab MEX Files</a></li><li class="toc2"><a href="User_Reference%253ACommand_Line_Processing.html">Command Line Processing</a></li></ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">BCI2000Certification</h1>
+ <p class = "subtitle">User Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="BCI2000Certification.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="BCI2000Certification.html#Video_Demonstration"><span class="tocnumber">2</span> <span class="toctext">Video Demonstration</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="BCI2000Certification.html#Compiling_the_BCI2000Certification_Programs"><span class="tocnumber">3</span> <span class="toctext">Compiling the BCI2000Certification Programs</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="BCI2000Certification.html#Using_the_BCI2000Certification_Procedure"><span class="tocnumber">4</span> <span class="toctext">Using the BCI2000Certification Procedure</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="BCI2000Certification.html#Starting_the_Tester_User_Interface"><span class="tocnumber">4.1</span> <span class="toctext">Starting the Tester User Interface</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="BCI2000Certification.html#Loading_Configuration_Files"><span class="tocnumber">4.2</span> <span class="toctext">Loading Configuration Files</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="BCI2000Certification.html#User_Interface_Components"><span class="tocnumber">4.3</span> <span class="toctext">User Interface Components</span></a>
+<ul>
+<li class="toclevel-3 tocsection-8"><a href="BCI2000Certification.html#1._Configuration:_Task_List"><span class="tocnumber">4.3.1</span> <span class="toctext">1. Configuration: Task List</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="BCI2000Certification.html#Creating_Custom_Tests"><span class="tocnumber">4.3.2</span> <span class="toctext">Creating Custom Tests</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="BCI2000Certification.html#2._Configuration:_Task_Details"><span class="tocnumber">4.3.3</span> <span class="toctext">2. Configuration: Task Details</span></a></li>
+<li class="toclevel-3 tocsection-11"><a href="BCI2000Certification.html#3._Control:_Global_Settings"><span class="tocnumber">4.3.4</span> <span class="toctext">3. Control: Global Settings</span></a></li>
+<li class="toclevel-3 tocsection-12"><a href="BCI2000Certification.html#4._Control:_Controls"><span class="tocnumber">4.3.5</span> <span class="toctext">4. Control: Controls</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-13"><a href="BCI2000Certification.html#Setting_Up_and_Running_the_Certification_Procedure"><span class="tocnumber">4.4</span> <span class="toctext">Setting Up and Running the Certification Procedure</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="BCI2000Certification.html#Analyzing_Data"><span class="tocnumber">4.5</span> <span class="toctext">Analyzing Data</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="BCI2000Certification.html#Interpreting_Analysis_Results"><span class="tocnumber">4.6</span> <span class="toctext">Interpreting Analysis Results</span></a>
+<ul>
+<li class="toclevel-3 tocsection-16"><a href="BCI2000Certification.html#A_Note_on_.22Pass.2FFail.22"><span class="tocnumber">4.6.1</span> <span class="toctext">A Note on "Pass/Fail"</span></a></li>
+<li class="toclevel-3 tocsection-17"><a href="BCI2000Certification.html#Visualizing_Certification_Test_Results_using_GNUPlot"><span class="tocnumber">4.6.2</span> <span class="toctext">Visualizing Certification Test Results using GNUPlot</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-18"><a href="BCI2000Certification.html#Assembling_Required_Cables"><span class="tocnumber">5</span> <span class="toctext">Assembling Required Cables</span></a>
+<ul>
+<li class="toclevel-2 tocsection-19"><a href="BCI2000Certification.html#Legacy_gTRIGbox"><span class="tocnumber">5.1</span> <span class="toctext">Legacy gTRIGbox</span></a>
+<ul>
+<li class="toclevel-3 tocsection-20"><a href="BCI2000Certification.html#Amplifier_Input"><span class="tocnumber">5.1.1</span> <span class="toctext">Amplifier Input</span></a></li>
+<li class="toclevel-3 tocsection-21"><a href="BCI2000Certification.html#Digital_I.2FO_Cable"><span class="tocnumber">5.1.2</span> <span class="toctext">Digital I/O Cable</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-22"><a href="BCI2000Certification.html#Latest_gTRIGbox"><span class="tocnumber">5.2</span> <span class="toctext">Latest gTRIGbox</span></a>
+<ul>
+<li class="toclevel-3 tocsection-23"><a href="BCI2000Certification.html#Digital_Configuration"><span class="tocnumber">5.2.1</span> <span class="toctext">Digital Configuration</span></a>
+<ul>
+<li class="toclevel-4 tocsection-24"><a href="BCI2000Certification.html#Procedure_for_Assembling_Cable"><span class="tocnumber">5.2.1.1</span> <span class="toctext">Procedure for Assembling Cable</span></a></li>
+</ul>
+</li>
+<li class="toclevel-3 tocsection-25"><a href="BCI2000Certification.html#Analog_Configuration"><span class="tocnumber">5.2.2</span> <span class="toctext">Analog Configuration</span></a>
+<ul>
+<li class="toclevel-4 tocsection-26"><a href="BCI2000Certification.html#Procedure_for_Assembling_Cable_2"><span class="tocnumber">5.2.2.1</span> <span class="toctext">Procedure for Assembling Cable</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-27"><a href="BCI2000Certification.html#Troubleshooting"><span class="tocnumber">6</span> <span class="toctext">Troubleshooting</span></a></li>
+<li class="toclevel-1 tocsection-28"><a href="BCI2000Certification.html#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Introduction">Introduction</span></h2>
+<p>BCI2000 includes a certification procedure that can determine whether a computer system is capable of running all or some BCI2000 applications.  Because BCI2000 does not have a standardized hardware configuration, i.e., it can run on potentially <i>any</i> PC, this testing procedure is capable of running on any PC with BCI2000, with the results reporting which standard BCI2000 applications meet the minimum timing requirements. Different configurations are included in the certification procedure to test a range of likely setups for a given application, in which timing characteristics such as the sampling rate, inter-stimulus intervals, and stimulus duration, and other parameters, such as the number and size of the stimuli, are changed for each configuration.
+</p><p>This document serves as the instruction manual for using the certification procedure, and describes how the procedure works to determine the timing characteristics of the BCI2000 system. The primary use for the certification procedure is to determine if the PC configuration used with BCI2000 is capable of running the core BCI2000 system, which is comprised of:
+</p>
+<ul><li>Support for various biosignal amplifiers, including the g.USBamp, EGI GTEN 200, Nihon Kohden JE120-A, and many more on the <a href="Contributions%253AADCs.html" title="Contributions:ADCs">ADCs</a> page.</li>
+<li>The AR, P3, FFT, and Matlab signal processing modules.</li>
+<li>The CursorTask, P3Speller, and StimulusPresentation application modules.</li></ul>
+<p>Additionally, due to the extensibility of BCI2000, researchers who develop custom algorithms and applications can use the certification procedure to determine whether their custom modules are capable of running on a particular PC configuration.
+</p><p>The certification procedure works by comparing the differences in time of when BCI2000 <i>expects</i> an event to occur to when that event <i>actually</i> occurred. These events include a change in the display, an audio output through the system speakers, or an EEG sample being stored in the amplifier buffer. The times at which such events occur are recorded with the amplifier and stored in a data file. Changes in the display are found using an optical sensor and a triggering device. The documentation provided throughout this page uses the g.tec g.TRIGbox, although any device which can provide a digital or analog trigger to the amplifier can be used. The g.TRIGbox is a signal conditioner that generates trigger pulses for various sensors or input signals. When the sensor exceeds a threshold, the g.TRIGbox outputs a digital or analog signal which is recorded on the amplifier. A similar procedure is used for audio detection: the sound output from the PC is input to the g.TRIGbox, and when the volume exceeds threshold, a digital or analog signal is output and recorded by the amplifier. This information can be used because BCI2000 stores a time-stamp for every event during an experiment. The difference between a time-stamp value and the time that the recorded event changes values are compared to find the latency for that particular event. 
+</p><p>These latencies can be affected by many external influences, including hardware deficiencies (such as low RAM, slow CPU speed, or a video card of low quality), and other software running in the background while the experiment is being run.
+</p><p>This document serves as the BCI2000Certification manual. As an example, this page will describe the certification procedure for the g.USBamp with visual and auditory stimuli triggered with the g.TRIGbox. At the end of the page, the certification results for using BCI2000 with three biosignal amplifiers (the g.USBamp, EGI GTEN 200, and Nihon Kohden JE120-A) are provided. A discussion and derivation of the specific system latencies are found <a rel="nofollow" class="external text" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3161621/">here</a>.
+</p>
+<h2><span class="mw-headline" id="Video_Demonstration">Video Demonstration</span></h2>
+<div class="thumb embedvideo  ev_center autoResize" style="width: 648px;"><div class="embedvideo autoResize" style=" width: 646px;"><div class="embedvideowrap" style="width: 640px;"><iframe title="Play video" src="https://www.youtube.com/embed/yh7ifhCh2v0?" width="640" height="360" frameborder="0" allowfullscreen="true"></iframe></div></div></div>
+<h2><span class="mw-headline" id="Compiling_the_BCI2000Certification_Programs">Compiling the BCI2000Certification Programs</span></h2>
+<p>The BCI2000Certification procedure actually consists of two separate programs, including a graphical user interface that simplifies the task of selecting and starting tests, and a program that performs the data analysis and returns results. These programs are compiled automatically with the other BCI2000 programs. Compilation is only supported in BCI2000 v3.0 with the Visual Studio or MinGW compilers. Instructions can be found at <a href="Programming_Howto%253ABuilding_BCI2000.html" title="Programming Howto:Building BCI2000">Programming_Howto:Building_BCI2000</a>. At the point where you start CMake, be sure to check BUILD TOOLS in the BUILD menu.
+</p>
+<div class="thumb tnone"><div class="thumbinner" style="width:1153px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:CMakeBuildTools.png" class="image"><img alt="" src="../images/2/29/CMakeBuildTools.png" decoding="async" width="1151" height="1040" class="thumbimage" /></a>  <div class="thumbcaption">Check the BUILD TOOLS box to build the certification tester and analysis tool.</div></div></div>
+<h2><span class="mw-headline" id="Using_the_BCI2000Certification_Procedure">Using the BCI2000Certification Procedure</span></h2>
+<h3><span class="mw-headline" id="Starting_the_Tester_User_Interface">Starting the Tester User Interface</span></h3>
+<ol><li>The compiled programs can be found in <code>BCI2000/tools/BCI2000Certification</code>.</li>
+<li>Navigate to this folder, and double-click the <code>BCI2000CertificationTester.exe</code> file.</li>
+<li>The certification tool opens, as below.</li></ol>
+<p>This program shows a list of all of the procedures to be tested for the loaded configuration. Detailed instructions for using the interface follow.
+</p>
+<div class="thumb tnone"><div class="thumbinner" style="width:862px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:Certificationtool.png" class="image"><img alt="" src="../images/c/cf/Certificationtool.png" decoding="async" width="860" height="632" class="thumbimage" /></a>  <div class="thumbcaption">The BCI2000Certification user interface.</div></div></div>
+<div class="thumb tnone"><div class="thumbinner" style="width:862px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:Tester02.PNG" class="image"><img alt="" src="../images/8/87/Tester02.PNG" decoding="async" width="860" height="632" class="thumbimage" /></a>  <div class="thumbcaption">The BCI2000Certification user interface.</div></div></div>
+<h3><span class="mw-headline" id="Loading_Configuration_Files">Loading Configuration Files</span></h3>
+<p>The BCI2000 certification procedure uses a configuration file and different combinations of BCI2000 parameter fragments to control the tests. The configuration file (stored as an <code>*.ini</code> file) describes all of the certification tests. The parameter fragments store information about the amplifier and application module applied in each test. More detail about the contents of the configuration file can be found below. While it is possible to edit these by hand, in most circumstances it is simpler to use the graphical user interface provided. 
+</p>
+<ol><li>In the BCI2000Certification tool, select <code>File-&gt;Open *.ini</code></li>
+<li>Navigate to the folder <code>BCI2000/tools/BCI2000Certification</code>.</li>
+<li>Load the file named <code>BCI2000Certification_16ch_100ms.ini</code> if using a 16-channel system. (This tutorial assumes a 16-channel system).</li>
+<li>If using more than 16 channels, then the amplifier parameter files must be modified.
+<ol><li>Navigate to <code>BCI2000/tools/BCI2000Certification/parms/</code>, and open the file <code>Certification_gUSBamp_24.prm</code> in Notepad.</li>
+<li>Find the parameter titled <b>DeviceIDMaster</b>, and replace the existing device ID (e.g., <code>UA-2007.04.12</code> with the ID of your master device.</li>
+<li>Next, find the parameter titled <b>DeviceIDs</b>, and replace the IDs with the IDs of your amplifiers. The first in the list should be identical to the <b>DeviceIDMaster</b> value. For example, you might enter: <code>DeviceIDs= 2 UA-2007.04.12 UA-2006.10.13</code> (the \#2 corresponds to the number of devices being used).</li>
+<li>Repeat these steps for the file <code>Certification_gUSBamp_32.prm</code>.</li>
+<li>Note that these steps are not necessary if only one g.USBamp is being used.</li></ol></li>
+<li>All 100 tests in this configuration are loaded into the GUI.</li></ol>
+<h3><span class="mw-headline" id="User_Interface_Components">User Interface Components</span></h3>
+<p>This section describes each user interface component, referring to the figure below.
+</p>
+<div class="thumb tnone"><div class="thumbinner" style="width:862px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:Certificationtool2.png" class="image"><img alt="" src="../images/b/b4/Certificationtool2.png" decoding="async" width="860" height="632" class="thumbimage" /></a>  <div class="thumbcaption">The BCI2000Certification user interface components.</div></div></div>
+<h4><span class="mw-headline" id="1._Configuration:_Task_List">1. Configuration: Task List</span></h4>
+<p>The task list shows all tasks that have been loaded from the configuration file or created within the GUI. To run a specific test, it should have a checkmark next to it. In order to select or deselect all tasks, press the <code>Select All</code> check box at the bottom of the list.
+</p><p>It is possible to create new tasks, remove tasks, and copy tasks within the interface as well. To create a new task, press the <code>+</code> button. A new task is created at the bottom of the list; the task details must be filled in (described next). It is often easier to copy a similar task than to create a new one from scratch. To do so, select the desired task, and press <code>Copy</code>. The new task should be renamed appropriately. To remove a task, select a task and press the <code>-</code> button.
+</p>
+<h4><span class="mw-headline" id="Creating_Custom_Tests">Creating Custom Tests</span></h4>
+<p>With the BCI2000Certification tool, you can test performance on a wide range of different parameters and applications. You can create a custom .ini file that will contain the name of each test, the desired signal processing module, sampling rate, block size, application, and parameter files. You will need to first create a parameter file for the test you wish to run. If you want to be able to edit the block size and sampling rate from the Certification tester GUI or its .ini file, you must omit those variables from your parameter files as they will overwrite any variables you set in the Certification Tester. For example, if you wanted to test an application that you have developed for BCI2000 using several sampling rates and block sizes you would first need to create the two parameter files for the application, and source with no sampling rate or block size specified, then export them to the <code>/BCI2000Certification/parms/</code> folder. Once you have the two parameter files, you may link to them in a new .ini file located under the <code>/BCI2000Certification/</code> directory and run them as described below.
+</p>
+<h4><span class="mw-headline" id="2._Configuration:_Task_Details">2. Configuration: Task Details</span></h4>
+<p>The right side of the GUI displays the details of the currently selected task. Each option is described here.
+</p>
+<dl><dt>Task Name</dt>
+<dd>The name of the task. This must not contain any spaces, and must be unique.</dd></dl>
+<dl><dt>Signal Source</dt>
+<dd>The amplifier that should be used, if different from the amplifier set in the global options. Generally, this should not need to be used, since all tasks should use the same amplifier.</dd></dl>
+<dl><dt>Signal Processing</dt>
+<dd>The signal processing module that should be started and used for the given task. This should usually be either <code>ARSignalProcessing</code>, <code>P3SignalProcessing</code>, or <code>DummySignalProcessing</code>, depending on the specific application.</dd></dl>
+<dl><dt>Application</dt>
+<dd>The application that is run for the task. This will typically be <code>CursorTask</code>, <code>P3Speller</code>, or <code>StimulusPresentation</code></dd></dl>
+<dl><dt>Parameters</dt>
+<dd>A list of the parameter fragments that should be used for this task. Typically, at least two parameter files are required. The first should be the amplifier-specific fragment that configures the amplifier for the correct number of channels. The second should be the application-specific fragment that configures how the application appears on the screen. Parameter files can be added and removed with the <code>+</code> and <code>-</code> buttons, respectively. All files should be placed in the <code>BCI2000/tools/BCI2000Certification/parms</code> folder.</dd></dl>
+<dl><dt>Sample Rate</dt>
+<dd>The sampling rate that should be used for this task. Note that it must be supported by the amplifier used.</dd></dl>
+<dl><dt>Sample Block Size</dt>
+<dd>The sample block size (in samples). In the provided parameter files, the sample block size is always equal to 100ms, regardless of the sampling rate.</dd></dl>
+<dl><dt>Amp Channel</dt>
+<dd>This is the analog channel that records the amplifier digital output (i.e., the digital output recorded back in on an analog channel). This signifies the onset of acquisition of a block. This value should be between 1 and the number of channels.</dd></dl>
+<dl><dt>Amp Stream</dt>
+<dd>This is the digital channel that records the amplifier digital output (i.e., the digital output recorded back in on a digital input channel).</dd></dl>
+<dl><dt>Video Channel</dt>
+<dd>The recorded analog channel containing video event markers.</dd></dl>
+<dl><dt>Video Stream</dt>
+<dd>The recorded digital input channel containing video event markers.</dd></dl>
+<dl><dt>Video State</dt>
+<dd>The BCI2000 state that contains the event markers for the video event, e.g., TargetCode or StimulusCode.</dd></dl>
+<dl><dt>Video State Values</dt>
+<dd>A list of state change values that should be detected by the analysis. For example, if values <code>4 11</code> are used, then the analysis tool will examine when the StimulusCode state changes to either 4 or 11, and then examine when the Video Channel changes.</dd></dl>
+<dl><dt>Audio Channel</dt>
+<dd>The recorded analog channel containing audio event markers.</dd></dl>
+<dl><dt>Audio Stream</dt></dl>
+<p>The recorded digital input channel containing audio event markers.
+</p>
+<dl><dt>Audio State</dt>
+<dd>The BCI2000 state that contains the event markers for the audio event, e.g., TargetCode or StimulusCode.</dd></dl>
+<dl><dt>Audio State Values</dt>
+<dd>A list of state change values that should be detected by the analysis. For example, if values <code>4 11</code> are used, then the analysis tool will examine when the StimulusCode state changes to either 4 or 11, and then examine when the Video Channel changes.</dd></dl>
+<h4><span class="mw-headline" id="3._Control:_Global_Settings">3. Control: Global Settings</span></h4>
+<div class="thumb tnone"><div class="thumbinner" style="width:862px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:Tester02.PNG" class="image"><img alt="" src="../images/8/87/Tester02.PNG" decoding="async" width="860" height="632" class="thumbimage" /></a>  <div class="thumbcaption">The BCI2000Certification user interface.</div></div></div>
+<p>As the name suggests, the options under Global Settings are applied to all tasks, and are described here.
+</p>
+<dl><dt>Window Left, Top</dt>
+<dd>The position of the left and top sides of the application window. If using multiple monitors, this position should take this into account. For example, if the application window is to the right of the main monitor, and the main monitor has a resolution of 1280x1024 pixels, then <code>Window Left</code> should be set to 1280, and <code>Window Top</code> to 0.</dd></dl>
+<dl><dt>Window Width, Height</dt>
+<dd>The width and height of the application window.</dd></dl>
+<dl><dt>Global Signal Source</dt>
+<dd>The executable that should be used by all applications. This value is overwritten by the Signal Source value set for individual tasks.</dd></dl>
+<dl><dt>Data Output Directory</dt>
+<dd>The directory where all of the data should be saved during the task. This will appear relative to <code>BCI2000/tools/BCI2000Certification/</code>, or at a given absolute path. <b>NOTE that if data already exists in this directory, additional data will be saved to it!</b> To avoid combining new data with earlier results, the existing directory with the same name should be renamed or deleted.</dd></dl>
+<dl><dt>BCI2000 Directory</dt>
+<dd>This is the directory containing the BCI2000 program files, e.g., <code>C:\BCI2000\prog</code></dd></dl>
+<dl><dt>Additional Application Module command line arguments</dt>
+<dd>Additional arguments to add to the command line when starting the application module.</dd></dl>
+<dl><dt>Shell execute before</dt>
+<dd>Execute command in the shell before running the experiment (e.g., <i>taskkill /IM explorer</i> to terminate the explorer shell and taskbar).</dd></dl>
+<dl><dt>Shell execute after</dt>
+<dd>Execute command in the shell after the experiment has finished.</dd></dl>
+<h4><span class="mw-headline" id="4._Control:_Controls">4. Control: Controls</span></h4>
+<p>This panel handles starting and stopping the procedure, and running the analysis.
+</p>
+<dl><dt>Auto Set Config</dt>
+<dd>Automatically press <b>Set Config</b> upon starting BCI2000. This is required for complete automation of the procedure. When unchecked, BCI2000 will pause after loading parameters, and you will be able to inspect parameters for debugging purposes. You will have to press <b>Set Config</b> manually to proceed.</dd></dl>
+<dl><dt>Auto Start</dt>
+<dd>Automatically start the test after <b>Set Config</b> is pressed. This is required for complete automation of the procedure.</dd></dl>
+<dl><dt>Auto Quit</dt>
+<dd>Automatically quit BCI2000 after each task. This is required for complete automation of the procedure.</dd></dl>
+<dl><dt>Start</dt>
+<dd>Starts the selected tasks.</dd></dl>
+<dl><dt>Analyze</dt>
+<dd>Starts the analysis tool. This uses the directory entered in the <b>Data Output Directory</b> setting. See the documentation for the analysis tool for more information on the analysis procedure.</dd></dl>
+<dl><dt>Progress</dt>
+<dd>While running, a progress bar appears and text provides information about the current running task, and how many tasks remain. The progress bar window includes a Cancel button, which will stop the procedure after the current task finishes.</dd></dl>
+<h3><span class="mw-headline" id="Setting_Up_and_Running_the_Certification_Procedure">Setting Up and Running the Certification Procedure</span></h3>
+<ol><li>Load the appropriate configuration file, based on the number of amplifiers that you will be using and as described above.</li>
+<li>Plug-in and turn on the amplifier(s).</li>
+<li>Configure the multi-monitor system, if applicable.</li>
+<li>Enter the appropriate screen dimensions under <code>Window Width</code>, etc.</li>
+<li>Prepare to place the optical detector on the monitor by using a ring of double-sided tape. The exact placement on the monitor will depend on the tasks used, and will be determined shortly. Plug the detector into the Optical Input A on the g.TRIGbox.</li>
+<li>Using a 1/8th in. cable, connect the headphone output on the PC to the Low Level input D of the g.TRIGbox.</li>
+<li>Connect the g.TRIGbox Trigger Out (D-Sub connector) to digital I/O 1 port of the g.USBamp using a standard cable provided by g.tec.</li>
+<li>Specify the <i>Video Stream</i> as <i>DigitalInput1</i> and the <i>Audio Stream</i> as <i>DigitalInput4</i> in the <i>Events Configuration</i> tab.</li>
+<li>Alternately, the audio and video event markers can be sampled by the analog channels. In this case you will need to specify the <i>Video Channel</i> and <i>Audio Channel</i> in the <i>Events Configuration</i> tab. In this case, leave the <i>Video Stream</i> and <i>Audio Stream</i> fields empty.</li>
+<li>In addition to measuring the latency of visual and auditory stimuli, you can also evaluate the delay of the analog-to-digital converter (ADC). This is done by connecting <i>DigitalOutput1</i> of the Digital I/O 1 port of the amplifier to the amplifier's digital input or analog input. This requires a custom cable. For details, see the <a href="User_Reference%253ABCI2000Certification.html#Assembling_Required_Cables" title="User Reference:BCI2000Certification">Assembling Required Cables</a> section below. For the g.USBamp, specify the <i>Amp Stream</i> as <i>DigitalInput0</i> or the <i>Amp Channel</i> as the input channel accordingly.</li>
+<li>Next, the location to place the optical detector will be determined. The first task will be run, showing the location on the screen to place the connector.</li>
+<li>Press the Start button. BCI2000 will start shortly, and the application window will appear. In this test, the P300 Speller application is shown first.</li>
+<li>Place the detector over the "X" on the screen.</li>
+<li>Adjust the threshold on the g.TRIGbox for connector A so that it blinks on and off with the appearance of the "X". It may be necessary to turn off the lights in the room so that ambient light does not interfere with the optical detector.</li>
+<li>When finished placing the detector and setting the threshold, press Cancel in the BCI2000Certification GUI, and then Quit BCI2000. Navigate to the location of the Data folder (e.g., <code>BCI2000/tools/BCI2000Certification/</code>) and delete the data folder.</li>
+<li>Make sure that the computer volume is turned all the way up, and not muted.To set the audio threshold, set audio volume on the computer to maximum. On Windows, to make this process easier in the future, go to the Start menu, click the Control Panel, and go to Sounds. In the Sound window, click the box that puts the volume icon in the task bar. A small speaker should now appear in the bottom-right of the screen in the task bar. Click this icon, and slide the volume up to the max; when you click on this slider, Windows emits a short beep to give an idea of the volume level, which can be used to set the threshold. To do so, make sure that the stereo audio cable is plugged into the g.TRIGbox, and click the slider to emit a sound, checking that the green LED is flashing when you click the slider. If it is not, turn the threshold knob for channel B counter-clockwise, and click the slider again. If it is still not working after several tries, unplug the audio cable from the computer, and check that you can hear the beep through the speakers. If you cannot, make sure that the sound is not muted, and that the sound drivers are properly installed. If you can hear it, plug the audio cable back into the computer audio output (NOT the microphone input), and make sure the g.TRIGbox has power; the light next to the power switch should flash momentarily if the battery levels are OK. You can also use a wall power source (see the g.TRIGbox manual for more information). The threshold is set correctly when the channel B LED is off at rest, and is on when a sound is played.</li></ol>
+<div class="center"><div class="thumb tnone"><div class="thumbinner" style="width:802px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:Usbampconnections.png" class="image"><img alt="" src="../images/thumb/3/3c/Usbampconnections.png/800px-Usbampconnections.png" decoding="async" width="800" height="493" class="thumbimage" srcset="../images/thumb/3/3c/Usbampconnections.png/1200px-Usbampconnections.png 1.5x, ../images/thumb/3/3c/Usbampconnections.png/1600px-Usbampconnections.png 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://www.bci2000.org/mediawiki/index.php/File:Usbampconnections.png" class="internal" title="Enlarge"></a></div>Connectors schematic.</div></div></div></div>
+<p><br />
+</p>
+<ol><li>You are now ready to run all of the tests. To do so, press the Start button on the GUI.</li>
+<li>While testing, some tasks may not complete correctly, either because they are too computationally intensive for the selected computer system, or some other mistake or artifact occurred during the test. In this case, BCI2000 can be Quit manually, and the remaining tasks will be run. At the end of all tasks, you can then de-select all tasks, and re-check just the ones that need to be completed. It is necessary to delete data files in the data folder from unusable runs prior to running them again, so that the bad data is not included in the analysis.</li>
+<li>When all tasks are complete, press the <code>Analyze</code> button to analyze the collected data. This procedure is detailed later in this document.</li></ol>
+<h3><span class="mw-headline" id="Analyzing_Data">Analyzing Data</span></h3>
+<div class="thumb tnone"><div class="thumbinner" style="width:841px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:CertAnalysis.png" class="image"><img alt="" src="../images/2/26/CertAnalysis.png" decoding="async" width="839" height="735" class="thumbimage" /></a>  <div class="thumbcaption">The BCI2000 analysis tool.</div></div></div>
+<p>Simply pressing the <code>Analyze</code> button in the Tester will start the Analysis program. It is also possible to run the program in the BCI2000Certification directory by starting <code>BCI2000CertificationAnalysis.exe</code>.
+</p>
+<ol><li>The BCI2000CertificationTester program stores information about how to interpret a session in the session data file itself. From there, it is picked up by the analysis program. You don't have to provide BCI2000CertificationTester .ini files to the analysis program.</li>
+<li>The analysis program will open in a new GUI window. When you clicked "analyze" in the tester program, the analyzer's file list is already populated. Otherwise, appropriate folders and files must be entered for this session:
+<ol><li>Press the "+" button to select the folder containing your data files. When you select the folder, all data files contained within its subfolders are added automatically.</li></ol></li>
+<li>Finally, set the directory for the output file. Typically, this should be the same folder that contains all of the data files.</li>
+<li>When the parameters have been correctly configured, press "Run" to start the analysis, which can take several minutes. Note that debug builds run very slowly, so you should always use a release build for analysis.</li>
+<li>When finished, the analysis tool will display results at several levels of detail. On top, a summary is displayed, then a list of requirements is shown, with a global result for each requirement. Further down, results are shown for individual files.</li>
+<li>To store results for documentation, you may press <i>Save and Open...</i> to save results to a text file, which can be found in the folder choosen at the bottom left, defaulting to the data folder. The file name will have the format <code>results_(date)_(time).txt</code>. Additionally, this contents of this file will be opened automatically at the end of the process in a new window.</li></ol>
+<h3><span class="mw-headline" id="Interpreting_Analysis_Results">Interpreting Analysis Results</span></h3>
+<p>The certification analysis results are shown as the overall result at the top of the analysis tool. In the example below, 33/60 tasks passed, while 27 tasks did not meet the success criteria. Additionally, 48 tasks are missing data, as they do not include auditory stimuli (this is by design). In more detail, the results are segregated into three sections, with overlapping information contained in each section. These sections are Requirements, Performance Statistics, and Individual Tasks. The Requirements section provides details about the global performance of the various certification tests. The success criteria are somewhat arbitrary and are based on our experience measuring response latency in various setups. The Performance Statistics section contains very similar information, with the statistics reported at the top level for easy viewing. Finally, the Individual Tasks section organizes the certification results by task.
+</p>
+<div class="thumb tnone"><div class="thumbinner" style="width:943px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:Analysis03.PNG" class="image"><img alt="" src="../images/0/04/Analysis03.PNG" decoding="async" width="941" height="735" class="thumbimage" /></a>  <div class="thumbcaption">The BCI2000 analysis results. Results are described in three sections: Requirements, Performance Statistics, and Individual Tasks.</div></div></div>
+<p>Navigating into the sub-menu structure provides details about the various tests run, including the stimulus source, the method used to determine the event latency, and the event latency and variance across trials. 
+</p>
+<div class="thumb tnone"><div class="thumbinner" style="width:1067px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:6.PNG" class="image"><img alt="" src="../images/f/f4/6.PNG" decoding="async" width="1065" height="824" class="thumbimage" /></a>  <div class="thumbcaption">The BCI2000 analysis results. Individual Tasks.</div></div></div>
+<p>The results text file contains detailed results for all tasks. A sample output for a single task is shown here:
+</p>
+<div class="thumb tnone"><div class="thumbinner" style="width:941px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:Analysis_03_3.PNG" class="image"><img alt="" src="../images/4/4e/Analysis_03_3.PNG" decoding="async" width="939" height="481" class="thumbimage" /></a>  <div class="thumbcaption">The BCI2000 analysis results. The top of the file includes details about the global results.</div></div></div>
+<div class="thumb tnone"><div class="thumbinner" style="width:941px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:Analysis03_4.PNG" class="image"><img alt="" src="../images/4/4b/Analysis03_4.PNG" decoding="async" width="939" height="481" class="thumbimage" /></a>  <div class="thumbcaption">The BCI2000 analysis results. Throughout the file there are details about each task.</div></div></div>
+<p><br />
+</p>
+<h4><span id="A_Note_on_&quot;Pass/Fail&quot;"></span><span class="mw-headline" id="A_Note_on_.22Pass.2FFail.22">A Note on "Pass/Fail"</span></h4>
+<p>The values that determine whether or not a task passes or fails are determined somewhat arbitrarily. For example, we determined that an audio output latency of more than 65 ms is unacceptable for psychophysical research, e.g., BCIs. In the example shown, the audio output latency was ~62 ms for all tasks with audio, and thus these tasks registered as a "pass." However, it is ultimately up to the researcher to determine what is acceptable system timing; this method provides a method of quantifying the system latency values to simplify the process of making these decisions.
+</p><p>You may move the slider near the top of the window in order to display the original GUI elements you saw before clicking "Run". When clicking the checkbox close to "Override requirements", a small editor window appears, containing code for all requirements applied to the data. You may modify requirements there, as you see fit.
+</p>
+<h4><span class="mw-headline" id="Visualizing_Certification_Test_Results_using_GNUPlot">Visualizing Certification Test Results using GNUPlot</span></h4>
+<p>If you have GNUPlot installed, you can also visualize the distribution of latencies. Simply right-click on the field and select <i>plot.</i>
+</p><p><br />
+</p>
+<div class="thumb tnone"><div class="thumbinner" style="width:648px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:CertificationTool_GNUPlot.PNG" class="image"><img alt="" src="../images/4/40/CertificationTool_GNUPlot.PNG" decoding="async" width="646" height="568" class="thumbimage" /></a>  <div class="thumbcaption">GNU Plot.</div></div></div>
+<h2><span class="mw-headline" id="Assembling_Required_Cables">Assembling Required Cables</span></h2>
+<p>Depending on what hardware and the latencies of interest are, you may or may not need to assemble custom cables. If you are interested in measuring the audio and visual latency with the gTRIGbox and an amplifier manufactured by a company other than g.tec, you will need to assemble a custom cable going from the output of the gTRIGbox to the digital inputs or analog inputs of your amplifier. It is also possible measure the audio and visual latency without the gTRIGbox, but this will require another trigger onset detection method. If you have a g.tec g.USBamp and want to measure the system latency and the ADC latency, you can follow the following guide. 
+</p><p>In the following sections, we provide examples on how to build this cable if you’re using the gTRIGbox and a gUSBamp with a UB serial number (see the <a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:gUSBampADC#Digital_Inputs" title="User Reference:gUSBampADC">gUSBamp digital input page</a> for more information regarding the difference pin assignments between serial numbers). There are two versions of the gTRIGbox, an older legacy version with four 3.5 mm audio connector outputs, and a newer one that has a 15 pin D-sub type connector. We describe the process of building cables for both of these devices. 
+</p>
+<h3><span class="mw-headline" id="Legacy_gTRIGbox">Legacy gTRIGbox</span></h3>
+<div class="thumb tnone"><div class="thumbinner" style="width:617px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:Usbampconnections_legacy.png" class="image"><img alt="" src="../images/2/29/Usbampconnections_legacy.png" decoding="async" width="615" height="710" class="thumbimage" /></a>  <div class="thumbcaption">Connectors schematic.</div></div></div>
+<h4><span class="mw-headline" id="Amplifier_Input">Amplifier Input</span></h4>
+<p>Parts List:
+</p>
+<ul><li>3 Male Mono Audio Connectors</li>
+<li>6 12in+ Safety Connector Wires (to USB amplifier input), different colors</li>
+<li>Soldering Iron and Solder</li></ul>
+<p>This section describes how to assemble cables that connect the output of the g.TRIGbox to the amplifier input channels.
+</p>
+<ol><li>Strip the free ends of the 6 safety connector wires (~1/4 in)</li>
+<li>Take one wire, and solder the wire to the "signal" pad of one of the mono audio connectors.</li>
+<li>Solder another wire to the "ground" pad of the same connector.</li>
+<li>If necessary, pass the wires through end of the connector that screws in to cover the connection (see below, in the <i>g.USBamp Amplifier Plug</i>).</li></ol>
+<div class="thumb tnone"><div class="thumbinner" style="width:320px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:AmpPlug_1.png" class="image"><img alt="" src="../images/4/4d/AmpPlug_1.png" decoding="async" width="318" height="90" class="thumbimage" /></a>  <div class="thumbcaption">g.USBamp Amplifier Plug</div></div></div>
+<p>Each connector now has a signal and ground wire that can be connector to the g.USBamp inputs, or any amplifier that accepts the standard EEG connector.
+</p>
+<h4><span id="Digital_I/O_Cable"></span><span class="mw-headline" id="Digital_I.2FO_Cable">Digital I/O Cable</span></h4>
+<p>Parts List:
+</p>
+<ul><li>3 Colored Electrical Wires</li>
+<li>7-Pin Digital Connector from <b>g.tec</b></li>
+<li>Soldering Iron and Solder</li>
+<li>Silicone or electrical tape for insulation</li>
+<li>1 Female Mono Audio Plug</li></ul>
+<p>In order to access the digital I/O pins on the g.USBamp, a connector needs to be assembled. The 7-pin digital I/O connector should be ordered through g.TEC, the manufacturer of the g.USBamp.
+</p><p>At least three wires are needed for the circuit, which connect to the digital output 1 pin, the digital input 0 pin, and the ground pin.
+</p>
+<div class="thumb tnone"><div class="thumbinner" style="width:290px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:DigIO.png" class="image"><img alt="" src="../images/0/0e/DigIO.png" decoding="async" width="288" height="104" class="thumbimage" /></a>  <div class="thumbcaption">g.USBamp Digital I/O Pins</div></div></div>
+<div class="thumb tnone"><div class="thumbinner" style="width:207px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:DigConnector.png" class="image"><img alt="" src="../images/5/5e/DigConnector.png" decoding="async" width="205" height="100" class="thumbimage" /></a>  <div class="thumbcaption">g.USBamp Digital I/O Pins</div></div></div>
+<ol><li>Strip the ends of the 3 wires (~1/4 in)</li>
+<li>Take one wire, and solder the wire to the "signal" pad of the female mono audio connectors.</li>
+<li>Solder another wire to the "ground" pad of the same connector.</li>
+<li>If necessary, pass the wires through end of the connector that screws in to cover the connection (see below, in the <i>g.USBamp Amplifier Plug</i>).</li>
+<li>Solder the ground wire to the center ground pin on the digital I/O connector.</li>
+<li>Locate the top of the connector by locating the small plastic notch, and locate pins 3 and 4 relative to the notch.</li>
+<li>Solder the signal wire from the mono connector to pin 3 (digital out 1)</li>
+<li>Finally, solder the remaining wire (it has not been connected to anything yet) between pin 3 and pin 4. This connects the digital output directly to the digital input.</li>
+<li>It may be helpful to insulate the wires from the casing using either a piece of black electrical tape, or an insulating gel, like silicone. If a gel is used, be sure to let it set for several hours or overnight. It is also probably a good idea to check the electrical connection with a multimeter prior to insulating.</li>
+<li>Next, attach the rubber sleeve over the end of the part with the female threads, as shown in the panel.</li>
+<li>Slide the smaller metal sleeve over the wires, then slide the larger rubber sleeve over the wires.</li></ol>
+<div class="thumb tnone"><div class="thumbinner" style="width:320px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:DigPlug.png" class="image"><img alt="" src="../images/6/6a/DigPlug.png" decoding="async" width="318" height="90" class="thumbimage" /></a>  <div class="thumbcaption">g.USBamp Digital Wire Plug</div></div></div>
+<ol><li>For the next step, attach the two metallic pieces that surround the cables, shown laying to the sides in the figure below.</li>
+<li>One of the metal pieces has a small groove in it, which should be placed over the notch on the connector; the other metal piece fits on the opposite side of the connector.</li>
+<li>Push the small metal sleeve up to the side piece with the groove, and rotate the sleeve until the notch fits in the groove.</li>
+<li>Place the end piece over the connector, with the red dot on top and aligned with the connector notch.</li>
+<li>Finally, slide the rubber sleeve over the connector, and screw the sleeve into the end piece.</li></ol>
+<div class="thumb tnone"><div class="thumbinner" style="width:805px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:FinalDigCable.png" class="image"><img alt="" src="../images/e/e9/FinalDigCable.png" decoding="async" width="803" height="406" class="thumbimage" /></a>  <div class="thumbcaption">g.USBamp Digital I/O Cable</div></div></div>
+<p>The plug is assembled next, similar to the. Solder the signal wire from Pin 3 (Digital Out 1) on the digital I/O connector to the signal connector on the female mono plug, and solder the ground wire to the outer ground connector on the plug. The below figure shows this; in this figure, the red wire is the signal wire, and the brown wire is the ground.
+</p>
+<h3><span class="mw-headline" id="Latest_gTRIGbox">Latest gTRIGbox</span></h3>
+<p>There are two ways to connect the output of the gTRIGbox to the g.USBamp, “Analog” or “Digital”, as indicated in the figure below. Pins connected by a  <span style="color:#f97e00">orange</span> dotted line denote connections that are necessary to measure the amplifier latency. 
+</p>
+<div class="center"><div class="thumb tnone"><div class="thumbinner" style="width:802px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:Usbampconnections.png" class="image"><img alt="" src="../images/thumb/3/3c/Usbampconnections.png/800px-Usbampconnections.png" decoding="async" width="800" height="493" class="thumbimage" srcset="../images/thumb/3/3c/Usbampconnections.png/1200px-Usbampconnections.png 1.5x, ../images/thumb/3/3c/Usbampconnections.png/1600px-Usbampconnections.png 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://www.bci2000.org/mediawiki/index.php/File:Usbampconnections.png" class="internal" title="Enlarge"></a></div>Connectors schematic.</div></div></div></div>
+<h4><span class="mw-headline" id="Digital_Configuration">Digital Configuration</span></h4>
+<p>The digital configuration uses digital I/O 1 on the back of the g.tec amplifier. It requires a specific 7 pin g.tec connector that can be ordered from g.tec, the manufacturer of the g.USBamp.
+Parts list for digital cable:
+</p>
+<ol><li>One 15 pin D-Sub Type Female Connector</li>
+<li>One 7 pin Digital Pin Connector from g.tec</li>
+<li>Electrical Wire</li>
+<li>Soldering Iron and Solder</li></ol>
+<p>The D-Sub Type connector can be purchased such that you only need to strip the electrical wires and then insert them to receptacles that tighten with a screwdriver, thus reducing the need for any soldering. This makes the process of assembling the cable easier. In example of this type of connector is shown below: 
+</p>
+<div class="center"><div class="thumb tnone"><div class="thumbinner" style="width:602px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:F15pin_d-sub_connector.jpg" class="image"><img alt="" src="../images/thumb/4/4c/F15pin_d-sub_connector.jpg/600px-F15pin_d-sub_connector.jpg" decoding="async" width="600" height="537" class="thumbimage" srcset="../images/thumb/4/4c/F15pin_d-sub_connector.jpg/900px-F15pin_d-sub_connector.jpg 1.5x, ../images/thumb/4/4c/F15pin_d-sub_connector.jpg/1200px-F15pin_d-sub_connector.jpg 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://www.bci2000.org/mediawiki/index.php/File:F15pin_d-sub_connector.jpg" class="internal" title="Enlarge"></a></div>15 Pin D-Sub Connector with Breakout Board.</div></div></div></div>
+<h5><span class="mw-headline" id="Procedure_for_Assembling_Cable">Procedure for Assembling Cable</span></h5>
+<ol><li>Cut 3 pieces of wire, each the same length (about 3 ft should be sufficient).</li>
+<li>Strip the ends of these pieces of wire, leaving about a quarter-inch of wire exposed.</li>
+<li>Start with the D-Sub connector. Connect each of the pins in <i>gTRIGbox Output</i> column of the table above to its own piece of wire.</li>
+<li>Solder the other ends of each of these wires to its appropriate location, as defined in the table above, on the g.USBamp digital I/O connector.</li>
+<li>If you also want to measure amplifier latency, strip and solder a piece of wire between pins 1 and 5 on the g.USBamp digital I/O connector.</li>
+<li>When assembling the digital I/O connector, it may be helpful to insulate the wires from the casing using either a piece of black electrical tape or an insulating gel, like silicone. If a gel is used, be sure to let it set for several hours or overnight. It is also probably a good idea to check the electrical connection with a multimeter prior to insulating.</li>
+<li>Next, attach the rubber sleeve over the end of the part with the female threads, as shown in the panel.</li>
+<li>Slide the smaller metal sleeve over the wires, then slide the larger rubber sleeve over the wires.</li></ol>
+<h4><span class="mw-headline" id="Analog_Configuration">Analog Configuration</span></h4>
+<p>The analog configuration uses the analog inputs on the front on the amplifier to measure latency. To also measure the amplifier latency you will need a specific g.tec connector. 
+Parts list to make analog cable to measure system latency: 
+</p>
+<ol><li>One 15 pin D-Sub Type Female Connector</li>
+<li>Five Safety Connector Wires (to USB amplifier input)</li></ol>
+<p>If you also want to measure amplifier latency, you will also need:
+</p>
+<ol><li>One 7 pin Digital Pin Connector from g.tec</li>
+<li>One Additional Safety Connector Wire (to USB amplifier input)</li>
+<li>Two resistors for Voltage Divider</li>
+<li>Soldering Iron and Solder</li></ol>
+<p>If you use the D-Sub connector with a breakout board and do not want to measure amplifier latency, you will not need to do any soldering, making assembly quite easy. Below is a table of what pin connections must be made. The wiring diagram above provides a guide for what pins need to be connected. 
+</p>
+<h5><span class="mw-headline" id="Procedure_for_Assembling_Cable_2">Procedure for Assembling Cable</span></h5>
+<ol><li>Strip the ends of five wires with safety connectors at one end, leaving a quarter-inch exposed (if you want to measure amplifier latency, strip one additional wire).</li>
+<li>Start with the D-Sub connector. Connect each of the pins as shown in the connector schematic to its own piece of safety connector wire.</li>
+<li>If you also want to measure amplifier latency, a voltage divider is necessary to bring the 5V output at the gUSBamp's digital output at pin 5 down to a voltage less than 250mV (the max input range on the gUSBamp's analog inputs). Selecting a <img class="mwe-math-fallback-image-inline tex" alt="R_1" src="../images/math/b/e/4/be473692ca1cbc48985e5e93af6755bf.png" /> and <img class="mwe-math-fallback-image-inline tex" alt="R_2" src="../images/math/2/0/9/2091903a94ea18141c35943959df7409.png" /> such that the following equation is satisfied would result in a 100mV signal at the analog inputs:</li></ol>
+<p><img class="mwe-math-fallback-image-inline tex" alt="0.02 = \frac{R_2}{R_1+R_2}" src="../images/math/1/e/5/1e52557e59c288ce4abfc2a9ff0d18b1.png" />
+</p>
+<ol><li>Assemble this voltage divider by soldering the resistors, pin 5 on the digital I/O, and additional safety connector together as detailed in the connectors schematic. You can also use a bread board to avoid soldering.</li>
+<li>When assembling the digital I/O connector, it may be helpful to insulate the wires from the casing using either a piece of black electrical tape or an insulating gel, like silicone. If a gel is used, be sure to let it set for several hours or overnight. It is also probably a good idea to check the electrical connection with a multimeter prior to insulating.</li>
+<li>Next, attach the rubber sleeve over the end of the part with the female threads, as shown in the panel.</li>
+<li>Slide the smaller metal sleeve over the wires, then slide the larger rubber sleeve over the wires.</li></ol>
+<h2><span class="mw-headline" id="Troubleshooting">Troubleshooting</span></h2>
+<p>Things to watch out for:
+</p>
+<ul><li>Parameter files for gUSBamp with channels greater than 16 have pre-defined amplifier IDs.  Please set these to your amplifier IDs.</li>
+<li>BCI2000Certification runs BCI2000 applications from the working directory: <tt>C:\BCI2000\tools\BCI2000Certification</tt>. The images folder there doesn't contain all required images for <tt>CursorTask</tt> or a sounds folder for "StimulusPresentation".  If necessary, paste the images and sounds folder from the <tt>BCI2000/prog</tt> directory into the <tt>BCI2000/tools/BCI2000Certification</tt> directory - overwriting what is currently in that directory.</li></ul>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Reference%253AModule_Command_Line_Options.html" title="User Reference:Module Command Line Options">User Reference:Module Command Line Options</a>, <a href="User_Reference%253AOperator_Module.html" title="User Reference:Operator Module">User Reference:Operator Module</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230523222246
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.086 seconds
+Real time usage: 0.098 seconds
+Preprocessor visited node count: 132/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 762/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1736-0!canonical!math=0 and timestamp 20230523222246 and revision id 8818
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=User_Reference:BCI2000Certification&amp;oldid=8818">http://www.bci2000.org/mediawiki/index.php?title=User_Reference:BCI2000Certification&amp;oldid=8818</a>"</div>
+ </div>
+</body>
+</html>

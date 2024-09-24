@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Programming Reference:ComplexVisualizationDemo Signal Processing - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul><li class="toc1">Concepts</li><ul><li class="toc2"><a href="Programming_Reference%253AFilter_Chain.html">Filter Chain</a></li><li class="toc2"><a href="Programming_Reference%253ASignals.html">Signals</a></li><li class="toc2"><a href="Programming_Reference%253AError_Handling.html">Error Handling</a></li><li class="toc2"><a href="Programming_Reference%253ALocalization.html">Localization</a></li><li class="toc2"><a href="Programming_Reference%253ARapid_Development.html">Rapid Development</a></li></ul><li class="toc1">Reference</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFilter_Class.html">GenericFilter</a></li><li class="toc2"><a href="Programming_Reference%253AEnvironment_Class.html">Environment</a></li><li class="toc2"><a href="Programming_Reference%253AGenericVisualization_Class.html">GenericVisualization</a></li><li class="toc2"><a href="Programming_Reference%253AErrors_and_Warnings.html">Errors and Warnings</a></li><li class="toc2"><a href="Programming_Reference%253ADebug_Output.html">Debug Output</a></li></ul><li class="toc1">Data Acquisition</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericADC_Class.html">GenericADC</a></li></ul><li class="toc1">Data Storage</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFileWriter_Class.html">GenericFileWriter</a></li><li class="toc2"><a href="Programming_Reference%253ABCI2000FileReader_Class.html">BCI2000FileReader</a></li></ul><li class="toc1">Signal Processing</li><ul><li class="toc2"><a href="Programming_Reference%253AIIRFilterBase_Class.html">IIR Filters</a></li></ul><li class="toc1">Application Modules</li><ul><li class="toc2"><a href="Programming_Reference%253AApplicationBase_Class.html">ApplicationBase</a></li><li class="toc2"><a href="Programming_Reference%253AFeedbackTask_Class.html">FeedbackTask</a></li><li class="toc2"><a href="Programming_Reference%253AStimulusTask_Class.html">StimulusTask</a></li><li class="toc2"><a href="Programming_Reference%253A3D_API.html">3D API</a></li></ul><li class="toc1">Howtos</li><ul><li class="toc2"><a href="Programming_Howto%253ABuilding_BCI2000.html">Building BCI2000</a></li><li class="toc2"><a href="Programming_Howto%253ASVN_Client_Setup.html">SVN Client Setup</a></li><li class="toc2"><a href="Programming_Howto%253AUsing_TortoiseSVN.html">Using TortoiseSVN</a></li></ul><li class="toc1"><a href="Programming_FAQ.html">FAQ</a></li><li class="toc1">Tutorials</li><ul><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html">Data Acquisition</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html">Signal Processing</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html">Matlab Signal Processing</a></li></ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">ComplexVisualizationDemo Signal Processing</h1>
+ <p class = "subtitle">Programming Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Programming_Reference%253AComplexVisualizationDemo_Signal_Processing.html#Location"><span class="tocnumber">1</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Programming_Reference%253AComplexVisualizationDemo_Signal_Processing.html#Synopsis"><span class="tocnumber">2</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Programming_Reference%253AComplexVisualizationDemo_Signal_Processing.html#Inheritance"><span class="tocnumber">3</span> <span class="toctext">Inheritance</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="Programming_Reference%253AComplexVisualizationDemo_Signal_Processing.html#Function"><span class="tocnumber">4</span> <span class="toctext">Function</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="Programming_Reference%253AComplexVisualizationDemo_Signal_Processing.html#Implementation"><span class="tocnumber">5</span> <span class="toctext">Implementation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="Programming_Reference%253AComplexVisualizationDemo_Signal_Processing.html#Declaration_of_internal_variables"><span class="tocnumber">5.1</span> <span class="toctext">Declaration of internal variables</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="Programming_Reference%253AComplexVisualizationDemo_Signal_Processing.html#VisualizationObject::reset.28.29_and_VisualizationObject::update.28.29"><span class="tocnumber">5.2</span> <span class="toctext">VisualizationObject::reset() and VisualizationObject::update()</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="Programming_Reference%253AComplexVisualizationDemo_Signal_Processing.html#VisualizationObject::asyncReset.28.29"><span class="tocnumber">5.3</span> <span class="toctext">VisualizationObject::asyncReset()</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="Programming_Reference%253AComplexVisualizationDemo_Signal_Processing.html#VisualizationObject::asyncUpdate.28.29"><span class="tocnumber">5.4</span> <span class="toctext">VisualizationObject::asyncUpdate()</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="Programming_Reference%253AComplexVisualizationDemo_Signal_Processing.html#Process.28.29_function"><span class="tocnumber">5.5</span> <span class="toctext">Process() function</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="Programming_Reference%253AComplexVisualizationDemo_Signal_Processing.html#StartRun.28.29_and_StopRun.28.29"><span class="tocnumber">5.6</span> <span class="toctext">StartRun() and StopRun()</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="Programming_Reference%253AComplexVisualizationDemo_Signal_Processing.html#BCI2000_GraphDisplay_vs._QPainter_rendering"><span class="tocnumber">5.7</span> <span class="toctext">BCI2000 GraphDisplay vs. QPainter rendering</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-13"><a href="Programming_Reference%253AComplexVisualizationDemo_Signal_Processing.html#Parameters"><span class="tocnumber">6</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-14"><a href="Programming_Reference%253AComplexVisualizationDemo_Signal_Processing.html#VisImageWidth"><span class="tocnumber">6.1</span> <span class="toctext">VisImageWidth</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="Programming_Reference%253AComplexVisualizationDemo_Signal_Processing.html#VisImageHeight"><span class="tocnumber">6.2</span> <span class="toctext">VisImageHeight</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="Programming_Reference%253AComplexVisualizationDemo_Signal_Processing.html#VisImageBackground"><span class="tocnumber">6.3</span> <span class="toctext">VisImageBackground</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="Programming_Reference%253AComplexVisualizationDemo_Signal_Processing.html#VisImageDecimation"><span class="tocnumber">6.4</span> <span class="toctext">VisImageDecimation</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="Programming_Reference%253AComplexVisualizationDemo_Signal_Processing.html#VisMaxWindows"><span class="tocnumber">6.5</span> <span class="toctext">VisMaxWindows</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-19"><a href="Programming_Reference%253AComplexVisualizationDemo_Signal_Processing.html#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><tt>src/contrib/SignalProcessing/ComplexVisualizationDemo</tt>
+</p>
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>The <i>ComplexVisualizationDemo</i> signal processing module demonstrates how to send a large number of visualizations with arbitrary pixel content to the operator module. Two rendering methods are provided: Native Qt <i>QPainter</i>-based rendering, and BCI2000's own <i>GraphDisplay</i> based rendering.
+</p>
+<h2><span class="mw-headline" id="Inheritance">Inheritance</span></h2>
+<p>The <i>ComplexVisualizationDemoFilter</i> signal processing filter derives from <i>GenericFilter</i>.
+</p>
+<h2><span class="mw-headline" id="Function">Function</span></h2>
+<p>The <i>ComplexVisualizationDemoFilter</i> computes pairwise determination coefficients (squared correlation, <img class="mwe-math-fallback-image-inline tex" alt="r^2" src="../images/math/b/f/0/bf0e22b63959a3aae3c6c971f02227cb.png" /> values) between its input channels. Determination coefficients are visualized in form of pie charts, and pie charts are sent to the operator module as bitmap visualization data.
+</p><p>Operator visualization windows have no frames or title bars, and are arranged in form of a lower triangular matrix, with each window appearing at the place of its associated correlation matrix element:
+<a href="https://www.bci2000.org/mediawiki/index.php/File:ComplexVisualizationDemo.PNG" class="image"><img alt="ComplexVisualizationDemo.PNG" src="../images/d/d2/ComplexVisualizationDemo.PNG" decoding="async" width="409" height="412" /></a>
+</p>
+<h2><span class="mw-headline" id="Implementation">Implementation</span></h2>
+<p>Each visualization window is implemented as a <i>VisualizationObject</i> that contains a <i>BitmapVisualization</i> object, a <i>WorkerThread</i> object, and a <i>Computation</i> object. Whenever a new block of data arrives, computation is done for the individual window's pair of channels in the main thread. Then, visualization bitmap data are produced and sent to the operator module inside the worker thread, to avoid blocking the main thread. Inside the worker thread, the <i>BitmapVisualization's</i> <tt>SendDifferenceFrame()</tt> function is called to update the visualization display in the operator module.
+</p>
+<h3><span class="mw-headline" id="Declaration_of_internal_variables">Declaration of internal variables</span></h3>
+<p>The code example uses a pointer to an internal private <tt>struct</tt> to hide implementation details from the outer header file of the filter class (PIMPL idiom).
+</p><p>A <tt>VisualizationObject</tt> class is declared that contains all members necessary to draw
+to an individual visualization window, and a <tt>WorkerThread</tt> instance that runs code to send visualization data to the operator in a separate thread in order to avoid interference with the timing of the main BCI2000 thread.
+</p>
+<div class="mw-highlight mw-highlight-lang-cpp mw-content-ltr" dir="ltr"><pre><span></span><span class="k">struct</span> <span class="nc">ComplexVisualizationDemoFilter</span><span class="o">::</span><span class="n">Private</span>
+<span class="p">{</span>
+  <span class="n">RGBColor</span> <span class="n">mBackground</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">mHeight</span><span class="p">,</span> <span class="n">mWidth</span><span class="p">,</span> <span class="n">mDecimation</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">mDecimationCounter</span><span class="p">;</span>
+
+  <span class="k">class</span> <span class="nc">VisualizationObject</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">VisualizationObject</span><span class="o">*&gt;</span> <span class="n">mVisualizations</span><span class="p">;</span>
+
+  <span class="o">~</span><span class="n">Private</span><span class="p">()</span> <span class="p">{</span> <span class="n">destroyVisualizations</span><span class="p">();</span> <span class="p">}</span>
+  <span class="c1">// Creates visualization objects for pairs of channels.</span>
+  <span class="kt">void</span> <span class="n">createVisualizations</span><span class="p">(</span><span class="k">const</span> <span class="n">SignalProperties</span><span class="o">&amp;</span><span class="p">,</span> <span class="kt">int</span> <span class="n">maxWindows</span><span class="p">);</span>
+  <span class="c1">// Destroys all visualization objects.</span>
+  <span class="kt">void</span> <span class="nf">destroyVisualizations</span><span class="p">();</span>
+  <span class="c1">// Asynchronously sets visualizations to their initial state.</span>
+  <span class="kt">void</span> <span class="nf">resetVisualizations</span><span class="p">();</span>
+  <span class="c1">// Computes data values, and asynchronously updates visualization bitmaps.</span>
+  <span class="kt">void</span> <span class="nf">updateVisualizations</span><span class="p">(</span><span class="k">const</span> <span class="n">GenericSignal</span><span class="o">&amp;</span><span class="p">);</span>
+  <span class="c1">// Waits for asynchronous activity in all visualizations to terminate.</span>
+  <span class="kt">void</span> <span class="nf">waitForVisualizations</span><span class="p">();</span>
+
+  <span class="k">class</span> <span class="nc">VisualizationObject</span>
+  <span class="p">{</span>
+  <span class="k">public</span><span class="o">:</span>
+    <span class="n">VisualizationObject</span><span class="p">(</span><span class="k">const</span> <span class="n">Private</span><span class="o">*</span><span class="p">,</span> <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">visID</span><span class="p">);</span>
+    <span class="o">~</span><span class="n">VisualizationObject</span><span class="p">();</span>
+    <span class="kt">void</span> <span class="nf">setTitle</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="p">,</span> <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">info</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">);</span>
+    <span class="kt">void</span> <span class="nf">setPosition</span><span class="p">(</span><span class="k">const</span> <span class="n">GUI</span><span class="o">::</span><span class="n">Rect</span><span class="o">&amp;</span><span class="p">);</span>
+    <span class="kt">void</span> <span class="nf">reset</span><span class="p">();</span>
+    <span class="kt">void</span> <span class="nf">update</span><span class="p">(</span><span class="k">const</span> <span class="n">GenericSignal</span><span class="o">&amp;</span><span class="p">);</span>
+    <span class="kt">void</span> <span class="nf">wait</span><span class="p">();</span>
+
+    <span class="k">struct</span> <span class="nc">Computation</span>
+    <span class="p">{</span>
+      <span class="kt">int</span> <span class="n">inputCh1</span><span class="p">,</span> <span class="n">inputCh2</span><span class="p">;</span>
+      <span class="kt">double</span> <span class="n">result</span><span class="p">;</span>
+      <span class="c1">// run() is called whenever a new signal arrives.</span>
+      <span class="kt">void</span> <span class="nf">run</span><span class="p">(</span><span class="k">const</span> <span class="n">GenericSignal</span><span class="o">&amp;</span><span class="p">);</span>
+    <span class="p">}</span> <span class="n">mComputation</span><span class="p">;</span>
+
+  <span class="k">private</span><span class="o">:</span>
+    <span class="kt">void</span> <span class="n">asyncReset</span><span class="p">();</span>
+    <span class="kt">void</span> <span class="nf">asyncUpdate</span><span class="p">();</span>
+
+    <span class="n">MemberCall</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="n">VisualizationObject</span><span class="o">*</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">mCallAsyncReset</span><span class="p">;</span>
+    <span class="n">MemberCall</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="n">VisualizationObject</span><span class="o">*</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">mCallAsyncUpdate</span><span class="p">;</span>
+
+    <span class="k">const</span> <span class="n">Private</span><span class="o">*</span> <span class="n">p</span><span class="p">;</span>
+    <span class="n">WorkerThread</span> <span class="n">mWorker</span><span class="p">;</span>
+    <span class="n">BitmapVisualization</span> <span class="n">mVis</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">mTitle</span><span class="p">,</span> <span class="n">mInfo</span><span class="p">;</span>
+    <span class="n">GUI</span><span class="o">::</span><span class="n">Rect</span> <span class="n">mPosition</span><span class="p">;</span>
+    <span class="n">GUI</span><span class="o">::</span><span class="n">GraphDisplay</span> <span class="n">mImage</span><span class="p">;</span>
+    <span class="n">PieShape</span><span class="o">*</span> <span class="n">mpShape</span><span class="p">;</span>
+    <span class="n">TextField</span><span class="o">*</span> <span class="n">mpValueField</span><span class="p">,</span> <span class="o">*</span><span class="n">mpInfoField</span><span class="p">;</span>
+  <span class="p">};</span>
+<span class="p">};</span>
+</pre></div>
+<h3><span id="VisualizationObject::reset()_and_VisualizationObject::update()"></span><span class="mw-headline" id="VisualizationObject::reset.28.29_and_VisualizationObject::update.28.29"><tt>VisualizationObject::reset()</tt> and <tt>VisualizationObject::update()</tt></span></h3>
+<p>These functions run <tt>VisualizationObject::asyncReset()</tt> and <tt>VisualizationObject::asyncUpdate()</tt> inside the object's worker thread in order to avoid interference with timing of the main BCI2000 thread.
+</p>
+<div class="mw-highlight mw-highlight-lang-cpp mw-content-ltr" dir="ltr"><pre><span></span><span class="kt">void</span>
+<span class="n">ComplexVisualizationDemoFilter</span><span class="o">::</span><span class="n">Private</span><span class="o">::</span><span class="n">VisualizationObject</span><span class="o">::</span><span class="n">reset</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">mWorker</span><span class="p">.</span><span class="n">Run</span><span class="p">(</span><span class="n">mCallAsyncReset</span><span class="p">))</span>
+    <span class="k">throw</span> <span class="n">bcierr</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;cannot initialize: worker is busy or dead&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span>
+<span class="n">ComplexVisualizationDemoFilter</span><span class="o">::</span><span class="n">Private</span><span class="o">::</span><span class="n">VisualizationObject</span><span class="o">::</span><span class="n">update</span><span class="p">(</span><span class="k">const</span> <span class="n">GenericSignal</span><span class="o">&amp;</span> <span class="n">Input</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">mComputation</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">Input</span><span class="p">);</span>
+  <span class="n">mWorker</span><span class="p">.</span><span class="n">Run</span><span class="p">(</span><span class="n">mCallAsyncUpdate</span><span class="p">);</span> <span class="c1">// will fail silently if worker still busy</span>
+<span class="p">}</span>
+</pre></div>
+<h3><span id="VisualizationObject::asyncReset()"></span><span class="mw-headline" id="VisualizationObject::asyncReset.28.29"><tt>VisualizationObject::asyncReset()</tt></span></h3>
+<p>This function resets the visualization window's position and size before sending an empty reference frame to the operator.
+</p>
+<div class="mw-highlight mw-highlight-lang-cpp mw-content-ltr" dir="ltr"><pre><span></span><span class="kt">void</span>
+<span class="n">ComplexVisualizationDemoFilter</span><span class="o">::</span><span class="n">Private</span><span class="o">::</span><span class="n">VisualizationObject</span><span class="o">::</span><span class="n">asyncReset</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">// reset position and size</span>
+  <span class="n">mVis</span><span class="p">.</span><span class="n">Send</span><span class="p">(</span><span class="n">CfgID</span><span class="o">::</span><span class="n">Left</span><span class="p">,</span> <span class="n">mPosition</span><span class="p">.</span><span class="n">left</span><span class="p">);</span>
+  <span class="n">mVis</span><span class="p">.</span><span class="n">Send</span><span class="p">(</span><span class="n">CfgID</span><span class="o">::</span><span class="n">Top</span><span class="p">,</span> <span class="n">mPosition</span><span class="p">.</span><span class="n">top</span><span class="p">);</span>
+  <span class="n">mVis</span><span class="p">.</span><span class="n">Send</span><span class="p">(</span><span class="n">CfgID</span><span class="o">::</span><span class="n">Width</span><span class="p">,</span> <span class="n">mPosition</span><span class="p">.</span><span class="n">Width</span><span class="p">());</span>
+  <span class="n">mVis</span><span class="p">.</span><span class="n">Send</span><span class="p">(</span><span class="n">CfgID</span><span class="o">::</span><span class="n">Height</span><span class="p">,</span> <span class="n">mPosition</span><span class="p">.</span><span class="n">Height</span><span class="p">());</span>
+  <span class="n">mVis</span><span class="p">.</span><span class="n">Send</span><span class="p">(</span><span class="n">CfgID</span><span class="o">::</span><span class="n">WindowTitle</span><span class="p">,</span> <span class="n">mTitle</span><span class="p">);</span>
+  <span class="c1">// setting CfgID::WindowFrame to false will hide the window&#39;s title bar and frame</span>
+  <span class="n">mVis</span><span class="p">.</span><span class="n">Send</span><span class="p">(</span><span class="n">CfgID</span><span class="o">::</span><span class="n">WindowFrame</span><span class="p">,</span> <span class="nb">false</span><span class="p">);</span>
+  <span class="n">mVis</span><span class="p">.</span><span class="n">Send</span><span class="p">(</span><span class="n">CfgID</span><span class="o">::</span><span class="n">Visible</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
+
+  <span class="c1">// paint an empty image</span>
+  <span class="n">mpInfoField</span><span class="o">-&gt;</span><span class="n">SetText</span><span class="p">(</span><span class="n">mInfo</span><span class="p">);</span>
+  <span class="n">mpInfoField</span><span class="o">-&gt;</span><span class="n">SetVisible</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+  <span class="n">mpValueField</span><span class="o">-&gt;</span><span class="n">SetVisible</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+  <span class="n">mpShape</span><span class="o">-&gt;</span><span class="n">SetVisible</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+  <span class="n">mImage</span><span class="p">.</span><span class="n">SetColor</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">mBackground</span><span class="p">);</span>
+  <span class="n">mImage</span><span class="p">.</span><span class="n">Paint</span><span class="p">();</span>
+  <span class="n">mVis</span><span class="p">.</span><span class="n">SendReferenceFrame</span><span class="p">(</span><span class="n">mImage</span><span class="p">.</span><span class="n">BitmapData</span><span class="p">());</span>
+  <span class="n">mpShape</span><span class="o">-&gt;</span><span class="n">SetVisible</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+  <span class="n">mpValueField</span><span class="o">-&gt;</span><span class="n">SetVisible</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+  <span class="n">mpInfoField</span><span class="o">-&gt;</span><span class="n">SetVisible</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+<h3><span id="VisualizationObject::asyncUpdate()"></span><span class="mw-headline" id="VisualizationObject::asyncUpdate.28.29"><tt>VisualizationObject::asyncUpdate()</tt></span></h3>
+<p>The <tt>asyncUpdate()</tt> function gets the computation result from the computation object, and draws a pie shape with an angle that corresponds to the result. It then sends the resulting image to the operator module as a difference frame.
+</p>
+<div class="mw-highlight mw-highlight-lang-cpp mw-content-ltr" dir="ltr"><pre><span></span><span class="kt">void</span>
+<span class="n">ComplexVisualizationDemoFilter</span><span class="o">::</span><span class="n">Private</span><span class="o">::</span><span class="n">VisualizationObject</span><span class="o">::</span><span class="n">asyncUpdate</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="kt">double</span> <span class="n">value</span> <span class="o">=</span> <span class="n">mComputation</span><span class="p">.</span><span class="n">result</span><span class="p">;</span>
+
+  <span class="n">std</span><span class="o">::</span><span class="n">ostringstream</span> <span class="n">oss</span><span class="p">;</span>
+  <span class="n">oss</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">setprecision</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">fixed</span> <span class="o">&lt;&lt;</span> <span class="n">value</span><span class="p">;</span>
+  <span class="n">mpValueField</span><span class="o">-&gt;</span><span class="n">SetText</span><span class="p">(</span><span class="n">oss</span><span class="p">.</span><span class="n">str</span><span class="p">());</span>
+
+  <span class="c1">// Draw a pie shape that is full angle when value == 1, and that reduces to a line when value == 0.</span>
+  <span class="kt">float</span> <span class="n">angle</span> <span class="o">=</span> <span class="mi">270</span><span class="p">;</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">value</span> <span class="o">==</span> <span class="n">value</span><span class="p">)</span> <span class="c1">// not NaN</span>
+    <span class="n">angle</span> <span class="o">=</span> <span class="mi">360</span> <span class="o">*</span> <span class="n">value</span><span class="p">;</span>
+  <span class="n">mpShape</span><span class="o">-&gt;</span><span class="n">SetStartAngle</span><span class="p">(</span><span class="mi">180</span> <span class="o">-</span> <span class="n">angle</span><span class="o">/</span><span class="mi">2</span><span class="p">).</span><span class="n">SetEndAngle</span><span class="p">(</span><span class="mi">180</span> <span class="o">+</span> <span class="n">angle</span><span class="o">/</span><span class="mi">2</span><span class="p">);</span>
+  <span class="c1">// render the image</span>
+  <span class="n">mImage</span><span class="p">.</span><span class="n">Paint</span><span class="p">();</span>
+  <span class="c1">// send bitmap data to operator</span>
+  <span class="n">mVis</span><span class="p">.</span><span class="n">SendDifferenceFrame</span><span class="p">(</span><span class="n">mImage</span><span class="p">.</span><span class="n">BitmapData</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+<h3><span id="Process()_function"></span><span class="mw-headline" id="Process.28.29_function"><tt>Process()</tt> function</span></h3>
+<p>The <tt>Process()</tt> function handles the test of the decimation counter, and calls <tt>updateVisualizations()</tt> if necessary. <tt>updateVisualizations()</tt>, in turn, calls <tt>VisualizationObject::update()</tt> for each visualization object contained in <tt>mVisualizations</tt>.
+</p>
+<div class="mw-highlight mw-highlight-lang-cpp mw-content-ltr" dir="ltr"><pre><span></span><span class="kt">void</span> <span class="n">ComplexVisualizationDemoFilter</span><span class="o">::</span><span class="n">Process</span><span class="p">(</span>
+  <span class="k">const</span> <span class="n">GenericSignal</span><span class="o">&amp;</span> <span class="n">Input</span><span class="p">,</span>
+        <span class="n">GenericSignal</span><span class="o">&amp;</span> <span class="n">Output</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">Output</span> <span class="o">=</span> <span class="n">Input</span><span class="p">;</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">mDecimationCounter</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">p</span><span class="o">-&gt;</span><span class="n">updateVisualizations</span><span class="p">(</span><span class="n">Input</span><span class="p">);</span>
+  <span class="o">++</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">mDecimationCounter</span> <span class="o">%=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">mDecimation</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+<h3><span id="StartRun()_and_StopRun()"></span><span class="mw-headline" id="StartRun.28.29_and_StopRun.28.29"><tt>StartRun()</tt> and <tt>StopRun()</tt></span></h3>
+<p>These reset the decimation counter, and indirectly call <tt>VisualizationObject::reset()</tt>.
+The <tt>waitForVisualizations()</tt> function in <tt>StartRun()</tt> waits for all <tt>WorkerThread</tt> tasks to complete before actually re-starting visualization activity.
+</p>
+<div class="mw-highlight mw-highlight-lang-cpp mw-content-ltr" dir="ltr"><pre><span></span><span class="kt">void</span> <span class="n">ComplexVisualizationDemoFilter</span><span class="o">::</span><span class="n">StartRun</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">p</span><span class="o">-&gt;</span><span class="n">mDecimationCounter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="n">p</span><span class="o">-&gt;</span><span class="n">waitForVisualizations</span><span class="p">();</span>
+  <span class="n">p</span><span class="o">-&gt;</span><span class="n">resetVisualizations</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">ComplexVisualizationDemoFilter</span><span class="o">::</span><span class="n">StopRun</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">p</span><span class="o">-&gt;</span><span class="n">waitForVisualizations</span><span class="p">();</span>
+  <span class="n">p</span><span class="o">-&gt;</span><span class="n">resetVisualizations</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+<h3><span class="mw-headline" id="BCI2000_GraphDisplay_vs._QPainter_rendering">BCI2000 GraphDisplay vs. QPainter rendering</span></h3>
+<p>The code presented here is using the BCI2000 <a href="Programming_Reference%253AGraphDisplay_Class.html" title="Programming Reference:GraphDisplay Class"><tt>GraphDisplay</tt></a> class.
+</p><p><a href="Programming_Reference%253AGraphDisplay_Class.html" title="Programming Reference:GraphDisplay Class"><tt>GraphDisplay</tt></a> is a layer of abstraction that allows to render shapes and text objects into
+a normalized coordinate system.
+Code that uses <a href="Programming_Reference%253AGraphDisplay_Class.html" title="Programming Reference:GraphDisplay Class"><tt>GraphDisplay</tt></a> is most likely to survive breaking changes in the
+drawing backend (currently Qt) and BCI2000 dependencies.
+</p><p>In contrast, <tt>QPainter</tt>-based rendering provides access to more complex drawing functions
+but suffers from a limitation in Qt which makes text rendering impossible outside
+the main GUI thread.
+</p><p>In the <i>ComplexVisualizationDemo</i> source code, <tt>QPainter</tt>-based rendering is available through a compiler switch.
+</p>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<h3><span class="mw-headline" id="VisImageWidth">VisImageWidth</span></h3>
+<p>Native image width in pixels.
+</p>
+<h3><span class="mw-headline" id="VisImageHeight">VisImageHeight</span></h3>
+<p>Native image height in pixels.
+</p>
+<h3><span class="mw-headline" id="VisImageBackground">VisImageBackground</span></h3>
+<p>The images' background color, in hexadecimal notation.
+</p>
+<h3><span class="mw-headline" id="VisImageDecimation">VisImageDecimation</span></h3>
+<p>A positive integer that indicates how often images are refreshed. 1 means refresh on every signal packet.
+</p>
+<h3><span class="mw-headline" id="VisMaxWindows">VisMaxWindows</span></h3>
+<p>The maximum number of visualization windows created, or <i>0</i> for any number of windows.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Programming_Reference%253AGraphDisplay_Class.html" title="Programming Reference:GraphDisplay Class">Programming Reference:GraphDisplay Class</a>, <a href="Programming_Reference%253AGenericVisualization_Class.html" title="Programming Reference:GenericVisualization Class">Programming Reference:GenericVisualization Class</a>, <a href="Programming_Reference%253AVisualizationDemo_Signal_Processing.html" title="Programming Reference:VisualizationDemo Signal Processing">Programming Reference:VisualizationDemo Signal Processing</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524175541
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.059 seconds
+Real time usage: 0.064 seconds
+Preprocessor visited node count: 95/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 19211/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2229-0!canonical!math=0 and timestamp 20230524175541 and revision id 9731
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:ComplexVisualizationDemo_Signal_Processing&amp;oldid=9731">http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:ComplexVisualizationDemo_Signal_Processing&amp;oldid=9731</a>"</div>
+ </div>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>User Reference:gUnicornADC - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul><li class="toc1"><a href="User_Reference%253AOperator_Module.html">Operator Module</a></li><li class="toc1"><a href="User_Reference%253AOperator_Module_Scripting.html">Operator Scripting</a></li><li class="toc1"><a href="User_Reference%253AModule_Command_Line_Options.html">Module Command Line Options</a></li><li class="toc1"><a href="User_Reference%253AData_File_Formats.html">Data File Formats</a></li><li class="toc1"><a href="User_Reference%253AFilters.html">Configuration Guide</a></li><li class="toc1"><a href="User_FAQ.html">FAQ</a></li><li class="toc1">Applications</li><ul><li class="toc2"><a href="User_Reference%253ACursorTask.html">Cursor Task</a></li><li class="toc2"><a href="User_Reference%253AP3SpellerTask.html">P3Speller Task</a></li><li class="toc2"><a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:StimulusPresentation">Stimulus Presentation</a></li></ul><li class="toc1">Tools</li><ul><li class="toc2"><a href="User_Reference%253ABCI2000Certification.html">BCI2000Certification</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Launcher.html">BCI2000Launcher</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Viewer.html">BCI2000Viewer</a></li><li class="toc2"><a href="User_Reference%253ABCI2000FileInfo.html">BCI2000FileInfo</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Export.html">BCI2000Export</a></li><li class="toc2"><a href="User_Reference%253ABCI2000_Offline_Analysis.html">BCI2000 Offline Analysis</a></li><li class="toc2"><a href="User_Reference%253AEloc_Helper.html">Eloc Helper</a></li><li class="toc2"><a href="User_Reference%253AEEGLabImport.html">EEGLabImport</a></li><li class="toc2"><a href="User_Reference%253AMatlab_Tools.html">Matlab Tools</a></li><li class="toc2"><a href="User_Reference%253AMatlab_MEX_Files.html">Matlab MEX Files</a></li><li class="toc2"><a href="User_Reference%253ACommand_Line_Processing.html">Command Line Processing</a></li></ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">gUnicornADC</h1>
+ <p class = "subtitle">User Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="User_Reference%253AgUnicornADC.html#Function"><span class="tocnumber">1</span> <span class="toctext">Function</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="User_Reference%253AgUnicornADC.html#Unicorn_Hardware"><span class="tocnumber">1.1</span> <span class="toctext">Unicorn Hardware</span></a>
+<ul>
+<li class="toclevel-3 tocsection-3"><a href="User_Reference%253AgUnicornADC.html#Drivers"><span class="tocnumber">1.1.1</span> <span class="toctext">Drivers</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-4"><a href="User_Reference%253AgUnicornADC.html#Parameters"><span class="tocnumber">2</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="User_Reference%253AgUnicornADC.html#SampleBlockSize"><span class="tocnumber">2.1</span> <span class="toctext">SampleBlockSize</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="User_Reference%253AgUnicornADC.html#SamplingRate"><span class="tocnumber">2.2</span> <span class="toctext">SamplingRate</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="User_Reference%253AgUnicornADC.html#SourceCh"><span class="tocnumber">2.3</span> <span class="toctext">SourceCh</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="User_Reference%253AgUnicornADC.html#SourceChList"><span class="tocnumber">2.4</span> <span class="toctext">SourceChList</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="User_Reference%253AgUnicornADC.html#SourceChGain"><span class="tocnumber">2.5</span> <span class="toctext">SourceChGain</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="User_Reference%253AgUnicornADC.html#SourceChOffset"><span class="tocnumber">2.6</span> <span class="toctext">SourceChOffset</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="User_Reference%253AgUnicornADC.html#ChannelNames"><span class="tocnumber">2.7</span> <span class="toctext">ChannelNames</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="User_Reference%253AgUnicornADC.html#States"><span class="tocnumber">3</span> <span class="toctext">States</span></a>
+<ul>
+<li class="toclevel-2 tocsection-13"><a href="User_Reference%253AgUnicornADC.html#Counter"><span class="tocnumber">3.1</span> <span class="toctext">Counter</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="User_Reference%253AgUnicornADC.html#AccelerationX"><span class="tocnumber">3.2</span> <span class="toctext">AccelerationX</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="User_Reference%253AgUnicornADC.html#AccelerationY"><span class="tocnumber">3.3</span> <span class="toctext">AccelerationY</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="User_Reference%253AgUnicornADC.html#AccelerationZ"><span class="tocnumber">3.4</span> <span class="toctext">AccelerationZ</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="User_Reference%253AgUnicornADC.html#GyroscopeX"><span class="tocnumber">3.5</span> <span class="toctext">GyroscopeX</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="User_Reference%253AgUnicornADC.html#GyroscopeY"><span class="tocnumber">3.6</span> <span class="toctext">GyroscopeY</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="User_Reference%253AgUnicornADC.html#GyroscopeZ"><span class="tocnumber">3.7</span> <span class="toctext">GyroscopeZ</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="User_Reference%253AgUnicornADC.html#Battery"><span class="tocnumber">3.8</span> <span class="toctext">Battery</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="User_Reference%253AgUnicornADC.html#Validation"><span class="tocnumber">3.9</span> <span class="toctext">Validation</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-22"><a href="User_Reference%253AgUnicornADC.html#See_also"><span class="tocnumber">4</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Function">Function</span></h2>
+<p>The gUSBampADC filter acquires data from a Unicorn EEG amplifier. Unicorn is an amplifier/digitizer combination from g.tec medical engineering GmbH/Guger Technologies OEG (<a rel="nofollow" class="external free" href="https://www.unicorn-bi.com/">https://www.unicorn-bi.com/</a>).
+</p>
+<h3><span class="mw-headline" id="Unicorn_Hardware">Unicorn Hardware</span></h3>
+<p>The Unicorn consists of 8 independent 24-bit A/D converters that sample with 250Hz per channel. In addition, the Unicorn features a 3-axis accelerometer and a 3-axis gyroscope. The data is transmitted wirelessly via a Bluetooth 2.1 interface. Since the Unicorn device itself does not offer hardware filters the <a href="User_Reference%253ASourceFilter.html" title="User Reference:SourceFilter"> Source Filter</a> module is enabled to provide filtering capabilities.
+</p><p><br />
+</p>
+<h4><span class="mw-headline" id="Drivers">Drivers</span></h4>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<h3><span class="mw-headline" id="SampleBlockSize">SampleBlockSize</span></h3>
+<p>Samples per channel per digitized block. 
+Together with the sampling rate, this parameter determines how often per second data are collected, processed, and feedback is updated. For example, at 600 Hz sampling and a SampleBlockSize of 20, the system (e.g., source signal display, signal processing, and stimulus presentation) would be updated 30 times per second.
+</p>
+<h3><span class="mw-headline" id="SamplingRate">SamplingRate</span></h3>
+<p>The Unicorn has a fixed sampling rate of 250 Hz.
+</p>
+<h3><span class="mw-headline" id="SourceCh">SourceCh</span></h3>
+<p>Number of channels to be acquired from the device. if this parameter is set to auto, the number of channels will be determined by the <i>SourceChannelList</i> or <i>ChannelNames</i> respectively.
+</p>
+<h3><span class="mw-headline" id="SourceChList">SourceChList</span></h3>
+<p>The list of channels that should be acquired from each device.
+The total number of channels listed should correspond to <i>SourceCh</i> if it is not set to auto. The order of channels does not matter; i.e., '1 2 3 4' is the same as '2 3 1 4'.
+Channels may not be listed twice; e.g., entering '1 2 3 4 5 6 7 1' will result in an error.
+If this parameter is set to auto, the channels are equal to <i>SourceCh</i> in ascending order.
+</p>
+<h3><span class="mw-headline" id="SourceChGain">SourceChGain</span></h3>
+<p><i>SourceChGain</i> should be set to auto.
+</p>
+<h3><span class="mw-headline" id="SourceChOffset">SourceChOffset</span></h3>
+<p><i>SourceChOffset</i> should be set to auto.
+</p>
+<h3><span class="mw-headline" id="ChannelNames">ChannelNames</span></h3>
+<p>Alias for each Channel. If <i>ChannelNames</i> are set to auto, the names will be set according to the standard positions defined by the Unicorn. If <i>ChannelNames</i> are set manually, a name must be assigned for each channel specified in <i>SourceChannelList</i>.
+</p>
+<h2><span class="mw-headline" id="States">States</span></h2>
+<h3><span class="mw-headline" id="Counter">Counter</span></h3>
+<p>The Counter is incremented with every received sample during data acquisition.
+</p>
+<h3><span class="mw-headline" id="AccelerationX">AccelerationX</span></h3>
+<p>X coordinate of the three-axis accelerometer.
+</p>
+<h3><span class="mw-headline" id="AccelerationY">AccelerationY</span></h3>
+<p>Y coordinate of the three-axis accelerometer.
+</p>
+<h3><span class="mw-headline" id="AccelerationZ">AccelerationZ</span></h3>
+<p>Z coordinate of the three-axis accelerometer.
+</p>
+<h3><span class="mw-headline" id="GyroscopeX">GyroscopeX</span></h3>
+<p>X coordinate of the three-axis gyroscope.
+</p>
+<h3><span class="mw-headline" id="GyroscopeY">GyroscopeY</span></h3>
+<p>Y coordinate of the three-axis gyroscope.
+</p>
+<h3><span class="mw-headline" id="GyroscopeZ">GyroscopeZ</span></h3>
+<p>Z coordinate of the three-axis gyroscope.
+</p>
+<h3><span class="mw-headline" id="Battery">Battery</span></h3>
+<p>Battery charge in percent.
+</p>
+<h3><span class="mw-headline" id="Validation">Validation</span></h3>
+<p>The validation state indicates if samples were lost during data acquisition.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Reference%253ADataIOFilter.html" title="User Reference:DataIOFilter">User Reference:DataIOFilter</a>, <a href="Programming_Reference%253AGenericADC_Class.html" title="Programming Reference:GenericADC Class">Programming Reference:GenericADC Class</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20220608160917
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.017 seconds
+Real time usage: 0.027 seconds
+Preprocessor visited node count: 66/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2225-0!canonical and timestamp 20220608160917 and revision id 8111
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=User_Reference:gUnicornADC&amp;oldid=8111">http://www.bci2000.org/mediawiki/index.php?title=User_Reference:gUnicornADC&amp;oldid=8111</a>"</div>
+ </div>
+</body>
+</html>

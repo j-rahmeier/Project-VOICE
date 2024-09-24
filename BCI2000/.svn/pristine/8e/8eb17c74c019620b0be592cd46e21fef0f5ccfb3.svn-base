@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Programming Howto:Using TortoiseSVN - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul><li class="toc1">Concepts</li><ul><li class="toc2"><a href="Programming_Reference%253AFilter_Chain.html">Filter Chain</a></li><li class="toc2"><a href="Programming_Reference%253ASignals.html">Signals</a></li><li class="toc2"><a href="Programming_Reference%253AError_Handling.html">Error Handling</a></li><li class="toc2"><a href="Programming_Reference%253ALocalization.html">Localization</a></li><li class="toc2"><a href="Programming_Reference%253ARapid_Development.html">Rapid Development</a></li></ul><li class="toc1">Reference</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFilter_Class.html">GenericFilter</a></li><li class="toc2"><a href="Programming_Reference%253AEnvironment_Class.html">Environment</a></li><li class="toc2"><a href="Programming_Reference%253AGenericVisualization_Class.html">GenericVisualization</a></li><li class="toc2"><a href="Programming_Reference%253AErrors_and_Warnings.html">Errors and Warnings</a></li><li class="toc2"><a href="Programming_Reference%253ADebug_Output.html">Debug Output</a></li></ul><li class="toc1">Data Acquisition</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericADC_Class.html">GenericADC</a></li></ul><li class="toc1">Data Storage</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFileWriter_Class.html">GenericFileWriter</a></li><li class="toc2"><a href="Programming_Reference%253ABCI2000FileReader_Class.html">BCI2000FileReader</a></li></ul><li class="toc1">Signal Processing</li><ul><li class="toc2"><a href="Programming_Reference%253AIIRFilterBase_Class.html">IIR Filters</a></li></ul><li class="toc1">Application Modules</li><ul><li class="toc2"><a href="Programming_Reference%253AApplicationBase_Class.html">ApplicationBase</a></li><li class="toc2"><a href="Programming_Reference%253AFeedbackTask_Class.html">FeedbackTask</a></li><li class="toc2"><a href="Programming_Reference%253AStimulusTask_Class.html">StimulusTask</a></li><li class="toc2"><a href="Programming_Reference%253A3D_API.html">3D API</a></li></ul><li class="toc1">Howtos</li><ul><li class="toc2"><a href="Programming_Howto%253ABuilding_BCI2000.html">Building BCI2000</a></li><li class="toc2"><a href="Programming_Howto%253ASVN_Client_Setup.html">SVN Client Setup</a></li><li class="toc2">Using TortoiseSVN</li></ul><li class="toc1"><a href="Programming_FAQ.html">FAQ</a></li><li class="toc1">Tutorials</li><ul><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html">Data Acquisition</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html">Signal Processing</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html">Matlab Signal Processing</a></li></ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">Using TortoiseSVN</h1>
+ <p class = "subtitle">Programming Howto</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Programming_Howto%253AUsing_TortoiseSVN.html#Using_TortoiseSVN_for_Day-to-Day_Tasks"><span class="tocnumber">1</span> <span class="toctext">Using TortoiseSVN for Day-to-Day Tasks</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="Programming_Howto%253AUsing_TortoiseSVN.html#Updating_to_the_latest_version_of_the_BCI2000_project"><span class="tocnumber">1.1</span> <span class="toctext">Updating to the latest version of the BCI2000 project</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="Programming_Howto%253AUsing_TortoiseSVN.html#Caveats"><span class="tocnumber">1.2</span> <span class="toctext">Caveats</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="Programming_Howto%253AUsing_TortoiseSVN.html#Committing_.28i.e..2C_writing_back.29_changes_you_made"><span class="tocnumber">1.3</span> <span class="toctext">Committing (i.e., writing back) changes you made</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Programming_Howto%253AUsing_TortoiseSVN.html#Adding_new_files"><span class="tocnumber">1.4</span> <span class="toctext">Adding new files</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="Programming_Howto%253AUsing_TortoiseSVN.html#Comparison_with_other_Versioning_Software"><span class="tocnumber">2</span> <span class="toctext">Comparison with other Versioning Software</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="Programming_Howto%253AUsing_TortoiseSVN.html#TortoiseSVN_vs._MS_VisualSourceSafe"><span class="tocnumber">2.1</span> <span class="toctext">TortoiseSVN vs. MS VisualSourceSafe</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="Programming_Howto%253AUsing_TortoiseSVN.html#SVN_vs._CVS"><span class="tocnumber">2.2</span> <span class="toctext">SVN vs. CVS</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-9"><a href="Programming_Howto%253AUsing_TortoiseSVN.html#See_also"><span class="tocnumber">3</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Using_TortoiseSVN_for_Day-to-Day_Tasks">Using TortoiseSVN for Day-to-Day Tasks</span></h2>
+<h3><span class="mw-headline" id="Updating_to_the_latest_version_of_the_BCI2000_project">Updating to the latest version of the BCI2000 project</span></h3>
+<p>Once you set up client access as described on the <a href="Programming_Howto%253ASVN_Client_Setup.html" title="Programming Howto:SVN Client Setup">Programming Howto:SVN Client Setup</a> page, 
+there will be
+a folder on your harddisk, probably named "BCI2000", and initially displayed with a
+green overlay icon. The green overlay icon indicates that all files below the
+folder are unchanged since they were checked out.
+To bring an existing BCI2000 source tree up to date, right-click the folder
+named "BCI2000", and choose "SVN Update" from the context menu. If you
+edited a file, and did not commit your changes, a SVN update operation will
+merge possible changes made to the server version into your file (but keeping
+your original version as a backup with a different name). If you prefer,
+you might consider doing a "commit" prior to an "update".
+</p>
+<h3><span class="mw-headline" id="Caveats">Caveats</span></h3>
+<ol><li><b>There is no indication</b> that someone <b>changed a file on the server</b> since the last time you downloaded it! Changes on the server will be unknown to your local SVN files unless you perform an "SVN update".</li>
+<li>An update will <b>not undo your local changes</b> but quietly merge them into the server version. To make sure that your local version is identical to the server version, do an "SVN Update" followed with a "Revert".</li>
+<li>The latest SVN revision of BCI2000 may be broken on some compilers, or may contain untested code. To obtain a stable version of the BCI2000 source code, you should check out the revision listed with the most recent binary distribution <a href="BCI2000_Binaries.html#Version_History" title="BCI2000 Binaries">on this page</a>.</li></ol>
+<h3><span id="Committing_(i.e.,_writing_back)_changes_you_made"></span><span class="mw-headline" id="Committing_.28i.e..2C_writing_back.29_changes_you_made">Committing (i.e., writing back) changes you made</span></h3>
+<p>If you edit a file on your local hard disk which is under SVN, TortoiseSVN
+will display it with a red overlay icon. This indicates that the file's content
+differs from the file as it was when you downloaded it from the
+SVN server. 
+</p><p>Once you consider your changes permanent, it is time to write the file
+back to the server. This process is called "committing changes" – to perform
+it on all files below a certain folder, right-click that folder, and choose "SVN
+Commit...". You will be presented a list of files below that folder from
+which you may exclude certain ones, or display a list of differences ("Compare with base") 
+to the version on the SVN server. 
+If you try to commit changes of files for which you don’t have write access, you will be prompted for a different user name and password repeatedly.
+Please contact an <a href="Administrator.html" class="mw-redirect" title="Administrator">administrator</a> if you think there is a problem with user rights.
+</p>
+<h3><span class="mw-headline" id="Adding_new_files">Adding new files</span></h3>
+<p>If there are new files inside your BCI2000 folder which TortoiseSVN does not
+know about, they will be displayed without an overlay icon. Those
+files or folders may be added to the BCI2000 source tree on the server by
+choosing "TortoiseSVN-&gt;Add..." from the context menu that appears after right-clicking the respective file or folder.
+Added files will be considered as empty on the server, and displayed with a
+red overlay icon, until you perform a "SVN Commit" on them. You will
+need write access to the respective area of the source tree in order to add
+files and folders.
+</p>
+<h2><span class="mw-headline" id="Comparison_with_other_Versioning_Software">Comparison with other Versioning Software</span></h2>
+<h3><span class="mw-headline" id="TortoiseSVN_vs._MS_VisualSourceSafe">TortoiseSVN vs. MS VisualSourceSafe</span></h3>
+<p>Although the SVN Server/TortoiseSVN combination serves the same purpose as MS
+VisualSourceSafe, there are two major differences that affect you as a user:
+</p>
+<ul><li>With TortoiseSVN, you directly operate on files that are <b>located on your own hard disk</b>, and you do so from a true Windows Explorer window, right clicking onto a file or folder and choosing the appropriate SVN operation from the context menu. With MS VisualSourceSafe, you use a Windows Explorer-like program window to operate on files located inside a database on a server.</li>
+<li>With MS VisualSourceSafe, files that were checked-out for editing were <b>blocked for changes</b> as far as other users were concerned. With SVN, there is no exclusive checking out of files. Instead, changes made by different users will be merged into to a combined version if the users' changes are independent of each other. If not, contradicting changes must be resolved manually (which is a quite rare condition in practice).</li></ul>
+<h3><span class="mw-headline" id="SVN_vs._CVS">SVN vs. CVS</span></h3>
+<p>SVN and CVS both follow a similar philosophy of non-exclusive editing of files, and a similar terminology. Thus, differences are minor (for a concise discussion, see <a rel="nofollow" class="external free" href="http://www.pushok.com/soft_svn_vscvs.php">http://www.pushok.com/soft_svn_vscvs.php</a>).
+Especially when switching from TortoiseCVS to TortoiseSVN, you will hardly notice any difference when it comes to everyday tasks.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Programming_Howto%253ASVN_Client_Setup.html" title="Programming Howto:SVN Client Setup">Programming Howto:SVN Client Setup</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524001207
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.014 seconds
+Real time usage: 0.016 seconds
+Preprocessor visited node count: 29/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1379-0!canonical and timestamp 20230524001207 and revision id 6298
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Programming_Howto:Using_TortoiseSVN&amp;oldid=6298">http://www.bci2000.org/mediawiki/index.php?title=Programming_Howto:Using_TortoiseSVN&amp;oldid=6298</a>"</div>
+ </div>
+</body>
+</html>

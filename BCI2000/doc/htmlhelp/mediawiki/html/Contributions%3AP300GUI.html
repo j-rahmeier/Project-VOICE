@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:P300GUI - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">P300GUI</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Contributions%253AP300GUI.html#Synopsis"><span class="tocnumber">1</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Contributions%253AP300GUI.html#Location"><span class="tocnumber">2</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Contributions%253AP300GUI.html#Versioning"><span class="tocnumber">3</span> <span class="toctext">Versioning</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Contributions%253AP300GUI.html#Author"><span class="tocnumber">3.1</span> <span class="toctext">Author</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Contributions%253AP300GUI.html#Version_History"><span class="tocnumber">3.2</span> <span class="toctext">Version History</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Contributions%253AP300GUI.html#Source_Code_Revisions"><span class="tocnumber">3.3</span> <span class="toctext">Source Code Revisions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="Contributions%253AP300GUI.html#Functional_Description"><span class="tocnumber">4</span> <span class="toctext">Functional Description</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="Contributions%253AP300GUI.html#Further_information"><span class="tocnumber">5</span> <span class="toctext">Further information</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="Contributions%253AP300GUI.html#See_also"><span class="tocnumber">6</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p><i>P300GUI</i> is a Matlab-based application that uses SWDA to optimize linear classifier weights for P300 detection.
+</p><p><b>Note:</b> The Matlab-based P300GUI tool is now outdated, and superseded by the standalone <a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:P300Classifier" title="User Reference:P300Classifier">P300Classifier tool</a>, which is part of the BCI2000 core distribution.
+</p>
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><a rel="nofollow" class="external free" href="http://www.bci2000.org/svn/tags/BCI2000.v2.1/src/contrib/Tools/P300GUI">http://www.bci2000.org/svn/tags/BCI2000.v2.1/src/contrib/Tools/P300GUI</a>
+</p>
+<h2><span class="mw-headline" id="Versioning">Versioning</span></h2>
+<h3><span class="mw-headline" id="Author">Author</span></h3>
+<p>Dean Krusienski
+</p><p>Assistant Professor<br />
+Electrical Engineering<br />
+University of North Florida
+</p><p>email: deankrusienski[at]ieee.org
+</p>
+<h3><span class="mw-headline" id="Version_History">Version History</span></h3>
+<ul><li>V2.0 09/30/05</li></ul>
+<dl><dd>Original Release</dd></dl>
+<ul><li>V2.01 11/07/05</li></ul>
+<dl><dd>Added 8 channel P300 montage</dd></dl>
+<ul><li>V2.02 12/15/05</li></ul>
+<dl><dd>Now able to plot averages with unequal numbers of sequences for testing</dd>
+<dd>Added channel number checks</dd></dl>
+<ul><li>V2.03 12/21/05</li></ul>
+<dl><dd>Changed to standard default analysis settings</dd>
+<dd>Made compatible with floating point (32) data</dd></dl>
+<ul><li>V2.04 12/23/05</li></ul>
+<dl><dd>Added warning for unequal train and test sampling rates</dd>
+<dd>Corrected target definition to be printed character</dd>
+<dd>Added classification of spaces (_) and printing of backspaces (&lt;)</dd>
+<dd>Updated to read latest BCI2000 header</dd></dl>
+<ul><li>V2.05 02/13/06</li></ul>
+<dl><dd>Now compatible with new target definition matrix</dd></dl>
+<ul><li>V2.051 02/17/06</li></ul>
+<dl><dd>Added fix for German characters - umlaut characters classified as standard characters</dd></dl>
+<ul><li>V2.052 02/21/06</li></ul>
+<dl><dd>Made data loading more memory efficient</dd></dl>
+<ul><li>V2.06 02/22/06</li></ul>
+<dl><dd>Added variable response window start point</dd>
+<dd>Implemented new function to load BCI2000 data</dd>
+<dd>Resized plot windows</dd></dl>
+<ul><li>V2.061 03/14/06</li></ul>
+<dl><dd>Corrected classification for non-square matrices</dd>
+<dd>Changed to save MUD prior to training classification</dd></dl>
+<ul><li>V2.07 03/15/06</li></ul>
+<dl><dd>Created a button to generate and save a BCI2000 parameter file fragment based on the selected MUD matrix</dd></dl>
+<ul><li>V2.08 03/30/06</li></ul>
+<dl><dd>Added Least Squares and Logistic Regression options</dd>
+<dd>Fixed problem with *.prm Software Chs.</dd>
+<dd>Removed MA window from interface (now uses same values as DF)</dd></dl>
+<ul><li>V2.09 04/12/06</li></ul>
+<dl><dd>Changed to compare row/column results rather than “Text to Spell’</dd>
+<dd>Encoded Online (“Free spelling”) data, assuming that the selected character is the target.</dd></dl>
+<ul><li>BCI2000 v2.0 Release 02/06/08</li></ul>
+<dl><dd>Updated to be compatible and fully functional with BCI2000 v2.0 P3Speller data, and backward compatible with previous versions.</dd>
+<dd>Symbol rate figure replaces the percent correct ribbon figure.</dd>
+<dd>Fixed CAR filter generation.</dd>
+<dd>This version has not been verified with P3AV data.</dd></dl>
+<h3><span class="mw-headline" id="Source_Code_Revisions">Source Code Revisions</span></h3>
+<ul><li>Initial development: 1098</li>
+<li>Tested under: 1142</li></ul>
+<h2><span class="mw-headline" id="Functional_Description">Functional Description</span></h2>
+<p>The P300 GUI (Graphical User Interface) can be used to train and test a linear classifier for
+detection of evoked potentials collected with BCI2000 and visualize the waveforms and
+classification results. It is designed for analysis of BCI2000 data collected using the
+P3Speller or P3AV paradigms. The program generates feature weights derived via various
+regression techniques. The specifics of the feature space and training routine can be
+manipulated using the GUI. The feature weights derived by the GUI can be saved and
+imported into BCI2000 as a parameter file fragment for online testing.
+The GUI is capable of performing several functions independently:
+</p>
+<ul><li>Classifier Training: generates feature weights from BCI2000 P3Speller or P3AV data files (classifier weights can be saved and imported into BCI2000)</li>
+<li>Classifier Testing: applies current or previously created feature weights to BCI2000 P3Speller or P3AV data files and compares the results</li>
+<li>Visualizing evoked potentials from BCI2000 P3Speller or P3AV data files</li></ul>
+<h2><span class="mw-headline" id="Further_information">Further information</span></h2>
+<p>For a detailed description and step-by-step introduction, see the <a href="P300_GUI_Guide.html" title="P300 GUI Guide"><i>P300 GUI User's Guide</i> document</a>.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Contributions%253ATools.html" title="Contributions:Tools">Contributions:Tools</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524040347
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.017 seconds
+Real time usage: 0.022 seconds
+Preprocessor visited node count: 33/1000000
+Post‐expand include size: 15/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1662-0!canonical and timestamp 20230524040347 and revision id 6473
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:P300GUI&amp;oldid=6473">http://www.bci2000.org/mediawiki/index.php?title=Contributions:P300GUI&amp;oldid=6473</a>"</div>
+ </div>
+</body>
+</html>

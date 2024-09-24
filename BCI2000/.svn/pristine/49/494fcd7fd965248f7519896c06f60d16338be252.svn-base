@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:actiCHamp - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">actiCHamp</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Contributions%253AactiCHamp.html#Synopsis"><span class="tocnumber">1</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Contributions%253AactiCHamp.html#Hardware_Quirks"><span class="tocnumber">2</span> <span class="toctext">Hardware Quirks</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Contributions%253AactiCHamp.html#Location"><span class="tocnumber">3</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="Contributions%253AactiCHamp.html#Versioning"><span class="tocnumber">4</span> <span class="toctext">Versioning</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="Contributions%253AactiCHamp.html#Authors"><span class="tocnumber">4.1</span> <span class="toctext">Authors</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Contributions%253AactiCHamp.html#Version_History"><span class="tocnumber">4.2</span> <span class="toctext">Version History</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="Contributions%253AactiCHamp.html#Source_Code_Revisions"><span class="tocnumber">4.3</span> <span class="toctext">Source Code Revisions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="Contributions%253AactiCHamp.html#Functional_Description"><span class="tocnumber">5</span> <span class="toctext">Functional Description</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="Contributions%253AactiCHamp.html#Installation"><span class="tocnumber">6</span> <span class="toctext">Installation</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="Contributions%253AactiCHamp.html#Parameters"><span class="tocnumber">7</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-11"><a href="Contributions%253AactiCHamp.html#SourceCh"><span class="tocnumber">7.1</span> <span class="toctext">SourceCh</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="Contributions%253AactiCHamp.html#SampleRate"><span class="tocnumber">7.2</span> <span class="toctext">SampleRate</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="Contributions%253AactiCHamp.html#SampleBlockSize"><span class="tocnumber">7.3</span> <span class="toctext">SampleBlockSize</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="Contributions%253AactiCHamp.html#SourceChOffset"><span class="tocnumber">7.4</span> <span class="toctext">SourceChOffset</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="Contributions%253AactiCHamp.html#SourceChGain"><span class="tocnumber">7.5</span> <span class="toctext">SourceChGain</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="Contributions%253AactiCHamp.html#actiCHampAmplifierID"><span class="tocnumber">7.6</span> <span class="toctext">actiCHampAmplifierID</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="Contributions%253AactiCHamp.html#AcquisitionMode"><span class="tocnumber">7.7</span> <span class="toctext">AcquisitionMode</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="Contributions%253AactiCHamp.html#ReferenceChannel"><span class="tocnumber">7.8</span> <span class="toctext">ReferenceChannel</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="Contributions%253AactiCHamp.html#EegChList"><span class="tocnumber">7.9</span> <span class="toctext">EegChList</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="Contributions%253AactiCHamp.html#AuxChList"><span class="tocnumber">7.10</span> <span class="toctext">AuxChList</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="Contributions%253AactiCHamp.html#TriggerChList"><span class="tocnumber">7.11</span> <span class="toctext">TriggerChList</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="Contributions%253AactiCHamp.html#ActiveShieldGain"><span class="tocnumber">7.12</span> <span class="toctext">ActiveShieldGain</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-23"><a href="Contributions%253AactiCHamp.html#See_also"><span class="tocnumber">8</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>actiCHamp is a modular amplifier from BrainVision products. This contributed module allows you to use the actiCHamp in BCI2000.
+</p>
+<h2><span class="mw-headline" id="Hardware_Quirks">Hardware Quirks</span></h2>
+<ul><li>The BrainVision PowerPack is a "dumb" battery. There is no way to get the mAh ratings off of it, thus there is no way to calculate the battery life in BCI2000. Therefore, <b>BCI2000 will not show the battery life for the BrainVision actiCHamp or warn you if the battery life is low.</b></li></ul>
+<ul><li>This ADC module only supports card modules on the BrainVision actiCHamp in order (for example if you have module cards in slots 1, 2 and 3) if you have cards in slots 1, 2, and 4, the module <b>WILL NOT WORK</b>, in fact such mode is currently <b>UNTESTED</b>.</li></ul>
+<ul><li>The BrainVision actiCHamp runs at frequencies lower than 10,000 Hz through decimation, some SampleRate/SampleBlockSize frequencies work better than others (ones that can be easily evenly divided). The actiCHamp will however stall and unsync if run under 64 Hz.</li></ul>
+<ul><li>The BrainVision actiCHamp does not have a dedicated ground/reference node like the g.USBamp or the g.HIamp. It only has a node that is supposed to act as a ground to the whole array, therefore in order to get intelligible data it is necessary to set the reference channel to the node closest to the ground signal node.</li></ul>
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><a rel="nofollow" class="external free" href="http://www.bci2000.org/svn/trunk/src/contrib/SignalSource/actiCHamp">http://www.bci2000.org/svn/trunk/src/contrib/SignalSource/actiCHamp</a>
+</p>
+<h2><span class="mw-headline" id="Versioning">Versioning</span></h2>
+<h3><span class="mw-headline" id="Authors">Authors</span></h3>
+<p>Paul Ignatenko (paul dot ignatenko at gmail dot com)
+</p>
+<h3><span class="mw-headline" id="Version_History">Version History</span></h3>
+<p><b>Version 1.0: January 2013 -- Revision 4363 (CURRENT)</b>
+</p>
+<ul><li>Supports monitoring of EEG, AUX, and Triggers</li>
+<li>Supports arbitrary number of EEG, AUX, and Triggers in lists.</li>
+<li>Supports impedance, normal, test, and ActiveShield modes.</li>
+<li>Library reference by any channel</li></ul>
+<p>Version 0.1: December 2012
+</p>
+<ul><li>Supports EEG Channels</li>
+<li>Supports AUX Channels</li>
+<li>Referencing by any channel</li></ul>
+<h3><span class="mw-headline" id="Source_Code_Revisions">Source Code Revisions</span></h3>
+<ul><li>Initial development: 4337</li>
+<li>Tested under: 4363</li>
+<li>Known to compile under: 4363</li>
+<li>Broken since: --</li></ul>
+<h2><span class="mw-headline" id="Functional_Description">Functional Description</span></h2>
+<p>Acquires EEG, AUX and Trigger Input data from the BrainVision actiCHamp.
+</p>
+<h2><span class="mw-headline" id="Installation">Installation</span></h2>
+<p>Compile the actiCHamp module using <a href="Programming_Reference%253ABuild_System.html#How_To_Build_Using_CMake" class="mw-redirect" title="Programming Reference:Build System">CMake and your compiler</a>.  The resulting actiCHampSource.exe should be placed in the prog directory automatically.
+</p>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<h3><span class="mw-headline" id="SourceCh">SourceCh</span></h3>
+<p>This represents the total number of channels to be logged from the source module. This must be equal to the total number of channels in EegChList, AuxChList, and TriggerChlist.
+</p>
+<h3><span class="mw-headline" id="SampleRate">SampleRate</span></h3>
+<p>Determines the rate at which the device samples data.
+</p>
+<h3><span class="mw-headline" id="SampleBlockSize">SampleBlockSize</span></h3>
+<p>Should be set equal to the size of the sample block to be pulled from the device. 
+</p>
+<h3><span class="mw-headline" id="SourceChOffset">SourceChOffset</span></h3>
+<p>This should be set to a list of "0"s -- one 0 for each channel as indicated by SourceCh, separated by spaces.
+</p>
+<h3><span class="mw-headline" id="SourceChGain">SourceChGain</span></h3>
+<p>The appropriate respective gain values for the EEG and AUX channel banks are hard-coded into the driver, so this should just be set to a list of "1"s -- one 1 for each channel as indicated by SourceCh, separated by spaces. 
+</p>
+<h3><span class="mw-headline" id="actiCHampAmplifierID">actiCHampAmplifierID</span></h3>
+<p>The ID of the amplifier to acquire signals from, amplifiers are enumerated by the library, 0 will work properly if you have only 1 amplifier installed.
+</p>
+<h3><span class="mw-headline" id="AcquisitionMode">AcquisitionMode</span></h3>
+<p>Is the mode in which to operate the device, 0 for normal signal acquisition, 1 for shielded signal acquisition, 3 for impedance values, 4 for a test square wave generated out of the GND channel.
+</p>
+<h3><span class="mw-headline" id="ReferenceChannel">ReferenceChannel</span></h3>
+<p>Use this value to automatically use a BCI channel as a reference (subtract that EEG channel from all others); use 0 to disable this.
+</p>
+<h3><span class="mw-headline" id="EegChList">EegChList</span></h3>
+<p>A list of (one-based) indices to the EEG channels to be acquired. These EEG channels appear first in the final ordering, before AUX and trigger channels.
+</p>
+<h3><span class="mw-headline" id="AuxChList">AuxChList</span></h3>
+<p>A list of indices (each in the range 1 through 8 inclusive) indicating which Auxiliary channels are to be acquired. Aux channels are postfixed immediately following the EEG channels.
+</p>
+<h3><span class="mw-headline" id="TriggerChList">TriggerChList</span></h3>
+<p>A list of indices (each in the range 1 through 16 inclusive) indicating which Trigger channels are to be acquired. Trigger channels are postfixed immediately following the Aux channels.
+</p>
+<h3><span class="mw-headline" id="ActiveShieldGain">ActiveShieldGain</span></h3>
+<p>The value you wish to set ActiveShieldGain to in ActiveShield mode, (1-100) inclusive.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Reference%253AFilters.html" title="User Reference:Filters">User Reference:Filters</a>, <a href="Contributions%253AADCs.html" title="Contributions:ADCs">Contributions:ADCs</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524060507
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.021 seconds
+Real time usage: 0.025 seconds
+Preprocessor visited node count: 72/1000000
+Post‐expand include size: 15/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2055-0!canonical and timestamp 20230524060507 and revision id 8525
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:actiCHamp&amp;oldid=8525">http://www.bci2000.org/mediawiki/index.php?title=Contributions:actiCHamp&amp;oldid=8525</a>"</div>
+ </div>
+</body>
+</html>

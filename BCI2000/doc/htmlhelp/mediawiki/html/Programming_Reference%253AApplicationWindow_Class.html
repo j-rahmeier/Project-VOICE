@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Programming Reference:ApplicationWindow Class - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul><li class="toc1">Concepts</li><ul><li class="toc2"><a href="Programming_Reference%253AFilter_Chain.html">Filter Chain</a></li><li class="toc2"><a href="Programming_Reference%253ASignals.html">Signals</a></li><li class="toc2"><a href="Programming_Reference%253AError_Handling.html">Error Handling</a></li><li class="toc2"><a href="Programming_Reference%253ALocalization.html">Localization</a></li><li class="toc2"><a href="Programming_Reference%253ARapid_Development.html">Rapid Development</a></li></ul><li class="toc1">Reference</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFilter_Class.html">GenericFilter</a></li><li class="toc2"><a href="Programming_Reference%253AEnvironment_Class.html">Environment</a></li><li class="toc2"><a href="Programming_Reference%253AGenericVisualization_Class.html">GenericVisualization</a></li><li class="toc2"><a href="Programming_Reference%253AErrors_and_Warnings.html">Errors and Warnings</a></li><li class="toc2"><a href="Programming_Reference%253ADebug_Output.html">Debug Output</a></li></ul><li class="toc1">Data Acquisition</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericADC_Class.html">GenericADC</a></li></ul><li class="toc1">Data Storage</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFileWriter_Class.html">GenericFileWriter</a></li><li class="toc2"><a href="Programming_Reference%253ABCI2000FileReader_Class.html">BCI2000FileReader</a></li></ul><li class="toc1">Signal Processing</li><ul><li class="toc2"><a href="Programming_Reference%253AIIRFilterBase_Class.html">IIR Filters</a></li></ul><li class="toc1">Application Modules</li><ul><li class="toc2"><a href="Programming_Reference%253AApplicationBase_Class.html">ApplicationBase</a></li><li class="toc2"><a href="Programming_Reference%253AFeedbackTask_Class.html">FeedbackTask</a></li><li class="toc2"><a href="Programming_Reference%253AStimulusTask_Class.html">StimulusTask</a></li><li class="toc2"><a href="Programming_Reference%253A3D_API.html">3D API</a></li></ul><li class="toc1">Howtos</li><ul><li class="toc2"><a href="Programming_Howto%253ABuilding_BCI2000.html">Building BCI2000</a></li><li class="toc2"><a href="Programming_Howto%253ASVN_Client_Setup.html">SVN Client Setup</a></li><li class="toc2"><a href="Programming_Howto%253AUsing_TortoiseSVN.html">Using TortoiseSVN</a></li></ul><li class="toc1"><a href="Programming_FAQ.html">FAQ</a></li><li class="toc1">Tutorials</li><ul><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html">Data Acquisition</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html">Signal Processing</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html">Matlab Signal Processing</a></li></ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">ApplicationWindow Class</h1>
+ <p class = "subtitle">Programming Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Programming_Reference%253AApplicationWindow_Class.html#Location"><span class="tocnumber">1</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Programming_Reference%253AApplicationWindow_Class.html#Synopsis"><span class="tocnumber">2</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Programming_Reference%253AApplicationWindow_Class.html#Usage"><span class="tocnumber">3</span> <span class="toctext">Usage</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="Programming_Reference%253AApplicationWindow_Class.html#Display_Parameterization_and_Visualization"><span class="tocnumber">4</span> <span class="toctext">Display Parameterization and Visualization</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="Programming_Reference%253AApplicationWindow_Class.html#Properties"><span class="tocnumber">5</span> <span class="toctext">Properties</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="Programming_Reference%253AApplicationWindow_Class.html#string_Name_.28r.29"><span class="tocnumber">5.1</span> <span class="toctext">string Name (r)</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="Programming_Reference%253AApplicationWindow_Class.html#string_VisualizationID_.28r.29"><span class="tocnumber">5.2</span> <span class="toctext">string VisualizationID (r)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="Programming_Reference%253AApplicationWindow_Class.html#Inheritance"><span class="tocnumber">6</span> <span class="toctext">Inheritance</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="Programming_Reference%253AApplicationWindow_Class.html#ApplicationWindowList_Class"><span class="tocnumber">7</span> <span class="toctext">ApplicationWindowList Class</span></a>
+<ul>
+<li class="toclevel-2 tocsection-10"><a href="Programming_Reference%253AApplicationWindow_Class.html#Methods"><span class="tocnumber">7.1</span> <span class="toctext">Methods</span></a>
+<ul>
+<li class="toclevel-3 tocsection-11"><a href="Programming_Reference%253AApplicationWindow_Class.html#ApplicationWindow.2A_operator.5B.5D.28_string_.29"><span class="tocnumber">7.1.1</span> <span class="toctext">ApplicationWindow* operator[]( string )</span></a></li>
+<li class="toclevel-3 tocsection-12"><a href="Programming_Reference%253AApplicationWindow_Class.html#bool_Exists.28_string_.29"><span class="tocnumber">7.1.2</span> <span class="toctext">bool Exists( string )</span></a></li>
+<li class="toclevel-3 tocsection-13"><a href="Programming_Reference%253AApplicationWindow_Class.html#ApplicationWindow.2A_operator.5B.5D.28_int_.29"><span class="tocnumber">7.1.3</span> <span class="toctext">ApplicationWindow* operator[]( int )</span></a></li>
+<li class="toclevel-3 tocsection-14"><a href="Programming_Reference%253AApplicationWindow_Class.html#int_Size.28.29"><span class="tocnumber">7.1.4</span> <span class="toctext">int Size()</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-15"><a href="Programming_Reference%253AApplicationWindow_Class.html#Parameters"><span class="tocnumber">8</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-16"><a href="Programming_Reference%253AApplicationWindow_Class.html#Application_Window_Properties"><span class="tocnumber">8.1</span> <span class="toctext">Application Window Properties</span></a>
+<ul>
+<li class="toclevel-3 tocsection-17"><a href="Programming_Reference%253AApplicationWindow_Class.html#WindowWidth.2C_WindowHeight"><span class="tocnumber">8.1.1</span> <span class="toctext">WindowWidth, WindowHeight</span></a></li>
+<li class="toclevel-3 tocsection-18"><a href="Programming_Reference%253AApplicationWindow_Class.html#.3Cname.3EWindowWidth.2C_.3Cname.3EWindowHeight"><span class="tocnumber">8.1.2</span> <span class="toctext">&lt;name&gt;WindowWidth, &lt;name&gt;WindowHeight</span></a></li>
+<li class="toclevel-3 tocsection-19"><a href="Programming_Reference%253AApplicationWindow_Class.html#WindowLeft.2C_WindowTop"><span class="tocnumber">8.1.3</span> <span class="toctext">WindowLeft, WindowTop</span></a></li>
+<li class="toclevel-3 tocsection-20"><a href="Programming_Reference%253AApplicationWindow_Class.html#.3Cname.3EWindowLeft.2C_.3Cname.3EWindowTop"><span class="tocnumber">8.1.4</span> <span class="toctext">&lt;name&gt;WindowLeft, &lt;name&gt;WindowTop</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-21"><a href="Programming_Reference%253AApplicationWindow_Class.html#Application_Window_Visualization"><span class="tocnumber">8.2</span> <span class="toctext">Application Window Visualization</span></a>
+<ul>
+<li class="toclevel-3 tocsection-22"><a href="Programming_Reference%253AApplicationWindow_Class.html#VisualizeApplicationWindow"><span class="tocnumber">8.2.1</span> <span class="toctext">VisualizeApplicationWindow</span></a></li>
+<li class="toclevel-3 tocsection-23"><a href="Programming_Reference%253AApplicationWindow_Class.html#Visualize.3Cname.3EWindow"><span class="tocnumber">8.2.2</span> <span class="toctext">Visualize&lt;name&gt;Window</span></a></li>
+<li class="toclevel-3 tocsection-24"><a href="Programming_Reference%253AApplicationWindow_Class.html#AppWindowSpatialDecimation"><span class="tocnumber">8.2.3</span> <span class="toctext">AppWindowSpatialDecimation</span></a></li>
+<li class="toclevel-3 tocsection-25"><a href="Programming_Reference%253AApplicationWindow_Class.html#.3Cname.3EWindowSpatialDecimation"><span class="tocnumber">8.2.4</span> <span class="toctext">&lt;name&gt;WindowSpatialDecimation</span></a></li>
+<li class="toclevel-3 tocsection-26"><a href="Programming_Reference%253AApplicationWindow_Class.html#AppWindowTemporalDecimation"><span class="tocnumber">8.2.5</span> <span class="toctext">AppWindowTemporalDecimation</span></a></li>
+<li class="toclevel-3 tocsection-27"><a href="Programming_Reference%253AApplicationWindow_Class.html#.3Cname.3EWindowTemporalDecimation"><span class="tocnumber">8.2.6</span> <span class="toctext">&lt;name&gt;WindowTemporalDecimation</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-28"><a href="Programming_Reference%253AApplicationWindow_Class.html#States"><span class="tocnumber">9</span> <span class="toctext">States</span></a>
+<ul>
+<li class="toclevel-2 tocsection-29"><a href="Programming_Reference%253AApplicationWindow_Class.html#StimulusTime"><span class="tocnumber">9.1</span> <span class="toctext">StimulusTime</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-30"><a href="Programming_Reference%253AApplicationWindow_Class.html#See_also"><span class="tocnumber">10</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><tt>BCI2000/src/shared/modules/application/gui</tt>
+</p>
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>Objects of type <tt>ApplicationWindow</tt> class represent windows of application modules. Typically, one such window exists, but more may be present in a single application module.
+</p><p>The <tt>ApplicationWindow</tt> class provides the following functionality:
+</p>
+<ul><li>parameterization of application screen position and dimensions,</li>
+<li>display of a small copy of the application screen in an <a href="User_Reference%253AOperator_Module.html#Visualization_Windows" title="User Reference:Operator Module">operator visualization window</a>,</li>
+<li>refreshing the window, and writing a time stamp into the StimulusTime state variable once processing has been done in the Application Module,</li>
+<li>maintaining a list of application windows which may be accessed using the <tt>Environment::Window()</tt> and <tt>Environment::Windows()</tt> accessor functions.</li></ul>
+<p><tt>ApplicationWindow</tt>publicly inherits from <a href="Programming_Reference%253ADisplayWindow_Class.html" title="Programming Reference:DisplayWindow Class"><tt>DisplayWindow</tt></a>, and from <a href="Programming_Reference%253AEnvironmentExtension_Class.html" title="Programming Reference:EnvironmentExtension Class"><tt>EnvironmentExtension</tt></a> privately.
+</p><p>Application windows are identified by name; the default name is "Application".
+</p>
+<h2><span class="mw-headline" id="Usage">Usage</span></h2>
+<p>Objects of type <tt>ApplicationWindow</tt> are created by calling <tt>Environment::Window( name )</tt> from a filter's constructor. Typically, this is done in the constructor initializer of an <tt>ApplicationWindow</tt> reference:
+</p>
+<pre>#include "ApplicationWindow"
+...
+class MyTaskFilter&#160;: public GenericFilter
+{
+  ...
+ private:
+   ApplicationWindow&amp; mrWindow;
+  ...
+};
+
+...
+
+MyTaskFilter::MyTaskFilter()
+: mrWindow( Environment::Window( "Application" ) ),
+  mNumber( 0 )
+{
+...
+}
+</pre>
+<p>When multiple filters do this, specifying the same name, no duplicate windows are created; rather, a single <tt>ApplicationWindow</tt> instance will be shared among them.
+This implies that other filters in an application module may access existing windows via the <tt>Window( name )</tt> accessor function provided by the <tt>Environment</tt> class. This allows filters to add specific information to existing windows.
+When no window creation is desired but access to an existing window only, call <tt>Environment::Window( name )</tt> from your filter's Preflight() function rather than its constructor. This makes sure that a window of that name exists, and is later accessible through the <tt>Environment::Window()</tt> function during other phases of filter execution.
+</p><p>To enumerate existing windows, there is a second function, <tt>Environment::Windows()</tt> which takes no argument, and returns a pointer to a <tt>ApplicationWindowList</tt> which provides functions as described below.
+</p>
+<h2><span class="mw-headline" id="Display_Parameterization_and_Visualization">Display Parameterization and Visualization</span></h2>
+<p>Typically, a BCI2000 application module displays feedback or other stimuli in an application window. In the GUI abstraction layer of the BCI2000 framework, the application window's drawing area is represented as an object that inherits the <a href="Programming_Reference%253AGraphDisplay_Class.html" title="Programming Reference:GraphDisplay Class"><tt>GUI::GraphDisplay</tt></a> interface.
+</p><p><tt>ApplicationWindow</tt> objects will handle display visualization transparently, using the <tt>GraphDisplay</tt>'s <tt>BitmapData</tt> method to obtain a copy of its contents, and to send these to the operator module for display in a visualization window using a message source ID of <i>&lt;name&gt;Window</i>.
+</p>
+<h2><span class="mw-headline" id="Properties">Properties</span></h2>
+<h3><span id="string_Name_(r)"></span><span class="mw-headline" id="string_Name_.28r.29">string Name (r)</span></h3>
+<p>A window's name is set when the window is created, and may not be changed afterwards. The name property defaults to "Application".
+</p>
+<h3><span id="string_VisualizationID_(r)"></span><span class="mw-headline" id="string_VisualizationID_.28r.29">string VisualizationID (r)</span></h3>
+<p>The <a href="Programming_Reference%253AGenericVisualization_Class.html#Properties" title="Programming Reference:GenericVisualization Class">visualization source ID</a> used when transmitting the window's content to the Operator module. The visualization ID is derived from the window's name by appending "Window" to the name.
+</p>
+<h2><span class="mw-headline" id="Inheritance">Inheritance</span></h2>
+<p><tt>ApplicationWindow</tt> inherits a number of methods and properties from <a href="Programming_Reference%253ADisplayWindow_Class.html" title="Programming Reference:DisplayWindow Class">the <tt>DisplayWindow</tt> class</a>.
+</p>
+<h2><span class="mw-headline" id="ApplicationWindowList_Class">ApplicationWindowList Class</span></h2>
+<p>This class is a helper class, providing access to existing <tt>ApplicationWindow</tt> instances. There is only a single instance of <tt>ApplicationWindowList</tt>, and a pointer to this single instance is provided in <tt>Environment::Windows</tt>.
+</p>
+<h3><span class="mw-headline" id="Methods">Methods</span></h3>
+<h4><span id="ApplicationWindow*_operator[](_string_)"></span><span class="mw-headline" id="ApplicationWindow.2A_operator.5B.5D.28_string_.29">ApplicationWindow* operator[]( string )</span></h4>
+<p>A pointer to the <tt>ApplicationWindow</tt> instance with the given name, or NULL when no such instance exists.
+</p>
+<h4><span id="bool_Exists(_string_)"></span><span class="mw-headline" id="bool_Exists.28_string_.29">bool Exists( string )</span></h4>
+<p>Returns true when an <tt>ApplicationWindow</tt> instance with the given name exists, false otherwise.
+</p>
+<h4><span id="ApplicationWindow*_operator[](_int_)"></span><span class="mw-headline" id="ApplicationWindow.2A_operator.5B.5D.28_int_.29">ApplicationWindow* operator[]( int )</span></h4>
+<p>A pointer to the <tt>ApplicationWindow</tt> instance with the given index in the list, or NULL when the index equals or exceeds Size().
+</p>
+<h4><span id="int_Size()"></span><span class="mw-headline" id="int_Size.28.29">int Size()</span></h4>
+<p>The number of <tt>ApplicationWindow</tt> instances.
+</p>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<p>Parameter names are derived from the Application Window's name. For the default name of "Application", special parameter names apply; these are given first.
+</p>
+<h3><span class="mw-headline" id="Application_Window_Properties">Application Window Properties</span></h3>
+<h4><span id="WindowWidth,_WindowHeight"></span><span class="mw-headline" id="WindowWidth.2C_WindowHeight">WindowWidth, WindowHeight</span></h4>
+<h4><span id="&lt;name&gt;WindowWidth,_&lt;name&gt;WindowHeight"></span><span class="mw-headline" id=".3Cname.3EWindowWidth.2C_.3Cname.3EWindowHeight">&lt;name&gt;WindowWidth, &lt;name&gt;WindowHeight</span></h4>
+<p>The width and height of the subject-visible application window, in pixels.
+</p>
+<h4><span id="WindowLeft,_WindowTop"></span><span class="mw-headline" id="WindowLeft.2C_WindowTop">WindowLeft, WindowTop</span></h4>
+<h4><span id="&lt;name&gt;WindowLeft,_&lt;name&gt;WindowTop"></span><span class="mw-headline" id=".3Cname.3EWindowLeft.2C_.3Cname.3EWindowTop">&lt;name&gt;WindowLeft, &lt;name&gt;WindowTop</span></h4>
+<p>The screen position of the application window's top left corner, in pixels.
+</p>
+<h3><span class="mw-headline" id="Application_Window_Visualization">Application Window Visualization</span></h3>
+<h4><span class="mw-headline" id="VisualizeApplicationWindow">VisualizeApplicationWindow</span></h4>
+<h4><span id="Visualize&lt;name&gt;Window"></span><span class="mw-headline" id="Visualize.3Cname.3EWindow">Visualize&lt;name&gt;Window</span></h4>
+<p>Switches visualization display of a miniature copy of the application window on or off.
+</p>
+<h4><span class="mw-headline" id="AppWindowSpatialDecimation">AppWindowSpatialDecimation</span></h4>
+<h4><span id="&lt;name&gt;WindowSpatialDecimation"></span><span class="mw-headline" id=".3Cname.3EWindowSpatialDecimation">&lt;name&gt;WindowSpatialDecimation</span></h4>
+<p>A factor that determines resolution of visualized data in relation to the original window's size.
+Enlarging the factor reduces the visualization window's resolution, and its initial size, and improves system timing by reducing the amount of data transferred.
+</p>
+<h4><span class="mw-headline" id="AppWindowTemporalDecimation">AppWindowTemporalDecimation</span></h4>
+<h4><span id="&lt;name&gt;WindowTemporalDecimation"></span><span class="mw-headline" id=".3Cname.3EWindowTemporalDecimation">&lt;name&gt;WindowTemporalDecimation</span></h4>
+<p>A factor that determines the visualization window's update rate. A value of <i>n</i> results in each <i>n</i>th frame being transferred.
+</p>
+<h2><span class="mw-headline" id="States">States</span></h2>
+<h3><span class="mw-headline" id="StimulusTime">StimulusTime</span></h3>
+<p>A 16-bit time stamp in the same format as the <i>SourceTime</i> state. 
+This time stamp is set immediately after the application module has updated the stimulus/feedback display. In conjunction with the <i>SourceTime</i> state, the <i>StimulusTime</i> stamp may be used to infer the time of stimulus presentation with greater accuracy than when only using the <i>StimulusCode</i> and <i>StimulusBegin</i> states, which have an accuracy of one data block. To obtain meaningful values in the <i>StimulusTime</i> stamp, Source Module and Application Module need to run on the same machine.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Programming_Reference%253AApplicationBase_Class.html" title="Programming Reference:ApplicationBase Class">Programming Reference:ApplicationBase Class</a>, <a href="Programming_Reference%253ADisplayWindow_Class.html" title="Programming Reference:DisplayWindow Class">Programming Reference:DisplayWindow Class</a>, <a href="Programming_Reference%253AEnvironmentExtension_Class.html" title="Programming Reference:EnvironmentExtension Class">Programming Reference:EnvironmentExtension Class</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524175534
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.024 seconds
+Real time usage: 0.031 seconds
+Preprocessor visited node count: 100/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 256/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2015-0!canonical and timestamp 20230524175534 and revision id 6191
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:ApplicationWindow_Class&amp;oldid=6191">http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:ApplicationWindow_Class&amp;oldid=6191</a>"</div>
+ </div>
+</body>
+</html>

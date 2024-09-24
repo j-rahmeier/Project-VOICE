@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>User Tutorial:Performing a P300 Spelling Session - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul><li class="toc1"><a href="User_Tutorial%253ABCI2000_Tour.html">Tour</a></li><li class="toc1"><a href="User_Tutorial%253AMu_Rhythm_BCI_Tutorial.html">Mu Tutorial</a></li><li class="toc1"><a href="User_Tutorial%253AP300_BCI_Tutorial.html">P300 Tutorial</a></li></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">Performing a P300 Spelling Session</h1>
+ <p class = "subtitle">User Tutorial</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>This step assumes that you created a subject-specific configuration file for the on-line speller, as described in the <a href="User_Tutorial%253AObtaining_P300_Parameters_in_a_Calibration_Session.html" title="User Tutorial:Obtaining P300 Parameters in a Calibration Session">previous step</a> of this tutorial.
+</p>
+<div id="toc" class="toc"><div class="toctitle" lang="en" dir="ltr"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="User_Tutorial%253APerforming_a_P300_Spelling_Session.html#Instructions_to_the_Operator"><span class="tocnumber">1</span> <span class="toctext">Instructions to the Operator</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="User_Tutorial%253APerforming_a_P300_Spelling_Session.html#Instructions_to_the_Subject"><span class="tocnumber">2</span> <span class="toctext">Instructions to the Subject</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="User_Tutorial%253APerforming_a_P300_Spelling_Session.html#Multiple_Sessions"><span class="tocnumber">3</span> <span class="toctext">Multiple Sessions</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="User_Tutorial%253APerforming_a_P300_Spelling_Session.html#Finished"><span class="tocnumber">4</span> <span class="toctext">Finished</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="User_Tutorial%253APerforming_a_P300_Spelling_Session.html#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Instructions_to_the_Operator">Instructions to the Operator</span></h2>
+<table>
+<tbody><tr>
+<td colspan="2" align="left">When performing a P300 Spelling Session, start BCI2000 by running <tt>batch/P3Speller_&lt;Your_Amplifier&gt;.bat</tt>,
+<ul><li>Click <b>Load Parameters</b>, load <tt>parms/fragments/amplifiers/&lt;YourAmplifier&gt;.prm</tt>.</li>
+<li>Load one of the user-specific parameter files created previously from P300 Classifier.</li></ul>
+</td></tr>
+<tr>
+<td colspan="2" align="center"><div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:ClassiferParm.PNG" class="image"><img alt="ClassiferParm.PNG" src="../images/thumb/2/2a/ClassiferParm.PNG/500px-ClassiferParm.PNG" width="500" height="321" srcset="../images/thumb/2/2a/ClassiferParm.PNG/750px-ClassiferParm.PNG 1.5x, ../images/thumb/2/2a/ClassiferParm.PNG/1000px-ClassiferParm.PNG 2x" /></a></div></div>
+</td></tr>
+<tr>
+<td colspan="2" align="center" height="50px">
+</td></tr>
+<tr>
+<td colspan="2" align="left">To perform a copy spelling session -- one in which the subject has to spell a predefined text displayed on the screen --,
+<ul><li>Click <b>Load Parameters</b>, and load <tt>parms/examples/P300_copy_speller.prm</tt>. Then, load <tt>parms/fragments/amplifiers/&lt;YourAmplifier&gt;.prm</tt>.</li>
+<li>In the <b>Application</b> tab:
+<ul><li>Check the <i>DisplayResults</i> box to compare the spelling results to example letters.</li></ul></li></ul>
+<p>Click <b>Set Config</b> to view the EEG signal, and <a href="User_Tutorial%253AEEG_Measurement_Setup.html" title="User Tutorial:EEG Measurement Setup">prepare the subject for EEG recording</a> according to the instructions below.
+</p><p>When the subject are ready, click <b>Start</b> to verify the accuracy of classifier. 
+</p>
+</td></tr>
+<tr>
+<td colspan="2" align="center" height="50px">
+</td></tr>
+<tr>
+<td align="center"><div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:DisplayResult.PNG" class="image"><img alt="DisplayResult.PNG" src="../images/thumb/d/dc/DisplayResult.PNG/600px-DisplayResult.PNG" width="600" height="216" srcset="../images/thumb/d/dc/DisplayResult.PNG/900px-DisplayResult.PNG 1.5x, ../images/d/dc/DisplayResult.PNG 2x" /></a></div></div>
+</td>
+<td><div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:VerifyClassifier.PNG" class="image"><img alt="VerifyClassifier.PNG" src="../images/thumb/d/d9/VerifyClassifier.PNG/400px-VerifyClassifier.PNG" width="400" height="253" srcset="../images/thumb/d/d9/VerifyClassifier.PNG/600px-VerifyClassifier.PNG 1.5x, ../images/thumb/d/d9/VerifyClassifier.PNG/800px-VerifyClassifier.PNG 2x" /></a></div></div>
+</td></tr>
+<tr>
+<td colspan="2" align="center"><i>In our example, the classifier was generated successfully. With 15 flashes horizontally and vertically, the spelling result was accurate.</i>
+</td></tr>
+<tr>
+<td colspan="2" align="center" height="50px">
+</td></tr>
+<tr>
+<td>As the subject gets confident with the "Copy Speller" mode, click <b>Config</b> and<b>Load Parameters</b> to load <tt>parms/examples/P300_free_speller.prm</tt>.
+<ul><li>In the <b>Application</b> tab:
+<ul><li>Click <b>Edit</b> from <i>TargetDefinitions</i></li>
+<li>Add backspace into the spelling matrix.</li></ul></li></ul>
+</td></tr>
+<tr>
+<td colspan="2" align="center"><div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Backspace.PNG" class="image"><img alt="Backspace.PNG" src="../images/thumb/d/d5/Backspace.PNG/600px-Backspace.PNG" width="600" height="364" srcset="../images/thumb/d/d5/Backspace.PNG/900px-Backspace.PNG 1.5x, ../images/d/d5/Backspace.PNG 2x" /></a></div></div>
+</td></tr>
+<tr>
+<td colspan="2" align="center" height="50px">
+</td></tr>
+<tr>
+<td>Now we will decrease the numbers of flashes to speed up spelling
+<p>Find the minimum numbers of flashes to yield correct predictions from the <b>Details</b> tab of P300 Classifier GUI.
+</p>
+</td></tr>
+<tr>
+<td colspan="2" align="center"><div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:NumFlash.PNG" class="image"><img alt="NumFlash.PNG" src="../images/thumb/1/1f/NumFlash.PNG/500px-NumFlash.PNG" width="500" height="648" srcset="../images/1/1f/NumFlash.PNG 1.5x" /></a></div></div>
+</td></tr>
+<tr>
+<td colspan="2" align="center" height="50px">
+</td></tr>
+<tr>
+<td>In our example, we choose <tt>5</tt> flashes.
+<ul><li>In the <b>Filtering</b> tab:
+<ul><li>Change the <i>EpochsToAverage</i> from <tt>15</tt> to <tt>5</tt>.</li></ul></li>
+<li>In the <b>Application</b> tab:
+<ul><li>Change the <i>NumberOfSequences</i> from <tt>15</tt> to <tt>5</tt>.</li></ul></li></ul>
+</td></tr>
+<tr>
+<td>Click <b>Set Config</b> to view the EEG signal, and <a href="User_Tutorial%253AEEG_Measurement_Setup.html" title="User Tutorial:EEG Measurement Setup">prepare the subject for EEG recording</a> according to the instructions below.
+</td></tr>
+<tr>
+<td>When the subject are ready, click <b>Start</b> to perform "free spelling".
+</td></tr>
+<tr>
+<td colspan="2" align="center"><div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:FreeSpelling.PNG" class="image"><img alt="FreeSpelling.PNG" src="../images/thumb/6/66/FreeSpelling.PNG/500px-FreeSpelling.PNG" width="500" height="310" srcset="../images/thumb/6/66/FreeSpelling.PNG/750px-FreeSpelling.PNG 1.5x, ../images/thumb/6/66/FreeSpelling.PNG/1000px-FreeSpelling.PNG 2x" /></a></div></div>
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="Instructions_to_the_Subject">Instructions to the Subject</span></h2>
+<p>On the subject's screen, a speller matrix the subject is already familiar with from the initial session is presented.
+Differently from that session, there is no text suggested; rather, the subject may choose freely which letters, words, and sentences to write.
+</p>
+<ul><li>You will see a speller matrix, containing letters, numbers, and punctuation marks.</li>
+<li>To choose a certain letter, concentrate on it by counting the number of flashes that occur for it.</li>
+<li>After some time, a result will be classified and appended to the text field located at the top of the window.</li>
+<li>If the letter that appeared is not what you intended, concentrate on the "backspace" or "undo" field to remove it.</li></ul>
+<p>Additional instructions should be given regarding minimization of
+<a href="User_Tutorial%253AEEG_Measurement_Setup.html#EEG_Artifacts" title="User Tutorial:EEG Measurement Setup">artifacts</a> from
+</p>
+<ul><li>Contraction of the muscles of the face/head, swallowing;</li>
+<li>Eye blinks and eye movements;</li>
+<li>Motion.</li></ul>
+<p>Provided that subjects are asked to minimize artifacts (e.g. asked to try to
+swallow only during the pause between letters), he/she should be further
+assisted in these efforts by providing a comfortable chair and a dimly lit room.
+The
+experimenter must carefully monitor the EEG and alert the subject in the case
+he/she has forgotten some of the instructions.
+When the experimenter is sure that his/her instructions have been well
+understood, the recording session may start.
+</p>
+<ul><li>Click the "Start" button to start the spelling experiment.</li></ul>
+<h2><span class="mw-headline" id="Multiple_Sessions">Multiple Sessions</span></h2>
+<p>Once a run has ended, BCI2000 goes into suspended state.
+Further runs will be added to the session when you click <b>Resume</b>.
+</p><p>When starting the next session, don't forget to increment the <i>SessionNumber</i> parameter on the <i>Storage</i> tab. Otherwise, new runs will be added to the previous session's directory. Still, as a safety net, BCI2000 will never overwrite existing data files but increment the largest run number that exists in a session directory. Moreover, it documents date and time in the <i>StorageTime</i> parameter. This allows to later associate data files with multiple sessions by their time and date, even if the <i>SessionNumber</i> parameter has not been increased.
+</p>
+<h2><span class="mw-headline" id="Finished">Finished</span></h2>
+<p>Here, the P300 speller tutorial is finished. 
+</p><p>Congratulations! You are now able to perform <a href="User_Tutorial%253AP300_BCI_Tutorial.html" title="User Tutorial:P300 BCI Tutorial">P300 spelling experiments</a>.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Tutorial%253AP300_BCI_Tutorial.html" title="User Tutorial:P300 BCI Tutorial">User Tutorial:P300 BCI Tutorial</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20200807151314
+Cache expiry: 86400
+Dynamic content: false
+CPU time usage: 0.030 seconds
+Real time usage: 0.068 seconds
+Preprocessor visited node count: 19/1000000
+Preprocessor generated node count: 24/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+</div>
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1703-0!canonical and timestamp 20200807151314 and revision id 8421
+ -->
+</div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=User_Tutorial:Performing_a_P300_Spelling_Session&amp;oldid=8421">http://www.bci2000.org/mediawiki/index.php?title=User_Tutorial:Performing_a_P300_Spelling_Session&amp;oldid=8421</a>"</div>
+ </div>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>MARIO Technical Documentation - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">MARIO Technical Documentation</h1>
+ <p class = "subtitle"></p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="MARIO_Technical_Documentation.html#MARIO_Architecture"><span class="tocnumber">1</span> <span class="toctext">MARIO Architecture</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="MARIO_Technical_Documentation.html#Data_Import_Module"><span class="tocnumber">2</span> <span class="toctext">Data Import Module</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="MARIO_Technical_Documentation.html#Data_Conditioning_Module"><span class="tocnumber">3</span> <span class="toctext">Data Conditioning Module</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="MARIO_Technical_Documentation.html#Feature_Extraction_Module"><span class="tocnumber">4</span> <span class="toctext">Feature Extraction Module</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="MARIO_Technical_Documentation.html#Spectral_Extimation_Module_.28for_Mu_rhythm_analysis.29"><span class="tocnumber">5</span> <span class="toctext">Spectral Extimation Module <i>(for Mu rhythm analysis)</i></span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="MARIO_Technical_Documentation.html#Statistical_Analysis_Module"><span class="tocnumber">6</span> <span class="toctext">Statistical Analysis Module</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="MARIO_Technical_Documentation.html#Visualization_Module"><span class="tocnumber">7</span> <span class="toctext">Visualization Module</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="MARIO_Architecture">MARIO Architecture</span></h2>
+<p>MARIO is an off-line analysis application developed in MATLAB 7.0.2. It is now modular, object-oriented and can be easily integrated with any other software for data analysis and visualization.
+It can be used in Mu and P300 analyses and allows three kinds of use: users can simply fill the forms of a graphical interface making any choice with a click of its mouse, run a ready-made script or, write up their own scripts according to their needs.
+This set of interfaces allows a wide range of possibilities for a wide range of different analyses.
+</p><p>Internally, the application is composed of 6 main functional modules, each one connected in cascade as in the list below:
+</p>
+<ul><li>Data import</li>
+<li>Signal Conditioning</li>
+<li>Feature Extraction</li>
+<li>Spectral Extimation</li>
+<li>Statistical Analysis</li>
+<li>Visualization</li></ul>
+<p><a href="https://www.bci2000.org/mediawiki/index.php/File:Arch_blocks.jpg" class="image"><img alt="Arch blocks.jpg" src="../images/4/49/Arch_blocks.jpg" decoding="async" width="720" height="540" /></a>
+</p><p>All these modules are hidden in the graphical user interface but they can be distinguished in the batch scripts. Each one of them can be easily replaced with an improved version, a custom version or a different analysis.
+</p><p><br />
+</p>
+<div class="thumb tleft"><div class="thumbinner" style="width:302px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:Graph.png" class="image"><img alt="" src="../images/thumb/c/c4/Graph.png/300px-Graph.png" decoding="async" width="300" height="52" class="thumbimage" srcset="../images/thumb/c/c4/Graph.png/450px-Graph.png 1.5x, ../images/thumb/c/c4/Graph.png/600px-Graph.png 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://www.bci2000.org/mediawiki/index.php/File:Graph.png" class="internal" title="Enlarge"></a></div>Graph of modules</div></div></div> 
+<p>Here you can see a <b>simplified version of the functions graph with their relationships (click to enlarge). </b>
+</p><p><br />
+</p><p><br />
+</p>
+<h2><span class="mw-headline" id="Data_Import_Module">Data Import Module</span></h2>
+<p>Any script must have a first module in which to load data that the user wants to analyze.
+There are 3 main types of files containing different groups of information:
+</p>
+<ul><li>Data files (.dat/.mat)</li>
+<li>Montage files (.mmf)</li>
+<li>External Parameter files (.prm) – optional</li></ul>
+<p>The data files contain all the data of the BCI session (Mu or P300).
+These data are saved in different files, one for each run, containing 29 trials.
+Internally any file is divided in two main parts: the first part (file header) includes all parameters set by the operator  during the on-line experimentation; the second part contains the EEG signal recorded by the whole set of electrodes on the EEG cap.
+A special function allows data to be loaded from a Matlab file (.mat).
+</p><p>The montage file stores information about the electrode position on the scalp. It consists 
+of different sections divided by labels:
+</p>
+<ol><li>a synthetic name</li>
+<li>the channel labels</li>
+<li>a valid channels list</li>
+<li>the laplacian grid</li>
+<li>the 3-dimensional spatial coordinates of all the electrodes (this section is optional)</li></ol>
+<p>These labelled sections  can be written in the Montage file without a predefined order.
+</p><p>The user can import data from an additional data file, (a parameters file), that can be used if he wants to replace one or more parameters from the BCI2000 ones. For this, it is enough to copy and paste the selected header string in a new prm file, and change its value. 
+</p><p>This module is clearly the same for Mu and P300 Analysis.
+</p>
+<h2><span class="mw-headline" id="Data_Conditioning_Module">Data Conditioning Module</span></h2>
+<p>The MARIO v.2.0 Data Conditioning module allows users to select from a wide range of spatial filters so as to include a custom filter in the user data analysis. The operator can identify which channels or set of channels will give better results at the end of the statistical analysis.
+</p><p>For a Mu analysis, the user can select from four different spatial filter algorithms:
+</p>
+<ul><li>RAW</li>
+<li>CAR (Common Average Reference)</li>
+<li>SMALL LAP</li>
+<li>LARGE LAP</li></ul>
+<p>The first one, (RAW) does not use a filter and analyzes raw recorded data. A user defined analysis will be available on further versions of MARIO.
+</p><p>The Data Conditioning module also allows the the user to compile/modify a list of valid channels on which to conduct any analysis. 
+</p><p>P300 Analysis can now use only two of the above spatial filters: the RAW filter and the CAR one. Any other selection will report an unhandled error.
+</p>
+<h2><span class="mw-headline" id="Feature_Extraction_Module">Feature Extraction Module</span></h2>
+<p>Feature extraction is one of the most important stages of elaboration; it affects any further analysis.
+</p><p>In a Mu rhythm analysis, any feature can be obtained by arranging some of the 12 BCI2000 states.
+The user can now make a choice between two predefined analyses, a simple Mu analysis or an Extended version of the same. The first analysis considers any sample recorded between the cursor appearance on the screen and the end of the trial (when the cursor reaches the right side of the screen).
+The MuExteded analysis instead considers any sample recorded since the target appearance (during the first subset of data, the subject does not have any feedback) until the end of trial.
+In both choices, the statistical analysis will be conduced between two classes of data: the EEG activity recorded while moving up the cursor  (target UP) versus the EEG activity recorded while moving down the cursor (target DOWN).
+Either of these choices will produce different R<sup>2</sup> values between the corresponding features of the two classes
+</p><p>For a P300 Analysis only two classes are compared and automatically set as frequent events and rare events.
+</p>
+<h2><span id="Spectral_Extimation_Module_(for_Mu_rhythm_analysis)"></span><span class="mw-headline" id="Spectral_Extimation_Module_.28for_Mu_rhythm_analysis.29">Spectral Extimation Module <i>(for Mu rhythm analysis)</i></span></h2>
+<p>During this step, the program evaluates and analyzes the spectrum of recorded data. 
+To do that, the EEG signal is divided into equal length epochs (These epochs can be distinct or overlapped as a percentage of overlap, which the user can set by using the Graphical User Interface or script.)  A spectrum value is evaluated for anyone of these epochs.
+</p><p>At the end of this process, a 3 dimensional matrix (bin × channel × epoch) joined with the one (channel × sample) compiled during a BCI2000 recording session and read by the data import module will be produced.
+</p><p>The algorithm employed to estimate the signal spectrum is the MEM (the same used on-line by BCI2000).
+</p><p>Apart from the percentage of overlap, MARIO allows the user to modify the values of:
+</p>
+<ol><li>Sampling frequency of recorded data</li>
+<li>Spatial resolution (delta)</li>
+<li>Detrending order (Mean or Linear)</li>
+<li>AR model order</li>
+<li>Low pass filter frequency</li>
+<li>High pass filter frequency</li>
+<li>Filter bandwidth</li>
+<li>Epoch length</li>
+<li>Overlap percentage</li></ol>
+<p>MARIO v2.0 also computes a virtual states matrix strictly joined with signal one and derived as an arrangement of the BCI2000 states. These states label spectrum samples as valid or not valid and as belonging to one class or another.
+</p>
+<h2><span class="mw-headline" id="Statistical_Analysis_Module">Statistical Analysis Module</span></h2>
+<p>A statistical analysis (presently, R<sup>2</sup>)  is employed to distinguish between the classes of a BCI2000 task in any trial.
+</p><p>MARIO uses a module that computes the R<sup>2</sup> value between two classes; these can be TargetUP and TargetDOWN for a Mu rhythm analysis, or frequent events and rare events for a P300 analysis. These data are taken from the spectra matrix (Mu analysis) or from the samples one (P300 analysis) and the regressor vector is yield from BCI2000 states.
+</p><p>At the end of this analysis, the real index produced (in a range between -1 and 1) is the R<sup>2</sup> value multiplied by R<sup>2</sup> sign. If the R<sup>2</sup> value is near 1, there is an high separability between classes and high performance. If, instead, its value is near 0, it is difficult to distinguish one class from another, and it means low performance.
+</p>
+<h2><span class="mw-headline" id="Visualization_Module">Visualization Module</span></h2>
+<p>Mario offers a wide set of visualization graphs that can be combined to have a complete visualization of produced data.
+For a Mu rhythm analysis the user can request to visualize:
+</p>
+<ol><li>a trajectory plot showing the cursor position for any sample in a  trial BCI2000 as the user saw it on-line</li>
+<li>a matrix (channel × bin) where the R<sup>2</sup> value of any feature is shown in a color tint. A colorbar shows the color range between -1 and 1</li>
+<li>Another panel showing a detail of the previous matrix. The upper topographic plot shows the R<sup>2</sup> value for any channel in the selected bin of frequencies; the lower one is the spectrum of the selected channel for all the frequencies.</li></ol>
+<p>For a P300 analysis the user can choose from:
+</p>
+<ol><li>An R<sup>2</sup> matrix</li>
+<li>An amplitude waveform graph</li>
+<li>A topographic plot</li>
+<li>An ERP response graph</li>
+<li>A string prediction form.</li></ol>
+<p>All these result visualizations can be easily included in any of the user scripts for custom analysis.
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524175521
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.022 seconds
+Real time usage: 0.024 seconds
+Preprocessor visited node count: 22/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1396-0!canonical and timestamp 20230524175521 and revision id 6097
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=MARIO_Technical_Documentation&amp;oldid=6097">http://www.bci2000.org/mediawiki/index.php?title=MARIO_Technical_Documentation&amp;oldid=6097</a>"</div>
+ </div>
+</body>
+</html>

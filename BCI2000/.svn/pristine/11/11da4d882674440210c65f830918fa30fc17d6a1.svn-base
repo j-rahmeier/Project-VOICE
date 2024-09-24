@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Programming Reference:GenericSignal Class - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul><li class="toc1">Concepts</li><ul><li class="toc2"><a href="Programming_Reference%253AFilter_Chain.html">Filter Chain</a></li><li class="toc2"><a href="Programming_Reference%253ASignals.html">Signals</a></li><li class="toc2"><a href="Programming_Reference%253AError_Handling.html">Error Handling</a></li><li class="toc2"><a href="Programming_Reference%253ALocalization.html">Localization</a></li><li class="toc2"><a href="Programming_Reference%253ARapid_Development.html">Rapid Development</a></li></ul><li class="toc1">Reference</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFilter_Class.html">GenericFilter</a></li><li class="toc2"><a href="Programming_Reference%253AEnvironment_Class.html">Environment</a></li><li class="toc2"><a href="Programming_Reference%253AGenericVisualization_Class.html">GenericVisualization</a></li><li class="toc2"><a href="Programming_Reference%253AErrors_and_Warnings.html">Errors and Warnings</a></li><li class="toc2"><a href="Programming_Reference%253ADebug_Output.html">Debug Output</a></li></ul><li class="toc1">Data Acquisition</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericADC_Class.html">GenericADC</a></li></ul><li class="toc1">Data Storage</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFileWriter_Class.html">GenericFileWriter</a></li><li class="toc2"><a href="Programming_Reference%253ABCI2000FileReader_Class.html">BCI2000FileReader</a></li></ul><li class="toc1">Signal Processing</li><ul><li class="toc2"><a href="Programming_Reference%253AIIRFilterBase_Class.html">IIR Filters</a></li></ul><li class="toc1">Application Modules</li><ul><li class="toc2"><a href="Programming_Reference%253AApplicationBase_Class.html">ApplicationBase</a></li><li class="toc2"><a href="Programming_Reference%253AFeedbackTask_Class.html">FeedbackTask</a></li><li class="toc2"><a href="Programming_Reference%253AStimulusTask_Class.html">StimulusTask</a></li><li class="toc2"><a href="Programming_Reference%253A3D_API.html">3D API</a></li></ul><li class="toc1">Howtos</li><ul><li class="toc2"><a href="Programming_Howto%253ABuilding_BCI2000.html">Building BCI2000</a></li><li class="toc2"><a href="Programming_Howto%253ASVN_Client_Setup.html">SVN Client Setup</a></li><li class="toc2"><a href="Programming_Howto%253AUsing_TortoiseSVN.html">Using TortoiseSVN</a></li></ul><li class="toc1"><a href="Programming_FAQ.html">FAQ</a></li><li class="toc1">Tutorials</li><ul><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html">Data Acquisition</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html">Signal Processing</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html">Matlab Signal Processing</a></li></ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">GenericSignal Class</h1>
+ <p class = "subtitle">Programming Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Programming_Reference%253AGenericSignal_Class.html#Location"><span class="tocnumber">1</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Programming_Reference%253AGenericSignal_Class.html#Synopsis"><span class="tocnumber">2</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Programming_Reference%253AGenericSignal_Class.html#Methods"><span class="tocnumber">3</span> <span class="toctext">Methods</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Programming_Reference%253AGenericSignal_Class.html#GenericSignal.28.29"><span class="tocnumber">3.1</span> <span class="toctext">GenericSignal()</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Programming_Reference%253AGenericSignal_Class.html#GenericSignal.28uint_channels.2C_uint_elements.2C_SignalType.3Dfloat32.29"><span class="tocnumber">3.2</span> <span class="toctext">GenericSignal(uint channels, uint elements, SignalType=float32)</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Programming_Reference%253AGenericSignal_Class.html#GenericSignal.28SignalProperties.2C_double_value.3D0.29"><span class="tocnumber">3.3</span> <span class="toctext">GenericSignal(SignalProperties, double value=0)</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="Programming_Reference%253AGenericSignal_Class.html#GenericSignal.28GenericSignal.29"><span class="tocnumber">3.4</span> <span class="toctext">GenericSignal(GenericSignal)</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="Programming_Reference%253AGenericSignal_Class.html#AssignValues.28GenericSignal.29.2C_operator.3D.28GenericSignal.29"><span class="tocnumber">3.5</span> <span class="toctext">AssignValues(GenericSignal), operator=(GenericSignal)</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="Programming_Reference%253AGenericSignal_Class.html#bool_Empty.28.29"><span class="tocnumber">3.6</span> <span class="toctext">bool Empty()</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="Programming_Reference%253AGenericSignal_Class.html#double_Value.28uint_channel.2C_uint_element.29.2C_operator.28.29.28uint_channel.2C_uint_element.29"><span class="tocnumber">3.7</span> <span class="toctext">double Value(uint channel, uint element), operator()(uint channel, uint element)</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="Programming_Reference%253AGenericSignal_Class.html#SetValue.28uint_channel.2C_uint_element.2C_double_value.29"><span class="tocnumber">3.8</span> <span class="toctext">SetValue(uint channel, uint element, double value)</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="Programming_Reference%253AGenericSignal_Class.html#SetAllValues.28double_value.29"><span class="tocnumber">3.9</span> <span class="toctext">SetAllValues(double value)</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="Programming_Reference%253AGenericSignal_Class.html#EnsureDeepCopy.28.29"><span class="tocnumber">3.10</span> <span class="toctext">EnsureDeepCopy()</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="Programming_Reference%253AGenericSignal_Class.html#bool_ShareAcrossModules.28.29"><span class="tocnumber">3.11</span> <span class="toctext">bool ShareAcrossModules()</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="Programming_Reference%253AGenericSignal_Class.html#ostream_InsertInto.28ostream.29"><span class="tocnumber">3.12</span> <span class="toctext">ostream InsertInto(ostream)</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="Programming_Reference%253AGenericSignal_Class.html#istream_ExtractFrom.28istream.29"><span class="tocnumber">3.13</span> <span class="toctext">istream ExtractFrom(istream)</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="Programming_Reference%253AGenericSignal_Class.html#WriteValueBinary.28ostream.2C_uint_channel.2C_uint_element.29"><span class="tocnumber">3.14</span> <span class="toctext">WriteValueBinary(ostream, uint channel, uint element)</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="Programming_Reference%253AGenericSignal_Class.html#ReadValueBinary.28istream.2C_uint_channel.2C_uint_element.29"><span class="tocnumber">3.15</span> <span class="toctext">ReadValueBinary(istream, uint channel, uint element)</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="Programming_Reference%253AGenericSignal_Class.html#Serialize.28ostream.29"><span class="tocnumber">3.16</span> <span class="toctext">Serialize(ostream)</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="Programming_Reference%253AGenericSignal_Class.html#Unserialize.28istream.29"><span class="tocnumber">3.17</span> <span class="toctext">Unserialize(istream)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-21"><a href="Programming_Reference%253AGenericSignal_Class.html#Properties"><span class="tocnumber">4</span> <span class="toctext">Properties</span></a>
+<ul>
+<li class="toclevel-2 tocsection-22"><a href="Programming_Reference%253AGenericSignal_Class.html#SignalProperties_Properties_.28rw.29"><span class="tocnumber">4.1</span> <span class="toctext">SignalProperties Properties (rw)</span></a></li>
+<li class="toclevel-2 tocsection-23"><a href="Programming_Reference%253AGenericSignal_Class.html#int_Channels_.28r.29"><span class="tocnumber">4.2</span> <span class="toctext">int Channels (r)</span></a></li>
+<li class="toclevel-2 tocsection-24"><a href="Programming_Reference%253AGenericSignal_Class.html#int_Elements_.28r.29"><span class="tocnumber">4.3</span> <span class="toctext">int Elements (r)</span></a></li>
+<li class="toclevel-2 tocsection-25"><a href="Programming_Reference%253AGenericSignal_Class.html#SignalType_Type_.28r.29"><span class="tocnumber">4.4</span> <span class="toctext">SignalType Type (r)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-26"><a href="Programming_Reference%253AGenericSignal_Class.html#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><tt>src/shared/types</tt>
+</p>
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>When being handed down through the <a href="Programming_Reference%253AFilter_Chain.html" title="Programming Reference:Filter Chain">filter chain</a> from one <a href="Programming_Reference%253AGenericFilter_Class.html" title="Programming Reference:GenericFilter Class"><tt>GenericFilter</tt></a> instance to the next, signal data is transported inside <tt>GenericSignal</tt> objects.
+Signals are associated with a data type, which is one of <tt>int16, float24, float32</tt> or <tt>int32</tt>. This is used whenever signals are written to a file or into a network connection, internally however, signal data is always represented as <tt>double</tt>.
+</p><p><tt>GenericSignal</tt> transparently handles memory allocation, lazy assignment, and data storage inside shared memory regions in order to improve the overally efficiency of real-time data transport between filters and modules.
+</p>
+<h2><span class="mw-headline" id="Methods">Methods</span></h2>
+<h3><span id="GenericSignal()"></span><span class="mw-headline" id="GenericSignal.28.29">GenericSignal()</span></h3>
+<p>Instantiates a new, empty signal.
+</p>
+<h3><span id="GenericSignal(uint_channels,_uint_elements,_SignalType=float32)"></span><span class="mw-headline" id="GenericSignal.28uint_channels.2C_uint_elements.2C_SignalType.3Dfloat32.29">GenericSignal(uint channels, uint elements, SignalType=float32)</span></h3>
+<p>Instantiates a new signal with <tt>channels</tt> channels, <tt>elements</tt> elements and a signal data type, which is one of <tt>int16, float24, float32</tt> or <tt>int32</tt>. Values are initialized to zeros.
+</p>
+<h3><span id="GenericSignal(SignalProperties,_double_value=0)"></span><span class="mw-headline" id="GenericSignal.28SignalProperties.2C_double_value.3D0.29">GenericSignal(SignalProperties, double value=0)</span></h3>
+<p>Instantiates a new signal from a <tt>SignalProperties</tt> object, initializing all values to the given value argument.
+</p>
+<h3><span id="GenericSignal(GenericSignal)"></span><span class="mw-headline" id="GenericSignal.28GenericSignal.29">GenericSignal(GenericSignal)</span></h3>
+<p>Instantiates a new signal which is a shallow copy of an existing signal. Whenever the copy is updated, the shallow copy is replaced with a deep copy before applying changes.
+</p>
+<h3><span id="AssignValues(GenericSignal),_operator=(GenericSignal)"></span><span class="mw-headline" id="AssignValues.28GenericSignal.29.2C_operator.3D.28GenericSignal.29">AssignValues(GenericSignal), operator=(GenericSignal)</span></h3>
+<p>Lazy assignment from another signal. A shallow copy is applied first. Whenever the signal is written to, the shallow copy is replaced with a deep one first.
+</p>
+<h3><span id="bool_Empty()"></span><span class="mw-headline" id="bool_Empty.28.29">bool Empty()</span></h3>
+<p>Returns true if the signal has no channels and no elements.
+</p>
+<h3><span id="double_Value(uint_channel,_uint_element),_operator()(uint_channel,_uint_element)"></span><span class="mw-headline" id="double_Value.28uint_channel.2C_uint_element.29.2C_operator.28.29.28uint_channel.2C_uint_element.29">double Value(uint channel, uint element), operator()(uint channel, uint element)</span></h3>
+<p>Returns the value at the given channel and element index.
+</p>
+<h3><span id="SetValue(uint_channel,_uint_element,_double_value)"></span><span class="mw-headline" id="SetValue.28uint_channel.2C_uint_element.2C_double_value.29">SetValue(uint channel, uint element, double value)</span></h3>
+<p>Sets the value at the given channel and element index.
+</p>
+<h3><span id="SetAllValues(double_value)"></span><span class="mw-headline" id="SetAllValues.28double_value.29">SetAllValues(double value)</span></h3>
+<p>Sets all signal values to the value given as argument.
+</p>
+<h3><span id="EnsureDeepCopy()"></span><span class="mw-headline" id="EnsureDeepCopy.28.29">EnsureDeepCopy()</span></h3>
+<p>If the signal contains a shallow copy of another signal, replace it with a deep copy.
+</p>
+<h3><span id="bool_ShareAcrossModules()"></span><span class="mw-headline" id="bool_ShareAcrossModules.28.29">bool ShareAcrossModules()</span></h3>
+<p>If data is not contained in shared memory already, this function moves signal data into a newly assigned shared memory block. <tt>Serialize()</tt> will output a short reference to that shared memory block rather than the signal's data content.
+Returns <tt>true</tt> if data was newly moved into shared memory, <tt>false</tt> otherwise.
+</p>
+<h3><span id="ostream_InsertInto(ostream)"></span><span class="mw-headline" id="ostream_InsertInto.28ostream.29">ostream InsertInto(ostream)</span></h3>
+<p>Writes the signal's content to the given stream in human readable format.
+</p>
+<h3><span id="istream_ExtractFrom(istream)"></span><span class="mw-headline" id="istream_ExtractFrom.28istream.29">istream ExtractFrom(istream)</span></h3>
+<p>Reads the signal's content as written by <tt>InsertInto()</tt>.
+</p>
+<h3><span id="WriteValueBinary(ostream,_uint_channel,_uint_element)"></span><span class="mw-headline" id="WriteValueBinary.28ostream.2C_uint_channel.2C_uint_element.29">WriteValueBinary(ostream, uint channel, uint element)</span></h3>
+<p>Writes a single value into the given stream in binary form.
+</p>
+<h3><span id="ReadValueBinary(istream,_uint_channel,_uint_element)"></span><span class="mw-headline" id="ReadValueBinary.28istream.2C_uint_channel.2C_uint_element.29">ReadValueBinary(istream, uint channel, uint element)</span></h3>
+<p>Reads a single value from the given stream in binary form.
+</p>
+<h3><span id="Serialize(ostream)"></span><span class="mw-headline" id="Serialize.28ostream.29">Serialize(ostream)</span></h3>
+<p>Writes the entire signal into the given stream in binary form. If <tt>ShareAcrossModules</tt> has been called, a reference to shared memory is written rather than signal data.
+</p>
+<h3><span id="Unserialize(istream)"></span><span class="mw-headline" id="Unserialize.28istream.29">Unserialize(istream)</span></h3>
+<p>Reads the entire signal from the given stream in binary form. If the stream contains a reference to shared memory, the signal is linked to that shared memory block and behaves as if <tt>ShareAcrossModules</tt> had been called.
+</p>
+<h2><span class="mw-headline" id="Properties">Properties</span></h2>
+<h3><span id="SignalProperties_Properties_(rw)"></span><span class="mw-headline" id="SignalProperties_Properties_.28rw.29">SignalProperties Properties (rw)</span></h3>
+<p>Signal properties such as the number of channels and elements, data type, and channel and element labels contained in a <tt>SignalProperties</tt> object.
+</p>
+<h3><span id="int_Channels_(r)"></span><span class="mw-headline" id="int_Channels_.28r.29">int Channels (r)</span></h3>
+<p>The number of channels in the signal.
+</p>
+<h3><span id="int_Elements_(r)"></span><span class="mw-headline" id="int_Elements_.28r.29">int Elements (r)</span></h3>
+<p>The number of elements (or samples) in the signal.
+</p>
+<h3><span id="SignalType_Type_(r)"></span><span class="mw-headline" id="SignalType_Type_.28r.29">SignalType Type (r)</span></h3>
+<p>The signal's data type, one of <tt>int16, float24, float32</tt> or <tt>int32</tt>.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Programming_Reference%253AGenericFilter_Class.html" title="Programming Reference:GenericFilter Class">Programming Reference:GenericFilter Class</a>, <a href="Technical_Reference%253AVisualization_Properties.html" title="Technical Reference:Visualization Properties">Technical Reference:Visualization Properties</a>, <a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html" title="Programming Tutorial:Implementing a Signal Processing Filter">Programming Tutorial:Implementing a Signal Processing Filter</a>, <a href="Programming_Reference%253ASignalSharingDemo_Signal_Processing.html" title="Programming Reference:SignalSharingDemo Signal Processing">Programming Reference:SignalSharingDemo Signal Processing</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524175546
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.022 seconds
+Real time usage: 0.025 seconds
+Preprocessor visited node count: 79/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2238-0!canonical and timestamp 20230524175546 and revision id 8203
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:GenericSignal_Class&amp;oldid=8203">http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:GenericSignal_Class&amp;oldid=8203</a>"</div>
+ </div>
+</body>
+</html>

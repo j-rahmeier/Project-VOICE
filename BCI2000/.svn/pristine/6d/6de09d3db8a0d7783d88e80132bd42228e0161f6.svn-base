@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>BCI2000ShellHelper</string>
+	<key>CFBundleGetInfoString</key>
+	<string>BCI2000 Shell Helper, © 2000-2023 BCI2000 Project</string>
+	<key>CFBundleIconFile</key>
+	<string>wrench.icns</string>
+	<key>CFBundleIdentifier</key>
+	<string>org.bci2000.shellhelper</string>
+	<key>CFBundleName</key>
+	<string>BCI2000 Shell Helper</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>????</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>10.15</string>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeIconSystemGenerated</key>
+			<false/>
+			<key>LSTypeIsPackage</key>
+			<false/>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+			<key>CFBundleTypeIconFile</key>
+			<string>prompt.icns</string>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>cmd</string>
+				<string>bat</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>BCI2000 Batch File</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+		</dict>
+	</array>
+	<key>CFBundleSignature</key>
+	<string>bciS</string>
+	<key>NSCameraUseContinuityCameraDeviceType</key>
+	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>BCI2000 asks for access to a camera.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>BCI2000 asks for access to a microphone.</string>
+</dict>
+</plist>

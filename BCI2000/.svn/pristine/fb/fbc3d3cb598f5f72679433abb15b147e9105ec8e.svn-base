@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Programming Tutorial:Implementing an Input Logger - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul><li class="toc1">Concepts</li><ul><li class="toc2"><a href="Programming_Reference%253AFilter_Chain.html">Filter Chain</a></li><li class="toc2"><a href="Programming_Reference%253ASignals.html">Signals</a></li><li class="toc2"><a href="Programming_Reference%253AError_Handling.html">Error Handling</a></li><li class="toc2"><a href="Programming_Reference%253ALocalization.html">Localization</a></li><li class="toc2"><a href="Programming_Reference%253ARapid_Development.html">Rapid Development</a></li></ul><li class="toc1">Reference</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFilter_Class.html">GenericFilter</a></li><li class="toc2"><a href="Programming_Reference%253AEnvironment_Class.html">Environment</a></li><li class="toc2"><a href="Programming_Reference%253AGenericVisualization_Class.html">GenericVisualization</a></li><li class="toc2"><a href="Programming_Reference%253AErrors_and_Warnings.html">Errors and Warnings</a></li><li class="toc2"><a href="Programming_Reference%253ADebug_Output.html">Debug Output</a></li></ul><li class="toc1">Data Acquisition</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericADC_Class.html">GenericADC</a></li></ul><li class="toc1">Data Storage</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFileWriter_Class.html">GenericFileWriter</a></li><li class="toc2"><a href="Programming_Reference%253ABCI2000FileReader_Class.html">BCI2000FileReader</a></li></ul><li class="toc1">Signal Processing</li><ul><li class="toc2"><a href="Programming_Reference%253AIIRFilterBase_Class.html">IIR Filters</a></li></ul><li class="toc1">Application Modules</li><ul><li class="toc2"><a href="Programming_Reference%253AApplicationBase_Class.html">ApplicationBase</a></li><li class="toc2"><a href="Programming_Reference%253AFeedbackTask_Class.html">FeedbackTask</a></li><li class="toc2"><a href="Programming_Reference%253AStimulusTask_Class.html">StimulusTask</a></li><li class="toc2"><a href="Programming_Reference%253A3D_API.html">3D API</a></li></ul><li class="toc1">Howtos</li><ul><li class="toc2"><a href="Programming_Howto%253ABuilding_BCI2000.html">Building BCI2000</a></li><li class="toc2"><a href="Programming_Howto%253ASVN_Client_Setup.html">SVN Client Setup</a></li><li class="toc2"><a href="Programming_Howto%253AUsing_TortoiseSVN.html">Using TortoiseSVN</a></li></ul><li class="toc1"><a href="Programming_FAQ.html">FAQ</a></li><li class="toc1">Tutorials</li><ul><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html">Data Acquisition</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html">Signal Processing</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html">Matlab Signal Processing</a></li></ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">Implementing an Input Logger</h1>
+ <p class = "subtitle">Programming Tutorial</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>In this tutorial, you will learn how to implement a BCI2000 <i>Input Logger</i> component. Here, <a href="User_Reference%253ALogging_Input.html" title="User Reference:Logging Input"><i>Input Logging</i></a> refers to recording the state of input devices, such as joysticks, keyboards, or mice, into <a href="BCI2000_Glossary.html#State" title="BCI2000 Glossary">BCI2000 state variables</a>.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Programming_Tutorial%253AImplementing_an_Input_Logger.html#Overview"><span class="tocnumber">1</span> <span class="toctext">Overview</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Programming_Tutorial%253AImplementing_an_Input_Logger.html#Implementation"><span class="tocnumber">2</span> <span class="toctext">Implementation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="Programming_Tutorial%253AImplementing_an_Input_Logger.html#Device_API"><span class="tocnumber">2.1</span> <span class="toctext">Device API</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="Programming_Tutorial%253AImplementing_an_Input_Logger.html#Event_Interface"><span class="tocnumber">2.2</span> <span class="toctext">Event Interface</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Programming_Tutorial%253AImplementing_an_Input_Logger.html#Thread_Interface"><span class="tocnumber">2.3</span> <span class="toctext">Thread Interface</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Programming_Tutorial%253AImplementing_an_Input_Logger.html#EnvironmentExtension_Class"><span class="tocnumber">2.4</span> <span class="toctext">EnvironmentExtension Class</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="Programming_Tutorial%253AImplementing_an_Input_Logger.html#Finished"><span class="tocnumber">3</span> <span class="toctext">Finished</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="Programming_Tutorial%253AImplementing_an_Input_Logger.html#See_also"><span class="tocnumber">4</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Overview">Overview</span></h2>
+<p>In BCI2000, input logging can be done with per-sample resolution. Typically, BCI2000 data acquisition, signal processing, and application feedback code runs in a <a href="Programming_Reference%253AFilter_Chain.html" title="Programming Reference:Filter Chain">pipe</a> <b>synchronously</b>, being called once per <a href="BCI2000_Glossary.html#Sample_Block" title="BCI2000 Glossary">BCI2000 sample block</a>, and cannot detect state changes in an input device more frequently than that.
+</p><p>To support input logging with per-sample resolution, BCI2000 allows code to post so-called <a href="Programming_Reference%253AEvents.html" title="Programming Reference:Events">events</a> <b>asynchronously</b> from a separate thread, which are time-stamped internally and matched against the current data block's time stamp in order to associate them with individual samples.
+</p><p>In this tutorial, we will discuss how to implement input Logging for a device by polling its state in regular intervals. Generally, relying on OS events to detect changes in device state is preferred over polling; however, whether and how device state is available via OS events depends strongly on the device's driver software, and it is thus difficult to provide a valid example. Readers interested in input logging via OS events should read this tutorial first, and then proceed to the <a rel="nofollow" class="external text" href="http://www.bci2000.org/tracproj/browser/trunk/src/shared/modules/signalsource/logging/KeyLogger.h">key logger component's source code</a> for a non-polling example.
+</p>
+<h2><span class="mw-headline" id="Implementation">Implementation</span></h2>
+<p>An input logger component consists of a combination of a few existing software components, which are all provided by BCI2000 except the device API itself.
+</p>
+<h3><span class="mw-headline" id="Device_API">Device API</span></h3>
+<p>The device API provides functions that allow to read, or manipulate, the state of the input device.
+Typically, it consists of a library (DLL), and an associated header file.
+</p><p>For the sake of this tutorial, we will assume that the device has the shape of thumb wheel, and has one continuous degree of freedom. Its header file, <tt>ThumbWheel.h</tt>, provides a C-style interface:
+</p>
+<pre> #define THUMB_WHEEL_MAX_POS 32767
+ enum { ThumbOK = 0, ThumbBusy, ThumbUnavailable };
+ int ThumbWheelInit();
+ int ThumbWheelGetPos();
+</pre>
+<p>In order to connect to the thumb wheel, we call <tt>ThumbWheelInit()</tt>, receiving <tt>ThumbOK</tt> if everything is fine.
+The <tt>ThumbWheelGetPos()</tt> function will return the wheel's current position, as an integer between zero and <tt>THUMB_WHEEL_MAX_POS</tt>.
+</p>
+<h3><span class="mw-headline" id="Event_Interface">Event Interface</span></h3>
+<p>Using the <a href="Programming_Reference%253AEvents.html" title="Programming Reference:Events">BCI2000 event interface</a>, device state may be written into <a href="BCI2000_Glossary.html#State" title="BCI2000 Glossary">BCI2000 event states</a> asynchronously.
+We will use the event interface to record the wheel's position into a state called <tt>ThumbWheelPos</tt>, writing
+</p>
+<pre> #include "BCIEvent.h"
+ ...
+ bcievent &lt;&lt; "ThumbWheelPos " &lt;&lt; ThumbWheelGetPos();
+</pre>
+<h3><span class="mw-headline" id="Thread_Interface">Thread Interface</span></h3>
+<p>In order to observe the wheel's state independently of BCI2000's processing of data blocks, we create a thread that polls wheel state in regular intervals. We will use BCI2000's <a href="Programming_Reference%253AThread_Class.html" title="Programming Reference:Thread Class">Thread class</a> to implement that separate thread.
+</p>
+<pre> #include "Thread.h"
+ #include "ThumbWheel.h"
+ 
+ class ThumbThread&#160;: public Thread
+ {
+   ThumbThread()
+     {}
+   ~ThumbThread()
+     {}
+   int OnExecute() override
+     {
+       if( ThumbOK == ThumbWheelInit() )
+       {
+         int lastWheelPos = -1;
+         while( !Terminating() )
+         {
+           ThreadUtils::SleepForMs( 1 );
+           int curWheelPos = ThumbWheelGetPos();
+           if( curWheelPos&#160;!= lastWheelPos )
+             bcievent &lt;&lt; "ThumbWheelPos " &lt;&lt; ThumbWheelGetPos();
+           lastWheelPos = curWheelPos;
+         }
+       }
+       return 0;
+     }
+ };
+</pre>
+<p>Note that we avoid sending events if there is no change in position. Otherwise, the event queue will grow very large, increasing overall processing and memory load even if there is no information to record.
+</p>
+<h3><span class="mw-headline" id="EnvironmentExtension_Class">EnvironmentExtension Class</span></h3>
+<p>The <a href="Programming_Reference%253AEnvironmentExtension_Class.html" title="Programming Reference:EnvironmentExtension Class">EnvironmentExtension Class</a> is a base class for BCI2000 components (<i>"extensions"</i>) that are not <a href="Programming_Reference%253AGenericFilter_Class.html" title="Programming Reference:GenericFilter Class">filters</a>. Such extensions do not process signals but still have access to <a href="BCI2000_Glossary.html#Parameter" title="BCI2000 Glossary">BCI2000 parameters</a> and <a href="BCI2000_Glossary.html#State" title="BCI2000 Glossary">state variables</a>, and are notified of system events such as <i>Preflight</i>, <i>Initialize</i>, and <i>StartRun</i>.
+</p><p>This is the extension's header file:
+</p>
+<pre>  #ifndef THUMBWHEEL_LOGGER_H
+  #define THUMBWHEEL_LOGGER_H
+
+  #include "Environment.h"
+  #include "ThumbThread.h"
+
+  class ThumbWheelLogger&#160;: public EnvironmentExtension
+  {
+    public:
+     ThumbWheelLogger()
+      : mLogThumbWheel(false),
+        mpThumbWheelThread(nullptr)
+      {}
+     ~ThumbWheelLogger() {}
+     void Publish() override;
+     void Preflight() const override;
+     void Initialize() override;
+     void StartRun() override;
+     void StopRun() override;
+     void Halt() override;
+
+   private:
+    bool mLogThumbWheel;
+    ThumbWheelThread* mpThumbWheelThread;
+  };
+  #endif // THUMBWHEEL_LOGGER_H
+</pre>
+<p>In our extension component's <tt>Publish()</tt> member function, we test for a parameter <i>LogThumbWheel</i>, and only request the "ThumbWheelPos" state variable if logging is actually enabled. The <i>LogThumbWheel</i> parameter will be available if the module has been started up with <tt>--LogThumbWheel=1</tt> specified on the command line; this way, logging may be enabled and disabled, with no state variable allocated when logging is disabled. Note that we request the <i>LogThumbWheel</i> parameter even if it already exists; this has the effect of providing appropriate auxiliary information about that parameter, i.e. its section, type, and comment fields.
+</p>
+<pre> void ThumbWheelLogger::Publish()
+ {
+   if (OptionalParameter("LogThumbWheel") &gt; 0)
+   {
+     BEGIN_PARAMETER_DEFINITIONS
+       "Source:Log%20Input int LogThumbWheel= 1 0 0 1 "
+       " // record thumb wheel to state (boolean)",
+     END_PARAMETER_DEFINITIONS
+
+     BEGIN_EVENT_DEFINITIONS
+      "ThumbWheelPos   15 0 0 0",
+     END_EVENT_DEFINITIONS
+   }
+ }
+</pre>
+<p>From the <tt>Preflight()</tt> member function, we check whether the thumb wheel is available:
+</p>
+<pre> void ThumbWheelLogger::Preflight() const
+ {
+   if (OptionalParameter("LogThumbWheel") &gt; 0)
+     if(ThumbOK&#160;!= ThumbWheelInit())
+       bcierr &lt;&lt; "ThumbWheel device unavailable";
+ }
+</pre>
+<p>In <tt>Initialize()</tt>, we read the <i>LogThumbWheel</i> parameter's value into a class member:
+</p>
+<pre> void ThumbWheelLogger::Initialize()
+ {
+   mLogThumbWheel = (OptionalParameter("LogThumbWheel") &gt; 0);
+ }
+</pre>
+<p>From the component's <tt>StartRun()</tt> member function, we instantiate the thumb wheel thread class declared above, thereby running its <tt>Execute()</tt> member in a new thread:
+</p>
+<pre> void ThumbWheelLogger::StartRun()
+ {
+   if(mLogThumbWheel)
+   {
+      mpThumbWheelThread = new ThumbWheelThread;
+      mpThumbWheelThread-&gt;Start();
+   }
+}
+</pre>
+<p>Mirroring <tt>StartRun()</tt>, <tt>StopRun()</tt> disposes of the thumbwheel logging thread.
+</p>
+<pre> void ThumbWheelLogger::StopRun()
+ {
+   if (mpThumbWheelThread)
+   {
+     mpThumbWheelThread-&gt;Terminate();
+     delete mpThumbWheelThread;
+     mpThumbWheelThread = nullptr;
+   }
+ }
+</pre>
+<p>We also forward <tt>StopRun()</tt> functionality to the <tt>Halt()</tt> member to ensure appropriate halting of asynchronous activity:
+</p>
+<pre> void ThumbWheelLogger::Halt()
+ {
+   StopRun();
+ }
+</pre>
+<p>Finally, to make sure there exists an object of our <tt>ThumbWheelLogger</tt> class, we use the <tt>Extension</tt> macro at the top of its <tt>.cpp</tt> file:
+</p>
+<pre>Extension(ThumbWheelLogger);
+</pre>
+<h2><span class="mw-headline" id="Finished">Finished</span></h2>
+<p>Now, when we add the <tt>ThumbWheelLogger.cpp</tt> file to a source module, then the module will contain an object of our newly created class, and it will listen to the <tt>--LogThumbWheel=1</tt> command line option.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Programming_Reference%253AEnvironmentExtension_Class.html" title="Programming Reference:EnvironmentExtension Class">Programming Reference:EnvironmentExtension Class</a>, <a href="Programming_Reference%253AThread_Class.html" title="Programming Reference:Thread Class">Programming Reference:Thread Class</a>, <a href="Programming_Reference%253AEvents.html" title="Programming Reference:Events">Programming Reference:Events</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524102708
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.018 seconds
+Real time usage: 0.022 seconds
+Preprocessor visited node count: 89/1000000
+Post‐expand include size: 15/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 2623/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1829-0!canonical and timestamp 20230524102708 and revision id 10169
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Programming_Tutorial:Implementing_an_Input_Logger&amp;oldid=10169">http://www.bci2000.org/mediawiki/index.php?title=Programming_Tutorial:Implementing_an_Input_Logger&amp;oldid=10169</a>"</div>
+ </div>
+</body>
+</html>

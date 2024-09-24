@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:NeuroOmegaADC - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">NeuroOmegaADC</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div class="thumb tright"><div class="thumbinner" style="width:402px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:NeuroOmega_system.jpg" class="image"><img alt="" src="../images/thumb/f/f5/NeuroOmega_system.jpg/400px-NeuroOmega_system.jpg" decoding="async" width="400" height="400" class="thumbimage" srcset="../images/f/f5/NeuroOmega_system.jpg 1.5x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://www.bci2000.org/mediawiki/index.php/File:NeuroOmega_system.jpg" class="internal" title="Enlarge"></a></div>Alpha Omega Neuro Omega clinical system</div></div></div>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Contributions%253ANeuroOmegaADC.html#Versioning"><span class="tocnumber">1</span> <span class="toctext">Versioning</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="Contributions%253ANeuroOmegaADC.html#Authors"><span class="tocnumber">1.1</span> <span class="toctext">Authors</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="Contributions%253ANeuroOmegaADC.html#Version_History"><span class="tocnumber">1.2</span> <span class="toctext">Version History</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="Contributions%253ANeuroOmegaADC.html#Source_Code_Revisions"><span class="tocnumber">1.3</span> <span class="toctext">Source Code Revisions</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Contributions%253ANeuroOmegaADC.html#Known_Issues.2FImportant_Things_to_Know"><span class="tocnumber">1.4</span> <span class="toctext">Known Issues/Important Things to Know</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="Contributions%253ANeuroOmegaADC.html#Functional_Description"><span class="tocnumber">2</span> <span class="toctext">Functional Description</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="Contributions%253ANeuroOmegaADC.html#Video_Overview"><span class="tocnumber">3</span> <span class="toctext">Video Overview</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="Contributions%253ANeuroOmegaADC.html#Integration_into_BCI2000"><span class="tocnumber">4</span> <span class="toctext">Integration into BCI2000</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="Contributions%253ANeuroOmegaADC.html#Connection_to_BCI2000_PC"><span class="tocnumber">5</span> <span class="toctext">Connection to BCI2000 PC</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="Contributions%253ANeuroOmegaADC.html#Stimulation"><span class="tocnumber">6</span> <span class="toctext">Stimulation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-11"><a href="Contributions%253ANeuroOmegaADC.html#StimulationConfigurations"><span class="tocnumber">6.1</span> <span class="toctext">StimulationConfigurations</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="Contributions%253ANeuroOmegaADC.html#StimulationTriggers"><span class="tocnumber">6.2</span> <span class="toctext">StimulationTriggers</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-13"><a href="Contributions%253ANeuroOmegaADC.html#Stimulation_Parameter_GUI"><span class="tocnumber">7</span> <span class="toctext">Stimulation Parameter GUI</span></a></li>
+<li class="toclevel-1 tocsection-14"><a href="Contributions%253ANeuroOmegaADC.html#Parameters"><span class="tocnumber">8</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-15"><a href="Contributions%253ANeuroOmegaADC.html#Source_Tab"><span class="tocnumber">8.1</span> <span class="toctext">Source Tab</span></a>
+<ul>
+<li class="toclevel-3 tocsection-16"><a href="Contributions%253ANeuroOmegaADC.html#Signal_Properties"><span class="tocnumber">8.1.1</span> <span class="toctext">Signal Properties</span></a></li>
+<li class="toclevel-3 tocsection-17"><a href="Contributions%253ANeuroOmegaADC.html#Hardware_Addresses"><span class="tocnumber">8.1.2</span> <span class="toctext">Hardware Addresses</span></a></li>
+<li class="toclevel-3 tocsection-18"><a href="Contributions%253ANeuroOmegaADC.html#MPX_file"><span class="tocnumber">8.1.3</span> <span class="toctext">MPX file</span></a></li>
+<li class="toclevel-3 tocsection-19"><a href="Contributions%253ANeuroOmegaADC.html#Digital_Ports"><span class="tocnumber">8.1.4</span> <span class="toctext">Digital Ports</span></a></li>
+<li class="toclevel-3 tocsection-20"><a href="Contributions%253ANeuroOmegaADC.html#Device_Information"><span class="tocnumber">8.1.5</span> <span class="toctext">Device Information</span></a></li>
+<li class="toclevel-3 tocsection-21"><a href="Contributions%253ANeuroOmegaADC.html#Drive"><span class="tocnumber">8.1.6</span> <span class="toctext">Drive</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-22"><a href="Contributions%253ANeuroOmegaADC.html#Application_Tab"><span class="tocnumber">8.2</span> <span class="toctext">Application Tab</span></a>
+<ul>
+<li class="toclevel-3 tocsection-23"><a href="Contributions%253ANeuroOmegaADC.html#NeuroOmegaStimulation"><span class="tocnumber">8.2.1</span> <span class="toctext">NeuroOmegaStimulation</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-24"><a href="Contributions%253ANeuroOmegaADC.html#States"><span class="tocnumber">9</span> <span class="toctext">States</span></a>
+<ul>
+<li class="toclevel-2 tocsection-25"><a href="Contributions%253ANeuroOmegaADC.html#NeuroOmegaTimeStamp"><span class="tocnumber">9.1</span> <span class="toctext">NeuroOmegaTimeStamp</span></a></li>
+<li class="toclevel-2 tocsection-26"><a href="Contributions%253ANeuroOmegaADC.html#AOConnectionPercentage"><span class="tocnumber">9.2</span> <span class="toctext">AOConnectionPercentage</span></a></li>
+<li class="toclevel-2 tocsection-27"><a href="Contributions%253ANeuroOmegaADC.html#StimMarker1"><span class="tocnumber">9.3</span> <span class="toctext">StimMarker1</span></a></li>
+<li class="toclevel-2 tocsection-28"><a href="Contributions%253ANeuroOmegaADC.html#StimMarker1Time"><span class="tocnumber">9.4</span> <span class="toctext">StimMarker1Time</span></a></li>
+<li class="toclevel-2 tocsection-29"><a href="Contributions%253ANeuroOmegaADC.html#Port1_and_Port2"><span class="tocnumber">9.5</span> <span class="toctext">Port1 and Port2</span></a></li>
+<li class="toclevel-2 tocsection-30"><a href="Contributions%253ANeuroOmegaADC.html#Port1Time_and_Port2Time"><span class="tocnumber">9.6</span> <span class="toctext">Port1Time and Port2Time</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-31"><a href="Contributions%253ANeuroOmegaADC.html#Additional_Information"><span class="tocnumber">10</span> <span class="toctext">Additional Information</span></a>
+<ul>
+<li class="toclevel-2 tocsection-32"><a href="Contributions%253ANeuroOmegaADC.html#TimeStamps"><span class="tocnumber">10.1</span> <span class="toctext">TimeStamps</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-33"><a href="Contributions%253ANeuroOmegaADC.html#Certification_Results"><span class="tocnumber">11</span> <span class="toctext">Certification Results</span></a>
+<ul>
+<li class="toclevel-2 tocsection-34"><a href="Contributions%253ANeuroOmegaADC.html#PC_Specifications"><span class="tocnumber">11.1</span> <span class="toctext">PC Specifications</span></a></li>
+<li class="toclevel-2 tocsection-35"><a href="Contributions%253ANeuroOmegaADC.html#Certification_Tests_Performed"><span class="tocnumber">11.2</span> <span class="toctext">Certification Tests Performed</span></a></li>
+<li class="toclevel-2 tocsection-36"><a href="Contributions%253ANeuroOmegaADC.html#Success_Criteria_and_Overall_Results"><span class="tocnumber">11.3</span> <span class="toctext">Success Criteria and Overall Results</span></a></li>
+<li class="toclevel-2 tocsection-37"><a href="Contributions%253ANeuroOmegaADC.html#Acquisition_Latency"><span class="tocnumber">11.4</span> <span class="toctext">Acquisition Latency</span></a></li>
+<li class="toclevel-2 tocsection-38"><a href="Contributions%253ANeuroOmegaADC.html#Stimulation_Latency"><span class="tocnumber">11.5</span> <span class="toctext">Stimulation Latency</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-39"><a href="Contributions%253ANeuroOmegaADC.html#See_also"><span class="tocnumber">12</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Versioning">Versioning</span></h2>
+<h3><span class="mw-headline" id="Authors">Authors</span></h3>
+<ul><li>William Engelhardt (engelhardt@neurotechcenter.org)</li>
+<li>Alexander Belsten (belsten@neurotechcenter.org)</li></ul>
+<h3><span class="mw-headline" id="Version_History">Version History</span></h3>
+<ul><li>2022/10/18: Changed to BufferedADC to prevent data loss.</li>
+<li>2022/07/18: StimMarker 1 and Ports 1 and 2 are written to BCI2000 States.</li>
+<li>2021/06/17: Initial working release R6310.</li></ul>
+<h3><span class="mw-headline" id="Source_Code_Revisions">Source Code Revisions</span></h3>
+<ul><li>Initial development: 6274</li>
+<li>Known to compile under: 6969</li>
+<li>Broken since: --</li></ul>
+<h3><span id="Known_Issues/Important_Things_to_Know"></span><span class="mw-headline" id="Known_Issues.2FImportant_Things_to_Know">Known Issues/Important Things to Know</span></h3>
+<ul><li>Recording from channels with different sampling rates is not possible.</li>
+<li>The Neuro Omega is not able to immediately switch stimulating an electrode as a cathode to an anode. If this is desired, you must introduce a sham stimulation in-between, which can be done to a channel that is not used</li>
+<li>It has been seen with the <a href="Contributions%253ANeuroOmegaADC.html#PC_Specifications">computer used for Certification Testing </a>, that if it has been powered on for more than a couple of days (or perhaps another reason, we are not totally sure), it fails to stream consistent data to the Neuro Omega. This creates an irregular block size timing, loss of data, and occasional crashing. <b>This was fixed by restarting the computer.</b> The theory for the source of the problem is that something was wrong with the AO driver, and restarting fixed it.</li></ul>
+<p><br />
+</p>
+<h2><span class="mw-headline" id="Functional_Description">Functional Description</span></h2>
+<p>This source module allows you to collect electrophysiological data from the Alpha Omega Neuro Omega clinical recording system. The Neuro Omega can record from a variety of modalities, such as ECoG, sEEG, micro, and macro contacts. It is often used for the placement of deep brain stimulating electrodes, facilitated by its ability to sonify local field potentials and drive the DBS lead to precise depths. 
+</p>
+<h2><span class="mw-headline" id="Video_Overview">Video Overview</span></h2>
+<p><br />
+</p>
+<div class="thumb embedvideo  ev_center autoResize" style="width: 708px;"><div class="embedvideo autoResize" style=" width: 706px;"><div class="embedvideowrap" style="width: 700px;"><iframe title="Play video" src="https://www.youtube.com/embed/icyllz5G55U?" width="700" height="394" frameborder="0" allowfullscreen="true"></iframe></div></div></div>
+<p><br />
+<b>Edits since the video creation</b>
+</p>
+<ul><li>You no longer need the BCI2000 computer's MAC address, you only need the Neuro Omega's.</li></ul>
+<h2><span class="mw-headline" id="Integration_into_BCI2000">Integration into BCI2000</span></h2>
+<ul><li><b>Install the NeuroOmega System SDK</b> -  The SDK must be downloaded in order to run this source module. The executable "Neuro Omega System SDK .exe" must be obtained to download the SDK.</li>
+<li><b>Compile the source module</b> -  You will need both the Neuro Omega clinical system and a PC with BCI2000 installed and the NeuroOmegaADC source module compiled. Compile the source module on the BCI2000 PC by enabling <code>BUILD_PRIVATE</code> in your CMake configuration and generating the BCI2000 solution. Access to the private directory in the SVN is necessary. Then compile the source module, and make <code>NeuroOmegaADC</code> the source module in your batch file.</li></ul>
+<h2><span class="mw-headline" id="Connection_to_BCI2000_PC">Connection to BCI2000 PC</span></h2>
+<ul><li><b>Connection of Ethernet Cable</b> - The BCI2000 PC connects to the Neuro Omega via a CAT6 ethernet cable. On the back of the Neuro Omega, you will find three ethernet ports. Connect the CAT6 cable into one that is not currently occupied, and connect the other end to the BCI2000 PC. It is a good idea to use an ethernet isolator to prevent transfer of significant current between the two systems.</li>
+<li><b>Configuring IPv4 address</b> - Now that the two systems are connected physically, the BCI2000 PC's IPv4 address can be configured such that it is on the same subnet as the Neuro Omega. This can be done by checking the IPv4 address and subnet mask on the Neuro Omega system ethernet adapter and setting the BCI2000 PC's ethernet adapter to the same subnet mask and setting an appropriate IPv4 address.</li>
+<li><b>Installation of SDK</b> - Alpha Omega provides an SDK installer for the Neuro Omega that must be installed. Acquire this installer and carry out the installation process.</li>
+<li><b>Setting MAC addresses</b> - Now that the two systems are configured, and everything is installed, launch your batch file that has the NeuroOmegaADC as the source module. Open the <i>Config</i> window and navigate to the source tab. You will need to enter the Alpha Omega's MAC address into the <i>NeuroOmegaMAC</i> parameter. This can be located by looking at the sticker on the bottom of the Alpha Omega, near where ethernet ports are.</li>
+<li><b>Setting Recording Channels</b> - On the Neuro Omega, launch the data acquisition software. Press <code>Ctrl-Shift-M</code> to show the menu bar. In the Options tab, open the settings dialog box for the channel type you want to record from. You should see a box like this:</li></ul>
+<ul class="gallery mw-gallery-nolines center">
+		<li class="gallerybox" style="width: 605px"><div style="width: 605px">
+			<div class="thumb" style="width: 600px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:AlphaOmegaADC_channel_dialog.png" class="image"><img alt="" src="../images/thumb/4/48/AlphaOmegaADC_channel_dialog.png/600px-AlphaOmegaADC_channel_dialog.png" decoding="async" width="600" height="305" srcset="../images/thumb/4/48/AlphaOmegaADC_channel_dialog.png/900px-AlphaOmegaADC_channel_dialog.png 1.5x, ../images/thumb/4/48/AlphaOmegaADC_channel_dialog.png/1200px-AlphaOmegaADC_channel_dialog.png 2x" /></a></div></div>
+			<div class="gallerytext">
+<p>Figure 1: Channel dialog box on NeuroOmega Clinical System.
+</p>
+			</div>
+		</div></li>
+</ul>
+<p>There are two columns in the box that are of particular importance to recording with BCI2000. The first is the <i>Channel ID</i> column. To record from a channel, you will need to enter its corresponding integer <i>Channel ID</i> in the <i>RecordingChIDs</i> parameter in BCI2000. The other important column is the <i>SR</i> (sampling rate) column. <b>All</b> of the channels you record from in BCI2000 <b>must</b> have the same sampling rate. You must enter this sampling rate in the <i>SamplingRate</i> parameter in BCI2000. 
+</p>
+<h2><span class="mw-headline" id="Stimulation">Stimulation</span></h2>
+<h3><span class="mw-headline" id="StimulationConfigurations">StimulationConfigurations</span></h3>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 1870.6666666667px"><div style="width: 1870.6666666667px">
+			<div class="thumb" style="width: 1868.6666666667px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:NOStimulationFigure.png" class="image"><img alt="" src="../images/1/13/NOStimulationFigure.png" decoding="async" width="1869" height="800" /></a></div></div>
+			<div class="gallerytext">
+<p>Figure 2: Stimulation pulse shape and train shape definition. The stimulation pulses on the left would take place during the "Stimulation duration" phase on the right.
+</p>
+			</div>
+		</div></li>
+</ul>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 324px"><div style="width: 324px">
+			<div class="thumb" style="width: 322px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:NOStimulationConfigurations.png" class="image"><img alt="" src="../images/f/f4/NOStimulationConfigurations.png" decoding="async" width="322" height="350" /></a></div></div>
+			<div class="gallerytext">
+<p>Figure 3: Stimulation pulse shape definition in BCI2000.
+</p>
+			</div>
+		</div></li>
+</ul>
+<p>This parameter is where stimulation pulses are defined. The pulse shapes are defined according to Fig. 2. 
+</p><p><b>Additional Notes:</b>
+</p>
+<ul><li>If only one pulse is desired, <b>Train Duration</b> and <b>Train Frequency</b> don't have to be specified, or they can be <b>set to 0</b>.</li></ul>
+<p><br />
+</p>
+<h3><span class="mw-headline" id="StimulationTriggers">StimulationTriggers</span></h3>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 818.66666666667px"><div style="width: 818.66666666667px">
+			<div class="thumb" style="width: 816.66666666667px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:NOStimulationTriggers.png" class="image"><img alt="" src="../images/thumb/c/c6/NOStimulationTriggers.png/1225px-NOStimulationTriggers.png" decoding="async" width="817" height="350" srcset="../images/thumb/c/c6/NOStimulationTriggers.png/1839px-NOStimulationTriggers.png 1.5x, ../images/thumb/c/c6/NOStimulationTriggers.png/2450px-NOStimulationTriggers.png 2x" /></a></div></div>
+			<div class="gallerytext">
+<p>Figure 4: Stimulation triggers have an expression, a configuration ID, a list of channels, and a return channel.
+</p>
+			</div>
+		</div></li>
+</ul>
+<p><br />
+<b>Additional Notes:</b>
+</p>
+<ul><li>NeuroOmega has a bug where <b>a channel cannot immediately switch from being a cathode to anode, or vice versa</b>. To overcome this restriction, you can introduce a sham stimulation to a channel you are not using. This means you can set both the stimulation amplitudes to 0, and trigger it in-between the two stimulations. For example, if you did bipolar stimulation with Ch 1 and Ch 8 and wanted to switch which channel is the return channel. You could do the first stimulation to Ch 1 (with Ch 8 as the return channel), the sham stimulation, then the second stimulation to Ch 8 (with Ch 1 as the return channel).</li>
+<li>Channel Names are set by the NeuroOmega system. They can be found by following the steps resulting in Figure 1.</li></ul>
+<h2><span class="mw-headline" id="Stimulation_Parameter_GUI"><a href="User_Reference%253ANeuroStimulationParamsGUI.html" title="User Reference:NeuroStimulationParamsGUI">Stimulation Parameter GUI</a></span></h2>
+<p>To help out with creating the BCI2000 parameters, a GUI has been made which should make it easy to translate your stimulation specifications into BCI2000 parameter files. The GUI also visualizes the stimulation from three different perspectives, making it easy to tell if your parameters are really what you want. There is a <a href="User_Reference%253ANeuroStimulationParamsGUI.html" title="User Reference:NeuroStimulationParamsGUI">NeuroStimulationParamsGUI user reference</a> which will further tell you how to use this tool.
+</p>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 884.66666666667px"><div style="width: 884.66666666667px">
+			<div class="thumb" style="width: 882.66666666667px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:NeuroOmegaGUIimg1.png" class="image"><img alt="" src="../images/9/9c/NeuroOmegaGUIimg1.png" decoding="async" width="883" height="500" /></a></div></div>
+			<div class="gallerytext">
+<p>Figure 5: The Neuro Omega GUI which creates BCI2000 parameters from stimulation specifications.
+</p>
+			</div>
+		</div></li>
+</ul>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<h3><span class="mw-headline" id="Source_Tab">Source Tab</span></h3>
+<h4><span class="mw-headline" id="Signal_Properties">Signal Properties</span></h4>
+<ul><li><b>SourceCh</b> - This parameter should be "auto", as it is determined by the size of the "RecordingChIDs" parameter.</li></ul>
+<ul><li><b>SampleBlockSize</b> - Number of samples that are transmitted at a time.</li></ul>
+<ul><li><b>SamplingRate</b> - Some channels on the Neuro Omega are recorded at different sampling rates, so this parameter is dictated by the configuration of the clinical system and must be manually entered accordingly. Information on how to check the sampling rate of a given channel is coming soon.</li></ul>
+<ul><li><b>ChannelNames</b> - This should be set to auto, as the names of the channels will be automatically acquired from the Neuro Omega.</li></ul>
+<ul><li><b>SourceChOffset</b> - Use 'auto', or needs to be the length of number of channels in RecordingChIDs.</li></ul>
+<ul><li><b>SourceChGain</b> - Use 'auto', or needs to be the length of number of channels in RecordingChIDs.</li></ul>
+<ul><li><b>RecordingChIDs</b> - This parameter should be a list of channel IDs corresponding to the channels you want to record from. Each of these channels must have the same sampling rate.</li></ul>
+<h4><span class="mw-headline" id="Hardware_Addresses">Hardware Addresses</span></h4>
+<ul><li><b>NeuroOmegaMAC</b> - This parameter should be the MAC address of the Neuro Omega system.</li></ul>
+<h4><span class="mw-headline" id="MPX_file">MPX file</span></h4>
+<ul><li><b>SaveMPX</b> - Enabling will save a data file on the Neuro Omega system using their own data format.</li>
+<li><b>FilePath</b> - Where to save the file on the Neuro Omega system. A tested path has been "C:\Surgeries_Data\&lt;patient ID&gt;"</li>
+<li><b>FileName</b> - Name of the file on the Neuro Omega system. Will saved where the File Path specifies.</li></ul>
+<h4><span class="mw-headline" id="Digital_Ports">Digital Ports</span></h4>
+<ul><li><b>EnablePortInputs</b> - Enabling this parameter will record from both 16-bit D-Sub digital input connectors to the Port1 and Port2 states.</li></ul>
+<h4><span class="mw-headline" id="Device_Information">Device Information</span></h4>
+<ul><li><b>ChannelInfo</b> - This is a read-only parameter that will be populated with channel information from the Neuro Omega (namely, the mapping between channel IDs (integers) and channel names).</li></ul>
+<h4><span class="mw-headline" id="Drive">Drive</span></h4>
+<ul><li><b>ReadDriveDepth</b> - Enable if you would like to read the driver depth from device. Only enable if the driver is connected.</li></ul>
+<h3><span class="mw-headline" id="Application_Tab">Application Tab</span></h3>
+<h4><span class="mw-headline" id="NeuroOmegaStimulation">NeuroOmegaStimulation</span></h4>
+<ul><li><b>EnableNeuroOmegaStimulation</b> - If disabled, no stimulation will be performed.</li>
+<li><b>StimulationConfigurations</b> - <a href="Contributions%253ANeuroOmegaADC.html#StimulationConfigurations">Described above.</a></li>
+<li><b>StimulationTriggers</b> - <a href="Contributions%253ANeuroOmegaADC.html#StimulationTriggers">Described above.</a></li></ul>
+<h2><span class="mw-headline" id="States">States</span></h2>
+<h3><span class="mw-headline" id="NeuroOmegaTimeStamp">NeuroOmegaTimeStamp</span></h3>
+<p>The 32-bit time at which the channels are read from the Neuro Omega. 
+</p>
+<h3><span class="mw-headline" id="AOConnectionPercentage">AOConnectionPercentage</span></h3>
+<p>From 0 - 100, the quality of the connection between the systems in percentage. Higher is better, and it might be useful for determining the cause of an issue if data isn't able to be streamed.
+</p>
+<h3><span class="mw-headline" id="StimMarker1">StimMarker1</span></h3>
+<p>A state that contains the number of the channel that is being stimulated. It will only be triggered when stimulation is occurring, otherwise it will be zero. 
+</p>
+<h3><span class="mw-headline" id="StimMarker1Time">StimMarker1Time</span></h3>
+<p>The timestamp at which StimMarker1 occurs.  For every StimMarker event, there will be a corresponding time stamp. 
+</p>
+<h3><span class="mw-headline" id="Port1_and_Port2">Port1 and Port2</span></h3>
+<p>These are 16-bit states recorded from the 16-bit D-Sub digital input 1 and input 2 connector on the Neuro Omega. The states record each pin as a 1 or 0, and stored in a certain bit. To decode this data, analyze as binary. For example, if Port1 was 8, this would mean only the 4th pin of Port1 was high and the rest were low. 
+</p>
+<h3><span class="mw-headline" id="Port1Time_and_Port2Time">Port1Time and Port2Time</span></h3>
+<p>The timestamps at which Port1 and Port2 are triggered. 
+</p>
+<h2><span class="mw-headline" id="Additional_Information">Additional Information</span></h2>
+<h3><span class="mw-headline" id="TimeStamps">TimeStamps</span></h3>
+<p>There are currently three timestamps logged: NeuroOmega timestamp, StimMarker timestamp, and the Ports 1 and 2 timestamps. The NeuroOmega timestamp is 32 bits, and corresponds to the time at which each block of data is read. Since both the StimMarkers and the Ports are read asynchronously to the signal source, they each have their own timestamps to accurately mark when the event occurred. These states are 16-bit, and increase twice as fast as the NeuroOmegaTimeStamp. To align them, shift every other peak up by 2^15.
+</p><p>Here is a published Matlab script that aligns the data for you: <b><a href="https://www.bci2000.org/mediawiki/index.php/File:AlignNeuroOmegaStimMarkerTime.pdf" title="File:AlignNeuroOmegaStimMarkerTime.pdf">File:AlignNeuroOmegaStimMarkerTime.pdf</a></b>. The pdf shows an example of how it should look like, but to use it yourself <b>you must change the file path</b>. 
+</p><p>The units of the NeuroOmega time are currently unknown, however you can easily convert it to milliseconds by using the SourceTime state at the same index.
+</p>
+<h2><span class="mw-headline" id="Certification_Results">Certification Results</span></h2>
+<p>The AmpServerPro certification was performed to give a better understanding of the restraints that must be placed on the system when using this device. Certification success criteria was determined internally and without rigor, and reflects our experience with psychophysical experiments and the performance we expect to need for the system. More information about certification testing can be found on the <a href="User_Reference%253ABCI2000Certification.html" title="User Reference:BCI2000Certification">certification wiki page</a>. 
+</p>
+<h3><span class="mw-headline" id="PC_Specifications">PC Specifications</span></h3>
+<ul><li>Desktop Windows 10</li>
+<li>Processor: AMD Ryzen 7 5700G with Radeon Graphics 3.80 GHz</li>
+<li>Installed Ram: 32.00 GB</li>
+<li>Graphics Card: AMD Radeon(TM) Graphics</li>
+<li>System Type: 64-bit operating system, x64-based processor</li>
+<li>BCI2000 compiled with MSVC2019 and Qt 5.15.2</li>
+<li>g.USBamp UB with driver version 3.16.00 installed</li></ul>
+<h3><span class="mw-headline" id="Certification_Tests_Performed">Certification Tests Performed</span></h3>
+<p>Certification testing varied task (P3Spell (7x7 grid), P3Spell (1x1 grid), CursorTask, CursorTaskLow, and StimulusPresentation) with a block size of 100ms, and tested audio and video latency, for a total of 12 performed tasks. The audio latency and video latency are partitioned into separate windows, as we tested them in different runs. 
+</p>
+<h3><span class="mw-headline" id="Success_Criteria_and_Overall_Results">Success Criteria and Overall Results</span></h3>
+<table border="1">
+<tbody><tr>
+<td>Name
+</td>
+<td>Actual Latency
+</td>
+<td>Success Criteria
+</td>
+<td>Result
+</td></tr>
+<tr>
+<td>Timestamp Latency Mean
+</td>
+<td>1.07ms
+</td>
+<td>1 ms
+</td>
+<td>Failed
+</td></tr>
+<tr>
+<td>Timestamp Latency STD
+</td>
+<td>1.98ms
+</td>
+<td>5 ms
+</td>
+<td>Passed
+</td></tr>
+<tr>
+<td>Processing Latency Mean
+</td>
+<td>3.07ms
+</td>
+<td>20 ms
+</td>
+<td>Passed
+</td></tr>
+<tr>
+<td>Processing Latency STD
+</td>
+<td>49.6ms
+</td>
+<td>10 ms
+</td>
+<td>Failed
+</td></tr>
+<tr>
+<td>Video Latency Mean
+</td>
+<td>61.3ms
+</td>
+<td>65 ms
+</td>
+<td>Passed
+</td></tr>
+<tr>
+<td>Video Latency STD
+</td>
+<td>9.79ms
+</td>
+<td>20 ms
+</td>
+<td>Passed
+</td></tr>
+<tr>
+<td>Audio Latency Mean
+</td>
+<td>43.8ms
+</td>
+<td>65 ms
+</td>
+<td>Passed
+</td></tr>
+<tr>
+<td>Audio Latency STD
+</td>
+<td>5.92ms
+</td>
+<td>20 ms
+</td>
+<td>Passed
+</td></tr></tbody></table>
+<p>The individual task breakdown can be found commented out in the Wiki code below, for additional information.
+</p>
+<h3><span class="mw-headline" id="Acquisition_Latency">Acquisition Latency</span></h3>
+<p>To measure the acquisition latency, the Audio and Video Latency were compared between the Neuro Omega and the g.USBAmp, which is considered to have an acquisition latency of 0. Performing this comparison, the Neuro Omega was found to have an average acquisition latency of <b>11 ± 5 ms</b>.
+</p>
+<h3><span class="mw-headline" id="Stimulation_Latency">Stimulation Latency</span></h3>
+<p>Two tests were performed to measure the Stimulation Latency: 1) the latency of the <a href="Contributions%253ANeuroOmegaADC.html#StimMarker1">StimMarker</a> (the response from the Neuro Omega), and 2) the latency of the actual stimulation. 
+</p>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 602px"><div style="width: 602px">
+			<div class="thumb" style="width: 600px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:NO_StimMarkerLatency_SourceTime.png" class="image"><img alt="" src="../images/b/b8/NO_StimMarkerLatency_SourceTime.png" decoding="async" width="600" height="450" /></a></div></div>
+			<div class="gallerytext">
+<p>Figure 6: The latency of the StimMarker, sent from the Neuro Omega to a BCI2000 state. The average is <b>97 ± 1 ms</b>.
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 602px"><div style="width: 602px">
+			<div class="thumb" style="width: 600px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:NO_StimulationLatency_SourceTime.png" class="image"><img alt="" src="../images/3/35/NO_StimulationLatency_SourceTime.png" decoding="async" width="600" height="450" /></a></div></div>
+			<div class="gallerytext">
+<p>Figure 7: The latency of stimulation. The beginning of stimulation was measured by the first peak recorded. The average is <b>200 ± 1 ms</b>.
+</p>
+			</div>
+		</div></li>
+</ul>
+<p>The two tests were performed at a block size of 100 ms, while stimulating the ECOG High Frequency channel #2 (numbered 10272). As you can observe, the StimMarker recognizes the stimulation before the stimulation actually occurs, by almost half the time.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Reference%253AFilters.html" title="User Reference:Filters">User Reference:Filters</a>, <a href="Contributions%253AADCs.html" title="Contributions:ADCs">Contributions:ADCs</a>, <a href="User_Reference%253ANeuroStimulationParamsGUI.html" title="User Reference:NeuroStimulationParamsGUI">User Reference:NeuroStimulationParamsGUI</a>
+</p><p><br />
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524175504
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.061 seconds
+Real time usage: 0.068 seconds
+Preprocessor visited node count: 166/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 4865/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2354-0!canonical and timestamp 20230524175504 and revision id 9971
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:NeuroOmegaADC&amp;oldid=9971">http://www.bci2000.org/mediawiki/index.php?title=Contributions:NeuroOmegaADC&amp;oldid=9971</a>"</div>
+ </div>
+</body>
+</html>

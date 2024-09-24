@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Programming Reference:StimulusTask Class - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul><li class="toc1">Concepts</li><ul><li class="toc2"><a href="Programming_Reference%253AFilter_Chain.html">Filter Chain</a></li><li class="toc2"><a href="Programming_Reference%253ASignals.html">Signals</a></li><li class="toc2"><a href="Programming_Reference%253AError_Handling.html">Error Handling</a></li><li class="toc2"><a href="Programming_Reference%253ALocalization.html">Localization</a></li><li class="toc2"><a href="Programming_Reference%253ARapid_Development.html">Rapid Development</a></li></ul><li class="toc1">Reference</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFilter_Class.html">GenericFilter</a></li><li class="toc2"><a href="Programming_Reference%253AEnvironment_Class.html">Environment</a></li><li class="toc2"><a href="Programming_Reference%253AGenericVisualization_Class.html">GenericVisualization</a></li><li class="toc2"><a href="Programming_Reference%253AErrors_and_Warnings.html">Errors and Warnings</a></li><li class="toc2"><a href="Programming_Reference%253ADebug_Output.html">Debug Output</a></li></ul><li class="toc1">Data Acquisition</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericADC_Class.html">GenericADC</a></li></ul><li class="toc1">Data Storage</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFileWriter_Class.html">GenericFileWriter</a></li><li class="toc2"><a href="Programming_Reference%253ABCI2000FileReader_Class.html">BCI2000FileReader</a></li></ul><li class="toc1">Signal Processing</li><ul><li class="toc2"><a href="Programming_Reference%253AIIRFilterBase_Class.html">IIR Filters</a></li></ul><li class="toc1">Application Modules</li><ul><li class="toc2"><a href="Programming_Reference%253AApplicationBase_Class.html">ApplicationBase</a></li><li class="toc2"><a href="Programming_Reference%253AFeedbackTask_Class.html">FeedbackTask</a></li><li class="toc2">StimulusTask</li><li class="toc2"><a href="Programming_Reference%253A3D_API.html">3D API</a></li></ul><li class="toc1">Howtos</li><ul><li class="toc2"><a href="Programming_Howto%253ABuilding_BCI2000.html">Building BCI2000</a></li><li class="toc2"><a href="Programming_Howto%253ASVN_Client_Setup.html">SVN Client Setup</a></li><li class="toc2"><a href="Programming_Howto%253AUsing_TortoiseSVN.html">Using TortoiseSVN</a></li></ul><li class="toc1"><a href="Programming_FAQ.html">FAQ</a></li><li class="toc1">Tutorials</li><ul><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html">Data Acquisition</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html">Signal Processing</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html">Matlab Signal Processing</a></li></ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">StimulusTask Class</h1>
+ <p class = "subtitle">Programming Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Programming_Reference%253AStimulusTask_Class.html#Location"><span class="tocnumber">1</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Programming_Reference%253AStimulusTask_Class.html#Synopsis"><span class="tocnumber">2</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Programming_Reference%253AStimulusTask_Class.html#Introduction"><span class="tocnumber">3</span> <span class="toctext">Introduction</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Programming_Reference%253AStimulusTask_Class.html#Presentation_of_stimuli"><span class="tocnumber">3.1</span> <span class="toctext">Presentation of stimuli</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Programming_Reference%253AStimulusTask_Class.html#Grouping_of_stimuli"><span class="tocnumber">3.2</span> <span class="toctext">Grouping of stimuli</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Programming_Reference%253AStimulusTask_Class.html#Sequencing"><span class="tocnumber">3.3</span> <span class="toctext">Sequencing</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="Programming_Reference%253AStimulusTask_Class.html#Classification_vs_Target_Selection"><span class="tocnumber">3.4</span> <span class="toctext">Classification vs Target Selection</span></a>
+<ul>
+<li class="toclevel-3 tocsection-8"><a href="Programming_Reference%253AStimulusTask_Class.html#Specifying_Stimulus-Target_Relations"><span class="tocnumber">3.4.1</span> <span class="toctext">Specifying Stimulus-Target Relations</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="Programming_Reference%253AStimulusTask_Class.html#Accumulation_and_Combination_of_Evidence"><span class="tocnumber">3.4.2</span> <span class="toctext">Accumulation and Combination of Evidence</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-10"><a href="Programming_Reference%253AStimulusTask_Class.html#Using_a_Different_Classifier_with_StimulusTask"><span class="tocnumber">3.5</span> <span class="toctext">Using a Different Classifier with StimulusTask</span></a>
+<ul>
+<li class="toclevel-3 tocsection-11"><a href="Programming_Reference%253AStimulusTask_Class.html#Converting_a_Classifier.27s_Output_into_a_Classification_Score"><span class="tocnumber">3.5.1</span> <span class="toctext">Converting a Classifier's Output into a Classification Score</span></a>
+<ul>
+<li class="toclevel-4 tocsection-12"><a href="Programming_Reference%253AStimulusTask_Class.html#Classifier_Error_Rates"><span class="tocnumber">3.5.1.1</span> <span class="toctext">Classifier Error Rates</span></a></li>
+<li class="toclevel-4 tocsection-13"><a href="Programming_Reference%253AStimulusTask_Class.html#Measures_of_Significance"><span class="tocnumber">3.5.1.2</span> <span class="toctext">Measures of Significance</span></a></li>
+</ul>
+</li>
+<li class="toclevel-3 tocsection-14"><a href="Programming_Reference%253AStimulusTask_Class.html#Transmitting_Classification_Scores"><span class="tocnumber">3.5.2</span> <span class="toctext">Transmitting Classification Scores</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-15"><a href="Programming_Reference%253AStimulusTask_Class.html#Events"><span class="tocnumber">4</span> <span class="toctext">Events</span></a>
+<ul>
+<li class="toclevel-2 tocsection-16"><a href="Programming_Reference%253AStimulusTask_Class.html#Events_Summary"><span class="tocnumber">4.1</span> <span class="toctext">Events Summary</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="Programming_Reference%253AStimulusTask_Class.html#Stimulus_Code_Event"><span class="tocnumber">4.2</span> <span class="toctext">Stimulus Code Event</span></a>
+<ul>
+<li class="toclevel-3 tocsection-18"><a href="Programming_Reference%253AStimulusTask_Class.html#int_OnNextStimulusCode"><span class="tocnumber">4.2.1</span> <span class="toctext">int OnNextStimulusCode</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-19"><a href="Programming_Reference%253AStimulusTask_Class.html#Events_forwarded_from_the_GenericFilter_interface"><span class="tocnumber">4.3</span> <span class="toctext">Events forwarded from the GenericFilter interface</span></a>
+<ul>
+<li class="toclevel-3 tocsection-20"><a href="Programming_Reference%253AStimulusTask_Class.html#OnPreflight.28SignalProperties_.28r.29.29"><span class="tocnumber">4.3.1</span> <span class="toctext">OnPreflight(SignalProperties (r))</span></a></li>
+<li class="toclevel-3 tocsection-21"><a href="Programming_Reference%253AStimulusTask_Class.html#OnInitialize.28SignalProperties_.28r.29.29"><span class="tocnumber">4.3.2</span> <span class="toctext">OnInitialize(SignalProperties (r))</span></a></li>
+<li class="toclevel-3 tocsection-22"><a href="Programming_Reference%253AStimulusTask_Class.html#OnStartRun"><span class="tocnumber">4.3.3</span> <span class="toctext">OnStartRun</span></a></li>
+<li class="toclevel-3 tocsection-23"><a href="Programming_Reference%253AStimulusTask_Class.html#OnStopRun"><span class="tocnumber">4.3.4</span> <span class="toctext">OnStopRun</span></a></li>
+<li class="toclevel-3 tocsection-24"><a href="Programming_Reference%253AStimulusTask_Class.html#OnHalt"><span class="tocnumber">4.3.5</span> <span class="toctext">OnHalt</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-25"><a href="Programming_Reference%253AStimulusTask_Class.html#Phase_transition_Events"><span class="tocnumber">4.4</span> <span class="toctext">Phase transition Events</span></a>
+<ul>
+<li class="toclevel-3 tocsection-26"><a href="Programming_Reference%253AStimulusTask_Class.html#OnPreSequence"><span class="tocnumber">4.4.1</span> <span class="toctext">OnPreSequence</span></a></li>
+<li class="toclevel-3 tocsection-27"><a href="Programming_Reference%253AStimulusTask_Class.html#OnSequenceBegin"><span class="tocnumber">4.4.2</span> <span class="toctext">OnSequenceBegin</span></a></li>
+<li class="toclevel-3 tocsection-28"><a href="Programming_Reference%253AStimulusTask_Class.html#OnSequenceEnd"><span class="tocnumber">4.4.3</span> <span class="toctext">OnSequenceEnd</span></a></li>
+<li class="toclevel-3 tocsection-29"><a href="Programming_Reference%253AStimulusTask_Class.html#OnStimulusBegin.28int_stimulusCode_.28r.29.29"><span class="tocnumber">4.4.4</span> <span class="toctext">OnStimulusBegin(int stimulusCode (r))</span></a></li>
+<li class="toclevel-3 tocsection-30"><a href="Programming_Reference%253AStimulusTask_Class.html#OnStimulusEnd.28int_stimulusCode_.28r.29.29"><span class="tocnumber">4.4.5</span> <span class="toctext">OnStimulusEnd(int stimulusCode (r))</span></a></li>
+<li class="toclevel-3 tocsection-31"><a href="Programming_Reference%253AStimulusTask_Class.html#OnPostRun"><span class="tocnumber">4.4.6</span> <span class="toctext">OnPostRun</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-32"><a href="Programming_Reference%253AStimulusTask_Class.html#Input_Events"><span class="tocnumber">4.5</span> <span class="toctext">Input Events</span></a>
+<ul>
+<li class="toclevel-3 tocsection-33"><a href="Programming_Reference%253AStimulusTask_Class.html#DoPreRun.28GenericSignal_.28r.29.2C_bool_doProgress_.28rw.29.29"><span class="tocnumber">4.5.1</span> <span class="toctext">DoPreRun(GenericSignal (r), bool doProgress (rw))</span></a></li>
+<li class="toclevel-3 tocsection-34"><a href="Programming_Reference%253AStimulusTask_Class.html#DoPreSequence.28GenericSignal_.28r.29.2C_bool_doProgress_.28rw.29.29"><span class="tocnumber">4.5.2</span> <span class="toctext">DoPreSequence(GenericSignal (r), bool doProgress (rw))</span></a></li>
+<li class="toclevel-3 tocsection-35"><a href="Programming_Reference%253AStimulusTask_Class.html#DoStimulus.28GenericSignal_.28r.29.2C_bool_doProgress_.28rw.29.29"><span class="tocnumber">4.5.3</span> <span class="toctext">DoStimulus(GenericSignal (r), bool doProgress (rw))</span></a></li>
+<li class="toclevel-3 tocsection-36"><a href="Programming_Reference%253AStimulusTask_Class.html#DoISI.28GenericSignal_.28r.29.2C_bool_doProgress_.28rw.29.29"><span class="tocnumber">4.5.4</span> <span class="toctext">DoISI(GenericSignal (r), bool doProgress (rw))</span></a></li>
+<li class="toclevel-3 tocsection-37"><a href="Programming_Reference%253AStimulusTask_Class.html#DoPostSequence.28GenericSignal_.28r.29.2C_bool_doProgress_.28rw.29.29"><span class="tocnumber">4.5.5</span> <span class="toctext">DoPostSequence(GenericSignal (r), bool doProgress (rw))</span></a></li>
+<li class="toclevel-3 tocsection-38"><a href="Programming_Reference%253AStimulusTask_Class.html#DoPostRun.28GenericSignal_.28r.29.2C_bool_doProgress_.28rw.29.29"><span class="tocnumber">4.5.6</span> <span class="toctext">DoPostRun(GenericSignal (r), bool doProgress (rw))</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-39"><a href="Programming_Reference%253AStimulusTask_Class.html#Classification_Events"><span class="tocnumber">4.6</span> <span class="toctext">Classification Events</span></a>
+<ul>
+<li class="toclevel-3 tocsection-40"><a href="Programming_Reference%253AStimulusTask_Class.html#OnClassInput.28stimulusCode_.28r.29.2C_GenericSignal_.28r.29.29"><span class="tocnumber">4.6.1</span> <span class="toctext">OnClassInput(stimulusCode (r), GenericSignal (r))</span></a></li>
+<li class="toclevel-3 tocsection-41"><a href="Programming_Reference%253AStimulusTask_Class.html#Target.2A_OnClassResult.28ClassResult_.28r.29.29"><span class="tocnumber">4.6.2</span> <span class="toctext">Target* OnClassResult(ClassResult (r))</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-42"><a href="Programming_Reference%253AStimulusTask_Class.html#Properties"><span class="tocnumber">5</span> <span class="toctext">Properties</span></a>
+<ul>
+<li class="toclevel-2 tocsection-43"><a href="Programming_Reference%253AStimulusTask_Class.html#AssociationMap_Associations_.28rw.29"><span class="tocnumber">5.1</span> <span class="toctext">AssociationMap Associations (rw)</span></a></li>
+<li class="toclevel-2 tocsection-44"><a href="Programming_Reference%253AStimulusTask_Class.html#Target.2A_AttendedTarget_.28rw.29"><span class="tocnumber">5.2</span> <span class="toctext">Target* AttendedTarget (rw)</span></a></li>
+<li class="toclevel-2 tocsection-45"><a href="Programming_Reference%253AStimulusTask_Class.html#GUI::GraphDisplay_Display_.28r.29"><span class="tocnumber">5.3</span> <span class="toctext">GUI::GraphDisplay Display (r)</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AStimulusTask_Class.html#ostream_AppLog.2C_AppLog.File.2C_AppLog.Screen_.28w.29"><span class="tocnumber">5.4</span> <span class="toctext">ostream AppLog, AppLog.File, AppLog.Screen (w)</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AStimulusTask_Class.html#RandomGenerator_RandomNumberGenerator_.28rw.29"><span class="tocnumber">5.5</span> <span class="toctext">RandomGenerator RandomNumberGenerator (rw)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-46"><a href="Programming_Reference%253AStimulusTask_Class.html#Methods"><span class="tocnumber">6</span> <span class="toctext">Methods</span></a>
+<ul>
+<li class="toclevel-2 tocsection-47"><a href="Programming_Reference%253AStimulusTask_Class.html#DisplayMessage.28string.29"><span class="tocnumber">6.1</span> <span class="toctext">DisplayMessage(string)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-48"><a href="Programming_Reference%253AStimulusTask_Class.html#Parameters"><span class="tocnumber">7</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2"><a href="Programming_Reference%253AStimulusTask_Class.html#WindowBackgroundColor"><span class="tocnumber">7.1</span> <span class="toctext">WindowBackgroundColor</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AStimulusTask_Class.html#PreRunDuration"><span class="tocnumber">7.2</span> <span class="toctext">PreRunDuration</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AStimulusTask_Class.html#PostRunDuration"><span class="tocnumber">7.3</span> <span class="toctext">PostRunDuration</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AStimulusTask_Class.html#PreSequenceDuration"><span class="tocnumber">7.4</span> <span class="toctext">PreSequenceDuration</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AStimulusTask_Class.html#PostSequenceDuration"><span class="tocnumber">7.5</span> <span class="toctext">PostSequenceDuration</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AStimulusTask_Class.html#StimulusDuration"><span class="tocnumber">7.6</span> <span class="toctext">StimulusDuration</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AStimulusTask_Class.html#EarlyOffsetExpression"><span class="tocnumber">7.7</span> <span class="toctext">EarlyOffsetExpression</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AStimulusTask_Class.html#ISIMinDuration.2C_ISIMaxDuration"><span class="tocnumber">7.8</span> <span class="toctext">ISIMinDuration, ISIMaxDuration</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AStimulusTask_Class.html#InterpretMode"><span class="tocnumber">7.9</span> <span class="toctext">InterpretMode</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AStimulusTask_Class.html#DisplayResults"><span class="tocnumber">7.10</span> <span class="toctext">DisplayResults</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AStimulusTask_Class.html#MinimumEvidence"><span class="tocnumber">7.11</span> <span class="toctext">MinimumEvidence</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AStimulusTask_Class.html#AccumulateEvidence"><span class="tocnumber">7.12</span> <span class="toctext">AccumulateEvidence</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AStimulusTask_Class.html#PhotoDiodePatch"><span class="tocnumber">7.13</span> <span class="toctext">PhotoDiodePatch</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AStimulusTask_Class.html#PhotoDiodePatchHeight"><span class="tocnumber">7.14</span> <span class="toctext">PhotoDiodePatchHeight</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AStimulusTask_Class.html#PhotoDiodePatchWidth"><span class="tocnumber">7.15</span> <span class="toctext">PhotoDiodePatchWidth</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AStimulusTask_Class.html#PhotoDiodePatchLeft"><span class="tocnumber">7.16</span> <span class="toctext">PhotoDiodePatchLeft</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AStimulusTask_Class.html#PhotoDiodePatchTop"><span class="tocnumber">7.17</span> <span class="toctext">PhotoDiodePatchTop</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AStimulusTask_Class.html#PhotoDiodePatchShape"><span class="tocnumber">7.18</span> <span class="toctext">PhotoDiodePatchShape</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AStimulusTask_Class.html#PhotoDiodePatchActiveColor"><span class="tocnumber">7.19</span> <span class="toctext">PhotoDiodePatchActiveColor</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AStimulusTask_Class.html#PhotoDiodePatchInactiveColor"><span class="tocnumber">7.20</span> <span class="toctext">PhotoDiodePatchInactiveColor</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AStimulusTask_Class.html#PhotoDiodePatchExpression"><span class="tocnumber">7.21</span> <span class="toctext">PhotoDiodePatchExpression</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-49"><a href="Programming_Reference%253AStimulusTask_Class.html#States"><span class="tocnumber">8</span> <span class="toctext">States</span></a>
+<ul>
+<li class="toclevel-2"><a href="Programming_Reference%253AStimulusTask_Class.html#StimulusCode"><span class="tocnumber">8.1</span> <span class="toctext">StimulusCode</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AStimulusTask_Class.html#StimulusType"><span class="tocnumber">8.2</span> <span class="toctext">StimulusType</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AStimulusTask_Class.html#StimulusBegin"><span class="tocnumber">8.3</span> <span class="toctext">StimulusBegin</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AStimulusTask_Class.html#PhaseInSequence"><span class="tocnumber">8.4</span> <span class="toctext">PhaseInSequence</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AStimulusTask_Class.html#PauseApplication"><span class="tocnumber">8.5</span> <span class="toctext">PauseApplication</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-50"><a href="Programming_Reference%253AStimulusTask_Class.html#Timeline"><span class="tocnumber">9</span> <span class="toctext">Timeline</span></a></li>
+<li class="toclevel-1 tocsection-51"><a href="Programming_Reference%253AStimulusTask_Class.html#See_also"><span class="tocnumber">10</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><tt>BCI2000/src/shared/modules/application</tt>
+</p>
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>The <tt>StimulusTask</tt> class is a base class for <a href="Technical_Reference%253ACore_Modules.html#Application_Module" title="Technical Reference:Core Modules">application modules</a> that present a sequence of stimuli. You do not use objects of type <tt>StimulusTask</tt> directly; rather, you implement your own class that inherits from it, and implements specialized behavior building on the base functionality provided by the <tt>StimulusTask</tt> class.
+</p><p>The <tt>StimulusTask</tt> class performs sequencing, and dispatches <a href="Programming_Reference%253AGenericFilter_Class.html#Process" title="Programming Reference:GenericFilter Class"><tt>GenericFilter::Process()</tt></a>
+calls to its virtual member functions.
+Child classes (descendants) of <tt>StimulusTask</tt> implement event
+handlers by overriding its virtual functions, and populate the <a href="Programming_Reference%253AStimulusTask_Class.html#Associations">stimulus-target association
+map</a>, thereby associating stimulus codes with sets of stimuli, and possible selection targets.
+</p><p>In the BCI2000 core distribution, both the <a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:P3SpellerTask" title="User Reference:P3SpellerTask">P3SpellerTask</a> and the <a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:StimulusPresentationTask" title="User Reference:StimulusPresentationTask">StimulusPresentationTask</a> are based on the <tt>StimulusTask</tt> base class, and implement their own specialized behavior on top of it.
+</p>
+<h2><span class="mw-headline" id="Introduction">Introduction</span></h2>
+<p>The <tt>StimulusTask</tt> class is a base class for applications that present stimuli to the user, and optionally perform selection of a selection target based on a real-time evaluation of the user's brain signals generated in response to stimulus presentations. Straightforward as this seems, complication arises from the fact that there is not always a 1-to-1 relation between stimuli to present, and targets to choose from (e.g., the <tt>P3SpellerTask</tt> will present rows and columns of the selection matrix, but the final choice will be a single matrix entry rather than a row or column). Also, due to the low signal-to-noise ratio in individual evoked response signals, it is generally necessary to perform multiple stimulus presentations before a target may be selected with reasonable accuracy.
+</p><p>Through its interface to descendant classes, the <tt>StimulusTask</tt> base class allows for efficient implementation of various kinds of such applications. In detail, the following basic concepts are involved in the interaction between <tt>StimulusTask</tt>, and a descendant class.
+</p>
+<h3><span class="mw-headline" id="Presentation_of_stimuli">Presentation of stimuli</span></h3>
+<p>Individual stimuli are instances of stimulus classes, which derive from a common <tt>Stimulus</tt> base class. There are classes for visual and auditory stimuli available.
+A <tt>StimulusTask</tt> descendant class may instantiate any number of stimuli during <tt>OnInitialize()</tt>. Each stimulus must be made known to the <tt>StimulusTask</tt> class by adding it to a so-called "Association" (see below). The <tt>StimulusTask</tt> class will then take care of presenting those stimuli at appropriate points in time, according to user configuration.
+</p>
+<h3><span class="mw-headline" id="Grouping_of_stimuli">Grouping of stimuli</span></h3>
+<p>Stimuli are presented as groups called "Associations". Each Association corresponds to a single <i>StimulusCode</i> value. No Associations exist when a <tt>StimulusCode</tt> descendant's <tt>OnInitialize()</tt> function is called. As a coding example, the descendant may add a stimulus to an Association with <i>StimulusCode</i> 23 by calling
+</p>
+<pre>SomeStimulusClass* pStimulus = new SomeStimulusClass;
+... // set stimulus properties
+Associations()[23].Add( pStimulus );
+</pre>
+<p>There, a new Association object for <i>StimulusCode</i> 23 will be created if it does not exist. Stimulus codes are positive integers. They need not be continuous, may be specified in any order, and chosen as deemed convenient. A zero <i>StimulusCode</i> represents absence of a stimulus, so 0 cannot be chosen as a <i>StimulusCode</i> index for an association. Still, an Association object with index 0 may be created, but it will be ignored during stimulus presentation.
+</p><p>Note that an empty Association object is created on any access to a non-existing index, both read and write accesses.
+Thus, you will need to take care to avoid unwanted empty Associations, i.e., don't use an Association index unless you want that Association to exist. If an empty Association exists, its <i>StimulusCode</i> may appear in the presentation sequence, taking up a presentation time slot without any stimulus being presented. In case such behavior is actually desired, an empty Association may be created by calling
+</p>
+<pre>Associations()[index];
+</pre>
+<p>Whenever the <i>StimulusCode</i> state becomes nonzero, all stimuli contained in the corresponding Association are presented simultaneously. An Association may contain a single stimulus only (e.g., when presenting images in the StimulusPresentation module), or it may contain multiple stimuli (e.g., matrix speller rows and columns are made up of multiple stimuli, where each stimulus is a single matrix entry). Also, Associations may contain different kinds of stimuli (e.g., when presenting both images and audio files with StimulusPresentation, or when using auditory stimuli to announce rows or columns in the P3Speller).
+</p>
+<h3><span class="mw-headline" id="Sequencing">Sequencing</span></h3>
+<p>Presentation sequences consist of Associations, represented by their <i>StimulusCodes</i>.
+</p><p>The <tt>StimulusTask</tt> base class does not do any sequencing by itself. Rather, each time before a presentation happens, the <tt>OnNextStimulusCode()</tt> function is called, which must be implemented by a <tt>StimulusTask</tt> descendant.
+The descendant class indicates the end of a sequence by returning zero as a <i>StimulusCode</i>. Further, it indicates the end of a run by returning a zero <i>StimulusCode</i> twice in a row (i.e., an empty sequence). The information about existing <i>StimulusCode</i> values will be known by a descendant because it is responsible for populating the <tt>Associations</tt> object, but to avoid duplication of information, it may be appropriate to either
+</p>
+<ul><li>choose stimulus codes from a continous range 1..N, and obtain N by calling <tt>Associations().size()</tt>, or</li>
+<li>iterate over the <tt>Associations()</tt> object which is a <tt>std::map&lt;int, Association&gt;</tt>.</li></ul>
+<p>In the StimulusPresentation module, sequences may be user-defined, and there exists a 1-to-1 correspondence between StimulusCodes, and entries in the Stimuli matrix. In the P3Speller module, sequences are random permutations of an enumeration of all existing rows and columns, and are chosen randomly at runtime.
+</p>
+<h3><span class="mw-headline" id="Classification_vs_Target_Selection">Classification vs Target Selection</span></h3>
+<p>Brain signals are generated in response to individual stimulus presentations. When used in conjunction with a StimulusTask application, a signal processing module is supposed to provide a classification score for individual brain responses, or an average score for a predefined number of brain responses elicited by presentation of a certain Association/StimulusCode.
+</p>
+<h4><span class="mw-headline" id="Specifying_Stimulus-Target_Relations">Specifying Stimulus-Target Relations</span></h4>
+<p>In general, there is no direct correspondence between stimulus presentations, and possible selection targets. E.g., in the P3Speller, stimulus presentation is done by highlighting rows and columns, but an individual matrix entry will be selected rather than a row or column. Thus, evidence collected in response to presentation or rows and columns needs to be combined into evidence per selection target before selection can be performed. This translation of per-presentation evidence into per-target evidence is done automatically by the <tt>StimulusTask</tt> class, provided <tt>StimulusTask</tt> has been given the necessary information about how stimuli and targets are related to each other.
+</p><p>A <tt>Target</tt> base class exists for this purpose, which defines a <tt>Select</tt> method to be implemented by <tt>Target</tt> descendants overriding the <tt>Target::OnSelect()</tt> member function. As an example, the P3Speller defines a <tt>SpellerTarget</tt> descendant class which performs an appropriate action on the Speller object if selected as a target.
+</p><p>The <tt>StimulusTask</tt> class is given information about stimulus-target relations by the Association mechanism described above. In addition to <tt>Stimulus</tt> objects, the <tt>Association::Add()</tt> function may be called with <tt>Target</tt> objects as well, creating a link between presentation of stimuli contained in the Association, and selection of targets contained in the Association. In many cases, there will be a 1-to-1 relation between stimuli, and targets, e.g. a P3Speller matrix entry will create both a <tt>Stimulus</tt> object (so it can be highlighted), and a <tt>Target</tt> object (so it can be selected, and perform some action). However, this is not mandatory -- multiple stimuli may refer to the same target, e.g., neighboring P3Speller matrix elements might select the same target in order to make selection easier for that target; or multiple targets might refer to the same stimulus in a hierarchic selection scheme. Though it may seem unintuitive at first, no 1-to-N or N-to-1 relations between stimuli and targets need to be specified explicitly in such cases; simply adding <i>any</i> target related to <i>any</i> stimulus contained in an Association will result in correct target selection. Individual stimulus-target relations are implicitly contained in the resulting Associations, and could be recovered by using set operations on the Associations' stimulus sets, and target sets, but they are not necessary for computing per-target evidence.
+</p>
+<h4><span class="mw-headline" id="Accumulation_and_Combination_of_Evidence">Accumulation and Combination of Evidence</span></h4>
+<p>Combination of evidence across individual stimulus presentations is also required if one wants to dynamically choose the number of stimulus presentations that occur before a selection is made. This may be advantageous if the "quality" of brain responses varies, which may be due a number of factors, such as position of a target with respect to the user's eye focus, or the user's attentiveness to the spelling task. In such cases, stimulation sequences may be repeated indefinitely, and evidence from stimulus presentations may be collected into per-target evidence, until a certain threshold is reached. Compared to a system with a fixed number of stimulus repetitions, such a system will improve information flow (bitrate) by avoiding redundant stimulus presentations which would be wasted time in case of good signal-to-noise ratio, and by avoiding selection errors in case of bad signal-to-noise ratio.
+</p><p>In the case of evoked brain potentials (ERPs, e.g., P300 wave), a linear classifier may be used to classify between the two cases "ERP occurred" vs "no ERP occurred". Quite favorably, it may be shown that in this case the linear classifier's output is a linear function of the log-likelihood ratio representing evidence in favor of the "ERP occurred" case, and against the "no ERP occurred" case. As a result, combined resp. accumulated evidence in favor of single selection targets can be accurately computed from the classifier's output for individual brain responses, by using Association information about how stimuli were grouped in presentation. This allows classification to be performed entirely by the StimulusTask class, omitting the need for classification code within a descendant class. Still, a descendant class may implement its own classification by overriding the OnClassResult() function, or it may modify the default classification result by overriding OnClassResult(), and calling StimulusTask::OnClassResult() within its own implementation of that function.
+</p>
+<h3><span class="mw-headline" id="Using_a_Different_Classifier_with_StimulusTask">Using a Different Classifier with StimulusTask</span></h3>
+<p>In general, linear classification may be considered optimal for detection of evoked potential responses, and the <i>P3SignalProcessing</i> module performs such linear classification.
+</p><p>Still, you might want to use a different classification algorithm in order to classify the brain's response to a stimulus, e.g. you might want to use oscillatory signal features in addition to or in place of evoked potentials. In such cases, combination and accumulation of evidence may not function properly, unless you transform classification output into the kind of data which is expected by <tt>StimulusTask</tt>-based applications such as the P3Speller application module.
+</p>
+<h4><span id="Converting_a_Classifier's_Output_into_a_Classification_Score"></span><span class="mw-headline" id="Converting_a_Classifier.27s_Output_into_a_Classification_Score">Converting a Classifier's Output into a Classification Score</span></h4>
+<p>As described above, the output of P3SignalProcessing represents a log-likelihood ratio in favor of the existence of a brain response. Thus, when using StimulusTask with a different classifier, that classifier's output should be converted into a log-likelihood ratio before sending it to the application module.
+</p><p>In terms of the probability <img class="mwe-math-fallback-image-inline tex" alt="p" src="../images/math/8/3/8/83878c91171338902e0fe0fb97a8c47a.png" /> for the case that <b>no</b> brain response has been observed, the log-likelihood ratio <img class="mwe-math-fallback-image-inline tex" alt="\lambda" src="../images/math/e/0/5/e05a30d96800384dd38b22851322a6b5.png" /> is defined as
+</p><p><img class="mwe-math-fallback-image-inline tex" alt="\lambda = \ln\frac{1-p}{p}" src="../images/math/2/b/3/2b30705945062d0cf3d75b66d8f89ba6.png" />,
+</p><p>where <i>ln</i> stands for the natural logarithm, which is often termed <i>log</i> when provided as a function in programming environments.
+</p><p>Using the above formula, the output of a binary classifier may be converted into a log-likelihood ratio by first determining the probability <b>against</b> the existence of a response. Depending on the nature of your classification algorithm, you may need to do some analysis by your own in order to determine that probability. In many cases, however, <img class="mwe-math-fallback-image-inline tex" alt="p" src="../images/math/8/3/8/83878c91171338902e0fe0fb97a8c47a.png" /> may be obtained from classifier output by one of the following methods:
+</p>
+<h5><span class="mw-headline" id="Classifier_Error_Rates">Classifier Error Rates</span></h5>
+<p>For a classifier with binary output <img class="mwe-math-fallback-image-inline tex" alt="C" src="../images/math/0/d/6/0d61f8370cad1d412f80b84d143e1257.png" />, if the false positive rate is estimated to be <img class="mwe-math-fallback-image-inline tex" alt="p_{\textrm{fp}}" src="../images/math/b/3/c/b3c467ca037873442f2005c981c82116.png" />, and the false negative rate is estimated to be <img class="mwe-math-fallback-image-inline tex" alt="p_{\textrm{fn}}" src="../images/math/6/c/f/6cf03c63bcbe75f3fff1454ac7742772.png" />, you will have
+</p>
+<ul><li><img class="mwe-math-fallback-image-inline tex" alt="\textrm{for}\, C = 0:\; p = (1 - p_{\textrm{fn}})" src="../images/math/2/4/f/24f102623e6942cd814126aab934319b.png" /></li>
+<li><img class="mwe-math-fallback-image-inline tex" alt="\textrm{for}\, C = 1:\; p = p_{\textrm{fp}}" src="../images/math/0/3/1/03171db67407033ef5e7523615251a76.png" /></li></ul>
+<h5><span class="mw-headline" id="Measures_of_Significance">Measures of Significance</span></h5>
+<p>A <img class="mwe-math-fallback-image-inline tex" alt="p" src="../images/math/8/3/8/83878c91171338902e0fe0fb97a8c47a.png" />-value from a statistical test is the probability for the null hypothesis to be true. The null hypothesis is "there was no ERP", and thus a <img class="mwe-math-fallback-image-inline tex" alt="p" src="../images/math/8/3/8/83878c91171338902e0fe0fb97a8c47a.png" />-value represents the desired probability against an ERP.
+</p><p>Although a <img class="mwe-math-fallback-image-inline tex" alt="p" src="../images/math/8/3/8/83878c91171338902e0fe0fb97a8c47a.png" />-value may not be directly available, other measures of significance, such as a <img class="mwe-math-fallback-image-inline tex" alt="t" src="../images/math/e/3/5/e358efa489f58062f10dd7316b65649e.png" />-value, may be converted into a <img class="mwe-math-fallback-image-inline tex" alt="p" src="../images/math/8/3/8/83878c91171338902e0fe0fb97a8c47a.png" />-value. Formulae relating the <img class="mwe-math-fallback-image-inline tex" alt="p" src="../images/math/8/3/8/83878c91171338902e0fe0fb97a8c47a.png" />-value to other measures of significance may be found in statistics textbooks, or web resources.
+</p>
+<h4><span class="mw-headline" id="Transmitting_Classification_Scores">Transmitting Classification Scores</span></h4>
+<p>The StimulusTask class expects to receive a control signal with a single channel, and a single element. Whenever the StimulusCodeRes state is nonzero, it will treat the single value of its control signal as an update to the classification score associated with the StimulusCode sent in the StimulusCodeRes state.
+</p><p>Classification score updates may be sent any time during sequence or post-sequence (PhaseInSequence state is 2 or 3).
+Though the order in which classification scores are sent does not matter, StimulusTask expects to receive exactly one classification result for each StimulusCode that has been presented since the last classification score update was sent.
+</p><p>Only a single classification score can be sent for each signal data block. If your classifier operates by comparison of multiple brain responses, rather than each response individually, you should store classification scores in a stack-like data structure, and send only the top of the stack at each data block.
+</p><p>Detailed processing of classification score updates depends on the <a href="Programming_Reference%253AStimulusTask_Class.html#MinimumEvidence">MinimumEvidence</a> and <a href="Programming_Reference%253AStimulusTask_Class.html#AccumulateEvidence">AccumulateEvidence</a> parameters.
+</p>
+<h2><span class="mw-headline" id="Events">Events</span></h2>
+<h3><span class="mw-headline" id="Events_Summary">Events Summary</span></h3>
+<p>The following table indicates which events exist, and the temporal sequence in which they occur. Stimulus presentation proceeds in "phases", which are distinct parts of the stimulus presentation: Each presentation sequence is preceded by a "PreSequence" interval; the sequence itself consists of alternating "Stimulus" and "Inter Stimulus Intervals (ISIs)"; a "PostSequence" follows after the sequence.
+</p><p>Events marked with * may occur multiple times in a row.
+Events given in square brackets depend on the <a href="Technical_Reference%253ACore_Modules.html#Signal_Processing_Module" title="Technical Reference:Core Modules">signal processing module</a>, and may not occur at all; however, when they occur, their place in the temporal sequence will be as specified in the table.
+</p><p>Progress from one application state to the next will occur according to the <a href="Programming_Reference%253AStimulusTask_Class.html#Parameters">sequencing
+parameters</a>, or if requested by a handler via its <tt>doProgress</tt> output argument (see <a href="Programming_Reference%253AStimulusTask_Class.html#Input_events">Input events</a> below).
+</p>
+<table border="0">
+<tbody><tr>
+<th align="left">Sequence of events
+</th>
+<th>&#160;&#160;
+</th>
+<th align="left">Phase
+</th>
+<th>&#160;&#160;&#160;
+</th>
+<th align="left">Typical application behavior
+</th></tr>
+<tr>
+<td>OnPreflight</td>
+<td>&#160;
+</td></tr>
+<tr>
+<td>OnInitialize</td>
+<td>&#160;
+</td></tr>
+<tr>
+<td>OnStartRun</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>display initial message
+</td></tr>
+<tr>
+<td>DoPreRun*</td>
+<td>&#160;&#160;</td>
+<td>&#160;PreRun
+</td></tr>
+<tr>
+<td>Loop {
+</td></tr>
+<tr>
+<td>&#160; &#160;  OnNextStimulusCode</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>provide a stimulus code, or 0 to finish run
+</td></tr>
+<tr>
+<td>&#160; &#160; OnPreSequence</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>determine attended target
+</td></tr>
+<tr>
+<td>&#160; &#160; DoPreSequence*</td>
+<td>&#160;</td>
+<td>PreSequence
+</td></tr>
+<tr>
+<td>&#160; &#160; OnSequenceBegin
+</td></tr>
+<tr>
+<td>&#160;&#160; &#160; Loop {
+</td></tr>
+<tr>
+<td>&#160; &#160; &#160; &#160; OnStimulusBegin</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>present stimulus
+</td></tr>
+<tr>
+<td>&#160; &#160; &#160; &#160;   DoStimulus*</td>
+<td>&#160;</td>
+<td>Stimulus
+</td></tr>
+<tr>
+<td>&#160; &#160; &#160; &#160;  OnStimulusEnd</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>hide visual stimulus
+</td></tr>
+<tr>
+<td>&#160; &#160; &#160; &#160;   OnNextStimulusCode</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>provide a stimulus code, or 0 to finish sequence
+</td></tr>
+<tr>
+<td>&#160; &#160; &#160; &#160;   DoISI*</td>
+<td>&#160;</td>
+<td>ISI
+</td></tr>
+<tr>
+<td>&#160; &#160; &#160; &#160;  [OnClassInput]*</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>store classification input (copy/free modes only)<br /> -- this event may occur any time during the<br /> sequence, and during the post sequence phase
+</td></tr>
+<tr>
+<td>&#160; &#160;  }
+</td></tr>
+<tr>
+<td>&#160;  &#160;   OnSequenceEnd
+</td></tr>
+<tr>
+<td>&#160;  &#160;  DoPostSequence*</td>
+<td>&#160;</td>
+<td>PostSequence
+</td></tr>
+<tr>
+<td>&#160; &#160;   [OnClassResult]</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>determine selected target (copy/free modes only)
+</td></tr>
+<tr>
+<td>}
+</td></tr>
+<tr>
+<td>OnPostRun
+</td></tr>
+<tr>
+<td>DoPostRun*</td>
+<td>&#160;</td>
+<td>PostRun
+</td></tr>
+<tr>
+<td>OnStopRun</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>display final message
+</td></tr>
+<tr>
+<td>OnHalt
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="Stimulus_Code_Event">Stimulus Code Event</span></h3>
+<h4><span class="mw-headline" id="int_OnNextStimulusCode">int OnNextStimulusCode</span></h4>
+<p>This event handler is called immediately before stimulus presentation, and determines the sequence in which stimuli (or associations thereof) are presented.
+This handler should return the next element of the current sequence of stimulus codes, or zero to indicate the end of the sequence.
+A null sequence indicates the end of a <a href="BCI2000_Glossary.html#Run" title="BCI2000 Glossary">run</a>, i.e. the current run will end when <i>OnNextStimulusCode</i> returns two zeros in a row.
+</p><p>The <i>OnNextStimulusCode</i> event handler is mandatory for a <tt>StimulusPresentation</tt> descendant to implement.
+Thus, a minimal stimulus presentation application consists of a <tt>StimulusPresentation</tt> descendant that
+</p>
+<ul><li>declares its own additional parameters from its <i>constructor</i>,</li>
+<li>checks those parameters for consistency in its <i>OnPreflight</i> handler,</li>
+<li>populates the <a href="Programming_Reference%253AStimulusTask_Class.html#Association_Map"><i>Association Map</i></a> in its <i>OnInitialize</i> handler, and</li>
+<li>provides a sequence of stimulus codes in its <i>OnNextStimulusCode</i> event handler.</li></ul>
+<h3><span class="mw-headline" id="Events_forwarded_from_the_GenericFilter_interface">Events forwarded from the GenericFilter interface</span></h3>
+<h4><span id="OnPreflight(SignalProperties_(r))"></span><span class="mw-headline" id="OnPreflight.28SignalProperties_.28r.29.29">OnPreflight(SignalProperties (r))</span></h4>
+<h4><span id="OnInitialize(SignalProperties_(r))"></span><span class="mw-headline" id="OnInitialize.28SignalProperties_.28r.29.29">OnInitialize(SignalProperties (r))</span></h4>
+<p>These events are forwarded from the inherited <a href="Programming_Reference%253AGenericFilter_Class.html#Preflight" title="Programming Reference:GenericFilter Class"><tt>GenericFilter::Preflight</tt></a> and <a href="Programming_Reference%253AGenericFilter_Class.html#Initialize" title="Programming Reference:GenericFilter Class"><tt>GenericFilter::Initialize</tt></a> events, with input signal properties as an argument. Within the <a href="Programming_Reference%253AFilter_Chain.html" title="Programming Reference:Filter Chain">BCI2000 filter chain</a>, the <tt>StimulusTask</tt> class always writes its input signal through to its output signal, so no output signal properties are provided to these event handlers.
+</p>
+<h4><span class="mw-headline" id="OnStartRun">OnStartRun</span></h4>
+<h4><span class="mw-headline" id="OnStopRun">OnStopRun</span></h4>
+<h4><span class="mw-headline" id="OnHalt">OnHalt</span></h4>
+<p>These events are forwarded from <a href="Programming_Reference%253AGenericFilter_Class.html" title="Programming Reference:GenericFilter Class"><tt>GenericFilter</tt>'s</a> <i>StartRun</i>, <i>StopRun</i>, and <i>Halt</i> events.
+</p>
+<h3><span class="mw-headline" id="Phase_transition_Events">Phase transition Events</span></h3>
+<h4><span class="mw-headline" id="OnPreSequence">OnPreSequence</span></h4>
+<h4><span class="mw-headline" id="OnSequenceBegin">OnSequenceBegin</span></h4>
+<h4><span class="mw-headline" id="OnSequenceEnd">OnSequenceEnd</span></h4>
+<h4><span id="OnStimulusBegin(int_stimulusCode_(r))"></span><span class="mw-headline" id="OnStimulusBegin.28int_stimulusCode_.28r.29.29">OnStimulusBegin(int stimulusCode (r))</span></h4>
+<h4><span id="OnStimulusEnd(int_stimulusCode_(r))"></span><span class="mw-headline" id="OnStimulusEnd.28int_stimulusCode_.28r.29.29">OnStimulusEnd(int stimulusCode (r))</span></h4>
+<h4><span class="mw-headline" id="OnPostRun">OnPostRun</span></h4>
+<p>These events are triggered by phase transitions during a run, e.g., the <i>OnPreSequence</i> event handler is called whenever the phase changes from <i>PreRun</i> to <i>PreSequence</i>.
+</p><p>The <i>stimulusCode</i> arguments to the <i>OnStimulusBegin</i> and <i>OnStimulusEnd</i> event handlers contain the stimulus code present in the <a href="Programming_Reference%253AStimulusTask_Class.html#StimulusCode"><i>StimulusCode</i> state variable</a>; the default behavior of these handlers is to present and conceal the respective stimuli.
+For the remaining event handlers of this category, the default behavior is to do nothing.
+</p>
+<h3><span class="mw-headline" id="Input_Events">Input Events</span></h3>
+<h4><span id="DoPreRun(GenericSignal_(r),_bool_doProgress_(rw))"></span><span class="mw-headline" id="DoPreRun.28GenericSignal_.28r.29.2C_bool_doProgress_.28rw.29.29">DoPreRun(GenericSignal (r), bool doProgress (rw))</span></h4>
+<h4><span id="DoPreSequence(GenericSignal_(r),_bool_doProgress_(rw))"></span><span class="mw-headline" id="DoPreSequence.28GenericSignal_.28r.29.2C_bool_doProgress_.28rw.29.29">DoPreSequence(GenericSignal (r), bool doProgress (rw))</span></h4>
+<h4><span id="DoStimulus(GenericSignal_(r),_bool_doProgress_(rw))"></span><span class="mw-headline" id="DoStimulus.28GenericSignal_.28r.29.2C_bool_doProgress_.28rw.29.29">DoStimulus(GenericSignal (r), bool doProgress (rw))</span></h4>
+<h4><span id="DoISI(GenericSignal_(r),_bool_doProgress_(rw))"></span><span class="mw-headline" id="DoISI.28GenericSignal_.28r.29.2C_bool_doProgress_.28rw.29.29">DoISI(GenericSignal (r), bool doProgress (rw))</span></h4>
+<h4><span id="DoPostSequence(GenericSignal_(r),_bool_doProgress_(rw))"></span><span class="mw-headline" id="DoPostSequence.28GenericSignal_.28r.29.2C_bool_doProgress_.28rw.29.29">DoPostSequence(GenericSignal (r), bool doProgress (rw))</span></h4>
+<h4><span id="DoPostRun(GenericSignal_(r),_bool_doProgress_(rw))"></span><span class="mw-headline" id="DoPostRun.28GenericSignal_.28r.29.2C_bool_doProgress_.28rw.29.29">DoPostRun(GenericSignal (r), bool doProgress (rw))</span></h4>
+<p>Each call to <a href="Programming_Reference%253AGenericFilter_Class.html#Process" title="Programming Reference:GenericFilter Class"><tt>GenericFilter::Process()</tt></a> is dispatched to one of these
+event handlers, depending on the phase in the sequence, with each handler function corresponding to a phase.
+</p><p>These event handlers will typically not be used by a task class that inherits from <tt>StimulusTask</tt>, unless it needs to modify the standard sequencing behavior, such that it progresses faster or slower from one phase to the next, or subdivides a phase into two or more sub-phases.
+</p><p>Modifying sequencing behavior is possible through the handlers' <i>doProgress</i> argument. <i>doProgress</i> will typically be set to <i>false</i>, except for the last call to the handler during the current phase in the sequence.
+A handler may modify the application's sequencing behavior by setting the <i>doProgress</i> argument: setting it from <i>false</i> to <i>true</i> will proceed to the next phase earlier than prescribed by the <a href="Programming_Reference%253AStimulusTask_Class.html#Parameters">sequencing parameters</a>, and setting it to <i>false</i> from <i>true</i> will defer progressing, such that the handler will be called again, until its <i>doProgress</i> argument is actually <i>true</i> on exit.
+</p>
+<h3><span class="mw-headline" id="Classification_Events">Classification Events</span></h3>
+<p>Target classification is based on the behavior of the <a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:P3TemporalFilter" title="User Reference:P3TemporalFilter">P3TemporalFilter</a> signal processing filter. This filter performs per-stimulus averaging over EEG epochs; once it has acquired the desired amount of epochs, it sets its output to the average wave form, and the <a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:P3TemporalFilter#StimulusCodeRes" title="User Reference:P3TemporalFilter"><i>StimulusCodeRes</i></a> state to the respective stimulus code. In conjunction with the <a href="User_Reference%253ALinearClassifier.html" title="User Reference:LinearClassifier">LinearClassifier</a> (or  other classification filter), this implies that the application module receives, in its input signal, a single classification value for stimulus <img class="mwe-math-fallback-image-inline tex" alt="k" src="../images/math/8/c/e/8ce4b16b22b58894aa86c421e8759df3.png" /> whenever <i>StimulusCodeRes</i> equals <img class="mwe-math-fallback-image-inline tex" alt="k" src="../images/math/8/c/e/8ce4b16b22b58894aa86c421e8759df3.png" />.
+</p>
+<h4><span id="OnClassInput(stimulusCode_(r),_GenericSignal_(r))"></span><span class="mw-headline" id="OnClassInput.28stimulusCode_.28r.29.2C_GenericSignal_.28r.29.29">OnClassInput(stimulusCode (r), GenericSignal (r))</span></h4>
+<p>The <i>OnClassInput</i> event handler is called each time a classification value has been received from the <a href="Technical_Reference%253ACore_Modules.html#Signal_Processing_Module" title="Technical Reference:Core Modules">signal processing module</a>.
+Classification values are stored in a <a href="Programming_Reference%253AAssociationMap_Class.html#ClassResult_Class" title="Programming Reference:AssociationMap Class"><tt>ClassResult</tt></a> object.
+A <tt>StimulusPresentation</tt> descendant class may take additional action by implementing its own <tt>OnClassInput</tt> event handler.
+</p>
+<h4><span id="Target*_OnClassResult(ClassResult_(r))"></span><span class="mw-headline" id="Target.2A_OnClassResult.28ClassResult_.28r.29.29">Target* OnClassResult(ClassResult (r))</span></h4>
+<p>The <tt>StimulusPresentationTask</tt>' accumulates classification values in a <a href="Programming_Reference%253AAssociationMap_Class.html#ClassResult_Class" title="Programming Reference:AssociationMap Class"><tt>ClassResult</tt></a> class, and then calls the <i>OnClassResult</i> event handler once classification input has been received for all stimulus codes.
+</p><p>The <i>OnClassResult</i> event handler is supposed to determine a <a href="Programming_Reference%253ATarget_Class.html" title="Programming Reference:Target Class">selection target</a> from  these classification values. Classification values are provided in a <a href="Programming_Reference%253AAssociationMap_Class.html#ClassResult_Class" title="Programming Reference:AssociationMap Class"><tt>ClassResult</tt></a> object; the <i>OnClassResult</i> handler returns a pointer to a <a href="Programming_Reference%253ATarget_Class.html" title="Programming Reference:Target Class">Target</a> object representing the chosen selection target, or a null pointer to indicate that no target has been chosen. On return from the <i>OnClassResult</i> event handler, and in case of a non-null pointer, the target object's <tt>Select()</tt> method is then called, which typically results in some action associated with the target object in question, such as entering a letter into a speller.
+</p><p>The default <i>OnClassResult</i> handler calls <a href="Programming_Reference%253AAssociationMap_Class.html#ClassifyTargets" title="Programming Reference:AssociationMap Class"><tt>AssociationMap::ClassifyTargets()</tt></a> to translate classification values into selection targets; you may override this behavior by providing your own handler.
+</p>
+<h2><span class="mw-headline" id="Properties">Properties</span></h2>
+<p>All properties are protected, i.e. intended for use from descendant classes only.
+</p>
+<h3><span id="AssociationMap_Associations_(rw)"></span><span class="mw-headline" id="AssociationMap_Associations_.28rw.29">AssociationMap Associations (rw)</span></h3>
+<p>An object of type <a href="Programming_Reference%253AAssociationMap_Class.html" title="Programming Reference:AssociationMap Class">AssociationMap</a>, representing sets of stimuli and selection targets associated with a given stimulus code.
+</p><p>Typically, a stimulus presentation application populates the <i>Associations</i> object with stimuli and targets in its <i>OnInitialize</i> event handler, and relies on the <tt>StimulusPresentationTask</tt> default mechanisms for stimulus presentation, and target classification.
+</p><p>Often, but not always, there is a 1-to-1-to-1 correspondence between stimuli, stimulus codes, and selection targets; for a detailed discussion of these terms, and how to use the related objects in your own application, refer to <a href="Programming_Reference%253AAssociationMap_Class.html" title="Programming Reference:AssociationMap Class">Programming Reference:AssociationMap Class</a>.
+</p>
+<h3><span id="Target*_AttendedTarget_(rw)"></span><span class="mw-headline" id="Target.2A_AttendedTarget_.28rw.29">Target* AttendedTarget (rw)</span></h3>
+<p>A pointer that refers to a <a href="Programming_Reference%253ATarget_Class.html" title="Programming Reference:Target Class">selection target object</a>, or a null pointer. When non-null, the <a href="Programming_Reference%253AStimulusTask_Class.html#StimulusType">StimulusType</a> state variable is set based on the <i>AttendedTarget</i> property such that <i>StimulusType</i> is set to 1 whenever the current <i>StimulusCode</i> state variable refers to an <a href="Programming_Reference%253AAssociationMap_Class.html#Association_Class" title="Programming Reference:AssociationMap Class">Association</a> that contains the specified target.
+</p><p>For a discussion of how stimuli, stimulus codes, and selection targets are related to each other via <a href="Programming_Reference%253AAssociationMap_Class.html#Association_Class" title="Programming Reference:AssociationMap Class">Association</a> objects, refer to <a href="Programming_Reference%253AAssociationMap_Class.html#AssociationMap_Class" title="Programming Reference:AssociationMap Class">Programming Reference:AssociationMap Class#AssociationMap Class</a>.
+</p>
+<h3><span id="GUI::GraphDisplay_Display_(r)"></span><span class="mw-headline" id="GUI::GraphDisplay_Display_.28r.29">GUI::GraphDisplay Display (r)</span></h3>
+<p>The <i>Display</i> property provides access to the <a href="Programming_Reference%253AGraphDisplay_Class.html" title="Programming Reference:GraphDisplay Class">GUI::GraphDisplay</a> object representing the application module's output window.
+</p>
+<h3><span id="ostream_AppLog,_AppLog.File,_AppLog.Screen_(w)"></span><span class="mw-headline" id="ostream_AppLog.2C_AppLog.File.2C_AppLog.Screen_.28w.29">ostream AppLog, AppLog.File, AppLog.Screen (w)</span></h3>
+<p>Inheriting from <a href="Programming_Reference%253AApplicationBase_Class.html" title="Programming Reference:ApplicationBase Class"><tt>ApplicationBase</tt></a>, descendants of <tt>StimulusTask</tt> have access
+to the <a href="Programming_Reference%253AApplicationBase_Class.html#Application_Log" title="Programming Reference:ApplicationBase Class"><tt>AppLog</tt></a>, <a href="Programming_Reference%253AApplicationBase_Class.html#Application_Log" title="Programming Reference:ApplicationBase Class"><tt>AppLog.File</tt></a>, and <a href="Programming_Reference%253AApplicationBase_Class.html#Application_Log" title="Programming Reference:ApplicationBase Class"><tt>AppLog.Screen</tt></a> streams which are members of <tt>ApplicationBase</tt>.
+These streams allow convenient output into an application log file (<tt>AppLog.File</tt>), an application log window (<tt>AppLog.Screen</tt>), and both simultaneously (<tt>AppLog</tt>).
+</p>
+<h3><span id="RandomGenerator_RandomNumberGenerator_(rw)"></span><span class="mw-headline" id="RandomGenerator_RandomNumberGenerator_.28rw.29">RandomGenerator RandomNumberGenerator (rw)</span></h3>
+<p>An object of type <a href="Programming_Reference%253ARandomGenerator_Class.html" title="Programming Reference:RandomGenerator Class"><tt>RandomGenerator</tt></a> which behaves according to the user setting in the <a href="Programming_Reference%253ARandomGenerator_Class.html" title="Programming Reference:RandomGenerator Class"><i>RandomSeed</i> parameter</a>.
+</p>
+<h2><span class="mw-headline" id="Methods">Methods</span></h2>
+<p>Methods are declared protected, i.e. for use by descendants only.
+</p>
+<h3><span id="DisplayMessage(string)"></span><span class="mw-headline" id="DisplayMessage.28string.29">DisplayMessage(string)</span></h3>
+<p>Displays a text message in the application window. This function is provided for convenience and consistency of appearance; for detailed control over appearance of text messages, add your own <a href="Programming_Reference%253ATextField_Class.html" title="Programming Reference:TextField Class">TextField</a> object to the <a href="Programming_Reference%253AGraphDisplay_Class.html" title="Programming Reference:GraphDisplay Class">GUI::GraphDisplay</a> represented by the <i>Display</i> property.
+</p>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<h4><span class="mw-headline" id="WindowBackgroundColor">WindowBackgroundColor</span></h4>
+<p>The window's background color, given as an RGB value.
+For convenience, RGB values may be entered in hexadecimal notation, e.g. <tt>0xff0000</tt> for red.
+</p>
+<h4><span class="mw-headline" id="PreRunDuration">PreRunDuration</span></h4>
+<p>The duration of the pause preceding the first sequence.
+Given in <a href="BCI2000_Glossary.html#Sample_Block" title="BCI2000 Glossary">sample blocks</a>, or in time units when immediately followed with 's', 'ms', or similar.
+</p>
+<h4><span class="mw-headline" id="PostRunDuration">PostRunDuration</span></h4>
+<p>Duration of the pause following last sequence.
+Given in <a href="BCI2000_Glossary.html#Sample_Block" title="BCI2000 Glossary">sample blocks</a>, or in time units when immediately followed with 's', 'ms', or similar.
+</p>
+<h4><span class="mw-headline" id="PreSequenceDuration">PreSequenceDuration</span></h4>
+<p>Duration of the pause preceding sequences (or sets of intensifications).
+Given in <a href="BCI2000_Glossary.html#Sample_Block" title="BCI2000 Glossary">sample blocks</a>, or in time units when immediately followed with 's', 'ms', or similar.
+</p><p>In <a href="Programming_Reference%253AStimulusTask_Class.html#InterpretMode">free or copy mode</a>, the <i>PreSequenceDuration</i> and <i>PostSequenceDuration</i> parameters may not go below twice the value of the <a href="Programming_Reference%253AStimulusTask_Class.html#StimulusDuration">StimulusDuration</a> parameters, in order to allow for presentation of <a href="Programming_Reference%253AStimulusTask_Class.html#FocusOn">FocusOn</a> and <a href="Programming_Reference%253AStimulusTask_Class.html#Result">Result</a> announcement stimuli.
+</p>
+<h4><span class="mw-headline" id="PostSequenceDuration">PostSequenceDuration</span></h4>
+<p>Duration of the pause following sequences (or sets of intensifications).
+Given in <a href="BCI2000_Glossary.html#Sample_Block" title="BCI2000 Glossary">sample blocks</a>, or in time units when immediately followed with 's', 'ms', or similar.
+</p><p>When used in conjunction with the <a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:P3TemporalFilter" title="User Reference:P3TemporalFilter">P3TemporalFilter</a>, this value needs to be larger than the <a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:P3TemporalFilter#EpochLength" title="User Reference:P3TemporalFilter">EpochLength</a> parameter. This allows classification to complete before the next sequence of stimuli is presented.
+</p>
+<h4><span class="mw-headline" id="StimulusDuration">StimulusDuration</span></h4>
+<p>For visual stimuli, the duration of stimulus presentation.
+For auditory stimuli, the maximum duration, i.e. playback of audio extending above the specified duration will be muted.
+Given in <a href="BCI2000_Glossary.html#Sample_Block" title="BCI2000 Glossary">sample blocks</a>, or in time units when immediately followed with 's', 'ms', or similar.
+</p>
+<h4><span class="mw-headline" id="EarlyOffsetExpression">EarlyOffsetExpression</span></h4>
+<p>Allows the specification of an <a href="User_Reference%253AExpression_Syntax.html" title="User Reference:Expression Syntax">Expression</a> that is constantly monitored during stimulus presentation. When the value of the Expression transitions from zero to non-zero, the stimulus is aborted early, even if the StimulusDuration has not yet elapsed. For example, set this Expression to <tt>KeyDown==32</tt> and start your source module with the <tt>--LogKeyboard=1</tt> flag: then the subject will be able to advance the stimulus sequence manually by pressing the space key.
+</p>
+<h4><span id="ISIMinDuration,_ISIMaxDuration"></span><span class="mw-headline" id="ISIMinDuration.2C_ISIMaxDuration">ISIMinDuration, ISIMaxDuration</span></h4>
+<p>Minimum and maximum duration of the inter-stimulus interval.
+During the inter-stimulus interval, the screen is blank, and audio is muted.
+</p><p>Actual inter-stimulus intervals vary randomly between minimum and maximum value, with uniform probability for all intermediate values.
+Given in <a href="BCI2000_Glossary.html#Sample_Block" title="BCI2000 Glossary">sample blocks</a>, or in time units when immediately followed with 's', 'ms', or similar.
+Note that temporal resolution is limited to a single <a href="BCI2000_Glossary.html#Sample_Block" title="BCI2000 Glossary">sample block</a>.
+</p>
+<h4><span class="mw-headline" id="InterpretMode">InterpretMode</span></h4>
+<p>An enumerated value selecting on-line classification of evoked responses:
+</p>
+<ul><li>0: no target is announced "attended", and no classification is performed;</li>
+<li>1: <b>online</b> or <b>free mode</b>: classification is performed, but no "attended target" is defined;</li>
+<li>2: <b>copy mode</b>: "attended" targets are defined, classification is performed.</li></ul>
+<h4><span class="mw-headline" id="DisplayResults">DisplayResults</span></h4>
+<p>Switches result display of copy/free spelling on or off.
+In the P3Speller, setting <i>DisplayResults</i> to 'off' will disable execution of all speller commands (such as switching matrices) as well.
+</p>
+<h4><span class="mw-headline" id="MinimumEvidence">MinimumEvidence</span></h4>
+<p><b>NOTE:</b> If you are using your own classifier, this feature will not work properly unless your classifier's output matches certain criteria. Make sure to read <a href="Programming_Reference%253AStimulusTask_Class.html#Using_a_Different_Classifier_with_StimulusTask" title="Programming Reference:StimulusTask Class">these notes on how to use a different classifier</a>.
+</p><p>By default, target selection is performed without considering the actual amount of evidence that favors the selected target over other targets. Although the selected target will always be a target with maximum classification score (i.e., evidence), other targets may have the same or a similar score. It may be useful to omit classification in such situations altogether, by specifying a minimum amount of evidence that must exist in favor of the selected target, when compared to the next-best target. When used together with the <i>AccumulateEvidence</i> option, this allows to dynamically control the number of stimulus presentations, by simply repeating stimulus sequences until a sufficient amount of evidence has been collected.
+</p><p>Setting <i>MinimumEvidence</i> to 0 or to a negative number will result in default behavior, i.e. there will be a target selection each time classification scores are received from the SignalProcessing module. For values greater 0, the amount of selection errors will become smaller as the value of <i>MinimumEvidence</i> is increased; this increases the amount of information contained in each selection. At the same time, it becomes more and more unlikely that a selection will occur at all within a certain amount of time; this decreases the amount of information transmitted per time (information flow, or bitrate). In between, a certain value will correspond to an optimal compromise between selection errors, and selection duration. At this point, the flow of information is maximized.
+</p><p>The meaning of the actual number entered into the <i>MinimumEvidence</i> parameter is relative to the amount of within-class variance present in the classification score. An evidence of 0 means a 50:50 chance for correct classification. Increasing the evidence value by two standard deviations corresponds to an improvement by a factor of roughly 88:12, four standard deviations correspond to (88:12)^2=(98:2) ... etc, approaching perfect classification as evidence increases towards infinity.
+</p><p>In classifier training, classifier weights may be normalized such that within-class variance is 1 (this is done by recent versions of the P300Classifier tool). In this case, you may use the following equations to convert between the <i>MinimumEvidence</i> parameter <img class="mwe-math-fallback-image-inline tex" alt="\eta" src="../images/math/7/1/7/7174cbd6aeaaa56e37102b72386bb2b9.png" />, and the correct classification chance <img class="mwe-math-fallback-image-inline tex" alt="\chi" src="../images/math/7/9/c/79c40dd2b43f3c03eaf88b5fc4c199b8.png" />:
+</p><p><img class="mwe-math-fallback-image-inline tex" alt="\chi = \frac{50}{50} \left(\frac{88}{12}\right)^{\eta/2}" src="../images/math/8/f/d/8fd22c98bcc3d1d2cc72a34453c672b8.png" />.
+</p><p>For large <img class="mwe-math-fallback-image-inline tex" alt="\chi" src="../images/math/7/9/c/79c40dd2b43f3c03eaf88b5fc4c199b8.png" />, this relationship may be approximated and expressed in terms of error probability <img class="mwe-math-fallback-image-inline tex" alt="p" src="../images/math/8/3/8/83878c91171338902e0fe0fb97a8c47a.png" />:
+</p><p><img class="mwe-math-fallback-image-inline tex" alt="\eta \approx -\frac{\log_{10} p}{\log_{10} e} = -2.3\log_{10} p\quad\textrm{for}\; p \leq 5%" src="../images/math/f/c/9/fc913adce99e22a2de3f0c08738f62ec.png" />.
+</p><p>Thus, the evidence value roughly corresponds to twice the number of leading zeros in the desired error probability, if classifier weights are normalized. Some values are provided in the following table:
+</p>
+<table>
+<tbody><tr>
+<th>Selection Error
+</th>
+<th>Evidence
+</th></tr>
+<tr>
+<td>5%
+</td>
+<td>3
+</td></tr>
+<tr>
+<td>1%
+</td>
+<td>4.6
+</td></tr>
+<tr>
+<td>0.5%
+</td>
+<td>5.3
+</td></tr>
+<tr>
+<td>0.1%
+</td>
+<td>6.9
+</td></tr>
+<tr>
+<td>0.05%
+</td>
+<td>7.6
+</td></tr>
+<tr>
+<td>0.01%
+</td>
+<td>9.2
+</td></tr></tbody></table>
+<h4><span class="mw-headline" id="AccumulateEvidence">AccumulateEvidence</span></h4>
+<p>By default, only those classification scores are used which have been received from the signal processing module immediately prior to classification. When <i>AccumulateEvidence</i> is set, classification scores are accumulated until a selection is actually performed. Typically, accumulated classification scores will have higher evidence values, such that a selection threshold set with <i>MinimumEvidence</i> will be eventually crossed after scores have been accumulated for some time.
+</p><p>This allows for dynamically choosing the number of stimulus repetitions in a P300 paradigm, by setting the number of stimulus repetitions to 1, and setting the <i>MinimumEvidence</i> parameter to a value greater zero.
+</p><p>In addition, accumulated overall evidence will not increase if there is no consistent evidence in favor of a certain target. Thus, it is possible to operate a P300 BCI in a quasi-asynchronous mode by using <i>AccumulateEvidence</i>, and choosing a <i>MinimumEvidence</i> value that is large enough to make accidental selection unlikely. In this configuration, no selection will be made unless the BCI user is actually concentrating on a target for a number of stimulus presentations, resulting in consistently accumulating evidence for that target.
+</p><p><b>NOTE:</b> If you are using your own classifier, this feature will not work properly unless your classifier's output matches certain criteria. Make sure to read <a href="Programming_Reference%253AStimulusTask_Class.html#Using_a_Different_Classifier_with_StimulusTask" title="Programming Reference:StimulusTask Class">these notes on how to use a different classifier</a>.
+</p>
+<h4><span class="mw-headline" id="PhotoDiodePatch">PhotoDiodePatch</span></h4>
+<p>Display a photo diode patch on the stimulus window.
+Recording from a photo diode located on that patch will allow triggering on actual stimulus delivery (see <a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:P3TemporalFilter#OnsetExpression" title="User Reference:P3TemporalFilter">User_Reference:P3TemporalFilter#OnsetExpression</a>).
+</p>
+<h4><span class="mw-headline" id="PhotoDiodePatchHeight">PhotoDiodePatchHeight</span></h4>
+<p>Photo diode patch height in relative coordinates (between 0 and 1).
+</p>
+<h4><span class="mw-headline" id="PhotoDiodePatchWidth">PhotoDiodePatchWidth</span></h4>
+<p>Photo diode patch width in relative coordinates (between 0 and 1).
+</p>
+<h4><span class="mw-headline" id="PhotoDiodePatchLeft">PhotoDiodePatchLeft</span></h4>
+<p>Photo diode patch left position in relative coordinates (between 0 and 1).
+</p>
+<h4><span class="mw-headline" id="PhotoDiodePatchTop">PhotoDiodePatchTop</span></h4>
+<p>Photo diode patch top position in relative coordinates (between 0 and 1).
+</p>
+<h4><span class="mw-headline" id="PhotoDiodePatchShape">PhotoDiodePatchShape</span></h4>
+<p>Photo diode patch shape: 0 rectangle, 1 ellipse.
+</p>
+<h4><span class="mw-headline" id="PhotoDiodePatchActiveColor">PhotoDiodePatchActiveColor</span></h4>
+<p>Photo diode patch color when active (RGB color in format 0xrrggbb).
+</p>
+<h4><span class="mw-headline" id="PhotoDiodePatchInactiveColor">PhotoDiodePatchInactiveColor</span></h4>
+<p>Photo diode patch color when inactive, (RGB color in format 0xrrggbb, use 0xff000000 for transparent).
+</p>
+<h4><span class="mw-headline" id="PhotoDiodePatchExpression">PhotoDiodePatchExpression</span></h4>
+<p>Photo diode patch expression, determines active state by evaluating to nonnull. Defaults to <tt>StimulusBegin&gt;0</tt>.
+</p>
+<h2><span class="mw-headline" id="States">States</span></h2>
+<h3><span class="mw-headline" id="StimulusCode">StimulusCode</span></h3>
+<p>The numerical ID of the stimulus being presented (16 bit).
+</p>
+<h3><span class="mw-headline" id="StimulusType">StimulusType</span></h3>
+<p>This state is 1 during presentation of an attended stimulus, and 0 otherwise.
+The notion of an "attended" stimulus requires data recording in <a href="Programming_Reference%253AStimulusTask_Class.html#InterpretMode">copy mode</a>.
+</p>
+<h3><span class="mw-headline" id="StimulusBegin">StimulusBegin</span></h3>
+<p>This state is 1 during the first block of stimulus presentation, and 0 otherwise.
+</p>
+<h3><span class="mw-headline" id="PhaseInSequence">PhaseInSequence</span></h3>
+<p>This state is 1 during pre-sequence, 2 during sequence and 3 during post-sequence (see <a href="Programming_Reference%253AStimulusTask_Class.html#Timeline">Timeline</a>).
+</p>
+<h3><span class="mw-headline" id="PauseApplication">PauseApplication</span></h3>
+<p>While this state is set to 1, no task processing occurs, i.e. the task is paused, and may be resumed by setting PauseApplication to 0.
+</p>
+<h2><span class="mw-headline" id="Timeline">Timeline</span></h2>
+<p><a href="https://www.bci2000.org/mediawiki/index.php/File:StimulusTask_Timeline.png" class="image"><img alt="StimulusTask Timeline.png" src="../images/thumb/2/22/StimulusTask_Timeline.png/676px-StimulusTask_Timeline.png" decoding="async" width="676" height="206" srcset="../images/thumb/2/22/StimulusTask_Timeline.png/1014px-StimulusTask_Timeline.png 1.5x, ../images/thumb/2/22/StimulusTask_Timeline.png/1352px-StimulusTask_Timeline.png 2x" /></a>
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:P3TemporalFilter" title="User Reference:P3TemporalFilter">User Reference:P3TemporalFilter</a>, <a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:P3SpellerTask" title="User Reference:P3SpellerTask">User Reference:P3SpellerTask</a>, <a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:StimulusPresentationTask" title="User Reference:StimulusPresentationTask">User Reference:StimulusPresentationTask</a>;
+</p><p><a href="Programming_Reference%253AAssociationMap_Class.html" title="Programming Reference:AssociationMap Class">Programming Reference:AssociationMap Class</a>, <a href="Programming_Reference%253AStimulus_Class.html" title="Programming Reference:Stimulus Class">Programming Reference:Stimulus Class</a>, <a href="Programming_Reference%253ATarget_Class.html" title="Programming Reference:Target Class">Programming Reference:Target Class</a>
+</p><p><a href="Programming_Reference%253AGenericFilter_Class.html" title="Programming Reference:GenericFilter Class">Programming Reference:GenericFilter Class</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524175558
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.108 seconds
+Real time usage: 0.129 seconds
+Preprocessor visited node count: 352/1000000
+Post‐expand include size: 12671/2097152 bytes
+Template argument size: 24/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 3294/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   30.437      1 -total
+ 53.09%   16.158      1 Template:StimulusTaskParams
+ 20.77%    6.322      1 Template:ApplicationBaseProperties
+ 13.25%    4.032      1 Template:StimulusTaskStates
+ 11.59%    3.529      1 Template:StimulusTaskTimeline
+  7.88%    2.399      6 Template:TimeParam
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1809-0!canonical!math=0 and timestamp 20230524175558 and revision id 7181
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:StimulusTask_Class&amp;oldid=7181">http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:StimulusTask_Class&amp;oldid=7181</a>"</div>
+ </div>
+</body>
+</html>

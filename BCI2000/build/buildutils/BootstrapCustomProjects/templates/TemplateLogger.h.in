@@ -1,0 +1,43 @@
+////////////////////////////////////////////////////////////////////////////////
+// Authors: $author$ $date$
+// Description: $name$ header
+////////////////////////////////////////////////////////////////////////////////
+
+#ifndef INCLUDED_$ucname$_H  // makes sure this header is not included more than once
+#define INCLUDED_$ucname$_H
+
+#include "Environment.h"
+#include <atomic>
+
+// Include any library headers specific to your hardware here:
+//#include "$sname$.h"
+
+class $name$ : public EnvironmentExtension
+{
+ public:
+  $name$();
+  ~$name$();
+  void Publish() override;
+  void Preflight() const override;
+  void Initialize() override;
+  void StartRun() override;
+  void StopRun() override;
+  void Halt() override;
+
+ private:
+   // Use this space to declare any $name$-specific methods and member variables you'll need.
+   // Note that you need to deal with multithreading, so make sure that variables used across
+   // threads are of type std::atomic, or use a mutex.
+   bool mLog$sname$;
+   void* m$sname$Handle;
+   std::atomic<int> mPreviousPos;
+
+   // If you can register a callback function to asynchronously receive input or hardware data,
+   // declare it here as static.
+   static void $sname$Callback(int position, void* userData);
+   // A corresponding member function is called from the implementation of the static function, 
+   // and allows us to access our own member variables directly (this is to improve code readability).
+   void On$sname$Position(int position);
+};
+
+#endif // INCLUDED_$ucname$_H

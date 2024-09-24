@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>User Reference:P3SpellerTask - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul><li class="toc1"><a href="User_Reference%253AOperator_Module.html">Operator Module</a></li><li class="toc1"><a href="User_Reference%253AOperator_Module_Scripting.html">Operator Scripting</a></li><li class="toc1"><a href="User_Reference%253AModule_Command_Line_Options.html">Module Command Line Options</a></li><li class="toc1"><a href="User_Reference%253AData_File_Formats.html">Data File Formats</a></li><li class="toc1"><a href="User_Reference%253AFilters.html">Configuration Guide</a></li><li class="toc1"><a href="User_FAQ.html">FAQ</a></li><li class="toc1">Applications</li><ul><li class="toc2"><a href="User_Reference%253ACursorTask.html">Cursor Task</a></li><li class="toc2">P3Speller Task</li><li class="toc2"><a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:StimulusPresentation">Stimulus Presentation</a></li></ul><li class="toc1">Tools</li><ul><li class="toc2"><a href="User_Reference%253ABCI2000Certification.html">BCI2000Certification</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Launcher.html">BCI2000Launcher</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Viewer.html">BCI2000Viewer</a></li><li class="toc2"><a href="User_Reference%253ABCI2000FileInfo.html">BCI2000FileInfo</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Export.html">BCI2000Export</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Analysis.html">BCI2000Analysis</a></li><li class="toc2"><a href="User_Reference%253ABCI2000_Offline_Analysis.html">BCI2000 Offline Analysis</a></li><li class="toc2"><a href="User_Reference%253AEloc_Helper.html">Eloc Helper</a></li><li class="toc2"><a href="User_Reference%253AEEGLabImport.html">EEGLabImport</a></li><li class="toc2"><a href="User_Reference%253AMatlab_Tools.html">Matlab Tools</a></li><li class="toc2"><a href="User_Reference%253AMatlab_MEX_Files.html">Matlab MEX Files</a></li><li class="toc2"><a href="User_Reference%253ACommand_Line_Processing.html">Command Line Processing</a></li></ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">P3SpellerTask</h1>
+ <p class = "subtitle">User Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="User_Reference%253AP300_SpellerTask.html#Synopsis"><span class="tocnumber">1</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="User_Reference%253AP300_SpellerTask.html#Functional_Description"><span class="tocnumber">2</span> <span class="toctext">Functional Description</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="User_Reference%253AP300_SpellerTask.html#Introduction"><span class="tocnumber">2.1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="User_Reference%253AP300_SpellerTask.html#Visual_Representation"><span class="tocnumber">2.2</span> <span class="toctext">Visual Representation</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="User_Reference%253AP300_SpellerTask.html#Nested_Matrices_Howto"><span class="tocnumber">2.3</span> <span class="toctext">Nested Matrices Howto</span></a>
+<ul>
+<li class="toclevel-3 tocsection-6"><a href="User_Reference%253AP300_SpellerTask.html#Set_up_the_Target_Definition_matrix"><span class="tocnumber">2.3.1</span> <span class="toctext">Set up the Target Definition matrix</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="User_Reference%253AP300_SpellerTask.html#Convert_each_cell_to_a_sub-matrix"><span class="tocnumber">2.3.2</span> <span class="toctext">Convert each cell to a sub-matrix</span></a></li>
+<li class="toclevel-3 tocsection-8"><a href="User_Reference%253AP300_SpellerTask.html#Configure_individual_sub_matrices"><span class="tocnumber">2.3.3</span> <span class="toctext">Configure individual sub matrices</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="User_Reference%253AP300_SpellerTask.html#Enable_transition_from_one_menu_to_another"><span class="tocnumber">2.3.4</span> <span class="toctext">Enable transition from one menu to another</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="User_Reference%253AP300_SpellerTask.html#Number_of_Rows_and_Columns_of_each_nested_menu_.28matrix.29"><span class="tocnumber">2.3.5</span> <span class="toctext">Number of Rows and Columns of each nested menu (matrix)</span></a></li>
+<li class="toclevel-3 tocsection-11"><a href="User_Reference%253AP300_SpellerTask.html#Select_first_menu_to_be_displayed"><span class="tocnumber">2.3.6</span> <span class="toctext">Select first menu to be displayed</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-12"><a href="User_Reference%253AP300_SpellerTask.html#Testing_Matrix_Menus"><span class="tocnumber">2.4</span> <span class="toctext">Testing Matrix Menus</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="User_Reference%253AP300_SpellerTask.html#Pause_and_Sleep"><span class="tocnumber">2.5</span> <span class="toctext">Pause and Sleep</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="User_Reference%253AP300_SpellerTask.html#Text_Window"><span class="tocnumber">2.6</span> <span class="toctext">Text Window</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-15"><a href="User_Reference%253AP300_SpellerTask.html#Parameters"><span class="tocnumber">3</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2"><a href="User_Reference%253AP300_SpellerTask.html#WindowWidth.2C_WindowHeight"><span class="tocnumber">3.1</span> <span class="toctext">WindowWidth, WindowHeight</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AP300_SpellerTask.html#WindowLeft.2C_WindowTop"><span class="tocnumber">3.2</span> <span class="toctext">WindowLeft, WindowTop</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AP300_SpellerTask.html#WindowBackgroundColor"><span class="tocnumber">3.3</span> <span class="toctext">WindowBackgroundColor</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AP300_SpellerTask.html#PreRunDuration"><span class="tocnumber">3.4</span> <span class="toctext">PreRunDuration</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AP300_SpellerTask.html#PostRunDuration"><span class="tocnumber">3.5</span> <span class="toctext">PostRunDuration</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AP300_SpellerTask.html#PreSequenceDuration"><span class="tocnumber">3.6</span> <span class="toctext">PreSequenceDuration</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AP300_SpellerTask.html#PostSequenceDuration"><span class="tocnumber">3.7</span> <span class="toctext">PostSequenceDuration</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AP300_SpellerTask.html#StimulusDuration"><span class="tocnumber">3.8</span> <span class="toctext">StimulusDuration</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AP300_SpellerTask.html#EarlyOffsetExpression"><span class="tocnumber">3.9</span> <span class="toctext">EarlyOffsetExpression</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AP300_SpellerTask.html#ISIMinDuration.2C_ISIMaxDuration"><span class="tocnumber">3.10</span> <span class="toctext">ISIMinDuration, ISIMaxDuration</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AP300_SpellerTask.html#InterpretMode"><span class="tocnumber">3.11</span> <span class="toctext">InterpretMode</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AP300_SpellerTask.html#DisplayResults"><span class="tocnumber">3.12</span> <span class="toctext">DisplayResults</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AP300_SpellerTask.html#MinimumEvidence"><span class="tocnumber">3.13</span> <span class="toctext">MinimumEvidence</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AP300_SpellerTask.html#AccumulateEvidence"><span class="tocnumber">3.14</span> <span class="toctext">AccumulateEvidence</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AP300_SpellerTask.html#PhotoDiodePatch"><span class="tocnumber">3.15</span> <span class="toctext">PhotoDiodePatch</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AP300_SpellerTask.html#PhotoDiodePatchHeight"><span class="tocnumber">3.16</span> <span class="toctext">PhotoDiodePatchHeight</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AP300_SpellerTask.html#PhotoDiodePatchWidth"><span class="tocnumber">3.17</span> <span class="toctext">PhotoDiodePatchWidth</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AP300_SpellerTask.html#PhotoDiodePatchLeft"><span class="tocnumber">3.18</span> <span class="toctext">PhotoDiodePatchLeft</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AP300_SpellerTask.html#PhotoDiodePatchTop"><span class="tocnumber">3.19</span> <span class="toctext">PhotoDiodePatchTop</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AP300_SpellerTask.html#PhotoDiodePatchShape"><span class="tocnumber">3.20</span> <span class="toctext">PhotoDiodePatchShape</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AP300_SpellerTask.html#PhotoDiodePatchActiveColor"><span class="tocnumber">3.21</span> <span class="toctext">PhotoDiodePatchActiveColor</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AP300_SpellerTask.html#PhotoDiodePatchInactiveColor"><span class="tocnumber">3.22</span> <span class="toctext">PhotoDiodePatchInactiveColor</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AP300_SpellerTask.html#PhotoDiodePatchExpression"><span class="tocnumber">3.23</span> <span class="toctext">PhotoDiodePatchExpression</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="User_Reference%253AP300_SpellerTask.html#NumberOfSequences"><span class="tocnumber">3.24</span> <span class="toctext">NumberOfSequences</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="User_Reference%253AP300_SpellerTask.html#TargetDefinitions"><span class="tocnumber">3.25</span> <span class="toctext">TargetDefinitions</span></a>
+<ul>
+<li class="toclevel-3 tocsection-18"><a href="User_Reference%253AP300_SpellerTask.html#Speller_Commands"><span class="tocnumber">3.25.1</span> <span class="toctext">Speller Commands</span></a></li>
+<li class="toclevel-3 tocsection-19"><a href="User_Reference%253AP300_SpellerTask.html#Multiple_Menus"><span class="tocnumber">3.25.2</span> <span class="toctext">Multiple Menus</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-20"><a href="User_Reference%253AP300_SpellerTask.html#NumMatrixColumns.2C_NumMatrixRows"><span class="tocnumber">3.26</span> <span class="toctext">NumMatrixColumns, NumMatrixRows</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="User_Reference%253AP300_SpellerTask.html#AudioStimuliOn"><span class="tocnumber">3.27</span> <span class="toctext">AudioStimuliOn</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="User_Reference%253AP300_SpellerTask.html#AudioStimuliRowsFiles.2C_AudioStimuliColsFiles"><span class="tocnumber">3.28</span> <span class="toctext">AudioStimuliRowsFiles, AudioStimuliColsFiles</span></a></li>
+<li class="toclevel-2 tocsection-23"><a href="User_Reference%253AP300_SpellerTask.html#TargetWidth.2C_TargetHeight"><span class="tocnumber">3.29</span> <span class="toctext">TargetWidth, TargetHeight</span></a></li>
+<li class="toclevel-2 tocsection-24"><a href="User_Reference%253AP300_SpellerTask.html#TargetTextHeight"><span class="tocnumber">3.30</span> <span class="toctext">TargetTextHeight</span></a></li>
+<li class="toclevel-2 tocsection-25"><a href="User_Reference%253AP300_SpellerTask.html#BackgroundColor"><span class="tocnumber">3.31</span> <span class="toctext">BackgroundColor</span></a></li>
+<li class="toclevel-2 tocsection-26"><a href="User_Reference%253AP300_SpellerTask.html#TextColor.2C_TextColorIntensified"><span class="tocnumber">3.32</span> <span class="toctext">TextColor, TextColorIntensified</span></a></li>
+<li class="toclevel-2 tocsection-27"><a href="User_Reference%253AP300_SpellerTask.html#IconHighlightMode"><span class="tocnumber">3.33</span> <span class="toctext">IconHighlightMode</span></a></li>
+<li class="toclevel-2 tocsection-28"><a href="User_Reference%253AP300_SpellerTask.html#IconHighlightFactor"><span class="tocnumber">3.34</span> <span class="toctext">IconHighlightFactor</span></a></li>
+<li class="toclevel-2 tocsection-29"><a href="User_Reference%253AP300_SpellerTask.html#FirstActiveMenu"><span class="tocnumber">3.35</span> <span class="toctext">FirstActiveMenu</span></a></li>
+<li class="toclevel-2 tocsection-30"><a href="User_Reference%253AP300_SpellerTask.html#StatusBarSize.2C_StatusBarTextHeight"><span class="tocnumber">3.36</span> <span class="toctext">StatusBarSize, StatusBarTextHeight</span></a></li>
+<li class="toclevel-2 tocsection-31"><a href="User_Reference%253AP300_SpellerTask.html#TextToSpell"><span class="tocnumber">3.37</span> <span class="toctext">TextToSpell</span></a></li>
+<li class="toclevel-2 tocsection-32"><a href="User_Reference%253AP300_SpellerTask.html#TextResult"><span class="tocnumber">3.38</span> <span class="toctext">TextResult</span></a></li>
+<li class="toclevel-2 tocsection-33"><a href="User_Reference%253AP300_SpellerTask.html#TestMode"><span class="tocnumber">3.39</span> <span class="toctext">TestMode</span></a></li>
+<li class="toclevel-2 tocsection-34"><a href="User_Reference%253AP300_SpellerTask.html#DestinationAddress"><span class="tocnumber">3.40</span> <span class="toctext">DestinationAddress</span></a></li>
+<li class="toclevel-2 tocsection-35"><a href="User_Reference%253AP300_SpellerTask.html#TextWindowEnabled"><span class="tocnumber">3.41</span> <span class="toctext">TextWindowEnabled</span></a></li>
+<li class="toclevel-2 tocsection-36"><a href="User_Reference%253AP300_SpellerTask.html#TextWindowLeft.2C_TextWindowTop.2C_TextWindowWidth.2C_TextWindowHeight"><span class="tocnumber">3.42</span> <span class="toctext">TextWindowLeft, TextWindowTop, TextWindowWidth, TextWindowHeight</span></a></li>
+<li class="toclevel-2 tocsection-37"><a href="User_Reference%253AP300_SpellerTask.html#TextWindowFontName.2C_TextWindowFontSize"><span class="tocnumber">3.43</span> <span class="toctext">TextWindowFontName, TextWindowFontSize</span></a></li>
+<li class="toclevel-2 tocsection-38"><a href="User_Reference%253AP300_SpellerTask.html#TextWindowFilePath"><span class="tocnumber">3.44</span> <span class="toctext">TextWindowFilePath</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-39"><a href="User_Reference%253AP300_SpellerTask.html#States"><span class="tocnumber">4</span> <span class="toctext">States</span></a>
+<ul>
+<li class="toclevel-2"><a href="User_Reference%253AP300_SpellerTask.html#PreStimulusTime"><span class="tocnumber">4.1</span> <span class="toctext">PreStimulusTime</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AP300_SpellerTask.html#StimulusTime"><span class="tocnumber">4.2</span> <span class="toctext">StimulusTime</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AP300_SpellerTask.html#PresentationRequested"><span class="tocnumber">4.3</span> <span class="toctext">PresentationRequested</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AP300_SpellerTask.html#PresentationDisplayed"><span class="tocnumber">4.4</span> <span class="toctext">PresentationDisplayed</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AP300_SpellerTask.html#PresentationTime"><span class="tocnumber">4.5</span> <span class="toctext">PresentationTime</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AP300_SpellerTask.html#PresentationFrame"><span class="tocnumber">4.6</span> <span class="toctext">PresentationFrame</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AP300_SpellerTask.html#AudioBufferTime"><span class="tocnumber">4.7</span> <span class="toctext">AudioBufferTime</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AP300_SpellerTask.html#AudioPresentationTime"><span class="tocnumber">4.8</span> <span class="toctext">AudioPresentationTime</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AP300_SpellerTask.html#StimulusCode"><span class="tocnumber">4.9</span> <span class="toctext">StimulusCode</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AP300_SpellerTask.html#StimulusType"><span class="tocnumber">4.10</span> <span class="toctext">StimulusType</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AP300_SpellerTask.html#StimulusBegin"><span class="tocnumber">4.11</span> <span class="toctext">StimulusBegin</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AP300_SpellerTask.html#PhaseInSequence"><span class="tocnumber">4.12</span> <span class="toctext">PhaseInSequence</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AP300_SpellerTask.html#PauseApplication"><span class="tocnumber">4.13</span> <span class="toctext">PauseApplication</span></a></li>
+<li class="toclevel-2 tocsection-40"><a href="User_Reference%253AP300_SpellerTask.html#SelectedTarget.2C_SelectedRow.2C_SelectedColumn"><span class="tocnumber">4.14</span> <span class="toctext">SelectedTarget, SelectedRow, SelectedColumn</span></a></li>
+<li class="toclevel-2 tocsection-41"><a href="User_Reference%253AP300_SpellerTask.html#SpellerMenu"><span class="tocnumber">4.15</span> <span class="toctext">SpellerMenu</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-42"><a href="User_Reference%253AP300_SpellerTask.html#Timeline"><span class="tocnumber">5</span> <span class="toctext">Timeline</span></a></li>
+<li class="toclevel-1 tocsection-43"><a href="User_Reference%253AP300_SpellerTask.html#See_also"><span class="tocnumber">6</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>The <i>P3SpellerTask</i> filter implements Donchin's matrix speller paradigm (Sellers, Donchin, Schalk, 2004).
+Such a matrix speller presents a matrix of options; rows and columns of that matrix are flashed to elicit an evoked response  (ERP) whenever the user's attended matrix element is flashed.
+From ERP classification results, the speller then derives which of the matrix elements was attended to, and executes the action corresponding to that matrix element. Typically, this action will consist in adding a character to a text window. 
+</p><p>Beyond the basic features, the <i>P3SpellerTask</i> provides the ability to handle multiple speller menus, saving and recovering the text buffer, and an option to exchange information with an external program.
+</p><p>Typically, the <i>P3SpellerTask</i> is used in conjunction with the <a href="User_Reference%253AP3TemporalFilter.html" title="User Reference:P3TemporalFilter">P3TemporalFilter</a> signal processing filter.
+</p>
+<h2><span class="mw-headline" id="Functional_Description">Functional Description</span></h2>
+<h3><span class="mw-headline" id="Introduction">Introduction</span></h3>
+<p>The <i>P3SpellerTask</i> displays matrix of characters, where the 6 by 6 matrix is the most common size (see Figure 1). 
+The user's task is to focus attention on characters in a word that is prescribed by the investigator (i.e., one character at a time), and displayed on the user's screen.
+Alternatively, the user may freely choose letters he attends to, using the speller as a true communication device.
+</p><p>All rows and columns of this matrix are successively and randomly intensified.
+For a full set of intensifications of rows or columns, two contain the desired character (i.e., one particular row and one particular column).
+The responses evoked by these infrequent stimuli are different from those evoked by the stimuli that did not contain the desired character, in a manner similar to the classical P300 paradigm (Donchin, 1988).
+</p><p>The <i>P3SpellerTask</i> will catch such responses and then determine the character that user had focused on, and will print the character to the screen (below the word to spell) for the user to verify.
+</p><p>The entire set of stimuli is usually flashed several times before the <i>P3SpellerTask</i> calculates the desired character.
+To ensure maximum efficiency of character prediction, it is important that the stimuli are infrequent even between sequences. Therefore, the <i>P3SpellerTask</i> avoids starting a sequence with the row or column that was intensified last in the previous sequence.
+</p>
+<div class="center"><div class="thumb tnone"><div class="thumbinner" style="width:361px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:P3SpellerScreen.PNG" class="image"><img alt="" src="../images/2/22/P3SpellerScreen.PNG" decoding="async" width="359" height="360" class="thumbimage" /></a>  <div class="thumbcaption">Figure1: A 6 by 6 speller matrix. Here, the user's task is to spell the word "SEND" (one character at a time).  For each character, all rows and columns in the matrix are intensified a number of times (here, the third row is shown intensified).</div></div></div></div>
+<h3><span class="mw-headline" id="Visual_Representation">Visual Representation</span></h3>
+<p>The visual representation is divided into three parts (Figure 2):
+</p>
+<ul><li><i>Text to Spell</i> displays the text that the user needs to spell (only used in copy spelling mode).</li>
+<li><i>Text Result</i> holds the letters spelled up to the current moment.</li>
+<li><i>Speller Display</i> is the area that contains the speller matrix.</li></ul>
+<div class="center"><div class="thumb tnone"><div class="thumbinner" style="width:519px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:P3SpellerScreenElements.PNG" class="image"><img alt="" src="../images/b/bf/P3SpellerScreenElements.PNG" decoding="async" width="517" height="426" class="thumbimage" /></a>  <div class="thumbcaption">Figure 2: Elements of the user's screen. <i>Text To Spell</i> indicates the pre-defined text. The speller will analyze evoked responses, and will append the selected text to <i>Text Result</i>.</div></div></div></div>
+<p>In addition to the text characters, it is possible to display icons (bitmaps) in the P3Speller matrix. This can be achieved by entering the appropriate file name for the icon in column 4 of the desired cell in the <i>TargetDefinition</i> parameter. The icon will be flashed (highlighted) using a number of methods (see the description of the <i>IconHighlightMode</i> parameter below).Alternatively, an additional version of the icon may be displayed during stimulus presentation by entering the file name in an appropriately-labeled column. Although the sixth column has the correct label by default, any column except the first five may be used provided the column label is <b>Intensified Icon</b>. If an intensified icon is specified, it will be displayed as the highlighted version of the icon instead of using the <i>IconHighlightMode</i> parameter. 
+</p><p>As new characters are added to the right, the <i>Text Result</i> area gets filled; once there is no space left, the text is scrolled to the left in order to accommodate for additional characters.
+</p><p>It is also possible to play a sound file or to "speak" text (using a Text-to-Speech engine) when a cell is selected. To play a sound file, the sound file name should be entered in column 5 of the desired cell in the target definition matrix. To enable a text-to-speech function, the text to be "spoken" should be entered in column 5 of the desired cell in the target definition matrix within single quotes (e.g. 'text'), as shown below.
+</p>
+<div class="center"><div class="thumb tnone"><div class="thumbinner" style="width:434px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:P3SpellerCommandExample.PNG" class="image"><img alt="" src="../images/8/8c/P3SpellerCommandExample.PNG" decoding="async" width="432" height="227" class="thumbimage" /></a>  <div class="thumbcaption">TargetDefinitionMatrix</div></div></div></div> 
+<p>The Text-to-Speech engine uses the system's "default voice" setting (Control Panel-&gt;Speech-&gt;TextToSpeech-&gt;Voice Selection).  Male or female voices may be selected.
+</p>
+<h3><span class="mw-headline" id="Nested_Matrices_Howto">Nested Matrices Howto</span></h3>
+<p>To allow for more flexibility in real-world applications, multiple speller matrices can be specified, and may be traversed in a "nested" manner.
+For example, one of the cells in the first matrix may be tied to another matrix which is displayed when this cell is selected by the user. 
+This capability may be used to design a menu based user interface.
+</p><p>To use the nested menu capability, the following steps need to be executed:
+</p>
+<h4><span class="mw-headline" id="Set_up_the_Target_Definition_matrix">Set up the Target Definition matrix</span></h4>
+<div class="center"><div class="thumb tnone"><div class="thumbinner" style="width:271px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:NestedMatricesWindow.PNG" class="image"><img alt="" src="../images/0/04/NestedMatricesWindow.PNG" decoding="async" width="269" height="195" class="thumbimage" /></a>  <div class="thumbcaption">Figure 3: Target Definition matrix for 4 nested menus</div></div></div></div>
+<p>To maintain backward compatibility and for ease of configuration, the application will not support nested functionality by simply converting one cell of the 'old' target definition matrix to a sub-matrix. To define nested matrices, the <i>TargetDefinition</i> parameter must be defined with 1 column and each cell as a sub-matrix. If it has more than one column, the application will treat it as a single matrix and will ensure that each of its cells is defined as a single value.
+</p>
+<h4><span class="mw-headline" id="Convert_each_cell_to_a_sub-matrix">Convert each cell to a sub-matrix</span></h4>
+<p>In the GUI, this is done by right-clicking on each cell as shown in Figure 4, and choosing "Convert to sub-matrix" from the context menu.
+</p>
+<div class="center"><div class="thumb tnone"><div class="thumbinner" style="width:267px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:NestedMatricesConvert.PNG" class="image"><img alt="" src="../images/9/96/NestedMatricesConvert.PNG" decoding="async" width="265" height="296" class="thumbimage" /></a>  <div class="thumbcaption">Figure 4: Converting cells to sub-matrices</div></div></div></div>
+<h4><span class="mw-headline" id="Configure_individual_sub_matrices">Configure individual sub matrices</span></h4>
+<p>Each cell in a nested matrix is a sub-matrix (as shown in Figure 3) and needs to be configured individually.  
+In the GUI, clicking on a cell that is a sub-matrix will bring up that matrix in another window, as shown in Figure 5.
+</p>
+<div class="center"><div class="thumb tnone"><div class="thumbinner" style="width:382px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:NestedMatricesSubmatrix.PNG" class="image"><img alt="" src="../images/b/bd/NestedMatricesSubmatrix.PNG" decoding="async" width="380" height="304" class="thumbimage" /></a>  <div class="thumbcaption">Figure 5: Configuring individual sub-matrices</div></div></div></div>
+<p>Each sub-matrix should be configured to have a minimum of 3 columns and can have up to 5 columns if it needs to display icons or play sounds.
+</p>
+<h4><span class="mw-headline" id="Enable_transition_from_one_menu_to_another">Enable transition from one menu to another</span></h4>
+<p>Special control codes (speller commands) allow transition from one matrix to another.
+To go to a different matrix when an item is selected, enter the &lt;GOTO#&gt; command into its "Enter" column, replacing "#" with the (one-based) index of the corresponding matrix (menu).
+The &lt;BK&gt; command will go back to the previous menu/matrix (see Figure 5).
+</p>
+<h4><span id="Number_of_Rows_and_Columns_of_each_nested_menu_(matrix)"></span><span class="mw-headline" id="Number_of_Rows_and_Columns_of_each_nested_menu_.28matrix.29">Number of Rows and Columns of each nested menu (matrix)</span></h4>
+<p>The number of rows and columns in each sub-matrix needs to be entered into the <i>NumMatrixRows</i> and <i>NumMatrixColumns</i> parameters.  There, individual entries are separated by space characters. 
+</p>
+<div class="center"><div class="thumb tnone"><div class="thumbinner" style="width:389px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:NestedMenusRowsColumns.PNG" class="image"><img alt="" src="../images/d/d9/NestedMenusRowsColumns.PNG" decoding="async" width="387" height="90" class="thumbimage" /></a>  <div class="thumbcaption">Figure 6: Rows and Columns of each sub-matrix</div></div></div></div>
+<p>Figure 6 indicates that the first three sub-matrices are 2x2, while the sub-matrix at index 4 is a 6x6 matrix.
+</p><p>In case of a single (non-nested) matrix, there will be only one entry in the NumMatrixRows and NumMatrixColumns parameters.
+</p>
+<h4><span class="mw-headline" id="Select_first_menu_to_be_displayed">Select first menu to be displayed</span></h4>
+<p>The index of the menu to be displayed first (i.e. when the application is started) is entered in the <i>FirstActiveMenu</i> parameter. In case of non-nested matrix configuration, this parameter should be left at its default value of 1.
+</p><p>The overall appearance of a nested matrix configuration is shown in Figure 7 below.
+</p>
+<div class="center"><div class="thumb tnone"><div class="thumbinner" style="width:979px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:P3SpellerMultipleMenus.PNG" class="image"><img alt="" src="../images/d/da/P3SpellerMultipleMenus.PNG" decoding="async" width="977" height="730" class="thumbimage" /></a>  <div class="thumbcaption">Figure 7:  Nested matrix Configuration</div></div></div></div>
+<h3><span class="mw-headline" id="Testing_Matrix_Menus">Testing Matrix Menus</span></h3>
+<p>In order to test matrix menu configurations, the <i>P3SpellerTask</i> may be put into a <a href="User_Reference%253AP300_SpellerTask.html#TestMode">test mode</a>.
+In this mode, mouse clicks into matrix elements are registered during sequence presentation, and force selection of the respective matrix element.
+</p><p><i>Please note that the <a href="User_Reference%253AP300_SpellerTask.html#DisplayResults">DisplayResults</a> parameter needs to be turned on in order to be able to select sub matrices.</i>
+</p>
+<h3><span class="mw-headline" id="Pause_and_Sleep">Pause and Sleep</span></h3>
+<p>There are two speller commands that allow the user to suspend operation of the <i>P3SpellerTask</i> either momentarily or for an extended period of time, &lt;PAUSE&gt; and &lt;SLEEP&gt;.
+To associate speller commands with certain matrix elements, specify them in the "Enter" column of the desired matrix element in the target definition matrix.
+</p><p>The &lt;PAUSE&gt; speller command pauses the <i>P3SpellerTask</i>: While the system is paused, the matrix will continue to flash but target selections shall be ignored until the user resumes system operation, which is achieved by selecting &lt;PAUSE&gt; again. 
+The "goal text" line of the status bar indicates that the system is paused.
+Data recording continues while the system is paused.
+</p><p>For a matrix having N entries, one of which is &lt;PAUSE&gt;, the chance to erroneously resume system operation while paused is 1/N per selection. On average, this will happen after N selections in paused state. A second speller command, &lt;SLEEP&gt;, is provided as a safer option. Once in sleep state, the system will resume only after receiving two consecutive &lt;SLEEP&gt; selections, which requires N^2 selections on average to occur by chance.
+When in sleep mode, the "goal text" line of the status bar will instruct the user to select the &lt;SLEEP&gt; command twice to restart.
+Data recording is also suspended while the system is sleeping.
+</p>
+<h3><span class="mw-headline" id="Text_Window">Text Window</span></h3>
+<p>The capability to display user selected text in a text window is available.
+This feature can be activated by selecting the <i>TextWindowEnabled</i> parameter. 
+The text window can be enabled only in online (free spelling) mode. 
+Position and size of the window, as well as display font, are configurable.
+</p><p>When the text window is enabled, any text that the user selects will appear in the text window, in addition to the text result area of the <i>P3SpellerTask</i> display. The text window will scroll automatically.
+</p><p>Two speller commands are available to perform Save and Retrieve operations on the text window. When the &lt;SAVE&gt; command is selected, the text in the text window will get written to a file and be erased from the window. The file name will be auto generated with the date and time stamp. The directory to which the file gets sent is configured in the <i>TextWindowFilePath</i> parameter.  The &lt;RETR&gt; (retrieve) function reads the latest file that was saved by the user and recalls the text into the text window. 
+</p><p>A separate "clear" command has not been provided in the text window functions to prevent unintentional deletion of its contents. The only way to clear the contents of the text window is using &lt;SAVE&gt;.
+</p>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<h4><span id="WindowWidth,_WindowHeight"></span><span class="mw-headline" id="WindowWidth.2C_WindowHeight">WindowWidth, WindowHeight</span></h4>
+<p>The width and height of the subject-visible application window, in pixels.
+</p>
+<h4><span id="WindowLeft,_WindowTop"></span><span class="mw-headline" id="WindowLeft.2C_WindowTop">WindowLeft, WindowTop</span></h4>
+<p>The screen position of the application window's top left corner, in pixels.
+</p>
+<h4><span class="mw-headline" id="WindowBackgroundColor">WindowBackgroundColor</span></h4>
+<p>The window's background color, given as an RGB value.
+For convenience, RGB values may be entered in hexadecimal notation, e.g. <tt>0xff0000</tt> for red.
+</p>
+<h4><span class="mw-headline" id="PreRunDuration">PreRunDuration</span></h4>
+<p>The duration of the pause preceding the first sequence.
+Given in <a href="BCI2000_Glossary.html#Sample_Block" title="BCI2000 Glossary">sample blocks</a>, or in time units when immediately followed with 's', 'ms', or similar.
+</p>
+<h4><span class="mw-headline" id="PostRunDuration">PostRunDuration</span></h4>
+<p>Duration of the pause following last sequence.
+Given in <a href="BCI2000_Glossary.html#Sample_Block" title="BCI2000 Glossary">sample blocks</a>, or in time units when immediately followed with 's', 'ms', or similar.
+</p>
+<h4><span class="mw-headline" id="PreSequenceDuration">PreSequenceDuration</span></h4>
+<p>Duration of the pause preceding sequences (or sets of intensifications).
+Given in <a href="BCI2000_Glossary.html#Sample_Block" title="BCI2000 Glossary">sample blocks</a>, or in time units when immediately followed with 's', 'ms', or similar.
+</p><p>In <a href="User_Reference%253AP300_SpellerTask.html#InterpretMode">free or copy mode</a>, the <i>PreSequenceDuration</i> and <i>PostSequenceDuration</i> parameters may not go below twice the value of the <a href="User_Reference%253AP300_SpellerTask.html#StimulusDuration">StimulusDuration</a> parameters, in order to allow for presentation of <a href="User_Reference%253AP300_SpellerTask.html#FocusOn">FocusOn</a> and <a href="User_Reference%253AP300_SpellerTask.html#Result">Result</a> announcement stimuli.
+</p>
+<h4><span class="mw-headline" id="PostSequenceDuration">PostSequenceDuration</span></h4>
+<p>Duration of the pause following sequences (or sets of intensifications).
+Given in <a href="BCI2000_Glossary.html#Sample_Block" title="BCI2000 Glossary">sample blocks</a>, or in time units when immediately followed with 's', 'ms', or similar.
+</p><p>When used in conjunction with the <a href="User_Reference%253AP3TemporalFilter.html" title="User Reference:P3TemporalFilter">P3TemporalFilter</a>, this value needs to be larger than the <a href="User_Reference%253AP3TemporalFilter.html#EpochLength" title="User Reference:P3TemporalFilter">EpochLength</a> parameter. This allows classification to complete before the next sequence of stimuli is presented.
+</p>
+<h4><span class="mw-headline" id="StimulusDuration">StimulusDuration</span></h4>
+<p>For visual stimuli, the duration of stimulus presentation.
+For auditory stimuli, the maximum duration, i.e. playback of audio extending above the specified duration will be muted.
+Given in <a href="BCI2000_Glossary.html#Sample_Block" title="BCI2000 Glossary">sample blocks</a>, or in time units when immediately followed with 's', 'ms', or similar.
+</p>
+<h4><span class="mw-headline" id="EarlyOffsetExpression">EarlyOffsetExpression</span></h4>
+<p>Allows the specification of an <a href="User_Reference%253AExpression_Syntax.html" title="User Reference:Expression Syntax">Expression</a> that is constantly monitored during stimulus presentation. When the value of the Expression transitions from zero to non-zero, the stimulus is aborted early, even if the StimulusDuration has not yet elapsed. For example, set this Expression to <tt>KeyDown==32</tt> and start your source module with the <tt>--LogKeyboard=1</tt> flag: then the subject will be able to advance the stimulus sequence manually by pressing the space key.
+</p>
+<h4><span id="ISIMinDuration,_ISIMaxDuration"></span><span class="mw-headline" id="ISIMinDuration.2C_ISIMaxDuration">ISIMinDuration, ISIMaxDuration</span></h4>
+<p>Minimum and maximum duration of the inter-stimulus interval.
+During the inter-stimulus interval, the screen is blank, and audio is muted.
+</p><p>Actual inter-stimulus intervals vary randomly between minimum and maximum value, with uniform probability for all intermediate values.
+Given in <a href="BCI2000_Glossary.html#Sample_Block" title="BCI2000 Glossary">sample blocks</a>, or in time units when immediately followed with 's', 'ms', or similar.
+Note that temporal resolution is limited to a single <a href="BCI2000_Glossary.html#Sample_Block" title="BCI2000 Glossary">sample block</a>.
+</p>
+<h4><span class="mw-headline" id="InterpretMode">InterpretMode</span></h4>
+<p>An enumerated value selecting on-line classification of evoked responses:
+</p>
+<ul><li>0: no target is announced "attended", and no classification is performed;</li>
+<li>1: <b>online</b> or <b>free mode</b>: classification is performed, but no "attended target" is defined;</li>
+<li>2: <b>copy mode</b>: "attended" targets are defined, classification is performed.</li></ul>
+<h4><span class="mw-headline" id="DisplayResults">DisplayResults</span></h4>
+<p>Switches result display of copy/free spelling on or off.
+In the P3Speller, setting <i>DisplayResults</i> to 'off' will disable execution of all speller commands (such as switching matrices) as well.
+</p>
+<h4><span class="mw-headline" id="MinimumEvidence">MinimumEvidence</span></h4>
+<p><b>NOTE:</b> If you are using your own classifier, this feature will not work properly unless your classifier's output matches certain criteria. Make sure to read <a href="Programming_Reference%253AStimulusTask_Class.html#Using_a_Different_Classifier_with_StimulusTask" title="Programming Reference:StimulusTask Class">these notes on how to use a different classifier</a>.
+</p><p>By default, target selection is performed without considering the actual amount of evidence that favors the selected target over other targets. Although the selected target will always be a target with maximum classification score (i.e., evidence), other targets may have the same or a similar score. It may be useful to omit classification in such situations altogether, by specifying a minimum amount of evidence that must exist in favor of the selected target, when compared to the next-best target. When used together with the <i>AccumulateEvidence</i> option, this allows to dynamically control the number of stimulus presentations, by simply repeating stimulus sequences until a sufficient amount of evidence has been collected.
+</p><p>Setting <i>MinimumEvidence</i> to 0 or to a negative number will result in default behavior, i.e. there will be a target selection each time classification scores are received from the SignalProcessing module. For values greater 0, the amount of selection errors will become smaller as the value of <i>MinimumEvidence</i> is increased; this increases the amount of information contained in each selection. At the same time, it becomes more and more unlikely that a selection will occur at all within a certain amount of time; this decreases the amount of information transmitted per time (information flow, or bitrate). In between, a certain value will correspond to an optimal compromise between selection errors, and selection duration. At this point, the flow of information is maximized.
+</p><p>The meaning of the actual number entered into the <i>MinimumEvidence</i> parameter is relative to the amount of within-class variance present in the classification score. An evidence of 0 means a 50:50 chance for correct classification. Increasing the evidence value by two standard deviations corresponds to an improvement by a factor of roughly 88:12, four standard deviations correspond to (88:12)^2=(98:2) ... etc, approaching perfect classification as evidence increases towards infinity.
+</p><p>In classifier training, classifier weights may be normalized such that within-class variance is 1 (this is done by recent versions of the P300Classifier tool). In this case, you may use the following equations to convert between the <i>MinimumEvidence</i> parameter <img class="mwe-math-fallback-image-inline tex" alt="\eta" src="../images/math/7/1/7/7174cbd6aeaaa56e37102b72386bb2b9.png" />, and the correct classification chance <img class="mwe-math-fallback-image-inline tex" alt="\chi" src="../images/math/7/9/c/79c40dd2b43f3c03eaf88b5fc4c199b8.png" />:
+</p><p><img class="mwe-math-fallback-image-inline tex" alt="\chi = \frac{50}{50} \left(\frac{88}{12}\right)^{\eta/2}" src="../images/math/8/f/d/8fd22c98bcc3d1d2cc72a34453c672b8.png" />.
+</p><p>For large <img class="mwe-math-fallback-image-inline tex" alt="\chi" src="../images/math/7/9/c/79c40dd2b43f3c03eaf88b5fc4c199b8.png" />, this relationship may be approximated and expressed in terms of error probability <img class="mwe-math-fallback-image-inline tex" alt="p" src="../images/math/8/3/8/83878c91171338902e0fe0fb97a8c47a.png" />:
+</p><p><img class="mwe-math-fallback-image-inline tex" alt="\eta \approx -\frac{\log_{10} p}{\log_{10} e} = -2.3\log_{10} p\quad\textrm{for}\; p \leq 5%" src="../images/math/f/c/9/fc913adce99e22a2de3f0c08738f62ec.png" />.
+</p><p>Thus, the evidence value roughly corresponds to twice the number of leading zeros in the desired error probability, if classifier weights are normalized. Some values are provided in the following table:
+</p>
+<table>
+<tbody><tr>
+<th>Selection Error
+</th>
+<th>Evidence
+</th></tr>
+<tr>
+<td>5%
+</td>
+<td>3
+</td></tr>
+<tr>
+<td>1%
+</td>
+<td>4.6
+</td></tr>
+<tr>
+<td>0.5%
+</td>
+<td>5.3
+</td></tr>
+<tr>
+<td>0.1%
+</td>
+<td>6.9
+</td></tr>
+<tr>
+<td>0.05%
+</td>
+<td>7.6
+</td></tr>
+<tr>
+<td>0.01%
+</td>
+<td>9.2
+</td></tr></tbody></table>
+<h4><span class="mw-headline" id="AccumulateEvidence">AccumulateEvidence</span></h4>
+<p>By default, only those classification scores are used which have been received from the signal processing module immediately prior to classification. When <i>AccumulateEvidence</i> is set, classification scores are accumulated until a selection is actually performed. Typically, accumulated classification scores will have higher evidence values, such that a selection threshold set with <i>MinimumEvidence</i> will be eventually crossed after scores have been accumulated for some time.
+</p><p>This allows for dynamically choosing the number of stimulus repetitions in a P300 paradigm, by setting the number of stimulus repetitions to 1, and setting the <i>MinimumEvidence</i> parameter to a value greater zero.
+</p><p>In addition, accumulated overall evidence will not increase if there is no consistent evidence in favor of a certain target. Thus, it is possible to operate a P300 BCI in a quasi-asynchronous mode by using <i>AccumulateEvidence</i>, and choosing a <i>MinimumEvidence</i> value that is large enough to make accidental selection unlikely. In this configuration, no selection will be made unless the BCI user is actually concentrating on a target for a number of stimulus presentations, resulting in consistently accumulating evidence for that target.
+</p><p><b>NOTE:</b> If you are using your own classifier, this feature will not work properly unless your classifier's output matches certain criteria. Make sure to read <a href="Programming_Reference%253AStimulusTask_Class.html#Using_a_Different_Classifier_with_StimulusTask" title="Programming Reference:StimulusTask Class">these notes on how to use a different classifier</a>.
+</p>
+<h4><span class="mw-headline" id="PhotoDiodePatch">PhotoDiodePatch</span></h4>
+<p>Display a photo diode patch on the stimulus window.
+Recording from a photo diode located on that patch will allow triggering on actual stimulus delivery (see <a href="User_Reference%253AP3TemporalFilter.html#OnsetExpression" title="User Reference:P3TemporalFilter">User_Reference:P3TemporalFilter#OnsetExpression</a>).
+</p>
+<h4><span class="mw-headline" id="PhotoDiodePatchHeight">PhotoDiodePatchHeight</span></h4>
+<p>Photo diode patch height in relative coordinates (between 0 and 1).
+</p>
+<h4><span class="mw-headline" id="PhotoDiodePatchWidth">PhotoDiodePatchWidth</span></h4>
+<p>Photo diode patch width in relative coordinates (between 0 and 1).
+</p>
+<h4><span class="mw-headline" id="PhotoDiodePatchLeft">PhotoDiodePatchLeft</span></h4>
+<p>Photo diode patch left position in relative coordinates (between 0 and 1).
+</p>
+<h4><span class="mw-headline" id="PhotoDiodePatchTop">PhotoDiodePatchTop</span></h4>
+<p>Photo diode patch top position in relative coordinates (between 0 and 1).
+</p>
+<h4><span class="mw-headline" id="PhotoDiodePatchShape">PhotoDiodePatchShape</span></h4>
+<p>Photo diode patch shape: 0 rectangle, 1 ellipse.
+</p>
+<h4><span class="mw-headline" id="PhotoDiodePatchActiveColor">PhotoDiodePatchActiveColor</span></h4>
+<p>Photo diode patch color when active (RGB color in format 0xrrggbb).
+</p>
+<h4><span class="mw-headline" id="PhotoDiodePatchInactiveColor">PhotoDiodePatchInactiveColor</span></h4>
+<p>Photo diode patch color when inactive, (RGB color in format 0xrrggbb, use 0xff000000 for transparent).
+</p>
+<h4><span class="mw-headline" id="PhotoDiodePatchExpression">PhotoDiodePatchExpression</span></h4>
+<p>Photo diode patch expression, determines active state by evaluating to nonnull. Defaults to <tt>StimulusBegin&gt;0</tt>.
+</p>
+<h4><span class="mw-headline" id="NumberOfSequences">NumberOfSequences</span></h4>
+<p>The number of intensification sequences performed prior to each classification (selection of matrix elements).
+For an NxM speller matrix, a single intensification sequence comprises N+M intensifications, one for each row, and one for each column.
+Usually, this parameter is set to the same value as the P3TemporalFilter's <a href="User_Reference%253AP3TemporalFilter.html#EpochsToAverage" title="User Reference:P3TemporalFilter">EpochsToAverage</a> parameter.
+</p>
+<h4><span class="mw-headline" id="TargetDefinitions">TargetDefinitions</span></h4>
+<p>A matrix defining elements of the speller matrix. 
+Each row corresponds to a single matrix element; matrix elements are enumerated row-wise, beginning with the top left matrix element.
+</p><p>For each matrix element, the value in the first column, labeled <b>Display</b>, contains a text string to be displayed in the matrix element, i.e. the matrix element's caption.
+</p><p>The second column, labeled <b>Enter</b>, specifies the speller action to be performed upon the item's selection; in most cases, this action consists in entering a text string, and is specified by that string.
+E.g., for the top left matrix element to display the caption "A", and also enter the letter "A" on selection, both the <i>Display</i> and <i>Enter</i> columns will contain the letter "A".
+</p><p>The third column is labeled <b>Size</b>. It allows to specify an individual size for the matrix element, relative to the size of the other matrix elements.
+</p><p>The fourth and fifth columns, labeled <b>Icon File</b> and <b>Sound</b>, respectively, contain the path to an icon file to be displayed, and a sound to be played, when the matrix element is selected. For icon files, Windows BMP format is accepted. Sounds are given as a path to a Windows WAV file, or as a text enclosed in single quotes. When a text is given, it will be spoken using the system's Text-To-Speech engine. 
+Paths may be absolute, or relative to the executable's working directory at startup, which usually matches the executable's location.
+</p><p>The sixth column is labeled <b>Intensified Icon</b> by default, and may contain the path to an additional icon file to be displayed as the highlighted version of an icon. Except for the first five columns, any column may be used for this purpose as long as it is labeled appropriately. Neither the text string nor the icon will be visible underneath the intensified icon during presentation.
+</p>
+<h5><span class="mw-headline" id="Speller_Commands">Speller Commands</span></h5>
+<p>Speller commands are specified in the <i>TargetDefinitions</i> matrix' second column.
+Speller commands may be sequences of characters, which are added to the speller text when the respective item is selected. Additionally, speller commands may be <i>speller control commands</i> enclosed in a pair of &lt;&gt; characters.
+Any combination of characters and commands is allowed, and will be executed in sequence.
+</p><p>Available <b>speller control commands</b> are
+</p>
+<ul><li>&lt;BS&gt; (backspace) -- delete the last character from the current text.</li>
+<li>&lt;DW&gt; (delete word) -- delete the last word from the current text.</li>
+<li>&lt;UNDO&gt; -- undo the effect of the previous speller action.</li>
+<li>&lt;END&gt; -- end spelling, put BCI2000 in suspended mode.</li>
+<li>&lt;SLEEP&gt; -- suspend spelling; resume when &lt;SLEEP&gt; is selected two additional times.</li>
+<li>&lt;PAUSE&gt; -- suspend spelling; resume when &lt;PAUSE&gt; is selected again.</li>
+<li>&lt;GOTO x&gt; -- go to speller menu #x (see <a href="User_Reference%253AP300_SpellerTask.html#Multiple_Menus">Multiple Menus</a>).</li>
+<li>&lt;BACK&gt;, &lt;BK&gt; -- return to the previously active speller menu.</li>
+<li>&lt;SAVE&gt; -- write the text window's content into a file located at <a href="User_Reference%253AP300_SpellerTask.html#TextWindowFilePath">TextWindowFilePath</a>.</li>
+<li>&lt;RETR&gt; -- load the text window's content from the most recently saved file.</li></ul>
+<h5><span class="mw-headline" id="Multiple_Menus">Multiple Menus</span></h5>
+<p>The <i>P3SpellerTask</i> allows you to specify a number of speller menus, and to switch between them using the &lt;GOTO&gt; and &lt;BACK&gt; speller commands.
+For multiple speller menus, the <i>TargetDefinitions</i> matrix needs to be configured as a list of matrices, rather than a single matrix.
+Then, each submatrix should have the form described above.
+Each of the submatrices may have an individual number of rows and columns, and its own set of matrix elements.
+</p><p>Also, switching to Multiple Menus implies additional entries in the following parameters:
+</p>
+<ul><li>NumMatrixColumns, NumMatrixRows</li>
+<li>AudioStimuliRowsFiles, AudioStimuliRowsFiles (additional columns)</li>
+<li>TargetWidth, TargetHeight, TargetTextHeight, BackgroundColor</li>
+<li>TextColor, TextColorIntensified, IconHighlightMode, IconHighlightFactor</li></ul>
+<h4><span id="NumMatrixColumns,_NumMatrixRows"></span><span class="mw-headline" id="NumMatrixColumns.2C_NumMatrixRows">NumMatrixColumns, NumMatrixRows</span></h4>
+<p>The number of columns/rows in the speller matrix.
+For <a href="User_Reference%253AP300_SpellerTask.html#Multiple_Menus">Multiple Menus</a>, a list of numbers representing each menu's number of columns/rows.
+</p>
+<h4><span class="mw-headline" id="AudioStimuliOn">AudioStimuliOn</span></h4>
+<p>Switches playback of audio stimuli on or off.
+</p>
+<h4><span id="AudioStimuliRowsFiles,_AudioStimuliColsFiles"></span><span class="mw-headline" id="AudioStimuliRowsFiles.2C_AudioStimuliColsFiles">AudioStimuliRowsFiles, AudioStimuliColsFiles</span></h4>
+<p>Each of these parameters is a single-column matrix specifying audio files associated with speller rows or columns, respectively.
+Whenever a row/column is highlighted, the associated audio file is played back.
+For audio files, Windows WAV format is expected.
+Paths may be absolute, or relative to the executable's working directory at startup, which usually matches the executable's location.
+Rather than the path to an audio file, text may be given, enclosed in single quotes. In this case, the text is rendered using the system's Text-To-Speech engine.
+</p>
+<h4><span id="TargetWidth,_TargetHeight"></span><span class="mw-headline" id="TargetWidth.2C_TargetHeight">TargetWidth, TargetHeight</span></h4>
+<p>A single matrix element's width/height in percent of screen width/height.
+</p>
+<h4><span class="mw-headline" id="TargetTextHeight">TargetTextHeight</span></h4>
+<p>Matrix elements' text height in percent of screen height.
+</p>
+<h4><span class="mw-headline" id="BackgroundColor">BackgroundColor</span></h4>
+<p>Matrix elements' background color, given in RGB encoding.
+</p>
+<h4><span id="TextColor,_TextColorIntensified"></span><span class="mw-headline" id="TextColor.2C_TextColorIntensified">TextColor, TextColorIntensified</span></h4>
+<p>Text color in standard and highlighted (intensified) mode, given in RGB encoding.
+</p>
+<h4><span class="mw-headline" id="IconHighlightMode">IconHighlightMode</span></h4>
+<p>An enumerated value specifiying how icons are highlighted on stimulus presentation:
+</p>
+<ul><li>0 Show/Hide: icons are only visible during stimulus presentation,</li>
+<li>1 Intensify: highlight by increasing icon brightness,</li>
+<li>2 Grayscale: display a grayscale version during stimulus presentation,</li>
+<li>3 Invert: invert color/brightness values during stimulus presentation,</li>
+<li>4 Dim: decrease brightness during presentation.</li></ul>
+<p>This value won’t be used if an intensified icon is specified.
+</p>
+<h4><span class="mw-headline" id="IconHighlightFactor">IconHighlightFactor</span></h4>
+<p>If <i>IconHighlightMode</i> is 1 or 4, this parameter defines the brightness scaling factor.
+Dimming is equivalent to intensifying with a scaling factor less than 1.
+</p>
+<h4><span class="mw-headline" id="FirstActiveMenu">FirstActiveMenu</span></h4>
+<p>For multiple menus, the index of the menu that should be active at the start of a run.
+</p>
+<h4><span id="StatusBarSize,_StatusBarTextHeight"></span><span class="mw-headline" id="StatusBarSize.2C_StatusBarTextHeight">StatusBarSize, StatusBarTextHeight</span></h4>
+<p>The size and text height of the status bar in percent of screen height.
+The status bar is located on top of the screen, and displays a line of text currently spelled.
+In <a href="User_Reference%253AP300_SpellerTask.html#InterpretMode">copy mode</a>, it also displays the text that the user is supposed to spell.
+</p>
+<h4><span class="mw-headline" id="TextToSpell">TextToSpell</span></h4>
+<p>In <a href="User_Reference%253AP300_SpellerTask.html#InterpretMode">copy mode</a>, a string of characters defining the text to be spelled by the user.
+This text is displayed in the status bar, above the actually spelled text.
+From the difference between <i>TextToSpell</i>, and the actually spelled text, the speller automatically derives which matrix element the user will need to select next.
+This information is then used to set the <a href="User_Reference%253AP300_SpellerTask.html#StimulusType">StimulusType</a> state.
+</p>
+<h4><span class="mw-headline" id="TextResult">TextResult</span></h4>
+<p>At the beginning of a run, this parameter's content is copied into the lower part of the status bar.
+At the end of a run, the status bar's content is copied back into this parameter.
+</p>
+<h4><span class="mw-headline" id="TestMode">TestMode</span></h4>
+<p>If this is switched on, clicking on a matrix element with the mouse will select it once the current sequence of intensifications is finished.
+This is useful to test speller matrix configurations.
+</p>
+<h4><span class="mw-headline" id="DestinationAddress">DestinationAddress</span></h4>
+<p>A network address to receive speller output, given in IP:port format, e.g. <tt>localhost:3582</tt>.
+To this address, a UDP socket is opened, and written into, such that an external application may connect and receive information about selected matrix elements.
+For each selection, the speller will write whatever is contained in the selected matrix element's <i>Enter</i> field, preceded with <tt>P3Speller_Output</tt> and a space character, and followed with a <tt>\r\n</tt> sequence (i.e., an MSDOS style line ending). E.g., the output will be <tt>P3Speller_Output A\r\n</tt> when a matrix element is selected that enters the letter "A", and <tt>P3Speller_Output &lt;BS&gt;\r\n</tt> for a matrix element corresponding to the backspace command.
+</p>
+<h4><span class="mw-headline" id="TextWindowEnabled">TextWindowEnabled</span></h4>
+<p>If this flag is switched on, a separate window is displayed.
+Once the status bar is filled, text flows into the window, and back in case of text deletion.
+</p>
+<h4><span id="TextWindowLeft,_TextWindowTop,_TextWindowWidth,_TextWindowHeight"></span><span class="mw-headline" id="TextWindowLeft.2C_TextWindowTop.2C_TextWindowWidth.2C_TextWindowHeight">TextWindowLeft, TextWindowTop, TextWindowWidth, TextWindowHeight</span></h4>
+<p>Position and dimension of the text window in pixels.
+</p>
+<h4><span id="TextWindowFontName,_TextWindowFontSize"></span><span class="mw-headline" id="TextWindowFontName.2C_TextWindowFontSize">TextWindowFontName, TextWindowFontSize</span></h4>
+<p>Text window font name and size.
+</p>
+<h4><span class="mw-headline" id="TextWindowFilePath">TextWindowFilePath</span></h4>
+<p>A (relative or absolute) path to a directory.
+Upon the &lt;SAVE&gt; and &lt;RETR&gt; speller commands, the text window's contents are saved to/retrieved from a file located in that directory.
+Repeated &lt;SAVE&gt; commands do not result in overwriting existing files.
+Rather, existing files are preserved, and the most recent file's name is written into a pointer file.
+Paths may be absolute, or relative to the executable's working directory at startup, which usually matches the executable's location.
+</p>
+<h2><span class="mw-headline" id="States">States</span></h2>
+<h3><span class="mw-headline" id="PreStimulusTime">PreStimulusTime</span></h3>
+<p>A 16-bit time stamp in the same format as the <i>SourceTime</i> state. 
+This time stamp is set immediately before the application module is going to update the stimulus/feedback display.
+Note that a data block is saved together with the state vector that existed immediately after it was acquired.
+Thus, <i>PreStimulusTime</i> will be the prestimulus time of the block prior to the current block.
+</p>
+<h3><span class="mw-headline" id="StimulusTime">StimulusTime</span></h3>
+<p>A 16-bit time stamp in the same format as the <i>SourceTime</i> state. 
+This time stamp is set immediately after the application module has updated the stimulus/feedback display.
+Note that a data block is saved together with the state vector that existed immediately after it was acquired.
+Thus, <i>StimulusTime</i> will be the stimulus time of the block prior to the current block.
+</p>
+<h3><span class="mw-headline" id="PresentationRequested">PresentationRequested</span></h3>
+<p>This 32-bit state contains a list of ids for all presentations that have been requested during the current block. The list ends with a value of 2^31. A 32-bit presentation id is formed by combining the 16-bit <i>SourceTime</i> state of the presentation request's data block in the most significant bits, with the time difference between that source time stamp and the time when the presentation request happened, in the least significant bits:
+</p><p><code>PresentationID = SourceTime &lt;&lt; 8 | (RequestTime - SourceTime) &amp; 0xff</code>
+</p><p>This definition makes presentation ids unique within the range of a minute, and allows to extract the value of the request's time stamp from its id.
+</p>
+<h3><span class="mw-headline" id="PresentationDisplayed">PresentationDisplayed</span></h3>
+<p>This 32-bit state contains a list of ids for all presentations that have been displayed during the current block. The list ends with a value of 2^31. Presentation ids appear in the <i>PresentationRequested</i> state when presentation is requested, and subsequently in the <i>PresentationDisplayed</i> state when presentation has occurred.
+</p>
+<h3><span class="mw-headline" id="PresentationTime">PresentationTime</span></h3>
+<p>A 16-bit time stamp in the same format as the <i>SourceTime</i> state.
+For each id occurring in the <i>PresentationDisplayed</i> state, this state contains the time stamp of the respective update to video memory. From this point in time, up to two additional frame durations may be required before the display's surface actually shows a difference in signal. This depends on the internals of the display, and cannot be determined from software.
+</p>
+<h3><span class="mw-headline" id="PresentationFrame">PresentationFrame</span></h3>
+<p>A 12-bit state that contains, for each id occurring in the <i>PresentationDisplayed</i> state, the frame number of the respective update to video memory. Frame numbers have an arbitrary offset, and wrap around at a value of 2^11.
+<a href="https://www.bci2000.org/mediawiki/index.php/File:PresentationFlow.png" class="image"><img alt="PresentationFlow.png" src="../images/2/2c/PresentationFlow.png" decoding="async" width="600" height="424" /></a>
+</p>
+<h3><span class="mw-headline" id="AudioBufferTime">AudioBufferTime</span></h3>
+<p>A 16-bit time stamp in the same format as the <i>SourceTime</i> state.
+For each audio presentation that has occurred during the current block, this state contains the time stamp when non-zero audio data were about to enter the system's audio buffer.
+</p>
+<h3><span class="mw-headline" id="AudioPresentationTime">AudioPresentationTime</span></h3>
+<p>A 16-bit time stamp in the same format as the <i>SourceTime</i> state.
+For each audio presentation that has occurred during the current block, this state contains the estimated time stamp when non-zero audio data were being played from the system's speakers or headphones. The estimate takes the length of the system's audio buffers into account but will not be able to detect external sources of delays, such as additional audio processing steps.
+</p>
+<h3><span class="mw-headline" id="StimulusCode">StimulusCode</span></h3>
+<p>The numerical ID of the stimulus being presented (16 bit).
+</p>
+<h3><span class="mw-headline" id="StimulusType">StimulusType</span></h3>
+<p>This state is 1 during presentation of an attended stimulus, and 0 otherwise.
+The notion of an "attended" stimulus requires data recording in <a href="User_Reference%253AP300_SpellerTask.html#InterpretMode">copy mode</a>.
+</p>
+<h3><span class="mw-headline" id="StimulusBegin">StimulusBegin</span></h3>
+<p>This state is 1 during the first block of stimulus presentation, and 0 otherwise.
+</p>
+<h3><span class="mw-headline" id="PhaseInSequence">PhaseInSequence</span></h3>
+<p>This state is 1 during pre-sequence, 2 during sequence and 3 during post-sequence (see <a href="User_Reference%253AP300_SpellerTask.html#Timeline">Timeline</a>).
+</p>
+<h3><span class="mw-headline" id="PauseApplication">PauseApplication</span></h3>
+<p>While this state is set to 1, no task processing occurs, i.e. the task is paused, and may be resumed by setting PauseApplication to 0.
+</p>
+<h3><span id="SelectedTarget,_SelectedRow,_SelectedColumn"></span><span class="mw-headline" id="SelectedTarget.2C_SelectedRow.2C_SelectedColumn">SelectedTarget, SelectedRow, SelectedColumn</span></h3>
+<p>Upon classification, these states are set to the selected target's ID, and its associated row and column, respectively.
+A target's ID matches its row number in the <i>TargetDefinitions</i> matrix.
+</p>
+<h3><span class="mw-headline" id="SpellerMenu">SpellerMenu</span></h3>
+<p>This state contains the one-based index of the current speller menu. It may be set to a different value in order to switch between menus.
+</p>
+<h2><span class="mw-headline" id="Timeline">Timeline</span></h2>
+<p><a href="https://www.bci2000.org/mediawiki/index.php/File:StimulusTask_Timeline.png" class="image"><img alt="StimulusTask Timeline.png" src="../images/thumb/2/22/StimulusTask_Timeline.png/676px-StimulusTask_Timeline.png" decoding="async" width="676" height="206" srcset="../images/thumb/2/22/StimulusTask_Timeline.png/1014px-StimulusTask_Timeline.png 1.5x, ../images/thumb/2/22/StimulusTask_Timeline.png/1352px-StimulusTask_Timeline.png 2x" /></a>
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Reference%253AP3TemporalFilter.html" title="User Reference:P3TemporalFilter">User Reference:P3TemporalFilter</a>, <a href="User_Reference%253AStimulusPresentationTask.html" title="User Reference:StimulusPresentationTask">User Reference:StimulusPresentationTask</a>, <a href="Programming_Reference%253AStimulusTask_Class.html" title="Programming Reference:StimulusTask Class">Programming Reference:StimulusTask Class</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20220609163526
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.101 seconds
+Real time usage: 0.117 seconds
+Preprocessor visited node count: 237/1000000
+Post‐expand include size: 15925/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 935/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   26.755      1 -total
+ 44.71%   11.961      1 Template:StimulusTaskParams
+ 14.47%    3.871      6 Template:TimeParam
+ 14.12%    3.778      3 Template:FilePath
+ 10.41%    2.784      1 Template:ApplicationBaseStates
+  9.66%    2.585      1 Template:ApplicationWindowParams
+  8.97%    2.401      1 Template:StimulusTaskStates
+  8.46%    2.263      1 Template:StimulusTaskTimeline
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1519-0!canonical!math=0 and timestamp 20220609163526 and revision id 7597
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=User_Reference:P3SpellerTask&amp;oldid=7597">http://www.bci2000.org/mediawiki/index.php?title=User_Reference:P3SpellerTask&amp;oldid=7597</a>"</div>
+ </div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>BCI2000FileInfo</string>
+	<key>CFBundleGetInfoString</key>
+	<string>BCI2000 FileInfo Tool, © 2000-2023 BCI2000 Project</string>
+	<key>CFBundleIconFile</key>
+	<string>question-mark.icns</string>
+	<key>CFBundleIdentifier</key>
+	<string>org.bci2000.fileinfo</string>
+	<key>CFBundleName</key>
+	<string>BCI2000 FileInfo Tool</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>????</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>10.15</string>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeIconSystemGenerated</key>
+			<false/>
+			<key>LSTypeIsPackage</key>
+			<false/>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+			<key>CFBundleTypeIconFile</key>
+			<string>signal-document.icns</string>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>bcidat</string>
+				<string>dat</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>BCI2000 Data File</string>
+			<key>LSHandlerRank</key>
+			<string>Alternate</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeIconSystemGenerated</key>
+			<false/>
+			<key>LSTypeIsPackage</key>
+			<false/>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+			<key>CFBundleTypeIconFile</key>
+			<string>text-document.icns</string>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>bciprm</string>
+				<string>prm</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>BCI2000 Parameter File</string>
+			<key>LSHandlerRank</key>
+			<string>Alternate</string>
+		</dict>
+	</array>
+	<key>CFBundleSignature</key>
+	<string>bciF</string>
+</dict>
+</plist>

@@ -1,0 +1,9 @@
+AmpState := state('SourceTime');
+AudState := state('StimulusCode');
+VidState := state('StimulusCode');
+AmpChannel := channel('AmpChannel');
+AudChannel := channel('AudChannel');
+VidChannel := channel('VidChannel');
+AmpStream := stream("");
+AudStream := stream("");
+VidStream := stream("");

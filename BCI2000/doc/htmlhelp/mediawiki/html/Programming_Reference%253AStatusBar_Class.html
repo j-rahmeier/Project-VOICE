@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Programming Reference:StatusBar Class - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul><li class="toc1">Concepts</li><ul><li class="toc2"><a href="Programming_Reference%253AFilter_Chain.html">Filter Chain</a></li><li class="toc2"><a href="Programming_Reference%253ASignals.html">Signals</a></li><li class="toc2"><a href="Programming_Reference%253AError_Handling.html">Error Handling</a></li><li class="toc2"><a href="Programming_Reference%253ALocalization.html">Localization</a></li><li class="toc2"><a href="Programming_Reference%253ARapid_Development.html">Rapid Development</a></li></ul><li class="toc1">Reference</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFilter_Class.html">GenericFilter</a></li><li class="toc2"><a href="Programming_Reference%253AEnvironment_Class.html">Environment</a></li><li class="toc2"><a href="Programming_Reference%253AGenericVisualization_Class.html">GenericVisualization</a></li><li class="toc2"><a href="Programming_Reference%253AErrors_and_Warnings.html">Errors and Warnings</a></li><li class="toc2"><a href="Programming_Reference%253ADebug_Output.html">Debug Output</a></li></ul><li class="toc1">Data Acquisition</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericADC_Class.html">GenericADC</a></li></ul><li class="toc1">Data Storage</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFileWriter_Class.html">GenericFileWriter</a></li><li class="toc2"><a href="Programming_Reference%253ABCI2000FileReader_Class.html">BCI2000FileReader</a></li></ul><li class="toc1">Signal Processing</li><ul><li class="toc2"><a href="Programming_Reference%253AIIRFilterBase_Class.html">IIR Filters</a></li></ul><li class="toc1">Application Modules</li><ul><li class="toc2"><a href="Programming_Reference%253AApplicationBase_Class.html">ApplicationBase</a></li><li class="toc2"><a href="Programming_Reference%253AFeedbackTask_Class.html">FeedbackTask</a></li><li class="toc2"><a href="Programming_Reference%253AStimulusTask_Class.html">StimulusTask</a></li><li class="toc2"><a href="Programming_Reference%253A3D_API.html">3D API</a></li></ul><li class="toc1">Howtos</li><ul><li class="toc2"><a href="Programming_Howto%253ABuilding_BCI2000.html">Building BCI2000</a></li><li class="toc2"><a href="Programming_Howto%253ASVN_Client_Setup.html">SVN Client Setup</a></li><li class="toc2"><a href="Programming_Howto%253AUsing_TortoiseSVN.html">Using TortoiseSVN</a></li></ul><li class="toc1"><a href="Programming_FAQ.html">FAQ</a></li><li class="toc1">Tutorials</li><ul><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html">Data Acquisition</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html">Signal Processing</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html">Matlab Signal Processing</a></li></ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">StatusBar Class</h1>
+ <p class = "subtitle">Programming Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Programming_Reference%253AStatusBar_Class.html#Location"><span class="tocnumber">1</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Programming_Reference%253AStatusBar_Class.html#Synopsis"><span class="tocnumber">2</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Programming_Reference%253AStatusBar_Class.html#Methods"><span class="tocnumber">3</span> <span class="toctext">Methods</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Programming_Reference%253AStatusBar_Class.html#StatusBar.28GraphDisplay.29"><span class="tocnumber">3.1</span> <span class="toctext">StatusBar(GraphDisplay)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="Programming_Reference%253AStatusBar_Class.html#Properties"><span class="tocnumber">4</span> <span class="toctext">Properties</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="Programming_Reference%253AStatusBar_Class.html#string_GoalText_.28rw.29"><span class="tocnumber">4.1</span> <span class="toctext">string GoalText (rw)</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="Programming_Reference%253AStatusBar_Class.html#string_ResultText_.28rw.29"><span class="tocnumber">4.2</span> <span class="toctext">string ResultText (rw)</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="Programming_Reference%253AStatusBar_Class.html#float_TextHeight_.28rw.29"><span class="tocnumber">4.3</span> <span class="toctext">float TextHeight (rw)</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="Programming_Reference%253AStatusBar_Class.html#RGBColor_TextColor_.28rw.29"><span class="tocnumber">4.4</span> <span class="toctext">RGBColor TextColor (rw)</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="Programming_Reference%253AStatusBar_Class.html#RGBColor_Color_.28rw.29"><span class="tocnumber">4.5</span> <span class="toctext">RGBColor Color (rw)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-11"><a href="Programming_Reference%253AStatusBar_Class.html#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><tt>src/shared/modules/application/gui</tt>
+</p>
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>A <tt>StatusBar</tt> is a <a href="Programming_Reference%253AGraphObject_Class.html" title="Programming Reference:GraphObject Class"><tt>GraphObject</tt></a> that consists of two stacked text fields, separated with a separator bar.
+</p><p>The top field is termed <i>GoalText</i>, and the bottom field is termed <i>ResultText</i>.
+For an empty <i>GoalText</i>, <i>ResultText</i> occupies the top as well, and the separator bar is not displayed.
+</p>
+<h2><span class="mw-headline" id="Methods">Methods</span></h2>
+<h3><span id="StatusBar(GraphDisplay)"></span><span class="mw-headline" id="StatusBar.28GraphDisplay.29">StatusBar(GraphDisplay)</span></h3>
+<p>To the constructor, provide the target <a href="Programming_Reference%253AGraphDisplay_Class.html" title="Programming Reference:GraphDisplay Class">GraphDisplay</a>.
+</p>
+<h2><span class="mw-headline" id="Properties">Properties</span></h2>
+<h3><span id="string_GoalText_(rw)"></span><span class="mw-headline" id="string_GoalText_.28rw.29">string GoalText (rw)</span></h3>
+<p>The text displayed in the status bar's top <i>GoalText</i> field.
+</p>
+<h3><span id="string_ResultText_(rw)"></span><span class="mw-headline" id="string_ResultText_.28rw.29">string ResultText (rw)</span></h3>
+<p>The text displayed in the status bar's bottom <i>ResultText</i> field.
+</p>
+<h3><span id="float_TextHeight_(rw)"></span><span class="mw-headline" id="float_TextHeight_.28rw.29">float TextHeight (rw)</span></h3>
+<p>Text height, given in units of a single line's height. Typical text height values are between 0.6 and 0.8.
+</p>
+<h3><span id="RGBColor_TextColor_(rw)"></span><span class="mw-headline" id="RGBColor_TextColor_.28rw.29">RGBColor TextColor (rw)</span></h3>
+<p>The text's color.
+</p>
+<h3><span id="RGBColor_Color_(rw)"></span><span class="mw-headline" id="RGBColor_Color_.28rw.29">RGBColor Color (rw)</span></h3>
+<p>The status bar's background color.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Programming_Reference%253AGraphObject_Class.html" title="Programming Reference:GraphObject Class">Programming Reference:GraphObject Class</a>, <a href="Programming_Reference%253AGraphDisplay_Class.html" title="Programming Reference:GraphDisplay Class">Programming Reference:GraphDisplay Class</a>, <a href="Programming_Reference%253ATextField_Class.html" title="Programming Reference:TextField Class">Programming Reference:TextField Class</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230523195231
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.015 seconds
+Real time usage: 0.019 seconds
+Preprocessor visited node count: 34/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1855-0!canonical and timestamp 20230523195231 and revision id 4334
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:StatusBar_Class&amp;oldid=4334">http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:StatusBar_Class&amp;oldid=4334</a>"</div>
+ </div>
+</body>
+</html>

@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>User Reference:Operator Module Scripting - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul><li class="toc1"><a href="User_Reference%253AOperator_Module.html">Operator Module</a></li><li class="toc1">Operator Scripting</li><li class="toc1"><a href="User_Reference%253AModule_Command_Line_Options.html">Module Command Line Options</a></li><li class="toc1"><a href="User_Reference%253AData_File_Formats.html">Data File Formats</a></li><li class="toc1"><a href="User_Reference%253AFilters.html">Configuration Guide</a></li><li class="toc1"><a href="User_FAQ.html">FAQ</a></li><li class="toc1">Applications</li><ul><li class="toc2"><a href="User_Reference%253ACursorTask.html">Cursor Task</a></li><li class="toc2"><a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:P3SpellerTask">P3Speller Task</a></li><li class="toc2"><a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:StimulusPresentation">Stimulus Presentation</a></li></ul><li class="toc1">Tools</li><ul><li class="toc2"><a href="User_Reference%253ABCI2000Certification.html">BCI2000Certification</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Launcher.html">BCI2000Launcher</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Viewer.html">BCI2000Viewer</a></li><li class="toc2"><a href="User_Reference%253ABCI2000FileInfo.html">BCI2000FileInfo</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Export.html">BCI2000Export</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Analysis.html">BCI2000Analysis</a></li><li class="toc2"><a href="User_Reference%253ABCI2000_Offline_Analysis.html">BCI2000 Offline Analysis</a></li><li class="toc2"><a href="User_Reference%253AEloc_Helper.html">Eloc Helper</a></li><li class="toc2"><a href="User_Reference%253AEEGLabImport.html">EEGLabImport</a></li><li class="toc2"><a href="User_Reference%253AMatlab_Tools.html">Matlab Tools</a></li><li class="toc2"><a href="User_Reference%253AMatlab_MEX_Files.html">Matlab MEX Files</a></li><li class="toc2"><a href="User_Reference%253ACommand_Line_Processing.html">Command Line Processing</a></li></ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">Operator Module Scripting</h1>
+ <p class = "subtitle">User Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>Operator scripts automate actions that the otherwise would be performed by the user, e.g. starting or suspending system operation.
+Scripts may be contained in script files, or given immediately in the operator module's preferences dialog.
+There is also an option to specify scripts from the <a href="User_Reference%253AModule_Command_Line_Options.html#Operator_Module" title="User Reference:Module Command Line Options">command line</a> when starting the operator module. When using the <a href="User_Reference%253ABCI2000Shell.html" title="User Reference:BCI2000Shell">BCI2000Shell</a>, or the <a href="Technical_Reference%253AOperator_Library.html" title="Technical Reference:Operator Library">Operator Library</a> from your own application, you may execute scripts at any time.
+</p><p>In addition, the operator scripting language may be used to control an operator module over a <a href="User_Reference%253AModule_Command_Line_Options.html#--Telnet" title="User Reference:Module Command Line Options">Telnet</a> or <a href="User_Reference%253AModule_Command_Line_Options.html#--WebSocket" title="User Reference:Module Command Line Options">WebSocket</a> connection.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="User_Reference%253AOperator_Module_Scripting.html#Syntax"><span class="tocnumber">1</span> <span class="toctext">Syntax</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="User_Reference%253AOperator_Module_Scripting.html#Commands"><span class="tocnumber">2</span> <span class="toctext">Commands</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="User_Reference%253AOperator_Module_Scripting.html#Control_commands"><span class="tocnumber">2.1</span> <span class="toctext">Control commands</span></a>
+<ul>
+<li class="toclevel-3 tocsection-4"><a href="User_Reference%253AOperator_Module_Scripting.html#IF_.3Ccondition.3E.3B_.3Cif_commands.3E.3B_.5B_ELSEIF_.3Ccondition.3E.3B_.3Celseif_commands.3E.3B.5D_..._.5B_ELSE.3B_.3Celse_commands.3E.3B.5D_END"><span class="tocnumber">2.1.1</span> <span class="toctext">IF &lt;condition&gt;; &lt;if commands&gt;; [ ELSEIF &lt;condition&gt;; &lt;elseif commands&gt;;] ... [ ELSE; &lt;else commands&gt;;] END</span></a></li>
+<li class="toclevel-3 tocsection-5"><a href="User_Reference%253AOperator_Module_Scripting.html#WHILE_.3Ccondition.3E.3B_.3Cloop_commands.3E.3B_END"><span class="tocnumber">2.1.2</span> <span class="toctext">WHILE &lt;condition&gt;; &lt;loop commands&gt;; END</span></a></li>
+<li class="toclevel-3 tocsection-6"><a href="User_Reference%253AOperator_Module_Scripting.html#DO.3B_.3Cloop_commands.3E.3B_UNTIL_.3Ccondition.3E"><span class="tocnumber">2.1.3</span> <span class="toctext">DO; &lt;loop commands&gt;; UNTIL &lt;condition&gt;</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="User_Reference%253AOperator_Module_Scripting.html#FOR_.3Cname.3E_IN_.3Citem1.3E_.3Citem2.3E_..._.3B_.3Cloop_commands.3E.3B_END"><span class="tocnumber">2.1.4</span> <span class="toctext">FOR &lt;name&gt; IN &lt;item1&gt; &lt;item2&gt; ...&#160;; &lt;loop commands&gt;; END</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-8"><a href="User_Reference%253AOperator_Module_Scripting.html#Commands_operating_on_Conditions"><span class="tocnumber">2.2</span> <span class="toctext">Commands operating on Conditions</span></a>
+<ul>
+<li class="toclevel-3 tocsection-9"><a href="User_Reference%253AOperator_Module_Scripting.html#EVALUATE_CONDITION_.3Cleft.3E_.5B.3Cop.3E_.5B.3Cright.3E.5D.5D"><span class="tocnumber">2.2.1</span> <span class="toctext">EVALUATE CONDITION &lt;left&gt; [&lt;op&gt; [&lt;right&gt;]]</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-10"><a href="User_Reference%253AOperator_Module_Scripting.html#Commands_operating_on_Local_Variables"><span class="tocnumber">2.3</span> <span class="toctext">Commands operating on Local Variables</span></a>
+<ul>
+<li class="toclevel-3 tocsection-11"><a href="User_Reference%253AOperator_Module_Scripting.html#SET_VARIABLE_.3Cname.3E_.3Cvalue.3E"><span class="tocnumber">2.3.1</span> <span class="toctext">SET VARIABLE &lt;name&gt; &lt;value&gt;</span></a></li>
+<li class="toclevel-3 tocsection-12"><a href="User_Reference%253AOperator_Module_Scripting.html#CLEAR_VARIABLE_.3Cname.3E"><span class="tocnumber">2.3.2</span> <span class="toctext">CLEAR VARIABLE &lt;name&gt;</span></a></li>
+<li class="toclevel-3 tocsection-13"><a href="User_Reference%253AOperator_Module_Scripting.html#GET_VARIABLE_.3Cname.3E"><span class="tocnumber">2.3.3</span> <span class="toctext">GET VARIABLE &lt;name&gt;</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-14"><a href="User_Reference%253AOperator_Module_Scripting.html#Commands_operating_on_Environment_Variables"><span class="tocnumber">2.4</span> <span class="toctext">Commands operating on Environment Variables</span></a>
+<ul>
+<li class="toclevel-3 tocsection-15"><a href="User_Reference%253AOperator_Module_Scripting.html#SET_ENVIRONMENT_.3Cname.3E_.3Cvalue.3E"><span class="tocnumber">2.4.1</span> <span class="toctext">SET ENVIRONMENT &lt;name&gt; &lt;value&gt;</span></a></li>
+<li class="toclevel-3 tocsection-16"><a href="User_Reference%253AOperator_Module_Scripting.html#CLEAR_ENVIRONMENT_.3Cname.3E"><span class="tocnumber">2.4.2</span> <span class="toctext">CLEAR ENVIRONMENT &lt;name&gt;</span></a></li>
+<li class="toclevel-3 tocsection-17"><a href="User_Reference%253AOperator_Module_Scripting.html#GET_ENVIRONMENT_.3Cname.3E"><span class="tocnumber">2.4.3</span> <span class="toctext">GET ENVIRONMENT &lt;name&gt;</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-18"><a href="User_Reference%253AOperator_Module_Scripting.html#Commands_operating_on_Scripts"><span class="tocnumber">2.5</span> <span class="toctext">Commands operating on Scripts</span></a>
+<ul>
+<li class="toclevel-3 tocsection-19"><a href="User_Reference%253AOperator_Module_Scripting.html#SET_SCRIPT_.3Chandler_names.3E_.3Cscripting_commands.3E"><span class="tocnumber">2.5.1</span> <span class="toctext">SET SCRIPT &lt;handler names&gt; &lt;scripting commands&gt;</span></a></li>
+<li class="toclevel-3 tocsection-20"><a href="User_Reference%253AOperator_Module_Scripting.html#GET_SCRIPT_.3Chandler_name.3E"><span class="tocnumber">2.5.2</span> <span class="toctext">GET SCRIPT &lt;handler name&gt;</span></a></li>
+<li class="toclevel-3 tocsection-21"><a href="User_Reference%253AOperator_Module_Scripting.html#CLEAR_SCRIPT_.3Chandler_names.3E"><span class="tocnumber">2.5.3</span> <span class="toctext">CLEAR SCRIPT &lt;handler names&gt;</span></a></li>
+<li class="toclevel-3 tocsection-22"><a href="User_Reference%253AOperator_Module_Scripting.html#EXECUTE_SCRIPT_.3Cfile_or_handler_name.3E_.5B.3CArg1.3E_.3CArg2.3E_..._.3CArg9.3E.5D"><span class="tocnumber">2.5.4</span> <span class="toctext">EXECUTE SCRIPT &lt;file or handler name&gt; [&lt;Arg1&gt; &lt;Arg2&gt; ... &lt;Arg9&gt;]</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-23"><a href="User_Reference%253AOperator_Module_Scripting.html#Commands_operating_on_Parameters"><span class="tocnumber">2.6</span> <span class="toctext">Commands operating on Parameters</span></a>
+<ul>
+<li class="toclevel-3 tocsection-24"><a href="User_Reference%253AOperator_Module_Scripting.html#LOAD_PARAMETERFILE_.3Cfile.3E.2C_LOAD_PARAMETERS_.3Cfile.3E"><span class="tocnumber">2.6.1</span> <span class="toctext">LOAD PARAMETERFILE &lt;file&gt;, LOAD PARAMETERS &lt;file&gt;</span></a></li>
+<li class="toclevel-3 tocsection-25"><a href="User_Reference%253AOperator_Module_Scripting.html#ADD_PARAMETER_.3Cparameter_definition.3E"><span class="tocnumber">2.6.2</span> <span class="toctext">ADD PARAMETER &lt;parameter definition&gt;</span></a></li>
+<li class="toclevel-3 tocsection-26"><a href="User_Reference%253AOperator_Module_Scripting.html#EXISTS_PARAMETER_.3Cname.3E"><span class="tocnumber">2.6.3</span> <span class="toctext">EXISTS PARAMETER &lt;name&gt;</span></a></li>
+<li class="toclevel-3 tocsection-27"><a href="User_Reference%253AOperator_Module_Scripting.html#SET_PARAMETER_.3Cname.3E.5B.28_idx1.2C_idx2_.29.5D_.3Cvalue.3E"><span class="tocnumber">2.6.4</span> <span class="toctext">SET PARAMETER &lt;name&gt;[( idx1, idx2 )] &lt;value&gt;</span></a></li>
+<li class="toclevel-3 tocsection-28"><a href="User_Reference%253AOperator_Module_Scripting.html#SET_PARAMETER_.3Cparameter_line.3E"><span class="tocnumber">2.6.5</span> <span class="toctext">SET PARAMETER &lt;parameter line&gt;</span></a></li>
+<li class="toclevel-3 tocsection-29"><a href="User_Reference%253AOperator_Module_Scripting.html#GET_PARAMETER_.3Cname.3E.5B.28_idx1.2C_idx2_.29.5D"><span class="tocnumber">2.6.6</span> <span class="toctext">GET PARAMETER &lt;name&gt;[( idx1, idx2 )]</span></a></li>
+<li class="toclevel-3 tocsection-30"><a href="User_Reference%253AOperator_Module_Scripting.html#LIST_PARAMETER_.3Cwildcard_expression.3E.2C_LIST_PARAMETERS"><span class="tocnumber">2.6.7</span> <span class="toctext">LIST PARAMETER &lt;wildcard expression&gt;, LIST PARAMETERS</span></a></li>
+<li class="toclevel-3 tocsection-31"><a href="User_Reference%253AOperator_Module_Scripting.html#CLEAR_PARAMETERS"><span class="tocnumber">2.6.8</span> <span class="toctext">CLEAR PARAMETERS</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-32"><a href="User_Reference%253AOperator_Module_Scripting.html#Commands_operating_on_States"><span class="tocnumber">2.7</span> <span class="toctext">Commands operating on States</span></a>
+<ul>
+<li class="toclevel-3 tocsection-33"><a href="User_Reference%253AOperator_Module_Scripting.html#ADD_STATE_.3Cname.3E_.3Cbit_width.3E_.3Cinitial_value.3E"><span class="tocnumber">2.7.1</span> <span class="toctext">ADD STATE &lt;name&gt; &lt;bit width&gt; &lt;initial value&gt;</span></a></li>
+<li class="toclevel-3 tocsection-34"><a href="User_Reference%253AOperator_Module_Scripting.html#EXISTS_STATE_.3Cname.3E"><span class="tocnumber">2.7.2</span> <span class="toctext">EXISTS STATE &lt;name&gt;</span></a></li>
+<li class="toclevel-3 tocsection-35"><a href="User_Reference%253AOperator_Module_Scripting.html#SET_STATE_.3Cname.3E_.3Cvalue.3E.2C_SET_STATES_.3Cname1.3E_.3Cvalue1.3E_.3Cname2.3E_.3Cvalue2.3E_..."><span class="tocnumber">2.7.3</span> <span class="toctext">SET STATE &lt;name&gt; &lt;value&gt;, SET STATES &lt;name1&gt; &lt;value1&gt; &lt;name2&gt; &lt;value2&gt; ...</span></a></li>
+<li class="toclevel-3 tocsection-36"><a href="User_Reference%253AOperator_Module_Scripting.html#GET_STATE_.3Cname.3E"><span class="tocnumber">2.7.4</span> <span class="toctext">GET STATE &lt;name&gt;</span></a></li>
+<li class="toclevel-3 tocsection-37"><a href="User_Reference%253AOperator_Module_Scripting.html#LIST_STATE_.3Cwildcard_expression.3E.2C_LIST_STATES"><span class="tocnumber">2.7.5</span> <span class="toctext">LIST STATE &lt;wildcard expression&gt;, LIST STATES</span></a></li>
+<li class="toclevel-3 tocsection-38"><a href="User_Reference%253AOperator_Module_Scripting.html#CLEAR_STATES"><span class="tocnumber">2.7.6</span> <span class="toctext">CLEAR STATES</span></a></li>
+<li class="toclevel-3 tocsection-39"><a href="User_Reference%253AOperator_Module_Scripting.html#FREEZE_STATES.2C_THAW_STATES"><span class="tocnumber">2.7.7</span> <span class="toctext">FREEZE STATES, THAW STATES</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-40"><a href="User_Reference%253AOperator_Module_Scripting.html#Commands_operating_on_Events"><span class="tocnumber">2.8</span> <span class="toctext">Commands operating on Events</span></a>
+<ul>
+<li class="toclevel-3 tocsection-41"><a href="User_Reference%253AOperator_Module_Scripting.html#ADD_EVENT_.3Cname.3E_.3Cbit_width.3E_.3Cinitial_value.3E"><span class="tocnumber">2.8.1</span> <span class="toctext">ADD EVENT &lt;name&gt; &lt;bit width&gt; &lt;initial value&gt;</span></a></li>
+<li class="toclevel-3 tocsection-42"><a href="User_Reference%253AOperator_Module_Scripting.html#EXISTS_EVENT_.3Cname.3E"><span class="tocnumber">2.8.2</span> <span class="toctext">EXISTS EVENT &lt;name&gt;</span></a></li>
+<li class="toclevel-3 tocsection-43"><a href="User_Reference%253AOperator_Module_Scripting.html#SET_EVENT_.3Cname.3E_.3Cvalue.3E"><span class="tocnumber">2.8.3</span> <span class="toctext">SET EVENT &lt;name&gt; &lt;value&gt;</span></a></li>
+<li class="toclevel-3 tocsection-44"><a href="User_Reference%253AOperator_Module_Scripting.html#PULSE_EVENT_.3Cname.3E_.3Cvalue.3E"><span class="tocnumber">2.8.4</span> <span class="toctext">PULSE EVENT &lt;name&gt; &lt;value&gt;</span></a></li>
+<li class="toclevel-3 tocsection-45"><a href="User_Reference%253AOperator_Module_Scripting.html#GET_EVENT_.3Cname.3E"><span class="tocnumber">2.8.5</span> <span class="toctext">GET EVENT &lt;name&gt;</span></a></li>
+<li class="toclevel-3 tocsection-46"><a href="User_Reference%253AOperator_Module_Scripting.html#LIST_EVENT_.3Cwildcard_expression.3E.2C_LIST_EVENTS"><span class="tocnumber">2.8.6</span> <span class="toctext">LIST EVENT &lt;wildcard expression&gt;, LIST EVENTS</span></a></li>
+<li class="toclevel-3 tocsection-47"><a href="User_Reference%253AOperator_Module_Scripting.html#CLEAR_EVENTS"><span class="tocnumber">2.8.7</span> <span class="toctext">CLEAR EVENTS</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-48"><a href="User_Reference%253AOperator_Module_Scripting.html#Commands_operating_on_VisProperties"><span class="tocnumber">2.9</span> <span class="toctext">Commands operating on VisProperties</span></a>
+<ul>
+<li class="toclevel-3 tocsection-49"><a href="User_Reference%253AOperator_Module_Scripting.html#SET_VISPROPERTY_.3CvisID.3E..3Cname.3E_.3Cvalue.3E"><span class="tocnumber">2.9.1</span> <span class="toctext">SET VISPROPERTY &lt;visID&gt;.&lt;name&gt; &lt;value&gt;</span></a></li>
+<li class="toclevel-3 tocsection-50"><a href="User_Reference%253AOperator_Module_Scripting.html#GET_VISPROPERTY_.3CvisID.3E..3Cname.3E"><span class="tocnumber">2.9.2</span> <span class="toctext">GET VISPROPERTY &lt;visID&gt;.&lt;name&gt;</span></a></li>
+<li class="toclevel-3 tocsection-51"><a href="User_Reference%253AOperator_Module_Scripting.html#SET_VISPROPERTIES_.3Cproperty_set_ID.3E"><span class="tocnumber">2.9.3</span> <span class="toctext">SET VISPROPERTIES &lt;property set ID&gt;</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-52"><a href="User_Reference%253AOperator_Module_Scripting.html#Commands_operating_on_the_Control_Signal"><span class="tocnumber">2.10</span> <span class="toctext">Commands operating on the Control Signal</span></a>
+<ul>
+<li class="toclevel-3 tocsection-53"><a href="User_Reference%253AOperator_Module_Scripting.html#GET_SIGNAL.28_.3Cchannel_index.3E.2C_.3Celement_index.3E_.29"><span class="tocnumber">2.10.1</span> <span class="toctext">GET SIGNAL( &lt;channel index&gt;, &lt;element index&gt; )</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-54"><a href="User_Reference%253AOperator_Module_Scripting.html#Commands_operating_on_Expressions"><span class="tocnumber">2.11</span> <span class="toctext">Commands operating on Expressions</span></a>
+<ul>
+<li class="toclevel-3 tocsection-55"><a href="User_Reference%253AOperator_Module_Scripting.html#EVALUATE_EXPRESSION_.3Cexpression.3E"><span class="tocnumber">2.11.1</span> <span class="toctext">EVALUATE EXPRESSION &lt;expression&gt;</span></a></li>
+<li class="toclevel-3 tocsection-56"><a href="User_Reference%253AOperator_Module_Scripting.html#CLEAR_EXPRESSION_VARIABLE_.3Cname.3E"><span class="tocnumber">2.11.2</span> <span class="toctext">CLEAR EXPRESSION VARIABLE &lt;name&gt;</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-57"><a href="User_Reference%253AOperator_Module_Scripting.html#Commands_operating_on_Watches"><span class="tocnumber">2.12</span> <span class="toctext">Commands operating on Watches</span></a>
+<ul>
+<li class="toclevel-3 tocsection-58"><a href="User_Reference%253AOperator_Module_Scripting.html#ADD_WATCH_.5Bdecimate_.3Cn.3E.5D_.3Cexpression1.3E_.3Cexpression2.3E_..._.5BAT_.3Cip:port.3E.5D"><span class="tocnumber">2.12.1</span> <span class="toctext">ADD WATCH [decimate &lt;n&gt;] &lt;expression1&gt; &lt;expression2&gt; ... [AT &lt;ip:port&gt;]</span></a></li>
+<li class="toclevel-3 tocsection-59"><a href="User_Reference%253AOperator_Module_Scripting.html#ADD_WATCH_SYSTEM_STATE_.5BAT_.3Caddress.3E.5D"><span class="tocnumber">2.12.2</span> <span class="toctext">ADD WATCH SYSTEM STATE [AT &lt;address&gt;]</span></a></li>
+<li class="toclevel-3 tocsection-60"><a href="User_Reference%253AOperator_Module_Scripting.html#CLEAR_WATCH_.3Caddress.3E.2C_CLEAR_WATCHES_.5B.3Cwildcard-expression.3E.5D"><span class="tocnumber">2.12.3</span> <span class="toctext">CLEAR WATCH &lt;address&gt;, CLEAR WATCHES [&lt;wildcard-expression&gt;]</span></a></li>
+<li class="toclevel-3 tocsection-61"><a href="User_Reference%253AOperator_Module_Scripting.html#TRIGGER_WATCH_.3Caddress.3E.2C_TRIGGER_WATCHES_.5B.3Cwildcard-expression.3E.5D"><span class="tocnumber">2.12.4</span> <span class="toctext">TRIGGER WATCH &lt;address&gt;, TRIGGER WATCHES  [&lt;wildcard-expression&gt;]</span></a></li>
+<li class="toclevel-3 tocsection-62"><a href="User_Reference%253AOperator_Module_Scripting.html#LIST_WATCHES_.5B.3Cwildcard-expression.3E.5D"><span class="tocnumber">2.12.5</span> <span class="toctext">LIST WATCHES  [&lt;wildcard-expression&gt;]</span></a></li>
+<li class="toclevel-3 tocsection-63"><a href="User_Reference%253AOperator_Module_Scripting.html#COUNT_WATCHES_.5B.3Cwildcard-expression.3E.5D"><span class="tocnumber">2.12.6</span> <span class="toctext">COUNT WATCHES  [&lt;wildcard-expression&gt;]</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-64"><a href="User_Reference%253AOperator_Module_Scripting.html#Commands_operating_on_Files.2C_Directories.2C_and_Paths"><span class="tocnumber">2.13</span> <span class="toctext">Commands operating on Files, Directories, and Paths</span></a>
+<ul>
+<li class="toclevel-3 tocsection-65"><a href="User_Reference%253AOperator_Module_Scripting.html#EXTRACT_DIRECTORY_.3Cpath.3E.2C_EXTRACT_FILE_.3Cpath.3E.2C_EXTRACT_FILE_BASE_.3Cpath.3E"><span class="tocnumber">2.13.1</span> <span class="toctext">EXTRACT DIRECTORY &lt;path&gt;, EXTRACT FILE &lt;path&gt;, EXTRACT FILE BASE &lt;path&gt;</span></a></li>
+<li class="toclevel-3 tocsection-66"><a href="User_Reference%253AOperator_Module_Scripting.html#IS_DIRECTORY_.3Cpath.3E.2C_IS_FILE_.3Cpath.3E.2C_IS_PATH_.3Cpath.3E"><span class="tocnumber">2.13.2</span> <span class="toctext">IS DIRECTORY &lt;path&gt;, IS FILE &lt;path&gt;, IS PATH &lt;path&gt;</span></a></li>
+<li class="toclevel-3 tocsection-67"><a href="User_Reference%253AOperator_Module_Scripting.html#PARENT_DIRECTORY_.3Cpath.3E"><span class="tocnumber">2.13.3</span> <span class="toctext">PARENT DIRECTORY &lt;path&gt;</span></a></li>
+<li class="toclevel-3 tocsection-68"><a href="User_Reference%253AOperator_Module_Scripting.html#CURRENT_DIRECTORY"><span class="tocnumber">2.13.4</span> <span class="toctext">CURRENT DIRECTORY</span></a></li>
+<li class="toclevel-3 tocsection-69"><a href="User_Reference%253AOperator_Module_Scripting.html#CHANGE_DIRECTORY_.3Cpath.3E"><span class="tocnumber">2.13.5</span> <span class="toctext">CHANGE DIRECTORY &lt;path&gt;</span></a></li>
+<li class="toclevel-3 tocsection-70"><a href="User_Reference%253AOperator_Module_Scripting.html#MAKE_DIRECTORY_.3Cpath.3E"><span class="tocnumber">2.13.6</span> <span class="toctext">MAKE DIRECTORY &lt;path&gt;</span></a></li>
+<li class="toclevel-3 tocsection-71"><a href="User_Reference%253AOperator_Module_Scripting.html#LIST_DIRECTORY_.5B.3Cpath.3E_or_.3Cwildcard_expression.3E.5D"><span class="tocnumber">2.13.7</span> <span class="toctext">LIST DIRECTORY [&lt;path&gt; or &lt;wildcard expression&gt;]</span></a></li>
+<li class="toclevel-3 tocsection-72"><a href="User_Reference%253AOperator_Module_Scripting.html#LIST_FILE_.3Cwildcard_expression.3E"><span class="tocnumber">2.13.8</span> <span class="toctext">LIST FILE &lt;wildcard expression&gt;</span></a></li>
+<li class="toclevel-3 tocsection-73"><a href="User_Reference%253AOperator_Module_Scripting.html#LIST_FILES_.5B.3Cdirectory.3E_.5B.3Cwildcard_expression.3E.5D.5D"><span class="tocnumber">2.13.9</span> <span class="toctext">LIST FILES [&lt;directory&gt; [&lt;wildcard expression&gt;]]</span></a></li>
+<li class="toclevel-3 tocsection-74"><a href="User_Reference%253AOperator_Module_Scripting.html#LIST_DIRECTORIES_.5B.3Cdirectory.3E_.5B.3Cwildcard_expression.3E.5D.5D"><span class="tocnumber">2.13.10</span> <span class="toctext">LIST DIRECTORIES [&lt;directory&gt; [&lt;wildcard expression&gt;]]</span></a></li>
+<li class="toclevel-3 tocsection-75"><a href="User_Reference%253AOperator_Module_Scripting.html#RENAME_FILE_.3Ccurrent_path.3E_.3Cnew_path.3E.2C_RENAME_DIRECTORY_.3Ccurrent_path.3E_.3Cnew_name.3E"><span class="tocnumber">2.13.11</span> <span class="toctext">RENAME FILE &lt;current path&gt; &lt;new path&gt;, RENAME DIRECTORY &lt;current path&gt; &lt;new name&gt;</span></a></li>
+<li class="toclevel-3 tocsection-76"><a href="User_Reference%253AOperator_Module_Scripting.html#REMOVE_FILE_.3Cpath.3E.2C_REMOVE_DIRECTORY_.3Cpath.3E"><span class="tocnumber">2.13.12</span> <span class="toctext">REMOVE FILE &lt;path&gt;, REMOVE DIRECTORY &lt;path&gt;</span></a></li>
+<li class="toclevel-3 tocsection-77"><a href="User_Reference%253AOperator_Module_Scripting.html#FORCEREMOVE_DIRECTORY_.3Cpath.3E"><span class="tocnumber">2.13.13</span> <span class="toctext">FORCEREMOVE DIRECTORY &lt;path&gt;</span></a></li>
+<li class="toclevel-3 tocsection-78"><a href="User_Reference%253AOperator_Module_Scripting.html#NORMALIZED_PATH_.3Cpath.3E"><span class="tocnumber">2.13.14</span> <span class="toctext">NORMALIZED PATH &lt;path&gt;</span></a></li>
+<li class="toclevel-3 tocsection-79"><a href="User_Reference%253AOperator_Module_Scripting.html#CANONICAL_PATH_.3Cpath.3E"><span class="tocnumber">2.13.15</span> <span class="toctext">CANONICAL PATH &lt;path&gt;</span></a></li>
+<li class="toclevel-3 tocsection-80"><a href="User_Reference%253AOperator_Module_Scripting.html#REAL_PATH_.3Cpath.3E"><span class="tocnumber">2.13.16</span> <span class="toctext">REAL PATH &lt;path&gt;</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-81"><a href="User_Reference%253AOperator_Module_Scripting.html#Commands_operating_on_Lines_of_input.2Foutput"><span class="tocnumber">2.14</span> <span class="toctext">Commands operating on Lines of input/output</span></a>
+<ul>
+<li class="toclevel-3 tocsection-82"><a href="User_Reference%253AOperator_Module_Scripting.html#WRITE_LINE_.3Cline.3E"><span class="tocnumber">2.14.1</span> <span class="toctext">WRITE LINE &lt;line&gt;</span></a></li>
+<li class="toclevel-3 tocsection-83"><a href="User_Reference%253AOperator_Module_Scripting.html#READ_LINE"><span class="tocnumber">2.14.2</span> <span class="toctext">READ LINE</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-84"><a href="User_Reference%253AOperator_Module_Scripting.html#Commands_operating_on_Processes_in_the_Operating_System"><span class="tocnumber">2.15</span> <span class="toctext">Commands operating on Processes in the Operating System</span></a>
+<ul>
+<li class="toclevel-3 tocsection-85"><a href="User_Reference%253AOperator_Module_Scripting.html#CREATE_PROCESS_.3Ccommand_line.3E"><span class="tocnumber">2.15.1</span> <span class="toctext">CREATE PROCESS &lt;command line&gt;</span></a></li>
+<li class="toclevel-3 tocsection-86"><a href="User_Reference%253AOperator_Module_Scripting.html#TERMINATE_PROCESS_.3Cpid.3E"><span class="tocnumber">2.15.2</span> <span class="toctext">TERMINATE PROCESS &lt;pid&gt;</span></a></li>
+<li class="toclevel-3 tocsection-87"><a href="User_Reference%253AOperator_Module_Scripting.html#WAIT_FOR_PROCESS_.3Cpid.3E_.5B.3Ctimeout_seconds.3E_.3D_infinite.5D"><span class="tocnumber">2.15.3</span> <span class="toctext">WAIT FOR PROCESS &lt;pid&gt; [&lt;timeout seconds&gt; = infinite]</span></a></li>
+<li class="toclevel-3 tocsection-88"><a href="User_Reference%253AOperator_Module_Scripting.html#SHOW_PROCESS_.3Cpid.3E"><span class="tocnumber">2.15.4</span> <span class="toctext">SHOW PROCESS &lt;pid&gt;</span></a></li>
+<li class="toclevel-3 tocsection-89"><a href="User_Reference%253AOperator_Module_Scripting.html#HIDE_PROCESS_.3Cpid.3E"><span class="tocnumber">2.15.5</span> <span class="toctext">HIDE PROCESS &lt;pid&gt;</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-90"><a href="User_Reference%253AOperator_Module_Scripting.html#Global_commands"><span class="tocnumber">2.16</span> <span class="toctext">Global commands</span></a>
+<ul>
+<li class="toclevel-3 tocsection-91"><a href="User_Reference%253AOperator_Module_Scripting.html#HELP_.5B.3Ctype.3E.5D"><span class="tocnumber">2.16.1</span> <span class="toctext">HELP [&lt;type&gt;]</span></a></li>
+<li class="toclevel-3 tocsection-92"><a href="User_Reference%253AOperator_Module_Scripting.html#SET_.3Cname.3E_.3Cvalue.3E.2C_GET_.3Cname.3E.2C_.3Cname.3E"><span class="tocnumber">2.16.2</span> <span class="toctext">SET &lt;name&gt; &lt;value&gt;, GET &lt;name&gt;, &lt;name&gt;</span></a></li>
+<li class="toclevel-3 tocsection-93"><a href="User_Reference%253AOperator_Module_Scripting.html#GET_SYSTEM_STATE"><span class="tocnumber">2.16.3</span> <span class="toctext">GET SYSTEM STATE</span></a></li>
+<li class="toclevel-3 tocsection-94"><a href="User_Reference%253AOperator_Module_Scripting.html#GET_CURRENT_RUN_FILE"><span class="tocnumber">2.16.4</span> <span class="toctext">GET CURRENT RUN FILE</span></a></li>
+<li class="toclevel-3 tocsection-95"><a href="User_Reference%253AOperator_Module_Scripting.html#WAIT_FOR_.3Csystem_state.3E_.5B.3Ctimeout_seconds.3E.5D"><span class="tocnumber">2.16.5</span> <span class="toctext">WAIT FOR &lt;system state&gt; [&lt;timeout seconds&gt;]</span></a></li>
+<li class="toclevel-3 tocsection-96"><a href="User_Reference%253AOperator_Module_Scripting.html#SLEEP_.3Ctime_in_seconds.3E"><span class="tocnumber">2.16.6</span> <span class="toctext">SLEEP &lt;time in seconds&gt;</span></a></li>
+<li class="toclevel-3 tocsection-97"><a href="User_Reference%253AOperator_Module_Scripting.html#GET_SYSTEM_VERSION"><span class="tocnumber">2.16.7</span> <span class="toctext">GET SYSTEM VERSION</span></a></li>
+<li class="toclevel-3 tocsection-98"><a href="User_Reference%253AOperator_Module_Scripting.html#SETCONFIG.2C_SET_CONFIG"><span class="tocnumber">2.16.8</span> <span class="toctext">SETCONFIG, SET CONFIG</span></a></li>
+<li class="toclevel-3 tocsection-99"><a href="User_Reference%253AOperator_Module_Scripting.html#START"><span class="tocnumber">2.16.9</span> <span class="toctext">START</span></a></li>
+<li class="toclevel-3 tocsection-100"><a href="User_Reference%253AOperator_Module_Scripting.html#STOP"><span class="tocnumber">2.16.10</span> <span class="toctext">STOP</span></a></li>
+<li class="toclevel-3 tocsection-101"><a href="User_Reference%253AOperator_Module_Scripting.html#STARTUP_SYSTEM"><span class="tocnumber">2.16.11</span> <span class="toctext">STARTUP SYSTEM</span></a></li>
+<li class="toclevel-3 tocsection-102"><a href="User_Reference%253AOperator_Module_Scripting.html#SHUTDOWN_SYSTEM"><span class="tocnumber">2.16.12</span> <span class="toctext">SHUTDOWN SYSTEM</span></a></li>
+<li class="toclevel-3 tocsection-103"><a href="User_Reference%253AOperator_Module_Scripting.html#RESET_SYSTEM"><span class="tocnumber">2.16.13</span> <span class="toctext">RESET SYSTEM</span></a></li>
+<li class="toclevel-3 tocsection-104"><a href="User_Reference%253AOperator_Module_Scripting.html#QUIT.2C_EXIT_.5B.3Cresult.3E.5D"><span class="tocnumber">2.16.14</span> <span class="toctext">QUIT, EXIT [&lt;result&gt;]</span></a></li>
+<li class="toclevel-3 tocsection-105"><a href="User_Reference%253AOperator_Module_Scripting.html#SYSTEM_.3Ccommand_line.3E"><span class="tocnumber">2.16.15</span> <span class="toctext">SYSTEM &lt;command line&gt;</span></a></li>
+<li class="toclevel-3 tocsection-106"><a href="User_Reference%253AOperator_Module_Scripting.html#START_EXECUTABLE_.3Ccommand_line.3E"><span class="tocnumber">2.16.16</span> <span class="toctext">START EXECUTABLE &lt;command line&gt;</span></a></li>
+<li class="toclevel-3 tocsection-107"><a href="User_Reference%253AOperator_Module_Scripting.html#LOG_.3Cmessage.3E"><span class="tocnumber">2.16.17</span> <span class="toctext">LOG &lt;message&gt;</span></a></li>
+<li class="toclevel-3 tocsection-108"><a href="User_Reference%253AOperator_Module_Scripting.html#WARN_.3Cmessage.3E"><span class="tocnumber">2.16.18</span> <span class="toctext">WARN &lt;message&gt;</span></a></li>
+<li class="toclevel-3 tocsection-109"><a href="User_Reference%253AOperator_Module_Scripting.html#ERROR_.3Cmessage.3E"><span class="tocnumber">2.16.19</span> <span class="toctext">ERROR &lt;message&gt;</span></a></li>
+<li class="toclevel-3 tocsection-110"><a href="User_Reference%253AOperator_Module_Scripting.html#CAPTURE_MESSAGES_.3Cmessage_types.3E"><span class="tocnumber">2.16.20</span> <span class="toctext">CAPTURE MESSAGES &lt;message types&gt;</span></a></li>
+<li class="toclevel-3 tocsection-111"><a href="User_Reference%253AOperator_Module_Scripting.html#FLUSH_MESSAGES"><span class="tocnumber">2.16.21</span> <span class="toctext">FLUSH MESSAGES</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-112"><a href="User_Reference%253AOperator_Module_Scripting.html#Operator-module_defined_Commands"><span class="tocnumber">2.17</span> <span class="toctext">Operator-module defined Commands</span></a>
+<ul>
+<li class="toclevel-3 tocsection-113"><a href="User_Reference%253AOperator_Module_Scripting.html#HIDE_WINDOW_.5B.3Cname.3E.5D.2C_SHOW_WINDOW_.5B.3Cname.3E.5D"><span class="tocnumber">2.17.1</span> <span class="toctext">HIDE WINDOW [&lt;name&gt;], SHOW WINDOW [&lt;name&gt;]</span></a></li>
+<li class="toclevel-3 tocsection-114"><a href="User_Reference%253AOperator_Module_Scripting.html#SET_TITLE_.3Ctitle.3E"><span class="tocnumber">2.17.2</span> <span class="toctext">SET TITLE &lt;title&gt;</span></a></li>
+<li class="toclevel-3 tocsection-115"><a href="User_Reference%253AOperator_Module_Scripting.html#SET_BUTTON_.3Cidx.3E_.3Clabel.3E_.3Ccommands.3E"><span class="tocnumber">2.17.3</span> <span class="toctext">SET BUTTON &lt;idx&gt; &lt;label&gt; &lt;commands&gt;</span></a></li>
+<li class="toclevel-3 tocsection-116"><a href="User_Reference%253AOperator_Module_Scripting.html#VISUALIZE_WATCH_.5Bdecimate_.3Cn.3E.5D_.3Cexpression1.3E_..."><span class="tocnumber">2.17.4</span> <span class="toctext">VISUALIZE WATCH [decimate &lt;n&gt;] &lt;expression1&gt; ...</span></a></li>
+<li class="toclevel-3 tocsection-117"><a href="User_Reference%253AOperator_Module_Scripting.html#RECORD_VISUALIZATION_.3Cname.3E_.5Bon.7Coff.5D"><span class="tocnumber">2.17.5</span> <span class="toctext">RECORD VISUALIZATION &lt;name&gt; [on|off]</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-118"><a href="User_Reference%253AOperator_Module_Scripting.html#Predefined_Variables"><span class="tocnumber">3</span> <span class="toctext">Predefined Variables</span></a>
+<ul>
+<li class="toclevel-2 tocsection-119"><a href="User_Reference%253AOperator_Module_Scripting.html#BCI2000LAUNCHDIR"><span class="tocnumber">3.1</span> <span class="toctext">BCI2000LAUNCHDIR</span></a></li>
+<li class="toclevel-2 tocsection-120"><a href="User_Reference%253AOperator_Module_Scripting.html#BCI2000BINARY"><span class="tocnumber">3.2</span> <span class="toctext">BCI2000BINARY</span></a></li>
+<li class="toclevel-2 tocsection-121"><a href="User_Reference%253AOperator_Module_Scripting.html#LogLevel_.28local.29"><span class="tocnumber">3.3</span> <span class="toctext">LogLevel (local)</span></a></li>
+<li class="toclevel-2 tocsection-122"><a href="User_Reference%253AOperator_Module_Scripting.html#AbortOnError_.28local.29"><span class="tocnumber">3.4</span> <span class="toctext">AbortOnError (local)</span></a></li>
+<li class="toclevel-2 tocsection-123"><a href="User_Reference%253AOperator_Module_Scripting.html#Result_.28local.29"><span class="tocnumber">3.5</span> <span class="toctext">Result (local)</span></a></li>
+<li class="toclevel-2 tocsection-124"><a href="User_Reference%253AOperator_Module_Scripting.html#0.2C_1.2C_..._9_.28local.29"><span class="tocnumber">3.6</span> <span class="toctext">0, 1, ... 9 (local)</span></a></li>
+<li class="toclevel-2 tocsection-125"><a href="User_Reference%253AOperator_Module_Scripting.html#YYYYMMDD_.28local.29"><span class="tocnumber">3.7</span> <span class="toctext">YYYYMMDD (local)</span></a></li>
+<li class="toclevel-2 tocsection-126"><a href="User_Reference%253AOperator_Module_Scripting.html#HHMMSS_.28local.29"><span class="tocnumber">3.8</span> <span class="toctext">HHMMSS (local)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-127"><a href="User_Reference%253AOperator_Module_Scripting.html#Abbreviated_commands_and_synonyms"><span class="tocnumber">4</span> <span class="toctext">Abbreviated commands and synonyms</span></a></li>
+<li class="toclevel-1 tocsection-128"><a href="User_Reference%253AOperator_Module_Scripting.html#Handlers"><span class="tocnumber">5</span> <span class="toctext">Handlers</span></a>
+<ul>
+<li class="toclevel-2 tocsection-129"><a href="User_Reference%253AOperator_Module_Scripting.html#OnConnect"><span class="tocnumber">5.1</span> <span class="toctext">OnConnect</span></a></li>
+<li class="toclevel-2 tocsection-130"><a href="User_Reference%253AOperator_Module_Scripting.html#OnSetConfig"><span class="tocnumber">5.2</span> <span class="toctext">OnSetConfig</span></a></li>
+<li class="toclevel-2 tocsection-131"><a href="User_Reference%253AOperator_Module_Scripting.html#OnStart.2C_OnResume"><span class="tocnumber">5.3</span> <span class="toctext">OnStart, OnResume</span></a></li>
+<li class="toclevel-2 tocsection-132"><a href="User_Reference%253AOperator_Module_Scripting.html#OnStartRun"><span class="tocnumber">5.4</span> <span class="toctext">OnStartRun</span></a></li>
+<li class="toclevel-2 tocsection-133"><a href="User_Reference%253AOperator_Module_Scripting.html#OnSuspend.2FOnStopRun"><span class="tocnumber">5.5</span> <span class="toctext">OnSuspend/OnStopRun</span></a></li>
+<li class="toclevel-2 tocsection-134"><a href="User_Reference%253AOperator_Module_Scripting.html#OnShutdown"><span class="tocnumber">5.6</span> <span class="toctext">OnShutdown</span></a></li>
+<li class="toclevel-2 tocsection-135"><a href="User_Reference%253AOperator_Module_Scripting.html#OnExit"><span class="tocnumber">5.7</span> <span class="toctext">OnExit</span></a></li>
+<li class="toclevel-2 tocsection-136"><a href="User_Reference%253AOperator_Module_Scripting.html#Associating_Scripts_with_Operator_Events"><span class="tocnumber">5.8</span> <span class="toctext">Associating Scripts with Operator Events</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-137"><a href="User_Reference%253AOperator_Module_Scripting.html#Examples"><span class="tocnumber">6</span> <span class="toctext">Examples</span></a>
+<ul>
+<li class="toclevel-2 tocsection-138"><a href="User_Reference%253AOperator_Module_Scripting.html#Making_use_of_the_Operator_module.27s_Function_Buttons"><span class="tocnumber">6.1</span> <span class="toctext">Making use of the Operator module's Function Buttons</span></a></li>
+<li class="toclevel-2 tocsection-139"><a href="User_Reference%253AOperator_Module_Scripting.html#A_fully_automated_BCI2000_session"><span class="tocnumber">6.2</span> <span class="toctext">A fully automated BCI2000 session</span></a></li>
+<li class="toclevel-2 tocsection-140"><a href="User_Reference%253AOperator_Module_Scripting.html#Automating_BCI2000_by_Operator_command_line_arguments"><span class="tocnumber">6.3</span> <span class="toctext">Automating BCI2000 by Operator command line arguments</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-141"><a href="User_Reference%253AOperator_Module_Scripting.html#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h3><span class="mw-headline" id="Syntax">Syntax</span></h3>
+<p><b>Command separation.</b> Scripts consist of sequences of the commands listed below. A command must be terminated with either a newline, or a semicolon (;).
+This allows to put multiple commands into one line, separated by semicolon characters.
+Commands are case-insensitive, variables and values may be case-sensitive, depending on context.
+</p><p><b>Comments.</b> Lines starting with a '#' character are ignored. Such lines may be used to hold comments. In addition, when any of the first two lines of a script contains "#!" (the Unix shell invocation sequence), it will be ignored. In conjunction with <a href="User_Reference%253ABCI2000Shell.html" title="User Reference:BCI2000Shell">BCI2000Shell</a>, this may be used to write Operator scripts that may be treated as executables.
+</p><p><b>Escaping.</b> In order to resolve ambiguity about command arguments that contain white space, they must be included in double quotes, or the white space must be encoded in URL-fashion, e.g. <i>%20</i> instead of a space character. Similarly, when an argument contains a semicolon (;), it must be included in double quotes, or the semicolon must be encoded in URL-fashion, i.e. as <i>%3B</i>. Also, "$" characters indicate command substitution, so they should be encoded as <i>%24</i> if substitution is not desired.
+</p><p><b>Variable Substitution.</b> When a command contains a dollar sign, alphanumeric characters following the dollar sign will be interpreted as the name of a variable: $NAME. The name will be matched against Expression variable names first, followed with Local variable names, and finally Environment variable names. When a match is found, $NAME will be replaced with the content of the matching variable. When no match is found, $NAME will be resolved to an empty string, without triggering an error.
+</p><p><b>Command Substitution.</b> When part of a command is enclosed with ${...}, this subexpression will be substituted with the result of its execution as a command. E.g.,
+</p>
+<pre>LOG "Current system state is: ${GET SYSTEM STATE}"
+LOG "The path environment variable is: ${PATH}"
+</pre>
+<p>Note that the last example uses the short form of the GET command, which will return the value of a PATH parameter or a PATH state if such exists. To make sure that only environment variables are matched, use the long form of the GET command:
+</p>
+<pre>LOG MESSAGE "The path environment variable is: ${GET VARIABLE PATH}"
+</pre>
+<p>Substitutions may be nested, i.e. the following will work as expected:
+</p>
+<pre>SET MyVar "LIST STATES"; LOG "States are: ${$MyVar}"
+SET MyVar "LIST STATES"; LOG "States are: ${${GET VARIABLE MyVar}}"
+</pre>
+<p><b>Mathematical Expressions.</b> A command may consist of a single <a href="User_Reference%253AExpression_Syntax.html" title="User Reference:Expression Syntax">mathematical expression</a>. This expression is then evaluated, and its result is returned as the command's result. As a special case, this allows the use of expression variables in ${...} substitutions. Consider for example
+</p>
+<pre>x:=0; WHILE x&lt;10; LOG ${x:=x+1}; END
+</pre>
+<p>There, the first command creates and initializes the expression variable x. In the WHILE condition, an expression is allowed as well as any command. In the LOG command, an expression appears in ${...}, which executes the expression in braces, and substitutes the result of the expression as an argument into the LOG command, which adds an entry to the Operator log. This results in a sequence of 10 log entries, containing the numbers from 1 to 10.
+</p>
+<h3><span class="mw-headline" id="Commands">Commands</span></h3>
+<h4><span class="mw-headline" id="Control_commands">Control commands</span></h4>
+<p>These commands allow conditional execution of parts of a script. When a condition is expected, any other scripting command may be given. Its result will be considered to represent a boolean value of "true" if it is empty, a nonzero number, or the string "true". It will be taken to represent a boolean value of "false" if it contains a numeric value of zero, or any string that does not evaluate to a nonzero number. Note that identification of an empty value with "true" differs from string handling in the EVALUATE CONDITION command. This is because most scripting commands return nothing on success, but an error message on failure.
+</p><p>The output of the SYSTEM and START EXECUTABLE commands is handled specially. There, the result code of the created child process is translated into a boolean value in the ordinary manner, treating a result code of zero as "true", and any other result code as "false". This allows to use external commands in the same way as in a native shell.
+</p>
+<h5><span id="IF_&lt;condition&gt;;_&lt;if_commands&gt;;_[_ELSEIF_&lt;condition&gt;;_&lt;elseif_commands&gt;;]_..._[_ELSE;_&lt;else_commands&gt;;]_END"></span><span class="mw-headline" id="IF_.3Ccondition.3E.3B_.3Cif_commands.3E.3B_.5B_ELSEIF_.3Ccondition.3E.3B_.3Celseif_commands.3E.3B.5D_..._.5B_ELSE.3B_.3Celse_commands.3E.3B.5D_END">IF &lt;condition&gt;; &lt;if commands&gt;; [ ELSEIF &lt;condition&gt;; &lt;elseif commands&gt;;] ... [ ELSE; &lt;else commands&gt;;] END</span></h5>
+<p>Executes <i>if commands</i> if <i>condition</i> evaluates to "true". Otherwise, the <i>elseif commands</i> of the first matching <i>elseif condition</i> are executed. When none of the <i>elseif conditions</i> evaluates to "true",  <i>else commands</i> are executed. ELSEIF and ELSE blocks may be omitted.
+</p>
+<h5><span id="WHILE_&lt;condition&gt;;_&lt;loop_commands&gt;;_END"></span><span class="mw-headline" id="WHILE_.3Ccondition.3E.3B_.3Cloop_commands.3E.3B_END">WHILE &lt;condition&gt;; &lt;loop commands&gt;; END</span></h5>
+<p>Executes <i>loop commands</i> while <i>condition</i> evaluates to <i>true</i>.
+</p>
+<h5><span id="DO;_&lt;loop_commands&gt;;_UNTIL_&lt;condition&gt;"></span><span class="mw-headline" id="DO.3B_.3Cloop_commands.3E.3B_UNTIL_.3Ccondition.3E">DO; &lt;loop commands&gt;; UNTIL &lt;condition&gt;</span></h5>
+<p>Executes <i>loop commands</i> until "condition" evaluates to <i>true</i>.
+</p>
+<h5><span id="FOR_&lt;name&gt;_IN_&lt;item1&gt;_&lt;item2&gt;_..._;_&lt;loop_commands&gt;;_END"></span><span class="mw-headline" id="FOR_.3Cname.3E_IN_.3Citem1.3E_.3Citem2.3E_..._.3B_.3Cloop_commands.3E.3B_END">FOR &lt;name&gt; IN &lt;item1&gt; &lt;item2&gt; ...&#160;; &lt;loop commands&gt;; END</span></h5>
+<p>Creates a local variable with the specified name. Then, sequentially assigns each <i>item</i> to that variable, and executes <i>loop commands</i>. If an <i>item</i> contains newline characters, it is split up into multiple items, corresponding to the lines contained in the <i>item</i>. E.g.,
+</p>
+<pre>FOR i IN top ${LIST FILES} bottom; LOG ${i}; END
+</pre>
+<p>will first write a log entry "top". Then, it will create a log entry for each file in the current directory, and finally, it will create a log entry "bottom".
+</p>
+<h4><span class="mw-headline" id="Commands_operating_on_Conditions">Commands operating on Conditions</span></h4>
+<h5><span id="EVALUATE_CONDITION_&lt;left&gt;_[&lt;op&gt;_[&lt;right&gt;]]"></span><span class="mw-headline" id="EVALUATE_CONDITION_.3Cleft.3E_.5B.3Cop.3E_.5B.3Cright.3E.5D.5D">EVALUATE CONDITION &lt;left&gt; [&lt;op&gt; [&lt;right&gt;]]</span></h5>
+<p>Evaluates a comparison between the <i>left</i> and <i>right</i> operands. As a comparison operator, the following may be specified: ==,&#160;!=, ~=, &lt;, &gt;, &lt;=, &gt;=. There, the&#160;!= operator behaves identically to the ~= operator. When a test for equality is performed, the two operands are treated as strings, and compared in a case-insensitive manner. When any of the inequality tests is performed, the two operands are converted into floating-point numbers before comparison.
+</p><p>The <i>right</i> operand may be omitted, in which case it is treated as if an empty string were specified. Also, the <i>op</i> operator may be omitted, in which case the following rules apply regarding the remaining operand: If it is an empty string, or equal to the string "false" in case-insensitive comparison, the result is "false". If entirely consists of the text representation of a floating-point number, the result is "false" if the number is 0, and "true" if the number is not 0.
+</p><p>Inspired by the unix sh shells' <tt>test</tt> command, there exists a short form of the EVALUATE CONDITION command, where the arguments of EVALUATE CONDITION may appear within square brackets. This allows constructs such as
+</p>
+<pre>IF [ ${MyVar} == MyValue ]; LOG Is equal; ELSE; LOG Is different; END
+</pre>
+<p>Note that the arguments to EVALUATE CONDITION must always be separated by white space, no matter whether its long or short form is used.
+</p><p>Conditions may be combined logically using the operators &amp;&amp; and ||.   These go <i>outside</i> the square brackets.  Note also that whitespace around the comparison operators is critical, otherwise the conditional will be treated as a single string (which will always evaluate to "true")
+</p>
+<pre>IF [ ${foo} == foo ] || [ ${bar} == bar ]; LOG got a match; END
+</pre>
+<h4><span class="mw-headline" id="Commands_operating_on_Local_Variables">Commands operating on Local Variables</span></h4>
+<p>Besides environment variables, there exist local variables in scripts. Local variables are inherited by sub-scripts executed with the EXECUTE SCRIPT command, but changes to the variable's values will not be propagated to the calling script.
+</p>
+<h5><span id="SET_VARIABLE_&lt;name&gt;_&lt;value&gt;"></span><span class="mw-headline" id="SET_VARIABLE_.3Cname.3E_.3Cvalue.3E">SET VARIABLE &lt;name&gt; &lt;value&gt;</span></h5>
+<p>Sets the named variable to the specified value.
+</p>
+<h5><span id="CLEAR_VARIABLE_&lt;name&gt;"></span><span class="mw-headline" id="CLEAR_VARIABLE_.3Cname.3E">CLEAR VARIABLE &lt;name&gt;</span></h5>
+<p>Removes the named variable from memory.
+</p>
+<h5><span id="GET_VARIABLE_&lt;name&gt;"></span><span class="mw-headline" id="GET_VARIABLE_.3Cname.3E">GET VARIABLE &lt;name&gt;</span></h5>
+<p>Returns the variable's current value. When the variable does not exist, an empty value is returned rather than an error message.
+</p>
+<h4><span class="mw-headline" id="Commands_operating_on_Environment_Variables">Commands operating on Environment Variables</span></h4>
+<p>These scripting commands allow to read and modify environment variables. Changes to environment variables will be visible to child processes started with SYSTEM or START EXECUTABLE. Variable values are stored as strings. Variable names may not contain the equals sign.
+</p>
+<h5><span id="SET_ENVIRONMENT_&lt;name&gt;_&lt;value&gt;"></span><span class="mw-headline" id="SET_ENVIRONMENT_.3Cname.3E_.3Cvalue.3E">SET ENVIRONMENT &lt;name&gt; &lt;value&gt;</span></h5>
+<p>Sets the named variable to the specified value.
+</p>
+<h5><span id="CLEAR_ENVIRONMENT_&lt;name&gt;"></span><span class="mw-headline" id="CLEAR_ENVIRONMENT_.3Cname.3E">CLEAR ENVIRONMENT &lt;name&gt;</span></h5>
+<p>Removes the named variable from memory.
+</p>
+<h5><span id="GET_ENVIRONMENT_&lt;name&gt;"></span><span class="mw-headline" id="GET_ENVIRONMENT_.3Cname.3E">GET ENVIRONMENT &lt;name&gt;</span></h5>
+<p>Returns the variable's current value. When the variable does not exist, an empty value is returned rather than an error message.
+</p>
+<h4><span class="mw-headline" id="Commands_operating_on_Scripts">Commands operating on Scripts</span></h4>
+<h5><span id="SET_SCRIPT_&lt;handler_names&gt;_&lt;scripting_commands&gt;"></span><span class="mw-headline" id="SET_SCRIPT_.3Chandler_names.3E_.3Cscripting_commands.3E">SET SCRIPT &lt;handler names&gt; &lt;scripting commands&gt;</span></h5>
+<p>Associates a sequence of scripting commands with the named handler. Handlers are specified by names as given <a href="User_Reference%253AOperator_Module_Scripting.html#Handlers">below</a>. Multiple handlers may be specified by concatenating their names with a pipe character, e.g. "OnStart|OnResume".
+</p><p>Scripting commands must be included in double quotes, unless they consist of a single word.
+When specifying a sequence of scripting commands, they must be separated with a semicolon character: "SetConfig; Start". In order to use double quotes or semicolons within the commands themselves, encode these as you would in a URL, i.e. replace a double quote character with <i>%22</i>, and a semicolon with <i>%3B</i>: "Load Parameters %22my file%22".
+</p><p>To use a script file rather than a literal script, use the EXECUTE SCRIPT command:
+</p>
+<pre>SET SCRIPT OnConnect "EXECUTE SCRIPT myscript.txt"
+</pre>
+<h5><span id="GET_SCRIPT_&lt;handler_name&gt;"></span><span class="mw-headline" id="GET_SCRIPT_.3Chandler_name.3E">GET SCRIPT &lt;handler name&gt;</span></h5>
+<p>Returns the script associated with the specified handler.
+</p>
+<h5><span id="CLEAR_SCRIPT_&lt;handler_names&gt;"></span><span class="mw-headline" id="CLEAR_SCRIPT_.3Chandler_names.3E">CLEAR SCRIPT &lt;handler names&gt;</span></h5>
+<p>Clears scripts for the given handlers. Equivalent to calling SET SCRIPT with an empty script.
+</p>
+<h5><span id="EXECUTE_SCRIPT_&lt;file_or_handler_name&gt;_[&lt;Arg1&gt;_&lt;Arg2&gt;_..._&lt;Arg9&gt;]"></span><span class="mw-headline" id="EXECUTE_SCRIPT_.3Cfile_or_handler_name.3E_.5B.3CArg1.3E_.3CArg2.3E_..._.3CArg9.3E.5D">EXECUTE SCRIPT &lt;file or handler name&gt; [&lt;Arg1&gt; &lt;Arg2&gt; ... &lt;Arg9&gt;]</span></h5>
+<p>Executes a script contained in a file, and optionally sets the script's local variables <i>1</i> to <i>9</i> to the specified values. To execute script commands already associated with a handler, provide a handler name rather than a file. When the script is executed successfully, the result of the last executed script command becomes the result of the EXECUTE SCRIPT command itself. Use "SET Result &lt;value&gt;" as the last command in a script in order to return a certain value.
+</p><p>When you run a script through EXECUTE SCRIPT, it will inherit copies of variables from its calling script/command line. Variable changes will be local to the script, and will be lost when script execution is complete.
+</p><p>The <i>AbortOnError</i> variable determines whether a script is aborted when any of its commands result in an error message. <i>AbortOnError</i> is not inherited but defaults to 1 in any script.
+</p>
+<h4><span class="mw-headline" id="Commands_operating_on_Parameters">Commands operating on Parameters</span></h4>
+<h5><span id="LOAD_PARAMETERFILE_&lt;file&gt;,_LOAD_PARAMETERS_&lt;file&gt;"></span><span class="mw-headline" id="LOAD_PARAMETERFILE_.3Cfile.3E.2C_LOAD_PARAMETERS_.3Cfile.3E">LOAD PARAMETERFILE &lt;file&gt;, LOAD PARAMETERS &lt;file&gt;</span></h5>
+<p>Loads a parameter file specified by its path and name. Relative paths are interpreted relative to the operator module's working directory at startup. Usually, this matches the executable's location in the <tt>prog</tt> directory.
+As the parameter file name must not contain white space, please use HTML-type encoding for white space characters, such as <tt>Documents%20and%20Settings</tt> when referring to a user's "Documents and Settings" folder.
+</p>
+<h5><span id="ADD_PARAMETER_&lt;parameter_definition&gt;"></span><span class="mw-headline" id="ADD_PARAMETER_.3Cparameter_definition.3E">ADD PARAMETER &lt;parameter definition&gt;</span></h5>
+<p>Adds a parameter to the system. The parameter is specified as a <a href="Technical_Reference%253AParameter_Definition.html#Parameter_Lines" title="Technical Reference:Parameter Definition">parameter line</a>. This command may not be used after system initialization has completed, i.e. its use is restricted to the "Idle" and "Publishing" <a href="Technical_Reference%253AStates_of_Operation.html#Publishing_Phase" title="Technical Reference:States of Operation">phases of system operation</a>. In terms of handlers, its use is restricted to the <i>OnConnect</i> handler.
+</p>
+<h5><span id="EXISTS_PARAMETER_&lt;name&gt;"></span><span class="mw-headline" id="EXISTS_PARAMETER_.3Cname.3E">EXISTS PARAMETER &lt;name&gt;</span></h5>
+<p>Returns "true" when the specified parameter exists in the system, and "false" otherwise.
+</p>
+<h5><span id="SET_PARAMETER_&lt;name&gt;[(_idx1,_idx2_)]_&lt;value&gt;"></span><span class="mw-headline" id="SET_PARAMETER_.3Cname.3E.5B.28_idx1.2C_idx2_.29.5D_.3Cvalue.3E">SET PARAMETER &lt;name&gt;[( idx1, idx2 )] &lt;value&gt;</span></h5>
+<p>Sets the named parameter to the specified value. Values that contain special characters, or whitespace must use the <a href="Technical_Reference%253AParameter_Definition.html#Special_Characters" title="Technical Reference:Parameter Definition">parameter value encoding</a>. Use parentheses to specify indices or labels. Omitted indices default to 1.
+</p>
+<h5><span id="SET_PARAMETER_&lt;parameter_line&gt;"></span><span class="mw-headline" id="SET_PARAMETER_.3Cparameter_line.3E">SET PARAMETER &lt;parameter line&gt;</span></h5>
+<p>Replace a parameter's value and definition with the information given in the <a href="Technical_Reference%253AParameter_Definition.html#Parameter_Lines" title="Technical Reference:Parameter Definition">parameter line</a>. The parameter must exist in the system when this command is executed.
+</p>
+<h5><span id="GET_PARAMETER_&lt;name&gt;[(_idx1,_idx2_)]"></span><span class="mw-headline" id="GET_PARAMETER_.3Cname.3E.5B.28_idx1.2C_idx2_.29.5D">GET PARAMETER &lt;name&gt;[( idx1, idx2 )]</span></h5>
+<p>Prints the value of the named parameter. Use parentheses to specify indices or labels.
+</p>
+<h5><span id="LIST_PARAMETER_&lt;wildcard_expression&gt;,_LIST_PARAMETERS"></span><span class="mw-headline" id="LIST_PARAMETER_.3Cwildcard_expression.3E.2C_LIST_PARAMETERS">LIST PARAMETER &lt;wildcard expression&gt;, LIST PARAMETERS</span></h5>
+<p>Prints all parameters with names matching the wildcard expression, in form of parameter lines.
+</p>
+<h5><span class="mw-headline" id="CLEAR_PARAMETERS">CLEAR PARAMETERS</span></h5>
+<p>Clears the list of parameters in the system. May only be executed in <i>Idle</i> and <i>Publishing</i> system states.
+</p>
+<h4><span class="mw-headline" id="Commands_operating_on_States">Commands operating on States</span></h4>
+<p>In BCI2000, there are three types of States that differ in their alignment to brain signal data (see <a href="Technical_Reference%253AState_Definition.html#Kinds_of_States" title="Technical Reference:State Definition">Kinds of States</a>). This section applies to both Stream States, and normal States.
+For Event States, see the next section.
+</p>
+<h5><span id="ADD_STATE_&lt;name&gt;_&lt;bit_width&gt;_&lt;initial_value&gt;"></span><span class="mw-headline" id="ADD_STATE_.3Cname.3E_.3Cbit_width.3E_.3Cinitial_value.3E">ADD STATE &lt;name&gt; &lt;bit width&gt; &lt;initial value&gt;</span></h5>
+<p>Adds a state variable to the system. State variables are defined by name, bit width, and initial value (see <a href="Technical_Reference%253AState_Definition.html" title="Technical Reference:State Definition">Technical Reference:State Definition</a>). This command may not be used after system initialization has completed, i.e. its use is restricted to the "Idle" and "Publishing" <a href="Technical_Reference%253AStates_of_Operation.html#Publishing_Phase" title="Technical Reference:States of Operation">phases of system operation</a>. In terms of handlers, its use is restricted to the <i>OnConnect</i> handler.
+</p>
+<h5><span id="EXISTS_STATE_&lt;name&gt;"></span><span class="mw-headline" id="EXISTS_STATE_.3Cname.3E">EXISTS STATE &lt;name&gt;</span></h5>
+<p>Returns "true" when the specified state exists in the system, and "false" otherwise.
+</p>
+<h5><span id="SET_STATE_&lt;name&gt;_&lt;value&gt;,_SET_STATES_&lt;name1&gt;_&lt;value1&gt;_&lt;name2&gt;_&lt;value2&gt;_..."></span><span class="mw-headline" id="SET_STATE_.3Cname.3E_.3Cvalue.3E.2C_SET_STATES_.3Cname1.3E_.3Cvalue1.3E_.3Cname2.3E_.3Cvalue2.3E_...">SET STATE &lt;name&gt; &lt;value&gt;, SET STATES &lt;name1&gt; &lt;value1&gt; &lt;name2&gt; &lt;value2&gt; ...</span></h5>
+<p>Sets the named state variable to the specified integer value. Setting the <i>Running</i> state to 1 will start system operation, setting it to 0 will suspend the system.
+</p><p><tt>SET STATES</tt> will atomically set the values of multiple states.
+</p>
+<h5><span id="GET_STATE_&lt;name&gt;"></span><span class="mw-headline" id="GET_STATE_.3Cname.3E">GET STATE &lt;name&gt;</span></h5>
+<p>Gets the value of the named state. Note that state values are not updated from the application module when the <i>OperatorBackLink</i> parameter is 0. In that case, GET STATE will return the state's initial value.
+</p>
+<h5><span id="LIST_STATE_&lt;wildcard_expression&gt;,_LIST_STATES"></span><span class="mw-headline" id="LIST_STATE_.3Cwildcard_expression.3E.2C_LIST_STATES">LIST STATE &lt;wildcard expression&gt;, LIST STATES</span></h5>
+<p>Lists all states, or states with names matching the given wildcard expression, in form of state lines.
+</p>
+<h5><span class="mw-headline" id="CLEAR_STATES">CLEAR STATES</span></h5>
+<p>Clears the list of states in the system. May only be executed in <i>Idle</i> and <i>Publishing</i> system states.
+</p>
+<h5><span id="FREEZE_STATES,_THAW_STATES"></span><span class="mw-headline" id="FREEZE_STATES.2C_THAW_STATES">FREEZE STATES, THAW STATES</span></h5>
+<p>Freezes/thaws the values of all states in the state vector, without interfering with system operation.  "Freezing" creates, and "thawing" discards, a frozen snapshot of the state vector. For the duration of its existence, GET STATE calls will be diverted to the snapshot.  This is useful for ensuring that multiple GET STATE commands actually retrieve mutually-consistent values from different state variables (i.e. values from the same sample-block).
+</p>
+<h4><span class="mw-headline" id="Commands_operating_on_Events">Commands operating on Events</span></h4>
+<p>Events are a special type of state, which are recorded asynchronously, at single-sample resolution. Events may only be added while the system is in "idle" state. This kind of events is not related to <a href="User_Reference%253AOperator_Module_Scripting.html#Handlers">Operator Events</a> as defined below.
+</p>
+<h5><span id="ADD_EVENT_&lt;name&gt;_&lt;bit_width&gt;_&lt;initial_value&gt;"></span><span class="mw-headline" id="ADD_EVENT_.3Cname.3E_.3Cbit_width.3E_.3Cinitial_value.3E">ADD EVENT &lt;name&gt; &lt;bit width&gt; &lt;initial value&gt;</span></h5>
+<p>Adds an event to the system. Like state variables, events are defined by name, bit width, and initial value (see <a href="Technical_Reference%253AState_Definition.html" title="Technical Reference:State Definition">Technical Reference:State Definition</a>). This command may not be used after the system has started up, so it is typically executed within a telnet session before <i>STARTUP</i> has been called.
+</p>
+<h5><span id="EXISTS_EVENT_&lt;name&gt;"></span><span class="mw-headline" id="EXISTS_EVENT_.3Cname.3E">EXISTS EVENT &lt;name&gt;</span></h5>
+<p>Returns "true" when the specified event exists in the system, and "false" otherwise.
+</p>
+<h5><span id="SET_EVENT_&lt;name&gt;_&lt;value&gt;"></span><span class="mw-headline" id="SET_EVENT_.3Cname.3E_.3Cvalue.3E">SET EVENT &lt;name&gt; &lt;value&gt;</span></h5>
+<p>Asynchronously sets an event to the given value. Recording events requires the EventLink logger component to be present in the source module.
+</p><p><b>NOTE:</b> In versions prior to BCI2000 3.06, this command behaved as described for PULSE EVENT below, rather than as advertised. If you used SET EVENT in your scripts, it is recommended to replace it with PULSE EVENT in order to retain original behavior.
+</p>
+<h5><span id="PULSE_EVENT_&lt;name&gt;_&lt;value&gt;"></span><span class="mw-headline" id="PULSE_EVENT_.3Cname.3E_.3Cvalue.3E">PULSE EVENT &lt;name&gt; &lt;value&gt;</span></h5>
+<p>Asynchronously sets an event to the given value for a single sample duration. Recording events requires the EventLink logger component to be present in the source module.
+</p>
+<h5><span id="GET_EVENT_&lt;name&gt;"></span><span class="mw-headline" id="GET_EVENT_.3Cname.3E">GET EVENT &lt;name&gt;</span></h5>
+<p>Gets the value of the named event. Note that evemt values are not updated from the application module when the <i>OperatorBackLink</i> parameter is 0.
+</p>
+<h5><span id="LIST_EVENT_&lt;wildcard_expression&gt;,_LIST_EVENTS"></span><span class="mw-headline" id="LIST_EVENT_.3Cwildcard_expression.3E.2C_LIST_EVENTS">LIST EVENT &lt;wildcard expression&gt;, LIST EVENTS</span></h5>
+<p>Lists all events, or events with names matching the given wildcard expression, in form of state lines.
+</p>
+<h5><span class="mw-headline" id="CLEAR_EVENTS">CLEAR EVENTS</span></h5>
+<p>Clears the list of events in the system. May only be executed in <i>Idle</i> state.
+</p>
+<h4><span class="mw-headline" id="Commands_operating_on_VisProperties">Commands operating on VisProperties</span></h4>
+<h5><span id="SET_VISPROPERTY_&lt;visID&gt;.&lt;name&gt;_&lt;value&gt;"></span><span class="mw-headline" id="SET_VISPROPERTY_.3CvisID.3E..3Cname.3E_.3Cvalue.3E">SET VISPROPERTY &lt;visID&gt;.&lt;name&gt; &lt;value&gt;</span></h5>
+<p>Sets the named <a href="Technical_Reference%253AVisualization_Properties.html" title="Technical Reference:Visualization Properties">visualization property</a> for the specified visualization ID to the given value. If the visualization ID contains a dot character, it must be encoded in <a href="Technical_Reference%253AParameter_Definition.html#Special_Characters" title="Technical Reference:Parameter Definition">parameter value encoding</a>. E.g., setting the window width for the visualization ID "2.D1" would be written <code>SET VISPROPERTY 2%2ED1.Width 200</code>.
+</p>
+<h5><span id="GET_VISPROPERTY_&lt;visID&gt;.&lt;name&gt;"></span><span class="mw-headline" id="GET_VISPROPERTY_.3CvisID.3E..3Cname.3E">GET VISPROPERTY &lt;visID&gt;.&lt;name&gt;</span></h5>
+<p>Prints the value of the named <a href="Technical_Reference%253AVisualization_Properties.html" title="Technical Reference:Visualization Properties">visualization property</a> for the specified visualization ID.
+</p>
+<h5><span id="SET_VISPROPERTIES_&lt;property_set_ID&gt;"></span><span class="mw-headline" id="SET_VISPROPERTIES_.3Cproperty_set_ID.3E">SET VISPROPERTIES &lt;property set ID&gt;</span></h5>
+<p>Applies a set of visualization property values as given in the <a href="User_Reference%253AOperator_Module_Scripting.html#VisPropertySets">VisPropertySets</a> parameter. In that matrix-valued parameter, row labels specify visualization properties such as "SRCD.Left", and columns represent sets of property values. Column labels are IDs of the corresponding property sets.
+</p>
+<h4><span class="mw-headline" id="Commands_operating_on_the_Control_Signal">Commands operating on the Control Signal</span></h4>
+<h5><span id="GET_SIGNAL(_&lt;channel_index&gt;,_&lt;element_index&gt;_)"></span><span class="mw-headline" id="GET_SIGNAL.28_.3Cchannel_index.3E.2C_.3Celement_index.3E_.29">GET SIGNAL( &lt;channel index&gt;, &lt;element index&gt; )</span></h5>
+<p>Prints the value of the control signal at the given indices. Indices are 1-based.
+</p>
+<h4><span class="mw-headline" id="Commands_operating_on_Expressions">Commands operating on Expressions</span></h4>
+<h5><span id="EVALUATE_EXPRESSION_&lt;expression&gt;"></span><span class="mw-headline" id="EVALUATE_EXPRESSION_.3Cexpression.3E">EVALUATE EXPRESSION &lt;expression&gt;</span></h5>
+<p>This command treats the remainder of the command as a literal mathematical expression (for a description, see <a href="User_Reference%253AExpression_Syntax.html" title="User Reference:Expression Syntax">User Reference:Expression Syntax</a>. An expression may contain variable assignments; such variables may then be used in later expressions. Note that expression variables are different from local and environment variables that may be accessed by GET/SET VARIABLE/ENVIRONMENT. Expression variables hold numerical values, while local and environment variables hold string values. Also, environment variables are accessible to child processes started with SYSTEM or START EXECUTABLE, while expression variables are accessible only to scripts. When a script is executed using the EXECUTE SCRIPT command, it will inherit a copy of all expression variables present. Changes to these variables from the executed script will not be visible in the parent script.
+</p>
+<h5><span id="CLEAR_EXPRESSION_VARIABLE_&lt;name&gt;"></span><span class="mw-headline" id="CLEAR_EXPRESSION_VARIABLE_.3Cname.3E">CLEAR EXPRESSION VARIABLE &lt;name&gt;</span></h5>
+<p>Clears the named expression variable from storage.
+</p>
+<h4><span class="mw-headline" id="Commands_operating_on_Watches">Commands operating on Watches</span></h4>
+<p>A "Watch" is an object that consists of a set of expressions, and an action. Whenever the value of any of the expressions changes, the watch is "triggered", and the action is executed. Watches allow client applications to respond to BCI2000 state changes in a reliable manner. Rather than polling information from BCI2000, a client may create a watch to be notified about changes of interest. This avoids the problem of missing short-lived changes, which is inherent in the polling approach.
+</p><p>For watches created through operator scripting, the action consists of dumping values of all the expressions to a UDP port.
+</p><p>The intended use of a watch from a client application is to create a separate thread that reads from the watch's UDP port in a blocking mode, and calls an appropriate handler function whenever it receives data.
+The data sent will consist of a single UDP packet with a single line in ASCII format, terminated with a CRLF sequence. The line consists of tab-separated data fields, which contain the current values of the expressions specified when creating the watch. In addition, the first field contains a time stamp in the same time base as the <tt>SourceTime</tt> state, wrapping around every 65536 ms. This time stamp represents the point in time where the expression value changed, with an accuracy of a single sample.
+</p>
+<h5><span id="ADD_WATCH_[decimate_&lt;n&gt;]_&lt;expression1&gt;_&lt;expression2&gt;_..._[AT_&lt;ip:port&gt;]"></span><span class="mw-headline" id="ADD_WATCH_.5Bdecimate_.3Cn.3E.5D_.3Cexpression1.3E_.3Cexpression2.3E_..._.5BAT_.3Cip:port.3E.5D">ADD WATCH [decimate &lt;n&gt;] &lt;expression1&gt; &lt;expression2&gt; ... [AT &lt;ip:port&gt;]</span></h5>
+<p>Adds a watch for the listed expressions. Each expression's value will be reported in a separate field. When an address is specified in <tt>ip:port</tt> format, the watch tries to open that port for output, and creation fails if that port is taken. Otherwise, a free port is chosen automatically. In both cases, successful creation of the watch is indicated by returning the output address in ASCII format. The address is also used to uniquely identify a watch in the context of a connection.
+</p><p>When a <i>decimate &lt;n&gt;</i> clause is present, the watch will be created with decimation, i.e. it will only be evaluated for every <i>n</i>th
+sample of the state vector.
+</p><p>If a watch is created through a remote connection, it will use the remote host's external IP address for automatically chosen addresses. Otherwise, the output port will be associated with the machine's <tt>localhost</tt> address.
+</p><p>Watches may be created even if the system is currently running. In this case, the watch is triggered immediately, and sends its current expression values to its output port.
+</p>
+<h5><span id="ADD_WATCH_SYSTEM_STATE_[AT_&lt;address&gt;]"></span><span class="mw-headline" id="ADD_WATCH_SYSTEM_STATE_.5BAT_.3Caddress.3E.5D">ADD WATCH SYSTEM STATE [AT &lt;address&gt;]</span></h5>
+<p>Similar to the first variant of ADD WATCH, but will watch the system's state as reported by GET SYSTEM STATE.
+</p>
+<h5><span id="CLEAR_WATCH_&lt;address&gt;,_CLEAR_WATCHES_[&lt;wildcard-expression&gt;]"></span><span class="mw-headline" id="CLEAR_WATCH_.3Caddress.3E.2C_CLEAR_WATCHES_.5B.3Cwildcard-expression.3E.5D">CLEAR WATCH &lt;address&gt;, CLEAR WATCHES [&lt;wildcard-expression&gt;]</span></h5>
+<p>Removes the watches specified by address, or those with their addresses matching a wildcard expression. If CLEAR WATCHES is called without argument, all watches will be deleted.
+</p>
+<h5><span id="TRIGGER_WATCH_&lt;address&gt;,_TRIGGER_WATCHES_[&lt;wildcard-expression&gt;]"></span><span class="mw-headline" id="TRIGGER_WATCH_.3Caddress.3E.2C_TRIGGER_WATCHES_.5B.3Cwildcard-expression.3E.5D">TRIGGER WATCH &lt;address&gt;, TRIGGER WATCHES  [&lt;wildcard-expression&gt;]</span></h5>
+<p>Forces dumping of the watches' current expression values to their output ports. Mostly useful for testing purposes.
+</p>
+<h5><span id="LIST_WATCHES_[&lt;wildcard-expression&gt;]"></span><span class="mw-headline" id="LIST_WATCHES_.5B.3Cwildcard-expression.3E.5D">LIST WATCHES  [&lt;wildcard-expression&gt;]</span></h5>
+<p>Displays a list of existing watches, and their addresses.
+</p>
+<h5><span id="COUNT_WATCHES_[&lt;wildcard-expression&gt;]"></span><span class="mw-headline" id="COUNT_WATCHES_.5B.3Cwildcard-expression.3E.5D">COUNT WATCHES  [&lt;wildcard-expression&gt;]</span></h5>
+<p>Returns the number of existing watches, or the number of watches whose addresses match the optional wildcard expression.
+</p>
+<h4><span id="Commands_operating_on_Files,_Directories,_and_Paths"></span><span class="mw-headline" id="Commands_operating_on_Files.2C_Directories.2C_and_Paths">Commands operating on Files, Directories, and Paths</span></h4>
+<h5><span id="EXTRACT_DIRECTORY_&lt;path&gt;,_EXTRACT_FILE_&lt;path&gt;,_EXTRACT_FILE_BASE_&lt;path&gt;"></span><span class="mw-headline" id="EXTRACT_DIRECTORY_.3Cpath.3E.2C_EXTRACT_FILE_.3Cpath.3E.2C_EXTRACT_FILE_BASE_.3Cpath.3E">EXTRACT DIRECTORY &lt;path&gt;, EXTRACT FILE &lt;path&gt;, EXTRACT FILE BASE &lt;path&gt;</span></h5>
+<p>Extracts the directory or file portion of a given path. When the path specifies a non-existing directory, the directory name must be followed with a separator ("/") in order to be recognized as a directory. The EXTRACT DIRECTORY command always returns its result with a trailing separator. The EXTRACT FILE BASE command returns the file portion without extension.
+</p>
+<h5><span id="IS_DIRECTORY_&lt;path&gt;,_IS_FILE_&lt;path&gt;,_IS_PATH_&lt;path&gt;"></span><span class="mw-headline" id="IS_DIRECTORY_.3Cpath.3E.2C_IS_FILE_.3Cpath.3E.2C_IS_PATH_.3Cpath.3E">IS DIRECTORY &lt;path&gt;, IS FILE &lt;path&gt;, IS PATH &lt;path&gt;</span></h5>
+<p>Determines whether the specified path points to an existing directory, file, or any of the two. The result is returned as one of the strings "true" or "false".
+</p>
+<h5><span id="PARENT_DIRECTORY_&lt;path&gt;"></span><span class="mw-headline" id="PARENT_DIRECTORY_.3Cpath.3E">PARENT DIRECTORY &lt;path&gt;</span></h5>
+<p>Returns the parent directory of the specified path, independently of whether the path points to a directory, or to a file.
+</p>
+<h5><span class="mw-headline" id="CURRENT_DIRECTORY">CURRENT DIRECTORY</span></h5>
+<p>Returns the current working directory.
+</p>
+<h5><span id="CHANGE_DIRECTORY_&lt;path&gt;"></span><span class="mw-headline" id="CHANGE_DIRECTORY_.3Cpath.3E">CHANGE DIRECTORY &lt;path&gt;</span></h5>
+<p>Changes the working directory.
+</p>
+<h5><span id="MAKE_DIRECTORY_&lt;path&gt;"></span><span class="mw-headline" id="MAKE_DIRECTORY_.3Cpath.3E">MAKE DIRECTORY &lt;path&gt;</span></h5>
+<p>Creates a new directory with the given path. The directory's parent must exist for the command to succeed.
+</p>
+<h5><span id="LIST_DIRECTORY_[&lt;path&gt;_or_&lt;wildcard_expression&gt;]"></span><span class="mw-headline" id="LIST_DIRECTORY_.5B.3Cpath.3E_or_.3Cwildcard_expression.3E.5D">LIST DIRECTORY [&lt;path&gt; or &lt;wildcard expression&gt;]</span></h5>
+<p>Returns a listing of the specified directory, or the current working directory if no path is specified. The listing is in long form. You may use wildcard expressions in order to restrict the output.
+</p>
+<h5><span id="LIST_FILE_&lt;wildcard_expression&gt;"></span><span class="mw-headline" id="LIST_FILE_.3Cwildcard_expression.3E">LIST FILE &lt;wildcard expression&gt;</span></h5>
+<p>Returns a list of file names matching <i>wildcard expression</i> in the current directory.
+</p>
+<h5><span id="LIST_FILES_[&lt;directory&gt;_[&lt;wildcard_expression&gt;]]"></span><span class="mw-headline" id="LIST_FILES_.5B.3Cdirectory.3E_.5B.3Cwildcard_expression.3E.5D.5D">LIST FILES [&lt;directory&gt; [&lt;wildcard expression&gt;]]</span></h5>
+<p>Returns a list of file names from the specified directory, matching <i>wildcard expression</i>. When <i>wildcard expression</i> is missing, all files are listed. When <i>directory</i> is missing, files in the current directory are listed.
+</p>
+<h5><span id="LIST_DIRECTORIES_[&lt;directory&gt;_[&lt;wildcard_expression&gt;]]"></span><span class="mw-headline" id="LIST_DIRECTORIES_.5B.3Cdirectory.3E_.5B.3Cwildcard_expression.3E.5D.5D">LIST DIRECTORIES [&lt;directory&gt; [&lt;wildcard expression&gt;]]</span></h5>
+<p>Returns a list of directory names from the specified directory, matching <i>wildcard expression</i>. When <i>wildcard expression</i> is missing, all directories are listed. When <i>directory</i> is missing, directories in the current directory are listed.
+</p>
+<h5><span id="RENAME_FILE_&lt;current_path&gt;_&lt;new_path&gt;,_RENAME_DIRECTORY_&lt;current_path&gt;_&lt;new_name&gt;"></span><span class="mw-headline" id="RENAME_FILE_.3Ccurrent_path.3E_.3Cnew_path.3E.2C_RENAME_DIRECTORY_.3Ccurrent_path.3E_.3Cnew_name.3E">RENAME FILE &lt;current path&gt; &lt;new path&gt;, RENAME DIRECTORY &lt;current path&gt; &lt;new name&gt;</span></h5>
+<p>Renames a file resp. a directory. For files, a different path may be given in the second argument, resulting in that the file is moved to the location specified by the new path. For directories, the path up to the directory's name must stay the same.
+</p>
+<h5><span id="REMOVE_FILE_&lt;path&gt;,_REMOVE_DIRECTORY_&lt;path&gt;"></span><span class="mw-headline" id="REMOVE_FILE_.3Cpath.3E.2C_REMOVE_DIRECTORY_.3Cpath.3E">REMOVE FILE &lt;path&gt;, REMOVE DIRECTORY &lt;path&gt;</span></h5>
+<p>Removes the specified file or directory. This command cannot be undone. The directory must be empty for the command to succeed.
+</p>
+<h5><span id="FORCEREMOVE_DIRECTORY_&lt;path&gt;"></span><span class="mw-headline" id="FORCEREMOVE_DIRECTORY_.3Cpath.3E">FORCEREMOVE DIRECTORY &lt;path&gt;</span></h5>
+<p>Removes the specified directory and its contents. Symbolic links are treated as ordinary files, i.e. they are not followed. This command cannot be undone.
+</p>
+<h5><span id="NORMALIZED_PATH_&lt;path&gt;"></span><span class="mw-headline" id="NORMALIZED_PATH_.3Cpath.3E">NORMALIZED PATH &lt;path&gt;</span></h5>
+<p>Returns &lt;path&gt;, with the following transformations applied:
+</p>
+<ul><li>Removes relative elements (<tt>..</tt> <tt>.</tt>) as far as possible. For absolute paths, the result will not contain any relative elements; for relative paths, double-dots may appear at the beginning of the result if necessary.</li></ul>
+<p>If a relative path simplifies to the empty string, <tt>./</tt> is returned. Thus, the result of NORMALIZED PATH is never empty, unless its input was empty.
+</p>
+<ul><li>Replaces backward slashes with forward slashes to achieve uniformity across platforms.</li>
+<li>On case-insensitive file systems, replaces the spelling of names with the one stored in the file system.</li>
+<li>On Win32, replaces short (8.3) names with long ones.</li></ul>
+<h5><span id="CANONICAL_PATH_&lt;path&gt;"></span><span class="mw-headline" id="CANONICAL_PATH_.3Cpath.3E">CANONICAL PATH &lt;path&gt;</span></h5>
+<p>If &lt;path&gt; points to an existing file or directory, CANONICAL PATH returns a valid absolute file path, suitable as an unambiguous representation for the object pointed to. Especially, two non-empty canonical path strings will compare equal if and only if they refer to the same file system object.
+</p><p>If &lt;path&gt; does not point to an existing file system object, construction of a canonical path is not possible due to lack of information about the named object, and CANONICAL PATH will return an empty string.
+</p><p><b>NOTES:</b> The need for an unambiguous, or canonical, representation arises due to ambiguities in the string representation of paths, and in file systems themselves.
+</p>
+<ul><li>Paths may contain relative elements: <tt>/mydir/../myfile</tt> points to the same object as <tt>/myfile</tt>.</li>
+<li>A path that involves symbolic links will point to the same object as a path containing one or more of those links in resolved form.</li>
+<li>File systems may be case-insensitive, or may even provide multiple distinct names for individual directory entries (Win32 short vs. long names).</li></ul>
+<p>On <b>Win32,</b> CANONICAL PATH returns the short (8.3) representation of a path, using uppercase spelling, and backslashes as directory separators. Apart from efficiency considerations, this aesthetically unpleasing representation has been chosen to discourage its use for anything except comparing file system objects.
+</p><p>On <b>other systems,</b> CANONICAL PATH will return the result of the POSIX <tt>realpath()</tt> function.
+</p><p>In both cases, a CANONICAL PATH will end with a native directory separator if, and only if, the object pointed to is a directory.
+</p>
+<h5><span id="REAL_PATH_&lt;path&gt;"></span><span class="mw-headline" id="REAL_PATH_.3Cpath.3E">REAL PATH &lt;path&gt;</span></h5>
+<p>On this command provides a work-alike for the POSIX <tt>realpath()</tt> function.
+If &lt;path&gt; is empty, or if &lt;path&gt; points to a non-existing object, the result will be empty. Otherwise, an absolute path will be returned, with symbolic links resolved, using forward slashes as directory separators, and with spelling normalized as described for NORMALIZED PATH. A forward slash will be appended if the path points to a directory.
+</p><p><b>NOTE:</b> In principle, the path returned by REAL PATH should be just as unambiguous as the result of CANONICAL PATH. However, there are a few caveats:
+</p>
+<ul><li>On case-insensitive file systems, two independently obtained results of REAL PATH might differ in case spelling even if referring to the same file system object. This should not be the case for CANONICAL PATH.</li>
+<li>Determining the result of CANONICAL PATH is a fast operation. In contrast, REAL PATH may be expensive to determine, as for each directory on the path a listing needs to be obtained, and a canonical path needs to be formed, and compared, for half of the listed directory entries on average.</li>
+<li>On Win32, quite some amount of complexity arises from backward compatibility layers, forbidden file names, multiple filesystem roots, etc. Internally calling <tt>GetShortPathName()</tt>, CANONICAL PATH does not need to handle that complexity, and may be considered more reliable for identifying file system objects than REAL PATH.</li></ul>
+<h4><span id="Commands_operating_on_Lines_of_input/output"></span><span class="mw-headline" id="Commands_operating_on_Lines_of_input.2Foutput">Commands operating on Lines of input/output</span></h4>
+<h5><span id="WRITE_LINE_&lt;line&gt;"></span><span class="mw-headline" id="WRITE_LINE_.3Cline.3E">WRITE LINE &lt;line&gt;</span></h5>
+<p>Writes a line of output. Destination depends on the context in which a script is executed. If the context is an Operator Handler, output is written as a log entry. If the context is a telnet session, output is written to the telnet connection. If the context is a <a href="User_Reference%253ABCI2000Shell.html" title="User Reference:BCI2000Shell">BCI2000Shell</a>, output is written to the shell's stdout.
+</p>
+<h5><span class="mw-headline" id="READ_LINE">READ LINE</span></h5>
+<p>Reads a line of input from the current execution context's input. If the command is executed within an Operator Handler, it will fail. If executed within a telnet session, the other side of the connection is prompted for input. If executed from within a <a href="User_Reference%253ABCI2000Shell.html" title="User Reference:BCI2000Shell">BCI2000Shell</a>, input is read from the shell's stdin.
+</p>
+<h4><span class="mw-headline" id="Commands_operating_on_Processes_in_the_Operating_System">Commands operating on Processes in the Operating System</span></h4>
+<h5><span id="CREATE_PROCESS_&lt;command_line&gt;"></span><span class="mw-headline" id="CREATE_PROCESS_.3Ccommand_line.3E">CREATE PROCESS &lt;command line&gt;</span></h5>
+<p>Starts the specified executable with options. This command returns after the started program has finished initialization, i.e. it will detect load time failures such as missing DLLs on Windows. If the process is still running when CREATE PROCESS returns, its result will be an operating system process id (pid). If the process has terminated, CREATE PROCESS will report its exit code marked with an <tt>ExitCode</tt> tag to allow distinction between a pid and an exit code.
+Please note that CREATE PROCESS requires quoting of arguments differently from other scripting commands. For details, see the SYSTEM command.
+</p>
+<h5><span id="TERMINATE_PROCESS_&lt;pid&gt;"></span><span class="mw-headline" id="TERMINATE_PROCESS_.3Cpid.3E">TERMINATE PROCESS &lt;pid&gt;</span></h5>
+<p>Tries to terminate the process with the given operating system pid, waiting for the process to terminate before returning. Will return <tt>false</tt> to indicate that a suitable process existed but could not be terminated.
+</p>
+<h5><span id="WAIT_FOR_PROCESS_&lt;pid&gt;_[&lt;timeout_seconds&gt;_=_infinite]"></span><span class="mw-headline" id="WAIT_FOR_PROCESS_.3Cpid.3E_.5B.3Ctimeout_seconds.3E_.3D_infinite.5D">WAIT FOR PROCESS &lt;pid&gt; [&lt;timeout seconds&gt; = infinite]</span></h5>
+<p>Waits for the process with the given operating system pid to terminate, or the timeout to expire. Returns <tt>false</tt> to indicate that the process is still executing.
+</p>
+<h5><span id="SHOW_PROCESS_&lt;pid&gt;"></span><span class="mw-headline" id="SHOW_PROCESS_.3Cpid.3E">SHOW PROCESS &lt;pid&gt;</span></h5>
+<p>Makes all windows visible which are associated with the process referred to by pid.
+In addition, brings one of the process' top level (desktop level) windows to the front for user interaction.
+</p>
+<h5><span id="HIDE_PROCESS_&lt;pid&gt;"></span><span class="mw-headline" id="HIDE_PROCESS_.3Cpid.3E">HIDE PROCESS &lt;pid&gt;</span></h5>
+<p>Makes all windows invisible which are associated with the process referred to by pid.
+</p>
+<h4><span class="mw-headline" id="Global_commands">Global commands</span></h4>
+<h5><span id="HELP_[&lt;type&gt;]"></span><span class="mw-headline" id="HELP_.5B.3Ctype.3E.5D">HELP [&lt;type&gt;]</span></h5>
+<p>When called with a type argument, lists commands that exist for the specified type (e.g., SYSTEM, or FILE). When called without argument, lists all commands in their main form. HELP ALL will list all commands, including synonyms.
+</p>
+<h5><span id="SET_&lt;name&gt;_&lt;value&gt;,_GET_&lt;name&gt;,_&lt;name&gt;"></span><span class="mw-headline" id="SET_.3Cname.3E_.3Cvalue.3E.2C_GET_.3Cname.3E.2C_.3Cname.3E">SET &lt;name&gt; &lt;value&gt;, GET &lt;name&gt;, &lt;name&gt;</span></h5>
+<p>Allows to set or retrieve the value of local and environment variables. The name is matched against local and environment variables. When no variable with the given name is found, SET will create a local variable, while GET will result in an error. GET may be further abbreviated to only consist of a name.
+</p><p>GET further allows evaluation of <a href="User_Reference%253AExpression_Syntax.html" title="User Reference:Expression Syntax">mathematical expressions</a>. When the expression is invalid, or contains an unknown variable, an error is triggered.
+</p>
+<h5><span class="mw-headline" id="GET_SYSTEM_STATE">GET SYSTEM STATE</span></h5>
+<p>Prints the current system state. This will be one of Unavailable, Idle, Startup, Initialization, Resting, Suspended, ParamsModified, Running, Termination, Busy.
+</p>
+<h5><span class="mw-headline" id="GET_CURRENT_RUN_FILE">GET CURRENT RUN FILE</span></h5>
+<p>Prints the full path to the current run file, or an empty string, if called outside Running state.
+</p>
+<h5><span id="WAIT_FOR_&lt;system_state&gt;_[&lt;timeout_seconds&gt;]"></span><span class="mw-headline" id="WAIT_FOR_.3Csystem_state.3E_.5B.3Ctimeout_seconds.3E.5D">WAIT FOR &lt;system state&gt; [&lt;timeout seconds&gt;]</span></h5>
+<p>Waits until the system is in the specified state. This may be one of Idle, Startup, Connected, Resting, Suspended, ParamsModified, Running, Termination, Busy, or a combination of these, separated with a pipe character: "Resting|Suspended". When no timeout is given, this command waits indefinitely. If the wait is successful, i.e. system state matches one of the specified states, WAIT FOR will return a value of "true". If timeout occurred, WAIT FOR will return "false".
+</p><p>If the BCI2000 system is shut down while a script is executing a WAIT FOR command, the script will be terminated with a "wait aborted" error message.
+</p><p>As a synonym for "Connected," "Initialization" is valid as well since it is compatible with the nomenclature in StateMachine.h. Still, it should be avoided because it is easily confused with, but very distinct from, the actions performed in the Initialize() phase.
+</p>
+<h5><span id="SLEEP_&lt;time_in_seconds&gt;"></span><span class="mw-headline" id="SLEEP_.3Ctime_in_seconds.3E">SLEEP &lt;time in seconds&gt;</span></h5>
+<p>Waits (sleeps) for the given amount of time. Timing resolution is 50ms. Tends to sleep a little longer than specified, with the error growing with duration.
+</p>
+<h5><span class="mw-headline" id="GET_SYSTEM_VERSION">GET SYSTEM VERSION</span></h5>
+<p>Prints BCI2000 version information.
+</p>
+<h5><span id="SETCONFIG,_SET_CONFIG"></span><span class="mw-headline" id="SETCONFIG.2C_SET_CONFIG">SETCONFIG, SET CONFIG</span></h5>
+<p>Applies current parameters to the system. Corresponds to the <i>SetConfig</i> button in the GUI version of the Operator module.
+</p>
+<h5><span class="mw-headline" id="START">START</span></h5>
+<p>Starts or resumes system operation, corresponding to the <i>Start/Resume</i> button in the GUI version of the Operator module.
+</p>
+<h5><span class="mw-headline" id="STOP">STOP</span></h5>
+<p>Stops system operation. Corresponds to the <i>Stop</i> button in the GUI version of the Operator.
+</p>
+<h5><span class="mw-headline" id="STARTUP_SYSTEM">STARTUP SYSTEM</span></h5>
+<p>When in idle state, starts up the system to wait for incoming connections from core modules. Additionally, the following arguments may be given: 1) an IP address on which to listen (default is to listen on all addresses), and 2) a list of generic core module names with ports. The default configuration corresponds to these arguments:
+</p>
+<pre>STARTUP SYSTEM * SignalSource:4000 SignalProcessing:4001 Application:4002
+</pre>
+<p>A system log file may optionally be specified on this line, by inserting the <code>--SystemLogFile</code> flag between the IP address and the module specifiers. For example:
+</p>
+<pre>STARTUP SYSTEM * --SystemLogFile=SOME_FILE.TXT SignalSource:4000 SignalProcessing:4001 Application:4002
+</pre>
+<p>The system log file will record all operator log window messages for the current launch, until the system shuts down.  It may be helpful to use the variables <code>$YYYYMMDD</code> and <code>$HHMMSS</code> to specify the filename.  Note that file name and path cannot contain spaces.
+</p>
+<h5><span class="mw-headline" id="SHUTDOWN_SYSTEM">SHUTDOWN SYSTEM</span></h5>
+<p>Shuts down core modules, and enters idle system state.
+</p>
+<h5><span class="mw-headline" id="RESET_SYSTEM">RESET SYSTEM</span></h5>
+<p>Shuts down the system, and clears all parameter, state, and event information.
+</p>
+<h5><span id="QUIT,_EXIT_[&lt;result&gt;]"></span><span class="mw-headline" id="QUIT.2C_EXIT_.5B.3Cresult.3E.5D">QUIT, EXIT [&lt;result&gt;]</span></h5>
+<p>Quits the operator module after terminating all BCI2000 modules. The optional <i>result</i> argument determines the result of the executed script.
+</p>
+<h5><span id="SYSTEM_&lt;command_line&gt;"></span><span class="mw-headline" id="SYSTEM_.3Ccommand_line.3E">SYSTEM &lt;command line&gt;</span></h5>
+<p>Executes a shell command, redirecting any console output into the command's script result. E.g., to obtain a directory listing, under Windows, you would enter
+</p>
+<pre>SYSTEM DIR
+</pre>
+<p><b>NOTE:</b> Arguments to the SYSTEM command are executed by the operating system's shell, and thus may require quoting different from the other scripting commands. E.g., writing
+</p>
+<pre>SET mydir ${PARENT DIRECTORY $BCI2000LAUNCHDIR}; ECHO ${LIST FILES $mydir}
+</pre>
+<p>will list files in the BCI2000 main directory, independently of whether the path to that directory contains space characters or not. However, to obtain a directory listing through the SYSTEM command, you would need to write
+</p>
+<pre>ECHO ${SYSTEM DIR "$mydir"}
+</pre>
+<p>to make sure the content of the variable <i>mydir</i> is interpreted as a single argument, independently of whether it contains space characters.
+</p>
+<h5><span id="START_EXECUTABLE_&lt;command_line&gt;"></span><span class="mw-headline" id="START_EXECUTABLE_.3Ccommand_line.3E">START EXECUTABLE &lt;command line&gt;</span></h5>
+<p>Behaves identically to CREATE PROCESS, except that it does not report a process id for the new process. For details, see CREATE PROCESS.
+</p>
+<h5><span id="LOG_&lt;message&gt;"></span><span class="mw-headline" id="LOG_.3Cmessage.3E">LOG &lt;message&gt;</span></h5>
+<p>Append the specified message to the system log.
+</p>
+<h5><span id="WARN_&lt;message&gt;"></span><span class="mw-headline" id="WARN_.3Cmessage.3E">WARN &lt;message&gt;</span></h5>
+<p>Append the specified message to the system log, formatted as a warning.
+</p>
+<h5><span id="ERROR_&lt;message&gt;"></span><span class="mw-headline" id="ERROR_.3Cmessage.3E">ERROR &lt;message&gt;</span></h5>
+<p>Append the specified message to the system log, formatted as an error message.
+</p>
+<h5><span id="CAPTURE_MESSAGES_&lt;message_types&gt;"></span><span class="mw-headline" id="CAPTURE_MESSAGES_.3Cmessage_types.3E">CAPTURE MESSAGES &lt;message types&gt;</span></h5>
+<p>Captures system log messages into a background buffer. When no message type is given, all messages are captured. When "None" is given as a message type, message capturing is disabled. Otherwise, the message type must be one of "Errors", "Warnings", "Debug", "Log". Multiple message types may be specified in a single command. When "None" appears within a single command, all preceding message types are ignored. Multiple CAPTURE MESSAGES commands are cumulative, except when "None" is specified as a message type.
+</p>
+<h5><span class="mw-headline" id="FLUSH_MESSAGES">FLUSH MESSAGES</span></h5>
+<p>Clears the background message buffer, and returns its previous content. Use CAPTURE MESSAGES to capture messages into the background message buffer.
+</p>
+<h4><span class="mw-headline" id="Operator-module_defined_Commands">Operator-module defined Commands</span></h4>
+<h5><span id="HIDE_WINDOW_[&lt;name&gt;],_SHOW_WINDOW_[&lt;name&gt;]"></span><span class="mw-headline" id="HIDE_WINDOW_.5B.3Cname.3E.5D.2C_SHOW_WINDOW_.5B.3Cname.3E.5D">HIDE WINDOW [&lt;name&gt;], SHOW WINDOW [&lt;name&gt;]</span></h5>
+<p>Hides or shows the specified window. When called without a window name, the Operator module's main window is hidden or shown. The window name may be one of Main, Configuration, Log, or Watches.
+</p>
+<h5><span id="SET_TITLE_&lt;title&gt;"></span><span class="mw-headline" id="SET_TITLE_.3Ctitle.3E">SET TITLE &lt;title&gt;</span></h5>
+<p>Sets the title of the main Operator window.
+</p>
+<h5><span id="SET_BUTTON_&lt;idx&gt;_&lt;label&gt;_&lt;commands&gt;"></span><span class="mw-headline" id="SET_BUTTON_.3Cidx.3E_.3Clabel.3E_.3Ccommands.3E">SET BUTTON &lt;idx&gt; &lt;label&gt; &lt;commands&gt;</span></h5>
+<p>Configures the function button with 1-based index <i>idx</i> such that it is labelled <i>label</i> and executes <i>commands</i>.
+</p>
+<h5><span id="VISUALIZE_WATCH_[decimate_&lt;n&gt;]_&lt;expression1&gt;_..."></span><span class="mw-headline" id="VISUALIZE_WATCH_.5Bdecimate_.3Cn.3E.5D_.3Cexpression1.3E_...">VISUALIZE WATCH [decimate &lt;n&gt;] &lt;expression1&gt; ...</span></h5>
+<p>Adds a watch for the given expressions to the operator module's Watches window, and makes the Watches window visible if it is hidden. If the <i>decimate</i> clause is present, the command will create a watch which will be evaluated only for every <i>n</i>th sample in the state vector.
+</p>
+<h5><span id="RECORD_VISUALIZATION_&lt;name&gt;_[on|off]"></span><span class="mw-headline" id="RECORD_VISUALIZATION_.3Cname.3E_.5Bon.7Coff.5D">RECORD VISUALIZATION &lt;name&gt; [on|off]</span></h5>
+<p>Registers the named visualization for recording. The visualization name must be the short name as displayed in the <i>View-&gt;Visualizations</i> menu. Switching a visualization recording to "on" is only possible in idle state (because an event for recording frame numbers must be registered in the system). When a visualization is registered for recording, its frames are stored immediately as they arrive at the operator module. Currently, only bitmap visualizations may be recorded.
+</p><p>Example: Recording the application window
+</p>
+<pre>RECORD VISUALIZATION ApplicationWindow on
+...
+# after parameters have been loaded
+Set parameter VisualizeApplication 1
+...
+</pre>
+<h3><span class="mw-headline" id="Predefined_Variables">Predefined Variables</span></h3>
+<p>The following variables exist when an Operator script is executed.
+Some of these variables are marked with <i>local</i>. This means that they are not environment variables, i.e. they are invisible to child processes that are launched using the SYSTEM or START EXECUTABLE commands, and their values may be different between script invocations. In script code, they are accessed like ordinary variables.
+</p>
+<h4><span class="mw-headline" id="BCI2000LAUNCHDIR">BCI2000LAUNCHDIR</span></h4>
+<p>The full absolute path to the directory where the Operator module resides. This is also prepended to the PATH environment variable, such that executables from the current BCI2000 installation will have precedence over any other executable with the same name.
+</p><p>On macOS, this is the path where the Operator module's application bundle resides. In the default configuration, this is the BCI2000 prog directory, both on macOS and on other platforms.
+</p>
+<h4><span class="mw-headline" id="BCI2000BINARY">BCI2000BINARY</span></h4>
+<p>The full absolute path to the Operator module.
+</p>
+<h4><span id="LogLevel_(local)"></span><span class="mw-headline" id="LogLevel_.28local.29">LogLevel (local)</span></h4>
+<p>Determines the amount of log information written to the Operator log. This variable only affects log messages originating from the current script. May be 1 (display all log messages) or 0 (suppress all log messages). Set to 1 by default. Changes to this local variable are not propagated to called sub-scripts. <i>NOTE:</i> Only log messages are controlled by this variable. Error messages originating from a script with 'LogLevel 0' will still be displayed in the Operator log.
+</p>
+<h4><span id="AbortOnError_(local)"></span><span class="mw-headline" id="AbortOnError_.28local.29">AbortOnError (local)</span></h4>
+<p>Determines if a script is aborted when an error happens, or whether the error is silently ignored. Set to 1 by default (script is aborted on error). Changes to this local variable are not propagated to called sub-scripts.
+</p>
+<h4><span id="Result_(local)"></span><span class="mw-headline" id="Result_.28local.29">Result (local)</span></h4>
+<p>The result of the last executed scripting command. When a script is executed by calling EXECUTE SCRIPT, the script's last executed command determines the result of the EXECUTE SCRIPT command itself.
+</p>
+<h4><span id="0,_1,_..._9_(local)"></span><span class="mw-headline" id="0.2C_1.2C_..._9_.28local.29">0, 1, ... 9 (local)</span></h4>
+<p>When a script file is being executed, these variables contain the arguments of the EXECUTE SCRIPT command.
+<i>$0</i> resolves to the full absolute path to the current script file. Within scripts, all of the <i>0-9</i> variables are defined, and those that do not have a matching argument are empty.
+</p>
+<h4><span id="YYYYMMDD_(local)"></span><span class="mw-headline" id="YYYYMMDD_.28local.29">YYYYMMDD (local)</span></h4>
+<p>Local time at execution of the current script, in YYYYMMDD format. In interactive sessions, reflects the time when the session was initiated.
+</p>
+<h4><span id="HHMMSS_(local)"></span><span class="mw-headline" id="HHMMSS_.28local.29">HHMMSS (local)</span></h4>
+<p>Local time at execution of the current script, in HHMMSS format. In interactive sessions, reflects the time when the session was initiated.
+</p>
+<h3><span class="mw-headline" id="Abbreviated_commands_and_synonyms">Abbreviated commands and synonyms</span></h3>
+<p>To minimize the need of consulting documentation, as well as for backward compatibility, a number of <b>synonymous commands</b> are provided. E.g., states may be added by INSERT STATE as well as ADD STATE, and the existence of a file may be queried by IS FILE as well as EXISTS FILE. For an overview over all allowed forms of commands, use the HELP ALL command.
+</p><p>To simplify operation in interactive sessions, <b>abbreviated commands</b> exist. Currently, these are:
+</p>
+<dl><dd><b>cd</b> for CHANGE DIRECTORY,</dd>
+<dd><b>pwd</b> and <b>cd</b> without argument for CURRENT DIRECTORY,</dd>
+<dd><b>ls</b> and <b>dir</b> for LIST DIRECTORY,</dd>
+<dd><b>mkdir</b> for MAKE DIRECTORY,</dd>
+<dd><b>echo</b> for WRITE LINE,</dd>
+<dd><b>realpath</b> for REAL PATH,</dd>
+<dd><b>dirname</b> for EXTRACT DIRECTORY,</dd>
+<dd><b>basename</b> for EXTRACT FILE BASE.</dd></dl>
+<h3><span class="mw-headline" id="Handlers">Handlers</span></h3>
+<p>In the Operator GUI, script execution is bound to a number of Operator Events (not to be confused with Event states, above) that occur during various <a href="Technical_Reference%253AStates_of_Operation.html" title="Technical Reference:States of Operation">stages of BCI2000 system operation</a>:
+</p>
+<h4><span class="mw-headline" id="OnConnect">OnConnect</span></h4>
+<p>This handler runs at startup, as soon as all modules are connected to the operator module.
+</p>
+<h4><span class="mw-headline" id="OnSetConfig">OnSetConfig</span></h4>
+<p>This handler runs each time a set of parameters is applied to the system. This happens when the user clicks the <i>SetConfig</i> button. Execution of the <i>SETCONFIG</i> command also runs this handler.
+</p>
+<h4><span id="OnStart,_OnResume"></span><span class="mw-headline" id="OnStart.2C_OnResume">OnStart, OnResume</span></h4>
+<p>These handlers are triggered by the <i>Start</i>/<i>Resume</i> button. One of these handlers is also triggered when the <i>Running</i> state variable is set to 1 from a script. Whether <i>OnStart</i> or <i>OnResume</i> is triggered depends on whether the system has been running before with the current set of parameters.
+</p>
+<h4><span class="mw-headline" id="OnStartRun">OnStartRun</span></h4>
+<p>Similarly to OnStart and OnResume, this handler is triggered by the <i>Start</i>/<i>Resume</i> button. Unlike any other event handler, OnStartRun has an argument, which is the current run file.
+</p><p>OnStart or OnResume are triggered immediately after <i>Start</i>/<i>Resume</i> has been pressed, whereas OnStartRun is deferred until modules have confirmed to be in Running state. This makes sure that the OnStartRun event handler receives a valid run file name.
+</p>
+<h4><span id="OnSuspend/OnStopRun"></span><span class="mw-headline" id="OnSuspend.2FOnStopRun">OnSuspend/OnStopRun</span></h4>
+<p>Triggered when the system goes from running into suspended mode. This happens whenever the <i>Running</i> state variable changes from 1 to 0. This may happen when the user clicks <i>Suspend</i>, when the application module switches the system into suspended mode, or when a script sets the <i>Running</i> state variable to 0.
+</p>
+<h4><span class="mw-headline" id="OnShutdown">OnShutdown</span></h4>
+<p>Triggered when the operator module shuts down connections, and switches into idle state.
+</p>
+<h4><span class="mw-headline" id="OnExit">OnExit</span></h4>
+<p>Triggered when the operator module exits. Execution of the QUIT command also triggers this handler. This handler is not available to the SET SCRIPT and CLEAR SCRIPT commands. Also, when both an OnShutdown and an OnExit script are defined, the OnExit script may be executed before the OnShutdown script.
+</p>
+<h4><span class="mw-headline" id="Associating_Scripts_with_Operator_Events">Associating Scripts with Operator Events</span></h4>
+<p>In the operator module's preferences dialog, script commands may be entered for each of the handlers listed above.
+Scripts may be specified as paths to script files, or as immediate one-line scripts.
+Entries that start with a minus sign (-) are treated as one-line scripts, which may contain multiple commands separated with semicolons.
+</p><p>Scripts may also be specified from the command line used to start up the operator module. There, handler names are followed with the content of the respective preference entry, enclosed in double quotes ("...").
+</p><p>Finally, scripts may be specified using the SET SCRIPT command of the scripting language itself.
+</p>
+<h3><span class="mw-headline" id="Examples">Examples</span></h3>
+<h4><span id="Making_use_of_the_Operator_module's_Function_Buttons"></span><span class="mw-headline" id="Making_use_of_the_Operator_module.27s_Function_Buttons">Making use of the Operator module's Function Buttons</span></h4>
+<p>To add a state variable called "Artifact", and to set it using the operator's function buttons, do this:
+</p>
+<ul><li>Enter the following line under "After All Modules Connected" in the operator's preferences dialog (note the minus sign):</li></ul>
+<pre>-ADD STATE Artifact 1 0
+</pre>
+<ul><li>Under "Function Buttons", enter "Set Artifact" as the name of button 1, and as its command, enter (note there is no minus sign):</li></ul>
+<pre>SET STATE Artifact 1
+</pre>
+<ul><li>Enter "Clear Artifact" as the name of button 2, and as its command, enter</li></ul>
+<pre>SET STATE Artifact 0
+</pre>
+<h4><span class="mw-headline" id="A_fully_automated_BCI2000_session">A fully automated BCI2000 session</span></h4>
+<pre>Echo Please enter a subject ID:
+Set SubjectID ${Read line}
+
+Startup system
+Start executable SignalGenerator
+Start executable SpectralSignalProcessing
+Start executable CursorTask
+Wait for Connected
+Load parameterfile "../parms/examples/CursorTask_SignalGenerator.prm"
+For i in 1 2 3
+  Load parameterfile "../parms/MyExperiment/Session$i.prm"
+  Set parameter SubjectName $SubjectID
+  Set parameter SubjectSession $i
+  Set config
+  Wait for Resting
+  Start
+  Wait for Suspended 1000
+End
+</pre>
+<h4><span class="mw-headline" id="Automating_BCI2000_by_Operator_command_line_arguments">Automating BCI2000 by Operator command line arguments</span></h4>
+<p>The following example shows how to specify script commands from the command line.
+It fully automates BCI2000 operation by loading a parameter file, applying parameters, starting the system once the parameters are applied, and quitting the system once the run is over. For better readability, the example is broken across lines, using the ^ DOS line continuation character.
+</p>
+<pre>operator.exe --OnConnect "-LOAD PARAMETERFILE ../parms/examples/CursorTask_SignalGenerator.prm; SETCONFIG" ^
+             --OnSetConfig "-SET STATE Running 1"  ^
+             --OnSuspend "-QUIT"
+</pre>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Reference%253AModule_Command_Line_Options.html" title="User Reference:Module Command Line Options">User Reference:Module Command Line Options</a>, <a href="User_Reference%253AOperator_Module.html" title="User Reference:Operator Module">User Reference:Operator Module</a>, <a href="User_Reference%253ABCI2000Shell.html" title="User Reference:BCI2000Shell">User Reference:BCI2000Shell</a>, <a href="Technical_Reference%253AStates_of_Operation.html" title="Technical Reference:States of Operation">Technical Reference:States of Operation</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524182156
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.107 seconds
+Real time usage: 0.112 seconds
+Preprocessor visited node count: 454/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 496/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1564-0!canonical and timestamp 20230524182156 and revision id 10153
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=User_Reference:Operator_Module_Scripting&amp;oldid=10153">http://www.bci2000.org/mediawiki/index.php?title=User_Reference:Operator_Module_Scripting&amp;oldid=10153</a>"</div>
+ </div>
+</body>
+</html>

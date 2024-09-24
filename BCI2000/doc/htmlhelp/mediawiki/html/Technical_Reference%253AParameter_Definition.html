@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Technical Reference:Parameter Definition - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul><li class="toc1">System Design and Communication Protocols</li><ul><li class="toc2"><a href="Technical_Reference%253ASystem_Design.html">System Design</a></li><li class="toc2"><a href="Technical_Reference%253ACore_Modules.html">Core Modules</a></li><li class="toc2"><a href="Technical_Reference%253AStates_of_Operation.html">States of Operation</a></li></ul><li class="toc1">Transmission Protocol Specification</li><ul><li class="toc2"><a href="Technical_Reference%253ABCI2000_Messages.html">BCI2000 Messages</a></li><li class="toc2">Parameter Definition</li><li class="toc2"><a href="Technical_Reference%253AState_Definition.html">State Definition</a></li><li class="toc2"><a href="Technical_Reference%253AVisualization_Properties.html">Visualization Properties</a></li></ul><li class="toc1">File Formats</li><ul><li class="toc2"><a href="Technical_Reference%253ABCI2000_File_Format.html">Data File Format</a></li><li class="toc2"><a href="Technical_Reference%253AParameter_File.html">Parameter File Format</a></li></ul><li class="toc1">External Interfaces</li><ul><li class="toc2"><a href="Technical_Reference%253AApp_Connector.html">App Connector</a></li><li class="toc2"><a href="Technical_Reference%253AOperator_Library.html">Operator Library</a></li><li class="toc2"><a href="Technical_Reference%253ABCI2000Remote_Library.html">BCI2000Remote</a></li></ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">Parameter Definition</h1>
+ <p class = "subtitle">Technical Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>This page describes the concept of BCI2000 parameters, in conjunction with their textual representation as a "parameter line".
+</p><p>For information about how to access parameters from code, please refer to <a href="Programming_Reference%253AEnvironment_Class.html" title="Programming Reference:Environment Class">Programming Reference:Environment Class</a>.
+For information about individual parameters, please refer to <a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:Parameters" title="User Reference:Parameters">User Reference:Parameters</a>.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Technical_Reference%253AParameter_Definition.html#Parameter_Concept"><span class="tocnumber">1</span> <span class="toctext">Parameter Concept</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Technical_Reference%253AParameter_Definition.html#Parameter_Lines"><span class="tocnumber">2</span> <span class="toctext">Parameter Lines</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="Technical_Reference%253AParameter_Definition.html#Data_Types"><span class="tocnumber">2.1</span> <span class="toctext">Data Types</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="Technical_Reference%253AParameter_Definition.html#Special_Characters"><span class="tocnumber">2.2</span> <span class="toctext">Special Characters</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="Technical_Reference%253AParameter_Definition.html#Sub-parameters"><span class="tocnumber">3</span> <span class="toctext">Sub-parameters</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="Technical_Reference%253AParameter_Definition.html#Display_Format"><span class="tocnumber">4</span> <span class="toctext">Display Format</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="Technical_Reference%253AParameter_Definition.html#.28enumeration.29"><span class="tocnumber">4.1</span> <span class="toctext">(enumeration)</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="Technical_Reference%253AParameter_Definition.html#.28boolean.29"><span class="tocnumber">4.2</span> <span class="toctext">(boolean)</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="Technical_Reference%253AParameter_Definition.html#.28inputfile.29.28outputfile.29.28directory.29"><span class="tocnumber">4.3</span> <span class="toctext">(inputfile)(outputfile)(directory)</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="Technical_Reference%253AParameter_Definition.html#.28color.29"><span class="tocnumber">4.4</span> <span class="toctext">(color)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-11"><a href="Technical_Reference%253AParameter_Definition.html#Grouping_Parameters_into_Sections"><span class="tocnumber">5</span> <span class="toctext">Grouping Parameters into Sections</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="Technical_Reference%253AParameter_Definition.html#See_also"><span class="tocnumber">6</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Parameter_Concept">Parameter Concept</span></h2>
+<p>Parameters are variables that primarily represent user configuration choices. Typical quantities encoded by parameters are:
+</p>
+<ul><li>size and location of the feedback window</li>
+<li>subject ID</li>
+<li>sampling rate</li>
+<li>spatial filtering matrix.</li></ul>
+<p>Typically, parameters are constant throughout a run, often throughout a session or an entire experiment.
+In a <a href="Technical_Reference%253ABCI2000_File_Format.html" title="Technical Reference:BCI2000 File Format">BCI2000 data file</a>, a full set of parameters is stored along with the data, allowing for reconstruction of the system configuration off-line.
+</p><p>As parameters represent user choices, the direction of information flow generally is Parameter Value-&gt;BCI2000 Module, i.e. parameter information is used to set BCI2000 modules to a defined state at initialization time.
+There are, however, some important exceptions to that rule.
+</p>
+<ul><li><i>Source Modules</i> may not be able to control all aspects of data acquisition. Control is limited by the design of the vendor-provided software interface to data acquisition hardware. As a typcial example, consider an EEG amplifier connected through a TCP-based socket interface. Generally, the amplifier will be configured in a separate user interface, and BCI2000 source module parameters such as <tt>SourceCh</tt> (number of channels) or <tt>SamplingRate</tt> must be chosen in accordance with that external UI's settings.</li>
+<li><i>System-internal Configuration</i> is represented as parameters, and of potential interest to the user, but not user configurable. These parameters are placed in the configuration editor's <i>System</i> tab. Important examples comprise versioning information (e.g., the <tt>EEGSourceVersion</tt> parameter), others govern the connection between modules (e.g., the <tt>EEGSourceIP</tt> parameter).</li>
+<li><i>Automatic Adaptation</i> to the subject's brain signals may be reflected by automatically updated parameters. For such parameters, the user specifies initial parameter values that may be overwritten at the end of a run. Unless changed by the user, these modified values will be the next run's initial values, and documented as such in that run's data file. As typical examples, consider the <i>Normalizer</i> filter's  <tt>NormalizerOffsets</tt> and <tt>NormalizerGains</tt> parameters.</li></ul>
+<h2><span class="mw-headline" id="Parameter_Lines">Parameter Lines</span></h2>
+<p>Parameter lines are a human-readable format used to represent individual parameters in:
+</p>
+<ul><li><a href="Technical_Reference%253AParameter_File.html" title="Technical Reference:Parameter File">BCI2000 parameter files</a></li>
+<li><a href="Technical_Reference%253ABCI2000_File_Format.html" title="Technical Reference:BCI2000 File Format">BCI2000 data files</a></li>
+<li><a href="Programming_Reference%253AGenericFilter_Class.html" title="Programming Reference:GenericFilter Class">Filters' Publish() function</a></li>
+<li><a href="Technical_Reference%253ABCI2000_Messages.html" title="Technical Reference:BCI2000 Messages">BCI2000 messages</a> sent between modules.</li></ul>
+<p>The basic format of a parameter line is
+</p>
+<pre>Section DataType Name= Value DefaultValue LowRange HighRange // Comment
+</pre>
+<p>Note that the = sign must follow the <tt>Name</tt> field immediately, without
+white space. However, white space <i>after</i> the = sign is mandatory.
+</p><p>If DataType is <i>list, intlist</i>  or <i>floatlist</i>, the format is as follows:
+</p>
+<pre>Section DataType Name= (NumValues|Labels) Value(s) DefaultValue LowRange HighRange 
+  // Comment
+</pre>
+<p>where <tt>Labels</tt> is a list of textual labels that optionally
+substitute the number denoted by <tt>NumValues</tt>. A list of labels
+is enclosed by {} or [], as in
+<tt>[low medium high]</tt>.
+If DataType is <i>matrix</i> , the format is as follows:
+</p>
+<pre>Section DataType Name= (NumRows|RowLabels)
+    (NumColumns|ColumnLabels) Value(s) DefaultValue LowRange
+    HighRange // Comment
+</pre>
+<p>where, again, each NumValues entry may be substituted by a list of
+textual labels.
+For matrices, values are given in row-major order, i.e. listing
+values from the first row first, then values from the second row,
+and so on, as in
+</p>
+<pre>Value(0,0) Value(0,1) ... Value(0,m) Value(1,0) Value(1,1) ... Value(1,m) ...
+</pre>
+<h3><span class="mw-headline" id="Data_Types">Data Types</span></h3>
+<p>The DataType field is not interpreted in a very strict sense. 
+Rather, parameter values are always stored as strings, and converted into
+numerical values only when accessed as such from BCI2000 modules.
+For consistency, and to avoid user confusion, the following primitive types
+should be specified as appropriate:
+</p>
+<table border="1">
+<caption>Primitive Parameter Data Types
+</caption>
+<tbody><tr>
+<th>Name</th>
+<th>Description
+</th></tr>
+<tr>
+<td>variant</td>
+<td>unspecified type
+</td></tr>
+<tr>
+<td>int</td>
+<td>unlimited range integer value
+</td></tr>
+<tr>
+<td>float</td>
+<td>unlimited range, arbitrary precision float value
+</td></tr>
+<tr>
+<td>string</td>
+<td>any string of characters (see the <i>Special characters</i> section for details)
+</td></tr></tbody></table>
+<p>A list or matrix type may be formed from these primitive types when concatenated with <i>list</i> or <i>matrix</i>, as in <i>intlist</i>, <i>stringmatrix</i>.
+For a list or matrix with entries of unspecified type, use an unprefixed <i>list</i> or <i>matrix</i> rather than <i>variantlist</i> or <i>variantmatrix</i>.
+</p>
+<h3><span class="mw-headline" id="Special_Characters">Special Characters</span></h3>
+<p>To allow for special characters and
+white space
+within parameter values and textual labels, an URL-like encoding
+scheme is adopted.
+In this encoding, a <tt>%</tt> character followed by up to two 
+hexadecimal digits
+represents a byte value in hexadecimal notation which is interpreted
+according to
+the ASCII-Latin1 character table.
+Thus, <tt>%20</tt> represents a space character, and
+<tt>%</tt>, <tt>%0</tt>, and <tt>%00</tt> all represent an empty string value;
+<tt>%%</tt> represents the <tt>%</tt> character itself.
+The line
+</p>
+<pre>Demo string SomeString= a%20string%20with%20spaces&#160;%&#160;%&#160;%
+    // White space example
+</pre>
+<p>defines a parameter <i>SomeString</i>  which contains the value
+"a string
+with spaces". 
+The single <tt>%</tt> characters indicate that the 
+<i>DefaultValue</i> ,
+<i>LowRange</i>  and <i>HighRange</i>  fields should be empty
+strings.
+</p>
+<h2><span class="mw-headline" id="Sub-parameters">Sub-parameters</span></h2>
+<p>Any parameter value may itself be a sub-parameter.
+Sub-parameters are represented by a short-form
+matrix definition omitting the <i>Section</i>  and <i>Name</i> 
+fields, enclosed in
+a pair of braces:
+</p>
+<pre>Demo matrix NestedMatrices= 1 2 11 { matrix 2 2 1211 1212 1221 1222 }
+    // Nested matrix example
+</pre>
+<p>will define a matrix parameter whose 1,2 entry is a 2x2 matrix.
+While the syntax allows for any combination of parameter and
+subparameter types,
+the current implementation of the parameter editor GUI only
+supports matrix-type
+sub-parameters within matrices as in the example above.
+</p>
+<h2><span class="mw-headline" id="Display_Format">Display Format</span></h2>
+<p>Generally, a parameter's <tt>DataType</tt> field will be used to 
+determine its appropriate display in a parameter editor.
+However, often a more user-friendly display may be achieved if 
+additional information about a parameter's content is available.
+</p><p>To allow for such information, the comment line that is introduced by the
+two
+slashes (//) may contain a format identifier that is used by the
+Operator module
+to modify the display of the particular parameter. Format identifiers
+are
+strictly optional and are introduced as follows:
+<tt>(identifier)</tt>.
+Currently, the following format identifiers are implemented:
+</p>
+<table border="1">
+<caption>The currently defined format identifiers
+</caption>
+<tbody><tr>
+<th>Identifier</th>
+<th>Description
+</th></tr>
+<tr>
+<td><tt>(enumeration)</tt></td>
+<td>a choice from an enumerated set of values
+</td></tr>
+<tr>
+<td><tt>(boolean)</tt></td>
+<td>a yes/no choice
+</td></tr>
+<tr>
+<td><tt>(inputfile)</tt></td>
+<td>path to a file to be opened for reading
+</td></tr>
+<tr>
+<td><tt>(outputfile)</tt></td>
+<td>path to a file to be opened for writing
+</td></tr>
+<tr>
+<td><tt>(directory)</tt></td>
+<td>path to a directory
+</td></tr>
+<tr>
+<td><tt>(color)</tt></td>
+<td>RGB color
+</td></tr></tbody></table>
+<h3><span id="(enumeration)"></span><span class="mw-headline" id=".28enumeration.29"><tt>(enumeration)</tt></span></h3>
+<p>The parameter value is presented as a drop down menu, with entries
+corresponding to the
+possible values listed in the comment. The first part of the comment
+appears above
+the drop down menu. All interpunction characters present in the
+comment are ignored.
+The data type of the parameter must be <tt>int</tt>.
+All possible values must appear in the comment, and the parameter's
+LowRange and HighRange 
+fields must be consistent with the enumeration. LowRange will usually
+be 0, but may be any
+integer. For example: 
+</p>
+<pre>Breakfast int BreakfastDrink= 1 1 1 3
+  // Drink for breakfast: 1 Tea, 2 Coffee, 3 Juice (enumeration)
+</pre>
+<p>will display a drop down menu with entries "Tea," "Coffee,", and
+"Juice."
+The menu will be labeled "Drink for breakfast."
+</p>
+<h3><span id="(boolean)"></span><span class="mw-headline" id=".28boolean.29"><tt>(boolean)</tt></span></h3>
+<p>The parameter value is presented as a check box; the first part of the
+comment appears
+to the right of the check box. LowRange and HighRange must be 0 and 1.
+The parameter's data type must be <tt>int</tt>.
+To ensure human readability of parameter files, the possible values
+and their meaning may
+appear in the comment (e. g. <tt>0: no, 1: yes</tt>) but will not
+be displayed with the
+check box. For example:
+</p>
+<pre>Breakfast int ServeBreakfast= 1 1 0 1
+  // Serve breakfast: 0 no, 1 yes (boolean)
+</pre>
+<p>will display a check box labeled "Serve breakfast."
+</p>
+<h3><span id="(inputfile)(outputfile)(directory)"></span><span class="mw-headline" id=".28inputfile.29.28outputfile.29.28directory.29"><tt>(inputfile)(outputfile)(directory)</tt></span></h3>
+<p>The parameter value is presented as an edit field. Beside the edit
+field, there is a button that opens up a file or directory and selects dialog when clicked.
+The parameter's data type must be <tt>string</tt>.
+</p>
+<pre>Breakfast string WakeupSound= doorbell.wav 
+  // Sound to play in the morning (inputfile)
+</pre>
+<h3><span id="(color)"></span><span class="mw-headline" id=".28color.29"><tt>(color)</tt></span></h3>
+<p>The parameter value is presented as an edit field. To the right of the edit
+field there is a button that opens up a color selector dialog when clicked.
+The parameter's data type must be <tt>string</tt>, with its value
+containing the color
+in hexadecimal RGB encoding:
+</p>
+<pre>Breakfast string TableClothColor= 0x00FF00 0xFFFFFF 0x000000 0xFFFFFF
+  // Color of table cloth to put up for breakfast (color)
+</pre>
+<h2><span class="mw-headline" id="Grouping_Parameters_into_Sections">Grouping Parameters into Sections</span></h2>
+<p>A user interface may use fields in the parameter <tt>Section</tt> fields to
+collect parameters into
+groups, e.g., by displaying all parameters with identical section
+fields on the same
+register tab of a GUI parameter editor dialog window.
+In the <tt>Section</tt> field, finer grained grouping may be expressed
+by specifying
+sub-sections separated by colon characters, e.g., a <tt>Section</tt>
+value of
+<tt>UsrTask:WindowDimensions</tt>
+will indicate that a parameter belongs to a <tt>WindowDimensions</tt>
+subsection of
+a section called <tt>UsrTask</tt>. A parameter editor implementation
+might display the respective parameter on a register tab called
+"UsrTask" and
+inside a group box labelled "WindowDimensions".
+Although any number of sub-sections may be present in the
+<tt>Section</tt> field,
+a user interface implementation may ignore sub-section entries below a
+level chosen by the implementer.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:Parameters" title="User Reference:Parameters">User Reference:Parameters</a>, <a href="Technical_Reference%253AState_Definition.html" title="Technical Reference:State Definition">Technical Reference:State Definition</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524130130
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.025 seconds
+Real time usage: 0.029 seconds
+Preprocessor visited node count: 98/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 1017/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1429-0!canonical and timestamp 20230524130130 and revision id 10171
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Technical_Reference:Parameter_Definition&amp;oldid=10171">http://www.bci2000.org/mediawiki/index.php?title=Technical_Reference:Parameter_Definition&amp;oldid=10171</a>"</div>
+ </div>
+</body>
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:DSISerial - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">DSISerial</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Contributions%253ADSISerial.html#Synopsis"><span class="tocnumber">1</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Contributions%253ADSISerial.html#Location"><span class="tocnumber">2</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Contributions%253ADSISerial.html#Versioning"><span class="tocnumber">3</span> <span class="toctext">Versioning</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Contributions%253ADSISerial.html#Authors"><span class="tocnumber">3.1</span> <span class="toctext">Authors</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Contributions%253ADSISerial.html#Version_History"><span class="tocnumber">3.2</span> <span class="toctext">Version History</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Contributions%253ADSISerial.html#Source_Code_Revisions"><span class="tocnumber">3.3</span> <span class="toctext">Source Code Revisions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="Contributions%253ADSISerial.html#Functional_Description"><span class="tocnumber">4</span> <span class="toctext">Functional Description</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="Contributions%253ADSISerial.html#Installation"><span class="tocnumber">5</span> <span class="toctext">Installation</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="Contributions%253ADSISerial.html#Parameters"><span class="tocnumber">6</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-10"><a href="Contributions%253ADSISerial.html#SampleBlockSize.2C_SamplingRate.2C_SourceCh.2C_SourceChGain.2C_SourceChOffset.2C_TransmitChList"><span class="tocnumber">6.1</span> <span class="toctext">SampleBlockSize, SamplingRate, SourceCh, SourceChGain, SourceChOffset, TransmitChList</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="Contributions%253ADSISerial.html#HighPassFilter.2C_LowPassFilter.2C_NotchFilter"><span class="tocnumber">6.2</span> <span class="toctext">HighPassFilter, LowPassFilter, NotchFilter</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="Contributions%253ADSISerial.html#UnfilteredChannels"><span class="tocnumber">6.3</span> <span class="toctext">UnfilteredChannels</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="Contributions%253ADSISerial.html#DSISerialPort"><span class="tocnumber">6.4</span> <span class="toctext">DSISerialPort</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="Contributions%253ADSISerial.html#ChannelNames"><span class="tocnumber">6.5</span> <span class="toctext">ChannelNames</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="Contributions%253ADSISerial.html#Montage"><span class="tocnumber">6.6</span> <span class="toctext">Montage</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="Contributions%253ADSISerial.html#DefaultReference"><span class="tocnumber">6.7</span> <span class="toctext">DefaultReference</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="Contributions%253ADSISerial.html#HeadsetDescription"><span class="tocnumber">6.8</span> <span class="toctext">HeadsetDescription</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="Contributions%253ADSISerial.html#BufferAhead"><span class="tocnumber">6.9</span> <span class="toctext">BufferAhead</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="Contributions%253ADSISerial.html#ImpedanceDriverOn"><span class="tocnumber">6.10</span> <span class="toctext">ImpedanceDriverOn</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="Contributions%253ADSISerial.html#VisualizeImpedances"><span class="tocnumber">6.11</span> <span class="toctext">VisualizeImpedances</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="Contributions%253ADSISerial.html#DSIAPI"><span class="tocnumber">6.12</span> <span class="toctext">DSIAPI</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="Contributions%253ADSISerial.html#DSIAPIVersion"><span class="tocnumber">6.13</span> <span class="toctext">DSIAPIVersion</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-23"><a href="Contributions%253ADSISerial.html#States"><span class="tocnumber">7</span> <span class="toctext">States</span></a>
+<ul>
+<li class="toclevel-2 tocsection-24"><a href="Contributions%253ADSISerial.html#HeadsetAnalogReset"><span class="tocnumber">7.1</span> <span class="toctext">HeadsetAnalogReset</span></a></li>
+<li class="toclevel-2 tocsection-25"><a href="Contributions%253ADSISerial.html#HeadsetBattery1"><span class="tocnumber">7.2</span> <span class="toctext">HeadsetBattery1</span></a></li>
+<li class="toclevel-2 tocsection-26"><a href="Contributions%253ADSISerial.html#HeadsetBattery2"><span class="tocnumber">7.3</span> <span class="toctext">HeadsetBattery2</span></a></li>
+<li class="toclevel-2 tocsection-27"><a href="Contributions%253ADSISerial.html#HeadsetAlarm"><span class="tocnumber">7.4</span> <span class="toctext">HeadsetAlarm</span></a></li>
+<li class="toclevel-2 tocsection-28"><a href="Contributions%253ADSISerial.html#BufferedSamples"><span class="tocnumber">7.5</span> <span class="toctext">BufferedSamples</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-29"><a href="Contributions%253ADSISerial.html#Streams"><span class="tocnumber">8</span> <span class="toctext">Streams</span></a>
+<ul>
+<li class="toclevel-2 tocsection-30"><a href="Contributions%253ADSISerial.html#Trigger"><span class="tocnumber">8.1</span> <span class="toctext">Trigger</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-31"><a href="Contributions%253ADSISerial.html#See_also"><span class="tocnumber">9</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>This source module supports the Dry Sensor Interface (DSI) EEG systems made by <a rel="nofollow" class="external text" href="http://wearablesensing.com">Wearable Sensing LLC</a>.
+</p>
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><a rel="nofollow" class="external free" href="http://www.bci2000.org/svn/trunk/src/contrib/SignalSource/DSISerial">http://www.bci2000.org/svn/trunk/src/contrib/SignalSource/DSISerial</a>
+</p>
+<h2><span class="mw-headline" id="Versioning">Versioning</span></h2>
+<h3><span class="mw-headline" id="Authors">Authors</span></h3>
+<p>Jeremy Hill
+</p>
+<h3><span class="mw-headline" id="Version_History">Version History</span></h3>
+<ul><li>Revision 1.0 2014/10/21 jhill:  first commit</li>
+<li>Revision r6220 2021/02/12 abelsten: minor code modifications and verified basic function of source module</li>
+<li>Revision r6359 2021/08/16 wengelhardt: Updated DSI API to version 1.18.0</li></ul>
+<h3><span class="mw-headline" id="Source_Code_Revisions">Source Code Revisions</span></h3>
+<ul><li>Initial development: 4528, 6220 (Windows) and 4369 (OSX)  but requires some small modifications to the framework's <a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:SourceFilter" title="User Reference:SourceFilter">SourceFilter.cpp</a> from later revisions, e.g. r4730, to support the <b>UnfilteredChannels</b> parameter</li>
+<li>Tested under: 4528, (Windows) and 4369 (OSX)</li>
+<li>Known to compile under: 6359</li>
+<li>Broken since: --</li></ul>
+<h2><span class="mw-headline" id="Functional_Description">Functional Description</span></h2>
+<p>This source module supports the Dry Sensor Interface (DSI) EEG systems made by <a rel="nofollow" class="external text" href="http://wearablesensing.com">Wearable Sensing LLC</a>.
+It connects to them directly over a serial-port connection (BlueTooth or wired).
+</p><p>Version 1.0 has been tested with DSI7 and DSI24.  May also work with the ANI-SI headset by Advanced Neurometrics, inc.
+</p><p>For best results, set the <tt>DSISerialPort</tt> environment variable, or use the <tt>--DSISerialPort</tt> command-line
+parameter on launch, to specify the headset's serial port address (e.g. <tt>COM4</tt> on Windows). This allows auto-configuration of most of
+the necessary BCI2000 parameters using data downloaded from the headset.   On Windows, the dialog that allows you to create or edit environment variables is at:
+</p>
+<pre>Control Panel-&gt;System-&gt;Advanced-&gt;Environment Variables
+</pre>
+<h2><span class="mw-headline" id="Installation">Installation</span></h2>
+<p>The <tt>DSISerial</tt> source module requires the <tt>libDSI</tt> dynamic library (a <tt>.dll</tt> or <tt>.dylib</tt> file) corresponding to your platform. This is part of the manufacturer's API. The file must be placed in the <tt>prog</tt> directory.   Compiled versions of the dynamic library for 32-bit Windows and 64-bit OSX are supplied in the <tt>DSI_API</tt> subdirectory, and the appropriate one will be copied to prog during the build process.
+</p>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<h3><span id="SampleBlockSize,_SamplingRate,_SourceCh,_SourceChGain,_SourceChOffset,_TransmitChList"></span><span class="mw-headline" id="SampleBlockSize.2C_SamplingRate.2C_SourceCh.2C_SourceChGain.2C_SourceChOffset.2C_TransmitChList">SampleBlockSize, SamplingRate, SourceCh, SourceChGain, SourceChOffset, TransmitChList</span></h3>
+<p>These parameters are the same as for other BCI2000 source modules. For current headsets (as at Oct 2014),
+the <b>SamplingRate</b> should always be 300.  That means <b>SampleBlockSize</b>=9 gives you 30ms blocks,
+12 gives you 40ms, 15 gives you 50ms, and so on.  The <b>SourceChOffset</b> values should be all 0 and the
+<b>SourceChGain</b> values should be all 1.
+</p>
+<h3><span id="HighPassFilter,_LowPassFilter,_NotchFilter"></span><span class="mw-headline" id="HighPassFilter.2C_LowPassFilter.2C_NotchFilter">HighPassFilter, LowPassFilter, NotchFilter</span></h3>
+<p>These parameters are made available by the <a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:SourceFilter" title="User Reference:SourceFilter">SourceFilter</a> framework component.
+In common with the use of <a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:SourceFilter" title="User Reference:SourceFilter">SourceFilter</a> in various other BCI2000 source modules,
+these parameters allow destructive filtering of the signal, i.e. removal of information <i>before</i> the signal is saved in the file.
+This can be necessary if your online and offline classification tools do not perform the appropriate filtering (P3SignalProcessing and the P300Classifier GUI do not).
+</p>
+<h3><span class="mw-headline" id="UnfilteredChannels">UnfilteredChannels</span></h3>
+<p>This parameter is made available by later revisions (r4730+) of the <a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:SourceFilter" title="User Reference:SourceFilter">SourceFilter</a> framework component.
+List any channels here that you want to remain unfiltered (if you are recording
+the DSI headset's digital trigger channel <tt>TRG</tt> or the two timing-debugging channels
+<tt>SND</tt> and <tt>RCV</tt>, it is a good idea to include them in this list).
+</p>
+<h3><span class="mw-headline" id="DSISerialPort">DSISerialPort</span></h3>
+<p>This is the port on which the headset connects, e.g. <tt>COM4</tt> (Windows example) or
+<tt>/dev/cu.DSI7-0002-BluetoothSeri</tt> (Mac OSX example).  You may specify this as a
+command-line parameter to the DSISerial module - for example:
+</p>
+<pre>start executable DSISerial --local --DSISerialPort=COM4
+</pre>
+<p>Alternatively you may set it permanently as a system environment variable called
+<tt>DSISerialPort</tt>.  In either of these cases, when you launch BCI2000 it will connect to the headset,
+retrieve information from it, and configure the default values of various
+parameters appropriately.
+</p>
+<h3><span class="mw-headline" id="ChannelNames">ChannelNames</span></h3>
+<p>The <b>ChannelNames</b> parameter is used in all BCI2000 source modules to label the
+channels. However, it can also play a functional role to specify the order in
+which the signals are delivered by the headset.  If you agree with the headset
+on what the channels should be called, then you can just use this parameter and
+leave <b>Montage</b> blank (see the <b>Montage</b> parameter doc below for more details).
+</p>
+<h3><span class="mw-headline" id="Montage">Montage</span></h3>
+<p>If you want fine control of the sensor montage, or if you disagree with the
+headset over what the channels should be called, then you can put your own
+channel names in the <b>ChannelNames</b> parameter, and use the <b>Montage</b> parameter to give the corresponding list of
+identifiers that the headset believes are correct (or just numbers if you
+prefer—but see the caveat below). You can also specify explicit per-channel
+re-referencing in this parameter. The following specifications all work:
+</p>
+<pre>F3    F4    Fz            // the three named sensor signals, referenced to DefaultReference
+1     2     3             // the first three Sources, whatever they are, referenced to DefaultReference
+SRC01 SRC02 SRC03         // the first three Sources, whatever they are, referenced to DefaultReference
+F3    F4    Fz-F3/2-F4/2  // F3 and F4 referenced to DefaultReference, followed by Fz referenced to the average
+                          // of F3 and F4. Do not put spaces in the expression, or punctuation other than +-/*
+</pre>
+<p>If the <b>Montage</b> parameter is left blank, the <b>ChannelNames</b> parameter will be used
+instead - so, if you agree with the headset on nomenclature, you only need to
+fill out <b>ChannelNames</b>.  If both parameters are left blank, all possible signals
+(potentially including some that are not connected to anything) will be delivered.
+</p><p>To see which channels the headset believes to be connected, and the names it
+gives them, you can connect automatically as described above above under
+<b>DSISerialPort</b>, not load any parameter files, and examine the <b>ChannelNames</b>
+parameter.  Alternatively, you can simply ask for a ridiculously-named channel
+and read the error message.
+</p><p>Note that the manufacturer's API/driver makes the distinction between <i>Sources</i> and <i>Channels</i>. Channels are what the BCI2000 module as a whole delivers:  they are time-series whose positive and negative components (signal and reference) can be explicitly specified, thereby making re-referencing easy.  However, when measuring impedances, or when you specify the individual positive and negative components that constitute a Channel, you're dealing at a lower level with <i>Sources</i>.  Sources are the time-series that the headset firmware delivers natively. Some Sources correspond to referential EEG sensors and some do not. The Sources that correspond to referential EEG sensors deliver signals that are expressed relative to the factory reference, which is typically Pz. Therefore, a raw Source signal would look somewhat unorthodox (for example, you might see some occipital alpha in the signal, even in frontal Sources). Numeric entries in the <b>Montage</b> parameter denote Sources in the order that the firmware happens to deliver them, but some Sources do not have numbers—for example, the Source called 'Pz' is a numberless virtual Source (its content is simply a flat zero-volt line, since Pz is the reference sensor). Support for numeric entries in the <b>Montage</b> parameter is a last-resort fallback for cases where the headset firmware contains no information about Source names/locations (but you should contact the manufacturer, in this case, and follow their instructions to remedy the situation). If you found this paragraph confusing, then long story short: compose your <b>Montage</b> parameter out of names, not numbers, if at all possible.
+</p>
+<h3><span class="mw-headline" id="DefaultReference">DefaultReference</span></h3>
+<p>This is a specification of the sensor(s) to be used as the EEG reference in places where
+the <b>Montage</b> parameter does not make this explicit. If your headset has ear
+reference sensors and you want to use averaged ears as a reference, <tt>A1A2</tt> will
+work for headsets that deliver this as a single source signal, and <tt>A1/2+A2/2</tt>
+(no spaces) will work for headsets that deliver them separately.  Likewise,
+for headsets with mastoid sensors,  you could specify <tt>M1M2</tt> or <tt>M1/2+M2/2</tt> (no
+spaces) depending on headset model.   If <b>DefaultReference</b> is left blank, the module will look for one of these
+ear/mastoid reference possibilities automatically (if none of them can be found, a warning will be issued and the factory reference—usually Pz—will be used,
+leading to potentially unorthodox-looking EEG signals).
+</p><p>The <b>DefaultReference</b> is only applied to signals that the headset flags as being part of the referential EEG montage—it will not be applied to auxiliary bipolar sensors, to the trigger <tt>TRG</tt>, or to the clock signals <tt>SND</tt> and <tt>RCV</tt>.
+</p>
+<h3><span class="mw-headline" id="HeadsetDescription">HeadsetDescription</span></h3>
+<p>This is for making a note of the headset model.  If you connect automatically
+(see <b>DSISerialPort</b> above) then this will be pre-filled with serial number and
+firmware version information.
+</p>
+<h3><span class="mw-headline" id="BufferAhead">BufferAhead</span></h3>
+<p>This specifies the amount of time by which to delay the signal, in order to
+make its delivery smooth in time, for real-time applications like spelling.
+If you want to enter a time in milliseconds, remember BCI2000's convention:
+you have to explicitly append the "ms" to the number, otherwise it will be
+interpreted as a number of SampleBlocks.
+</p>
+<h3><span class="mw-headline" id="ImpedanceDriverOn">ImpedanceDriverOn</span></h3>
+<p>Select this if you want to measure impedances. It injects current at 110Hz and 130Hz.
+To see the results, you must also check <b>VisualizeImpedances</b> in the "Visualize"
+tab, and enable "Show Numeric Values" in the resulting visualization window.
+</p>
+<h3><span class="mw-headline" id="VisualizeImpedances">VisualizeImpedances</span></h3>
+<p>(in the "Visualize" tab)
+</p><p>This opens the window in which impedance values can be viewed (right-click on it
+and ensure "Show Numeric Values" and "Show Baselines" are enabled).  You will not
+see any informative values, however, unless the ImpedanceDriverOn parameter is
+also checked.   Once the visualization window opens for the first time, right-click
+on it and enable "Show Numeric Values", or you will not see anything.  Enable
+"Show Baselines" too, to make it clearer.
+</p>
+<h3><span class="mw-headline" id="DSIAPI">DSIAPI</span></h3>
+<p>NOTE: This parameter is not functional on versions &gt; r6220.
+</p><p>(in the "System" tab)
+</p><p>This is the name of, or path to, the <tt>libDSI</tt> dynamic library that supplies the
+developer's API for the headset.  Usually, it will be filled in with a platform-
+appropriate default and the library will be expected to be found in the same
+directory as the source module executable.  If you wish to change this, you must
+specify it on the command line when you launch the module - for example:
+</p>
+<pre>start executable DSISerial --local --DSIAPI=some/other/path/to/libDSI.dll
+</pre>
+<p>This parameter is displayed in the System tab of the config dialog and is
+read-only after launch.
+</p>
+<h3><span class="mw-headline" id="DSIAPIVersion">DSIAPIVersion</span></h3>
+<p>(in the "System" tab)
+</p><p>This read-only parameter is displayed in the System tab of the config dialog,
+and reflects the version number of the <tt>libDSI</tt> dynamic library, as specified
+by the manufacturer.
+</p><p><br />
+</p>
+<h2><span class="mw-headline" id="States">States</span></h2>
+<h3><span class="mw-headline" id="HeadsetAnalogReset">HeadsetAnalogReset</span></h3>
+<p>If you set this to 1 while the Running state is also 1, the headset will perform an analog reset.
+</p><p>It can be useful to configure one of the BCI2000 Operator's custom buttons so that it performs an analog reset.  This is done in the Preferences dialog of the Operator GUI, by labelling one of the buttons 'Analog Reset' and assigning to it the command: <tt>set state HeadsetAnalogReset 1</tt>&#160;.  Bear in mind that the button will only work when the <b>Start</b> button has been pressed to start a run (otherwise changes in state variables do not get registered).
+</p>
+<h3><span class="mw-headline" id="HeadsetBattery1">HeadsetBattery1</span></h3>
+<p>Reports the estimated battery level of the first battery in percent.
+</p>
+<h3><span class="mw-headline" id="HeadsetBattery2">HeadsetBattery2</span></h3>
+<p>Reports the estimated battery level of the second battery in percent. If there is no second battery,
+value will be 0.
+</p>
+<h3><span class="mw-headline" id="HeadsetAlarm">HeadsetAlarm</span></h3>
+<p>For debugging.
+</p>
+<h3><span class="mw-headline" id="BufferedSamples">BufferedSamples</span></h3>
+<p>For debugging.
+</p>
+<h2><span class="mw-headline" id="Streams">Streams</span></h2>
+<h3><span class="mw-headline" id="Trigger">Trigger</span></h3>
+<p>Streams the trigger channel from the DSI. This will only work when used in tandem with a trigger box such as the gTRIGBox or the Wearable Sensing Wireless Trigger Hub. 
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Reference%253AFilters.html" title="User Reference:Filters">User Reference:Filters</a>, <a href="Contributions%253AADCs.html" title="Contributions:ADCs">Contributions:ADCs</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524141838
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.033 seconds
+Real time usage: 0.037 seconds
+Preprocessor visited node count: 99/1000000
+Post‐expand include size: 15/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2074-0!canonical and timestamp 20230524141838 and revision id 9534
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:DSISerial&amp;oldid=9534">http://www.bci2000.org/mediawiki/index.php?title=Contributions:DSISerial&amp;oldid=9534</a>"</div>
+ </div>
+</body>
+</html>

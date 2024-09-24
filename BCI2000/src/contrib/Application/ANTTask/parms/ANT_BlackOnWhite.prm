@@ -1,0 +1,8 @@
+Application:Application%20Window string WindowBackgroundColor=        0xffffff   // Application window background color (color)
+Application:Experiment           string TextFontColor=                0x000000   // Color of text (color)
+Application:PhotoDiodePatch      int    PhotoDiodePatchShape=         0          // Photo diode patch shape: 0 rectangle, 1 ellipse (enumeration)
+Application:PhotoDiodePatch      int    PhotoDiodePatchActiveColor=   0x000000   // Photo diode patch color when active (color)
+Application:PhotoDiodePatch      int    PhotoDiodePatchInactiveColor= 0xffffff   // Photo diode patch color when inactive (color)
+Application:Sequencing           list   CueIconList=              2   images/ANTTask/black/ANT_cue_asterisk.png images/ANTTask/black/ANT_cursor.png // Cue stimulus list 
+Application:Sequencing           matrix TargetMatrix=    { Target%20Pointing%20Left Target%20Pointing%20Right } { Flankers%20Pointing%20Left Flankers%20Pointing%20Right } images/ANTTask/black/TargetLeftFlankerLeft.png  images/ANTTask/black/TargetLeftFlankerRight.png  images/ANTTask/black/TargetRightFlankerLeft.png  images/ANTTask/black/TargetRightFlankerRight.png // Target stimulus matrix 
+Application:Sequencing           matrix TargetR90Matrix= { Target%20Pointing%20Up   Target%20Pointing%20Down  } { Flankers%20Pointing%20Up   Flankers%20Pointing%20Down  } images/ANTTask/black/TargetUpFlankerUp.png      images/ANTTask/black/TargetUpFlankerDown.png     images/ANTTask/black/TargetDownFlankerUp.png     images/ANTTask/black/TargetDownFlankerDown.png   // Target rotate 90 stimulus matrix 

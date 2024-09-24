@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Programming Reference:Accessing Parameters and States - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul><li class="toc1">Concepts</li><ul><li class="toc2"><a href="Programming_Reference%253AFilter_Chain.html">Filter Chain</a></li><li class="toc2"><a href="Programming_Reference%253ASignals.html">Signals</a></li><li class="toc2"><a href="Programming_Reference%253AError_Handling.html">Error Handling</a></li><li class="toc2"><a href="Programming_Reference%253ALocalization.html">Localization</a></li><li class="toc2"><a href="Programming_Reference%253ARapid_Development.html">Rapid Development</a></li></ul><li class="toc1">Reference</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFilter_Class.html">GenericFilter</a></li><li class="toc2"><a href="Programming_Reference%253AEnvironment_Class.html">Environment</a></li><li class="toc2"><a href="Programming_Reference%253AGenericVisualization_Class.html">GenericVisualization</a></li><li class="toc2"><a href="Programming_Reference%253AErrors_and_Warnings.html">Errors and Warnings</a></li><li class="toc2"><a href="Programming_Reference%253ADebug_Output.html">Debug Output</a></li></ul><li class="toc1">Data Acquisition</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericADC_Class.html">GenericADC</a></li></ul><li class="toc1">Data Storage</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFileWriter_Class.html">GenericFileWriter</a></li><li class="toc2"><a href="Programming_Reference%253ABCI2000FileReader_Class.html">BCI2000FileReader</a></li></ul><li class="toc1">Signal Processing</li><ul><li class="toc2"><a href="Programming_Reference%253AIIRFilterBase_Class.html">IIR Filters</a></li></ul><li class="toc1">Application Modules</li><ul><li class="toc2"><a href="Programming_Reference%253AApplicationBase_Class.html">ApplicationBase</a></li><li class="toc2"><a href="Programming_Reference%253AFeedbackTask_Class.html">FeedbackTask</a></li><li class="toc2"><a href="Programming_Reference%253AStimulusTask_Class.html">StimulusTask</a></li><li class="toc2"><a href="Programming_Reference%253A3D_API.html">3D API</a></li></ul><li class="toc1">Howtos</li><ul><li class="toc2"><a href="Programming_Howto%253ABuilding_BCI2000.html">Building BCI2000</a></li><li class="toc2"><a href="Programming_Howto%253ASVN_Client_Setup.html">SVN Client Setup</a></li><li class="toc2"><a href="Programming_Howto%253AUsing_TortoiseSVN.html">Using TortoiseSVN</a></li></ul><li class="toc1"><a href="Programming_FAQ.html">FAQ</a></li><li class="toc1">Tutorials</li><ul><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html">Data Acquisition</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html">Signal Processing</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html">Matlab Signal Processing</a></li></ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">Accessing Parameters and States</h1>
+ <p class = "subtitle">Programming Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>On this page, we discuss how to access BCI2000 parameters from filter components that derive from <tt>GenericFilter</tt>, or from extension components deriving from the <tt>EnvironmentExtension</tt> class.
+</p><p>There are two kinds of access to parameters and states: High-level access allows to easily manipulate parameter and state values, and is appropriate most of the time. Low-level access allows to directly manipulate the data structures lying beneath the surface of parameter and state values. This might be necessary to, e.g., iterate over all parameters or states present.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Programming_Reference%253AAccessing_Parameters_and_States.html#Low_Level_Access"><span class="tocnumber">1</span> <span class="toctext">Low Level Access</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Programming_Reference%253AAccessing_Parameters_and_States.html#High-level_Access"><span class="tocnumber">2</span> <span class="toctext">High-level Access</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="Programming_Reference%253AAccessing_Parameters_and_States.html#Parameter.28Name.29.5B.28Index_1.5B.2C_Index_2.5D.29"><span class="tocnumber">2.1</span> <span class="toctext">Parameter(Name)[(Index 1[, Index 2])</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="Programming_Reference%253AAccessing_Parameters_and_States.html#OptionalParameter.28Name.5B.2C_Default_Value.5D.29.28Index_1.5B.2C_Index_2.5D.29"><span class="tocnumber">2.2</span> <span class="toctext">OptionalParameter(Name[, Default Value])(Index 1[, Index 2])</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Programming_Reference%253AAccessing_Parameters_and_States.html#Conversion_Functions"><span class="tocnumber">2.3</span> <span class="toctext">Conversion Functions</span></a>
+<ul>
+<li class="toclevel-3 tocsection-6"><a href="Programming_Reference%253AAccessing_Parameters_and_States.html#InBlocks.28.29.2C_InSampleBlocks.28.29"><span class="tocnumber">2.3.1</span> <span class="toctext">InBlocks(), InSampleBlocks()</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="Programming_Reference%253AAccessing_Parameters_and_States.html#InSeconds.28.29.2C_InMilliseconds.28.29"><span class="tocnumber">2.3.2</span> <span class="toctext">InSeconds(), InMilliseconds()</span></a></li>
+<li class="toclevel-3 tocsection-8"><a href="Programming_Reference%253AAccessing_Parameters_and_States.html#RelativeFreq.28_SignalProperties_.29"><span class="tocnumber">2.3.3</span> <span class="toctext">RelativeFreq( SignalProperties )</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="Programming_Reference%253AAccessing_Parameters_and_States.html#SystemRelativeFreq.28.29"><span class="tocnumber">2.3.4</span> <span class="toctext">SystemRelativeFreq()</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="Programming_Reference%253AAccessing_Parameters_and_States.html#InHertz.28.29"><span class="tocnumber">2.3.5</span> <span class="toctext">InHertz()</span></a></li>
+<li class="toclevel-3 tocsection-11"><a href="Programming_Reference%253AAccessing_Parameters_and_States.html#InVolts.28.29.2C_inMicrovolts.28.29"><span class="tocnumber">2.3.6</span> <span class="toctext">InVolts(), inMicrovolts()</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-12"><a href="Programming_Reference%253AAccessing_Parameters_and_States.html#State.28Name.29"><span class="tocnumber">2.4</span> <span class="toctext">State(Name)</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="Programming_Reference%253AAccessing_Parameters_and_States.html#OptionalState.28Name.5B.2C_Default_Value.5D.29"><span class="tocnumber">2.5</span> <span class="toctext">OptionalState(Name[, Default Value])</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="Programming_Reference%253AAccessing_Parameters_and_States.html#Converters_to_and_from_numeric_types"><span class="tocnumber">2.6</span> <span class="toctext">Converters to and from numeric types</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-15"><a href="Programming_Reference%253AAccessing_Parameters_and_States.html#See_also"><span class="tocnumber">3</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Low_Level_Access">Low Level Access</span></h2>
+<p>is provided by the following symbols:
+</p>
+<ul><li><tt>Parameters</tt> syntactically behaves like a <a href="Programming_Reference%253AParameters.html#ParamList_Class" title="Programming Reference:Parameters"><tt>ParamList*</tt></a>,</li>
+<li><tt>States</tt> behaves like a <a href="Programming_Reference%253AStates.html#StateList_Class" title="Programming Reference:States"><tt>StateList*</tt></a>,</li>
+<li>and <tt>Statevector</tt> behaves like a <a href="Programming_Reference%253AStates.html#StateVector_Class" title="Programming Reference:States"><tt>StateVector*</tt></a>.</li></ul>
+<p>As an example, 
+</p>
+<pre>float  myParameterValue = 0.0;
+Param* param = Parameters-&gt;GetParamPtr( "MyParameter" );
+if( param )
+  myParameterValue =&#160;::atof( param-&gt;GetValue() );
+else
+  bcierr &lt;&lt; "Could not access \"MyParameter\"" &lt;&lt; endl;
+</pre>
+<p>Unlike true pointers, these symbols cannot be assigned any values, cannot be assigned to variables, or have other manipulating operators applied. For example, the lines
+</p>
+<pre>delete Parameters;
+Parameters = new ParamList;
+</pre>
+<p>will all result in compiler errors.
+</p>
+<h2><span class="mw-headline" id="High-level_Access">High-level Access</span></h2>
+<p>is possible through a number of symbols which offer built-in checking and error reporting:
+</p>
+<h3><span id="Parameter(Name)[(Index_1[,_Index_2])"></span><span class="mw-headline" id="Parameter.28Name.29.5B.28Index_1.5B.2C_Index_2.5D.29"><tt>Parameter(Name)[(Index 1[, Index 2])</tt></span></h3>
+<p>This symbol stands for the value of the named parameter.  Indices may be given in numerical or textual form; if omitted, they default to 0. The type of the symbol <tt>Parameter()</tt> may be numerical or a string type, depending on its use. (If the compiler complains about ambiguities, use explicit typecasts.) If a parameter with the given name does not exist, an error message is written into <a href="Programming_Reference%253AErrors_and_Warnings.html" title="Programming Reference:Errors and Warnings"><tt>bcierr</tt></a>. If the specified indices do not exist, an exception is thrown.
+</p><p>Examples: 
+</p>
+<pre>int myValue = Parameter( "MyParam" ); 
+string myOtherValue = Parameter( "MyOtherParam" ); 
+Parameter( "My3rdParam" )( 2, 3 ) = my3rdValue;
+</pre>
+<h3><span id="OptionalParameter(Name[,_Default_Value])(Index_1[,_Index_2])"></span><span class="mw-headline" id="OptionalParameter.28Name.5B.2C_Default_Value.5D.29.28Index_1.5B.2C_Index_2.5D.29"><tt>OptionalParameter(Name[, Default Value])(Index 1[, Index 2])</tt></span></h3>
+<p>This symbol behaves like the symbol <tt>Parameter()</tt> but will not report an error if the parameter does not exist. Instead, it will return the default value given in its first argument. Assignments to this symbol are not possible. 
+</p>
+<h3><span class="mw-headline" id="Conversion_Functions">Conversion Functions</span></h3>
+<p>These convert parameter values between units. In BCI2000, values representing time may be given without units--then, the numeric value represents time in terms of a Sample Block's duration. Alternatively, these values may be given with a time unit such as <i>ms</i>. Similarly, frequencies may be given in terms of the system's sampling rate, or in Hertz when appended with <i>Hz</i>. Voltage values may be appended with <i>V</i>, <i>muV</i> or similar; when no unit is specified, the numeric value is assumed to be in Microvolts.
+</p>
+<h4><span id="InBlocks(),_InSampleBlocks()"></span><span class="mw-headline" id="InBlocks.28.29.2C_InSampleBlocks.28.29"><tt>InBlocks(), InSampleBlocks()</tt></span></h4>
+<p>Gives a parameter's value as the corresponding number of sample blocks. When a unit other than a time unit is specified in the parameter value, an error is reported.
+</p>
+<h4><span id="InSeconds(),_InMilliseconds()"></span><span class="mw-headline" id="InSeconds.28.29.2C_InMilliseconds.28.29"><tt>InSeconds(), InMilliseconds()</tt></span></h4>
+<p>Provides a parameter's value in seconds, or milliseconds, respectively. When the parameter contains a unit other than a time unit, an error is reported.
+</p><p>Example:
+</p>
+<pre>double stimulusDuration = Parameter( "StimulusDuration" ).InBlocks();
+</pre>
+<p>will return 5 when the sampling rate is 250Hz, sample block size is 10, and the value of the StimulusDuration parameter is "200ms".
+</p>
+<h4><span id="RelativeFreq(_SignalProperties_)"></span><span class="mw-headline" id="RelativeFreq.28_SignalProperties_.29"><tt>RelativeFreq( SignalProperties )</tt></span></h4>
+<p>will return a parameter's value in terms of a signal's effective sampling rate when the signal's SignalProperties are specified as an argument. When a unit other than a frequency unit is present in the parameter value, an error is reported.
+</p>
+<h4><span id="SystemRelativeFreq()"></span><span class="mw-headline" id="SystemRelativeFreq.28.29"><tt>SystemRelativeFreq()</tt></span></h4>
+<p>will return a parameter's value in terms of the system sampling rate. When a unit other than a frequency unit is present in the parameter value, an error is reported.
+</p>
+<h4><span id="InHertz()"></span><span class="mw-headline" id="InHertz.28.29"><tt>InHertz()</tt></span></h4>
+<p>returns a parameter's value in Hertz. When the parameter's value is a plain number, it is taken to represent multiples of the system sampling rate.
+</p><p>Example:
+</p>
+<pre>double hpCorner = Parameter( "HPCorner" ).RelativeFreq( Input );
+</pre>
+<p>will return 0.5 when the input signal's effective sampling rate is 250Hz, and the parameter's value is "125Hz".
+</p>
+<h4><span id="InVolts(),_inMicrovolts()"></span><span class="mw-headline" id="InVolts.28.29.2C_inMicrovolts.28.29"><tt>InVolts(), inMicrovolts()</tt></span></h4>
+<p>gives a parameter's value in units of Volts or Microvolts, respectively. A plain number is taken to represent Microvolts.
+</p>
+<h3><span id="State(Name)"></span><span class="mw-headline" id="State.28Name.29"><tt>State(Name)</tt></span></h3>
+<p>This symbol allows for reading a state's value from the state vector and setting a state's value in the state vector. Trying to access a state that is not accessible will result in an error reported via <tt>bcierr</tt>. 
+</p><p>Examples:
+</p>
+<pre>short currentStateOfAffairs = State("OfAffairs"); 
+State("OfAffairs") = nextStateOfAffairs;
+</pre>
+<p>If you use the above syntax, the state's value will be set for the entire data block, or read from the first sample position of the data block. In order to address other sample positions in the current data block, use another pair of parentheses to enclose the sample position.
+</p><p>Example: find whether a state assumes a certain value during the current block
+</p>
+<pre>bool found = false;
+for(int i = 0; i &lt; Statevector-&gt;Size() - 1; ++i)
+   if(State("OfAffairs")(i) == 1)
+       found = true;
+</pre>
+<h3><span id="OptionalState(Name[,_Default_Value])"></span><span class="mw-headline" id="OptionalState.28Name.5B.2C_Default_Value.5D.29"><tt>OptionalState(Name[, Default Value])</tt></span></h3>
+<p>Analagous to <tt>OptionalParameter()</tt>, this symbol does not report an error if the specified state does not exist but returns the given default value. Assignments to this symbol are not possible. 
+</p>
+<h3><span class="mw-headline" id="Converters_to_and_from_numeric_types">Converters to and from numeric types</span></h3>
+<p>State values may be of numeric types other than <tt>unsigned</tt>. For conversion, functions are provided as in the following examples:
+</p>
+<pre>float f = State( "MyFloatState" ).AsFloat();
+State( "MyFloatState" ).AsFloat() = 1.23;
+int i = State( "MySignedState" ).AsSigned();
+State( "MySignedState" ).AsSigned() = -3;
+State( "MyUnsignedState" ).AsUnsigned() = 2;
+</pre>
+<p>Note that the <tt>AsUnsigned()</tt> converter function is provided for completeness only. When no conversion is given, state values are treated as unsigned as well.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Programming_Reference%253AParameters.html" title="Programming Reference:Parameters">Programming Reference:Parameters</a>, <a href="Programming_Reference%253AStates.html" title="Programming Reference:States">Programming Reference:States</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524025041
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.022 seconds
+Real time usage: 0.024 seconds
+Preprocessor visited node count: 49/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2004-0!canonical and timestamp 20230524025041 and revision id 9866
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:Accessing_Parameters_and_States&amp;oldid=9866">http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:Accessing_Parameters_and_States&amp;oldid=9866</a>"</div>
+ </div>
+</body>
+</html>

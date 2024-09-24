@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>User Reference:Module Command Line Options - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul><li class="toc1"><a href="User_Reference%253AOperator_Module.html">Operator Module</a></li><li class="toc1"><a href="User_Reference%253AOperator_Module_Scripting.html">Operator Scripting</a></li><li class="toc1">Module Command Line Options</li><li class="toc1"><a href="User_Reference%253AData_File_Formats.html">Data File Formats</a></li><li class="toc1"><a href="User_Reference%253AFilters.html">Configuration Guide</a></li><li class="toc1"><a href="User_FAQ.html">FAQ</a></li><li class="toc1">Applications</li><ul><li class="toc2"><a href="User_Reference%253ACursorTask.html">Cursor Task</a></li><li class="toc2"><a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:P3SpellerTask">P3Speller Task</a></li><li class="toc2"><a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:StimulusPresentation">Stimulus Presentation</a></li></ul><li class="toc1">Tools</li><ul><li class="toc2"><a href="User_Reference%253ABCI2000Certification.html">BCI2000Certification</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Launcher.html">BCI2000Launcher</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Viewer.html">BCI2000Viewer</a></li><li class="toc2"><a href="User_Reference%253ABCI2000FileInfo.html">BCI2000FileInfo</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Export.html">BCI2000Export</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Analysis.html">BCI2000Analysis</a></li><li class="toc2"><a href="User_Reference%253ABCI2000_Offline_Analysis.html">BCI2000 Offline Analysis</a></li><li class="toc2"><a href="User_Reference%253AEloc_Helper.html">Eloc Helper</a></li><li class="toc2"><a href="User_Reference%253AEEGLabImport.html">EEGLabImport</a></li><li class="toc2"><a href="User_Reference%253AMatlab_Tools.html">Matlab Tools</a></li><li class="toc2"><a href="User_Reference%253AMatlab_MEX_Files.html">Matlab MEX Files</a></li><li class="toc2"><a href="User_Reference%253ACommand_Line_Processing.html">Command Line Processing</a></li></ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">Module Command Line Options</h1>
+ <p class = "subtitle">User Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>Using command line options allows you to 
+</p>
+<ul><li>distribute BCI2000 modules over a network,</li>
+<li>change the data format for brain signal recordings,</li>
+<li>switch on debugging messages,</li>
+<li>automate BCI2000 operation.</li></ul>
+<p>You cannot use command line options when starting BCI2000 from <a href="User_Reference%253ABCI2000Launcher.html" title="User Reference:BCI2000Launcher">BCI2000Launcher</a>. Rather, copy one of the batch files from the BCI2000/batch directory, and modify it to fit your needs, then start BCI2000 by double-clicking it (this will work on all supported platforms, not only Windows).
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="User_Reference%253AModule_Command_Line_Options.html#Core_Modules"><span class="tocnumber">1</span> <span class="toctext">Core Modules</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="User_Reference%253AModule_Command_Line_Options.html#Specifying_the_Operator_Module.27s_Network_Address"><span class="tocnumber">1.1</span> <span class="toctext">Specifying the Operator Module's Network Address</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="User_Reference%253AModule_Command_Line_Options.html#Specifying_Options"><span class="tocnumber">1.2</span> <span class="toctext">Specifying Options</span></a>
+<ul>
+<li class="toclevel-3 tocsection-4"><a href="User_Reference%253AModule_Command_Line_Options.html#Special_Options"><span class="tocnumber">1.2.1</span> <span class="toctext">Special Options</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="User_Reference%253AModule_Command_Line_Options.html#Operator_Module"><span class="tocnumber">2</span> <span class="toctext">Operator Module</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="User_Reference%253AModule_Command_Line_Options.html#--Title"><span class="tocnumber">2.1</span> <span class="toctext">--Title</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="User_Reference%253AModule_Command_Line_Options.html#--Hide"><span class="tocnumber">2.2</span> <span class="toctext">--Hide</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="User_Reference%253AModule_Command_Line_Options.html#--Telnet"><span class="tocnumber">2.3</span> <span class="toctext">--Telnet</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="User_Reference%253AModule_Command_Line_Options.html#--WebSocket"><span class="tocnumber">2.4</span> <span class="toctext">--WebSocket</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="User_Reference%253AModule_Command_Line_Options.html#--StartupIdle"><span class="tocnumber">2.5</span> <span class="toctext">--StartupIdle</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="User_Reference%253AModule_Command_Line_Options.html#--Startup"><span class="tocnumber">2.6</span> <span class="toctext">--Startup</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="User_Reference%253AModule_Command_Line_Options.html#--AllowMultipleInstances"><span class="tocnumber">2.7</span> <span class="toctext">--AllowMultipleInstances</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="User_Reference%253AModule_Command_Line_Options.html#--InstancePrefix"><span class="tocnumber">2.8</span> <span class="toctext">--InstancePrefix</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-14"><a href="User_Reference%253AModule_Command_Line_Options.html#See_also"><span class="tocnumber">3</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Core_Modules">Core Modules</span></h2>
+<p><a href="Technical_Reference%253ACore_Modules.html" title="Technical Reference:Core Modules">Core modules</a> (i.e., Data Acquisition, Signal Processing, and Application Module), share the same command line syntax:
+</p>
+<pre>&lt;ModuleName&gt; &lt;operator IP&gt;:&lt;operator port&gt; --&lt;option1&gt;=&lt;value1&gt; --&lt;option2&gt;=&lt;value2&gt; ...
+</pre>
+<p>All arguments are optional.
+</p>
+<h3><span id="Specifying_the_Operator_Module's_Network_Address"></span><span class="mw-headline" id="Specifying_the_Operator_Module.27s_Network_Address">Specifying the Operator Module's Network Address</span></h3>
+<p>At startup, each core module connects to the operator module. If no IP address is specified on the command line, the connection is opened to the local machine using 127.0.0.1 as an IP address.
+When no port is given, each module uses its default port as defined <a href="Technical_Reference%253AStates_of_Operation.html#Startup_Sequence" title="Technical Reference:States of Operation">here</a>.
+Normally, there is no need to change port numbers.
+</p>
+<h3><span class="mw-headline" id="Specifying_Options">Specifying Options</span></h3>
+<p>Any number of options may be given, starting with a double minus sign. 
+As indicated above, option names and values are combined with a single minus sign, to form a continuous character string.
+Each option is translated into a BCI2000 parameter using its name as a parameter name, and its value as a parameter value.
+When a parameter with the given name already exists, its value will be changed from the default to match the value given on the command line. When no parameter with that name exists, it is added to the <i>System</i> parameter section.
+Parameter values must not contain white spaces on the command line; however, white space may be encoded in HTTP fashion as described <a href="Technical_Reference%253AParameter_Definition.html" title="Technical Reference:Parameter Definition">here</a>, e.g., using '%20' as a replacement for a single space character.
+</p>
+<h4><span class="mw-headline" id="Special_Options">Special Options</span></h4>
+<ul><li>Specifying <i>--version</i> will display version information, and then quit.</li>
+<li>The <i>FileFormat</i> option will switch between <a href="User_Reference%253AData_File_Formats.html" title="User Reference:Data File Formats">File Formats</a> used for data recording. The output file format is determined at module startup, and cannot be changed by modifying the FileFormat parameter from the operator module's parameter dialog.</li>
+<li>The <i>DebugLevel</i> option will make a module send <a href="Programming_Reference%253ADebug_Output.html" title="Programming Reference:Debug Output">Debug Messages</a> that appear in the operator module's log window. By default, the debug level will be set to 1; providing a larger number, as in <i>DebugLevel=5,</i> will increase verbosity of debug output.</li>
+<li>The <i>DebugLog</i> option will maintain a log file in the current session directory, bearing the session name, and a <i>.dbg</i> extension. A <i>DebugLevel&gt;0</i> will imply <i>DebugLog=1</i>, unless <i>DebugLog</i> is explicitly set to 0.</li>
+<li>The <i>LogKeyboard</i>, <i>LogMouse</i>, and <i>LogJoystick</i> options will enable <a href="User_Reference%253ALogging_Input.html" title="User Reference:Logging Input">recording of key presses, mouse and joystick position</a>.</li>
+<li>The <i>SavePrmFile</i> option will save a <a href="Technical_Reference%253AParameter_File.html" title="Technical Reference:Parameter File">parameter file</a> for each run.</li>
+<li>Normally, BCI2000 automatically chooses a suitable IP address for communication between SignalSource, SignalProcessing, and Application module. Sometimes however, you want a specific address to be used. This is possible using the <i>SignalSourceIP/SignalProcessingIP/ApplicationIP</i> options. Note that these options must be specified on the command line of the respective module, e.g. the following lines will specify the localhost address for both the connection to the Operator module (first option), and the connection between core modules:</li></ul>
+<pre>start executable SignalSource 127.0.0.1 --SignalSourceIP=127.0.0.1
+start executable SignalProcessing 127.0.0.1 --SignalProcessingIP=127.0.0.1
+start executable Application 127.0.0.1 --ApplicationIP=127.0.0.1
+</pre>
+<ul><li>The <i>--local</i> option provides an alternative way to set a module's listening IP to 127.0.0.1.</li>
+<li>By default, only one module of each kind may be running at a time. To allow for multiple instances of a module, specify the <i>--AllowMultipleInstances</i> option. This will also clean up any instance information that may have been left over from a crashing module.</li></ul>
+<h2><span class="mw-headline" id="Operator_Module">Operator Module</span></h2>
+<p>The Operator Module allows to specify scripts from the command line.
+Most command line options correspond to script entries in the operator's preferences dialog.
+The following options exist:
+</p>
+<pre>--OnConnect
+--OnExit
+--OnSetConfig
+--OnSuspend
+--OnResume
+--OnStart
+--OnStartRun
+--OnStopRun
+--Title
+--Hide
+--StartupIdle
+--Startup
+--Telnet
+--WebSocket
+</pre>
+<p>After the option, white space is expected, followed with a double-quote enclosed string.
+Examples:
+</p>
+<pre>--OnConnect "C:\scripts\onconnect.bciscript"
+--OnConnect "-LOAD PARAMETERFILE ..\parms\myparms.prm"
+--Telnet *:3999
+--Title&#160;%~n0
+</pre>
+<p>The last example shows how to display the name of the batch file from which the Operator Module was started under MS Windows.
+</p>
+<h3><span class="mw-headline" id="--Title">--Title</span></h3>
+<p>The <i>--Title</i> option takes a string that is displayed in the Operator Module's title bar.
+</p>
+<h3><span class="mw-headline" id="--Hide">--Hide</span></h3>
+<p>The <i>--Hide</i> option has no arguments. It hides the Operator module's main window (but not visualization windows). Typically, this option is used in conjunction with fully automated execution via OnConnect/OnSetConfig/OnSuspend scripts, or together with the <i>--Telnet</i> or <i>--WebSocket</i> option.
+</p>
+<h3><span class="mw-headline" id="--Telnet">--Telnet</span></h3>
+<p>The <i>--Telnet</i> option expects an IP:Port combination on which to listen for incoming connections, defaulting to "localhost:3999". Logging into the Operator Module's telnet server allows you to execute script commands interactively, or to remotely control BCI2000 from an external application using script commands. When you intend to connect to the Operator Module from a different machine, you will need to specify either an asterisk (*) in place of the IP address: "*:3999" to indicate that it should listen on all available addresses, or the listening machine's external IP address, e.g. "134.2.131.152:3999".
+</p>
+<h3><span class="mw-headline" id="--WebSocket">--WebSocket</span></h3>
+<p>Similar to the <i>--Telnet</i> option, the <i>--WebSocket</i> option expects an IP:Port combination for incoming <a rel="nofollow" class="external text" href="https://en.wikipedia.org/wiki/WebSocket">WebSocket</a> connections, defaulting to "localhost:3998" (the WebSocket URL would be "ws://localhost:3998/"). The WebSocket port exposes the same functionality as the Telnet port, but wrapped into the WebSocket protocol, allowing browser clients to communicate with BCI2000 in JavaScript (for security reasons, browser-based JavaScript cannot use raw TCP or UDP sockets).
+</p>
+<h3><span class="mw-headline" id="--StartupIdle">--StartupIdle</span></h3>
+<p>When the <i>--StartupIdle</i> option is specified, the Operator module does not wait for incoming connections from BCI2000 core modules. This allows for basic configuration to be performed via a telnet or WebSocket connection. To prepare for core module startup, execute
+</p>
+<pre>Startup System
+</pre>
+<p>from the telnet prompt.
+</p>
+<h3><span class="mw-headline" id="--Startup">--Startup</span></h3>
+<p>Here, you may specify system startup arguments (address, module names, and ports) as specified for the <a href="User_Reference%253AOperator_Module_Scripting.html#STARTUP_SYSTEM" title="User Reference:Operator Module Scripting">STARTUP SYSTEM</a> scripting command. Typically, you will need to enclose the arguments in double quotes.
+</p>
+<h3><span class="mw-headline" id="--AllowMultipleInstances">--AllowMultipleInstances</span></h3>
+<p>By default, only one instance of the Operator module may be running on a system at a time. To allow for multiple Operator instances, specify the <i>--AllowMultipleInstances</i> option.
+</p>
+<h3><span class="mw-headline" id="--InstancePrefix">--InstancePrefix</span></h3>
+<p>A prefix to use in Operator module window title bars. This is useful when running multiple instances of the Operator module at the same time. Also, the instance prefix will be used to separate persistent settings in the Operator .ini file (such as window position and size) by storing them to a different .ini file named <i>&lt;prefix&gt; Operator.ini</i>.
+</p><p><br />
+For further details and examples, see <a href="User_Reference%253AOperator_Module_Scripting.html" title="User Reference:Operator Module Scripting">User Reference:Operator Module Scripting</a>.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Technical_Reference%253ACore_Modules.html" title="Technical Reference:Core Modules">Technical Reference:Core Modules</a>, <a href="User_Reference%253AOperator_Module_Scripting.html" title="User Reference:Operator Module Scripting">User Reference:Operator Module Scripting</a>, <a href="User_Reference%253AData_File_Formats.html" title="User Reference:Data File Formats">User Reference:Data File Formats</a>, <a href="Programming_Reference%253ADebug_Output.html" title="Programming Reference:Debug Output">Programming Reference:Debug Output</a>, <a href="User_Reference%253ALogging_Input.html" title="User Reference:Logging Input">User Reference:Logging Input</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230523195141
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.022 seconds
+Real time usage: 0.026 seconds
+Preprocessor visited node count: 52/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1565-0!canonical and timestamp 20230523195141 and revision id 10096
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=User_Reference:Module_Command_Line_Options&amp;oldid=10096">http://www.bci2000.org/mediawiki/index.php?title=User_Reference:Module_Command_Line_Options&amp;oldid=10096</a>"</div>
+ </div>
+</body>
+</html>

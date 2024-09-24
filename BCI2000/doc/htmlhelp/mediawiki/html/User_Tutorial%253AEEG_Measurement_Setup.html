@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>User Tutorial:EEG Measurement Setup - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul><li class="toc1"><a href="User_Tutorial%253ABCI2000_Tour.html">Tour</a></li><li class="toc1"><a href="User_Tutorial%253AMu_Rhythm_BCI_Tutorial.html">Mu Tutorial</a></li><li class="toc1"><a href="User_Tutorial%253AP300_BCI_Tutorial.html">P300 Tutorial</a></li></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">EEG Measurement Setup</h1>
+ <p class = "subtitle">User Tutorial</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>This page describes the physical setup required for EEG measurements.
+EEG utilizes metal electrodes attached to a human subject's scalp, measuring tiny electrical potentials which reflect the brain's electrical activity.
+Although setting up amplifier and electrodes appears simple and straightforward, a successful, good quality EEG recording requires attention to not-so obvious details, and some practice.
+</p>
+<div id="toc" class="toc"><div class="toctitle" lang="en" dir="ltr"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="User_Tutorial%253AEEG_Measurement_Setup.html#Electrodes"><span class="tocnumber">1</span> <span class="toctext">Electrodes</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="User_Tutorial%253AEEG_Measurement_Setup.html#The_10-20_International_System"><span class="tocnumber">2</span> <span class="toctext">The 10-20 International System</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="User_Tutorial%253AEEG_Measurement_Setup.html#Important_Brain_Areas_and_Landmarks"><span class="tocnumber">3</span> <span class="toctext">Important Brain Areas and Landmarks</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="User_Tutorial%253AEEG_Measurement_Setup.html#Electrode_Placement"><span class="tocnumber">4</span> <span class="toctext">Electrode Placement</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="User_Tutorial%253AEEG_Measurement_Setup.html#Noise_Reduction"><span class="tocnumber">5</span> <span class="toctext">Noise Reduction</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="User_Tutorial%253AEEG_Measurement_Setup.html#Impedance"><span class="tocnumber">5.1</span> <span class="toctext">Impedance</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="User_Tutorial%253AEEG_Measurement_Setup.html#Grounding"><span class="tocnumber">5.2</span> <span class="toctext">Grounding</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="User_Tutorial%253AEEG_Measurement_Setup.html#EEG_Artifacts"><span class="tocnumber">6</span> <span class="toctext">EEG Artifacts</span></a>
+<ul>
+<li class="toclevel-2 tocsection-9"><a href="User_Tutorial%253AEEG_Measurement_Setup.html#Mains_Interference"><span class="tocnumber">6.1</span> <span class="toctext">Mains Interference</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="User_Tutorial%253AEEG_Measurement_Setup.html#Eye_Blink_Artifacts"><span class="tocnumber">6.2</span> <span class="toctext">Eye Blink Artifacts</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="User_Tutorial%253AEEG_Measurement_Setup.html#Eye_Movement_.28EOG.29_Artifacts"><span class="tocnumber">6.3</span> <span class="toctext">Eye Movement (EOG) Artifacts</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="User_Tutorial%253AEEG_Measurement_Setup.html#Muscular_.28EMG.29_Artifacts"><span class="tocnumber">6.4</span> <span class="toctext">Muscular (EMG) Artifacts</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-13"><a href="User_Tutorial%253AEEG_Measurement_Setup.html#Next_Step"><span class="tocnumber">7</span> <span class="toctext">Next Step</span></a></li>
+<li class="toclevel-1 tocsection-14"><a href="User_Tutorial%253AEEG_Measurement_Setup.html#See_also"><span class="tocnumber">8</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Electrodes">Electrodes</span></h2>
+<p>An EEG amplifier <a rel="nofollow" class="external text" href="http://en.wikipedia.org/wiki/Differential_amplifier">measures voltage differences</a> between points on the scalp.
+This implies that each channel is connected to two electrodes. Usually, measurement is "unipolar" rather than "bipolar", which means that the second electrode is identical for all channels, and called "reference" (Ref).
+Also, amplifier inputs must be kept within a small voltage range relative to the amplifier's zero (ground) voltage level. This is achieved by connecting yet another electrode, a "ground" (Gnd) electrode, to the subject's scalp. 
+</p><p>EEG electrodes are small metal plates that are attached to the scalp using a conducting electrode gel.
+They can be made from various materials.
+Most frequently, tin (Sn) and silver/silver-chloride (Ag/AgCl) electrodes are used but there are gold (Au) and platinum (Pt) electrodes as well.
+</p><p>While Sn electrodes have the advantage of being cheap, they introduce a large amount of low-frequency noise ("drifting") below 1Hz. For low-frequency recordings, such as Slow Cortical Potential measurements, or low-noise ERP recordings, Ag/AgCl electrodes are typically used.
+</p><p><i>Important but often neglected:</i> Using electrodes made from different materials in the same recording will result in DC voltage offsets between electrodes, due to electrochemical <a rel="nofollow" class="external text" href="http://en.wikipedia.org/wiki/Galvanic_series">contact potentials</a>.
+Such contact potentials are generally larger than what a typical amplifier tolerates. The result will be a zero or much diminished signal amplitude, and a bad signal-to-noise ratio.
+This applies to all amplifier inputs, i.e. channels, reference, and ground electrodes must all be made from the same material.
+</p>
+<h2><span class="mw-headline" id="The_10-20_International_System">The 10-20 International System</span></h2>
+<p>The 10-20 international system is the standard naming and positioning
+scheme for EEG applications. It is based on an iterative subdivision of arcs
+on the scalp starting from craniometric reference points: Nasion
+(Ns), Inion (In), Left (PAL) and Right (PAR) pre-auricular points. The
+intersection of the longitudinal (Ns-In) and lateral (PAL-PAR) is named the
+Vertex.
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:ElectrodePositions1020.PNG" class="image"><img alt="ElectrodePositions1020.PNG" src="../images/1/15/ElectrodePositions1020.PNG" width="604" height="700" /></a>
+</p><p>The original 10-20 system included only 19 electrodes (see panel B of the
+figure). Later on, extensions were proposed so that now you can place over 70
+electrodes in standard positions (see panel C of the figure). This extension also
+renamed four electrodes (marked in black in the figure); the original names
+were: T3, T5, T4, and T6 for T7, P7, T8, and P8, respectively.
+</p><p>Sometimes, one of the electrodes mounted in these positions is used as
+reference channel. More often, ear lobe or mastoid (i.e. bony outgrowth behind
+the ear) are used.
+</p>
+<h2><span class="mw-headline" id="Important_Brain_Areas_and_Landmarks">Important Brain Areas and Landmarks</span></h2>
+<p>Often, it is important to assess whether a given brain signal topology makes sense with regard to <a href="User_Tutorial%253AIntroduction_to_the_Mu_Rhythm.html#Geometry" title="User Tutorial:Introduction to the Mu Rhythm">a-priori knowledge about sources of interest</a>.
+In most cases, there is a direct correspondence between major brain features, and electrode positions in 
+the 10-20 international system.
+</p><p>In the image displaying electrode positions above, two of these features are indicated by thin lines, and may be identified easily when using a properly placed EEG cap:
+</p>
+<ul><li>The <b>central sulcus (rolandic fissure)</b> separates the frontal lobe from the parietal lobe. Its course corresponds to the thin lines touching CPz-C2-C4 and CPz-C1-C3, respectively. The two gyri immediately neighboring the central sulcus are the
+<ul><li><b>primary motor cortex</b> (in frontal direction), and</li>
+<li><b>primary sensory cortex</b> (in occipital direction).</li></ul></li>
+<li>The course of the <b>lateral sulcus</b> corresponds to the lines C8-FT8-FT10 resp. C5-FT7-FT9. It separates the <b>temporal lobe</b> from the remaining parts of the brain.</li></ul>
+<h2><span class="mw-headline" id="Electrode_Placement">Electrode Placement</span></h2>
+<p>Accurate placement of many electrodes on the scalp is time consuming and requires practice. EEG caps greatly facilitate this process.  These caps are made of elastic fabric (often available in different sizes), and electrodes are already fixed in the proper configuration. One proven technique to place electrodes using such caps is the following:
+</p>
+<ul><li>Mark the vertex on the subject's scalp using a felt-tip pen or some other similar method. Begin by locating the nasion and inion on the subject as indicated in panel A of the figure above. Using a tape measure, find the distance between these two locations. The point half-way between the two points is the vertex. Make a mark at that point for later reference. (Other 10-20 points could be located in a similar manner.)</li>
+<li>Mark scalp positions for Fpz and Oz. The Fpz position is above the nasion 10% of the distance from the nasion to the Inion. The Oz position is above the inion the same distance.</li>
+<li>Identify the <b>Cz</b> electrode on the EEG cap and place the cap to position the Cz electrode on the vertex.</li>
+<li>Keeping Cz fixed, slide the cap onto the head.</li>
+<li>While ensuring that <b>Cz</b> does not shift, adjust the cap such that the Fz-Cz-Pz line is on the midline; Fp1-Fp2 line is horizontal, and at the level of the Fpz mark; the O1-O2 line is horizontal, and at the level of the Oz mark.</li>
+<li>You can now fix Ref and Gnd electrodes. These electrodes are attached in one of a few typical configurations.  One common configuration is to attach the Ref electrode to one earlobe, and the Gnd electrode to the mastoid on the same side of the head. Another possible configuration is to attach Ref to one mastoid and Gnd to the other mastoid.  This choice is influenced by the used cap technology, which may have dedicated electrodes outside the cap for reference and ground, or may have these electrodes embedded in the cap directly.</li></ul>
+<h2><span class="mw-headline" id="Noise_Reduction">Noise Reduction</span></h2>
+<h3><span class="mw-headline" id="Impedance">Impedance</span></h3>
+<p>Impedance between the scalp and electrodes, measured in <tt>kOhm</tt>, is a main factor of the recording signal quality. While introducing low frequency noise, high impedance can also indicate a poor conductivity between electrodes and the underneath skin. Rubbing the skin using a wood stick can break the dry tissue on the surface of the skin and increase conductivity. For wet electrodes, sufficient gel can moist the skin throughout times, which lowers the impedance. 
+</p><p>To measure the current impedance,
+</p>
+<ul><li>In the operator module, click <b>Config</b>.</li>
+<li>In the <b>Source</b> tab:
+<ul><li>Set <i>AcquisitionMode</i> to impedance measurement.</li>
+<li>Set <i>FilterEnabled</i> to <tt>0</tt></li>
+<li>Set <i>NotchEnabled</i> to <tt>0</tt></li></ul></li>
+<li>In the operator module, click <b>Set Config</b>.</li></ul>
+<p><br />
+To inspect current signal quality without filters,
+</p>
+<ul><li>In the Source Signal module, right click.
+<ul><li>Set <i>High Pass</i> to <tt>0.1Hz</tt></li>
+<li>Set <i>Low Pass</i> to <i>off</i></li>
+<li>Set <i>Notch</i> to <i>off</i></li></ul></li></ul>
+<p><br />
+</p>
+<ul class="gallery mw-gallery-traditional" style="max-width: 2572px;_width: 2572px;">
+	<li class="gallerycaption">Impedance Measurement</li>
+		<li class="gallerybox" style="width: 635px"><div style="width: 635px">
+			<div class="thumb" style="width: 630px;"><div style="margin:34.5px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:MeasureElectrodeImpedanceFirst.PNG" class="image"><img alt="" src="../images/thumb/8/80/MeasureElectrodeImpedanceFirst.PNG/600px-MeasureElectrodeImpedanceFirst.PNG" width="600" height="261" srcset="../images/thumb/8/80/MeasureElectrodeImpedanceFirst.PNG/900px-MeasureElectrodeImpedanceFirst.PNG 1.5x, ../images/8/80/MeasureElectrodeImpedanceFirst.PNG 2x" /></a></div></div>
+			<div class="gallerytext">
+<p>Electrode impedance before rubbing the skin and applying more gel
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 635px"><div style="width: 635px">
+			<div class="thumb" style="width: 630px;"><div style="margin:16px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:SourceSignalQualityFirst.PNG" class="image"><img alt="" src="../images/thumb/1/14/SourceSignalQualityFirst.PNG/600px-SourceSignalQualityFirst.PNG" width="600" height="298" srcset="../images/thumb/1/14/SourceSignalQualityFirst.PNG/900px-SourceSignalQualityFirst.PNG 1.5x, ../images/1/14/SourceSignalQualityFirst.PNG 2x" /></a></div></div>
+			<div class="gallerytext">
+<p>Noisy Signal
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 635px"><div style="width: 635px">
+			<div class="thumb" style="width: 630px;"><div style="margin:31.5px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:MeasureElectrodeImpedanceSecond.PNG" class="image"><img alt="" src="../images/thumb/0/00/MeasureElectrodeImpedanceSecond.PNG/600px-MeasureElectrodeImpedanceSecond.PNG" width="600" height="267" srcset="../images/thumb/0/00/MeasureElectrodeImpedanceSecond.PNG/900px-MeasureElectrodeImpedanceSecond.PNG 1.5x, ../images/0/00/MeasureElectrodeImpedanceSecond.PNG 2x" /></a></div></div>
+			<div class="gallerytext">
+<p>Electrode impedance after rubbing the skin and applying more gel
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 635px"><div style="width: 635px">
+			<div class="thumb" style="width: 630px;"><div style="margin:15.5px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:SourceSignalQualitySecond.PNG" class="image"><img alt="" src="../images/thumb/0/06/SourceSignalQualitySecond.PNG/600px-SourceSignalQualitySecond.PNG" width="600" height="299" srcset="../images/thumb/0/06/SourceSignalQualitySecond.PNG/900px-SourceSignalQualitySecond.PNG 1.5x, ../images/0/06/SourceSignalQualitySecond.PNG 2x" /></a></div></div>
+			<div class="gallerytext">
+<p>Good Signal
+</p>
+			</div>
+		</div></li>
+</ul>
+<p>To switch back to recording mode,
+</p>
+<ul><li>In the operator module, click <b>Config</b>.</li>
+<li>In the <b>Source</b> tab:
+<ul><li>Set <i>AcquisitionMode</i> to analog signal acquisition.</li>
+<li>Set <i>FilterEnabled</i> to <tt>1</tt></li>
+<li>Set <i>NotchEnabled</i> to <tt>1</tt></li></ul></li>
+<li>In the operator module, click <b>Set Config</b>.</li></ul>
+<p><br />
+To inspect current signal quality with filters,
+</p>
+<ul><li>In the Source Signal module, right click.
+<ul><li>Set <i>Notch</i> to <tt>60Hz</tt></li></ul></li></ul>
+<h3><span class="mw-headline" id="Grounding">Grounding</span></h3>
+<p>Brain signal quality can also be interfered by surrounded electronics. Unshield power adapters of monitors or running cables in the nearby walls can induce noise to the raw signal. While filtering can take care of most noise, physically removing the source of noise can achieve higher signal quality. One good way is to ground the subject though the amplifier. The gUSBamp of our example has a grounding outlet on the back. Subject can also inspect the effect of grounding by touching the metal case of the amplifier. Both can achieve a cleaner signal at the source level.
+</p>
+<h2><span class="mw-headline" id="EEG_Artifacts">EEG Artifacts</span></h2>
+<h3><span class="mw-headline" id="Mains_Interference">Mains Interference</span></h3>
+<p>Electrical power lines use sinusoidal voltages with a frequency of 50 or 60 Hz, depending on your
+<a rel="nofollow" class="external text" href="http://en.wikipedia.org/wiki/List_of_countries_with_mains_power_plugs%2C_voltages_and_frequencies#Table_of_mains_voltages_and_frequencies">country</a>.
+Generally, 50Hz are used in Europe, Asia, Africa, and parts of South America; 60Hz are used in North America, and parts of South America.
+</p><p>Mains voltage is typically 110 or 230 Volts, and thus exceeds the EEG's 50 to 100 Microvolts by a factor of <img class="mwe-math-fallback-image-inline tex" alt="2*10^6" src="../images/math/3/4/e/34ea2a50eaae8ef50c6655ac2c001a36.png" />, or 126 dB. Therefore, mains interference is ubiquitous in EEG recordings, especially if taken outside specially equipped, shielded rooms, and EEG amplifiers usually provide a so-called notch filter that suppresses signals in a narrow band around the mains frequency in question.
+</p><p>Amplifier notch filters are designed to suppress a certain amount of mains interference. When there is mains interference still visible in the signal after activating the amplifier's notch filter, this is often due to high electrode impedance.
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:MainsInterference.PNG" class="image"><img alt="MainsInterference.PNG" src="../images/0/0f/MainsInterference.PNG" width="694" height="131" /></a>
+</p>
+<h3><span class="mw-headline" id="Eye_Blink_Artifacts">Eye Blink Artifacts</span></h3>
+<p>Eye blink artifacts are generated by fast movement of the eyelid along the cornea, as it happens during an eye blink.
+By friction between lid and cornea, this movement results in charge separation, with a dominantly dipolar charge distribution, and the dipole moment pointing in up-down-direction.
+</p><p>In the EEG, this is recorded as a positive peak lasting a few tenths of a second, mainly
+visible in the frontopolar region, but propagating to all the electrodes of the montage, becoming weaker with distance from the front.
+</p><p>For blink artifacts, the power contained in their frequency components in the alpha band is negligible, so they produce no
+apparent effect on SMR data analysis (as long as their number is reasonable).
+At the same time, their amplitude is quite large so that time domain analyses (such as
+averaged P300 wave forms) can be strongly influenced by their presence.
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:BlinkArtifacts.PNG" class="image"><img alt="BlinkArtifacts.PNG" src="../images/1/1b/BlinkArtifacts.PNG" width="696" height="430" /></a>
+</p>
+<h3><span id="Eye_Movement_(EOG)_Artifacts"></span><span class="mw-headline" id="Eye_Movement_.28EOG.29_Artifacts">Eye Movement (EOG) Artifacts</span></h3>
+<p>EOG artifacts are produced by eye movements, and generated by a frictive mechanism similar to the one underlying blink artifacts but involving retina and cornea rather than cornea alone.
+</p><p>The effect on frontopolar and frontotemporal electrodes can be symmetric or
+antisymmetric, depending whether the movement is vertical or horizontal,
+respectively.
+</p><p>The effect of eye movement artifacts on frequency- or time-domain analysis is quite similar to that of blink artifacts, except that their frequency content is even lower, and amplitudes tend to be larger.
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:EOGArtifacts.PNG" class="image"><img alt="EOGArtifacts.PNG" src="../images/1/1b/EOGArtifacts.PNG" width="704" height="434" /></a>
+</p>
+<h3><span id="Muscular_(EMG)_Artifacts"></span><span class="mw-headline" id="Muscular_.28EMG.29_Artifacts">Muscular (EMG) Artifacts</span></h3>
+<p>EMG activity must be carefully checked at the beginning of each recording, and
+verified throughout the recording. Its effect can completely obscure any
+frequency analysis. Most common sources of EMG are the muscles that lift
+the eye brows, and those which close the jaw. Both groups are inadvertently
+contracted as a consequence of a psychological effort. Keeping the mouth
+slightly open (or the tip of the toungue between the foreteeth) is a good
+strategy to avoid jaw-generated EMG.
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:EMGArtifacts.PNG" class="image"><img alt="EMGArtifacts.PNG" src="../images/7/71/EMGArtifacts.PNG" width="704" height="434" /></a>
+</p>
+<h2><span class="mw-headline" id="Next_Step">Next Step</span></h2>
+<ul><li>If you're following the <a href="User_Tutorial%253AMu_Rhythm_BCI_Tutorial.html" title="User Tutorial:Mu Rhythm BCI Tutorial">Mu Rhythm BCI Tutorial</a>, please proceed to <a href="User_Tutorial%253AObtaining_Mu_Rhythm_Parameters_in_an_Initial_Session.html" title="User Tutorial:Obtaining Mu Rhythm Parameters in an Initial Session">Obtaining Mu Rhythm Parameters in an Initial Session</a>.</li>
+<li>If you're following the <a href="User_Tutorial%253AP300_BCI_Tutorial.html" title="User Tutorial:P300 BCI Tutorial">P300 BCI Tutorial</a>, please proceed to <a href="User_Tutorial%253AObtaining_P300_Parameters_in_a_Calibration_Session.html" title="User Tutorial:Obtaining P300 Parameters in a Calibration Session">Obtaining P300 Parameters in a Calibration Session</a>.</li></ul>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Tutorial%253AMu_Rhythm_BCI_Tutorial.html" title="User Tutorial:Mu Rhythm BCI Tutorial">User Tutorial:Mu Rhythm BCI Tutorial</a>, <a href="User_Tutorial%253AP300_BCI_Tutorial.html" title="User Tutorial:P300 BCI Tutorial">User Tutorial:P300 BCI Tutorial</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20200807080548
+Cache expiry: 86400
+Dynamic content: false
+CPU time usage: 0.049 seconds
+Real time usage: 0.105 seconds
+Preprocessor visited node count: 77/1000000
+Preprocessor generated node count: 116/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 2919/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+</div>
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1475-0!canonical!math=0 and timestamp 20200807080548 and revision id 8461
+ -->
+</div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=User_Tutorial:EEG_Measurement_Setup&amp;oldid=8461">http://www.bci2000.org/mediawiki/index.php?title=User_Tutorial:EEG_Measurement_Setup&amp;oldid=8461</a>"</div>
+ </div>
+</body>
+</html>

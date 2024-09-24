@@ -1,0 +1,12 @@
+###########################################################################
+## $Id$
+## Authors: griffin.milsap@gmail.com
+## Description: Build information for FeedbackDemo in Qt
+
+bci2000_add_application_module(
+  FeedbackDemo
+  FeedbackDemoTask.cpp
+  SUPPORT /parms/examples/FeedbackDemo*.prm
+)
+
+

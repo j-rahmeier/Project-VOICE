@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Programming Reference:WavePlayer Class - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul><li class="toc1">Concepts</li><ul><li class="toc2"><a href="Programming_Reference%253AFilter_Chain.html">Filter Chain</a></li><li class="toc2"><a href="Programming_Reference%253ASignals.html">Signals</a></li><li class="toc2"><a href="Programming_Reference%253AError_Handling.html">Error Handling</a></li><li class="toc2"><a href="Programming_Reference%253ALocalization.html">Localization</a></li><li class="toc2"><a href="Programming_Reference%253ARapid_Development.html">Rapid Development</a></li></ul><li class="toc1">Reference</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFilter_Class.html">GenericFilter</a></li><li class="toc2"><a href="Programming_Reference%253AEnvironment_Class.html">Environment</a></li><li class="toc2"><a href="Programming_Reference%253AGenericVisualization_Class.html">GenericVisualization</a></li><li class="toc2"><a href="Programming_Reference%253AErrors_and_Warnings.html">Errors and Warnings</a></li><li class="toc2"><a href="Programming_Reference%253ADebug_Output.html">Debug Output</a></li></ul><li class="toc1">Data Acquisition</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericADC_Class.html">GenericADC</a></li></ul><li class="toc1">Data Storage</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFileWriter_Class.html">GenericFileWriter</a></li><li class="toc2"><a href="Programming_Reference%253ABCI2000FileReader_Class.html">BCI2000FileReader</a></li></ul><li class="toc1">Signal Processing</li><ul><li class="toc2"><a href="Programming_Reference%253AIIRFilterBase_Class.html">IIR Filters</a></li></ul><li class="toc1">Application Modules</li><ul><li class="toc2"><a href="Programming_Reference%253AApplicationBase_Class.html">ApplicationBase</a></li><li class="toc2"><a href="Programming_Reference%253AFeedbackTask_Class.html">FeedbackTask</a></li><li class="toc2"><a href="Programming_Reference%253AStimulusTask_Class.html">StimulusTask</a></li><li class="toc2"><a href="Programming_Reference%253A3D_API.html">3D API</a></li></ul><li class="toc1">Howtos</li><ul><li class="toc2"><a href="Programming_Howto%253ABuilding_BCI2000.html">Building BCI2000</a></li><li class="toc2"><a href="Programming_Howto%253ASVN_Client_Setup.html">SVN Client Setup</a></li><li class="toc2"><a href="Programming_Howto%253AUsing_TortoiseSVN.html">Using TortoiseSVN</a></li></ul><li class="toc1"><a href="Programming_FAQ.html">FAQ</a></li><li class="toc1">Tutorials</li><ul><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html">Data Acquisition</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html">Signal Processing</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html">Matlab Signal Processing</a></li></ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">WavePlayer Class</h1>
+ <p class = "subtitle">Programming Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Programming_Reference%253AWavePlayer_Class.html#Location"><span class="tocnumber">1</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Programming_Reference%253AWavePlayer_Class.html#Synopsis"><span class="tocnumber">2</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Programming_Reference%253AWavePlayer_Class.html#Properties"><span class="tocnumber">3</span> <span class="toctext">Properties</span></a>
+<ul>
+<li class="toclevel-2"><a href="Programming_Reference%253AWavePlayer_Class.html#string_File_.28rw.29"><span class="tocnumber">3.1</span> <span class="toctext">string File (rw)</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AWavePlayer_Class.html#float_Volume_.28rw.29"><span class="tocnumber">3.2</span> <span class="toctext">float Volume (rw)</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AWavePlayer_Class.html#float_Pan_.28rw.29"><span class="tocnumber">3.3</span> <span class="toctext">float Pan (rw)</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AWavePlayer_Class.html#float_PlayingPos_.28r.29"><span class="tocnumber">3.4</span> <span class="toctext">float PlayingPos (r)</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AWavePlayer_Class.html#bool_IsPlaying_.28r.29"><span class="tocnumber">3.5</span> <span class="toctext">bool IsPlaying (r)</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AWavePlayer_Class.html#enum_WavePlayer::Error_ErrorState_.28r.29"><span class="tocnumber">3.6</span> <span class="toctext">enum WavePlayer::Error ErrorState (r)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="Programming_Reference%253AWavePlayer_Class.html#Enumerations"><span class="tocnumber">4</span> <span class="toctext">Enumerations</span></a>
+<ul>
+<li class="toclevel-2"><a href="Programming_Reference%253AWavePlayer_Class.html#enum_WavePlayer::Error"><span class="tocnumber">4.1</span> <span class="toctext">enum WavePlayer::Error</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-4"><a href="Programming_Reference%253AWavePlayer_Class.html#Methods"><span class="tocnumber">5</span> <span class="toctext">Methods</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="Programming_Reference%253AWavePlayer_Class.html#Default_Constructor.2C_Copy_Constructors.2C_Assignment_Operator.2C_Destructor"><span class="tocnumber">5.1</span> <span class="toctext">Default Constructor, Copy Constructors, Assignment Operator, Destructor</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Programming_Reference%253AWavePlayer_Class.html#Play.28.29"><span class="tocnumber">5.2</span> <span class="toctext">Play()</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="Programming_Reference%253AWavePlayer_Class.html#Stop.28.29"><span class="tocnumber">5.3</span> <span class="toctext">Stop()</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="Programming_Reference%253AWavePlayer_Class.html#Remarks"><span class="tocnumber">6</span> <span class="toctext">Remarks</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="Programming_Reference%253AWavePlayer_Class.html#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><tt>BCI2000/src/shared/modules/application/audio</tt>
+</p>
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>The <tt>WavePlayer</tt> class is a wrapper for audio output from audio data recorded in PCM format (Windows WAV files).
+In order to minimize playback delay, an audio file is loaded into memory prior to playback.
+<tt>WavePlayer</tt> objects may be stored in STL containers.
+</p>
+<h2><span class="mw-headline" id="Properties">Properties</span></h2>
+<h3><span id="string_File_(rw)"></span><span class="mw-headline" id="string_File_.28rw.29">string File (rw)</span></h3>
+<p>Path to an audio file to be played back. The <tt>SetFile</tt> method loads audio data into memory.
+The path may be absolute, or relative to the current executable.
+</p>
+<h3><span id="float_Volume_(rw)"></span><span class="mw-headline" id="float_Volume_.28rw.29">float Volume (rw)</span></h3>
+<p>Playback volume in the range 0.0 to 1.0.
+</p>
+<h3><span id="float_Pan_(rw)"></span><span class="mw-headline" id="float_Pan_.28rw.29">float Pan (rw)</span></h3>
+<p>Panning position in the range -1.0 (leftmost) to +1.0 (rightmost).
+</p>
+<h3><span id="float_PlayingPos_(r)"></span><span class="mw-headline" id="float_PlayingPos_.28r.29">float PlayingPos (r)</span></h3>
+<p>Playback position from start, in milliseconds. Zero if not playing.
+</p>
+<h3><span id="bool_IsPlaying_(r)"></span><span class="mw-headline" id="bool_IsPlaying_.28r.29">bool IsPlaying (r)</span></h3>
+<p>True during playback, false otherwise.
+</p>
+<h3><span id="enum_WavePlayer::Error_ErrorState_(r)"></span><span class="mw-headline" id="enum_WavePlayer::Error_ErrorState_.28r.29">enum WavePlayer::Error ErrorState (r)</span></h3>
+<p>The result of the preceding operation, represented by one of the members of the Error enumerated type.
+</p>
+<h2><span class="mw-headline" id="Enumerations">Enumerations</span></h2>
+<h3><span class="mw-headline" id="enum_WavePlayer::Error">enum WavePlayer::Error</span></h3>
+<ul><li>No Error</li>
+<li>File Opening Error</li></ul>
+<dl><dd>the File property was set to a non-existent file, or a file that could not be loaded as an audio file.</dd></dl>
+<ul><li>Feature not supported</li></ul>
+<dl><dd>a feature provided by one of the properties (such as panning) is not supported by the current implementation.</dd></dl>
+<ul><li>Invalid Parameters</li></ul>
+<dl><dd>a property is out of range.</dd></dl>
+<ul><li>Inititalization Error</li></ul>
+<dl><dd>there was an error when initializing an underlying library (such as DirectX Audio under Windows).</dd></dl>
+<ul><li>Generic Error</li></ul>
+<dl><dd>an error occurred that does not fit into any of the remaining categories.</dd></dl>
+<h2><span class="mw-headline" id="Methods">Methods</span></h2>
+<h3><span id="Default_Constructor,_Copy_Constructors,_Assignment_Operator,_Destructor"></span><span class="mw-headline" id="Default_Constructor.2C_Copy_Constructors.2C_Assignment_Operator.2C_Destructor">Default Constructor, Copy Constructors, Assignment Operator, Destructor</span></h3>
+<p>These provide the full set of methods required to use <tt>WavePlayer</tt> as a data type in STL containers, such as <tt>std::vector&lt;WavePlayer&gt;</tt>.
+</p>
+<h3><span id="Play()"></span><span class="mw-headline" id="Play.28.29">Play()</span></h3>
+<p>Start playback. This method does nothing if the File property has not been specified.
+</p>
+<h3><span id="Stop()"></span><span class="mw-headline" id="Stop.28.29">Stop()</span></h3>
+<p>Stops playback, and resets the playback position to the beginning. This method does nothing when no audio is being played.
+</p>
+<h2><span class="mw-headline" id="Remarks">Remarks</span></h2>
+<p>Copying or assigning <tt>WavePlayer</tt> instances may require re-loading audio data into memory. Write operations to STL containers may imply copying of a contained object, followed by destruction of the original object after copying. Consequently, manipulations to STL containers that contain <tt>WavePlayer</tt> objects are not advisable during playback from one or more of its contained objects, or in time-critical situations. Typically, one would set up such containers at initialization time, and perform only read operations on containers during playback.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Programming_Reference%253ATextToSpeech_Class.html" title="Programming Reference:TextToSpeech Class">Programming Reference:TextToSpeech Class</a>, <a href="Programming_Reference%253AMidiPlayer_Class.html" title="Programming Reference:MidiPlayer Class">Programming Reference:MidiPlayer Class</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524032610
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.023 seconds
+Real time usage: 0.030 seconds
+Preprocessor visited node count: 38/1000000
+Post‐expand include size: 1407/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    6.431      1 Template:WavePlayerProperties
+100.00%    6.431      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1791-0!canonical and timestamp 20230524032609 and revision id 7305
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:WavePlayer_Class&amp;oldid=7305">http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:WavePlayer_Class&amp;oldid=7305</a>"</div>
+ </div>
+</body>
+</html>

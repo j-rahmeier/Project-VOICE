@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Programming Reference:FeedbackDemo Application - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul><li class="toc1">Concepts</li><ul><li class="toc2"><a href="Programming_Reference%253AFilter_Chain.html">Filter Chain</a></li><li class="toc2"><a href="Programming_Reference%253ASignals.html">Signals</a></li><li class="toc2"><a href="Programming_Reference%253AError_Handling.html">Error Handling</a></li><li class="toc2"><a href="Programming_Reference%253ALocalization.html">Localization</a></li><li class="toc2"><a href="Programming_Reference%253ARapid_Development.html">Rapid Development</a></li></ul><li class="toc1">Reference</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFilter_Class.html">GenericFilter</a></li><li class="toc2"><a href="Programming_Reference%253AEnvironment_Class.html">Environment</a></li><li class="toc2"><a href="Programming_Reference%253AGenericVisualization_Class.html">GenericVisualization</a></li><li class="toc2"><a href="Programming_Reference%253AErrors_and_Warnings.html">Errors and Warnings</a></li><li class="toc2"><a href="Programming_Reference%253ADebug_Output.html">Debug Output</a></li></ul><li class="toc1">Data Acquisition</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericADC_Class.html">GenericADC</a></li></ul><li class="toc1">Data Storage</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFileWriter_Class.html">GenericFileWriter</a></li><li class="toc2"><a href="Programming_Reference%253ABCI2000FileReader_Class.html">BCI2000FileReader</a></li></ul><li class="toc1">Signal Processing</li><ul><li class="toc2"><a href="Programming_Reference%253AIIRFilterBase_Class.html">IIR Filters</a></li></ul><li class="toc1">Application Modules</li><ul><li class="toc2"><a href="Programming_Reference%253AApplicationBase_Class.html">ApplicationBase</a></li><li class="toc2"><a href="Programming_Reference%253AFeedbackTask_Class.html">FeedbackTask</a></li><li class="toc2"><a href="Programming_Reference%253AStimulusTask_Class.html">StimulusTask</a></li><li class="toc2"><a href="Programming_Reference%253A3D_API.html">3D API</a></li></ul><li class="toc1">Howtos</li><ul><li class="toc2"><a href="Programming_Howto%253ABuilding_BCI2000.html">Building BCI2000</a></li><li class="toc2"><a href="Programming_Howto%253ASVN_Client_Setup.html">SVN Client Setup</a></li><li class="toc2"><a href="Programming_Howto%253AUsing_TortoiseSVN.html">Using TortoiseSVN</a></li></ul><li class="toc1"><a href="Programming_FAQ.html">FAQ</a></li><li class="toc1">Tutorials</li><ul><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html">Data Acquisition</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html">Signal Processing</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html">Matlab Signal Processing</a></li></ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">FeedbackDemo Application</h1>
+ <p class = "subtitle">Programming Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Programming_Reference%253AFeedbackDemo_Application.html#Location"><span class="tocnumber">1</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Programming_Reference%253AFeedbackDemo_Application.html#Synopsis"><span class="tocnumber">2</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Programming_Reference%253AFeedbackDemo_Application.html#Inheritance"><span class="tocnumber">3</span> <span class="toctext">Inheritance</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="Programming_Reference%253AFeedbackDemo_Application.html#Feedback_Window"><span class="tocnumber">4</span> <span class="toctext">Feedback Window</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="Programming_Reference%253AFeedbackDemo_Application.html#Parameters"><span class="tocnumber">5</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="Programming_Reference%253AFeedbackDemo_Application.html#CursorColor"><span class="tocnumber">5.1</span> <span class="toctext">CursorColor</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="Programming_Reference%253AFeedbackDemo_Application.html#CursorWidth"><span class="tocnumber">5.2</span> <span class="toctext">CursorWidth</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="Programming_Reference%253AFeedbackDemo_Application.html#Localization"><span class="tocnumber">6</span> <span class="toctext">Localization</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="Programming_Reference%253AFeedbackDemo_Application.html#Cursor_Speed"><span class="tocnumber">7</span> <span class="toctext">Cursor Speed</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="Programming_Reference%253AFeedbackDemo_Application.html#Feedback"><span class="tocnumber">8</span> <span class="toctext">Feedback</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="Programming_Reference%253AFeedbackDemo_Application.html#Trial_Statistics"><span class="tocnumber">9</span> <span class="toctext">Trial Statistics</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="Programming_Reference%253AFeedbackDemo_Application.html#Application_Log"><span class="tocnumber">10</span> <span class="toctext">Application Log</span></a></li>
+<li class="toclevel-1 tocsection-13"><a href="Programming_Reference%253AFeedbackDemo_Application.html#See_also"><span class="tocnumber">11</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><tt>src/core/Application/FeedbackDemo</tt>
+</p>
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>The <i>FeedbackDemo</i> application module is a simple cursor feedback application that demonstrates how to write a BCI2000 application module using the Qt GUI library.
+</p><p>It may serve as a starting point to create your own feedback application in BCI2000.
+</p>
+<h2><span class="mw-headline" id="Inheritance">Inheritance</span></h2>
+<p>The <i>FeedbackDemo</i> application's task filter class is <tt>FeedbackDemoTask</tt>, and inherits from the <a href="Programming_Reference%253AFeedbackTask_Class.html" title="Programming Reference:FeedbackTask Class">FeedbackTask</a> base class. Thus, it needs not deal with trial sequencing, target sequences, and similar issues; rather, it provides a window, populates it with the elements of a feedback screen such as a cursor, and a target, and implements a number of hooks, or event handlers.
+</p>
+<h2><span class="mw-headline" id="Feedback_Window">Feedback Window</span></h2>
+<p>The <i>FeedbackDemo</i> application uses a Qt <i>QWidget</i> object as its output window, which contains a <i>QGraphicsScene</i>. In the <i>QGraphicsScene</i>, it maintains a <i>QGraphicsSimpleTextItem</i> object to display output messages, and two <i>QGraphicsEllipseItem</i> objects, one for cursor and target each.
+</p>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<p>Most parameters required for a feedback application are already provided by the <a href="Programming_Reference%253AFeedbackTask_Class.html" title="Programming Reference:FeedbackTask Class">FeedbackTask</a> base class. Two parameters are added by the <i>FeedbackDemo</i> application:
+</p>
+<h3><span class="mw-headline" id="CursorColor">CursorColor</span></h3>
+<p>This is a RGB color value defining the cursor's color.
+</p>
+<h3><span class="mw-headline" id="CursorWidth">CursorWidth</span></h3>
+<p>The cursor's width in percent of total screen width.
+</p>
+<h2><span class="mw-headline" id="Localization">Localization</span></h2>
+<p>The <i>FeedbackDemo</i> application provides an example for a translation table, giving translations for application screen messages, and shows how to wrap string literals in a <tt>LocalizableString</tt> call in order to look them up in the translation table.
+</p>
+<h2><span class="mw-headline" id="Cursor_Speed">Cursor Speed</span></h2>
+<p>A feedback application's input signal consists of a normalized, zero-mean signal from the signal processing module. The <i>FeedbackDemo</i> demonstrates how to use these properties to determine an appropriate signal scaling (cursor speed) in the <tt>FeedbackDemoTask::OnInitialize()</tt> event handler.
+</p>
+<h2><span class="mw-headline" id="Feedback">Feedback</span></h2>
+<p>In the <tt>FeedbackDemoTask::DoFeedback()</tt> event handler, the <i>FeedbackDemo</i> shows
+</p>
+<ul><li>how to use the control signal to update cursor position,</li>
+<li>how to end the trial when the cursor hits the right margin,</li>
+<li>how to set the <i>ResultCode</i> state.</li></ul>
+<h2><span class="mw-headline" id="Trial_Statistics">Trial Statistics</span></h2>
+<p>The <i>FeedbackDemo</i> uses a <a href="Programming_Reference%253ATrialStatistics_Class.html" title="Programming Reference:TrialStatistics Class"><tt>TrialStatistics</tt></a> object to store information about trial outcomes, and demonstrates how to update this information in <tt>FeedbackDemoTask::OnFeedbackEnd()</tt>, and how to obtain run statistics in <tt>FeedbackDemoTask::OnStopRun()</tt>.
+</p>
+<h2><span class="mw-headline" id="Application_Log">Application Log</span></h2>
+<p>The demo uses the <tt>AppLog</tt> object provided by the <a href="Programming_Reference%253AApplicationBase_Class.html" title="Programming Reference:ApplicationBase Class"><tt>ApplicationBase</tt></a> class in order to write to a file and a screen log.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Programming_Reference%253AFeedbackTask_Class.html" title="Programming Reference:FeedbackTask Class">Programming Reference:FeedbackTask Class</a>, <a href="Programming_Reference%253AApplicationBase_Class.html" title="Programming Reference:ApplicationBase Class">Programming Reference:ApplicationBase Class</a>, <a href="Programming_Reference%253ALocalization.html" title="Programming Reference:Localization">Programming Reference:Localization</a>, <a href="Programming_Reference%253ATrialStatistics_Class.html" title="Programming Reference:TrialStatistics Class">Programming Reference:TrialStatistics Class</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524001212
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.014 seconds
+Real time usage: 0.019 seconds
+Preprocessor visited node count: 42/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1867-0!canonical and timestamp 20230524001212 and revision id 8120
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:FeedbackDemo_Application&amp;oldid=8120">http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:FeedbackDemo_Application&amp;oldid=8120</a>"</div>
+ </div>
+</body>
+</html>

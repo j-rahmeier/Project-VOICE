@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Main Page - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">Main Page</h1>
+ <p class = "subtitle"></p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><table cellspacing="10" class="noprint" style="width:100%;margin-top:-2em;margin-bottom:0">
+<tbody><tr>
+<td style="border:1px solid #dfdfdf;background-color:#efefef;padding-left:1em;word-spacing:1em">
+<p class="mw-empty-elt"></p><form name="sitesearch" action="https://www.google.com/search">
+<input name="q" size="40" />
+<input type="submit" value="Google site search of bci2000.org" />
+<input type="hidden" name="sitesearch" value="bci2000.org" />
+<input type="hidden" name="ie" value="utf-8" />
+<input type="hidden" name="oe" value="utf-8" />
+</form>
+<p class="mw-empty-elt"></p>
+</td>
+</tr>
+</tbody></table>
+<table cellspacing="10" style="width:100%;margin-top:-10px">
+<tbody><tr> <td style="margin:0; margin-top:10px; margin-right:10px; border:1px solid #dfdfdf; padding:0 1em 1em 1em; background-color:#e0f2ff; align:right;vertical-align:top;">
+<h1><span id="What_is_BCI2000?"></span><span class="mw-headline" id="What_is_BCI2000.3F"><b>What is BCI2000?</b></span></h1>
+<p>BCI2000 is an open-source, general-purpose software system for brain-computer interface (BCI) research that is free for non-commercial use.
+BCI2000 includes software tools that can acquire and process data, present stimuli and feedback, and manage interaction with outside devices such as robotic arms. BCI2000 is a real-time system that can synchronize EEG and other signals with a wide variety of biosignals and input devices such as mice or eye-trackers. It has several modules to manage data importing and exporting in common file formats. BCI2000 operates on most Windows systems, and the source code can be compiled on most Windows machines. 
+</p>
+</td> </tr>
+</tbody></table>
+<table cellspacing="10" style="width:100%;margin-top:-10px">
+<tbody><tr>
+<td style="margin:0; margin-top:10px; margin-right:10px; border:1px solid #dfdfdf; padding:0 1em 1em 1em; background-color:#cef0ea; align:right;vertical-align:top;">
+<h2><span class="mw-headline" id="BCI2000_for_Users">BCI2000 for Users</span></h2>
+<ul><li><a rel="nofollow" class="external text" href="https://www.bci2000.org/useradmin">Create or modify a User Account</a></li>
+<li><a href="DownloadBCI2000.html" title="DownloadBCI2000">Download BCI2000</a></li>
+<li>Take the introductory <a href="User_Tutorial%253ABCI2000_Tour.html" title="User Tutorial:BCI2000 Tour">BCI2000 Tour</a></li>
+<li>Learn more through an <br /> <a href="Introduction_to_Adaptive_Neurotechnologies.html" title="Introduction to Adaptive Neurotechnologies">Introduction to Adaptive Neurotechnologies</a></li>
+<li>Review the terminology in the <a href="BCI2000_Glossary.html" title="BCI2000 Glossary">BCI2000 Glossary</a></li></ul>
+</td>
+<td style="margin:0; margin-top:10px; margin-right:10px; border:1px solid #dfdfdf; padding:0 1em 1em 1em; background-color:#fbefcc; align:right;vertical-align:top;">
+<h2><span class="mw-headline" id="BCI2000_for_Developers">BCI2000 for Developers</span></h2>
+<ul><li><a rel="nofollow" class="external text" href="https://www.bci2000.org/useradmin">Create or modify a User Account</a></li>
+<li>Download <a href="BCI2000_Binaries.html" title="BCI2000 Binaries">BCI2000 Binaries</a></li>
+<li>Download, build, and customize the BCI2000 toolchain for windows using<br /> <a href="Programming_Howto%253ABuilding_and_Customizing_BCI2000.html" title="Programming Howto:Building and Customizing BCI2000">Building and Customizing Howto</a></li>
+<li>Download, build, and customize the BCI2000 toolchain for non-windows platforms using<br /><a href="Programming_Howto%253ANon%253ABuilding_and_Customizing_BCI2000_on_Non-Windows_Platforms.html" title="Programming Howto:Non:Building and Customizing BCI2000 on Non-Windows Platforms">Building and Customizing Howto for Non-Windows</a></li>
+<li>Access to the <a href="Programming_Howto%253ABuilding_and_Customizing_BCI2000.html" title="Programming Howto:Building and Customizing BCI2000">BCI2000 Source Code</a></li></ul>
+</td>
+</tr>
+<tr>
+<td style="margin:0; margin-top:10px; margin-right:10px; border:1px solid #dfdfdf; padding:0 1em 1em 1em; background-color:#f7dfea; align:right;vertical-align:top;">
+<h2><span class="mw-headline" id="BCI2000_References">BCI2000 References</span></h2>
+<h3><span class="mw-headline" id="BCI2000_Overview_and_Tools">BCI2000 Overview and Tools</span></h3>
+<ul><li>The <a href="User_Reference%253AContents.html" title="User Reference:Contents">User Reference Manual</a> describes all details<br />of system configuration and usage</li></ul>
+<h3><span class="mw-headline" id="Technical_References">Technical References</span></h3>
+<ul><li>The <a href="Technical_Reference%253AContents.html" title="Technical Reference:Contents">Technical Reference Manual</a> contains a discussion of its <br />basic concepts, and a detailed specification of the BCI2000 standard.</li></ul>
+<h3><span class="mw-headline" id="Programming_References">Programming References</span></h3>
+<ul><li>The <a href="Programming_Reference%253AContents.html" title="Programming Reference:Contents">Programming Reference</a> provides background information <br />which you need in order to understand, modify, or create code that <br />depends on the BCI2000 framework.</li></ul>
+<h3><span class="mw-headline" id="Contributions">Contributions</span></h3>
+<ul><li><a href="Contributions%253AContents.html" title="Contributions:Contents">User-Contributed BCI2000 Components and Patches</a></li></ul>
+</td>
+<td style="margin:0; margin-top:10px; margin-right:10px; border:1px solid #dfdfdf; padding:0 1em 1em 1em; background-color:#F9DED7; align:right;vertical-align:top;">
+<h2><span class="mw-headline" id="BCI2000_Tutorials">BCI2000 Tutorials</span></h2>
+<h3><span class="mw-headline" id="Setup_Tutorials">Setup Tutorials</span></h3>
+<ul><li><a href="Programming_Howto%253AInstall_Prerequisites.html" title="Programming Howto:Install Prerequisites">Install Prerequisites</a></li>
+<li><a href="Programming_Howto%253ARegister_with_BCI2000_Project.html" title="Programming Howto:Register with BCI2000 Project">Register with the BCI2000 Project</a></li>
+<li><a href="Programming_Howto%253ADownload_the_BCI2000_Sourcecode.html" title="Programming Howto:Download the BCI2000 Sourcecode">Download the BCI2000 Sourcecode</a></li>
+<li><a href="Programming_Howto%253AConfigure_BCI2000_for_Compilation.html" title="Programming Howto:Configure BCI2000 for Compilation">Configure BCI2000 for Compilation</a></li>
+<li><a href="Programming_Howto%253ACompile_BCI2000.html" title="Programming Howto:Compile BCI2000">Compile BCI2000</a></li></ul>
+<h3><span class="mw-headline" id="Experimental_Tutorials">Experimental Tutorials</span></h3>
+<ul><li><a href="https://www.bci2000.org/mediawiki/index.php/User_Tutorial:Mu_Rhythm_BCI_Tutorial" title="User Tutorial:Mu Rhythm BCI Tutorial">Mu Rhythm BCI Tutorial</a></li>
+<li><a href="https://www.bci2000.org/mediawiki/index.php/User_Tutorial:P300_BCI_Tutorial" title="User Tutorial:P300 BCI Tutorial">P300 BCI Tutorial</a></li></ul>
+<h3><span class="mw-headline" id="Programming_Tutorials">Programming Tutorials</span></h3>
+<ul><li><a href="Programming_Tutorial%253AImplementing_a_Source_Module.html" title="Programming Tutorial:Implementing a Source Module">Implementing a Source Module</a></li>
+<li><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html" title="Programming Tutorial:Implementing a Signal Processing Filter">Implementing a Signal Processing Filter</a></li>
+<li><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html" class="mw-redirect" title="Programming Tutorial:Implementing a Matlab-based Filter">Implementing a Matlab-based Filter</a></li>
+<li><a href="Programming_Tutorial%253AImplementing_an_Input_Logger.html" title="Programming Tutorial:Implementing an Input Logger">Implementing an Input Logger</a></li></ul>
+<h3><span class="mw-headline" id="Data_Analysis_Tutorials">Data Analysis Tutorials</span></h3>
+<ul><li><a href="https://www.bci2000.org/mediawiki/index.php/User_Tutorial:Data_Analysis" title="User Tutorial:Data Analysis">Data Analysis with BCI2000</a></li>
+<li>Converting and Analyzing BCI2000 Data with  <a href="User_Reference%253AMatlab_MEX_Files.html" title="User Reference:Matlab MEX Files">Matlab MEX Files</a></li>
+<li>Analyze BCI2000 Data in Python with <a rel="nofollow" class="external text" href="https://github.com/neurotechcenter/BCI2kReader">BCI2k Reader</a></li></ul>
+<h3><span class="mw-headline" id="All_Tutorials:See_a_complete_list_of_BCI2000_tutorials_here">All Tutorials:See a complete list of <a href="https://www.bci2000.org/mediawiki/index.php/User_Tutorial" title="User Tutorial">BCI2000 tutorials</a> here</span></h3>
+<ul><li class="mw-empty-elt"></li></ul>
+</td>
+
+</tr>
+<tr>
+
+<td style="margin:0; margin-right:10px; border:1px solid #dfdfdf; padding:0 1em 1em 1em; background-color:#e8eaff; align:right;vertical-align:top;">
+<h2><span class="mw-headline" id="Supported_Frameworks">Supported Frameworks</span></h2>
+<ul><li>BCI2000 Remote - includes Matlab, C++, and Python
+<ul><li><a href="Technical_Reference%253ABCI2000Remote_Library.html" title="Technical Reference:BCI2000Remote Library">Technical Reference:BCI2000Remote Library</a></li>
+<li><a href="Programming_Reference%253ABCI2000Remote_Class.html" title="Programming Reference:BCI2000Remote Class">Programming Reference:BCI2000Remote Class</a></li>
+<li><a href="https://www.bci2000.org/mediawiki/index.php/User_Tutorial:BCI2000Remote" title="User Tutorial:BCI2000Remote">User Tutorial:BCI2000Remote</a></li></ul></li>
+<li><a href="PsychoPy.html" title="PsychoPy">PsychoPy</a></li>
+<li><a href="BCPy2000.html" title="BCPy2000">BCPy2000</a>
+<ul><li><a href="https://www.bci2000.org/mediawiki/index.php/User_Tutorial:BCPy2000" title="User Tutorial:BCPy2000">User Tutorial:BCPy2000</a></li>
+<li><a href="Contributions%253ABCPy2000.html" title="Contributions:BCPy2000">Contributions:BCPy2000</a></li></ul></li>
+<li>BCI2000 Core Frameworks
+<ul><li><a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:P3SpellerTask" title="User Reference:P3SpellerTask">P3 Speller</a></li>
+<li><a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:StimulusPresentationTask" title="User Reference:StimulusPresentationTask">Stimulus Presentation</a></li>
+<li><a href="User_Reference%253ACursorTask.html" title="User Reference:CursorTask">Cursor Task</a></li></ul></li></ul>
+</td>
+
+
+<td style="margin:0; margin-top:10px; margin-right:10px; border:1px solid #dfdfdf; padding:0 1em 1em 1em; background-color:#d2f0f7; align:right;vertical-align:top;">
+<h2><span class="mw-headline" id="Additional_Information">Additional Information</span></h2>
+<ul><li><a href="System_Features.html" title="System Features">Features supported by BCI2000</a></li>
+<li><a rel="nofollow" class="external text" href="https://github.com/neurotechcenter">NCAN Github</a></li>
+<li><a rel="nofollow" class="external text" href="https://www.bci2000.org/phpbb">BCI2000 Community Forum</a></li>
+<li><a rel="nofollow" class="external text" href="https://www.bci2000.org/tracproj/newticket">Submit a Bug Report</a>  (make sure you log in)</li>
+<li><a href="User_FAQ.html" title="User FAQ">BCI2000 Frequently Asked Questions</a></li>
+<li><a href="BCI2000_Glossary.html" title="BCI2000 Glossary">BCI2000 Glossary</a><br />of terms specific to BCI2000</li>
+<li><a href="BCI2000_Licensing.html" title="BCI2000 Licensing">Licensing Information</a></li></ul>
+</td>
+</tr>
+</tbody></table>
+<p><br />
+</p>
+<table cellspacing="10" style="width:100%;">
+<tbody><tr>
+<td style="margin:0; margin-top:10px; margin-right:10px; border:1px solid #dfdfdf; padding:0 1em 1em 1em; background-color:white; align:right;vertical-align:top;">
+<h2><span class="mw-headline" id="BCI2000_Publications">BCI2000 Publications</span></h2>
+<ul><li><a rel="nofollow" class="external text" href="http://www.bci2000.org/downloads/doc/paper.pdf">G. Schalk, D.J. McFarland, T. Hinterberger, N. Birbaumer, and J.R. Wolpaw: <i>BCI2000: A General-Purpose Brain-Computer Interface (BCI) System</i>, IEEE Trans Biomed Eng, 51(6), June 2004.</a></li>
+<li>J. Mellinger, G. Schalk: <i>BCI2000: A General-Purpose Software Platform for BCI Research,</i> In: G. Dornhege, J. del R. Millán, T. Hinterberger, D.J. McFarland, K.-R. Müller (eds.), <i>Toward Brain-Computer Interfacing,</i> MIT Press, 2007.</li>
+<li><a rel="nofollow" class="external text" href="http://www.amazon.com/Practical-Guide-BrainComputer-Interfacing-BCI2000/dp/1849960917/">G. Schalk, J. Mellinger: "A Practical Guide to Brain-Computer Interfacing with BCI2000", Springer, 2010.</a></li>
+<li>J. Mellinger, G. Schalk: "Using BCI2000 in BCI Research," In: B. Graimann, B. Allison, G. Pfurtscheller (eds.), "Brain-Computer Interfaces: Revolutionizing Human-Computer Interaction", Springer, 2010.</li></ul>
+</td>
+</tr>
+</tbody></table>
+<!-- 
+NewPP limit report
+Cached time: 20230524051418
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.033 seconds
+Real time usage: 0.039 seconds
+Preprocessor visited node count: 156/1000000
+Post‐expand include size: 75/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 494/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1-0!canonical and timestamp 20230524051417 and revision id 10172
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Main_Page&amp;oldid=10172">http://www.bci2000.org/mediawiki/index.php?title=Main_Page&amp;oldid=10172</a>"</div>
+ </div>
+</body>
+</html>

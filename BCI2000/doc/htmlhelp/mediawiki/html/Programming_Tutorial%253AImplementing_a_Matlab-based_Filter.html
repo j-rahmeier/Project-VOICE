@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Programming Tutorial:Implementing a simple Matlab-based Filter - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul><li class="toc1">Concepts</li><ul><li class="toc2"><a href="Programming_Reference%253AFilter_Chain.html">Filter Chain</a></li><li class="toc2"><a href="Programming_Reference%253ASignals.html">Signals</a></li><li class="toc2"><a href="Programming_Reference%253AError_Handling.html">Error Handling</a></li><li class="toc2"><a href="Programming_Reference%253ALocalization.html">Localization</a></li><li class="toc2"><a href="Programming_Reference%253ARapid_Development.html">Rapid Development</a></li></ul><li class="toc1">Reference</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFilter_Class.html">GenericFilter</a></li><li class="toc2"><a href="Programming_Reference%253AEnvironment_Class.html">Environment</a></li><li class="toc2"><a href="Programming_Reference%253AGenericVisualization_Class.html">GenericVisualization</a></li><li class="toc2"><a href="Programming_Reference%253AErrors_and_Warnings.html">Errors and Warnings</a></li><li class="toc2"><a href="Programming_Reference%253ADebug_Output.html">Debug Output</a></li></ul><li class="toc1">Data Acquisition</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericADC_Class.html">GenericADC</a></li></ul><li class="toc1">Data Storage</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFileWriter_Class.html">GenericFileWriter</a></li><li class="toc2"><a href="Programming_Reference%253ABCI2000FileReader_Class.html">BCI2000FileReader</a></li></ul><li class="toc1">Signal Processing</li><ul><li class="toc2"><a href="Programming_Reference%253AIIRFilterBase_Class.html">IIR Filters</a></li></ul><li class="toc1">Application Modules</li><ul><li class="toc2"><a href="Programming_Reference%253AApplicationBase_Class.html">ApplicationBase</a></li><li class="toc2"><a href="Programming_Reference%253AFeedbackTask_Class.html">FeedbackTask</a></li><li class="toc2"><a href="Programming_Reference%253AStimulusTask_Class.html">StimulusTask</a></li><li class="toc2"><a href="Programming_Reference%253A3D_API.html">3D API</a></li></ul><li class="toc1">Howtos</li><ul><li class="toc2"><a href="Programming_Howto%253ABuilding_BCI2000.html">Building BCI2000</a></li><li class="toc2"><a href="Programming_Howto%253ASVN_Client_Setup.html">SVN Client Setup</a></li><li class="toc2"><a href="Programming_Howto%253AUsing_TortoiseSVN.html">Using TortoiseSVN</a></li></ul><li class="toc1"><a href="Programming_FAQ.html">FAQ</a></li><li class="toc1">Tutorials</li><ul><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html">Data Acquisition</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html">Signal Processing</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html">Matlab Signal Processing</a></li></ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">Implementing a simple Matlab-based Filter</h1>
+ <p class = "subtitle">Programming Tutorial</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html#Online_Algorithm_Verification"><span class="tocnumber">1</span> <span class="toctext">Online Algorithm Verification</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html#An_Example_Algorithm_in_MATLAB"><span class="tocnumber">2</span> <span class="toctext">An Example Algorithm in MATLAB</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html#Transforming_the_existing_MATLAB_code_into_BCI2000_event_handlers"><span class="tocnumber">3</span> <span class="toctext">Transforming the existing MATLAB code into BCI2000 event handlers</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html#Process"><span class="tocnumber">3.1</span> <span class="toctext">Process</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html#Initialize"><span class="tocnumber">3.2</span> <span class="toctext">Initialize</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html#StartRun"><span class="tocnumber">3.3</span> <span class="toctext">StartRun</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html#Constructor"><span class="tocnumber">3.4</span> <span class="toctext">Constructor</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html#Preflight"><span class="tocnumber">3.5</span> <span class="toctext">Preflight</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-9"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html#Conclusion"><span class="tocnumber">4</span> <span class="toctext">Conclusion</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Online_Algorithm_Verification">Online Algorithm Verification</span></h2>
+<p>In the field of BCI signal processing research, novel methods are often proposed and tested on the basis of existing data.
+While this is adequate as a research strategy, it is important to keep in mind that timely feedback of brain signal classification is an essential element of a BCI.
+From this, it is clear that, ideally, a proposed BCI signal processing or classification method should be verified with respect to its viability and usefulness in a true online setting, providing feedback to the subject causally and in real-time.
+</p><p>BCI2000 facilitates the transformation of an existing offline data analysis method into a functional online system.
+</p>
+<ul><li>For signal processing components, it provides a convenient, straightforward programming interface.</li>
+<li>A signal processing component may be implemented as a set of Matlab scripts.</li></ul>
+<p>Still, it is easy to underestimate the effort required to transform an existing offline implementation of a signal processing algorithm into a functional online implementation. While BCI2000 tries to make the transformation as simple as possible, it cannot remove the effort required to deal with chunks of data, which implies the need of 
+</p>
+<ul><li>buffering -- rather than having immediate access to a continuous data set, it may be necessary to maintain an additional data buffer;</li>
+<li>with the Matlab interface, maintaining a consistent state between subsequent calls to the processing script.</li></ul>
+<h2><span class="mw-headline" id="An_Example_Algorithm_in_MATLAB">An Example Algorithm in MATLAB</span></h2>
+<p>In this scenario, we use a simple, straightforward BCI signal processing algorithm designed for the <a href="https://www.bci2000.org/mediawiki/index.php/User_Tutorial:Introduction_to_the_Mu_Rhythm" title="User Tutorial:Introduction to the Mu Rhythm">mu rhythm paradigm</a>, serving as an example to show the steps necessary to modify the algorithm such 
+that it may be used to build an online system in BCI2000.
+</p><p>In the example, signal processing consists of IIR bandpass filtering, followed with RMS envelope computation, and linear classification.
+A typical Matlab implementation of that algorithm might consist of about ten non-comment lines:
+</p>
+<pre>function class_result = classify( data, band, classifier );
+
+% Use as
+%   class_result = classify( data, band, classifier )
+%
+% This function takes raw data as a [channels x samples] vector in the 'data'
+% input variable. 
+%
+% Then, it computes bandpower features for the band specified in the 'band'
+% input variable, which is a number between 0 and 0.5, specifying
+% center frequency in terms of the sampling rate.
+%
+% As a last step, it applies the 'classifier' matrix to the features in order
+% to obtain a single classification result for each sample. The 'classifier' 
+% vector specifies a classification weight for each processed channel.
+% 
+% The result is a single classification result for each sample.
+%
+% This requires the Matlab signal processing toolbox.
+
+% Design bandpass filters and apply them to the data matrix.
+% The filtered data will contain bandpass filtered data as channels.
+[n,Wn]=buttord(band*[0.9 1.1]/2,band*[0.7 1.4]/2,1,60);
+[b,a]=butter(n,Wn);
+processed_data = filter(b,a,data);
+
+% For demodulation, rectify and apply a low pass.
+[b,a]=butter(1,band/4);
+processed_data = filter(b,a,abs(processed_data));
+
+% Finally, apply the linear classifier.
+class_result = processed_data * classifier;
+</pre>
+<p>Note that, to be viable in an online environment, an algorithm must operate 
+on its signal in a causal way, i.e. it may not use future samples in order to
+process present samples. (Still, a certain amount of non-causality may be possible
+by windowed operation on buffered data, although this will increase the effective
+delay between input and output data.)
+</p><p>Also note that the <tt>classify</tt> function omits spatial filtering -- in Matlab, 
+this may be done easily by pre-multiplying the data with a spatial filter matrix
+if desired.
+</p>
+<h2><span class="mw-headline" id="Transforming_the_existing_MATLAB_code_into_BCI2000_event_handlers">Transforming the existing MATLAB code into BCI2000 event handlers</span></h2>
+<p>For use with BCI2000, the signal processing code needs to be cast into a form
+that suits the BCI2000 filter interface.
+In this event-based model, portions of code are called at certain times to configure
+a filter component's internal state, and to act upon the signal in chunks on its way through
+the BCI2000 chain of filters.
+</p>
+<h3><span class="mw-headline" id="Process">Process</span></h3>
+<p>The most central event in the filter interface is the <i>Process</i> event.
+The <i>Process</i> event handler receives a signal input, will process this input
+according to the filter component's role in the signal processing chain, and 
+return the result of processing in a signal output variable.
+It is important to understand that the <i>Process</i> handler is called separately
+for each chunk of data, and thus does not see the signal in its entirety.
+Also, the size of data blocks (chunks) is freely configurable by the user, although
+restricted to limits stemming from recording hardware properties.
+This implies that <i>Process</i> scripts may not depend on a certain
+data block size, and will sometimes need to maintain their own data buffers when 
+the algorithm in question operates on windows of data rather than continuously.
+In the current example, this is not the case, so we need not maintain an internal 
+data buffer.
+Still, we need to maintain an internal state between calls to the <i>Process</i> 
+handler in order to preserve the state of IIR filter delays.
+This will allow continuous operation on the signal with the same processing result
+as in the offline version of the algorithm.
+</p><p>The algorithm's online version in the <tt>bci_Process</tt> script will thus be:
+</p>
+<pre>function out_signal = bci_Process( in_signal )
+
+% Process a single block of data by applying a filter to in_signal, 
+% and return the result in out_signal.
+% Signal dimensions are ( channels x samples ).
+
+% We use global variables to store classifier, 
+% filter coefficients and filter state.
+global a b z lpa lpb lpz classifier;
+
+[out_signal, z] = filter( b, a, in_signal, z );
+out_signal = abs( out_signal );
+[out_signal, lpz] = filter( lpb, lpa, out_signal, lpz );
+out_signal = out_signal * classifier;
+</pre>
+<h3><span class="mw-headline" id="Initialize">Initialize</span></h3>
+<p>Determination of filter coefficients is part of per-run initialization, and occurs in the 
+<i>Initialize</i> event handler:
+</p>
+<pre>function bci_Initialize( in_signal_dims, out_signal_dims )
+
+% Perform configuration for the bci_Process script.
+
+% Parameters and states are global variables.
+global bci_Parameters bci_States;
+
+% We use global variables to store classifier vector, 
+% filter coefficients and filter state.
+global a b z lpa lpb lpz classifier;
+
+% Configure the Bandpass filter
+band = str2double( bci_Parameters.Passband ) / str2double( bci_Parameters.SamplingRate );
+[n,Wn]=buttord(band*[0.9 1.1]/2,band*[0.7 1.4]/2,1,60);
+[b,a]=butter(n,Wn);
+z=zeros(max(length(a),length(b))-1,in_signal_dims(1));
+
+% Configure the Lowpass filter
+[lpb,lpa]=butter(1,band/4);
+lpz=zeros(max(length(lpa),length(lpb))-1,in_signal_dims(1));
+
+% Configure the Classifier vector
+classifier = str2double( bci_Parameters.ClassVector );
+</pre>
+<h3><span class="mw-headline" id="StartRun">StartRun</span></h3>
+<p>In addition, we need to reset filter state at the beginning of each run, using the <i>StartRun</i>
+event handler:
+</p>
+<pre>function bci_StartRun
+
+% Reset filter state at the beginning of a run.
+
+global z lpz;
+z   = zeros(size(z));
+lpz = zeros(size(lpz));
+</pre>
+<h3><span class="mw-headline" id="Constructor">Constructor</span></h3>
+<p>To complete the Matlab filter code, we need to declare the <i>Band</i> and <i>Classifier</i>
+parameters in a <i>Constructor</i> event handler:
+</p>
+<pre>function [ parameters, states ] = bci_Construct
+
+% Request BCI2000 parameters by returning parameter definition 
+% lines as demonstrated below.
+
+parameters = { ...
+  [ 'BPClassifier float Passband= 10 10 0&#160;%&#160;% // Bandpass frequency in Hz' ] ...
+  [ 'BPClassifier matrix ClassVector= 1 1 1 0&#160;%&#160;% // Linear classifier vector' ] ...
+};
+</pre>
+<h3><span class="mw-headline" id="Preflight">Preflight</span></h3>
+<p>Finally, we need to check parameters for consistency in a <i>Preflight</i>
+script, and declare the size of our filter's output signal:
+</p>
+<pre>function [ out_signal_dim ] = bci_Preflight( in_signal_dim )
+
+% Check whether parameters are accessible, and whether
+% parameters have values that allow for safe processing by the 
+% bci_Process function.
+% Also, report output signal dimensions in the 'out_signal_dim' argument.
+
+% Parameters and states are global variables.
+global bci_Parameters bci_States;
+
+band = str2double( bci_Parameters.Passband ) / str2double( bci_Parameters.SamplingRate );
+if( band &lt;= 0 )
+  error( 'The passband parameter must be greater zero' );
+elseif( band &gt; 0.5 / 1.4 )
+  error( 'The Passband parameter conflicts with the sampling rate' ); 
+end
+
+out_signal_dim = [ 1, size( in_signal_dim, 2 ) ];
+if( in_signal_dim( 1 ) ~= size( bci_Parameters.ClassVector, 2 ) )
+  error( 'ClassVector length must match the input signal''s number of channels' );
+end
+</pre>
+<h2><span class="mw-headline" id="Conclusion">Conclusion</span></h2>
+<p>We now have a minimal set of BCI2000 event handlers in Matlab.
+When starting up BCI2000 with the [MatlabSignalProcessing|] module,
+we may utilize these event handlers to provide the passband power decoding as necessary for a Sensorimotor Rhythm BCI.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Programming_Tutorial%253AImplementing_another_Matlab-based_Filter.html" class="mw-redirect" title="Programming Tutorial:Implementing another Matlab-based Filter">Programming Tutorial:Implementing another Matlab-based Filter</a>,
+<a href="Programming_Reference%253AMatlabFilter.html" title="Programming Reference:MatlabFilter">Programming Reference:MatlabFilter</a>, 
+<a href="User_Reference%253AMatlabFilter.html" class="mw-redirect" title="User Reference:MatlabFilter">User Reference:MatlabFilter</a>, 
+<a href="Contributions%253AFieldTripBuffer.html" title="Contributions:FieldTripBuffer">Contributions:FieldTripBuffer</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524131300
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.019 seconds
+Real time usage: 0.026 seconds
+Preprocessor visited node count: 60/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 3892/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1778-0!canonical and timestamp 20230524131300 and revision id 9249
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Programming_Tutorial:Implementing_a_simple_Matlab-based_Filter&amp;oldid=9249">http://www.bci2000.org/mediawiki/index.php?title=Programming_Tutorial:Implementing_a_simple_Matlab-based_Filter&amp;oldid=9249</a>"</div>
+ </div>
+</body>
+</html>

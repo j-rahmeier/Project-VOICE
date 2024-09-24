@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:SecondaryBCI2000Controller - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">SecondaryBCI2000Controller</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Contributions%253ASecondaryBCI2000Controller.html#Synopsis"><span class="tocnumber">1</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Contributions%253ASecondaryBCI2000Controller.html#Location"><span class="tocnumber">2</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Contributions%253ASecondaryBCI2000Controller.html#Versioning"><span class="tocnumber">3</span> <span class="toctext">Versioning</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Contributions%253ASecondaryBCI2000Controller.html#Author"><span class="tocnumber">3.1</span> <span class="toctext">Author</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Contributions%253ASecondaryBCI2000Controller.html#Version_History"><span class="tocnumber">3.2</span> <span class="toctext">Version History</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Contributions%253ASecondaryBCI2000Controller.html#Source_Code_Revisions"><span class="tocnumber">3.3</span> <span class="toctext">Source Code Revisions</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="Contributions%253ASecondaryBCI2000Controller.html#Known_Issues"><span class="tocnumber">3.4</span> <span class="toctext">Known Issues</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="Contributions%253ASecondaryBCI2000Controller.html#Functional_Description"><span class="tocnumber">4</span> <span class="toctext">Functional Description</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="Contributions%253ASecondaryBCI2000Controller.html#Integration_into_BCI2000"><span class="tocnumber">5</span> <span class="toctext">Integration into BCI2000</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="Contributions%253ASecondaryBCI2000Controller.html#Usage"><span class="tocnumber">6</span> <span class="toctext">Usage</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="Contributions%253ASecondaryBCI2000Controller.html#Parameters"><span class="tocnumber">7</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-12"><a href="Contributions%253ASecondaryBCI2000Controller.html#SecondaryBCI2000"><span class="tocnumber">7.1</span> <span class="toctext">SecondaryBCI2000</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="Contributions%253ASecondaryBCI2000Controller.html#SecondaryBCI2000TelnetPort"><span class="tocnumber">7.2</span> <span class="toctext">SecondaryBCI2000TelnetPort</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="Contributions%253ASecondaryBCI2000Controller.html#SecondaryBCI2000StartupScript"><span class="tocnumber">7.3</span> <span class="toctext">SecondaryBCI2000StartupScript</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-15"><a href="Contributions%253ASecondaryBCI2000Controller.html#See_also"><span class="tocnumber">8</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>An extension that controls a secondary BCI2000 instance from the GUI of a primary one.
+</p>
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><a rel="nofollow" class="external free" href="http://www.bci2000.org/svn/trunk/src/contrib/Extensions/SecondaryBCI2000Controller">http://www.bci2000.org/svn/trunk/src/contrib/Extensions/SecondaryBCI2000Controller</a>
+</p>
+<h2><span class="mw-headline" id="Versioning">Versioning</span></h2>
+<h3><span class="mw-headline" id="Author">Author</span></h3>
+<ul><li>Jürgen Mellinger (mellinger@neurotechcenter.org)</li></ul>
+<h3><span class="mw-headline" id="Version_History">Version History</span></h3>
+<h3><span class="mw-headline" id="Source_Code_Revisions">Source Code Revisions</span></h3>
+<ul><li>Initial development: 6819</li>
+<li>Tested under: 6819</li>
+<li>Known to compile under: 6819</li></ul>
+<h3><span class="mw-headline" id="Known_Issues">Known Issues</span></h3>
+<ul><li>When recording into a directory that already contains data files with the same base name, data file name will be out of sync between the first and second instance of BCI2000. Also, run numbers stored within the files will be out of sync.</li>
+<li>Log windows of primary and secondary BCI2000 instance will have the same location, hiding each other and possibly leading to confusion. The same applies to operator main windows if the second instance is not hidden by calling "Hide Window" from the secondary batch file.</li></ul>
+<h2><span class="mw-headline" id="Functional_Description">Functional Description</span></h2>
+<p>The extension will start up a second instance of BCI2000, and synchronize data file storage and operation state between the two instances. This is useful to record from two different data sources at the same time, when online processing of one of the data sources is not required. In later analysis, data from the two sources may be aligned in time using BCI2000 time stamps found in the two data files.
+</p>
+<h2><span class="mw-headline" id="Integration_into_BCI2000">Integration into BCI2000</span></h2>
+<p>Compile the extension into your source module by enabling contributed extensions in your CMake configuration. In your root build folder, run <tt>Configure.sh.cmd</tt> in order to bring up the CMake GUI; there, enable EXTENSIONS_SECONDARY_BCI2000_CONTROLLER.
+</p><p>Once the extension is built into the source module, enable it by starting the source module with the <code>--SecondaryBCI2000=1</code> command line argument.
+</p>
+<h2><span class="mw-headline" id="Usage">Usage</span></h2>
+<p>When the SecondaryBCI2000Controller extension has been enabled in the system at compile time, you will find a <tt>BCI2000TwiceStartup.bat</tt> batch file in your BCI2000 batch folder. Double-click it to start BCI2000.
+</p><p>Startup configuration of the secondary instance of BCI2000 is done in the file <tt>BCI2000TwiceSecondaryStartup.bat</tt>.
+You may load identical or different configuration parameter files in the two startup batch files.
+</p><p>Data file location is synchronized between the two BCI2000 instances. The second instance uses identical file names to the first one, with an appended <tt>_1</tt> before the file name extension.
+</p>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<p>The SecondaryBCI2000Controller extension is configured in the <i>Source</i> tab within the "Secondary BCI2000" section.  The configurable parameters are:
+</p>
+<h3><span class="mw-headline" id="SecondaryBCI2000">SecondaryBCI2000</span></h3>
+<p>Enables/Disables the SecondaryBCI2000Controller.
+</p>
+<h3><span class="mw-headline" id="SecondaryBCI2000TelnetPort">SecondaryBCI2000TelnetPort</span></h3>
+<p>The telnet port that is used to control the secondary instance of BCI2000.
+</p>
+<h3><span class="mw-headline" id="SecondaryBCI2000StartupScript">SecondaryBCI2000StartupScript</span></h3>
+<p>The script that is used to start up and configure the secondary instance of BCI2000. An example script is available as <tt>BCI2000TwiceSecondaryStartup.bat</tt> in your BCI2000 batch directory, and is called by the <tt>BCI2000TwiceStartup.bat</tt> batch file.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Contributions%253AExtensions.html" title="Contributions:Extensions">Contributions:Extensions</a>, <a href="User_Reference%253AOperator_Module_Scripting.html" title="User Reference:Operator Module Scripting">User Reference:Operator Module Scripting</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524000820
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.015 seconds
+Real time usage: 0.018 seconds
+Preprocessor visited node count: 47/1000000
+Post‐expand include size: 15/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2464-0!canonical and timestamp 20230524000820 and revision id 9946
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:SecondaryBCI2000Controller&amp;oldid=9946">http://www.bci2000.org/mediawiki/index.php?title=Contributions:SecondaryBCI2000Controller&amp;oldid=9946</a>"</div>
+ </div>
+</body>
+</html>

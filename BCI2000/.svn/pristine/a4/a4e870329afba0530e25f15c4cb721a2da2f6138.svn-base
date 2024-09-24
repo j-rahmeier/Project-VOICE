@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>Operator</string>
+	<key>CFBundleGetInfoString</key>
+	<string>BCI2000 Operator, © 2000-2023 BCI2000 Project</string>
+	<key>CFBundleIconFile</key>
+	<string>gui-screen.icns</string>
+	<key>CFBundleIdentifier</key>
+	<string>org.bci2000.operator</string>
+	<key>CFBundleName</key>
+	<string>BCI2000 Operator</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>????</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>10.15</string>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>LSTypeIsPackage</key>
+			<false/>
+			<key>CFBundleTypeRole</key>
+			<string>None</string>
+			<key>CFBundleTypeIconFile</key>
+			<string>signal-document.icns</string>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>bcidat</string>
+				<string>dat</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>BCI2000 Data File</string>
+			<key>LSHandlerRank</key>
+			<string>None</string>
+		</dict>
+	</array>
+	<key>CFBundleSignature</key>
+	<string>bciO</string>
+	<key>NSCameraUsageDescription</key>
+	<string>BCI2000 asks for access to a camera.</string>
+	<key>NSCameraUseContinuityCameraDeviceType</key>
+	<true/>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>BCI2000 asks for access to a microphone.</string>
+</dict>
+</plist>

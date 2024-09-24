@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Programming Reference:IIRFilterBase Class - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul><li class="toc1">Concepts</li><ul><li class="toc2"><a href="Programming_Reference%253AFilter_Chain.html">Filter Chain</a></li><li class="toc2"><a href="Programming_Reference%253ASignals.html">Signals</a></li><li class="toc2"><a href="Programming_Reference%253AError_Handling.html">Error Handling</a></li><li class="toc2"><a href="Programming_Reference%253ALocalization.html">Localization</a></li><li class="toc2"><a href="Programming_Reference%253ARapid_Development.html">Rapid Development</a></li></ul><li class="toc1">Reference</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFilter_Class.html">GenericFilter</a></li><li class="toc2"><a href="Programming_Reference%253AEnvironment_Class.html">Environment</a></li><li class="toc2"><a href="Programming_Reference%253AGenericVisualization_Class.html">GenericVisualization</a></li><li class="toc2"><a href="Programming_Reference%253AErrors_and_Warnings.html">Errors and Warnings</a></li><li class="toc2"><a href="Programming_Reference%253ADebug_Output.html">Debug Output</a></li></ul><li class="toc1">Data Acquisition</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericADC_Class.html">GenericADC</a></li></ul><li class="toc1">Data Storage</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFileWriter_Class.html">GenericFileWriter</a></li><li class="toc2"><a href="Programming_Reference%253ABCI2000FileReader_Class.html">BCI2000FileReader</a></li></ul><li class="toc1">Signal Processing</li><ul><li class="toc2">IIR Filters</li></ul><li class="toc1">Application Modules</li><ul><li class="toc2"><a href="Programming_Reference%253AApplicationBase_Class.html">ApplicationBase</a></li><li class="toc2"><a href="Programming_Reference%253AFeedbackTask_Class.html">FeedbackTask</a></li><li class="toc2"><a href="Programming_Reference%253AStimulusTask_Class.html">StimulusTask</a></li><li class="toc2"><a href="Programming_Reference%253A3D_API.html">3D API</a></li></ul><li class="toc1">Howtos</li><ul><li class="toc2"><a href="Programming_Howto%253ABuilding_BCI2000.html">Building BCI2000</a></li><li class="toc2"><a href="Programming_Howto%253ASVN_Client_Setup.html">SVN Client Setup</a></li><li class="toc2"><a href="Programming_Howto%253AUsing_TortoiseSVN.html">Using TortoiseSVN</a></li></ul><li class="toc1"><a href="Programming_FAQ.html">FAQ</a></li><li class="toc1">Tutorials</li><ul><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html">Data Acquisition</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html">Signal Processing</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html">Matlab Signal Processing</a></li></ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">IIRFilterBase Class</h1>
+ <p class = "subtitle">Programming Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Programming_Reference%253AIIRFilter_Class.html#Location"><span class="tocnumber">1</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Programming_Reference%253AIIRFilter_Class.html#Synopsis"><span class="tocnumber">2</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Programming_Reference%253AIIRFilter_Class.html#FilterDesign_Library"><span class="tocnumber">3</span> <span class="toctext">FilterDesign Library</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Programming_Reference%253AIIRFilter_Class.html#FilterDesign::Butterworth"><span class="tocnumber">3.1</span> <span class="toctext">FilterDesign::Butterworth</span></a>
+<ul>
+<li class="toclevel-3 tocsection-5"><a href="Programming_Reference%253AIIRFilter_Class.html#Order.28order.29"><span class="tocnumber">3.1.1</span> <span class="toctext">Order(order)</span></a></li>
+<li class="toclevel-3 tocsection-6"><a href="Programming_Reference%253AIIRFilter_Class.html#Lowpass.28corner_frequency.29"><span class="tocnumber">3.1.2</span> <span class="toctext">Lowpass(corner frequency)</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="Programming_Reference%253AIIRFilter_Class.html#Highpass.28corner_frequency.29"><span class="tocnumber">3.1.3</span> <span class="toctext">Highpass(corner frequency)</span></a></li>
+<li class="toclevel-3 tocsection-8"><a href="Programming_Reference%253AIIRFilter_Class.html#Bandpass.28low_corner.2C_high_corner.29"><span class="tocnumber">3.1.4</span> <span class="toctext">Bandpass(low corner, high corner)</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="Programming_Reference%253AIIRFilter_Class.html#Bandstop.28low_corner.2C_high_corner.29"><span class="tocnumber">3.1.5</span> <span class="toctext">Bandstop(low corner, high corner)</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="Programming_Reference%253AIIRFilter_Class.html#TransferFunction"><span class="tocnumber">3.1.6</span> <span class="toctext">TransferFunction</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-11"><a href="Programming_Reference%253AIIRFilter_Class.html#FilterDesign::Chebychev"><span class="tocnumber">3.2</span> <span class="toctext">FilterDesign::Chebychev</span></a>
+<ul>
+<li class="toclevel-3 tocsection-12"><a href="Programming_Reference%253AIIRFilter_Class.html#Ripple_dB.28amplitude.29"><span class="tocnumber">3.2.1</span> <span class="toctext">Ripple_dB(amplitude)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-13"><a href="Programming_Reference%253AIIRFilter_Class.html#FilterDesign::Resonator"><span class="tocnumber">3.3</span> <span class="toctext">FilterDesign::Resonator</span></a>
+<ul>
+<li class="toclevel-3 tocsection-14"><a href="Programming_Reference%253AIIRFilter_Class.html#QFactor.28q.29"><span class="tocnumber">3.3.1</span> <span class="toctext">QFactor(q)</span></a></li>
+<li class="toclevel-3 tocsection-15"><a href="Programming_Reference%253AIIRFilter_Class.html#Bandpass.28center_frequency.29"><span class="tocnumber">3.3.2</span> <span class="toctext">Bandpass(center frequency)</span></a></li>
+<li class="toclevel-3 tocsection-16"><a href="Programming_Reference%253AIIRFilter_Class.html#Bandstop.28center_frequency.29"><span class="tocnumber">3.3.3</span> <span class="toctext">Bandstop(center frequency)</span></a></li>
+<li class="toclevel-3 tocsection-17"><a href="Programming_Reference%253AIIRFilter_Class.html#Allpass.28center_frequency.29"><span class="tocnumber">3.3.4</span> <span class="toctext">Allpass(center frequency)</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-18"><a href="Programming_Reference%253AIIRFilter_Class.html#Remarks"><span class="tocnumber">4</span> <span class="toctext">Remarks</span></a></li>
+<li class="toclevel-1 tocsection-19"><a href="Programming_Reference%253AIIRFilter_Class.html#Background_Information"><span class="tocnumber">5</span> <span class="toctext">Background Information</span></a></li>
+<li class="toclevel-1 tocsection-20"><a href="Programming_Reference%253AIIRFilter_Class.html#Examples"><span class="tocnumber">6</span> <span class="toctext">Examples</span></a>
+<ul>
+<li class="toclevel-2 tocsection-21"><a href="Programming_Reference%253AIIRFilter_Class.html#Creating_a_BCI2000_Filter"><span class="tocnumber">6.1</span> <span class="toctext">Creating a BCI2000 Filter</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="Programming_Reference%253AIIRFilter_Class.html#Obtaining_Filter_Coefficients"><span class="tocnumber">6.2</span> <span class="toctext">Obtaining Filter Coefficients</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-23"><a href="Programming_Reference%253AIIRFilter_Class.html#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><tt>BCI2000/src/shared/modules/signalprocessing</tt>
+</p>
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>The <tt>IIRFilterBase</tt> class is a base class for BCI2000 filters that provide <a rel="nofollow" class="external text" href="http://en.wikipedia.org/wiki/Digital_filter">digital filters</a>. Classes derived from <tt>IIRFilterBase</tt> are supposed to implement <tt>IIRFilterBase::DesignFilter()</tt>, specifying filter behavior by means of a transfer function.
+Differently from typical IIR filter implementations, which expect the transfer function in terms of filter coefficients, the BCI2000 <tt>IIRFilterBase</tt> class expects the transfer function in terms of its numerator's roots ("zeros") and denominator's roots ("poles"); this approach improves numerical stability at higher filter orders.
+</p>
+<h2><span class="mw-headline" id="FilterDesign_Library">FilterDesign Library</span></h2>
+<p>While any method may be used to determine the transfer function, the FilterDesign library provides a convenient way to compute a transfer function from desired filter properties. It is located at <tt>BCI2000/src/extlib/math/FilterDesign</tt>, and was written for BCI2000 based on <a rel="nofollow" class="external text" href="http://www-users.cs.york.ac.uk/~fisher/mkfilter/">public-domain code by A.J. Fisher</a>; it provides a number of classic filter design methods in form of C++ classes.
+To use such a class, instantiate it, use its member functions to configure parameters, and obtain its <tt>TransferFunction</tt> property (see the <a href="Programming_Reference%253AIIRFilter_Class.html#Example">example&#160;section</a> below).
+</p><p><b>CAVEAT:</b> When specifying frequencies, the FilterDesign library expects them normalized to the sampling rate, such that the Nyquist frequency becomes 0.5. This is different from Matlab, where filter design functions expect frequencies normalized to the Nyquist frequency, such that the Nyquist frequency corresponds to 1.0.
+</p>
+<h3><span class="mw-headline" id="FilterDesign::Butterworth">FilterDesign::Butterworth</span></h3>
+<h4><span id="Order(order)"></span><span class="mw-headline" id="Order.28order.29">Order(order)</span></h4>
+<p>Set the filter order to the specified value.
+</p>
+<h4><span id="Lowpass(corner_frequency)"></span><span class="mw-headline" id="Lowpass.28corner_frequency.29">Lowpass(corner frequency)</span></h4>
+<p>Design a low pass with the specified corner frequency, i.e. suppress signals above the given frequency. Frequencies are specified in terms of the sampling rate, and expected to be below 0.5 (the Nyquist frequency).
+</p>
+<h4><span id="Highpass(corner_frequency)"></span><span class="mw-headline" id="Highpass.28corner_frequency.29">Highpass(corner frequency)</span></h4>
+<p>Design a high pass with the specified corner frequency, i.e. suppress signals below the given frequency.
+</p>
+<h4><span id="Bandpass(low_corner,_high_corner)"></span><span class="mw-headline" id="Bandpass.28low_corner.2C_high_corner.29">Bandpass(low corner, high corner)</span></h4>
+<p>Design a bandpass with the specified corner frequencies, i.e. suppress signals outside the given frequency range.
+</p>
+<h4><span id="Bandstop(low_corner,_high_corner)"></span><span class="mw-headline" id="Bandstop.28low_corner.2C_high_corner.29">Bandstop(low corner, high corner)</span></h4>
+<p>Design a bandstop with specified corner frequencies, i.e. suppress signals inside the given frequency range.
+</p>
+<h4><span class="mw-headline" id="TransferFunction">TransferFunction</span></h4>
+<p>Returns a transfer function as a rational polynomial with complex roots as declared in <tt>BCI2000/src/extlib/math/Polynomials.h</tt>.
+From the <tt>Ratpoly</tt> object returned, numerator and denominator polynomials may be extracted using <tt>Ratpoly::Numerator()</tt> and <tt>Ratpoly::Denominator()</tt>, respectively. Both functions return a polynomial, from which roots may be obtained using <tt>Polynomial::Roots()</tt>, and coefficients may be obtained using <tt>Polynomial::Coefficients()</tt>.
+</p>
+<h3><span class="mw-headline" id="FilterDesign::Chebychev">FilterDesign::Chebychev</span></h3>
+<p>The <tt>Chebychev</tt> class provides an interface identical to the <tt>Butterworth</tt> class, and an additional function to specify ripple amplitude.
+</p>
+<h4><span id="Ripple_dB(amplitude)"></span><span class="mw-headline" id="Ripple_dB.28amplitude.29">Ripple_dB(amplitude)</span></h4>
+<p>Set the amplitude of the filter's passband ripples in dB.
+</p>
+<h3><span class="mw-headline" id="FilterDesign::Resonator">FilterDesign::Resonator</span></h3>
+<p>Rather than through corner frequencies, the <tt>Resonator</tt> class is parameterized specifying a resonant frequency in conjunction with a quality factor (which is inversely proportional to the resonance peak's width).
+</p>
+<h4><span id="QFactor(q)"></span><span class="mw-headline" id="QFactor.28q.29">QFactor(q)</span></h4>
+<p>Set the resonator's quality factor to the specified value.
+</p>
+<h4><span id="Bandpass(center_frequency)"></span><span class="mw-headline" id="Bandpass.28center_frequency.29">Bandpass(center frequency)</span></h4>
+<p>Design a bandpass around the specified center frequency.
+</p>
+<h4><span id="Bandstop(center_frequency)"></span><span class="mw-headline" id="Bandstop.28center_frequency.29">Bandstop(center frequency)</span></h4>
+<p>Design a bandstop around the specified center frequency.
+</p>
+<h4><span id="Allpass(center_frequency)"></span><span class="mw-headline" id="Allpass.28center_frequency.29">Allpass(center frequency)</span></h4>
+<p>Design a filter with a constant frequency response but altering phase at the center frequency.
+</p>
+<h2><span class="mw-headline" id="Remarks">Remarks</span></h2>
+<ul><li>You may obtain a <i>serial combination of filters</i> by multiplying their individual transfer functions prior to extracting gain, zeros, and poles.</li>
+<li>The actual IIR filter implementation uses a sequence of order-one filter stages corresponding to pairs of zeros and poles. Thus, there is no limitation to the filter order, as it would be the case for implementations based on coefficients, due to numerical instability.</li>
+<li>Roots common to both numerator and denominator will be automatically removed from the overall transfer function, so the combined filter may be of an order which is lower than the sum of individual filter orders.</li></ul>
+<h2><span class="mw-headline" id="Background_Information">Background Information</span></h2>
+<p>The effect of a linear filter may be viewed in terms of a transfer function. When transforming both the filter and its input signal from the time domain into a more convenient representation (applying a <a rel="nofollow" class="external text" href="http://en.wikipedia.org/wiki/Z-transform">Z transform</a>), the input is transformed into a function over the complex plane, and the effect of the linear filter is transformed into multiplication with another rational transfer function <img class="mwe-math-fallback-image-inline tex" alt="H(z)" src="../images/math/7/6/a/76a83851ba32f09d9c47500acc0ba231.png" /> defined over the complex plane, i.e. <img class="mwe-math-fallback-image-inline tex" alt="H(z)" src="../images/math/7/6/a/76a83851ba32f09d9c47500acc0ba231.png" /> is a fraction consisting of a polynomial in <img class="mwe-math-fallback-image-inline tex" alt="z" src="../images/math/f/b/a/fbade9e36a3f36d3d676c1b808451dd7.png" /> as its numerator, and another fraction consisting of a polynomial in <img class="mwe-math-fallback-image-inline tex" alt="z" src="../images/math/f/b/a/fbade9e36a3f36d3d676c1b808451dd7.png" /> as its denominator (for more information, see <a rel="nofollow" class="external free" href="http://en.wikipedia.org/wiki/Linear_filter#Mathematics_of_filter_design">http://en.wikipedia.org/wiki/Linear_filter#Mathematics_of_filter_design</a>):
+</p><p><img class="mwe-math-fallback-image-inline tex" alt="H(z) = \frac{b_0 + b_1 z^{-1} + b_2 z^{-2} + b_3 z^{-3} ...}{a_0 + a_1 z^{-1} + a_2 z^{-2} + b_3 z^{-3}...}&#10;= g\frac{(z-n_1)  (z-n_2)  (z-n_3)...}{(z-p_1)  (z-p_2)  (z-p_3)...}" src="../images/math/a/9/8/a981d82df7cb6744e166bf8b7fd274fa.png" />
+</p><p>where the <img class="mwe-math-fallback-image-inline tex" alt="a_i" src="../images/math/d/8/d/d8dd7d0f3eb7145ca41c711457b7eb8f.png" /> and <img class="mwe-math-fallback-image-inline tex" alt="b_i" src="../images/math/c/9/f/c9f6d8557ce40f989fa727b5c0bb1ddf.png" /> are called <b>coefficients</b>, the <img class="mwe-math-fallback-image-inline tex" alt="n_i" src="../images/math/f/7/5/f75ef7544498f247df440d828aee41aa.png" /> are called <b>zeros</b> because H assumes a value of zero whenever <img class="mwe-math-fallback-image-inline tex" alt="z=n_i" src="../images/math/1/6/3/163262b6a1fb530bb0a17b4502a77aae.png" />, and the <img class="mwe-math-fallback-image-inline tex" alt="p_i" src="../images/math/8/a/4/8a4bbd153c74655abb7ca04c0fa901d8.png" /> are called <b>poles</b> because H goes to infinity wherever <img class="mwe-math-fallback-image-inline tex" alt="z=p_i" src="../images/math/7/a/6/7a6e906c08a60ad9c1d241d8005d856e.png" />, and <img class="mwe-math-fallback-image-inline tex" alt="g" src="../images/math/b/2/f/b2f5ff47436671b6e533d8dc3614845d.png" /> is a gain factor.
+</p><p>Importantly, the effect of applying filters in series is represented by multiplication of the two transfer functions. In reverse, the effect of a single filter may be decomposed into a series of filters by writing H as a product of transfer functions.
+</p><p><b>Filter design methods</b>, such as Butterworth's or Chebychev's, define a filter by placing H's zeros and poles in the complex plane, with the number of zeros and the number of poles corresponding to twice the filter's order.
+</p><p>Often then, filters are <b>implemented</b> in terms of a series of delays for input and output samples, and coefficients associated with those delays, such that the current output sample is computed as the difference of past input samples, weighted with input coefficients <img class="mwe-math-fallback-image-inline tex" alt="b_i" src="../images/math/c/9/f/c9f6d8557ce40f989fa727b5c0bb1ddf.png" />, and past output samples, weighted with output coefficients <img class="mwe-math-fallback-image-inline tex" alt="a_i" src="../images/math/d/8/d/d8dd7d0f3eb7145ca41c711457b7eb8f.png" />. Comparing such a filter's action to that of a filter with transfer function H, one finds that input coefficients <img class="mwe-math-fallback-image-inline tex" alt="b_i" src="../images/math/c/9/f/c9f6d8557ce40f989fa727b5c0bb1ddf.png" /> correspond to the polynomial coefficients of H's numerator, and output coefficients ai correspond to the polynomial coefficients of H's denominator. A standard procedure in filter design is thus to take a filter's poles and zeros, and convert them into coefficients <img class="mwe-math-fallback-image-inline tex" alt="a_i" src="../images/math/d/8/d/d8dd7d0f3eb7145ca41c711457b7eb8f.png" /> and <img class="mwe-math-fallback-image-inline tex" alt="b_i" src="../images/math/c/9/f/c9f6d8557ce40f989fa727b5c0bb1ddf.png" /> by expanding numerator and denominator polynomial into coefficient form, and dividing both by <img class="mwe-math-fallback-image-inline tex" alt="z^{\max(i)}" src="../images/math/0/f/f/0ff0fd58862b0fb30e9363fc0b1d6b59.png" /> to obtain the correct order of coefficients.
+</p><p>While this approach is computationally most efficient, it suffers from a lack of computational accuracy, and resulting instability. The cause of this instability is the fact that arbitrarily large terms need to cancel out in the difference between weighted input and output samples, but may fail to do so due to roundoff errors.
+</p><p>In BCI2000, a different approach is taken. Taking raw zeros and poles, the transfer function is first simplified by removing factors that cancel out. Then, it is taken apart into a product of transfer functions with a single zero and a single pole each, corresponding to a series of filters, each of order 1. Thus, in BCI2000 IIR filters may be of arbitrary order without risk of instability (provided the filter's poles and zeros meet the criteria for stability in the general sense, of course).
+</p>
+<h2><span class="mw-headline" id="Examples">Examples</span></h2>
+<h3><span class="mw-headline" id="Creating_a_BCI2000_Filter">Creating a BCI2000 Filter</span></h3>
+<p>To implement a 2nd order Butterworth low pass filter, you might derive a class <tt>ButterworthLP</tt> from <tt>IIRFilterBase</tt>, with its declaration being
+</p>
+<pre>class ButterworthLP&#160;: public IIRFilterBase
+{
+  public:
+    ButterworthLP();
+    virtual ~ButterworthLP() {}
+  private:
+    virtual void DesignFilter( const SignalProperties&amp;,
+                               IIRFilterBase::Real&amp; gain, 
+                               IIRFilterBase::ComplexVector&amp; zeros, 
+                               IIRFilterBase::ComplexVector&amp; poles ) const;
+};
+</pre>
+<p>The filter's corner frequency is specified in a parameter "ButterworthLPCorner":
+</p>
+<pre>ButterworthLP::ButterworthLP()
+{
+  BEGIN_PARAMETER_DEFINITIONS
+    "Filtering float ButterworthLPCorner= 30Hz&#160;%&#160;%&#160;% // Low pass corner frequency",
+  END_PARAMETER_DEFINITIONS
+}
+</pre>
+<p>In the <tt>DesignFilter</tt> method, we use the FilterDesign library to obtain poles and zeros from parameters:
+</p>
+<pre> void
+ ButterworthLP::DesignFilter( const SignalProperties&amp; inSignalProperties,
+                              IIRFilterBase::Real&amp; outGain,
+                              IIRFilterBase::ComplexVector&amp; outZeros, 
+                              IIRFilterBase::ComplexVector&amp; outPoles ) const
+ {
+   float corner = MeasurementUnits::ReadAsFreq( Parameter( "ButterworthLPCorner" ) ) 
+                / inSignalProperties.Elements() * Parameter( "SampleBlockSize" );
+   if( corner &lt; 0.0 || corner &gt; 0.5 )
+     bcierr &lt;&lt; "ButterworthLPCorner exceeds range" &lt;&lt; endl;
+
+   Ratpoly&lt;FilterDesign::Complex&gt; tf = FilterDesign::Butterworth()
+       .Order( 2 )
+       .Lowpass( corner )
+       .TransferFunction();
+
+   outGain = 1.0 / abs( tf.Evaluate( 1.0 ) ); // make sure that LF gain is unity
+   outZeros = tf.Numerator().Roots();
+   outPoles = tf.Denominator().Roots();
+ }
+</pre>
+<p>For an example that combines a notch filter with a high pass filter, please refer to the <a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:SourceFilter" title="User Reference:SourceFilter">SourceFilter</a>'s <a rel="nofollow" class="external text" href="http://www.bci2000.org/svn/trunk/src/shared/modules/signalsource/SourceFilter.cpp">source code</a>.
+</p>
+<h3><span class="mw-headline" id="Obtaining_Filter_Coefficients">Obtaining Filter Coefficients</span></h3>
+<p>In case you need to use a filter designed by the FilterDesign class with Matlab's filter() function, or any other direct form II transposed filter implementation, use the FilterDesign::ComputeCoefficients() function.
+</p>
+<pre>Ratpoly&lt;FilterDesign::Complex&gt; tf = FilterDesign::Butterworth()
+       .Order( 2 )
+       .Lowpass( 10 / 500 )
+       .TransferFunction();
+FilterDesign::ComplexVector a, b;
+FilterDesign::ComputeCoefficients( tf, b, a );
+</pre>
+<p><b>NOTE:</b> When comparing filter coefficients with Matlab's, consider that Matlab's convention for specifying frequencies differs from that of FilterDesign. For more information, see the <a href="Programming_Reference%253AIIRFilter_Class.html#FilterDesign_Library">Caveat</a> above.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Programming_Reference%253ARapid_Development.html" title="Programming Reference:Rapid Development">Programming Reference:Rapid Development</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524175548
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.033 seconds
+Real time usage: 0.039 seconds
+Preprocessor visited node count: 171/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 3695/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1794-0!canonical!math=0 and timestamp 20230524175548 and revision id 7053
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:IIRFilterBase_Class&amp;oldid=7053">http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:IIRFilterBase_Class&amp;oldid=7053</a>"</div>
+ </div>
+</body>
+</html>

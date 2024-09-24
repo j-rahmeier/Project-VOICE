@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:NatusADC - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">NatusADC</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Contributions%253ANatusADC.html#Function"><span class="tocnumber">1</span> <span class="toctext">Function</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="Contributions%253ANatusADC.html#Version_History"><span class="tocnumber">1.1</span> <span class="toctext">Version History</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="Contributions%253ANatusADC.html#Source_Code_Revisions"><span class="tocnumber">1.2</span> <span class="toctext">Source Code Revisions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-4"><a href="Contributions%253ANatusADC.html#Prerequisites"><span class="tocnumber">2</span> <span class="toctext">Prerequisites</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="Contributions%253ANatusADC.html#Hardware"><span class="tocnumber">2.1</span> <span class="toctext">Hardware</span></a>
+<ul>
+<li class="toclevel-3 tocsection-6"><a href="Contributions%253ANatusADC.html#Drivers"><span class="tocnumber">2.1.1</span> <span class="toctext">Drivers</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="Contributions%253ANatusADC.html#Connecting_Natus_to_BCI2000"><span class="tocnumber">3</span> <span class="toctext">Connecting Natus to BCI2000</span></a>
+<ul>
+<li class="toclevel-2 tocsection-8"><a href="Contributions%253ANatusADC.html#On_the_Natus_Computer"><span class="tocnumber">3.1</span> <span class="toctext">On the Natus Computer</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="Contributions%253ANatusADC.html#On_the_BCI2000_Computer"><span class="tocnumber">3.2</span> <span class="toctext">On the BCI2000 Computer</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="Contributions%253ANatusADC.html#Parameters"><span class="tocnumber">4</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-11"><a href="Contributions%253ANatusADC.html#SamplingRate"><span class="tocnumber">4.1</span> <span class="toctext">SamplingRate</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="Contributions%253ANatusADC.html#SampleBlockSize"><span class="tocnumber">4.2</span> <span class="toctext">SampleBlockSize</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="Contributions%253ANatusADC.html#ServerBlockSize"><span class="tocnumber">4.3</span> <span class="toctext">ServerBlockSize</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="Contributions%253ANatusADC.html#DecimationFactor"><span class="tocnumber">4.4</span> <span class="toctext">DecimationFactor</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="Contributions%253ANatusADC.html#ServerIP"><span class="tocnumber">4.5</span> <span class="toctext">ServerIP</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="Contributions%253ANatusADC.html#Port"><span class="tocnumber">4.6</span> <span class="toctext">Port</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="Contributions%253ANatusADC.html#SourceCh"><span class="tocnumber">4.7</span> <span class="toctext">SourceCh</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="Contributions%253ANatusADC.html#SourceChGain"><span class="tocnumber">4.8</span> <span class="toctext">SourceChGain</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="Contributions%253ANatusADC.html#SourceChOffset"><span class="tocnumber">4.9</span> <span class="toctext">SourceChOffset</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="Contributions%253ANatusADC.html#SourceChList"><span class="tocnumber">4.10</span> <span class="toctext">SourceChList</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="Contributions%253ANatusADC.html#ChannelNames"><span class="tocnumber">4.11</span> <span class="toctext">ChannelNames</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-22"><a href="Contributions%253ANatusADC.html#States"><span class="tocnumber">5</span> <span class="toctext">States</span></a>
+<ul>
+<li class="toclevel-2 tocsection-23"><a href="Contributions%253ANatusADC.html#Interpolated"><span class="tocnumber">5.1</span> <span class="toctext">Interpolated</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-24"><a href="Contributions%253ANatusADC.html#Additional_Info"><span class="tocnumber">6</span> <span class="toctext">Additional Info</span></a></li>
+<li class="toclevel-1 tocsection-25"><a href="Contributions%253ANatusADC.html#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Function">Function</span></h2>
+<p>The NatusADC filter acquires raw data in real-time from Natus Headboxes over UDP connection for signal processing and visualizations. The overview of the NatusADC working is shown in the image below.
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Prog_Ref_NatusADC_NatusWorking.png" class="image" title="Overview of NatusADC working"><img alt="Overview of NatusADC working" src="../images/thumb/9/93/Prog_Ref_NatusADC_NatusWorking.png/800px-Prog_Ref_NatusADC_NatusWorking.png" decoding="async" width="800" height="285" srcset="../images/9/93/Prog_Ref_NatusADC_NatusWorking.png 1.5x" /></a></div></div>
+<p>NatusDataServer processes and sends signal from the device to the client application. A project named XLDataExportClient reads signals from the device and calls the NatusDataServer's functions to send the signal to the client. NatusClient is the client application within the BCI2000 that receives the signals and does the initial processing. NatusPackageInterface contains the implementation of data transfer protocol between server/device and client and is used by NatusClient and NatusDataServer to communicate with each other over TCP and UDP. NatusDataServer and NatusPackageInterface are independent of BCI2000, whereas NatusClient relies on BCI2000. 
+</p><p><br />
+The below image explains the context in which packet, blocks, samples and channels are used in this project. A packet may have one or block, a block may have one or more samples and a sample contains values for all the channels.
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:NatusPacketImage.png" class="image" title="Packet, block and samples relationship"><img alt="Packet, block and samples relationship" src="../images/thumb/a/a2/NatusPacketImage.png/600px-NatusPacketImage.png" decoding="async" width="600" height="350" srcset="../images/a/a2/NatusPacketImage.png 1.5x" /></a></div></div>  
+<p><br />
+</p>
+<h3><span class="mw-headline" id="Version_History">Version History</span></h3>
+<h3><span class="mw-headline" id="Source_Code_Revisions">Source Code Revisions</span></h3>
+<ul><li>Initial development: 5900</li>
+<li>Tested under: 7372</li>
+<li>Known to compile under:7372</li>
+<li>Broken since: --</li>
+<li>Natus software version: 9.2.1 Build 6524</li>
+<li>Natus Data Export Version: 9.4</li></ul>
+<h2><span class="mw-headline" id="Prerequisites">Prerequisites</span></h2>
+<ul><li>The NatusADC source module requires a proprietary SDK protected by an NDA with Natus. Please contact Natus for this NDA and for access to the XLDataExportClient SDK before attempting to use the NatusADC source module.</li>
+<li>It is also helpful to have an ethernet port available for the Natus computer. If your system does not have an ethernet port, consider using a USB ethernet dongle.</li></ul>
+<h3><span class="mw-headline" id="Hardware">Hardware</span></h3>
+<p>In theory, the module should work fine with all of the following Natus Headboxes. 
+</p>
+<ol><li>EEG32</li>
+<li>EEG128, EEG128FS</li>
+<li>Mobee32, Mobee32-02</li>
+<li>Mobee-24</li>
+<li>Connex/ Brain Monitor</li>
+<li>Trex</li>
+<li>EMU40</li>
+<li>EEG32u</li>
+<li>Quantum</li>
+<li>NeuroLink IP</li>
+<li>Bio-logic NetLink</li>
+<li>Bio-logic Traveler</li></ol>
+<h4><span class="mw-headline" id="Drivers">Drivers</span></h4>
+<h2><span class="mw-headline" id="Connecting_Natus_to_BCI2000">Connecting Natus to BCI2000</span></h2>
+<h3><span class="mw-headline" id="On_the_Natus_Computer">On the Natus Computer</span></h3>
+<ol><li>If you have previously registered the XLDataExportClient.dll for an older version of the data export tool, you must first deregister this dll. Launch a command window as an administrator and type regsvr /u XLDataExportClient.dll</li>
+<li>Connect to the network via ethernet cable. Alternately, it is preferable to connect directly to the BCI2000 computer via ethernet.</li>
+<li>Copy the Export Service folder found in src\private\SignalSource\NatusSignalSource\DataExport_9.4\XLDataExportService to the hard drive of the computer running Natus Neuroworks or to a USB drive</li>
+<li>Note the IP address of the Natus computer (run “ipconfig” in the Command Prompt on the Natus computer). If the computers are directly connected with an ethernet cable, the IP address should be under "ethernet adapter ethernet" <div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Natus7_IPaddress.jpg" class="image" title="Run ipconfig on the Natus computer and note the IP address"><img alt="Run ipconfig on the Natus computer and note the IP address" src="../images/thumb/8/87/Natus7_IPaddress.jpg/600px-Natus7_IPaddress.jpg" decoding="async" width="600" height="623" srcset="../images/thumb/8/87/Natus7_IPaddress.jpg/900px-Natus7_IPaddress.jpg 1.5x, ../images/8/87/Natus7_IPaddress.jpg 2x" /></a></div></div></li>
+<li>When starting a new study, set the sampling rate of the acquisition system by opening "Wave" and going to edit -&gt; settings -&gt; acquisition while a study is NOT running <div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Natus1_StudySettings.jpg" class="image" title="Set Natus Sampling Rate"><img alt="Set Natus Sampling Rate" src="../images/thumb/3/37/Natus1_StudySettings.jpg/600px-Natus1_StudySettings.jpg" decoding="async" width="600" height="677" srcset="../images/thumb/3/37/Natus1_StudySettings.jpg/900px-Natus1_StudySettings.jpg 1.5x, ../images/3/37/Natus1_StudySettings.jpg 2x" /></a></div></div></li>
+<li>Start an EEG study in Neuroworks using the New EEG button. <div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Natus2_StartStudy.jpg" class="image" title="Start a new Natus study"><img alt="Start a new Natus study" src="../images/thumb/e/e0/Natus2_StartStudy.jpg/1000px-Natus2_StartStudy.jpg" decoding="async" width="1000" height="533" srcset="../images/thumb/e/e0/Natus2_StartStudy.jpg/1500px-Natus2_StartStudy.jpg 1.5x, ../images/thumb/e/e0/Natus2_StartStudy.jpg/2000px-Natus2_StartStudy.jpg 2x" /></a></div></div> You will need to enter the study information. <div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Natus3_StudyInformation.jpg" class="image" title="Enter the study information"><img alt="Enter the study information" src="../images/thumb/b/b2/Natus3_StudyInformation.jpg/600px-Natus3_StudyInformation.jpg" decoding="async" width="600" height="781" srcset="../images/b/b2/Natus3_StudyInformation.jpg 1.5x" /></a></div></div> Note that you do not need to start the recording for the signal to stream to BCI2000. <div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Natus4_StudyRunning.jpg" class="image" title="Study is running"><img alt="Study is running" src="../images/thumb/d/de/Natus4_StudyRunning.jpg/1000px-Natus4_StudyRunning.jpg" decoding="async" width="1000" height="541" srcset="../images/thumb/d/de/Natus4_StudyRunning.jpg/1500px-Natus4_StudyRunning.jpg 1.5x, ../images/thumb/d/de/Natus4_StudyRunning.jpg/2000px-Natus4_StudyRunning.jpg 2x" /></a></div></div></li>
+<li>Run the executable XLDataExportSrv.exe found in the XLDataExportService folder that was copied to the Natus computer <div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Natus5_DataExportServiceFolder.jpg" class="image" title="Run the executable XLDataExportSrv.exe from the XLDataExportService folder"><img alt="Run the executable XLDataExportSrv.exe from the XLDataExportService folder" src="../images/thumb/0/05/Natus5_DataExportServiceFolder.jpg/600px-Natus5_DataExportServiceFolder.jpg" decoding="async" width="600" height="342" srcset="../images/thumb/0/05/Natus5_DataExportServiceFolder.jpg/900px-Natus5_DataExportServiceFolder.jpg 1.5x, ../images/thumb/0/05/Natus5_DataExportServiceFolder.jpg/1200px-Natus5_DataExportServiceFolder.jpg 2x" /></a></div></div>
+<ul><li>Note that this can be started before an EEG study has been started, or after an EEG study is already running</li>
+<li>A small horizontal window should appear, indicating study data is streaming <div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Natus6_DataExportServiceRunning.jpg" class="image" title="Natus Data Export Service Running"><img alt="Natus Data Export Service Running" src="../images/thumb/b/b1/Natus6_DataExportServiceRunning.jpg/1000px-Natus6_DataExportServiceRunning.jpg" decoding="async" width="1000" height="543" srcset="../images/thumb/b/b1/Natus6_DataExportServiceRunning.jpg/1500px-Natus6_DataExportServiceRunning.jpg 1.5x, ../images/thumb/b/b1/Natus6_DataExportServiceRunning.jpg/2000px-Natus6_DataExportServiceRunning.jpg 2x" /></a></div></div></li></ul></li></ol>
+<h3><span class="mw-headline" id="On_the_BCI2000_Computer">On the BCI2000 Computer</span></h3>
+<ol><li>Connect to the same network that the Natus computer is connected via ethernet cable. Alternately, it is preferable to connect directly to the Natus computer via ethernet.</li>
+<li>Run a BCI2000 batch file that loads the NatusSignalSource</li>
+<li>Open the config window and navigate to the source tab. Source parameters will vary according to your needs, but some recommended settings can be found below
+<ul><li>SampleBlockSize: 1024 (at a sampling rate of 16384, this yields a sample block size of 62.5ms. Adjust the number of samples per block to yield a reasonable sample block duration, above 20ms)</li>
+<li>SamplingRate: auto (inherited from the Natus system)</li>
+<li>ServerBlockSize: 64 (server buffer size. Larger ServerBlockSize can lead to performance issues.)</li>
+<li>DecimationFactor: 1 (you can decimate the incoming sampled data by the DecimationFactor. The BCI2000 sampling rate will reflect the decimated rate.)</li>
+<li>ServerIP: Set the IP address to that of the Natus computer <div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Natus8_BCI2000Parameters.jpg" class="image" title="Natus BCI2000 parameters"><img alt="Natus BCI2000 parameters" src="../images/thumb/2/2f/Natus8_BCI2000Parameters.jpg/600px-Natus8_BCI2000Parameters.jpg" decoding="async" width="600" height="666" srcset="../images/2/2f/Natus8_BCI2000Parameters.jpg 1.5x" /></a></div></div></li></ul></li>
+<li>Press “Set Config.” Data should begin streaming. Open the System Log from the BCI2000 Operator window to confirm that the sampling rate and channel count were inherited correctly from the Natus stream</li></ol>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<p>Parameters common to all source modules are described under <a href="User_Reference%253ADataIOFilter.html" title="User Reference:DataIOFilter">User Reference:DataIOFilter</a>. In addition, the following parameters are supported:
+</p>
+<h3><span class="mw-headline" id="SamplingRate">SamplingRate</span></h3>
+<p>The rate at which the device samples the data. The default value is the device's default sampling rate. 
+</p>
+<h3><span class="mw-headline" id="SampleBlockSize">SampleBlockSize</span></h3>
+<p>The number of samples per block the output signal, created by the client application(NatusADC), should have. The default value is 20
+</p>
+<h3><span class="mw-headline" id="ServerBlockSize">ServerBlockSize</span></h3>
+<p>The number of blocks sent by the server/device in a single UDP Packet. The default value is 1.
+</p>
+<h3><span class="mw-headline" id="DecimationFactor">DecimationFactor</span></h3>
+<p>The decimation factor. The factor by which to decimate/downsize the signal. The default value is 1. <i>The SamplingRate is updated by dividing it by the DecimationFactor.</i> 
+<b>Note:</b> The SamplingRate should be an integral multiple of DecimationFactor.
+</p>
+<h3><span class="mw-headline" id="ServerIP">ServerIP</span></h3>
+<p>The IPv4 address of the server/device.
+</p>
+<h3><span class="mw-headline" id="Port">Port</span></h3>
+<p>The port number of the server/device which on which TCP runs. UDP port number is assumed to be 1 + TCP port number.
+</p>
+<h3><span class="mw-headline" id="SourceCh">SourceCh</span></h3>
+<p>The number of channels to be acquired from the device. If this is set to auto, all the available channels from the device will be acquired.
+</p>
+<h3><span class="mw-headline" id="SourceChGain">SourceChGain</span></h3>
+<p>SourceChGain should be left to auto. The default value is 0  for every channel.
+</p>
+<h3><span class="mw-headline" id="SourceChOffset">SourceChOffset</span></h3>
+<p>SourceChOffset should be left to auto. The default value is 1 microVolt for every channel.
+</p>
+<h3><span class="mw-headline" id="SourceChList">SourceChList</span></h3>
+<p>The list of channel numbers to be acquired from the device. The order of the numbers doesn't matter, i.e., '1 2 3 4' is same as '3 2 4 1'. Entering duplicate channels, eg. in '1 2 3 2' will result in an error. Entering an invalid channel number, i.e., a number greater than the maximum number of the channels will result in an error. If set to auto, all the device channels will be streamed.
+</p>
+<h3><span class="mw-headline" id="ChannelNames">ChannelNames</span></h3>
+<p>The user-preferred channel names. If set to auto,  the channel names will be retrieved from the device. If the device doesn't have any specific channel names, the channel names will be set to 0 to SourceCh - 1. If set manually, names should be given for each channel in SourceChList
+</p>
+<h2><span class="mw-headline" id="States">States</span></h2>
+<h3><span class="mw-headline" id="Interpolated">Interpolated</span></h3>
+<p>Interpolated is represented by 1 bit. The device sends data in packets over UDP connection which is not a reliable connection and hence may result in loss of some packets. The lost packets between two packets received from the device are linearly interpolated from the aforementioned two packets.  The Interpolated state value is 1 if the packet is interpolated or 0 if the packet is received from the device. 
+</p>
+<h2><span class="mw-headline" id="Additional_Info">Additional Info</span></h2>
+<p>The module also contains a function called GetDecimationFactor to query the current Decimation Factor from the server/device. <br />
+More details from a programmer's perspective can be found here <a href="Programming_Reference%253ANatusADC.html" title="Programming Reference:NatusADC">Programming_Reference:NatusADC</a>
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Reference%253ADataIOFilter.html" title="User Reference:DataIOFilter">User Reference:DataIOFilter</a>, <a href="Programming_Reference%253AGenericADC_Class.html" title="Programming Reference:GenericADC Class">Programming Reference:GenericADC Class</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230523215023
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.047 seconds
+Real time usage: 0.050 seconds
+Preprocessor visited node count: 86/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2239-0!canonical and timestamp 20230523215030 and revision id 10229
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:NatusADC&amp;oldid=10229">http://www.bci2000.org/mediawiki/index.php?title=Contributions:NatusADC&amp;oldid=10229</a>"</div>
+ </div>
+</body>
+</html>

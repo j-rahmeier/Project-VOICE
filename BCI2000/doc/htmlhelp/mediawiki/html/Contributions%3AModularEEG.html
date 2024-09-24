@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:ModularEEG - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">ModularEEG</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Contributions%253AModularEEG.html#Synopsis"><span class="tocnumber">1</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Contributions%253AModularEEG.html#Location"><span class="tocnumber">2</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Contributions%253AModularEEG.html#Versioning"><span class="tocnumber">3</span> <span class="toctext">Versioning</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Contributions%253AModularEEG.html#Authors"><span class="tocnumber">3.1</span> <span class="toctext">Authors</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Contributions%253AModularEEG.html#Version_History"><span class="tocnumber">3.2</span> <span class="toctext">Version History</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Contributions%253AModularEEG.html#Source_Code_Revisions"><span class="tocnumber">3.3</span> <span class="toctext">Source Code Revisions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="Contributions%253AModularEEG.html#Functional_Description"><span class="tocnumber">4</span> <span class="toctext">Functional Description</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="Contributions%253AModularEEG.html#Data_Storage.2FCalibration"><span class="tocnumber">5</span> <span class="toctext">Data Storage/Calibration</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="Contributions%253AModularEEG.html#Parameters"><span class="tocnumber">6</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-10"><a href="Contributions%253AModularEEG.html#ComPort"><span class="tocnumber">6.1</span> <span class="toctext">ComPort</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="Contributions%253AModularEEG.html#Protocol"><span class="tocnumber">6.2</span> <span class="toctext">Protocol</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="Contributions%253AModularEEG.html#SimulateEEG"><span class="tocnumber">6.3</span> <span class="toctext">SimulateEEG</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="Contributions%253AModularEEG.html#SampleBlockSize"><span class="tocnumber">6.4</span> <span class="toctext">SampleBlockSize</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="Contributions%253AModularEEG.html#SamplingRate"><span class="tocnumber">6.5</span> <span class="toctext">SamplingRate</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="Contributions%253AModularEEG.html#SourceCh"><span class="tocnumber">6.6</span> <span class="toctext">SourceCh</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-16"><a href="Contributions%253AModularEEG.html#States"><span class="tocnumber">7</span> <span class="toctext">States</span></a></li>
+<li class="toclevel-1 tocsection-17"><a href="Contributions%253AModularEEG.html#See_also"><span class="tocnumber">8</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>The ModularEEG is a GPL-licensed EEG-amplifier designed by Joerg Hansmann. The
+schematics, PCBs and design-documents were released to the OpenEEG - community
+in the year 2002. (see <a rel="nofollow" class="external autonumber" href="http://openeeg.sf.net">[1]</a>) .
+</p>
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><a rel="nofollow" class="external free" href="http://www.bci2000.org/svn/trunk/src/contrib/SignalSource/ModularEEG">http://www.bci2000.org/svn/trunk/src/contrib/SignalSource/ModularEEG</a>
+</p>
+<h2><span class="mw-headline" id="Versioning">Versioning</span></h2>
+<h3><span class="mw-headline" id="Authors">Authors</span></h3>
+<ul><li>Christoph Veigl, FORTEC-Institute,Technical University Vienna, Austria</li>
+<li>Gerwin Schalk, Brain-Computer Interface Research and Development Program, Wadsworth Center, New York State Department of Health</li></ul>
+<h3><span class="mw-headline" id="Version_History">Version History</span></h3>
+<p>Version 1, November 02, 2005.
+</p>
+<h3><span class="mw-headline" id="Source_Code_Revisions">Source Code Revisions</span></h3>
+<ul><li>Initial development: 947</li>
+<li>Tested under: 947</li>
+<li>Known to compile under: 1528</li>
+<li>Broken since: --</li></ul>
+<h2><span class="mw-headline" id="Functional_Description">Functional Description</span></h2>
+<p>The ModularEEG is a low cost EEG-system that consists of a microcontroller-based
+digitizer board and one, two or three analog boards. Each analog board can capture two
+EEG-signals. Thus, the Modular EEG can transmit two, four or six channels of EEGdata.
+The transmission to the host-PC or PDA is done via serial RS232-connection.
+USB-converters can be used, common baudrates are 56700 or 115200 bits per second.
+Be aware that the isolation-barrier for user safety is only 5kV, which does not meet the
+criteria for a medical device. The ModularEEG may not be used for clinical applications.
+For details and filter specifications please refer to the design documentation.
+(ModularEEG_design.pdf)
+</p>
+<h2><span id="Data_Storage/Calibration"></span><span class="mw-headline" id="Data_Storage.2FCalibration">Data Storage/Calibration</span></h2>
+<p>The ModularEEG has a 10bit-A/D-converter and transmits EEG-channel data in high
+byte / low byte format. The gain settings can be adjusted with potentiometers on the
+analog boards. A 14Hz 250uV – Calibration Signal is provided by the digital unit. When
+calibration is set to +/250uV, the value 0 corresponds to -250uV and the value 1024
+corresponds to 250uV. BCI2000 Signal Processing or any offline analysis routine can
+derive, as with any other BCI2000 source module, sample values in uV by subtracting,
+from each stored sample, SourceChOffset (i.e., zero), and multiplying it with
+SourceChGain for each channel.
+</p>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<h3><span class="mw-headline" id="ComPort">ComPort</span></h3>
+<p>Number of the Serial Port the ModularEEG is connected to.
+</p>
+<h3><span class="mw-headline" id="Protocol">Protocol</span></h3>
+<p>Transmission Protocol. There are currently 3 different Protocols for data
+transmission from or to the EEG-device. 
+</p>
+<ul><li>The oldest and most-compatible Protocol is called P2, it transmits all 6 channels (even in case there are only two connected) and uses unidirectional communication to the host computer. The P2 protocol is compatible to other EEG-Applications like "Electric Guru". A P2-packet consists of 17 bytes.</li>
+<li>P3 is a newer, more compact format. A 6-channel data packet has 11 bytes, the transmission of only 4 or 2 channels is possible. There are two firmware versions that are currently in experimental stage. The corresponding protocols are bi-directional and allow to send command frames to the ModularEEG.</li></ul>
+<h3><span class="mw-headline" id="SimulateEEG">SimulateEEG</span></h3>
+<p>When this option is selected, sinewaves are generated instead of using
+real time EEG data. The amplitude and frequency of the sinewaves can be adjusted by
+moving the mouse.
+</p>
+<h3><span class="mw-headline" id="SampleBlockSize">SampleBlockSize</span></h3>
+<p>Samples per digitized block.
+</p>
+<h3><span class="mw-headline" id="SamplingRate">SamplingRate</span></h3>
+<p>The sampling rate for the EEG data. Currently, this is fixed to 256 Hz.
+New firmware versions will support adjustments of the sampling rate.
+</p>
+<h3><span class="mw-headline" id="SourceCh">SourceCh</span></h3>
+<p>The number of channels (2, 4 or 6)
+</p>
+<h2><span class="mw-headline" id="States">States</span></h2>
+<p>None.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Reference%253AFilters.html" title="User Reference:Filters">User Reference:Filters</a>, <a href="Contributions%253AADCs.html" title="Contributions:ADCs">Contributions:ADCs</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524182037
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.015 seconds
+Real time usage: 0.018 seconds
+Preprocessor visited node count: 53/1000000
+Post‐expand include size: 15/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1647-0!canonical and timestamp 20230524182037 and revision id 2770
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:ModularEEG&amp;oldid=2770">http://www.bci2000.org/mediawiki/index.php?title=Contributions:ModularEEG&amp;oldid=2770</a>"</div>
+ </div>
+</body>
+</html>

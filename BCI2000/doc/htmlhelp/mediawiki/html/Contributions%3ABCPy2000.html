@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:BCPy2000 - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">BCPy2000</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Contributions%253ABCPy2000.html#Synopsis"><span class="tocnumber">1</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Contributions%253ABCPy2000.html#Location"><span class="tocnumber">2</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Contributions%253ABCPy2000.html#Versioning"><span class="tocnumber">3</span> <span class="toctext">Versioning</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Contributions%253ABCPy2000.html#Author"><span class="tocnumber">3.1</span> <span class="toctext">Author</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Contributions%253ABCPy2000.html#Version_History"><span class="tocnumber">3.2</span> <span class="toctext">Version History</span></a>
+<ul>
+<li class="toclevel-3 tocsection-6"><a href="Contributions%253ABCPy2000.html#2023-01-31:_BCPy2000_2.1"><span class="tocnumber">3.2.1</span> <span class="toctext">2023-01-31: BCPy2000 2.1</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="Contributions%253ABCPy2000.html#2021-02-9:_BCPy2000_2.0"><span class="tocnumber">3.2.2</span> <span class="toctext">2021-02-9: BCPy2000 2.0</span></a></li>
+<li class="toclevel-3 tocsection-8"><a href="Contributions%253ABCPy2000.html#2011-07-10:_BCPy2000_33960"><span class="tocnumber">3.2.3</span> <span class="toctext">2011-07-10: BCPy2000 33960</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="Contributions%253ABCPy2000.html#2010-07-08:_BCPy2000_17374"><span class="tocnumber">3.2.4</span> <span class="toctext">2010-07-08: BCPy2000 17374</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="Contributions%253ABCPy2000.html#2009-09-22:_BCPy2000_13637"><span class="tocnumber">3.2.5</span> <span class="toctext">2009-09-22: BCPy2000 13637</span></a></li>
+<li class="toclevel-3 tocsection-11"><a href="Contributions%253ABCPy2000.html#2009-03-16:_BCPy2000_11336"><span class="tocnumber">3.2.6</span> <span class="toctext">2009-03-16:  BCPy2000 11336</span></a></li>
+<li class="toclevel-3 tocsection-12"><a href="Contributions%253ABCPy2000.html#2008-09-30:_BCPy2000_8570_.28also_known_as_1.0.29"><span class="tocnumber">3.2.7</span> <span class="toctext">2008-09-30:  BCPy2000 8570 (also known as 1.0)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-13"><a href="Contributions%253ABCPy2000.html#Source_Code_Revisions"><span class="tocnumber">3.3</span> <span class="toctext">Source Code Revisions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-14"><a href="Contributions%253ABCPy2000.html#Parameters"><span class="tocnumber">4</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-15"><a href="Contributions%253ABCPy2000.html#ShowSignalTime"><span class="tocnumber">4.1</span> <span class="toctext">ShowSignalTime</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="Contributions%253ABCPy2000.html#TrialsPerBlock"><span class="tocnumber">4.2</span> <span class="toctext">TrialsPerBlock</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="Contributions%253ABCPy2000.html#BlocksPerRun"><span class="tocnumber">4.3</span> <span class="toctext">BlocksPerRun</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="Contributions%253ABCPy2000.html#WarpFactor"><span class="tocnumber">4.4</span> <span class="toctext">WarpFactor</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="Contributions%253ABCPy2000.html#EnslavePython"><span class="tocnumber">4.5</span> <span class="toctext">EnslavePython</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="Contributions%253ABCPy2000.html#ApplicationDescription"><span class="tocnumber">4.6</span> <span class="toctext">ApplicationDescription</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="Contributions%253ABCPy2000.html#SignalProcessingDescription"><span class="tocnumber">4.7</span> <span class="toctext">SignalProcessingDescription</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="Contributions%253ABCPy2000.html#SourceDescription"><span class="tocnumber">4.8</span> <span class="toctext">SourceDescription</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-23"><a href="Contributions%253ABCPy2000.html#States"><span class="tocnumber">5</span> <span class="toctext">States</span></a>
+<ul>
+<li class="toclevel-2 tocsection-24"><a href="Contributions%253ABCPy2000.html#PresentationPhase"><span class="tocnumber">5.1</span> <span class="toctext">PresentationPhase</span></a></li>
+<li class="toclevel-2 tocsection-25"><a href="Contributions%253ABCPy2000.html#EventOffset"><span class="tocnumber">5.2</span> <span class="toctext">EventOffset</span></a></li>
+<li class="toclevel-2 tocsection-26"><a href="Contributions%253ABCPy2000.html#CurrentTrial"><span class="tocnumber">5.3</span> <span class="toctext">CurrentTrial</span></a></li>
+<li class="toclevel-2 tocsection-27"><a href="Contributions%253ABCPy2000.html#CurrentBlock"><span class="tocnumber">5.4</span> <span class="toctext">CurrentBlock</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>BCPy2000 takes the C++ out of BCI2000 programming. It is aimed at developers of new applications and new signal processing methods, providing a platform for rapid, flexible development of experimental Brain-Computer Interface systems in Python. It takes advantage of various high-level Python packages: PsychoPy<a rel="nofollow" class="external autonumber" href="https://www.psychopy.org">[1]</a> for stimulus presentation, NumPy<a rel="nofollow" class="external autonumber" href="http://numpy.scipy.org">[2]</a> and SciPy<a rel="nofollow" class="external autonumber" href="http://scipy.org">[3]</a> for signal processing and classification, and IPython<a rel="nofollow" class="external autonumber" href="http://ipython.scipy.org">[4]</a> for interactive debugging.
+</p><p>You can program a python-based application module, signal processing module, or even a signal source module for generating custom test signals and playing back data files. Each module can open an IPython shell in which you can inspect and interact with every aspect of the running system. If you're using a BCPy2000-implemented source module, you can slow the system right down or even step through packet-by-packet, which can help you while you're interactively debugging your python code in one of your other modules with pdb.
+</p><p>BCPy2000 implements a lot of infrastructure that allows you to get an application module running quickly. It also contains a set of optional tools, which are still a work in progress, but which are rapidly turning into a kind of "standard library" of Pythonic signal-processing algorithms and stimulus widgets.
+</p><p>The source code is available under the terms of the GNU General Public License v3.
+</p><p>To learn more, see the BCPy2000 web pages<a rel="nofollow" class="external autonumber" href="http://bci2000.org/downloads/BCPy2000">[5]</a>
+</p>
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><a rel="nofollow" class="external free" href="http://www.bci2000.org/svn/trunk/src/contrib/BCPy2000">http://www.bci2000.org/svn/trunk/src/contrib/BCPy2000</a>
+</p>
+<h2><span class="mw-headline" id="Versioning">Versioning</span></h2>
+<h3><span class="mw-headline" id="Author">Author</span></h3>
+<p>Nicholas Luczak, Jeremy Hill, Thomas Schreiner, Christian Puzicha, Jason Farquhar
+</p>
+<h3><span class="mw-headline" id="Version_History">Version History</span></h3>
+<h4><span class="mw-headline" id="2023-01-31:_BCPy2000_2.1">2023-01-31: BCPy2000 2.1</span></h4>
+<p>BCPy2000 now includes a portable installer and an overhaul of the BCPy2000 state machine to enable by-sample access to states and events.
+</p>
+<h4><span class="mw-headline" id="2021-02-9:_BCPy2000_2.0">2021-02-9: BCPy2000 2.0</span></h4>
+<p>Sixth build release. A complete restructuring of the original BcPy2000 build to support Python 3.6.8. VisionEgg is now deprecated and was replaced with PsychoPy<a rel="nofollow" class="external autonumber" href="https://www.psychopy.org">[6]</a>. This version has also been built using a new portable python release<a rel="nofollow" class="external autonumber" href="https://www.bci2000.org/downloads/Python36-32.zip">[7]</a>. You can find the full documentation here. <a rel="nofollow" class="external autonumber" href="https://bci2000.org/mediawiki/index.php/BCPy2000">[8]</a>
+</p>
+<h4><span class="mw-headline" id="2011-07-10:_BCPy2000_33960">2011-07-10: BCPy2000 33960</span></h4>
+<p>Fifth build release.  Various small bugfixes and improvements, and the downloads now contain BCI2000 v.3.0 binaries
+</p>
+<h4><span class="mw-headline" id="2010-07-08:_BCPy2000_17374">2010-07-08: BCPy2000 17374</span></h4>
+<p>Fourth build release.  Various bugfixes and tuneups, a few new API methods in the core classes, and lots of new things in the "optional and patchily-documented tools" section.
+</p>
+<h4><span class="mw-headline" id="2009-09-22:_BCPy2000_13637">2009-09-22: BCPy2000 13637</span></h4>
+<p>Third build release:  Numerous small bugfixes and improvements, and a refactoring of the code to allow the VisionEgg/PyOpenGL back-end to be replaced more easily.  Now distributed together with a portable Python distribution.
+</p>
+<h4><span class="mw-headline" id="2009-03-16:_BCPy2000_11336">2009-03-16:  BCPy2000 11336</span></h4>
+<p>Second release of demo build. The three Python-related core modules are now gnu-compilable and can run on non-Windows platforms. 
+A number of accumulated enhancements, optimizations and bug fixes, including improved precision of sound stimulus timing, and playback of older-style .dat files (bug reported by Marco Rotonda)
+</p>
+<h4><span id="2008-09-30:_BCPy2000_8570_(also_known_as_1.0)"></span><span class="mw-headline" id="2008-09-30:_BCPy2000_8570_.28also_known_as_1.0.29">2008-09-30:  BCPy2000 8570 (also known as 1.0)</span></h4>
+<p>Fully integrated framework, with documentation. Higher-level tools are still somewhat patchily documented.
+</p>
+<h3><span class="mw-headline" id="Source_Code_Revisions">Source Code Revisions</span></h3>
+<ul><li>Initial development: 2148</li>
+<li>Tested under: 3396</li>
+<li>Known to compile under: 3396</li>
+<li>Broken since: ----</li></ul>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<p>BCPy2000 has whatever parameters you want to define in your own python module implementations. There are a few that it implements in the framework already, however:
+</p>
+<h4><span class="mw-headline" id="ShowSignalTime">ShowSignalTime</span></h4>
+<p>This boolean, defined by the application framework, determines whether a signal-packet clock should be shown in the bottom right corner of the screen.
+</p>
+<h4><span class="mw-headline" id="TrialsPerBlock">TrialsPerBlock</span></h4>
+<p>Your experiment need not be trial-based, but there's a flexible and automatic way of keeping track of trials within blocks, and blocks within runs, if you choose to design it that way. The self.design() application API method helps you set this up, and this parameter, defined by the application module, specifies the number of trials in a block.
+</p>
+<h4><span class="mw-headline" id="BlocksPerRun">BlocksPerRun</span></h4>
+<p>This defaults to 1, so we usually consider a "block" to be the same thing as a "run". However, we once designed an experiment where multiple blocks of trials where recorded continuously in one file, along with the inter-block rest periods. So that had multiple BlocksPerRun. The self.design() application API method allows you to configure this.
+</p>
+<h4><span class="mw-headline" id="WarpFactor">WarpFactor</span></h4>
+<p>The default speed at which the Python source module sends its artificial signals through the system. The default value of this parameter, 1.0, means real time.
+</p>
+<h4><span class="mw-headline" id="EnslavePython">EnslavePython</span></h4>
+<p>If you check this, then the PythonSignalProcessing and PythonApplication modules will be rendered unable to change the state variables, and PythonApplication's phase transitions will follow the PresentationPhase state instead of allowing the phase machine to run on its own. This allows recorded experiments to be played back, if you're careful about how they're programmed. Type self.doc('Replay') from one of the IPython prompts for more details.
+</p>
+<h4><span class="mw-headline" id="ApplicationDescription">ApplicationDescription</span></h4>
+<p>An arbitrary string describing your Python application module's behaviour, filled in by the self.Description() hook in your BciApplication class implementation.
+</p>
+<h4><span class="mw-headline" id="SignalProcessingDescription">SignalProcessingDescription</span></h4>
+<p>An arbitrary string describing your Python signal-processing module's behaviour, filled in by the self.Description() hook in your BciSignalProcessing class implementation.
+</p>
+<h4><span class="mw-headline" id="SourceDescription">SourceDescription</span></h4>
+<p>An arbitrary string describing your Python source module's behaviour, filled in by the self.Description() hook in your BciSource class implementation.
+</p>
+<h2><span class="mw-headline" id="States">States</span></h2>
+<p>BCPy2000 modules have whatever states you want to define for them in your Python implementation. However, the application module framework defines one or two already:
+</p>
+<h4><span class="mw-headline" id="PresentationPhase">PresentationPhase</span></h4>
+<p>Records the state of the application's "phase machine" as a number. You probably should not rely on the numerical value of this state variable to interpret what was happening, when you read the file back. Instead, define your own state variables with more transparent names, and ensure that your BciApplication.Transition method sets these states accordingly when a transition occurs. Type self.doc('Phase Machine') at one of the modules' IPython prompts for more details.
+</p>
+<h4><span class="mw-headline" id="EventOffset">EventOffset</span></h4>
+<p>This is used as a poor substitute for stimulus timing information when a physical synchronization signal is not available. It is set automatically whenever a phase transition occurs, and its value lets you localize that event in the data stream with reasonable precision. Type self.doc('Timing') at one of the BCPy2000 modules' shell prompts for more info.
+</p>
+<h4><span class="mw-headline" id="CurrentTrial">CurrentTrial</span></h4>
+<p>If you have chosen to implement a trial-based experimental design, this state variable keeps track of the trial number.
+</p>
+<h4><span class="mw-headline" id="CurrentBlock">CurrentBlock</span></h4>
+<p>If you have chosen to implement multiple blocks per run in your experimetnal design (see the parameter BlocksPerRun) then this keeps track of the block number.
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524084520
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.029 seconds
+Real time usage: 0.036 seconds
+Preprocessor visited node count: 83/1000000
+Post‐expand include size: 15/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1724-0!canonical and timestamp 20230524084520 and revision id 10057
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:BCPy2000&amp;oldid=10057">http://www.bci2000.org/mediawiki/index.php?title=Contributions:BCPy2000&amp;oldid=10057</a>"</div>
+ </div>
+</body>
+</html>

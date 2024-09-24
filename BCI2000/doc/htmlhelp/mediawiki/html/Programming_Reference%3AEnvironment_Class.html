@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Programming Reference:Environment Class - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul><li class="toc1">Concepts</li><ul><li class="toc2"><a href="Programming_Reference%253AFilter_Chain.html">Filter Chain</a></li><li class="toc2"><a href="Programming_Reference%253ASignals.html">Signals</a></li><li class="toc2"><a href="Programming_Reference%253AError_Handling.html">Error Handling</a></li><li class="toc2"><a href="Programming_Reference%253ALocalization.html">Localization</a></li><li class="toc2"><a href="Programming_Reference%253ARapid_Development.html">Rapid Development</a></li></ul><li class="toc1">Reference</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFilter_Class.html">GenericFilter</a></li><li class="toc2">Environment</li><li class="toc2"><a href="Programming_Reference%253AGenericVisualization_Class.html">GenericVisualization</a></li><li class="toc2"><a href="Programming_Reference%253AErrors_and_Warnings.html">Errors and Warnings</a></li><li class="toc2"><a href="Programming_Reference%253ADebug_Output.html">Debug Output</a></li></ul><li class="toc1">Data Acquisition</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericADC_Class.html">GenericADC</a></li></ul><li class="toc1">Data Storage</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFileWriter_Class.html">GenericFileWriter</a></li><li class="toc2"><a href="Programming_Reference%253ABCI2000FileReader_Class.html">BCI2000FileReader</a></li></ul><li class="toc1">Signal Processing</li><ul><li class="toc2"><a href="Programming_Reference%253AIIRFilterBase_Class.html">IIR Filters</a></li></ul><li class="toc1">Application Modules</li><ul><li class="toc2"><a href="Programming_Reference%253AApplicationBase_Class.html">ApplicationBase</a></li><li class="toc2"><a href="Programming_Reference%253AFeedbackTask_Class.html">FeedbackTask</a></li><li class="toc2"><a href="Programming_Reference%253AStimulusTask_Class.html">StimulusTask</a></li><li class="toc2"><a href="Programming_Reference%253A3D_API.html">3D API</a></li></ul><li class="toc1">Howtos</li><ul><li class="toc2"><a href="Programming_Howto%253ABuilding_BCI2000.html">Building BCI2000</a></li><li class="toc2"><a href="Programming_Howto%253ASVN_Client_Setup.html">SVN Client Setup</a></li><li class="toc2"><a href="Programming_Howto%253AUsing_TortoiseSVN.html">Using TortoiseSVN</a></li></ul><li class="toc1"><a href="Programming_FAQ.html">FAQ</a></li><li class="toc1">Tutorials</li><ul><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html">Data Acquisition</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html">Signal Processing</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html">Matlab Signal Processing</a></li></ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">Environment Class</h1>
+ <p class = "subtitle">Programming Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p><tt>Environment</tt> is a mix-in class that provides access to system-wide parameters and states. Though client classes may directly inherit from it, most do so via interface classes that themselves do inherit from the <tt>Environment</tt> class, most importantly the <a href="Programming_Reference%253AGenericFilter_Class.html" title="Programming Reference:GenericFilter Class">GenericFilter</a> and <a href="Programming_Reference%253AEnvironmentExtension_Class.html" title="Programming Reference:EnvironmentExtension Class">EnvironmentExtension</a> classes.
+</p>
+<h2><span id="Your_code's_Environment"></span><span class="mw-headline" id="Your_code.27s_Environment">Your code's <tt>Environment</tt></span></h2>
+<p>In each <a href="Technical_Reference%253ACore_Modules.html" title="Technical Reference:Core Modules">BCI2000 core module</a>, there exist system wide
+<a href="Technical_Reference%253AParameter_Definition.html" title="Technical Reference:Parameter Definition">parameters</a> and <a href="Technical_Reference%253AParameter_Definition.html" title="Technical Reference:Parameter Definition">states</a>.
+In the BCI2000 C++ framework, access to parameters and states is mediated
+through
+a class <tt>Environment</tt>. This class provides functions for
+convenient access
+to parameters and states, and transparently handles a number of error
+conditions
+that might occur.
+The services provided by the <tt>Environment</tt> class interface are
+available
+to all classes that inherit from it. For <tt>GenericFilter</tt>
+descendants, this
+is automatically the case; for other classes, you need to explicitly
+state
+the inheritance as in
+</p>
+<pre>#include "Environment.h"
+...
+MyClass&#160;: private Environment
+{
+  ...
+};
+</pre>
+<h2><span class="mw-headline" id="Access_to_Parameters_and_States">Access to Parameters and States</span></h2>
+<p>From any code inside <tt>MyClass</tt>, you may then read or set
+parameter and state values simply by writing
+</p>
+<pre>int numberOfItems = Parameter( "NumberOfItems" );
+float listValue = Parameter( "ListParam" )( index );
+float matrixValue = Parameter( "MatrixParam" )( index1, index2 );
+float nestedMatrixValue
+  = Parameter( "NestedMatrices" )( index1, index2 )( index3, index4 );
+short feedbackState = State( "Feedback" );
+State( "Feedback" ) = 0;
+</pre>
+<p>State values are treated as unsigned integers, unless accessed with <tt>AsFloat()</tt> or <tt>AsSigned()</tt>:
+</p>
+<pre>float stateValue = State( "Floatstate" ).AsFloat();
+State( "Floatstate" ).AsFloat() = 1.2345e6;
+</pre>
+<p>When accessed with <tt>AsSigned()</tt>, a state's most significant bit is treated as a sign bit, and extended to all leading bits of the value returned.
+E.g., for a 3-bit-state, a unsigned value of 7 will be interpreted as a signed value of -1, and an unsigned value of 6 will be interpreted as a signed value of -2.
+</p><p>In more recent versions of BCI2000, state values are maintained individually for each sample position.
+Typically, this is used to record information such as mouse or keyboard input on a per-sample basis, while filter code acts per sample block, and will rarely need to access state information per-sample.
+Still, this is possible using an additional sample index in its own pair of brackets.
+</p>
+<pre>int mousePosX = State( "MousePosX" )( 3 );
+State( "Artifact" )( 5 ) = 1;
+</pre>
+<p>Note that setting a state at a certain sample position will set all future state samples to that value. To set a single sample, or range within the current sample block, use
+</p>
+<pre>State( "Artifact" )( 5 ) = 1;
+State( "Artifact" )( 6 ) = 0;
+</pre>
+<p>In addition to the state vector information provided for sample positions of the current data block there is an <i>additional</i> state vector sample appended, representing the subsequent block's first sample. Modifying this state vector sample allows to specify an initial value for the next block's state vector.
+</p><p>If you try to access a parameter or state that does not exist, an appropriate error message will be sent to <tt>bcierr</tt>, so you don't need to handle this type of error explicitly.
+For a greater independence between modules, it is sometimes desirable
+to
+read a parameter or state if it exists, and use a default value
+otherwise.
+</p><p>
+You achieve this by writing </p><pre>int numberOfItems = OptionalParameter( "NumberOfItems", defaultValue );
+short itiState = OptionalState( "IntertrialInterval", 0 );
+</pre>
+<p>Omitting the default value from the <tt>OptionalState</tt> or <tt>OptionalParameter</tt> call implies
+a default value of 0, or the empty string, whichever is appropriate.
+</p><p>The Environment class imposes <a href="Programming_Reference%253AGenericFilter_Class.html#Rules_for_Parameter_and_State_access" title="Programming Reference:GenericFilter Class">rules for parameter and state access</a> intended to help avoid parameterization inconsistencies.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Programming_Reference%253AErrors_and_Warnings.html" title="Programming Reference:Errors and Warnings">Programming Reference:Errors and Warnings</a>, <a href="Programming_Reference%253AApplicationWindowClient_Class.html" title="Programming Reference:ApplicationWindowClient Class">Programming Reference:ApplicationWindowClient Class</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524000557
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.009 seconds
+Real time usage: 0.014 seconds
+Preprocessor visited node count: 45/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 833/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1445-0!canonical and timestamp 20230524000557 and revision id 6910
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:Environment_Class&amp;oldid=6910">http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:Environment_Class&amp;oldid=6910</a>"</div>
+ </div>
+</body>
+</html>

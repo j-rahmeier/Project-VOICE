@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Programming Reference:AssociationMap Class - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul><li class="toc1">Concepts</li><ul><li class="toc2"><a href="Programming_Reference%253AFilter_Chain.html">Filter Chain</a></li><li class="toc2"><a href="Programming_Reference%253ASignals.html">Signals</a></li><li class="toc2"><a href="Programming_Reference%253AError_Handling.html">Error Handling</a></li><li class="toc2"><a href="Programming_Reference%253ALocalization.html">Localization</a></li><li class="toc2"><a href="Programming_Reference%253ARapid_Development.html">Rapid Development</a></li></ul><li class="toc1">Reference</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFilter_Class.html">GenericFilter</a></li><li class="toc2"><a href="Programming_Reference%253AEnvironment_Class.html">Environment</a></li><li class="toc2"><a href="Programming_Reference%253AGenericVisualization_Class.html">GenericVisualization</a></li><li class="toc2"><a href="Programming_Reference%253AErrors_and_Warnings.html">Errors and Warnings</a></li><li class="toc2"><a href="Programming_Reference%253ADebug_Output.html">Debug Output</a></li></ul><li class="toc1">Data Acquisition</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericADC_Class.html">GenericADC</a></li></ul><li class="toc1">Data Storage</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFileWriter_Class.html">GenericFileWriter</a></li><li class="toc2"><a href="Programming_Reference%253ABCI2000FileReader_Class.html">BCI2000FileReader</a></li></ul><li class="toc1">Signal Processing</li><ul><li class="toc2"><a href="Programming_Reference%253AIIRFilterBase_Class.html">IIR Filters</a></li></ul><li class="toc1">Application Modules</li><ul><li class="toc2"><a href="Programming_Reference%253AApplicationBase_Class.html">ApplicationBase</a></li><li class="toc2"><a href="Programming_Reference%253AFeedbackTask_Class.html">FeedbackTask</a></li><li class="toc2"><a href="Programming_Reference%253AStimulusTask_Class.html">StimulusTask</a></li><li class="toc2"><a href="Programming_Reference%253A3D_API.html">3D API</a></li></ul><li class="toc1">Howtos</li><ul><li class="toc2"><a href="Programming_Howto%253ABuilding_BCI2000.html">Building BCI2000</a></li><li class="toc2"><a href="Programming_Howto%253ASVN_Client_Setup.html">SVN Client Setup</a></li><li class="toc2"><a href="Programming_Howto%253AUsing_TortoiseSVN.html">Using TortoiseSVN</a></li></ul><li class="toc1"><a href="Programming_FAQ.html">FAQ</a></li><li class="toc1">Tutorials</li><ul><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html">Data Acquisition</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html">Signal Processing</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html">Matlab Signal Processing</a></li></ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">AssociationMap Class</h1>
+ <p class = "subtitle">Programming Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Programming_Reference%253AAssociationMap_Class.html#Location"><span class="tocnumber">1</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Programming_Reference%253AAssociationMap_Class.html#Synopsis"><span class="tocnumber">2</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Programming_Reference%253AAssociationMap_Class.html#Association_Class"><span class="tocnumber">3</span> <span class="toctext">Association Class</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Programming_Reference%253AAssociationMap_Class.html#Properties"><span class="tocnumber">3.1</span> <span class="toctext">Properties</span></a>
+<ul>
+<li class="toclevel-3 tocsection-5"><a href="Programming_Reference%253AAssociationMap_Class.html#int_StimulusDuration_.28rw.29"><span class="tocnumber">3.1.1</span> <span class="toctext">int StimulusDuration (rw)</span></a></li>
+<li class="toclevel-3 tocsection-6"><a href="Programming_Reference%253AAssociationMap_Class.html#int_ISIMinDuration_.28rw.29"><span class="tocnumber">3.1.2</span> <span class="toctext">int ISIMinDuration (rw)</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="Programming_Reference%253AAssociationMap_Class.html#int_ISIMaxDuration_.28rw.29"><span class="tocnumber">3.1.3</span> <span class="toctext">int ISIMaxDuration (rw)</span></a></li>
+<li class="toclevel-3 tocsection-8"><a href="Programming_Reference%253AAssociationMap_Class.html#SetOfStimuli_Stimuli_.28rw.29"><span class="tocnumber">3.1.4</span> <span class="toctext">SetOfStimuli Stimuli (rw)</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="Programming_Reference%253AAssociationMap_Class.html#SetOfTargets_Targets_.28rw.29"><span class="tocnumber">3.1.5</span> <span class="toctext">SetOfTargets Targets (rw)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-10"><a href="Programming_Reference%253AAssociationMap_Class.html#Methods"><span class="tocnumber">3.2</span> <span class="toctext">Methods</span></a>
+<ul>
+<li class="toclevel-3 tocsection-11"><a href="Programming_Reference%253AAssociationMap_Class.html#Clear.28.29"><span class="tocnumber">3.2.1</span> <span class="toctext">Clear()</span></a></li>
+<li class="toclevel-3 tocsection-12"><a href="Programming_Reference%253AAssociationMap_Class.html#DeleteObjects.28.29"><span class="tocnumber">3.2.2</span> <span class="toctext">DeleteObjects()</span></a></li>
+<li class="toclevel-3 tocsection-13"><a href="Programming_Reference%253AAssociationMap_Class.html#Add.28Stimulus_pointer.7CTarget_pointer.29"><span class="tocnumber">3.2.3</span> <span class="toctext">Add(Stimulus pointer|Target pointer)</span></a></li>
+<li class="toclevel-3 tocsection-14"><a href="Programming_Reference%253AAssociationMap_Class.html#Remove.28Stimulus_pointer.7CTarget_pointer.29"><span class="tocnumber">3.2.4</span> <span class="toctext">Remove(Stimulus pointer|Target pointer)</span></a></li>
+<li class="toclevel-3 tocsection-15"><a href="Programming_Reference%253AAssociationMap_Class.html#bool_Contains.28Stimulus_pointer.7CTarget_pointer.29"><span class="tocnumber">3.2.5</span> <span class="toctext">bool Contains(Stimulus pointer|Target pointer)</span></a></li>
+<li class="toclevel-3 tocsection-16"><a href="Programming_Reference%253AAssociationMap_Class.html#bool_Intersects.28SetOfStimuli.7CSetOfTargets.29"><span class="tocnumber">3.2.6</span> <span class="toctext">bool Intersects(SetOfStimuli|SetOfTargets)</span></a></li>
+<li class="toclevel-3 tocsection-17"><a href="Programming_Reference%253AAssociationMap_Class.html#Present.28.29"><span class="tocnumber">3.2.7</span> <span class="toctext">Present()</span></a></li>
+<li class="toclevel-3 tocsection-18"><a href="Programming_Reference%253AAssociationMap_Class.html#Conceal.28.29"><span class="tocnumber">3.2.8</span> <span class="toctext">Conceal()</span></a></li>
+<li class="toclevel-3 tocsection-19"><a href="Programming_Reference%253AAssociationMap_Class.html#Select.28.29"><span class="tocnumber">3.2.9</span> <span class="toctext">Select()</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-20"><a href="Programming_Reference%253AAssociationMap_Class.html#AssociationMap_Class"><span class="tocnumber">4</span> <span class="toctext">AssociationMap Class</span></a>
+<ul>
+<li class="toclevel-2 tocsection-21"><a href="Programming_Reference%253AAssociationMap_Class.html#Methods_2"><span class="tocnumber">4.1</span> <span class="toctext">Methods</span></a>
+<ul>
+<li class="toclevel-3 tocsection-22"><a href="Programming_Reference%253AAssociationMap_Class.html#bool_StimuliIntersect.28StimulusCode1.2C_StimulusCode2.29"><span class="tocnumber">4.1.1</span> <span class="toctext">bool StimuliIntersect(StimulusCode1, StimulusCode2)</span></a></li>
+<li class="toclevel-3 tocsection-23"><a href="Programming_Reference%253AAssociationMap_Class.html#bool_TargetsIntersect.28StimulusCode1.2C_StimulusCode2.29"><span class="tocnumber">4.1.2</span> <span class="toctext">bool TargetsIntersect(StimulusCode1, StimulusCode2)</span></a></li>
+<li class="toclevel-3 tocsection-24"><a href="Programming_Reference%253AAssociationMap_Class.html#SetOfStimuli_TargetToStimuli.28Target_pointer.29"><span class="tocnumber">4.1.3</span> <span class="toctext">SetOfStimuli TargetToStimuli(Target pointer)</span></a></li>
+<li class="toclevel-3 tocsection-25"><a href="Programming_Reference%253AAssociationMap_Class.html#TargetClassification_ClassifyTargets.28ClassResult.29"><span class="tocnumber">4.1.4</span> <span class="toctext">TargetClassification ClassifyTargets(ClassResult)</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-26"><a href="Programming_Reference%253AAssociationMap_Class.html#ClassResult_Class"><span class="tocnumber">5</span> <span class="toctext">ClassResult Class</span></a></li>
+<li class="toclevel-1 tocsection-27"><a href="Programming_Reference%253AAssociationMap_Class.html#TargetClassification_Class"><span class="tocnumber">6</span> <span class="toctext">TargetClassification Class</span></a>
+<ul>
+<li class="toclevel-2 tocsection-28"><a href="Programming_Reference%253AAssociationMap_Class.html#Methods_3"><span class="tocnumber">6.1</span> <span class="toctext">Methods</span></a>
+<ul>
+<li class="toclevel-3 tocsection-29"><a href="Programming_Reference%253AAssociationMap_Class.html#Target_pointer_MostLikelyTarget.28.29"><span class="tocnumber">6.1.1</span> <span class="toctext">Target pointer MostLikelyTarget()</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-30"><a href="Programming_Reference%253AAssociationMap_Class.html#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><tt>src/shared/modules/application/stimuli/Association</tt>
+</p>
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>This page describes four closely related classes declared in a common header file, all related to stimulus presentation and target classification.
+</p>
+<ul><li><b><tt>Association</tt></b> is a class that associates sets of <a href="Programming_Reference%253AStimulus_Class.html" title="Programming Reference:Stimulus Class">stimuli</a> with sets of <a href="Programming_Reference%253ATarget_Class.html" title="Programming Reference:Target Class">targets</a>.</li>
+<li><b><tt>AssociationMap</tt></b> maps stimulus codes to Associations, and sorts targets according to classification results given over stimulus codes.</li>
+<li><b><tt>ClassResult</tt></b> and <b><tt>TargetClassification</tt></b> are auxiliary classes designed as input and output of <tt>AssociationMap</tt>'s <tt>ClassifyTargets()</tt> function. <tt>ClassResult</tt> represents accumulated classification output from signal processing, <tt>TargetClassification</tt> maps <tt>Target</tt> pointers to a selection likelihood value.</li></ul>
+<h2><span class="mw-headline" id="Association_Class">Association Class</span></h2>
+<p>An object of type <tt>Association</tt> defines a set consisting of <a href="Programming_Reference%253AStimulus_Class.html" title="Programming Reference:Stimulus Class">stimuli</a>, an additional set of <a href="Programming_Reference%253ATarget_Class.html" title="Programming Reference:Target Class">targets</a>, and a number of properties associated with a single stimulus code.
+</p><p>A user application based on the <a href="Programming_Reference%253AStimulusTask_Class.html" title="Programming Reference:StimulusTask Class">StimulusTask</a> class will present stimuli, or groups thereof, in sequence, and may select targets according to stimulus-related responses it obtains from the signal processing module.
+</p><p>The <tt>Association</tt> class serves to associate stimuli with each other, targets with each other, stimuli with targets, and to store sequencing information about such groups.
+</p>
+<h3><span class="mw-headline" id="Properties">Properties</span></h3>
+<h4><span id="int_StimulusDuration_(rw)"></span><span class="mw-headline" id="int_StimulusDuration_.28rw.29">int StimulusDuration (rw)</span></h4>
+<p>The duration of stimulus presentation, given in <a href="BCI2000_Glossary.html#Sample_Block" title="BCI2000 Glossary">sample blocks</a>.
+</p>
+<h4><span id="int_ISIMinDuration_(rw)"></span><span class="mw-headline" id="int_ISIMinDuration_.28rw.29">int ISIMinDuration (rw)</span></h4>
+<p>The minimum duration of the inter-stimulus interval, given in <a href="BCI2000_Glossary.html#Sample_Block" title="BCI2000 Glossary">sample blocks</a>.
+</p>
+<h4><span id="int_ISIMaxDuration_(rw)"></span><span class="mw-headline" id="int_ISIMaxDuration_.28rw.29">int ISIMaxDuration (rw)</span></h4>
+<p>The maximum duration of the inter-stimulus interval, given in <a href="BCI2000_Glossary.html#Sample_Block" title="BCI2000 Glossary">sample blocks</a>.
+When <i>ISIMinDuration</i> is different from <i>ISIMaxDuration</i>, the <a href="Programming_Reference%253AStimulusTask_Class.html" title="Programming Reference:StimulusTask Class">StimulusTask</a> base class will choose a random interval between the two from a uniform distribution.
+</p><p>The <i>StimulusDuration</i>, <i>ISIMinDuration</i>, <i>ISIMaxDuration</i> properties are not used by the <tt>Association</tt> class itself but by the <a href="Programming_Reference%253AStimulusTask_Class.html" title="Programming Reference:StimulusTask Class">StimulusTask</a> application base class to determine application sequencing.
+</p>
+<h4><span id="SetOfStimuli_Stimuli_(rw)"></span><span class="mw-headline" id="SetOfStimuli_Stimuli_.28rw.29">SetOfStimuli Stimuli (rw)</span></h4>
+<p>Provides read/write access to the <a href="Programming_Reference%253AStimulus_Class.html#SetOfStimuli" title="Programming Reference:Stimulus Class"><tt>SetOfStimuli</tt></a> object that stores stimulus pointers within the <tt>Association</tt> object.
+</p>
+<h4><span id="SetOfTargets_Targets_(rw)"></span><span class="mw-headline" id="SetOfTargets_Targets_.28rw.29">SetOfTargets Targets (rw)</span></h4>
+<p>Provides read/write access to the <a href="Programming_Reference%253AStimulus_Class.html#SetOfTargets" title="Programming Reference:Stimulus Class"><tt>SetOfTargets</tt></a> object that stores target pointers within the <tt>Association</tt> object.
+</p>
+<h3><span class="mw-headline" id="Methods">Methods</span></h3>
+<h4><span id="Clear()"></span><span class="mw-headline" id="Clear.28.29">Clear()</span></h4>
+<p>Clears both stimulus and target sets.
+</p>
+<h4><span id="DeleteObjects()"></span><span class="mw-headline" id="DeleteObjects.28.29">DeleteObjects()</span></h4>
+<p>Deletes all stimulus and target objects that are part of the association, and clears the association.
+</p><p><i>NB:</i> You should not call this function for an <tt>Association</tt> object unless you can be sure that no stimulus is part of multiple associations. Otherwise, you will risk multiple deallocation of stimulus pointers.
+Typically, you will keep track of existing stimuli in a separate <a href="Programming_Reference%253AStimulus_Class.html#DeleteObjects.28.29" title="Programming Reference:Stimulus Class"><tt>SetOfStimuli</tt></a> object, and call that set's <tt>DeleteObjects()</tt> member function in order to dispose of stimulus objects.
+</p>
+<h4><span id="Add(Stimulus_pointer|Target_pointer)"></span><span class="mw-headline" id="Add.28Stimulus_pointer.7CTarget_pointer.29">Add(Stimulus pointer|Target pointer)</span></h4>
+<p>Adds a stimulus or target object to the association.
+</p>
+<h4><span id="Remove(Stimulus_pointer|Target_pointer)"></span><span class="mw-headline" id="Remove.28Stimulus_pointer.7CTarget_pointer.29">Remove(Stimulus pointer|Target pointer)</span></h4>
+<p>Removes a given stimulus object from the association; nothing happens when the specified object is not a member of the set.
+</p>
+<h4><span id="bool_Contains(Stimulus_pointer|Target_pointer)"></span><span class="mw-headline" id="bool_Contains.28Stimulus_pointer.7CTarget_pointer.29">bool Contains(Stimulus pointer|Target pointer)</span></h4>
+<p>Returns <i>true</i> if the specified object is part of the association, and <i>false</i> otherwise.
+</p>
+<h4><span id="bool_Intersects(SetOfStimuli|SetOfTargets)"></span><span class="mw-headline" id="bool_Intersects.28SetOfStimuli.7CSetOfTargets.29">bool Intersects(SetOfStimuli|SetOfTargets)</span></h4>
+<p>Returns <i>true</i> if any of the elements of the specified set is part of the association, and <i>false</i> otherwise.
+</p>
+<h4><span id="Present()"></span><span class="mw-headline" id="Present.28.29">Present()</span></h4>
+<p>Prompts each stimulus in the association to present itself by calling its <tt>Present()</tt> method.
+</p>
+<h4><span id="Conceal()"></span><span class="mw-headline" id="Conceal.28.29">Conceal()</span></h4>
+<p>Prompts each stimulus in the association to conceal itself by calling its <tt>Conceal()</tt> method.
+</p>
+<h4><span id="Select()"></span><span class="mw-headline" id="Select.28.29">Select()</span></h4>
+<p>For each target contained in the association, calls its <tt>Select()</tt> method.
+</p>
+<h2><span class="mw-headline" id="AssociationMap_Class">AssociationMap Class</span></h2>
+<p>An <tt>AssocationMap</tt> links <tt>Associations</tt>, or groups of stimuli and targets, to stimulus codes. Each stimulus code maps to a single <tt>Association</tt> object, and vice versa.
+</p><p>This way, the <tt>AssociationMap</tt> controls how stimuli are presented in groups, and sequences of groups, in a <a href="Programming_Reference%253AStimulusTask_Class.html" title="Programming Reference:StimulusTask Class">stimulus task</a>, and it provides the information required to determine a selected target from a user response.
+</p>
+<h3><span class="mw-headline" id="Methods_2">Methods</span></h3>
+<p><tt>AssociationMap</tt> inherits publicly from <tt>std::map&lt;int, Association</tt>, and provides all its member functions.
+In a <a href="Programming_Reference%253AStimulusTask_Class.html" title="Programming Reference:StimulusTask Class">StimulusTask</a> descendant, the <i>Associations</i> property provides access to the single <tt>AssociationMap</tt> object stored inside the <tt>StimulusTask</tt> object.
+</p><p>Typically, only the subscript operator <tt>[]</tt> is required to assign stimulus codes to associations:
+</p>
+<pre>Associations()[ myStimulusCode ].Add( pMyStimulus );
+</pre>
+<p>Similarly, association information may be read when the subscript operator appears on the right hand side of an assignment:
+</p>
+<pre>int stimulusDuration = Associations()[ myStimulusCode ].StimulusDuration();
+</pre>
+<p>In case there exists no <tt>Association</tt> object for a specified stimulus code, an empty <tt>Association</tt> object will be created with default properties.
+</p>
+<h4><span id="bool_StimuliIntersect(StimulusCode1,_StimulusCode2)"></span><span class="mw-headline" id="bool_StimuliIntersect.28StimulusCode1.2C_StimulusCode2.29">bool StimuliIntersect(StimulusCode1, StimulusCode2)</span></h4>
+<p>Returns <i>true</i> if there is at least one stimulus object common to the two stimulus codes specified, <i>false</i> otherwise.
+</p>
+<h4><span id="bool_TargetsIntersect(StimulusCode1,_StimulusCode2)"></span><span class="mw-headline" id="bool_TargetsIntersect.28StimulusCode1.2C_StimulusCode2.29">bool TargetsIntersect(StimulusCode1, StimulusCode2)</span></h4>
+<p>Returns <i>true</i> if there is at least one target object common to the two stimulus codes specified, <i>false</i> otherwise.
+</p>
+<h4><span id="SetOfStimuli_TargetToStimuli(Target_pointer)"></span><span class="mw-headline" id="SetOfStimuli_TargetToStimuli.28Target_pointer.29">SetOfStimuli TargetToStimuli(Target pointer)</span></h4>
+<p>Returns an intersection of all sets of stimuli that are associated with the specified target.
+</p>
+<h4><span id="TargetClassification_ClassifyTargets(ClassResult)"></span><span class="mw-headline" id="TargetClassification_ClassifyTargets.28ClassResult.29">TargetClassification ClassifyTargets(ClassResult)</span></h4>
+<p>Translates a <tt>ClassResult</tt> object into <tt>TargetClassification</tt> object.
+A <tt>ClassResult</tt> object contains classification values <i>per stimulus code</i>; these values are translated into classification values <i>per target</i>.
+</p>
+<h2><span class="mw-headline" id="ClassResult_Class">ClassResult Class</span></h2>
+<p>A mapping of stimulus codes to classification values. Classification values are computed by the <a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:P3TemporalFilter" title="User Reference:P3TemporalFilter">P3TemporalFilter</a>&#160;in conjunction with the <a href="User_Reference%253ALinearClassifier.html" title="User Reference:LinearClassifier">LinearClassifier</a>, and accumulated by the <a href="Programming_Reference%253AStimulusTask_Class.html" title="Programming Reference:StimulusTask Class">StimulusTask class</a> inside a <tt>ClassResult</tt> object before translated into a target selection.
+</p>
+<h2><span class="mw-headline" id="TargetClassification_Class">TargetClassification Class</span></h2>
+<p>A <tt>TargetClassification</tt> object represents <i>per-target</i> classification values. Such an object is returned from <tt>AssociationMap::ClassifyTargets()</tt>.
+</p>
+<h3><span class="mw-headline" id="Methods_3">Methods</span></h3>
+<h4><span id="Target_pointer_MostLikelyTarget()"></span><span class="mw-headline" id="Target_pointer_MostLikelyTarget.28.29">Target pointer MostLikelyTarget()</span></h4>
+<p>Returns a pointer to the target associated with the largets classification value, or NULL if there are no targets stored in the <tt>TargetClassification</tt> object.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Programming_Reference%253AStimulus_Class.html" title="Programming Reference:Stimulus Class">Programming Reference:Stimulus Class</a>, <a href="Programming_Reference%253ATarget_Class.html" title="Programming Reference:Target Class">Programming Reference:Target Class</a>, <a href="Programming_Reference%253AStimulusTask_Class.html" title="Programming Reference:StimulusTask Class">Programming Reference:StimulusTask Class</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524175534
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.030 seconds
+Real time usage: 0.033 seconds
+Preprocessor visited node count: 107/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1843-0!canonical and timestamp 20230524175534 and revision id 4727
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:AssociationMap_Class&amp;oldid=4727">http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:AssociationMap_Class&amp;oldid=4727</a>"</div>
+ </div>
+</body>
+</html>

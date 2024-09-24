@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:Coherence - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">Coherence</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Contributions%253ACoherence.html#Synopsis"><span class="tocnumber">1</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Contributions%253ACoherence.html#Location"><span class="tocnumber">2</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Contributions%253ACoherence.html#Versioning"><span class="tocnumber">3</span> <span class="toctext">Versioning</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Contributions%253ACoherence.html#Author"><span class="tocnumber">3.1</span> <span class="toctext">Author</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Contributions%253ACoherence.html#Source_Code_Revisions"><span class="tocnumber">3.2</span> <span class="toctext">Source Code Revisions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="Contributions%253ACoherence.html#Functional_Description"><span class="tocnumber">4</span> <span class="toctext">Functional Description</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="Contributions%253ACoherence.html#Parameters"><span class="tocnumber">5</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-8"><a href="Contributions%253ACoherence.html#CohBufferLength"><span class="tocnumber">5.1</span> <span class="toctext">CohBufferLength</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="Contributions%253ACoherence.html#CohWindowLength"><span class="tocnumber">5.2</span> <span class="toctext">CohWindowLength</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="Contributions%253ACoherence.html#CohWindowOverlap"><span class="tocnumber">5.3</span> <span class="toctext">CohWindowOverlap</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="Contributions%253ACoherence.html#CohFrequencies"><span class="tocnumber">5.4</span> <span class="toctext">CohFrequencies</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="Contributions%253ACoherence.html#See_also"><span class="tocnumber">6</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>The CoherenceFilter computes magnitude squared coherence between its input signals at a set of frequencies.
+The CoherenceSignalProcessing module computes a coherence-based feedback signal, including the SpatialFilter, LinearClassifier, and Normalizer processing stages.
+</p>
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><a rel="nofollow" class="external free" href="http://www.bci2000.org/svn/trunk/src/contrib/SignalProcessing/Coherence">http://www.bci2000.org/svn/trunk/src/contrib/SignalProcessing/Coherence</a>
+</p>
+<h2><span class="mw-headline" id="Versioning">Versioning</span></h2>
+<h3><span class="mw-headline" id="Author">Author</span></h3>
+<p>juergen.mellinger@uni-tuebingen.de
+</p>
+<h3><span class="mw-headline" id="Source_Code_Revisions">Source Code Revisions</span></h3>
+<ul><li>Initial development: 3340</li>
+<li>Tested under: 3340</li>
+<li>Known to compile under: 3340</li></ul>
+<h2><span class="mw-headline" id="Functional_Description">Functional Description</span></h2>
+<p>The CoherenceFilter computes magnitude squared coherence between pairs of input channels, applying the following computational steps:
+</p>
+<ul><li>Maintaining a buffer of past data.</li>
+<li>Computing a time series of complex-valued Fourier coefficients <img class="mwe-math-fallback-image-inline tex" alt="a(f,t)" src="../images/math/5/c/4/5c411a634682c410a03673c2b6974388.png" /> for a Fourier window moving over the data buffer with a specified window overlap. Windowing is done using a Hamming window.</li>
+<li>Computing the magnitude squared coherence between coefficient time series for different channels.</li></ul>
+<p>With <img class="mwe-math-fallback-image-inline tex" alt="P_{12}(f)" src="../images/math/1/9/7/1979716ead976fc7ca370eb8af984197.png" /> denoting the inner product of coefficient time series <img class="mwe-math-fallback-image-inline tex" alt="a_1(f,t)" src="../images/math/4/9/e/49ef194a531b57b4141bd1f3dde317e3.png" /> and <img class="mwe-math-fallback-image-inline tex" alt="a_2(f,t)" src="../images/math/f/9/c/f9c8cd7ef8006370fd51bdcaa73c7ee7.png" />:
+</p><p><img class="mwe-math-fallback-image-inline tex" alt="P_{12}(f)= \sum_t{a_1(f,t) \cdot a^*_2(f,t)}" src="../images/math/3/6/f/36f7279db258b555d4abe8a0cd087fbc.png" />,
+</p><p>the magnitude squared coherence between channel 1 and channel 2 at frequency <img class="mwe-math-fallback-image-inline tex" alt="f" src="../images/math/8/f/a/8fa14cdd754f91cc6554c9e71929cce7.png" /> is computed as:
+</p><p><img class="mwe-math-fallback-image-inline tex" alt="C_{12}(f)=\frac{|P_{12}(f)|^2}{|P_{11}(f)||P_{22}(f)|}" src="../images/math/7/e/0/7e08e58a7b5a1c9307acad73445bf6b9.png" />.
+</p><p>In the output signal, channels correspond to pairs of input channels, enumerated by scanning the lower half of the channels-by-channels matrix in a row-wise manner: 21, 31, 32, 41, 42, 43, 51, 52, 53, 54, ...
+</p><p>For a more convenient configuration of the LinearClassifier filter, output channels are labeled, constructing labels from the labels of the input channels. Labels are formed like this: <b>Coh-foo-bar</b> when "foo" is the label of input channel 1, and "bar" is the label of input channel 2.
+</p><p>Elements in the output signal correspond to the frequencies given in the <i>CohFrequencies</i> parameter, and are labeled by the values entered there.
+</p>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<h3><span class="mw-headline" id="CohBufferLength">CohBufferLength</span></h3>
+<p>Length of the past data buffer over which coherence is computed, in seconds (when followed with "s"), or blocks.
+</p>
+<h3><span class="mw-headline" id="CohWindowLength">CohWindowLength</span></h3>
+<p>Length of the Fourier window moving over the data buffer, in seconds (when followed with "s"), or blocks.
+</p>
+<h3><span class="mw-headline" id="CohWindowOverlap">CohWindowOverlap</span></h3>
+<p>Overlap between subsequent windows, in seconds (when followed with "s"), or blocks.
+</p>
+<h3><span class="mw-headline" id="CohFrequencies">CohFrequencies</span></h3>
+<p>List of frequencies where coherence is evaluated, corresponds to elements in the output signal.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Reference%253AFilters.html" title="User Reference:Filters">User Reference:Filters</a>, <a href="Contributions%253ASignalProcessing.html" title="Contributions:SignalProcessing">Contributions:SignalProcessing</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524182027
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.017 seconds
+Real time usage: 0.021 seconds
+Preprocessor visited node count: 73/1000000
+Post‐expand include size: 15/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 1033/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2014-0!canonical!math=0 and timestamp 20230524182027 and revision id 6954
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:Coherence&amp;oldid=6954">http://www.bci2000.org/mediawiki/index.php?title=Contributions:Coherence&amp;oldid=6954</a>"</div>
+ </div>
+</body>
+</html>

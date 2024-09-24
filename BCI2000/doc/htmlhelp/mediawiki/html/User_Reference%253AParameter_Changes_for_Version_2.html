@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>User Reference:Parameter Changes for Version 2 - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul><li class="toc1"><a href="User_Reference%253AOperator_Module.html">Operator Module</a></li><li class="toc1"><a href="User_Reference%253AOperator_Module_Scripting.html">Operator Scripting</a></li><li class="toc1"><a href="User_Reference%253AModule_Command_Line_Options.html">Module Command Line Options</a></li><li class="toc1"><a href="User_Reference%253AData_File_Formats.html">Data File Formats</a></li><li class="toc1"><a href="User_Reference%253AFilters.html">Configuration Guide</a></li><li class="toc1"><a href="User_FAQ.html">FAQ</a></li><li class="toc1">Applications</li><ul><li class="toc2"><a href="User_Reference%253ACursorTask.html">Cursor Task</a></li><li class="toc2"><a href="User_Reference%253AP3SpellerTask.html">P3Speller Task</a></li><li class="toc2"><a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:StimulusPresentation">Stimulus Presentation</a></li></ul><li class="toc1">Tools</li><ul><li class="toc2"><a href="User_Reference%253ABCI2000Certification.html">BCI2000Certification</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Launcher.html">BCI2000Launcher</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Viewer.html">BCI2000Viewer</a></li><li class="toc2"><a href="User_Reference%253ABCI2000FileInfo.html">BCI2000FileInfo</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Export.html">BCI2000Export</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Analysis.html">BCI2000Analysis</a></li><li class="toc2"><a href="User_Reference%253ABCI2000_Offline_Analysis.html">BCI2000 Offline Analysis</a></li><li class="toc2"><a href="User_Reference%253AEloc_Helper.html">Eloc Helper</a></li><li class="toc2"><a href="User_Reference%253AEEGLabImport.html">EEGLabImport</a></li><li class="toc2"><a href="User_Reference%253AMatlab_Tools.html">Matlab Tools</a></li><li class="toc2"><a href="User_Reference%253AMatlab_MEX_Files.html">Matlab MEX Files</a></li><li class="toc2"><a href="User_Reference%253ACommand_Line_Processing.html">Command Line Processing</a></li></ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">Parameter Changes for Version 2</h1>
+ <p class = "subtitle">User Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>This page describes changes in parameters between prior versions of BCI2000, and <a rel="nofollow" class="external text" href="http://www.bci2000.org/tracproj/milestone/BCI2000%20Version%202.0">Version 2.0</a>.
+</p><p>Rows without notes represent parameters that have been renamed without changing their structure or meaning.
+</p>
+<table border="1" cellspacing="0">
+<tbody><tr>
+<td colspan="3">
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="User_Reference%253AParameter_Changes_for_Version_2.html#Source_Modules"><span class="tocnumber">1</span> <span class="toctext">Source Modules</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="User_Reference%253AParameter_Changes_for_Version_2.html#SignalGeneratorADC_.28renamed_from_RandomNumberADC.29"><span class="tocnumber">1.1</span> <span class="toctext">SignalGeneratorADC (renamed from RandomNumberADC)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-3"><a href="User_Reference%253AParameter_Changes_for_Version_2.html#SignalProcessing"><span class="tocnumber">2</span> <span class="toctext">SignalProcessing</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="User_Reference%253AParameter_Changes_for_Version_2.html#AR_Filter"><span class="tocnumber">2.1</span> <span class="toctext">AR Filter</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="User_Reference%253AParameter_Changes_for_Version_2.html#Normalizer_.28renamed_from_NormalFilter.2FStatFilter.29"><span class="tocnumber">2.2</span> <span class="toctext">Normalizer (renamed from NormalFilter/StatFilter)</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="User_Reference%253AParameter_Changes_for_Version_2.html#P3TemporalFilter"><span class="tocnumber">2.3</span> <span class="toctext">P3TemporalFilter</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="User_Reference%253AParameter_Changes_for_Version_2.html#LinearClassifier_.28renamed_from_ClassFilter.29"><span class="tocnumber">2.4</span> <span class="toctext">LinearClassifier (renamed from ClassFilter)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="User_Reference%253AParameter_Changes_for_Version_2.html#Application_Modules"><span class="tocnumber">3</span> <span class="toctext">Application Modules</span></a>
+<ul>
+<li class="toclevel-2 tocsection-9"><a href="User_Reference%253AParameter_Changes_for_Version_2.html#StimulusPresentation_.28renamed_from_P3AV.29"><span class="tocnumber">3.1</span> <span class="toctext">StimulusPresentation (renamed from P3AV)</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="User_Reference%253AParameter_Changes_for_Version_2.html#P3_Speller"><span class="tocnumber">3.2</span> <span class="toctext">P3 Speller</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="User_Reference%253AParameter_Changes_for_Version_2.html#Cursor_Task_.28renamed_from_D3Box_Task.29"><span class="tocnumber">3.3</span> <span class="toctext">Cursor Task (renamed from D3Box Task)</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="User_Reference%253AParameter_Changes_for_Version_2.html#RGB_Colors"><span class="tocnumber">3.4</span> <span class="toctext">RGB Colors</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Source_Modules">Source Modules</span></h2>
+</td></tr>
+<tr>
+<th>Name in Version 2</th>
+<th>Name in previous versions</th>
+<th>Notes
+</th></tr>
+<tr>
+<td>ID_System, ID_Amp, ID_Montage</td>
+<td>&#160;</td>
+<td>Added for equipment documentation purposes.
+</td></tr>
+<tr>
+<td>SourceCh</td>
+<td>SoftwareCh</td>
+<td>&#160;
+</td></tr>
+<tr>
+<td>DataDirectory</td>
+<td>FileInitials</td>
+<td>&#160;
+</td></tr>
+<tr>
+<td colspan="3">
+<h3><span id="SignalGeneratorADC_(renamed_from_RandomNumberADC)"></span><span class="mw-headline" id="SignalGeneratorADC_.28renamed_from_RandomNumberADC.29">SignalGeneratorADC (renamed from RandomNumberADC)</span></h3>
+</td></tr>
+<tr>
+<td>SineChannelY</td>
+<td>SineChannel</td>
+<td>&#160;
+</td></tr>
+<tr>
+<td>RandomSeed</td>
+<td>DoTrueRandom</td>
+<td>Non-null value now specifies random seed for testing purposes.
+</td></tr>
+<tr>
+<td>SignalType</td>
+<td>SignalType</td>
+<td>Enumeration now omits float24 type to match gUSBamp source module's SignalType parameter, 0: int16, 1: int32, 2: float32.
+</td></tr>
+<tr>
+<td>&#160;</td>
+<td>TransmitCh</td>
+<td>Removed to avoid redundancy (number of values in TransmitChList).
+</td></tr>
+<tr>
+<td>VisualizeTiming</td>
+<td>VisualizeRoundtrip</td>
+<td>Visualization window now shows block duration, roundtrip, and stimulus delay.
+</td></tr>
+<tr>
+<td colspan="3">
+<h2><span class="mw-headline" id="SignalProcessing">SignalProcessing</span></h2>
+</td></tr>
+<tr>
+<td>SpatialFilter</td>
+<td>SpatialFilterKernal</td>
+<td>&#160;
+</td></tr>
+<tr>
+<td>&#160;</td>
+<td>NumControlSignals</td>
+<td>Chosen automatically to match classifier output.
+</td></tr>
+<tr>
+<td colspan="3">
+<h3><span class="mw-headline" id="AR_Filter">AR Filter</span></h3>
+</td></tr>
+<tr>
+<td>FirstBinCenter</td>
+<td>StartMem + MemBandWidth/2</td>
+<td rowspan="2">Specifying center frequencies appears more intuitive.
+</td></tr>
+<tr>
+<td>LastBinCenter</td>
+<td>StopMem + MemBandWidth/2
+</td></tr>
+<tr>
+<td>BinWidth</td>
+<td>MemBandWidth</td>
+<td>&#160;
+</td></tr>
+<tr>
+<td>WindowLength</td>
+<td>MemWindows</td>
+<td>Preferably specified in seconds using an "s" or "ms" suffix to its value.
+</td></tr>
+<tr>
+<td>EvaluationsPerBin</td>
+<td>MemBandWidth/deltaMem</td>
+<td>Avoid accidental misconfigurations, allow for reasonable default value.
+</td></tr>
+<tr>
+<td colspan="3">
+<h3><span id="Normalizer_(renamed_from_NormalFilter/StatFilter)"></span><span class="mw-headline" id="Normalizer_.28renamed_from_NormalFilter.2FStatFilter.29">Normalizer (renamed from NormalFilter/StatFilter)</span></h3>
+</td></tr>
+<tr>
+<td>NormalizerOffsets</td>
+<td>XMean, YMean</td>
+<td rowspan="3">These are now lists of values, allowing for any number of dimensions in the control signal.
+</td></tr>
+<tr>
+<td>NormalizerGains</td>
+<td>XGain, YGain
+</td></tr>
+<tr>
+<td>OffsetAdaptation, GainAdaptation</td>
+<td>XTrendControl, YTrendControl
+</td></tr>
+<tr>
+<td>BufferLength</td>
+<td>SignalWinLth</td>
+<td>The length is now given as a time value, i.e. in seconds (if specified with an "s") or blocks (if specified as a raw number).
+</td></tr>
+<tr>
+<td>UpdateTrigger</td>
+<td>&#160;</td>
+<td>A boolean condition that indicates when offset/gain values should be updated.
+</td></tr>
+<tr>
+<td>BufferConditions</td>
+<td>BaselineCfg</td>
+<td>Conditions may now be boolean expressions involving State values.
+</td></tr>
+
+<tr>
+<td colspan="3">
+<h3><span class="mw-headline" id="P3TemporalFilter">P3TemporalFilter</span></h3>
+</td></tr>
+<tr>
+<td>EpochLength</td>
+<td>NumSamplesInERP</td>
+<td>Consistent with the Normalizer filter, buffer length is now specified as a time value, i.e. in seconds if specified with an "s", or blocks if specified as a raw number.
+</td></tr>
+<tr>
+<td>EpochsToAverage</td>
+<td>NumERPsToAverage</td>
+<td>&#160;
+</td></tr>
+<tr>
+<td colspan="3">
+<h3><span id="LinearClassifier_(renamed_from_ClassFilter)"></span><span class="mw-headline" id="LinearClassifier_.28renamed_from_ClassFilter.29">LinearClassifier (renamed from ClassFilter)</span></h3>
+</td></tr>
+<tr>
+<td>Classifier</td>
+<td>MUD, MLR</td>
+<td>The Classifier matrix parameter is now a sparse representation of a multiplication matrix. Each row corresponds to a non-null entry, and contains 4 columns: input channel, input element (e.g., frequency), output channel, weight.
+</td></tr>
+<tr>
+<td>&#160;</td>
+<td>ClassMode</td>
+<td>Retained only previous ClassMode value of 1.
+</td></tr>
+<tr>
+<td colspan="3">
+<h2><span class="mw-headline" id="Application_Modules">Application Modules</span></h2>
+</td></tr>
+<tr>
+<td>WindowWidth</td>
+<td>WinWidth</td>
+<td>&#160;
+</td></tr>
+<tr>
+<td>WindowHeight</td>
+<td>WinHeight</td>
+<td>&#160;
+</td></tr>
+<tr>
+<td>WindowLeft</td>
+<td>WinXpos</td>
+<td>&#160;
+</td></tr>
+<tr>
+<td>WindowTop</td>
+<td>WinYpos</td>
+<td>&#160;
+</td></tr>
+<tr>
+<td>MinRunLength</td>
+<td>(TimeLimit)s</td>
+<td>Consistently with other time values, this is now given in blocks. Use an optional "s" to indicate a value in seconds.
+</td></tr>
+<tr>
+<td colspan="3">
+<h3><span id="StimulusPresentation_(renamed_from_P3AV)"></span><span class="mw-headline" id="StimulusPresentation_.28renamed_from_P3AV.29">StimulusPresentation (renamed from P3AV)</span></h3>
+</td></tr>
+<tr>
+<td>Stimuli</td>
+<td>Matrix</td>
+<td>&#160;
+</td></tr>
+<tr>
+<td>NumberOfSequences</td>
+<td>NumberOfSeq</td>
+<td rowspan="3">Common parameters are now named consistently across P3 Speller and StimulusPresentation applications.
+</td></tr>
+<tr>
+<td>PreSequenceDuration</td>
+<td>PreSequenceTime
+</td></tr>
+<tr>
+<td>PostSequenceDuration</td>
+<td>PostSequenceTime
+</td></tr>
+<tr>
+<td>StimulusDuration</td>
+<td>OnTime</td>
+<td rowspan="3">These are now lists of values, allowing to configure durations individually for each stimulus. When there are less entries than stimuli, the last list entry will be used repeatedly.
+</td></tr>
+<tr>
+<td>ISIMinDuration</td>
+<td>OffTime + MinInterTime
+</td></tr>
+<tr>
+<td>ISIMaxDuration</td>
+<td>OffTime + MaxInterTime
+</td></tr>
+<tr>
+<td colspan="3">
+<h3><span class="mw-headline" id="P3_Speller">P3 Speller</span></h3>
+</td></tr>
+<tr>
+<td>TestMode</td>
+<td>P3TestMode</td>
+<td>&#160;
+</td></tr>
+<tr>
+<td>TargetDefinitions</td>
+<td>TargetDefinitionMatrix</td>
+<td>&#160;
+</td></tr>
+<tr>
+<td>IconHighlightMode</td>
+<td>IconHighlight</td>
+<td>&#160;
+</td></tr>
+<tr>
+<td>IconHighlightFactor</td>
+<td>HighlightFactor</td>
+<td>&#160;
+</td></tr>
+<tr>
+<td>InterpretMode</td>
+<td>OnlineMode</td>
+<td rowspan="7">Common parameters are now named consistently across P3 Speller and StimulusPresentation applications.
+</td></tr>
+<tr>
+<td>DisplayResults</td>
+<td>ResultDisplay
+</td></tr>
+<tr>
+<td>PreSequenceDuration</td>
+<td>PreSetInterval
+</td></tr>
+<tr>
+<td>PostSequenceDuration</td>
+<td>PostSetInterval
+</td></tr>
+<tr>
+<td>StimulusDuration</td>
+<td>OnTime
+</td></tr>
+<tr>
+<td>ISIMinDuration</td>
+<td>OffTime
+</td></tr>
+<tr>
+<td>ISIMaxDuration</td>
+<td>&#160;
+</td></tr>
+<tr>
+<td>DestinationAddress</td>
+<td>DestinationIPAddress</td>
+<td>This is actually an IP:port combination.
+</td></tr>
+<tr>
+<td>TextWindowLeft</td>
+<td>TextWinXpos</td>
+<td rowspan="6">Naming consistency with application window properties.
+</td></tr>
+<tr>
+<td>TextWindowTop</td>
+<td>TextWinYpos
+</td></tr>
+<tr>
+<td>TextWindowWidth</td>
+<td>TextWinWidth
+</td></tr>
+<tr>
+<td>TextWindowHeight</td>
+<td>TextWinHeight
+</td></tr>
+<tr>
+<td>TextWindowFontName</td>
+<td>TextWinFontName
+</td></tr>
+<tr>
+<td>TextWindowFontSize</td>
+<td>TextWinFontSize
+</td></tr>
+<tr>
+<td colspan="3">
+<h3><span id="Cursor_Task_(renamed_from_D3Box_Task)"></span><span class="mw-headline" id="Cursor_Task_.28renamed_from_D3Box_Task.29">Cursor Task (renamed from D3Box Task)</span></h3>
+</td></tr>
+<tr>
+<td>ResultDuration</td>
+<td>RewardDuration</td>
+<td>&#160;
+</td></tr>
+<tr>
+<td>CameraPos</td>
+<td>[CameraX CameraY CameraZ]/32767*100</td>
+<td rowspan="3">Combined into a vector (list of 3 values). We also use the same 0..100 coordinate range throughout.
+</td></tr>
+<tr>
+<td>CameraAim</td>
+<td>[CameraAimX CameraAimY CameraAimZ]/32767*100
+</td></tr>
+<tr>
+<td>LightSource</td>
+<td>[LightSourceX LightSourceY LightSourceZ]/32767*100
+</td></tr>
+<tr>
+<td>LightSourceColor</td>
+<td>LightSourceR&lt;&lt;16 + LightSourceG&lt;&lt;8 + LightSourceB</td>
+<td>Combined into an RGB value.
+</td></tr>
+<tr>
+<td>CursorStartPos</td>
+<td>[StartCursorX StartCursorY StartCursorZ]</td>
+<td>Combined into a vector.
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="RGB_Colors">RGB Colors</span></h3>
+<p>Previously, RGB colors followed the binary layout of MS Windows little endian style color values: <code>0xBbGgRr</code>, such that a value of <code>0xFF0000</code> would define a <font color="&amp;0000FF">blue color</font>.
+This was counterintuitive and different from the convention adopted by the HTML standard.
+</p><p>From Version 2.0, RGB colors follow the HTML convention: <code>0xRrGgBb</code>, e.g. <code>0xFF0000</code> for <font color="&amp;FF0000">bright red</font>.
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20220610005325
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.025 seconds
+Real time usage: 0.028 seconds
+Preprocessor visited node count: 41/1000000
+Post‐expand include size: 15/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1426-0!canonical and timestamp 20220610005325 and revision id 3680
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=User_Reference:Parameter_Changes_for_Version_2&amp;oldid=3680">http://www.bci2000.org/mediawiki/index.php?title=User_Reference:Parameter_Changes_for_Version_2&amp;oldid=3680</a>"</div>
+ </div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+BCI2000RemoteNET now targets .NET 8
+
+BCI2000Remote no longer inherits from BCI2000Connection, and instead has a
+public member BCI2000Connection.
+
+Execute can still be called, through the member connection variable.
+
+Execute now takes a type parameter specifying the expected return type. The
+program will attempt to parse the received response as the return type if it
+is not void. 
+
+The Execute method is now the Execute<T> method which
+
+Methods now use exceptions for handling errors.

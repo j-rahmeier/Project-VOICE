@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:g.EstimSwitchingUnit - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">g.EstimSwitchingUnit</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Contributions%253Ag.EstimSwitchingUnit.html#Versioning"><span class="tocnumber">1</span> <span class="toctext">Versioning</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="Contributions%253Ag.EstimSwitchingUnit.html#Author"><span class="tocnumber">1.1</span> <span class="toctext">Author</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="Contributions%253Ag.EstimSwitchingUnit.html#Version_History"><span class="tocnumber">1.2</span> <span class="toctext">Version History</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="Contributions%253Ag.EstimSwitchingUnit.html#Source_Code_Revisions"><span class="tocnumber">1.3</span> <span class="toctext">Source Code Revisions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="Contributions%253Ag.EstimSwitchingUnit.html#Functional_Description"><span class="tocnumber">2</span> <span class="toctext">Functional Description</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="Contributions%253Ag.EstimSwitchingUnit.html#Integration_into_BCI2000"><span class="tocnumber">3</span> <span class="toctext">Integration into BCI2000</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="Contributions%253Ag.EstimSwitchingUnit.html#Parameters"><span class="tocnumber">4</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-8"><a href="Contributions%253Ag.EstimSwitchingUnit.html#ActivateSwitchingUnit"><span class="tocnumber">4.1</span> <span class="toctext">ActivateSwitchingUnit</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="Contributions%253Ag.EstimSwitchingUnit.html#DeviceID"><span class="tocnumber">4.2</span> <span class="toctext">DeviceID</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="Contributions%253Ag.EstimSwitchingUnit.html#Trigger"><span class="tocnumber">4.3</span> <span class="toctext">Trigger</span></a>
+<ul>
+<li class="toclevel-3 tocsection-11"><a href="Contributions%253Ag.EstimSwitchingUnit.html#Software_Trigger"><span class="tocnumber">4.3.1</span> <span class="toctext">Software Trigger</span></a></li>
+<li class="toclevel-3 tocsection-12"><a href="Contributions%253Ag.EstimSwitchingUnit.html#Digital_Trigger"><span class="tocnumber">4.3.2</span> <span class="toctext">Digital Trigger</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-13"><a href="Contributions%253Ag.EstimSwitchingUnit.html#StimConfig"><span class="tocnumber">4.4</span> <span class="toctext">StimConfig</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-14"><a href="Contributions%253Ag.EstimSwitchingUnit.html#States"><span class="tocnumber">5</span> <span class="toctext">States</span></a>
+<ul>
+<li class="toclevel-2 tocsection-15"><a href="Contributions%253Ag.EstimSwitchingUnit.html#EstimSU"><span class="tocnumber">5.1</span> <span class="toctext">EstimSU</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-16"><a href="Contributions%253Ag.EstimSwitchingUnit.html#Latency"><span class="tocnumber">6</span> <span class="toctext">Latency</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Versioning">Versioning</span></h2>
+<div class="thumb tright"><div class="thumbinner" style="width:402px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:G.switching-unit-device.jpg" class="image"><img alt="" src="../images/thumb/8/8d/G.switching-unit-device.jpg/400px-G.switching-unit-device.jpg" decoding="async" width="400" height="308" class="thumbimage" srcset="../images/thumb/8/8d/G.switching-unit-device.jpg/600px-G.switching-unit-device.jpg 1.5x, ../images/8/8d/G.switching-unit-device.jpg 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://www.bci2000.org/mediawiki/index.php/File:G.switching-unit-device.jpg" class="internal" title="Enlarge"></a></div>g.tec g.Estim Switching Unit</div></div></div>
+<h3><span class="mw-headline" id="Author">Author</span></h3>
+<p>Alexander Belsten (belsten@neurotechcenter.org)
+</p>
+<h3><span class="mw-headline" id="Version_History">Version History</span></h3>
+<ul><li>2020/05/22: Initial release for the switching unit prototype</li>
+<li>2020/01/25: Usability improvements and hardware API updated to latest version.</li></ul>
+<h3><span class="mw-headline" id="Source_Code_Revisions">Source Code Revisions</span></h3>
+<ul><li>Initial development: 6125</li>
+<li>Known to compile under: 6191</li>
+<li>Broken since: --</li></ul>
+<h2><span class="mw-headline" id="Functional_Description">Functional Description</span></h2>
+<p>The purpose of this device and filter is to automate the process of switching channels from recording to stimulation during cortical stimulation experiments. Previously, channels had to be switched manually (unplugging electrodes from the amplifier and plugging them into a stimulator). With the switching unit and this filter, this process is automated. 
+</p>
+<h2><span class="mw-headline" id="Integration_into_BCI2000">Integration into BCI2000</span></h2>
+<p>Compile the filter by enabling <code>BUILD_PRIVATE</code> in your CMake configuration. Access to the private directory in the SVN is necessary. Then compile the filter, and make <code>gEstimProSwitchingUnit</code> the filter in your batch file. 
+</p>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<p>The g.EstimSwitchingUnit is configured in the filtering tab. The configurable parameters are:
+</p>
+<h3><span class="mw-headline" id="ActivateSwitchingUnit">ActivateSwitchingUnit</span></h3>
+<p>This parameter enables the switching unit. 
+</p>
+<h3><span class="mw-headline" id="DeviceID">DeviceID</span></h3>
+<p>Index of the device on the system. If one switching unit is plugged into the computer this value should be 0. 
+</p>
+<h3><span class="mw-headline" id="Trigger">Trigger</span></h3>
+<p>There are two options for the trigger, a software trigger, and a digital trigger. 
+</p>
+<h4><span class="mw-headline" id="Software_Trigger">Software Trigger</span></h4>
+<p>Channel switching is triggered when a <i>SwitchExpression</i> defined in the first row of the <i>StimConfig</i> parameter evaluates true. See the <a href="Contributions%253Ag.EstimSwitchingUnit.html#Latency" title="Contributions:g.EstimSwitchingUnit">latency</a> section for details on how switching latency varies based on the number of electrode pairs that are defined. 
+</p>
+<h4><span class="mw-headline" id="Digital_Trigger">Digital Trigger</span></h4>
+<p>Channel switching is triggered by digital input on the back of the device, allowing for the use of foot pedals or push buttons. Only one electrode pair (one column) can be defined in the <i>StimConfig</i> parameter to use the digital trigger. When the digital trigger occurs, the switching configuration for that one configuration will be applied. 
+</p>
+<h3><span class="mw-headline" id="StimConfig">StimConfig</span></h3>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 382.66666666667px"><div style="width: 382.66666666667px">
+			<div class="thumb" style="width: 380.66666666667px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:Switching_unit_one_electrode_pair.png" class="image"><img alt="" src="../images/b/b7/Switching_unit_one_electrode_pair.png" decoding="async" width="381" height="300" /></a></div></div>
+			<div class="gallerytext">
+<p>Figure 1: One electrode pair defined.
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 375.33333333333px"><div style="width: 375.33333333333px">
+			<div class="thumb" style="width: 373.33333333333px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:Switching_unit_multiple_electrode_pairs.png" class="image"><img alt="" src="../images/6/67/Switching_unit_multiple_electrode_pairs.png" decoding="async" width="374" height="300" /></a></div></div>
+			<div class="gallerytext">
+<p>Figure 2: Multiple electrode pairs defined.
+</p>
+			</div>
+		</div></li>
+</ul>
+<p>This matrix configures channel routing. The StimConfig parameter is where expressions for the software triggers and electrode pairs are defined.  Each column contains information for a specific switching configuration and the number of configurations must be configured in accordance with the trigger type. If the trigger type is set to <i>Digital</i>, there must only be one configuration (one column) as shown in Fig. 1. If the trigger type is <i>Software</i>, one configuration can be defined, or multiple can be defined as seen in Fig. 2. 
+</p><p>The cells in rows corresponding to <i>Stim+ ch</i> (anode) and <i>Stim- ch</i> (cathode) define the electrode pairs. These cells are embedded lists that can be edited by right-clicking on the list cell and selecting “Edit submatrix.” For a given configuration, the cathode and anode electrode lists must be disjoint. 
+</p>
+<h2><span class="mw-headline" id="States">States</span></h2>
+<h3><span class="mw-headline" id="EstimSU">EstimSU</span></h3>
+<p>This binary state records when the switching unit is switched into the active state (<code>1</code>) and inactive state (<code>0</code>).
+</p>
+<h2><span class="mw-headline" id="Latency">Latency</span></h2>
+<div class="center"><div class="thumb tnone"><div class="thumbinner" style="width:602px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:Switching_unit_latency.png" class="image"><img alt="" src="../images/thumb/1/12/Switching_unit_latency.png/600px-Switching_unit_latency.png" decoding="async" width="600" height="310" class="thumbimage" srcset="../images/thumb/1/12/Switching_unit_latency.png/900px-Switching_unit_latency.png 1.5x, ../images/thumb/1/12/Switching_unit_latency.png/1200px-Switching_unit_latency.png 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://www.bci2000.org/mediawiki/index.php/File:Switching_unit_latency.png" class="internal" title="Enlarge"></a></div>Figure 3: Latency changes greatly depending on if there is one electrode pair or multiple</div></div></div></div>
+<p>The time between a SwitchExpression evaluating true and the channels switching varies based on the number of electrode pairs. The latency is much lower if there is only one electrode pair (one column) defined in StimConfig. When more than one electrode pairs are specified, the latency increases. A comparison of these latencies can be seen in Fig. 3. The large jump in latency from one electrode pair to multiple electrode pairs is due to the fact that the expression that evaluated true must now have its corresponding anode and cathode channels uploaded to the device. In the case of one software configuration, the configuration does not need to be uploaded online because it is uploaded before the run. Checking which SwitchExpression evaluates true does not take very long, so the latency does not vary substantially when there are 2 electrode pairs defined, or 20. 
+</p><p>Knowing what to expect in terms of switching latency allows the experimentalist to design their stimulation montage such that the switching of channels occurs before the stimulation is applied and even add some additional time to allow the switching artifact introduced to other channels to subside.
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524175515
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.028 seconds
+Real time usage: 0.031 seconds
+Preprocessor visited node count: 56/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 1066/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2301-0!canonical and timestamp 20230524175515 and revision id 8577
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:g.EstimSwitchingUnit&amp;oldid=8577">http://www.bci2000.org/mediawiki/index.php?title=Contributions:g.EstimSwitchingUnit&amp;oldid=8577</a>"</div>
+ </div>
+</body>
+</html>

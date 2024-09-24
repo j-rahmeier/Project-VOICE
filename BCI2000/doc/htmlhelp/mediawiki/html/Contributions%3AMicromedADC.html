@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:MicromedADC - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">MicromedADC</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Contributions%253AMicromedADC.html#Synopsis"><span class="tocnumber">1</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Contributions%253AMicromedADC.html#Location"><span class="tocnumber">2</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Contributions%253AMicromedADC.html#Versioning"><span class="tocnumber">3</span> <span class="toctext">Versioning</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Contributions%253AMicromedADC.html#Author"><span class="tocnumber">3.1</span> <span class="toctext">Author</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Contributions%253AMicromedADC.html#Version_History"><span class="tocnumber">3.2</span> <span class="toctext">Version History</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Contributions%253AMicromedADC.html#Source_Code_Revisions"><span class="tocnumber">3.3</span> <span class="toctext">Source Code Revisions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="Contributions%253AMicromedADC.html#Functional_Description"><span class="tocnumber">4</span> <span class="toctext">Functional Description</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="Contributions%253AMicromedADC.html#Installation"><span class="tocnumber">5</span> <span class="toctext">Installation</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="Contributions%253AMicromedADC.html#Parameters"><span class="tocnumber">6</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-10"><a href="Contributions%253AMicromedADC.html#NotchFilter"><span class="tocnumber">6.1</span> <span class="toctext">NotchFilter</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="Contributions%253AMicromedADC.html#SampleBlockSize"><span class="tocnumber">6.2</span> <span class="toctext">SampleBlockSize</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="Contributions%253AMicromedADC.html#SamplingRate"><span class="tocnumber">6.3</span> <span class="toctext">SamplingRate</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="Contributions%253AMicromedADC.html#ServerAddress"><span class="tocnumber">6.4</span> <span class="toctext">ServerAddress</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="Contributions%253AMicromedADC.html#Packet_Rate"><span class="tocnumber">6.5</span> <span class="toctext">Packet Rate</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="Contributions%253AMicromedADC.html#SignalType"><span class="tocnumber">6.6</span> <span class="toctext">SignalType</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="Contributions%253AMicromedADC.html#Condition_Mask"><span class="tocnumber">6.7</span> <span class="toctext">Condition Mask</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="Contributions%253AMicromedADC.html#Priority"><span class="tocnumber">6.8</span> <span class="toctext">Priority</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="Contributions%253AMicromedADC.html#SourceCh"><span class="tocnumber">6.9</span> <span class="toctext">SourceCh</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-19"><a href="Contributions%253AMicromedADC.html#States"><span class="tocnumber">7</span> <span class="toctext">States</span></a>
+<ul>
+<li class="toclevel-2 tocsection-20"><a href="Contributions%253AMicromedADC.html#MicromedCode"><span class="tocnumber">7.1</span> <span class="toctext">MicromedCode</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="Contributions%253AMicromedADC.html#MicromedCondition"><span class="tocnumber">7.2</span> <span class="toctext">MicromedCondition</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-22"><a href="Contributions%253AMicromedADC.html#See_also"><span class="tocnumber">8</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>This module can be used to read data sent over TCP/IP from a Micromed acquisition unit running SystemPLUS Rev. 1.02.1056.
+</p>
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><a rel="nofollow" class="external free" href="http://www.bci2000.org/svn/trunk/src/contrib/SignalSource/Micromed">http://www.bci2000.org/svn/trunk/src/contrib/SignalSource/Micromed</a>
+</p>
+<h2><span class="mw-headline" id="Versioning">Versioning</span></h2>
+<h3><span class="mw-headline" id="Author">Author</span></h3>
+<p>Erik J. Aarnoutse
+Rudolf Magnus Institute, UMC Dept. Psychiatry, Utrecht, The Netherlands
+May 19, 2006
+</p>
+<h3><span class="mw-headline" id="Version_History">Version History</span></h3>
+<p>V0.01 - 19/04/2006 - First working version, based on Neusoscan.exe
+</p><p>V0.02 - 08/05/2006 - Added condition testing, 22bit mode and downsampling
+</p><p>V0.03 - 17/05/2006 - Added notchfilter
+</p><p>V0.04 - 19/09/2006 - Added digital trigger packets, changed note packet
+</p><p>V0.05 - 27/11/2006 - Added Priority, fixed digital trigger code
+</p><p>V0.06 - 13/03/2007 - Added note output in textfile
+</p><p>V0.07 - 04/04/2007 - Added error handling: server shuts down if stalling
+</p><p>V2.00 - 29/06/2008 - Updated for BCI2000 v2.0
+</p>
+<h3><span class="mw-headline" id="Source_Code_Revisions">Source Code Revisions</span></h3>
+<p>(In this section, indicate the BCI2000 source code revisions (changesets) 
+that you used when developing your contribution, and information about 
+testing/compilation. Adapt the list to your own needs. 
+Hint: You obtain the revision of a source code repository by 
+right-clicking its top level directory, and choosing "show log" from the 
+TortoiseSVN submenu.)
+</p>
+<ul><li>Initial development: 1126</li>
+<li>Tested under: 1126</li>
+<li>Known to compile under: 2040</li>
+<li>Broken since: --</li></ul>
+<h2><span class="mw-headline" id="Functional_Description">Functional Description</span></h2>
+<p>The BCI source module that receives the data from the acquisition is the server, so it must be in listening mode before the acquisition unit starts to save data (data is sent only during recording). Micromed sends 64 data packets per second for SD, 32 for LTM. The connection is reset if the computer running BCI2000 is too slow to read all packets. This happens gracefully in version 2.0. Make sure you have SystemPlus 1.02.1091 or higher, in this version Micromed also gracefully closes the TCP/IP connection at BCI2000 errors.
+A packet of data is structured in 2 sections the first is the header and the second is information data. The first packet sent from the client is the header of an EEG Micromed trace and is read for condition checking. If a note is added in SystemPLUS it is sent as a note packet to the source module. If a digital trigger is sent the trigger code is sent to the source module in two ways: the complete code and a bitmasked code. This allows to send information on a condition (eg in SIGFRIED) and extra information for offline analysis.
+The header packet and the data packets are in the same format as in a Micromed trace file. The note packet sends the complete note buffer, and written in a textfile with the Micromed Sample Number.
+</p>
+<h2><span class="mw-headline" id="Installation">Installation</span></h2>
+<p>To activate data transfer via TCP, it is necessary to add 3 registry keys on the acquisition unit under <tt>HKEY_CURRENT_USER\Software\VB and VBA Program Settings\Brain Quick - System 98\EEG_Settings</tt>:
+</p>
+<ol><li>"tcpSendAcq" is a string type key which must be set to "1" to activate data transfer via TCP, and to "0" to deactivate it</li>
+<li>"tcpServerName" is a string type key that represents the IP address of the computer to receive EEG data.</li>
+<li>"tcpPortNumber" is a string type key that represents the port number used (e.g., "5000").</li></ol>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<h3><span class="mw-headline" id="NotchFilter">NotchFilter</span></h3>
+<p>Power line notch filter.
+</p>
+<ul><li>0: disabled,</li>
+<li>1: at 50 Hz,</li>
+<li>2: at 60 Hz</li></ul>
+<h3><span class="mw-headline" id="SampleBlockSize">SampleBlockSize</span></h3>
+<p>The number of samples transmitted at a time in the BCI2000 system. If SampleBlockSize is a multiple of SamplingRate/64, data packets are merged. This way the BCI system can run on less than 64 sampleblocks per second, which saves CPU power.
+</p>
+<h3><span class="mw-headline" id="SamplingRate">SamplingRate</span></h3>
+<p>The sample rate set by the acquisition unit.
+</p>
+<h3><span class="mw-headline" id="ServerAddress">ServerAddress</span></h3>
+<p>Address and port of the BCI Server. You can enter "*:5000" if your port number is 5000. This means that the server listens to all IP addresses, localhost and external. The port number can be set in the acquisition unit by changing the registry setting "tcpPortNumber".
+</p>
+<h3><span class="mw-headline" id="Packet_Rate">Packet Rate</span></h3>
+<p>Number of TCP/IP packets per second: 32 for LTM,64 for SD
+</p>
+<h3><span class="mw-headline" id="SignalType">SignalType</span></h3>
+<p>Numeric type of output signal:
+</p>
+<ul><li>0: int16,</li>
+<li>3: int32.</li></ul>
+<p>Other values are not allowed. Use 0 for Micromeds 16 bit mode, 3 for 22 bit mode: only the first 22 bits are used, but data packets are filled with 32 bit integers.
+</p>
+<h3><span class="mw-headline" id="Condition_Mask">Condition Mask</span></h3>
+<p>Bitmask. Digital trigger code AND Condition Mask equals conditions without extra information. When not used, set to 0xFF.
+</p>
+<h3><span class="mw-headline" id="Priority">Priority</span></h3>
+<p>CPU Priority. Default=1, set higher if the CPU load is too heavy.
+</p>
+<h3><span class="mw-headline" id="SourceCh">SourceCh</span></h3>
+<p>The number of digitized and stored channels, must match the number of channels in the acquisition unit.
+</p>
+<h2><span class="mw-headline" id="States">States</span></h2>
+<h3><span class="mw-headline" id="MicromedCode">MicromedCode</span></h3>
+<p>The serial code read into the Micromed acquisition computer.
+</p>
+<h3><span class="mw-headline" id="MicromedCondition">MicromedCondition</span></h3>
+<p>The MicromedCode bitmasked with ConditionMask. This way you can use the first bits to flag a condition, while changing the MicromedCode for each trial.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Reference%253AFilters.html" title="User Reference:Filters">User Reference:Filters</a>, <a href="Contributions%253AADCs.html" title="Contributions:ADCs">Contributions:ADCs</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524001319
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.019 seconds
+Real time usage: 0.022 seconds
+Preprocessor visited node count: 68/1000000
+Post‐expand include size: 15/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1646-0!canonical and timestamp 20230524001319 and revision id 5825
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:MicromedADC&amp;oldid=5825">http://www.bci2000.org/mediawiki/index.php?title=Contributions:MicromedADC&amp;oldid=5825</a>"</div>
+ </div>
+</body>
+</html>

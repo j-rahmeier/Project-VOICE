@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Programming Reference:Cpp Coding Style - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul><li class="toc1">Concepts</li><ul><li class="toc2"><a href="Programming_Reference%253AFilter_Chain.html">Filter Chain</a></li><li class="toc2"><a href="Programming_Reference%253ASignals.html">Signals</a></li><li class="toc2"><a href="Programming_Reference%253AError_Handling.html">Error Handling</a></li><li class="toc2"><a href="Programming_Reference%253ALocalization.html">Localization</a></li><li class="toc2"><a href="Programming_Reference%253ARapid_Development.html">Rapid Development</a></li></ul><li class="toc1">Reference</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFilter_Class.html">GenericFilter</a></li><li class="toc2"><a href="Programming_Reference%253AEnvironment_Class.html">Environment</a></li><li class="toc2"><a href="Programming_Reference%253AGenericVisualization_Class.html">GenericVisualization</a></li><li class="toc2"><a href="Programming_Reference%253AErrors_and_Warnings.html">Errors and Warnings</a></li><li class="toc2"><a href="Programming_Reference%253ADebug_Output.html">Debug Output</a></li></ul><li class="toc1">Data Acquisition</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericADC_Class.html">GenericADC</a></li></ul><li class="toc1">Data Storage</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFileWriter_Class.html">GenericFileWriter</a></li><li class="toc2"><a href="Programming_Reference%253ABCI2000FileReader_Class.html">BCI2000FileReader</a></li></ul><li class="toc1">Signal Processing</li><ul><li class="toc2"><a href="Programming_Reference%253AIIRFilterBase_Class.html">IIR Filters</a></li></ul><li class="toc1">Application Modules</li><ul><li class="toc2"><a href="Programming_Reference%253AApplicationBase_Class.html">ApplicationBase</a></li><li class="toc2"><a href="Programming_Reference%253AFeedbackTask_Class.html">FeedbackTask</a></li><li class="toc2"><a href="Programming_Reference%253AStimulusTask_Class.html">StimulusTask</a></li><li class="toc2"><a href="Programming_Reference%253A3D_API.html">3D API</a></li></ul><li class="toc1">Howtos</li><ul><li class="toc2"><a href="Programming_Howto%253ABuilding_BCI2000.html">Building BCI2000</a></li><li class="toc2"><a href="Programming_Howto%253ASVN_Client_Setup.html">SVN Client Setup</a></li><li class="toc2"><a href="Programming_Howto%253AUsing_TortoiseSVN.html">Using TortoiseSVN</a></li></ul><li class="toc1"><a href="Programming_FAQ.html">FAQ</a></li><li class="toc1">Tutorials</li><ul><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html">Data Acquisition</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html">Signal Processing</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html">Matlab Signal Processing</a></li></ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">Cpp Coding Style</h1>
+ <p class = "subtitle">Programming Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>We maintain a loose set of guidelines/rules that is aimed at readability and maintenance efficiency. These rules are not obligatory, but we ask contributors to consider them before handing in their code. 
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Programming_Reference%253ACpp_Coding_Style.html#File_Header"><span class="tocnumber">1</span> <span class="toctext">File Header</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Programming_Reference%253ACpp_Coding_Style.html#Line_Formatting"><span class="tocnumber">2</span> <span class="toctext">Line Formatting</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Programming_Reference%253ACpp_Coding_Style.html#Naming"><span class="tocnumber">3</span> <span class="toctext">Naming</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Programming_Reference%253ACpp_Coding_Style.html#Name_prefixes"><span class="tocnumber">3.1</span> <span class="toctext">Name prefixes</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="Programming_Reference%253ACpp_Coding_Style.html#Variable_Declaration"><span class="tocnumber">4</span> <span class="toctext">Variable Declaration</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="Programming_Reference%253ACpp_Coding_Style.html#Memory_Allocation"><span class="tocnumber">5</span> <span class="toctext">Memory Allocation</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="Programming_Reference%253ACpp_Coding_Style.html#Pointers_and_References"><span class="tocnumber">6</span> <span class="toctext">Pointers and References</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="Programming_Reference%253ACpp_Coding_Style.html#Control_Flow"><span class="tocnumber">7</span> <span class="toctext">Control Flow</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="Programming_Reference%253ACpp_Coding_Style.html#Example_Function"><span class="tocnumber">8</span> <span class="toctext">Example Function</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="Programming_Reference%253ACpp_Coding_Style.html#See_also"><span class="tocnumber">9</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="File_Header">File Header</span></h2>
+<p>Source files should provide a file header containing the following information:
+</p>
+<ul><li>an SVN file Id tag,</li>
+<li>the file's original author(s), preferably identified by their email addresses,</li>
+<li>a description of the file's contents, i.e. typically a short information about the class declared/defined in the file,</li>
+<li>a copyright note.</li></ul>
+<p>An example header in a C++ source file might look like this:
+</p>
+<pre>///////////////////////////////////////////////////////////////////////
+// $Id$
+// Author: gerd.gurke@gemuesenet.de
+// Description: A file header example. The header contains
+//      an SVN Id tag, the author's email address, a short
+//      description of the file's content, and a copyright notice.
+//
+// (C) 2000-2011, BCI2000 Project
+// <a rel="nofollow" class="external free" href="http://www.bci2000.org">http://www.bci2000.org</a>
+///////////////////////////////////////////////////////////////////////
+</pre>
+<h2><span class="mw-headline" id="Line_Formatting">Line Formatting</span></h2>
+<ul><li>Use tabs or spaces for <b>indentation</b>. Please stay consistent within one file.</li>
+<li>Always use spaces for <b>alignment</b>; tab alignment will break when viewed with a different tab size.</li>
+<li>When using spaces for indentation, indent in steps of 2 or 3 space characters.</li>
+<li>Opening braces have their own line, aligned with the previous line; corresponding closing braces are placed on their own lines, at the same character position as the opening brace.</li>
+<li>Consider giving single statements in if, while, or for clauses their own pair of braces.</li>
+<li>For function definitions, return types appear on their own line, such that the function name is first in its line.</li></ul>
+<h2><span class="mw-headline" id="Naming">Naming</span></h2>
+<ul><li><b>ALL_UPPERCASE_NAMES</b> are reserved for preprocessor macros.</li>
+<li><b>CamelCase</b> (uppercase letters inside words) is used to indicate word boundaries.</li>
+<li>Class names and namespaces begin with uppercase letters: <b>MyNameSpace</b>, <b>TheClass</b>.</li>
+<li>Local variables and function arguments begin with lowercase letters: <b>theCounter</b>, <b>inSomeInput</b>.</li>
+<li>Data members (properties) of true classes are private, and accessed via <b>Accessor Functions</b>.
+<ul><li><b>Setters</b> use the prefix "Set" followed by the property's name: <b>SetValue()</b>. Setter functions should also return a non-const reference to the data object itself rather than <b>void</b>, this allows for chaining as in<br /><code>float result = MyComputation().SetOrder( 5 ).SetDepth( 10 ).EvaluateAt( 4 );</code></li>
+<li><b>Getters</b> use the name of the property: <b>Value()</b>. Omitting the "Get" prefix allows the programmer to treat getters and reference accessors identically, as far as read access is concerned.</li>
+<li><b>Reference Accessors</b> use the name of the property, and are provided in a doubly <i>const</i> and a <i>non-const</i> version. This is important to allow const access from const object references, and to discriminate between read and write accesses (note the <i>mPossiblyChanged</i> flag):<br /><code>const int&amp; Value() const { return mValue; }</code><br /><code>int&amp;       Value() { mPossiblyChanged = true; return mValue; }</code></li></ul></li></ul>
+<h3><span class="mw-headline" id="Name_prefixes">Name prefixes</span></h3>
+<p>Prefixes should carry information about the <i>scope and usage</i> of a variable but <i>not its type</i>.
+</p>
+<ul><li>In terms of <i>scope</i>, we discriminate between class members, static variables, global variables, and constants. The rationale behind representing <i>scope</i> is to avoid accidental hiding of names from a wider scope by names with a narrower scope, which may lead to difficult-to-detect bugs.</li>
+<li>Representing <i>usage</i> shows whether a variable is a pointer, or an input or output argument to a function. This makes it easier to maintain an overview over householding tasks, such as calling <tt>delete</tt> on pointers whose objects are owned by the code under review.</li>
+<li><i>Not</i> representing <i>type</i> avoids name and type going out of sync--a variable's type is more likely to change than its scope and usage, and unreliable type information is less desirable than having no type information at all.</li></ul>
+<p>Suggested prefixes are
+</p>
+<ul><li><b>m</b> for class data members,</li>
+<li><b>s</b> for static class members and static variables,</li>
+<li><b>g</b> for globals,</li>
+<li><b>c</b> for constants,</li>
+<li><b>p</b> for pointers,</li>
+<li><b>fp</b> for function pointers,</li>
+<li><b>in</b> for function input arguments,</li>
+<li><b>out</b> for function output arguments,</li>
+<li><b>io</b> for function arguments used for input and output.</li></ul>
+<h2><span class="mw-headline" id="Variable_Declaration">Variable Declaration</span></h2>
+<ul><li>Always use the narrowest possible scope for a name to avoid side effects. E.g., this means to declare variables immediately before their first use, and to define loop counter variables within the loop's <tt>for</tt> statement.</li>
+<li>Always initialize variables of elementary type at declaration resp. constructor to avoid reading from uninitialized memory. Examples of elementary types are <tt>int</tt>, <tt>float</tt>, and <tt>const char*</tt>.</li></ul>
+<h2><span class="mw-headline" id="Memory_Allocation">Memory Allocation</span></h2>
+<ul><li>Allocate objects from the <b>stack</b> rather than the <b>heap</b> unless there is a good reason to use the <b>new</b> operator. This avoids memory leaks.</li>
+<li>Use STL containers rather than allocating arrays with <b>new[]</b>. This eliminates a number of possible errors (initialization, allocation, deallocation).</li>
+<li>Make sure to deallocate arrays using the <b>delete[]</b> operator (mind the brackets).</li></ul>
+<h2><span class="mw-headline" id="Pointers_and_References">Pointers and References</span></h2>
+<ul><li>When using pointers, treat the NULL case gracefully. Note that, unlike the C-library's <tt>free()</tt> function, the C++ <tt>delete</tt> and <tt>delete[]</tt> operators may be applied to NULL pointers without any effect, so no NULL check is required before applying <tt>delete/delete[]</tt>.</li>
+<li>Use references rather than pointers wherever possible. When used in place of a pointer, a reference gives a number of hints about the code in question:
+<ul><li>unlike a pointer, a reference always refers to a valid object,</li>
+<li>the referred-to object will stay the same during the reference's lifetime,</li>
+<li>no code is supposed to delete the object a reference refers to.</li></ul></li></ul>
+<h2><span class="mw-headline" id="Control_Flow">Control Flow</span></h2>
+<ul><li>Avoid <b>goto</b>, <b>break</b> outside <b>switch</b>-<b>case</b> blocks, and avoid multiple <b>return</b> statements.</li>
+<li>Multiple <b>return</b> statements are OK when they provide a readable alternative to deeply nested conditions.</li></ul>
+<h2><span class="mw-headline" id="Example_Function">Example Function</span></h2>
+<pre>void
+MyClass::MyFunction(const SomeClass&amp; inTheInput, int&amp; outTheResult)
+{
+  outTheResult = mSomeDataMember;
+  for (int i = 0; i &lt; inTheInput.NumIterations(); ++i)
+  {
+    int k = 4;
+    while (--k &gt; 0)
+    {
+      outTheResult -= k;
+    }
+  }
+}
+</pre>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Programming_Reference%253AProject_Settings.html" title="Programming Reference:Project Settings">Programming Reference:Project Settings</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524175541
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.017 seconds
+Real time usage: 0.033 seconds
+Preprocessor visited node count: 33/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1415-0!canonical and timestamp 20230524175541 and revision id 8786
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:Cpp_Coding_Style&amp;oldid=8786">http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:Cpp_Coding_Style&amp;oldid=8786</a>"</div>
+ </div>
+</body>
+</html>

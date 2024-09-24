@@ -1,0 +1,10 @@
+require(AmpLatency.median() < time("7ms"));
+require(AmpLatency.sdev() < time("2ms"));
+require(abs(TimestampSkew.median()) < time("1ms"));
+require(TimestampSkew.sdev() < time("5ms"));
+require(ProcessingLatency.median() < time("20ms"));
+require(ProcessingLatency.sdev() < time("10ms"));
+require(VideoLatency.median() < time("65ms"));
+require(VideoLatency.sdev() < time("20ms"));
+require(AudioLatency.median() < time("65ms"));
+require(AudioLatency.sdev() < time("20ms"));

@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>User Reference:gUSBampADC - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul><li class="toc1"><a href="User_Reference%253AOperator_Module.html">Operator Module</a></li><li class="toc1"><a href="User_Reference%253AOperator_Module_Scripting.html">Operator Scripting</a></li><li class="toc1"><a href="User_Reference%253AModule_Command_Line_Options.html">Module Command Line Options</a></li><li class="toc1"><a href="User_Reference%253AData_File_Formats.html">Data File Formats</a></li><li class="toc1"><a href="User_Reference%253AFilters.html">Configuration Guide</a></li><li class="toc1"><a href="User_FAQ.html">FAQ</a></li><li class="toc1">Applications</li><ul><li class="toc2"><a href="User_Reference%253ACursorTask.html">Cursor Task</a></li><li class="toc2"><a href="User_Reference%253AP3SpellerTask.html">P3Speller Task</a></li><li class="toc2"><a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:StimulusPresentation">Stimulus Presentation</a></li></ul><li class="toc1">Tools</li><ul><li class="toc2"><a href="User_Reference%253ABCI2000Certification.html">BCI2000Certification</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Launcher.html">BCI2000Launcher</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Viewer.html">BCI2000Viewer</a></li><li class="toc2"><a href="User_Reference%253ABCI2000FileInfo.html">BCI2000FileInfo</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Export.html">BCI2000Export</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Analysis.html">BCI2000Analysis</a></li><li class="toc2"><a href="User_Reference%253ABCI2000_Offline_Analysis.html">BCI2000 Offline Analysis</a></li><li class="toc2"><a href="User_Reference%253AEloc_Helper.html">Eloc Helper</a></li><li class="toc2"><a href="User_Reference%253AEEGLabImport.html">EEGLabImport</a></li><li class="toc2"><a href="User_Reference%253AMatlab_Tools.html">Matlab Tools</a></li><li class="toc2"><a href="User_Reference%253AMatlab_MEX_Files.html">Matlab MEX Files</a></li><li class="toc2"><a href="User_Reference%253ACommand_Line_Processing.html">Command Line Processing</a></li></ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">gUSBampADC</h1>
+ <p class = "subtitle">User Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="User_Reference%253AgUSBampADC.html#Function"><span class="tocnumber">1</span> <span class="toctext">Function</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="User_Reference%253AgUSBampADC.html#g.USBamp_Hardware"><span class="tocnumber">1.1</span> <span class="toctext">g.USBamp Hardware</span></a>
+<ul>
+<li class="toclevel-3 tocsection-3"><a href="User_Reference%253AgUSBampADC.html#Drivers"><span class="tocnumber">1.1.1</span> <span class="toctext">Drivers</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-4"><a href="User_Reference%253AgUSBampADC.html#Parameters"><span class="tocnumber">2</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="User_Reference%253AgUSBampADC.html#DeviceIDMaster"><span class="tocnumber">2.1</span> <span class="toctext">DeviceIDMaster</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="User_Reference%253AgUSBampADC.html#DeviceIDs"><span class="tocnumber">2.2</span> <span class="toctext">DeviceIDs</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="User_Reference%253AgUSBampADC.html#FilterEnabled"><span class="tocnumber">2.3</span> <span class="toctext">FilterEnabled</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="User_Reference%253AgUSBampADC.html#FilterHighPass"><span class="tocnumber">2.4</span> <span class="toctext">FilterHighPass</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="User_Reference%253AgUSBampADC.html#FilterLowPass"><span class="tocnumber">2.5</span> <span class="toctext">FilterLowPass</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="User_Reference%253AgUSBampADC.html#FilterModelOrder"><span class="tocnumber">2.6</span> <span class="toctext">FilterModelOrder</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="User_Reference%253AgUSBampADC.html#FilterType"><span class="tocnumber">2.7</span> <span class="toctext">FilterType</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="User_Reference%253AgUSBampADC.html#NotchEnabled"><span class="tocnumber">2.8</span> <span class="toctext">NotchEnabled</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="User_Reference%253AgUSBampADC.html#NotchHighPass"><span class="tocnumber">2.9</span> <span class="toctext">NotchHighPass</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="User_Reference%253AgUSBampADC.html#NotchLowPass"><span class="tocnumber">2.10</span> <span class="toctext">NotchLowPass</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="User_Reference%253AgUSBampADC.html#NotchModelOrder"><span class="tocnumber">2.11</span> <span class="toctext">NotchModelOrder</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="User_Reference%253AgUSBampADC.html#NotchType"><span class="tocnumber">2.12</span> <span class="toctext">NotchType</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="User_Reference%253AgUSBampADC.html#SampleBlockSize"><span class="tocnumber">2.13</span> <span class="toctext">SampleBlockSize</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="User_Reference%253AgUSBampADC.html#SamplingRate"><span class="tocnumber">2.14</span> <span class="toctext">SamplingRate</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="User_Reference%253AgUSBampADC.html#SignalType"><span class="tocnumber">2.15</span> <span class="toctext">SignalType</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="User_Reference%253AgUSBampADC.html#SourceCh"><span class="tocnumber">2.16</span> <span class="toctext">SourceCh</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="User_Reference%253AgUSBampADC.html#SourceChDevices"><span class="tocnumber">2.17</span> <span class="toctext">SourceChDevices</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="User_Reference%253AgUSBampADC.html#SourceChList"><span class="tocnumber">2.18</span> <span class="toctext">SourceChList</span></a></li>
+<li class="toclevel-2 tocsection-23"><a href="User_Reference%253AgUSBampADC.html#BipolarChList"><span class="tocnumber">2.19</span> <span class="toctext">BipolarChList</span></a></li>
+<li class="toclevel-2 tocsection-24"><a href="User_Reference%253AgUSBampADC.html#EnableDigitalInput"><span class="tocnumber">2.20</span> <span class="toctext">EnableDigitalInput</span></a></li>
+<li class="toclevel-2 tocsection-25"><a href="User_Reference%253AgUSBampADC.html#EnableDigitalOutput"><span class="tocnumber">2.21</span> <span class="toctext">EnableDigitalOutput</span></a></li>
+<li class="toclevel-2 tocsection-26"><a href="User_Reference%253AgUSBampADC.html#DigitalOutputEx"><span class="tocnumber">2.22</span> <span class="toctext">DigitalOutputEx</span></a></li>
+<li class="toclevel-2 tocsection-27"><a href="User_Reference%253AgUSBampADC.html#AcquisitionMode"><span class="tocnumber">2.23</span> <span class="toctext">AcquisitionMode</span></a></li>
+<li class="toclevel-2 tocsection-28"><a href="User_Reference%253AgUSBampADC.html#CommonGround"><span class="tocnumber">2.24</span> <span class="toctext">CommonGround</span></a></li>
+<li class="toclevel-2 tocsection-29"><a href="User_Reference%253AgUSBampADC.html#CommonReference"><span class="tocnumber">2.25</span> <span class="toctext">CommonReference</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-30"><a href="User_Reference%253AgUSBampADC.html#Digital_I.2FO"><span class="tocnumber">3</span> <span class="toctext">Digital I/O</span></a>
+<ul>
+<li class="toclevel-2 tocsection-31"><a href="User_Reference%253AgUSBampADC.html#Digital_Inputs"><span class="tocnumber">3.1</span> <span class="toctext">Digital Inputs</span></a>
+<ul>
+<li class="toclevel-3 tocsection-32"><a href="User_Reference%253AgUSBampADC.html#gUSBamps_with_UA_serial_numbers"><span class="tocnumber">3.1.1</span> <span class="toctext">gUSBamps with UA serial numbers</span></a></li>
+<li class="toclevel-3 tocsection-33"><a href="User_Reference%253AgUSBampADC.html#gUSBamps_with_UB_serial_numbers"><span class="tocnumber">3.1.2</span> <span class="toctext">gUSBamps with UB serial numbers</span></a></li>
+<li class="toclevel-3 tocsection-34"><a href="User_Reference%253AgUSBampADC.html#g.USBamps_in_sync_with_both_UA_and_UB_serial_numbers"><span class="tocnumber">3.1.3</span> <span class="toctext">g.USBamps in sync with both UA and UB serial numbers</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-35"><a href="User_Reference%253AgUSBampADC.html#Digital_Output"><span class="tocnumber">3.2</span> <span class="toctext">Digital Output</span></a>
+<ul>
+<li class="toclevel-3 tocsection-36"><a href="User_Reference%253AgUSBampADC.html#gUSBamps_with_UA_serial_numbers_2"><span class="tocnumber">3.2.1</span> <span class="toctext">gUSBamps with UA serial numbers</span></a></li>
+<li class="toclevel-3 tocsection-37"><a href="User_Reference%253AgUSBampADC.html#gUSBamps_with_UB_serial_numbers_2"><span class="tocnumber">3.2.2</span> <span class="toctext">gUSBamps with UB serial numbers</span></a></li>
+<li class="toclevel-3 tocsection-38"><a href="User_Reference%253AgUSBampADC.html#gUSBamps_in_sync_with_both_UA_and_UB_serial_numbers"><span class="tocnumber">3.2.3</span> <span class="toctext">gUSBamps in sync with both UA and UB serial numbers</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-39"><a href="User_Reference%253AgUSBampADC.html#States"><span class="tocnumber">4</span> <span class="toctext">States</span></a>
+<ul>
+<li class="toclevel-2 tocsection-40"><a href="User_Reference%253AgUSBampADC.html#DigitalInput"><span class="tocnumber">4.1</span> <span class="toctext">DigitalInput</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-41"><a href="User_Reference%253AgUSBampADC.html#Additional_Information"><span class="tocnumber">5</span> <span class="toctext">Additional Information</span></a>
+<ul>
+<li class="toclevel-2 tocsection-42"><a href="User_Reference%253AgUSBampADC.html#Using_32bit_Executables_on_64bit_Installations"><span class="tocnumber">5.1</span> <span class="toctext">Using 32bit Executables on 64bit Installations</span></a></li>
+<li class="toclevel-2 tocsection-43"><a href="User_Reference%253AgUSBampADC.html#Data_Storage"><span class="tocnumber">5.2</span> <span class="toctext">Data Storage</span></a></li>
+<li class="toclevel-2 tocsection-44"><a href="User_Reference%253AgUSBampADC.html#The_USBampgetinfo_Command_Line_Tool"><span class="tocnumber">5.3</span> <span class="toctext">The <i>USBampgetinfo</i> Command Line Tool</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-45"><a href="User_Reference%253AgUSBampADC.html#Certification_Results"><span class="tocnumber">6</span> <span class="toctext">Certification Results</span></a>
+<ul>
+<li class="toclevel-2 tocsection-46"><a href="User_Reference%253AgUSBampADC.html#PC_Specifications"><span class="tocnumber">6.1</span> <span class="toctext">PC Specifications</span></a></li>
+<li class="toclevel-2 tocsection-47"><a href="User_Reference%253AgUSBampADC.html#Certification_Tests_Performed"><span class="tocnumber">6.2</span> <span class="toctext">Certification Tests Performed</span></a></li>
+<li class="toclevel-2 tocsection-48"><a href="User_Reference%253AgUSBampADC.html#Success_Criteria_and_Overall_Results"><span class="tocnumber">6.3</span> <span class="toctext">Success Criteria and Overall Results</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-49"><a href="User_Reference%253AgUSBampADC.html#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Function">Function</span></h2>
+<p>The <i>gUSBampADC</i> filter acquires data from any number (tested up to four) <i>g.USBamp</i> EEG amplifiers. 
+<i>g.USBamp</i> is an amplifier/digitizer combination from g.tec medical engineering GmbH/Guger Technologies OEG (<a rel="nofollow" class="external free" href="http://www.gtec.at">http://www.gtec.at</a>). 
+Support for this device in BCI2000 consists of two components: A BCI2000-compatible Source Module (<i>gUSBampSource.exe</i>) and a 
+command-line tool (<i>USBampgetinfo</i>). 
+</p>
+<h3><span class="mw-headline" id="g.USBamp_Hardware">g.USBamp Hardware</span></h3>
+<p>The USBamp consists of 16 independent 24-bit A/D converters that can sample at 
+up to 38.4kHz per channel. Because there is one A/D converter for each channel, 
+one particular sample is digitized at the exact same time for each channel. This 
+is unlike with traditional A/D converter boards that only have one A/D 
+converter. BCI2000 has a feature that can align samples in time (parameter 
+<a href="User_Reference%253AAlignmentFilter.html#AlignChannels" title="User Reference:AlignmentFilter">AlignChannels</a>).
+Because this feature is not needed in conjunction with the USBamp, it needs to be turned off (i.e., <i>AlignChannels</i> needs to be 0).
+</p>
+<h4><span class="mw-headline" id="Drivers">Drivers</span></h4>
+<p>With the release of the Version 3.0 g.USBamp, there is now a small problem with the gUSBamp.dll included in BCI2000.  The DLL included with BCI2000 was intended to be used with g.USBamp Version 2.0 hardware.  If Version 3.0 hardware is used with the current BCI2000 distribution, the gUSBampADC module will default to using the Version 2.0 DLL which will not function.
+</p><p>Drivers come with the g.USBamp hardware - the correct drivers to match the version of the hardware.  If the installer is used to install the drivers for the g.USBamp, it will also place the g.USBamp DLL into your <tt>WINDOWS/system32</tt> folder.  If the DLL in <tt>BCI2000/prog</tt> is deleted, the DLL appropriate for use with your g.USBamp hardware should be used.
+</p><p>In short, in order to make Version 3.0 amps work with the current BCI2000 distribution, simply delete the <tt>gUSBamp.dll</tt> file from your <tt>BCI2000/prog</tt> folder.
+</p><p>Here is a grid of what driver/amp/dll combinations work:
+</p>
+<table border="1">
+<tbody><tr>
+<td><b>Version 2.0 amp</b>
+</td>
+<td>2.0 DLL
+</td>
+<td>3.0 DLL
+</td></tr>
+<tr>
+<td>2.0 Driver
+</td>
+<td>Works
+</td>
+<td>Works
+</td></tr>
+<tr>
+<td>3.0 Driver
+</td>
+<td>Does Not Work
+</td>
+<td>Does Not Work
+</td></tr></tbody></table>
+<table border="1">
+<tbody><tr>
+<td><b>Version 3.0 amp</b>
+</td>
+<td>2.0 DLL
+</td>
+<td>3.0 DLL
+</td></tr>
+<tr>
+<td>2.0 Driver
+</td>
+<td>Does Not Work
+</td>
+<td>Does Not Work
+</td></tr>
+<tr>
+<td>3.0 Driver
+</td>
+<td>Does Not Work
+</td>
+<td>Works
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<p>Parameters common to all source modules are described under <a href="User_Reference%253ADataIOFilter.html" title="User Reference:DataIOFilter">User Reference:DataIOFilter</a>.
+In addition, the <i>gUSBampADC</i> provides the following parameters:
+</p>
+<h3><span class="mw-headline" id="DeviceIDMaster">DeviceIDMaster</span></h3>
+<p>Serial number (e.g., UA-2007.01.01) of the master device. 
+If you only have one device, this parameter has to equal <i>DeviceIDs</i>.
+If you have more then one device, then this parameter represents the serial number of the device whose SYNC goes to the slaves, i.e., the only device that has a cable connected at SYNC OUT, but none connected to SYNC IN. 
+If only one device is connected, this parameter may be set to <i>auto</i>.
+</p>
+<h3><span class="mw-headline" id="DeviceIDs">DeviceIDs</span></h3>
+<p>List of serial numbers (e.g., UA-2007.01.01) of all devices.
+If you have more than one device, this list determines the order of the channels in the data file. 
+If only one device is connected, this parameter may be set to <i>auto</i>.
+</p>
+<h3><span class="mw-headline" id="FilterEnabled">FilterEnabled</span></h3>
+<p>Choose 1 if you want a pass band filter, and 0 if you don't.
+The gUSBamp is a DC amplifier and thus you most likely will want a pass band filter.
+Please note that, because the g.USBamp internally has a 5kHz antialiasing filter and always samples with 38.4kHz, you DO NOT need to enable any filter if you do not want.
+You will never experience aliasing.
+</p>
+<h3><span class="mw-headline" id="FilterHighPass">FilterHighPass</span></h3>
+<p>High pass frequency for pass band. 
+You need to query the amp for possible values. 
+See description of the <a href="User_Reference%253AgUSBampADC.html#The_USBampgetinfo_Command_Line_Tool">USBampgetinfo</a> tool for more info.
+</p>
+<h3><span class="mw-headline" id="FilterLowPass">FilterLowPass</span></h3>
+<p>Low pass frequency for pass band.
+See description of the USBampgetinfo tool for more info.
+</p>
+<h3><span class="mw-headline" id="FilterModelOrder">FilterModelOrder</span></h3>
+<p>Model order for passband filter. 
+See description of the USBampgetinfo tool for more info.
+</p>
+<h3><span class="mw-headline" id="FilterType">FilterType</span></h3>
+<p>Type of passband filter:
+</p>
+<ul><li>1=CHEBYSHEV,</li>
+<li>2=BUTTERWORTH.</li></ul>
+<h3><span class="mw-headline" id="NotchEnabled">NotchEnabled</span></h3>
+<p>Choose 1 if you want a notch filter, and 0 if you don't.
+</p>
+<h3><span class="mw-headline" id="NotchHighPass">NotchHighPass</span></h3>
+<p>Similar to FilterHighPass.
+</p>
+<h3><span class="mw-headline" id="NotchLowPass">NotchLowPass</span></h3>
+<p>Similar to FilterLowPass.
+</p>
+<h3><span class="mw-headline" id="NotchModelOrder">NotchModelOrder</span></h3>
+<p>Similar to FilterModelOrder.
+</p>
+<h3><span class="mw-headline" id="NotchType">NotchType</span></h3>
+<p>Similar to FilterType.
+</p>
+<h3><span class="mw-headline" id="SampleBlockSize">SampleBlockSize</span></h3>
+<p>Samples per channel per digitized block. 
+Together with the sampling rate, this parameter determines how often per second data are collected, processed, and feedback is updated. For example, at 600 Hz sampling and a SampleBlockSize of 20, the system (e.g., source signal display, signal processing, and stimulus presentation) would be updated 30 times per second.
+</p>
+<h3><span class="mw-headline" id="SamplingRate">SamplingRate</span></h3>
+<p>The sampling rate of all connected USBamps. 
+If one wants to use a bandpass or a notch filter, there needs to be a filter configuration for that particular sampling rate (see the section on the <i>[USBampgetinfo]</i> tool). (Guger Technologies can provide you with a new driver configuration file if you need a different filter.)
+</p><p>The USBamp supports the following sampling rates: 32, 64, 128, 256, 512, 600, 1200, 2400, 4800, 9600, 19200, and 38400 Hz.  All sampling rates are supported for one or more amplifiers. If you are sampling at high rates and from multiple amplifiers, the CPU may be overloaded depending on the speed of your computer and the BCI2000 configuration. In case you are experiencing problems (e.g., data loss, jerky display, etc.), increase the SampleBlockSize so that you are updating the system less frequently (usually, updating the system 20-30 times per second is sufficient for most applications), and increase Visualize-&gt;VisualizeSourceDecimation. This parameter will decrease the number of samples per second that are actually drawn in the Source display. For example, at 38400 Hz, 4 amplifiers (64 channels), and a system update of 30 Hz, the computer would have to draw more than 73 million lines per second in the Source display!
+</p>
+<h3><span class="mw-headline" id="SignalType">SignalType</span></h3>
+<p>Defines the data type of the stored signal samples (int16 or float32).
+If the data type is int16, signal samples (which are produced by the amplifier in units of <img class="mwe-math-fallback-image-inline tex" alt="\mu V" src="../images/math/a/0/c/a0c8c64b8931b67b0ceb94b284b27e20.png" />) are converted back into virtual A/D units (see Data Storage section below). If the data type is float32, the signals are stored in units of <img class="mwe-math-fallback-image-inline tex" alt="\mu V" src="../images/math/a/0/c/a0c8c64b8931b67b0ceb94b284b27e20.png" />.
+In this case, SourceChOffset should be 0, and SourceChGain should be
+1 (since the conversion factor from <img class="mwe-math-fallback-image-inline tex" alt="\mu V" src="../images/math/a/0/c/a0c8c64b8931b67b0ceb94b284b27e20.png" /> into <img class="mwe-math-fallback-image-inline tex" alt="\mu V" src="../images/math/a/0/c/a0c8c64b8931b67b0ceb94b284b27e20.png" /> is 1).
+</p>
+<h3><span class="mw-headline" id="SourceCh">SourceCh</span></h3>
+<p>The total number of channels across all USBamp devices.
+</p>
+<h3><span class="mw-headline" id="SourceChDevices">SourceChDevices</span></h3>
+<p>The number of channels acquired from each device. 
+If there is only one device, this parameter has to equal <i>SourceCh</i>.
+For example, '16 8' will acquire channels from the first device listed under <i>DeviceIDs</i>, and 8 channels from the second device listed under <i>DeviceIDs</i>.
+Data acquisition always starts at channel 1.
+The sum of all channels (e.g., 24 in this example) has to 
+equal the value of <i>SourceCh</i>.
+</p>
+<h3><span class="mw-headline" id="SourceChList">SourceChList</span></h3>
+<p>The list of channels that should be acquired from each device.
+The total number of channels listed should correspond to <i>SourceCh</i>. For more than one device, <i>SourceChDevices</i> determines how the <i>SourceChList</i> values are mapped to each device. For example if <i>SourceChDevices</i> = '8 8' and <i>SourceChList</i> = '1 2 3 4 13 14 15 16 5 6 7 8 9 10 11 12', then channels 1-4 and 13-16 will be acquired on the first device, and channels 5-12 will be acquired on the second device. These channels will be saved in the data file as 16 contiguous channels.
+The order of channels does not matter; i.e., '1 2 3 4' is the same as '2 3 1 4'. The channels are always in ascending order on a single device.
+Channels may not be listed twice on a single device; e.g., entering '1 2 3 4 5 6 7 1' if <i>SourceChDevices</i> = '8' will result in an error.
+If this parameter is left blank (the default), then all channels are acquired on all devices.
+</p>
+<h3><span class="mw-headline" id="BipolarChList">BipolarChList</span></h3>
+<p>A list of channels used for a bipolar montage. Each entry is configured as the reference for a source channel, based on the channel order. The number of values should equal both <i>SourceCh</i> and the number of values in <i>SourceChList</i> (if <i>SourceChList</i> is not empty). If <i>BipolarChList</i> is empty, then the standard referential recording montage is used. If a value of '0' is entered, then the reference channel is used for that channel. Finally, channel labels may be used.
+</p><p>As an example, a sequential bipolar montage for 8 channels could be configured like:
+</p><p><tt>2 3 4 5 6 7 8 1</tt>
+</p><p>meaning that channel 1 is referenced to channel 2, channel 2 is referenced to channel 3, and so on. For another example, 10 channels can be configured so that the first 6 are bipolar, and the last four are referential, e.g.:
+</p><p><tt>C3 F3 C4 F4 Pz Oz 0 0 0 0</tt>
+</p>
+<h3><span class="mw-headline" id="EnableDigitalInput">EnableDigitalInput</span></h3>
+<p>Enable digital input. 
+If enabled, the sampled values of the digital input from the digital I/O ports will be stored in to states DigitalInput1 - DigitalInput64 depending on the number of amps connected and hardware versions. See <a href="User_Reference%253AgUSBampADC.html#Digital_Input" title="User Reference:gUSBampADC">Digital Input</a> for more information.
+</p>
+<h3><span class="mw-headline" id="EnableDigitalOutput">EnableDigitalOutput</span></h3>
+<dl><dt>1</dt>
+<dd>Enable digital output.</dd>
+<dd>If enabled, the digital output is set to the values returned when the signals go through the expressions given by the Parameter DigitalOutputEx. See <a href="User_Reference%253AgUSBampADC.html#Digital_Output" title="User Reference:gUSBampADC">Digital Output</a> for more information.</dd>
+<dt>2</dt>
+<dd>Timing test.</dd>
+<dd>If this option is chosen, DigitalOutput1 will be set zero while waiting for data, and to 1 once data has arrived. This can be used to measure amplifier latency (<a href="User_Reference%253ABCI2000Certification.html" title="User Reference:BCI2000Certification">see BCI2000Certification</a>).</dd></dl>
+<h3><span class="mw-headline" id="DigitalOutputEx">DigitalOutputEx</span></h3>
+<p>If digital output is turned on, the given expressions will be evaluated for the current input. If the expression evaluates true the bit is set to high, else set to low. Each expression represents a different bit and the number starts with the master and is continuous through all amps like digital input. Boolean expressions work well for this ( ex. <tt>( ( StimulusCode == 0 ) &amp;&amp; Running )</tt> ). See <a href="User_Reference%253AExpression_Syntax.html" title="User Reference:Expression Syntax">Expressions</a> for more information on how to write expressions.
+</p>
+<h3><span class="mw-headline" id="AcquisitionMode">AcquisitionMode</span></h3>
+<p>If set to <i>analog signal acquisition</i>, the g.USBamp records analog signal voltages (default). If set to <i>Calibration</i>, the signal output is a sine wave test signal generated by the g.USBamp (which can be used to verify correct system calibration). 
+If set to <i>Impedance</i>, regular analog signal acquisition is preceded by an impedance test. 
+This impedance test reports input impedances for each channel in kOhms. 
+In impedance mode, if the ground and reference is connected in the amp internally (using the <i>CommonGround</i> and <i>CommonReference</i> parameters), then you need to connect the ground and reference to block 4.
+</p>
+<h3><span class="mw-headline" id="CommonGround">CommonGround</span></h3>
+<p>This parameter determines whether the g.USBamp internally connects the GND inputs from all blocks together.
+If enabled (default), then the signal ground only needs to be connected to one input block, e.g., block 1. 
+Otherwise, all GND inputs need to be externally connected.
+</p>
+<h3><span class="mw-headline" id="CommonReference">CommonReference</span></h3>
+<p>The same as <i>CommonGround</i>, except for the signal reference.
+</p>
+<h2><span id="Digital_I/O"></span><span class="mw-headline" id="Digital_I.2FO">Digital I/O</span></h2>
+<h3><span class="mw-headline" id="Digital_Inputs">Digital Inputs</span></h3>
+<p>Can be used with 1 - 8 gUSBamps.
+</p>
+<h4><span class="mw-headline" id="gUSBamps_with_UA_serial_numbers">gUSBamps with UA serial numbers</span></h4>
+<p><a href="https://www.bci2000.org/mediawiki/index.php/File:UADigIn.JPG" class="image"><img alt="UADigIn.JPG" src="../images/2/2d/UADigIn.JPG" decoding="async" width="615" height="198" /></a>
+</p><p>If you are looking at the connector on the back of the amp (as shown in the image above), Pin 1 is at the top left, the ordering continues in a counter-clockwise manner, and terminates at the center with pin 7 (ground). Each gUSBamp has only one digital I/O port and this is stored in only one state per an gUSBamp. If multiple UA gUSBamps are connected in sync then up to state DigitalInput8 will be used, with the master gUSBamp using DigitalInput1 and the last slave gUSBamp using DigitalInput8 if 8 gUSBamps are used, or DigitalInput6 if only 6 gUSBamps are used. To access the digital input from any gUSBamp, access the state DigitalInput for the number of that slave gUSBamp. For example, if I wanted to access the 5th gUSBamp, I would access DigitalInput5.
+</p>
+<h4><span class="mw-headline" id="gUSBamps_with_UB_serial_numbers">gUSBamps with UB serial numbers</span></h4>
+<p><a href="https://www.bci2000.org/mediawiki/index.php/File:UBDigIn.JPG" class="image"><img alt="UBDigIn.JPG" src="../images/9/90/UBDigIn.JPG" decoding="async" width="633" height="409" /></a>
+</p><p>Each gUSBamp has two digital I/O ports which are stored in eight states per gUSBamp. If multiple UB gUSBamp are connected in sync then up to state DigitalInput64 will be used with the master gUSBamp using DigitalInput1 - DigitalInput8 and the last gUSBamp using DigitalInput57 - DigitalInput64 if 8 gUSBamps are used, and DigitalInput41 - DigitalInput48 if only 6 gUSBamps are used. To access the digital input from any gUSBamp, take the number of gUSBamps preceding the intended gUSBamp multiplied by 8, then add the number of the bit you want to see. For example, if I wanted to access the 5th gUSBamp's 5th bit, I would look at DigitalInput37 (4 * 8 + 5).
+</p>
+<h4><span class="mw-headline" id="g.USBamps_in_sync_with_both_UA_and_UB_serial_numbers">g.USBamps in sync with both UA and UB serial numbers</span></h4>
+<p>The device specifications are the same as above and each gUSBamp only has the number of states designated to it as specified above, i.e. each UB gUSBamp has eight states and each UA gUSBamp has only one state. The numbering of the states are based on the order of the gUSBamps. For example, if we have the following setup: UB gUSBamp as master with slaves in the following order: UB UA UA UB UA UA, which gives a total of 7 gUSBamps using DigitalInput1 - DigitalInput24 (3 * 8 + 4 * 1).For example, to access the second UA gUSBamp (which has only one state), I would look at DigitalInput18, found by the number of UB gUSBamps preceding the second UA gUSBamp multiplied by 8 plus the number of UA gUSBamps preceding it plus one for the gUSBamp itself (2 * 8 + 1 + 1). To access the third UB gUSBamp's seventh bit, I would look at DigitalInput25. This was found in the same manner as above but because it is a UB gUSBamp the specific bit is added instead of just one (2 * 8 + 2 + 7).
+</p><p>To setup a link between gUSBamps UA and UB, the following images show how to connect them.
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:UAUBcombo.JPG" class="image"><img alt="UAUBcombo.JPG" src="../images/c/cd/UAUBcombo.JPG" decoding="async" width="692" height="383" /></a>
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:UAUBmultiple.JPG" class="image"><img alt="UAUBmultiple.JPG" src="../images/3/34/UAUBmultiple.JPG" decoding="async" width="732" height="365" /></a>
+</p>
+<h3><span class="mw-headline" id="Digital_Output">Digital Output</span></h3>
+<p>Can be used with 1 - 8 gUSBamps.
+</p>
+<h4><span class="mw-headline" id="gUSBamps_with_UA_serial_numbers_2">gUSBamps with UA serial numbers</span></h4>
+<p>Each gUSBamp has one digital I/O port giving it two digital output bits. If multiple UA gUSBamps are connected there are a total of 16 digital output bits possible. To write to these bits, Parameter DigitalOutputEx must be filled. Each row correlates to a bit. The numbering of the bits start with 1 and 2 being the master gUSBamp and continues numbering until the eighth gUSBamp having bit 15 and 16. To determine which row to use, the bit is found by taking the number of amgUSBampsps preceding the intended gUSBamp in the chain multiplied by two and then add the number of the bit you want to write for. For example, the second bit of the fourth gUSBamp is row 8 (3 * 2 + 2).
+</p>
+<h4><span class="mw-headline" id="gUSBamps_with_UB_serial_numbers_2">gUSBamps with UB serial numbers</span></h4>
+<p>Each gUSBamp has two digital I/O ports giving it four digital output bits. If multiple UB gUSBamps are connected, that gives a total of 32 digital output bits possible. To write to these bits, Parameter DigitalOutputEx must be filled. Each row corresponds to a bit. The numbering of the bits start with 1 - 4 being the master gUSBamp and continues numbering until the eighth gUSBamp having bits 29 - 32. To figure out which row to use, the formula is the number of gUSBamps preceding the intended gUSBamp in the chain multiplied by four and then add the number of the bit you want to write for. For example the second bit of the fourth gUSBamp is row 14 (3 * 4 + 2).
+</p>
+<h4><span class="mw-headline" id="gUSBamps_in_sync_with_both_UA_and_UB_serial_numbers">gUSBamps in sync with both UA and UB serial numbers</span></h4>
+<p>The device specs are the same as above with each UA gUSBamp having two digital output bits and each UB gUSBamp having four digital output bits. To write the proper row, the order of the gUSBamps matter just like digital input. For example we have the setup of UB gUSBamp as master with the slaves in the following order: UB UA UA UB UA UA, which gives a total of 7 gUSBamps having a total of 20 digital output bits. To find the row that corresponds with the bit you want to write for, take the number of UB gUSBamps preceding the intended gUSBamp in the chain multiplied by 4 and add the number of UA gUSBamps preceding the intended gUSBamp in the chain multiplied by 2 and add the number of the bit you want. For example to write the expression for the second UA gUSBamp's first bit, I would write the expression in row 11 (2 * 4 + 1 * 2 + 1). For example to write the expression for the third UB gUSBamp's third bit, I would write the expression in row 15 (2 * 4 + 2 * 2 + 3).
+</p>
+<h2><span class="mw-headline" id="States">States</span></h2>
+<h3><span class="mw-headline" id="DigitalInput">DigitalInput</span></h3>
+<p>DigitalInput ranges from DigitalInput1 - DigitalInput64 (see <a href="User_Reference%253AgUSBampADC.html#Digital_Input" title="User Reference:gUSBampADC">Digital Input</a> for explanation) and the values are either a 0 or a 1.
+</p>
+<h2><span class="mw-headline" id="Additional_Information">Additional Information</span></h2>
+<h3><span class="mw-headline" id="Using_32bit_Executables_on_64bit_Installations">Using 32bit Executables on 64bit Installations</span></h3>
+<p>BCI2000 supports compilation of the gUSBamp source module for 64bit targets. The resulting executable will run on 64bit systems, and work with the 64bit version of the gUSBamp drivers. However, the binary distribution of BCI2000 contains 32bit executables. These run fine under 64bit systems, but you will need to perform these additional driver installation steps to install 32bit gUSBamp API DLLs on 64bit systems:
+</p>
+<ul><li>Execute gtec's 32bit driver installer on your 64bit system.</li>
+<li>After successful installation, execute gtec's 64bit driver installer on your 64bit system.</li>
+<li>You will now have both the 32bit API DLL and the 64bit API DLL installed, such that both 32bit and 64bit executables will be able to connect to a gUSBamp attached to the system's USB ports.</li></ul>
+<h3><span class="mw-headline" id="Data_Storage">Data Storage</span></h3>
+<p>Unlike other systems, the USBamp is a DC amplifier system that digitizes at 24 bit. 
+Bandpass and notch filtering is performed on the digitized samples, resulting in floating point signal samples in units of <img class="mwe-math-fallback-image-inline tex" alt="\mu V" src="../images/math/a/0/c/a0c8c64b8931b67b0ceb94b284b27e20.png" />.
+BCI2000 currently supports signed 16 bit integers and floating point numbers for its data storage.
+If <i>SignalType</i> is set to int16, the floating point values have to be converted back into integers before they can be stored and transmitted to Signal Processing.
+This is done by the following transformation: 
+</p><p><img class="mwe-math-fallback-image-inline tex" alt="\mathrm{sample}_\mathrm{stored}\mathrm{(A/D\,units)}=\frac{\mathrm{sample}_\mathrm{acquired}(\mu V)}\mathrm{SourceChGain}" src="../images/math/e/2/2/e2211c94e40182a0e24012b7861eb562.png" />. 
+</p><p>(<i>SourceChOffset</i> is assumed (and required) to be zero for all channels.) 
+BCI2000 Signal Processing or any offline analysis routine can derive, as with 
+any other BCI2000 source module, sample values in <img class="mwe-math-fallback-image-inline tex" alt="\mu V" src="../images/math/a/0/c/a0c8c64b8931b67b0ceb94b284b27e20.png" /> by subtracting, from 
+each stored sample, <i>SourceChOffset</i> (i.e., zero), and multiplying it with 
+<i>SourceChGain</i> for each channel. If <i>SignalType</i> is set to float32,
+data samples are stored in units of <img class="mwe-math-fallback-image-inline tex" alt="\mu V" src="../images/math/a/0/c/a0c8c64b8931b67b0ceb94b284b27e20.png" />. In this case, <i>SourceChGain</i> should be
+a list of 1's (because the conversion factor between data samples into <img class="mwe-math-fallback-image-inline tex" alt="\mu V" src="../images/math/a/0/c/a0c8c64b8931b67b0ceb94b284b27e20.png" /> is
+1.0 for each channel).
+</p><p>Still, when values other than 0 and 1 are specified, a consistent data file will be produced, i.e. values will be transformed before they are written to the file, such that applying SourceChOffset and SourceChGain will reproduce the original values in <img class="mwe-math-fallback-image-inline tex" alt="\mu V" src="../images/math/a/0/c/a0c8c64b8931b67b0ceb94b284b27e20.png" />.
+</p>
+<h3><span class="mw-headline" id="The_USBampgetinfo_Command_Line_Tool">The <i>USBampgetinfo</i> Command Line Tool</span></h3>
+<p>This command line tool displays all connected USBamps, including their serial 
+number and the USB port that they connect to. Further, this tool reads, for the 
+first of the connected amplifiers, all supported bandpass and notch filter 
+configurations. Thus, this tool can be used to determine which filters can be 
+used for a particular sampling frequency within BCI2000. The following is an 
+example screen output:
+</p>
+<pre>*******************************************
+BCI2000 Information Tool for g.USBamp
+*******************************************
+(C)2004 Gerwin Schalk
+	 Wadsworth Center
+	 New York State Department of Health
+	 Albany, NY, USA
+*******************************************
+Amp found at USB address 1 (S/N: UA-200X.XX.XX)
+Printing info for first amp (USB address 1)
+
+Available bandpass filters
+===================================
+num| hpfr  | lpfreq |  sfr | or | type
+===================================
+000|  0.10 |    0.0 |   32 |  8 | 1
+001|  1.00 |    0.0 |   32 |  8 | 1
+002|  2.00 |    0.0 |   32 |  8 | 1
+003|  5.00 |    0.0 |   32 |  8 | 1
+004|  0.00 |   15.0 |   32 |  8 | 1
+005|  0.01 |   15.0 |   32 |  8 | 1
+006|  0.10 |   15.0 |   32 |  8 | 1
+007|  0.50 |   15.0 |   32 |  8 | 1
+008|  2.00 |   15.0 |   32 |  8 | 1
+009|  0.10 |    0.0 |   64 |  8 | 1
+010|  1.00 |    0.0 |   64 |  8 | 1
+011|  2.00 |    0.0 |   64 |  8 | 1
+012|  5.00 |    0.0 |   64 |  8 | 1
+013|  0.00 |   30.0 |   64 |  8 | 1
+014|  0.01 |   30.0 |   64 |  8 | 1
+015|  0.10 |   30.0 |   64 |  8 | 1
+016|  0.50 |   30.0 |   64 |  8 | 1
+017|  2.00 |   30.0 |   64 |  8 | 1
+018|  0.10 |    0.0 |  128 |  8 | 1
+019|  1.00 |    0.0 |  128 |  8 | 1
+020|  2.00 |    0.0 |  128 |  8 | 1
+021|  5.00 |    0.0 |  128 |  8 | 1
+022|  0.00 |   30.0 |  128 |  8 | 1
+023|  0.00 |   60.0 |  128 |  8 | 1
+024|  0.01 |   30.0 |  128 |  8 | 1
+025|  0.01 |   60.0 |  128 |  8 | 1
+026|  0.10 |   30.0 |  128 |  8 | 1
+027|  0.10 |   60.0 |  128 |  8 | 1
+028|  0.50 |   30.0 |  128 |  8 | 1
+029|  0.50 |   60.0 |  128 |  8 | 1
+030|  2.00 |   30.0 |  128 |  8 | 1
+031|  2.00 |   60.0 |  128 |  8 | 1
+032|  0.10 |    0.0 |  256 |  8 | 1
+033|  1.00 |    0.0 |  256 |  8 | 1
+034|  2.00 |    0.0 |  256 |  8 | 1
+035|  5.00 |    0.0 |  256 |  8 | 1
+036|  0.00 |   30.0 |  256 |  8 | 1
+037|  0.00 |   60.0 |  256 |  8 | 1
+038|  0.00 |  100.0 |  256 |  8 | 1
+039|  0.01 |   30.0 |  256 |  6 | 1
+040|  0.01 |   60.0 |  256 |  8 | 1
+041|  0.01 |  100.0 |  256 |  8 | 1
+042|  0.10 |   30.0 |  256 |  8 | 1
+043|  0.10 |   60.0 |  256 |  8 | 1
+044|  0.10 |  100.0 |  256 |  8 | 1
+045|  0.50 |   30.0 |  256 |  8 | 1
+046|  0.50 |   60.0 |  256 |  8 | 1
+047|  0.50 |  100.0 |  256 |  8 | 1
+048|  2.00 |   30.0 |  256 |  8 | 1
+049|  2.00 |   60.0 |  256 |  8 | 1
+050|  2.00 |  100.0 |  256 |  8 | 1
+051|  5.00 |   30.0 |  256 |  8 | 1
+052|  5.00 |   60.0 |  256 |  8 | 1
+053|  5.00 |  100.0 |  256 |  8 | 1
+054|  0.10 |    0.0 |  512 |  8 | 1
+055|  1.00 |    0.0 |  512 |  8 | 1
+056|  2.00 |    0.0 |  512 |  8 | 1
+057|  5.00 |    0.0 |  512 |  8 | 1
+058|  0.00 |   30.0 |  512 |  8 | 1
+059|  0.00 |   60.0 |  512 |  8 | 1
+060|  0.00 |  100.0 |  512 |  8 | 1
+061|  0.00 |  200.0 |  512 |  8 | 1
+062|  0.01 |   30.0 |  512 |  6 | 1
+063|  0.01 |   60.0 |  512 |  6 | 1
+064|  0.01 |  100.0 |  512 |  6 | 1
+065|  0.01 |  200.0 |  512 |  8 | 1
+066|  0.10 |   30.0 |  512 |  8 | 1
+067|  0.10 |   60.0 |  512 |  8 | 1
+068|  0.10 |  100.0 |  512 |  8 | 1
+069|  0.10 |  200.0 |  512 |  8 | 1
+070|  0.50 |   30.0 |  512 |  8 | 1
+071|  0.50 |   60.0 |  512 |  8 | 1
+072|  0.50 |  100.0 |  512 |  8 | 1
+073|  0.50 |  200.0 |  512 |  8 | 1
+074|  2.00 |   30.0 |  512 |  8 | 1
+075|  2.00 |   60.0 |  512 |  8 | 1
+076|  2.00 |  100.0 |  512 |  8 | 1
+077|  2.00 |  200.0 |  512 |  8 | 1
+078|  5.00 |   30.0 |  512 |  8 | 1
+079|  5.00 |   60.0 |  512 |  8 | 1
+080|  5.00 |  100.0 |  512 |  8 | 1
+081|  5.00 |  200.0 |  512 |  8 | 1
+082|  0.10 |    0.0 |  600 |  8 | 1
+083|  1.00 |    0.0 |  600 |  8 | 1
+084|  2.00 |    0.0 |  600 |  8 | 1
+085|  5.00 |    0.0 |  600 |  8 | 1
+086|  0.00 |   30.0 |  600 |  8 | 1
+087|  0.00 |   60.0 |  600 |  8 | 1
+088|  0.00 |  100.0 |  600 |  8 | 1
+089|  0.00 |  200.0 |  600 |  8 | 1
+090|  0.00 |  250.0 |  600 |  8 | 1
+091|  0.01 |   60.0 |  600 |  6 | 1
+092|  0.01 |  100.0 |  600 |  6 | 1
+093|  0.01 |  200.0 |  600 |  6 | 1
+094|  0.01 |  250.0 |  600 |  8 | 1
+095|  0.10 |   60.0 |  600 |  8 | 1
+096|  0.10 |  100.0 |  600 |  8 | 1
+097|  0.10 |  200.0 |  600 |  8 | 1
+098|  0.10 |  250.0 |  600 |  8 | 1
+099|  0.50 |   30.0 |  600 |  8 | 1
+100|  0.50 |   60.0 |  600 |  8 | 1
+101|  0.50 |  100.0 |  600 |  8 | 1
+102|  0.50 |  200.0 |  600 |  8 | 1
+103|  0.50 |  250.0 |  600 |  8 | 1
+104|  2.00 |   30.0 |  600 |  8 | 1
+105|  2.00 |   60.0 |  600 |  8 | 1
+106|  2.00 |  100.0 |  600 |  8 | 1
+107|  2.00 |  200.0 |  600 |  8 | 1
+108|  2.00 |  250.0 |  600 |  8 | 1
+109|  5.00 |   30.0 |  600 |  8 | 1
+110|  5.00 |   60.0 |  600 |  8 | 1
+111|  5.00 |  100.0 |  600 |  8 | 1
+112|  5.00 |  200.0 |  600 |  8 | 1
+113|  5.00 |  250.0 |  600 |  8 | 1
+114|  0.10 |    0.0 | 1200 |  8 | 1
+115|  1.00 |    0.0 | 1200 |  8 | 1
+116|  2.00 |    0.0 | 1200 |  8 | 1
+117|  5.00 |    0.0 | 1200 |  8 | 1
+118|  0.00 |   30.0 | 1200 |  8 | 1
+119|  0.00 |   60.0 | 1200 |  8 | 1
+120|  0.00 |  100.0 | 1200 |  8 | 1
+121|  0.00 |  200.0 | 1200 |  8 | 1
+122|  0.00 |  250.0 | 1200 |  8 | 1
+123|  0.00 |  500.0 | 1200 |  8 | 1
+124|  0.01 |  100.0 | 1200 |  6 | 1
+125|  0.01 |  200.0 | 1200 |  6 | 1
+126|  0.01 |  250.0 | 1200 |  6 | 1
+127|  0.01 |  500.0 | 1200 |  6 | 1
+128|  0.10 |  100.0 | 1200 |  6 | 1
+129|  0.10 |  200.0 | 1200 |  8 | 1
+130|  0.10 |  250.0 | 1200 |  8 | 1
+131|  0.10 |  500.0 | 1200 |  8 | 1
+132|  0.50 |  100.0 | 1200 |  8 | 1
+133|  0.50 |  200.0 | 1200 |  8 | 1
+134|  0.50 |  250.0 | 1200 |  8 | 1
+135|  0.50 |  500.0 | 1200 |  8 | 1
+136|  2.00 |  100.0 | 1200 |  8 | 1
+137|  2.00 |  200.0 | 1200 |  8 | 1
+138|  2.00 |  250.0 | 1200 |  8 | 1
+139|  2.00 |  500.0 | 1200 |  8 | 1
+140|  5.00 |  100.0 | 1200 |  8 | 1
+141|  5.00 |  200.0 | 1200 |  8 | 1
+142|  5.00 |  250.0 | 1200 |  8 | 1
+143|  5.00 |  500.0 | 1200 |  8 | 1
+144|  0.10 |    0.0 | 2400 |  8 | 1
+145|  1.00 |    0.0 | 2400 |  8 | 1
+146|  2.00 |    0.0 | 2400 |  8 | 1
+147|  5.00 |    0.0 | 2400 |  8 | 1
+148|  0.00 |   30.0 | 2400 |  8 | 1
+149|  0.00 |   60.0 | 2400 |  8 | 1
+150|  0.00 |  100.0 | 2400 |  8 | 1
+151|  0.00 |  200.0 | 2400 |  8 | 1
+152|  0.00 |  250.0 | 2400 |  8 | 1
+153|  0.00 |  500.0 | 2400 |  8 | 1
+154|  0.00 | 1000.0 | 2400 |  8 | 1
+155|  0.01 |  200.0 | 2400 |  4 | 1
+156|  0.01 |  250.0 | 2400 |  6 | 1
+157|  0.01 |  500.0 | 2400 |  6 | 1
+158|  0.01 | 1000.0 | 2400 |  6 | 1
+159|  0.10 |  200.0 | 2400 |  6 | 1
+160|  0.10 |  250.0 | 2400 |  6 | 1
+161|  0.10 |  500.0 | 2400 |  8 | 1
+162|  0.10 | 1000.0 | 2400 |  8 | 1
+163|  0.50 |  200.0 | 2400 |  8 | 1
+164|  0.50 |  250.0 | 2400 |  8 | 1
+165|  0.50 |  500.0 | 2400 |  8 | 1
+166|  0.50 | 1000.0 | 2400 |  8 | 1
+167|  2.00 |  200.0 | 2400 |  8 | 1
+168|  2.00 |  250.0 | 2400 |  8 | 1
+169|  2.00 |  500.0 | 2400 |  8 | 1
+170|  2.00 | 1000.0 | 2400 |  8 | 1
+171|  5.00 |  200.0 | 2400 |  8 | 1
+172|  5.00 |  250.0 | 2400 |  8 | 1
+173|  5.00 |  500.0 | 2400 |  8 | 1
+174|  5.00 | 1000.0 | 2400 |  8 | 1
+175|  0.10 |    0.0 | 4800 |  6 | 1
+176|  1.00 |    0.0 | 4800 |  8 | 1
+177|  2.00 |    0.0 | 4800 |  8 | 1
+178|  5.00 |    0.0 | 4800 |  8 | 1
+179|  0.00 |   30.0 | 4800 |  8 | 1
+180|  0.00 |   60.0 | 4800 |  8 | 1
+181|  0.00 |  100.0 | 4800 |  8 | 1
+182|  0.00 |  200.0 | 4800 |  8 | 1
+183|  0.00 |  250.0 | 4800 |  8 | 1
+184|  0.00 |  500.0 | 4800 |  8 | 1
+185|  0.00 | 1000.0 | 4800 |  8 | 1
+186|  0.00 | 2000.0 | 4800 |  8 | 1
+187|  0.01 |  500.0 | 4800 |  6 | 1
+188|  0.01 | 1000.0 | 4800 |  6 | 1
+189|  0.01 | 2000.0 | 4800 |  6 | 1
+190|  0.10 |  500.0 | 4800 |  6 | 1
+191|  0.10 | 1000.0 | 4800 |  6 | 1
+192|  0.10 | 2000.0 | 4800 |  8 | 1
+193|  0.50 |  500.0 | 4800 |  8 | 1
+194|  0.50 | 1000.0 | 4800 |  8 | 1
+195|  0.50 | 2000.0 | 4800 |  8 | 1
+196|  2.00 |  500.0 | 4800 |  8 | 1
+197|  2.00 | 1000.0 | 4800 |  8 | 1
+198|  2.00 | 2000.0 | 4800 |  8 | 1
+199|  5.00 |  500.0 | 4800 |  8 | 1
+200|  5.00 | 1000.0 | 4800 |  8 | 1
+201|  5.00 | 2000.0 | 4800 |  8 | 1
+
+Available notch filters
+===================================
+num| hpfr  | lpfreq |  sfr | or | type
+===================================
+000| 48.00 |   52.0 |  128 |  4 | 1
+001| 58.00 |   62.0 |  128 |  4 | 1
+002| 48.00 |   52.0 |  256 |  4 | 1
+003| 58.00 |   62.0 |  256 |  4 | 1
+004| 48.00 |   52.0 |  512 |  4 | 1
+005| 58.00 |   62.0 |  512 |  4 | 1
+006| 48.00 |   52.0 |  600 |  4 | 1
+007| 58.00 |   62.0 |  600 |  4 | 1
+008| 48.00 |   52.0 | 1200 |  4 | 1
+009| 58.00 |   62.0 | 1200 |  4 | 1
+010| 48.00 |   52.0 | 2400 |  4 | 1
+011| 58.00 |   62.0 | 2400 |  4 | 1
+012| 48.00 |   52.0 | 4800 |  4 | 1
+013| 58.00 |   62.0 | 4800 |  4 | 1
+
+</pre>
+<h2><span class="mw-headline" id="Certification_Results">Certification Results</span></h2>
+<p>The g.USBamp certification was performed to give a better understanding of the restraints that must be placed on the system when using this device. Certification success criteria was determined internally and without rigor, and reflects our experience with psychophysical experiments and the performance we expect to need for the system. More information about certification testing can be found on the <a href="User_Reference%253ABCI2000Certification.html" title="User Reference:BCI2000Certification">certification wiki page</a>. 
+</p>
+<h3><span class="mw-headline" id="PC_Specifications">PC Specifications</span></h3>
+<ul><li>Lenovo Thinkpad E580 (<a rel="nofollow" class="external free" href="https://www.lenovo.com/us/en/laptops/thinkpad/thinkpad-e-series/ThinkPad-E580/p/22TP2TEE580">https://www.lenovo.com/us/en/laptops/thinkpad/thinkpad-e-series/ThinkPad-E580/p/22TP2TEE580</a>)</li>
+<li>Processor: Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz 2.7GHz</li>
+<li>Installed Ram: 8.00 GB</li>
+<li>Graphics Card: Intel(R) HD Graphics 620</li>
+<li>System Type: 64-bit operating system, x64-based processor</li>
+<li>BCI2000 compiled with MSVC2019 and Qt 5.15.2</li>
+<li>g.USBamp UB with driver version 3.16.00 installed</li></ul>
+<h3><span class="mw-headline" id="Certification_Tests_Performed">Certification Tests Performed</span></h3>
+<p>Certification testing varied sampling rate (512, 1200, 2400, 4800 Hz), number of channels (4, 8, 16 ch), block size (50, 100 ms), and task (P3Spell (7x7 grid), P3Spell (1x1 grid), CursorTask, CursorTaskLow, and StimulusPresentation), for a total of 120 performed tasks.
+</p>
+<h3><span class="mw-headline" id="Success_Criteria_and_Overall_Results">Success Criteria and Overall Results</span></h3>
+<table border="1">
+<tbody><tr>
+<td>Name
+</td>
+<td>Actual Latency
+</td>
+<td>Success Criteria
+</td>
+<td>Result
+</td></tr>
+<tr>
+<td>Amplifier Latency Mean
+</td>
+<td>1.76ms
+</td>
+<td>7 ms
+</td>
+<td>passed
+</td></tr>
+<tr>
+<td>Amplifier Latency STD
+</td>
+<td>985µs
+</td>
+<td>2 ms
+</td>
+<td>passed
+</td></tr>
+<tr>
+<td>Timestamp Latency Mean
+</td>
+<td>87.2µs
+</td>
+<td>1 ms
+</td>
+<td>passed
+</td></tr>
+<tr>
+<td>Timestamp Latency STD
+</td>
+<td>375µs
+</td>
+<td>1 ms
+</td>
+<td>passed
+</td></tr>
+<tr>
+<td>Processing Latency Mean
+</td>
+<td>8.27ms
+</td>
+<td>20 ms
+</td>
+<td>passed
+</td></tr>
+<tr>
+<td>Processing Latency STD
+</td>
+<td>6.69ms
+</td>
+<td>10 ms
+</td>
+<td>passed
+</td></tr>
+<tr>
+<td>Video Latency Mean
+</td>
+<td>54.3ms
+</td>
+<td>65 ms
+</td>
+<td>passed
+</td></tr>
+<tr>
+<td>Video Latency STD
+</td>
+<td>8.3ms
+</td>
+<td>20 ms
+</td>
+<td>passed
+</td></tr>
+<tr>
+<td>Audio Latency Mean
+</td>
+<td>60ms
+</td>
+<td>65 ms
+</td>
+<td>passed
+</td></tr>
+<tr>
+<td>Audio Latency STD
+</td>
+<td>4.16ms
+</td>
+<td>20 ms
+</td>
+<td>passed
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Reference%253ADataIOFilter.html" title="User Reference:DataIOFilter">User Reference:DataIOFilter</a>, <a href="Programming_Reference%253AGenericADC_Class.html" title="Programming Reference:GenericADC Class">Programming Reference:GenericADC Class</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20220609154328
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.069 seconds
+Real time usage: 0.076 seconds
+Preprocessor visited node count: 216/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 9879/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1500-0!canonical!math=0 and timestamp 20220609154328 and revision id 9445
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=User_Reference:gUSBampADC&amp;oldid=9445">http://www.bci2000.org/mediawiki/index.php?title=User_Reference:gUSBampADC&amp;oldid=9445</a>"</div>
+ </div>
+</body>
+</html>

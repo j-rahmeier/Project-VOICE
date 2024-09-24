@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:How to use a Contributed Source Module - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">How to use a Contributed Source Module</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>For maintenance reasons, BCI2000 supports only a limited number of <a href="User_Reference%253AFilters.html#Data_Acquisition" title="User Reference:Filters">amplifiers in its core distribution</a>.
+In addition to these fully supported amplifiers, a larger and growing number of data acquisition systems is supported in form of contributed code, written and maintained by BCI2000 users.
+<a href="Contributions%253AADCs.html" title="Contributions:ADCs">Contributions:ADCs</a> provides an overview of source modules currently available.
+</p><p>In comparison to using an amplifier from the core distribution, you will need to perform a few additional, simple steps in order to use a contributed source module.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Contributions%253AHow_to_use_a_Contributed_Source_Module.html#Obtaining_a_binary_version_of_a_Contributed_Source_Module"><span class="tocnumber">1</span> <span class="toctext">Obtaining a binary version of a Contributed Source Module</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Contributions%253AHow_to_use_a_Contributed_Source_Module.html#Creating_batch_files"><span class="tocnumber">2</span> <span class="toctext">Creating batch files</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Contributions%253AHow_to_use_a_Contributed_Source_Module.html#Setting_up_your_amplifier"><span class="tocnumber">3</span> <span class="toctext">Setting up your amplifier</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="Contributions%253AHow_to_use_a_Contributed_Source_Module.html#See_also"><span class="tocnumber">4</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Obtaining_a_binary_version_of_a_Contributed_Source_Module">Obtaining a binary version of a Contributed Source Module</span></h2>
+<p>Binary versions of contributed source modules are available in the <a href="BCI2000_Binaries.html#Contributed_Code" title="BCI2000 Binaries">extended binary distribution</a> of BCI2000.
+Alternatively, you can build contributed source modules from the BCI2000 source code as described <a href="Programming_Howto%253ABuilding_BCI2000.html#Building_Contributions" title="Programming Howto:Building BCI2000">here</a>.
+</p>
+<h2><span class="mw-headline" id="Creating_batch_files">Creating batch files</span></h2>
+<p>BCI2000 consists of a number of modules that need to be started up in a certain sequence. Typically, this is done using scripts (batch files) located in <tt>BCI2000/batch</tt> (see <a href="User_Reference%253ABCI2000Launcher.html" title="User Reference:BCI2000Launcher">User Reference:BCI2000Launcher</a> for a graphical alternative to batch files).
+</p><p>There is one such batch file for each combination of a source module, and a BCI paradigm. In order to use a contributed source module with a certain BCI paradigm, perform these steps:
+</p>
+<ul><li>Identify the batch file in <tt>BCI2000/batch</tt> that provides the desired paradigm using the <i>SignalGenerator</i> source module. For the cursor feedback paradigm, this would be <tt>CursorTask_SignalGenerator.bat</tt>.</li>
+<li>Create a copy of that batch file, and rename it to reflect the name of the source module you would like to use, e.g. <tt>CursorTask_Neuroscan.bat</tt>.</li>
+<li>Open the newly created file in a text editor.</li>
+<li>Identify the line that refers to <tt>SignalGenerator</tt>.</li>
+<li>There, replace <tt>SignalGenerator</tt> with your source module's executable name, e.g. <tt>NeuroscanClient</tt>.</li>
+<li>Save the batch file, and run it to start BCI2000 in the desired configuration.</li>
+<li>If the batch file is unable to properly start BCI2000, you may debug it as follows:
+<ul><li>open a console/terminal window (in Windows, it's called cmd.exe);</li>
+<li>use the "cd" command to navigate into the BCI2000/batch directory;</li>
+<li>run the batch file from the command line -- on UNIX-type OSes, you will need to put a dot and a slash in front of the file name;</li>
+<li>you will be able to read the batch file's output in the terminal window.</li></ul></li>
+<li>Create a separate batch file for each paradigm you intend to use.</li></ul>
+<h2><span class="mw-headline" id="Setting_up_your_amplifier">Setting up your amplifier</span></h2>
+<p>After creating one or more batch files for use with your amplifier, you might create a parameter file that only contains settings specific to your amplifier and EEG setup. You can do this by starting up from one of your newly created batch files, clicking "Config", and then going to the "Source" tab. There, adjust all settings as appropriate. Then, click "Configure Save", and make sure that only those from the "Source" tab are selected. Finally, click "Save Parameters...", and save your subset of parameters under <tt>parms/amplifiers/&lt;your_amplifier&gt;.prm</tt>. After that, don't forget to click "Configure Save" again, and to re-select all parameters, to make sure you can save full parameter files as usual.
+</p><p>When you are comfortable with a text editor, you may alternatively perform the "Save" step as follows:
+</p>
+<ul><li>First, save the full parameter file without using "Configure Save".</li>
+<li>Then, open the new parameter file in a text editor such as Windows Notepad.</li>
+<li>You will see a list of parameters, with each parameter corresponding to a single line. These are sorted by tabs in the operator's config dialog where the individual parameters appear. Thus, it is simple to remove all parameter lines except the ones referring to the "Source" tab.</li></ul>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Contributions%253AADCs.html" title="Contributions:ADCs">Contributions:ADCs</a>, <a href="BCI2000_Binaries.html" title="BCI2000 Binaries">BCI2000 Binaries</a>, <a href="Programming_Howto%253ABuilding_BCI2000.html" title="Programming Howto:Building BCI2000">Programming Howto:Building BCI2000</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524175458
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.011 seconds
+Real time usage: 0.014 seconds
+Preprocessor visited node count: 17/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1881-0!canonical and timestamp 20230524175458 and revision id 7325
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:How_to_use_a_Contributed_Source_Module&amp;oldid=7325">http://www.bci2000.org/mediawiki/index.php?title=Contributions:How_to_use_a_Contributed_Source_Module&amp;oldid=7325</a>"</div>
+ </div>
+</body>
+</html>

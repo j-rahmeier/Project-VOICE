@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:NIDAQFilter - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">NIDAQFilter</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Contributions%253ANIDAQFilter.html#Synopsis"><span class="tocnumber">1</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Contributions%253ANIDAQFilter.html#Location"><span class="tocnumber">2</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Contributions%253ANIDAQFilter.html#Versioning"><span class="tocnumber">3</span> <span class="toctext">Versioning</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Contributions%253ANIDAQFilter.html#Author"><span class="tocnumber">3.1</span> <span class="toctext">Author</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Contributions%253ANIDAQFilter.html#Version_History"><span class="tocnumber">3.2</span> <span class="toctext">Version History</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Contributions%253ANIDAQFilter.html#Source_Code_Revision"><span class="tocnumber">3.3</span> <span class="toctext">Source Code Revision</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="Contributions%253ANIDAQFilter.html#Functional_Description"><span class="tocnumber">4</span> <span class="toctext">Functional Description</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="Contributions%253ANIDAQFilter.html#Adding_and_Compiling"><span class="tocnumber">5</span> <span class="toctext">Adding and Compiling</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="Contributions%253ANIDAQFilter.html#Parameters"><span class="tocnumber">6</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-10"><a href="Contributions%253ANIDAQFilter.html#Command_Line_Parameters"><span class="tocnumber">6.1</span> <span class="toctext">Command Line Parameters</span></a>
+<ul>
+<li class="toclevel-3 tocsection-11"><a href="Contributions%253ANIDAQFilter.html#Initializing_the_NIDAQFilter"><span class="tocnumber">6.1.1</span> <span class="toctext">Initializing the NIDAQFilter</span></a></li>
+<li class="toclevel-3 tocsection-12"><a href="Contributions%253ANIDAQFilter.html#Device_Specification"><span class="tocnumber">6.1.2</span> <span class="toctext">Device Specification</span></a></li>
+<li class="toclevel-3 tocsection-13"><a href="Contributions%253ANIDAQFilter.html#Port_Specifications"><span class="tocnumber">6.1.3</span> <span class="toctext">Port Specifications</span></a></li>
+<li class="toclevel-3 tocsection-14"><a href="Contributions%253ANIDAQFilter.html#A_Completed_Flag"><span class="tocnumber">6.1.4</span> <span class="toctext">A Completed Flag</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-15"><a href="Contributions%253ANIDAQFilter.html#BCI2000_Parameters"><span class="tocnumber">6.2</span> <span class="toctext">BCI2000 Parameters</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-16"><a href="Contributions%253ANIDAQFilter.html#States"><span class="tocnumber">7</span> <span class="toctext">States</span></a>
+<ul>
+<li class="toclevel-2 tocsection-17"><a href="Contributions%253ANIDAQFilter.html#Template"><span class="tocnumber">7.1</span> <span class="toctext">Template</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="Contributions%253ANIDAQFilter.html#Example"><span class="tocnumber">7.2</span> <span class="toctext">Example</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>A filter that outputs different states from BCI2000 to outputs connected to a National Instruments Board running DAQmx 8.5 or higher.
+</p>
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p>The file(s) should be in the following directory:
+<a rel="nofollow" class="external free" href="http://www.bci2000.org/svn/trunk/src/contrib/SignalSource/NIDAQ-MX/NIDAQ-Logging/">http://www.bci2000.org/svn/trunk/src/contrib/SignalSource/NIDAQ-MX/NIDAQ-Logging/</a>
+</p>
+<h2><span class="mw-headline" id="Versioning">Versioning</span></h2>
+<h3><span class="mw-headline" id="Author">Author</span></h3>
+<ul><li>Justin Renga &lt;justin.renga@gmail.com&gt;</li>
+<li>Jeremy Hill &lt;jezhill@gmail.com&gt;</li></ul>
+<h3><span class="mw-headline" id="Version_History">Version History</span></h3>
+<ul><li>1.0</li>
+<li>2.0 - November 2013 - numerous fixes. From outside, the only change is that the <code>--LogNIDAQout=1</code> is now optional and independent of the other flags (i.e. you do not have to log the outgoing information to state variables if you do not want to).</li></ul>
+<h3><span class="mw-headline" id="Source_Code_Revision">Source Code Revision</span></h3>
+<p>Version 2.0 available from r4648, tested up to r4720
+</p>
+<h2><span class="mw-headline" id="Functional_Description">Functional Description</span></h2>
+<p>The NIDAQFilter uses any DAQmx 8.5 or higher compliant board and allows the user to pipe state data from BCI2000 through the board. All necesary components must be connected to the BCI computer before initiating a module using the filter.
+</p>
+<h2><span class="mw-headline" id="Adding_and_Compiling">Adding and Compiling</span></h2>
+<p>To add and compile the NIDAQFilter module, make sure the latest NIDAQ MX drivers are installed on your computer. When that is done, go into the C:\Program Files\National Instruments\NI-DAQ\DAQmx ANSI C Dev\ folder. Inside are two folders: lib and include. The lib folder will contain the NIDAQmx.lib file (inside of the folder msvc). Copy that into the project's library folder. Inside of the include folder is the NIDAQmx.h file, which contains the function prototypes needed to use the NIDAQLogger module. Move this file into the project's include folder. Make sure the project links the new .lib file, and that the NIDAQFilter.h and NIDAQFilter.cpp files include the NIDAQmx.h file correctly. The NIDAQFilter should now be able to compile normally.
+</p>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<p>The NIDAQFilter uses command line parameters to initialize the device(s) and set up the active ports. It then uses BCI2000 parameters for finer controls over the device, such as changing the sampling rate of the device.
+</p>
+<h3><span class="mw-headline" id="Command_Line_Parameters">Command Line Parameters</span></h3>
+<h4><span class="mw-headline" id="Initializing_the_NIDAQFilter">Initializing the NIDAQFilter</span></h4>
+<p>To activate device(s) for specific functions, use the following flags:
+</p>
+<ul><li><code>--LogDigiOut</code> --&gt; Enable the device to use digital output characteristics</li>
+<li><code>--LogAnaOut</code> --&gt; Enable the device to use analog output characteristics</li></ul>
+<p>The format for the outputs for above flags is as follows:
+</p>
+<center><code>[flag]="[device specification]-[port specifications]"</code></center>
+<p>To log the outgoing information to appropriately-named states variables, use the additional flag <code>--LogNIDAQout=1</code>. 
+Note that if <code>--LogNIDAQout=1</code> is used, then at least one of the above flags <b>MUST</b> also be used.
+</p>
+<h4><span class="mw-headline" id="Device_Specification">Device Specification</span></h4>
+<p>The device name is to be written as "Dev1" or "Dev2" (without the quotes) in the first part of the parameter value. After the device name is specified, use a hyphen (-) to indicate the device name is finished. For example, the first part of the parameter value would look like this: <code> "Dev1-</code>.
+</p><p><i>If the device numbers are unclear, run the filter with just the <code>--LogNIDAQout</code> flag specified. The device names (along with their familiar names) will appear in the operator log.</i>
+</p>
+<h4><span class="mw-headline" id="Port_Specifications">Port Specifications</span></h4>
+<p>There are two acceptable states that the user can specify for each port that they are going to use:
+</p>
+<ul><li><b>0</b> --&gt; the associated port WILL NOT be used</li>
+<li><b>1</b> --&gt; the associated port WILL be used</li></ul>
+<p>The values will be used for every single port that the user wants to use. For example, if the user wants to use ports 3 and 5 on a device with 10 ports, then the port specification for that device will be the following:
+</p>
+<center><code>0010100000</code></center>
+<p>Notice how even though the user wants to use only 2 ports, all 10 ports have been indicated. This is required. Any port that is not needed should be marked with a <b>0</b>. If the number of ports specified in the parameter file does not match the number of ports found on the device, an error will be thrown, showing the number of ports were specified and how many ports there are for that device function.
+</p><p><i>Important: If both the NIDAQLogger(<a href="Contributions%253ANIDAQLogger.html" title="Contributions:NIDAQLogger">Contributions:NIDAQLogger</a>) and the NIDAQFilter are being used, and both are using the digital lines on the same device, make sure that any port that is being referenced in a parameter is referenced only once. One port cannot use both digital input and digital output functionality, and will cause BCI2000 to throw an error, saying that the line is RESERVED.</i>
+</p>
+<h4><span class="mw-headline" id="A_Completed_Flag">A Completed Flag</span></h4>
+<p>The following is the completed flag, whose parts were described above:
+</p>
+<center><code>--LogAnaOut="Dev1-0010100000"</code></center>
+<p>The above flag tells the filter that the user wants to use the analog output ports on Device 1, which has 10 ports on it. The user wants to use the 3rd and 5th ports on the device, but leave everything else unused.
+</p>
+<h3><span class="mw-headline" id="BCI2000_Parameters">BCI2000 Parameters</span></h3>
+<p>After the commandline parameters have been set, more parameters may be configured in the Configuration dialog box in BCI2000. Under the header <i>NIDAQFilter</i>, the following parameters MAY appear, as some of them are dependant on flags being used:
+</p>
+<ul><li><b>#OVRanges</b> [ENUMERATION] --&gt; This parameter tells the user if there are multiple output voltage ranges that are acceptable for use. If not, then the parameter will NOT show up. The parameter is activated by the <code>--LogAnaOut</code> flag.</li>
+<li><b>FilterExpressions</b> [MATRIX] --&gt; This parameter allows the user to associate different states to individual output lines on the board. By clicking on the Edit Matrix button, the user will see a list of the lines that are active on the board, and a space to put an expression. This parameter will always show up, regardless of the flags being used.</li></ul>
+<h2><span class="mw-headline" id="States">States</span></h2>
+<h3><span class="mw-headline" id="Template">Template</span></h3>
+<p>The states are constructed in a contextual manner, that is to say, they are created based on the channels that the user decides to use. The template of the state names is shown below:
+</p>
+<center><code><b>NI[device name][A:D]OUTPUT[port number-1]</b></code></center>
+<p>Some key things about the template:
+</p>
+<ul><li>[device name] -&gt; the name of the device to which the port is associated to (for example, if Device 4 is being used, then there will be a state that begins with NIDev4 will exist)</li>
+<li>[A:D] -&gt; analog or digital state (an analog state has a bit width of 16, while a digital state has a bit width of 1). This is dependant on the way the device is being used, and is not settable by the user.</li>
+<li>[port number - 1] -&gt; the number of the port being used (the states begin at port 0, so when port 4 is being used, the number in the state will be 3)</li></ul>
+<h3><span class="mw-headline" id="Example">Example</span></h3>
+<p>If the following parameter list were used as a user's command line parameter:
+</p>
+<center><code>--LogNIDAQout=1 --LogAnaOut="Dev1-00100010100" --LogDigiOut="Dev2-00100001010"</code></center>
+<p>Then the following states would be produced:
+</p>
+<center><code>
+<pre>     NIDev1AOUTPUT2     NIDev1AOUTPUT6     NIDev1AOUTPUT8
+     NIDev2DOUTPUT2     NIDev2DOUTPUT7     NIDev2DOUTPUT9
+</pre>
+</code></center>
+<!-- 
+NewPP limit report
+Cached time: 20230524193518
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.018 seconds
+Real time usage: 0.020 seconds
+Preprocessor visited node count: 57/1000000
+Post‐expand include size: 15/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1989-0!canonical and timestamp 20230524193518 and revision id 7409
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:NIDAQFilter&amp;oldid=7409">http://www.bci2000.org/mediawiki/index.php?title=Contributions:NIDAQFilter&amp;oldid=7409</a>"</div>
+ </div>
+</body>
+</html>

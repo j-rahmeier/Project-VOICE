@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Programming FAQ - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul><li class="toc1">Concepts</li><ul><li class="toc2"><a href="Programming_Reference%253AFilter_Chain.html">Filter Chain</a></li><li class="toc2"><a href="Programming_Reference%253ASignals.html">Signals</a></li><li class="toc2"><a href="Programming_Reference%253AError_Handling.html">Error Handling</a></li><li class="toc2"><a href="Programming_Reference%253ALocalization.html">Localization</a></li><li class="toc2"><a href="Programming_Reference%253ARapid_Development.html">Rapid Development</a></li></ul><li class="toc1">Reference</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFilter_Class.html">GenericFilter</a></li><li class="toc2"><a href="Programming_Reference%253AEnvironment_Class.html">Environment</a></li><li class="toc2"><a href="Programming_Reference%253AGenericVisualization_Class.html">GenericVisualization</a></li><li class="toc2"><a href="Programming_Reference%253AErrors_and_Warnings.html">Errors and Warnings</a></li><li class="toc2"><a href="Programming_Reference%253ADebug_Output.html">Debug Output</a></li></ul><li class="toc1">Data Acquisition</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericADC_Class.html">GenericADC</a></li></ul><li class="toc1">Data Storage</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFileWriter_Class.html">GenericFileWriter</a></li><li class="toc2"><a href="Programming_Reference%253ABCI2000FileReader_Class.html">BCI2000FileReader</a></li></ul><li class="toc1">Signal Processing</li><ul><li class="toc2"><a href="Programming_Reference%253AIIRFilterBase_Class.html">IIR Filters</a></li></ul><li class="toc1">Application Modules</li><ul><li class="toc2"><a href="Programming_Reference%253AApplicationBase_Class.html">ApplicationBase</a></li><li class="toc2"><a href="Programming_Reference%253AFeedbackTask_Class.html">FeedbackTask</a></li><li class="toc2"><a href="Programming_Reference%253AStimulusTask_Class.html">StimulusTask</a></li><li class="toc2"><a href="Programming_Reference%253A3D_API.html">3D API</a></li></ul><li class="toc1">Howtos</li><ul><li class="toc2"><a href="Programming_Howto%253ABuilding_BCI2000.html">Building BCI2000</a></li><li class="toc2"><a href="Programming_Howto%253ASVN_Client_Setup.html">SVN Client Setup</a></li><li class="toc2"><a href="Programming_Howto%253AUsing_TortoiseSVN.html">Using TortoiseSVN</a></li></ul><li class="toc1">FAQ</li><li class="toc1">Tutorials</li><ul><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html">Data Acquisition</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html">Signal Processing</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html">Matlab Signal Processing</a></li></ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">Programming FAQ</h1>
+ <p class = "subtitle"></p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Programming_FAQ.html#Contributing"><span class="tocnumber">1</span> <span class="toctext">Contributing</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Programming_FAQ.html#Debugging"><span class="tocnumber">2</span> <span class="toctext">Debugging</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Programming_FAQ.html#Source_Code_Access"><span class="tocnumber">3</span> <span class="toctext">Source Code Access</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="Programming_FAQ.html#App_Connector"><span class="tocnumber">4</span> <span class="toctext">App Connector</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="Programming_FAQ.html#Getting_Started_with_a_new_Module"><span class="tocnumber">5</span> <span class="toctext">Getting Started with a new Module</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="Programming_FAQ.html#Writing_Filter_Components"><span class="tocnumber">6</span> <span class="toctext">Writing Filter Components</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Contributing">Contributing</span></h2>
+<p>Q: I wrote a piece of software that I would like to add to BCI2000 as a contribution.
+How do I proceed?
+</p><p>A: See <a href="Contributions%253AContents.html#How_to_contribute" title="Contributions:Contents">Contributions:Contents#How to contribute</a> for a suggestion.
+</p>
+<h2><span class="mw-headline" id="Debugging">Debugging</span></h2>
+<p>Q: How do I run a BCI2000 module from a debugger?
+</p><p>A:
+</p>
+<ol><li>Compile the module in debug mode:</li></ol>
+<ul><li>If using Visual Studio, switch to debug mode, right-click the module's project, and choose "Rebuild" from the context menu.</li>
+<li>If building from the command line, re-run the appropriate shell script from the BCI2000/build folder, with <tt>-DCMAKE_BUILD_TYPE=Debug</tt> added as a command-line option, e.g.</li></ul>
+<pre>cd BCI2000/build
+./"Create Unix Makefiles.sh" -DCMAKE_BUILD_TYPE=Debug
+make MySignalProcessing
+</pre>
+<ol><li>Add the # comment indicator in front of the module's startup command in the batch file you are using to start up BCI2000. If you are using BCI2000Launcher, adapt one of the batch files in BCI2000/batch to start up your desired configuration, and use that batch file during debugging.</li>
+<li>Execute the batch file. This will start all required modules except the one you are debugging.</li>
+<li>Run the module in the debugging environment.</li></ol>
+<ul><li>Make sure to run the module with its working directory set to the BCI2000/prog folder, and all command line options (remaining text after the module name, on the same line in the batch file) are present when the module is run.</li>
+<li>In Visual Studio, these settings are accessible under the project's properties, under "General Properties-&gt;Debugging".</li>
+<li>For other IDEs, these settings may be global debugging settings, per-project settings, or optional per-project settings overriding a global default. Look up your IDE's documentation to learn more.</li>
+<li>When using a debugger from the command line, change directory to BCI2000/prog, and run the debugger from there.</li></ul>
+<hr />
+<p>Q: How do I debug a crash in a BCI2000 module?
+</p><p>A: If the crash occurs in an unmodified module coming with BCI2000, we would very much appreciate a bug report containing information about how to trigger it, preferably using parameter and batch files as coming with BCI2000, or with appropriate files attached to the bug report. Bugs may preferably be reported through the <a rel="nofollow" class="external text" href="http://www.bci2000.org/tracproj">trac ticket system</a>  (use the "login" link on the top right, and log in with your BCI2000 user account, then create a bug ticket), but posting on the <a rel="nofollow" class="external text" href="http://www.bci2000.org/phpbb/viewforum.php?f=8">"known issues" forum</a> is also fine. Actual crashes (i.e., issues that lead to termination of a module) will be fixed as soon as possible, which will usually take from a few days up to a couple of weeks.
+</p><p>If the crash occurs in a module that has been modified by adding your own code, or by making changes to existing code, you should first try to reproduce it with an unmodified BCI2000 module that comes closest to your modified module. If the crash only happens in conjunction with your modifications, the following information may be helpful to you:
+</p><p>Recent versions of BCI2000 (&gt;=3.06) provide a feature intended to simplify debugging of program crashes. On crashing, a module that has been compiled in release mode will try its best to provide a list of functions that were involved in the crash ("call stack"). Due to inherent difficulties in obtaining a call stack from optimized code, the call stack may be incomplete, or it may contain a few bogus function names unrelated to the crash. Still, the list of function names, in conjunction with the situation that triggered the crash, will give you a hint towards what went wrong. Chances are that you will find a bug in your code by analyzing the functions listed in the call stack, beginning at the topmost function that was written or modified by yourself.
+</p><p>If there is no call stack available, or you cannot figure out the problem based on the information in the call stack, you will need to build the module in debug mode. This will provide you with an appropriate call stack in the error message, and will allow you to attach the module to a debugger.
+</p>
+<ul><li>Make sure the crashing module is compiled in debug mode, as described in the previous answer.</li>
+<li>On Windows, you need not modify the batch file. Just run BCI2000 as you would normally.</li>
+<li>On other systems, modify the batch file as described in the previous answer, and run it. Then, from a terminal window, change directory to BCI2000/prog, and run the module from the terminal, keeping it in the foreground, e.g. (note there is <i>no</i> ampersand):<pre>./MySignalProcessing --local</pre></li>
+<li>Try to trigger the crash by reproducing the situation in which it occurred originally. If you cannot trigger the crash in debug mode, read the answer to the next question.</li>
+<li>If you succeed, and the module crashes, it will halt execution of the crashing thread, and allow you to attach a debugger.
+<ul><li>On Windows, this is done by displaying a message box.</li>
+<li>On other systems, the module will wait for input on the terminal window where it has been started from.</li></ul></li>
+<li>You may attach a debugger to the module's process. E.g., when using VisualStudio, choose "Attach to Process..." from the Debug menu, and select your module from the list of processes.</li>
+<li>Once attached, tell the debugger to halt process execution. It will stop within a library function that is waiting for user input. Walking up the call stack, ignore all library functions, until you meet either
+<ul><li>a BCIException constructor, or</li>
+<li>a Windows Exception handler from BCI2000's ExceptionCatcher class, or</li>
+<li>a POSIX signal handler from BCI2000's ExceptionCatcher class.</li></ul></li>
+<li>Walking up one more function in the call stack will show you the function in which the crash occurred. If it is a BCI2000 framework function that threw a bciexception, the previous code lines will probably tell you the reason. Otherwise, examination of the crashing line, and the values of the variables used on that line, will provide you with the immediate reason for the crash.</li>
+<li>Walking up the call stack until you hit a function written by yourself will provide you with the origin of the crash in your own code.</li>
+<li>If your own code does not appear in the call stack, you may have hit a bug in the BCI2000 framework, or your own code may have gone astray in ways affecting the BCI2000 framework, e.g. by inadvertently overwriting some memory in use by the framework. If you think that you have found a bug in BCI2000, you may report it <a rel="nofollow" class="external text" href="http://www.bci2000.org/tracproj/newticket">here</a>  (use the "login" link on the top right, and log in with your BCI2000 user account). Your bug report will be most helpful if you add a description how to trigger the bug in one of the modules coming with BCI2000, if necessary with a minimum amount of code added for demonstration purposes. Actually, determining the minimum amount of changes to an existing module in order to trigger a bug is part of the effort you will need to spend on the question whether it was caused by interference with your own code, or not.</li>
+<li>Once you are done analyzing the module's current state, there is no more information to be gained about the cause of the crash. You may simply abort execution from the debugger.</li>
+<li>Alternatively, you may detach the debugger from the module, and press "Enter" in the module's message box, or terminal window. This will cause module termination in the same way as it happens for release builds.</li>
+<li>Either way, make sure to terminate remaining parts of BCI2000 through the Operator module's "Quit" button, as you would do normally. Otherwise, you may see bogus errors caused by incomplete initialization next time you run BCI2000.</li></ul>
+<hr />
+<p>Q: My code runs fine when compiled in debug mode, but crashes in release mode. How is this possible? How may I fix it?
+</p><p>A: You should be aware of the fact that code compiled in debug mode is rather different from code compiled in release mode:
+</p>
+<ul><li><ul><li>it represents your source code in a straightforward way, without any optimizations,</li>
+<li>it contains additional run-time checks which are omitted in release code,</li>
+<li>it contains additional information required by the debugger to associate variable names with memory locations, and machine code locations with lines in source code, and function names.</li></ul></li></ul>
+<p>For these reasons, code compiled in debug mode will be both larger and slower than code compiled in release mode. The absence of optimizations, and presence of run-time checks may not only result in a linear increase in execution time but scaling behavior may be affected as well, e.g., code that runs in linear time in a release build may require quadratic time in a debug build, which may make it practically impossible to test a debug build under production conditions.
+</p><p>Finally, the absence of optimizations has an implication that may be considered most harmful in practice: Namely, there exist bugs which will apparently not exist in debug builds. Such bugs are mostly due to subtleties in the rules of the language you are using -- especially C++ is full of such subtleties, which, as a general rule, one is not aware of, until one's ignorance results in a bug impossible to catch in a debugging session. Compiler optimizations, however, make use of such rules in order to rearrange code in complex ways, or to replace entire portions of code with faster equivalents, even across function boundaries. As a result, the behavior of a debug build will match a naive programmer's idea of what his code should behave like, whereas the behavior of a release build will reflect his violations of the rules.
+</p><p>To find such a bug is obviously difficult. The following may be helpful:
+</p>
+<ul><li>When using MSVC, run a "Release with Debug Info" under the debugger with all exceptions enabled. This may provide you with a name of the function where the crash apparently occurs. Be aware that optimization may choose to replace a function call with the body of the called function itself, so any function called from the crashing function may contain the bug, as well as any of its callees.</li>
+<li>Similarly, on Unix-based systems, the debugger should be able to show function names in release builds if the executable is not stripped by the linker.</li>
+<li>In candidate functions, check each individual line whether it contains function calls or operators within function arguments. Arguments may be evaluated in any order prior to calling a function, and certain orders of evaluation may be faster than others due to utilization of processor resources, so make sure not to depend on that order. E.g., the behavior of <pre>f(a,++a);</pre> will be unspecified in C++ -- the function may be called with two different values, or with the same value in both arguments, depending on the order of evaluation. If unsure, rewrite your code such that only a single function call exists on each line of code, and count each operator as a function call.</li>
+<li>In multithreaded code, make sure that access to data shared between threads is always synchronized with a mutex. This way, you will be sure that the optimizer does not reorder code in a way that interferes with the logic of how your threads interact. Without synchronizers, the optimizer may choose any order of execution that is compatible with single-threaded execution of your code! If you are experienced in a language such as Java and C#, it is important to understand that the <tt>volatile</tt> keyword does have the same meaning in C/C++. Unlike Java and C#, <tt>volatile</tt> in C++ does <i>not</i> imply synchronized access, and presence of <tt>volatile</tt> objects does <i>not</i> prevent an optimizer from rearranging the order of execution.</li>
+<li>Enable compiler warnings, and try to understand why each of those is issued. (Don't try this when using MSVC, though.)</li>
+<li>When using MSVC, use a different compiler with warnings enabled, and try to understand those (gcc/MinGW).</li>
+<li>Try out various optimization settings in the release build in order to identify the type of optimization that triggers the bug.</li></ul>
+<hr />
+<p>Q: I keep getting "Unexpected system state transition 11-&gt;1" error messages from the operator module.
+</p><p>A: Basically, this error means that the operator module receives messages from core modules that 
+are incompatible with its present state, e.g. a module sends a parameter list but the operator 
+module is not in the publishing phase, and thus cannot respond appropriately. 
+Often, this error is caused when one runs a module from the debugger, aborts its execution, and 
+then restarts it. Then, the BCI2000 system as a whole will be in an undefined state. 
+Rather than just restarting a single module, you need to quit BCI2000 from the operator module, 
+and then restart all modules. Similarly, a module may be crashed, and still be running even after
+you quit BCI2000. Check for this in the Task Manager's process view, and kill the runaway module
+from there before restarting BCI2000. Also, if the runaway module is part of the BCI2000 core 
+distribution, we will be glad if you drop us a note <a rel="nofollow" class="external text" href="http://www.bci2000.org/phpbb">on the BBS</a>.
+</p>
+<h2><span class="mw-headline" id="Source_Code_Access">Source Code Access</span></h2>
+<p>Q: When trying to get access to the BCI2000 source code, my user account and password don't work.
+</p><p>A: 
+</p>
+<ul><li>Make sure you are using the Wiki/SVN account information that was sent to you per e-mail, not the BBS account, which is different.</li>
+<li>Make sure your SVN client knows how to do Digest Authentification. Some precompiled SVN versions for Mac OS X have been reported not to work (the Fink distribution should).</li>
+<li>Avoid interference from firewalls by <a href="Programming_Howto%253ASVN_Client_Setup.html" title="Programming Howto:SVN Client Setup">using SSL rather than plain HTTP communication</a>.</li></ul>
+<h2><span class="mw-headline" id="App_Connector">App Connector</span></h2>
+<p>Q: I want to replace the BCI2000 application module with an external application written in
+my favorite programming environment. This should be possible using the <a href="Technical_Reference%253AApp_Connector.html" title="Technical Reference:App Connector">App Connector</a> protocol.
+However, when I replace the application module with an empty dummy one, my external application
+does not get any data.
+</p><p>A: If you are going to use the App Connector, then your application module needs to contain both
+ConnectorInput and ConnectorOutput filter as a minimum configuration.
+</p>
+<h2><span class="mw-headline" id="Getting_Started_with_a_new_Module">Getting Started with a new Module</span></h2>
+<p>Q: How should I begin working on a new BCI2000 module?
+</p><p>A: BCI2000 provides a mechanism to create new BCI2000 modules from templates. To create a new BCI2000 module, run <tt>BCI2000/build/NewBCI2000Module</tt>; for a new filter, run <tt>BCI2000/build/NewBCI2000Filter</tt>. Both executables will only be present when you have built BCI2000 first as described <a href="Programming_Reference%253ABuild_System.html" class="mw-redirect" title="Programming Reference:Build System">here</a>.
+</p>
+<h2><span class="mw-headline" id="Writing_Filter_Components">Writing Filter Components</span></h2>
+<p>Q: I would like to write my own signal processing filter. Where is a good place to start?
+</p><p>A: Writing your own signal processing filter itself is described at: 
+<a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html" title="Programming Tutorial:Implementing a Signal Processing Filter">Programming Tutorial:Implementing a Signal Processing Filter</a>.
+</p><p>General information on signal processing modules is found at
+<a href="Technical_Reference%253ACore_Modules.html#Signal_Processing_Module" title="Technical Reference:Core Modules">Technical Reference:Core Modules#Signal Processing Module</a> and <a href="User_Reference%253AFilters.html" title="User Reference:Filters">User Reference:Filters</a>.
+</p>
+<hr />
+<p>Q: I wrote a signal processing filter, data acquisition component (ADC filter), or 
+data format component (FileWriter). I added its cpp file to the appropriate module,
+everything compiles and links fine, but I cannot use it -- everything appears as if the new
+component were nonexistent. What is wrong?
+</p><p>A: Make sure that your component is instantiated. 
+</p>
+<ul><li>For source and application components, make sure that there is a line <tt>RegisterFilter( YourFilterClassName, Position );</tt> somewhere in its cpp file (preferably at the top, following <tt>#include</tt> statements).</li>
+<li>For signal processing filters, make sure that your filter is listed in the signal module's PipeDefinition.cpp as a statement <tt>Filter( YourFilterClassname, Position );</tt></li></ul>
+<!-- 
+NewPP limit report
+Cached time: 20230524001207
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.020 seconds
+Real time usage: 0.023 seconds
+Preprocessor visited node count: 48/1000000
+Post‐expand include size: 60/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 153/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1773-0!canonical and timestamp 20230524001207 and revision id 7124
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Programming_FAQ&amp;oldid=7124">http://www.bci2000.org/mediawiki/index.php?title=Programming_FAQ&amp;oldid=7124</a>"</div>
+ </div>
+</body>
+</html>

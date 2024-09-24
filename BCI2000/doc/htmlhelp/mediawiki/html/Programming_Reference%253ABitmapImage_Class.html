@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Programming Reference:BitmapImage Class - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul><li class="toc1">Concepts</li><ul><li class="toc2"><a href="Programming_Reference%253AFilter_Chain.html">Filter Chain</a></li><li class="toc2"><a href="Programming_Reference%253ASignals.html">Signals</a></li><li class="toc2"><a href="Programming_Reference%253AError_Handling.html">Error Handling</a></li><li class="toc2"><a href="Programming_Reference%253ALocalization.html">Localization</a></li><li class="toc2"><a href="Programming_Reference%253ARapid_Development.html">Rapid Development</a></li></ul><li class="toc1">Reference</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFilter_Class.html">GenericFilter</a></li><li class="toc2"><a href="Programming_Reference%253AEnvironment_Class.html">Environment</a></li><li class="toc2"><a href="Programming_Reference%253AGenericVisualization_Class.html">GenericVisualization</a></li><li class="toc2"><a href="Programming_Reference%253AErrors_and_Warnings.html">Errors and Warnings</a></li><li class="toc2"><a href="Programming_Reference%253ADebug_Output.html">Debug Output</a></li></ul><li class="toc1">Data Acquisition</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericADC_Class.html">GenericADC</a></li></ul><li class="toc1">Data Storage</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFileWriter_Class.html">GenericFileWriter</a></li><li class="toc2"><a href="Programming_Reference%253ABCI2000FileReader_Class.html">BCI2000FileReader</a></li></ul><li class="toc1">Signal Processing</li><ul><li class="toc2"><a href="Programming_Reference%253AIIRFilterBase_Class.html">IIR Filters</a></li></ul><li class="toc1">Application Modules</li><ul><li class="toc2"><a href="Programming_Reference%253AApplicationBase_Class.html">ApplicationBase</a></li><li class="toc2"><a href="Programming_Reference%253AFeedbackTask_Class.html">FeedbackTask</a></li><li class="toc2"><a href="Programming_Reference%253AStimulusTask_Class.html">StimulusTask</a></li><li class="toc2"><a href="Programming_Reference%253A3D_API.html">3D API</a></li></ul><li class="toc1">Howtos</li><ul><li class="toc2"><a href="Programming_Howto%253ABuilding_BCI2000.html">Building BCI2000</a></li><li class="toc2"><a href="Programming_Howto%253ASVN_Client_Setup.html">SVN Client Setup</a></li><li class="toc2"><a href="Programming_Howto%253AUsing_TortoiseSVN.html">Using TortoiseSVN</a></li></ul><li class="toc1"><a href="Programming_FAQ.html">FAQ</a></li><li class="toc1">Tutorials</li><ul><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html">Data Acquisition</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html">Signal Processing</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html">Matlab Signal Processing</a></li></ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">BitmapImage Class</h1>
+ <p class = "subtitle">Programming Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Programming_Reference%253ABitmapImage_Class.html#Location"><span class="tocnumber">1</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Programming_Reference%253ABitmapImage_Class.html#Synopsis"><span class="tocnumber">2</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Programming_Reference%253ABitmapImage_Class.html#Methods"><span class="tocnumber">3</span> <span class="toctext">Methods</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Programming_Reference%253ABitmapImage_Class.html#BitmapImage.28width.3D0.2C_height.3D0.29"><span class="tocnumber">3.1</span> <span class="toctext">BitmapImage(width=0, height=0)</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Programming_Reference%253ABitmapImage_Class.html#SetBlack.28.29"><span class="tocnumber">3.2</span> <span class="toctext">SetBlack()</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Programming_Reference%253ABitmapImage_Class.html#SetBackground.28BitmapImage.29"><span class="tocnumber">3.3</span> <span class="toctext">SetBackground(BitmapImage)</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="Programming_Reference%253ABitmapImage_Class.html#WriteBinary.28ostream.29.2C_ReadBinary.28istream.29"><span class="tocnumber">3.4</span> <span class="toctext">WriteBinary(ostream), ReadBinary(istream)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="Programming_Reference%253ABitmapImage_Class.html#Properties"><span class="tocnumber">4</span> <span class="toctext">Properties</span></a>
+<ul>
+<li class="toclevel-2 tocsection-9"><a href="Programming_Reference%253ABitmapImage_Class.html#bool_Empty_.28r.29"><span class="tocnumber">4.1</span> <span class="toctext">bool Empty (r)</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="Programming_Reference%253ABitmapImage_Class.html#int_Width.2C_Height_.28r.29"><span class="tocnumber">4.2</span> <span class="toctext">int Width, Height (r)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-11"><a href="Programming_Reference%253ABitmapImage_Class.html#Pixel_Access"><span class="tocnumber">5</span> <span class="toctext">Pixel Access</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="Programming_Reference%253ABitmapImage_Class.html#Addition_and_Subtraction"><span class="tocnumber">6</span> <span class="toctext">Addition and Subtraction</span></a></li>
+<li class="toclevel-1 tocsection-13"><a href="Programming_Reference%253ABitmapImage_Class.html#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><tt>src/shared/types</tt>
+</p>
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>A <tt>BitmapImage</tt> object represents a 15-bit color pixel image, supporting the following operations:
+</p>
+<ul><li>Manipulation of individual pixel values,</li>
+<li>Stream reading/writing in run-length compressed form,</li>
+<li>Addition/subtraction to support temporal compression of image sequences,</li>
+<li>Masked copying, using the otherwise unused 16th bit of the color value as a mask.</li></ul>
+<h2><span class="mw-headline" id="Methods">Methods</span></h2>
+<h3><span id="BitmapImage(width=0,_height=0)"></span><span class="mw-headline" id="BitmapImage.28width.3D0.2C_height.3D0.29">BitmapImage(width=0, height=0)</span></h3>
+<p>The constructor allocates storage for the specified dimensions, and initializes the image to black.
+</p>
+<h3><span id="SetBlack()"></span><span class="mw-headline" id="SetBlack.28.29">SetBlack()</span></h3>
+<p>Clears all pixels, setting them to black.
+</p>
+<h3><span id="SetBackground(BitmapImage)"></span><span class="mw-headline" id="SetBackground.28BitmapImage.29">SetBackground(BitmapImage)</span></h3>
+<p>This function replaces an image's "background" with pixels from the image specified as argument. "Background" pixels are pixels with the most significant bit set to 1.
+</p>
+<h3><span id="WriteBinary(ostream),_ReadBinary(istream)"></span><span class="mw-headline" id="WriteBinary.28ostream.29.2C_ReadBinary.28istream.29">WriteBinary(ostream), ReadBinary(istream)</span></h3>
+<p>Writes/reads the image's data to or from the specified streams. An image's stream representation is always run-length encoded, which is especially efficient in conjunction with temporal compression, i.e. sending sequences of difference images.
+</p>
+<h2><span class="mw-headline" id="Properties">Properties</span></h2>
+<h3><span id="bool_Empty_(r)"></span><span class="mw-headline" id="bool_Empty_.28r.29">bool Empty (r)</span></h3>
+<p><i>True</i> if at least one of the image's dimensions is 0.
+</p>
+<h3><span id="int_Width,_Height_(r)"></span><span class="mw-headline" id="int_Width.2C_Height_.28r.29">int Width, Height (r)</span></h3>
+<p>The image's width and height in pixels.
+</p>
+<h2><span class="mw-headline" id="Pixel_Access">Pixel Access</span></h2>
+<p>Access to individual pixels is provided via an index operator taking x and y coordinate as arguments:
+</p>
+<pre>BitmapImage myImage( 10, 10 );
+myImage( 3, 4 ) = RGBColor::Red;
+RGBColor myPixel = myImage( 5, 6 );
+</pre>
+<h2><span class="mw-headline" id="Addition_and_Subtraction">Addition and Subtraction</span></h2>
+<p>Computing difference images, and restoring original images from a reference frame followed with difference frames, is possible using addition and subtraction:
+</p>
+<pre> BitmapImage image1, image2;
+ BitmapImage diff = image1 - image2;
+ diff += image2;
+</pre>
+<p>Note that pixels in difference images do not represent differences of individual color values; rather, difference images are computed by treating pixel values as signed 16-bit integers, and subtracting the second image's pixel data from the first one's.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Programming_Reference%253AGraphDisplay_Class.html" title="Programming Reference:GraphDisplay Class">Programming Reference:GraphDisplay Class</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524011548
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.014 seconds
+Real time usage: 0.017 seconds
+Preprocessor visited node count: 38/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1866-0!canonical and timestamp 20230524011548 and revision id 4759
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:BitmapImage_Class&amp;oldid=4759">http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:BitmapImage_Class&amp;oldid=4759</a>"</div>
+ </div>
+</body>
+</html>

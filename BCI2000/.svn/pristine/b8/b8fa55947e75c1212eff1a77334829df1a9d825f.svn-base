@@ -1,0 +1,242 @@
+==Synopsis==
+BCI2000RemoteNET is a library for controlling BCI2000 from .NET programs such as Unity. With C# top-level declarations, it can also be used as a replacement for [[User Reference:BCI2000Shell]] with the added step of compilation via [https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/compiler-options/ <code>csc</code>]. 
+
+==Operation==
+
+BCI2000RemoteNET communicates with the BCI2000 Operator via [[User Reference:Operator Module Scripting|operator module scripting commands]], which are sent as text over TCP to a running Operator. It also provides functionality for starting the Operator directly, so it can control the Operator entirely from startup to shutdown. 
+
+BCI2000RemoteNET consists of two classes, <code>BCI2000Connection</code>, which provides the basic functionality necessary for starting and communicating with BCI2000, and <code>BCI2000Remote</code>, which provides a set of methods for controlling a BCI2000 experiment, such as interacting with parameters and events, as well as starting modules and experiments.
+
+BCI2000RemoteNET comes in two versions, targeting .NET 8.0 and .NET Standard 2.1. This is due to compatibility with programs such as Unity, which require .NET Standard binaries. There is little difference in functionality between the two versions, other than the behavior of the <code>Execute()</code> method, whose differences are described below.
+
+==Documentation==
+Documentation for the classes can be found here:
+
+====.NET 8.0====
+[https://bci2000.org/BCI2000RemoteNET/net8/classBCI2000RemoteNET_1_1BCI2000Connection.html BCI2000Connection]
+
+[https://bci2000.org/BCI2000RemoteNET/net8/classBCI2000RemoteNET_1_1BCI2000Remote.html BCI2000Remote]
+
+====.NET Standard 2.1====
+[https://bci2000.org/BCI2000RemoteNET/netstandard2/classBCI2000RemoteNET_1_1BCI2000Connection.html BCI2000Connection]
+
+[https://bci2000.org/BCI2000RemoteNET/netstandard2/classBCI2000RemoteNET_1_1BCI2000Remote.html BCI2000Remote]
+
+==Installation==
+Acquire the latest binary from [https://github.com/neurotechcenter/BCI2000RemoteNET GitHub], or build from source from the source code on GitHub or in the main BCI2000 Subversion repository (Keep in mind that the version in the Subversion repository will likely be behind the version on GitHub.)
+
+==Usage==
+====Starting the operator====
+If you plan on starting the operator separately, skip this step, but make sure to start the operator with its <code>--Telnet</code> option set.
+
+In order to start the operator, call the <code>BCI2000Connection.StartOperator</code> method with the path to your BCI2000 Operator executable.
+<pre>
+BCI2000Connection conn = new BCI2000Connection();
+conn.StartOperator("Path/To/BCI2000/prog/Operator.exe");
+</pre>
+
+By default, this will start an operator listening on <code>127.0.0.1:3999</code>. You can also set the Operator to listen on another port:
+<pre>
+conn.StartOperator("path", port: 51101);
+</pre>
+
+Or if you wish to accept connections from other computers you can set BCI2000 to listen on all addresses:
+<pre>
+conn.StartOperator("path", address: "0.0.0.0");
+</pre>
+
+Or listen on a specific network interface:
+<pre>
+conn.StartOperator("path", address: "10.11.198.2");
+</pre>
+
+
+====Connecting to the operator====
+Connect to the operator with the <code>BCI2000Connection.Connect()</code> method. If you started a local operator with default settings, then you can call <code>Connect</code> with its default parameters, which will connect to the operator at <code>127.0.0.1:3999</code>. If you are connecting to an operator on another machine, say at IP address <code>11.11.11.11</code>,or one listening on a port other than 3999, call <code>Connect()</code> with its optional parameters.
+Please see the [[#Note On Security]] for an important caveat of setting a non-default parameter here.
+
+<pre>
+BCI2000Connection conn = new BCI2000Connection();
+
+//Connect to operator on the same machine on the default port.
+conn.Connect();
+
+//Connect to operator at address 11.11.11.11:3999
+conn.Connect(address: "11.11.11.11");
+
+</pre>
+
+====Adding parameters and events====
+At this point you can add parameters and events to BCI2000. 
+Parameters are values which can be changed in the BCI2000 GUI and can be used to change how experiments behave.
+Parameters can either be loaded from a file:
+<pre>
+  //path is relative to the Operator's working directory, that is, the /prog directory of the BCI2000 installation
+  bci.LoadParameters("path/to/parameterfile.prm");
+</pre>
+or added individually:
+<pre>
+  //Parameter in the ParamArea section within the Application tab, with default value 0 
+  bci.AddParameter("Application:ParamArea", "Param", "0");
+  //Parameter in the ParamArea section within the Application tab, with default value "Green" 
+  bci.AddParameter("Application:ParamArea", "Param2", "Green");
+  //Parameter in the ParamArea2 section within the Application tab, with default value 0 and range 0-10
+  bci.AddParameter("Application:ParamArea", "Param3", "0", "0", "10");
+</pre>
+
+Events are values logged by BCI2000 alongside the signal data. They have a temporal resolution equivalent to the sample rate, and can be set and read throughout data collection.
+Events are unsigned integers with a bit width between 1 and 32:
+<pre>
+  //An event called "condition" representing a boolean value with possible values 0 and 1. Will be zero by default.
+  bci.AddEvent("condition", 1);
+  //An 32-bit event with default value 100, and range 0 to 2^32 - 1.
+  bci.AddEvent("value1", 32, 100);
+</pre>
+
+====Starting BCI2000 Modules====
+BCI2000 modules are started using the <code>StartModules()</code> method, given a dictionary of module names and argument lists. For example, to open SignalGenerator, DummySignalProcessing, and DummyApplication with keyboard and mouse logging:
+<pre>
+bci.StartupModules(new Dictionary<string, List<string>?>()
+  {
+    {"SignalGenerator", new List<string>() {"LogKeyboard=1", "LogMouse=1"}},
+    {"DummySignalProcessing", null},
+    {"DummyApplication", null}
+  });
+</pre>
+
+====Setting Parameters and Visualizing Values====
+If using BCI2000RemoteNET as a substitute for BCI2000Shell for setting up the basic environment, this would usually be where you continue using BCI2000 through its own GUI.
+
+At this point parameters can be set via <code>SetParameter</code>, for example, setting up experiment parameters:
+<pre>
+  bci.SetParameter("DataDirectory", "../data/theDirectory");
+  bci.SetParameter("SubjectName", "APatient");
+  bci.SetParameter("SubjectSession", "004");
+</pre>
+
+You can also set values such as events to be shown in a graph view. 
+For example, since we set the source module to start with mouse logging enabled, we can view the values of the mouse position events.
+<pre>
+  bci.Visualize("MousePosX");
+  bci.Visualize("MousePosY");
+</pre>
+We can also visualize the events we added earlier.
+<pre>
+  bci.Visualize("condition");
+  bci.Visualize("value1");
+</pre>
+
+====Collecting Data====
+Start collecting data with the <code>Start()</code> method. This will implicitly call <code>SetConfig()</code>, but it can be called separately as well.
+<pre>
+  bci.Start();
+</pre>
+If you instead want to start BCI2000 through the GUI, and wait for it in this program, you can instead wait for BCI2000 to be in the <code>Running</code> state.
+<pre>
+  bci.WaitForSystemState(BCI2000Remote.SystemState.Running);
+</pre>
+
+During a run you can interact with BCI2000 by setting event variables:
+<pre>
+  bci.SetEvent("value1", 400);
+</pre>
+
+You can also pulse events, setting their value for one sample duration before setting them back.
+<pre>
+  bci.PulseEvent("condition", 1);
+</pre>
+
+You can also get values from BCI2000. As we set the source module to log the mouse position earlier, we can retrieve its value via <code>GetEvent()</code>.
+<pre>
+  uint mousePositionX = bci.GetEvent("MousePosX");
+  uint mousePositionY = bci.GetEvent("MousePosY");
+</pre>
+
+You can also retrieve the value of the hardware signal. 
+<pre>
+  //Get value of element 2 of channel 1 of signal
+  double signal11 = bci.GetSignal(1, 2);X");
+</pre>
+
+====Stopping BCI2000====
+When you are finished collecting data, stop BCI2000 with the <code>BCI2000Connection.Stop()</code> method.
+<pre>
+  bci.connection.Stop();
+</pre>
+
+You can also shut down BCI2000.
+<pre>
+  bci.connection.Quit();
+</pre>
+
+If you instead want to stop BCI2000 via the GUI, you can wait for the system to be in the <code>Suspended</code> state. 
+<pre>
+  bci.WaitForSystemState(BCI2000Remote.SystemState.Connected);
+</pre>
+
+Or if you want to poll the system state repeatedly (in a loop, for example);
+<pre>  
+ bool loop = true;
+  while (loop) {
+    ...
+    if (bci.GetSystemState() == BCI2000Remote.SystemState.Suspended) {
+      loop = false;
+    }
+  }
+</pre>
+
+==Examples==
+Embedding BCI2000RemoteNET within another program is largely covered above, so this section focuses on alternative usecases.
+
+====Using BCI2000RemoteNET as a substitute for BCI2000Shell====
+BCI2000RemoteNET can be used as a replacement for BCI2000Shell when starting up BCI2000, if you need more advanced language capabilities than what the operator scripting language can provide.
+
+This is the existing startup script for the Stimulus Presentation task with the software Signal Generator.
+<pre>/batch/StimulusPresentation_SignalGenerator.bat</pre>
+<pre>
+#! ../prog/BCI2000Shell
+@cls & ..\prog\BCI2000Shell %0 %* #! && exit /b 0 || exit /b 1\n
+Change directory $BCI2000LAUNCHDIR
+Show window; Set title ${Extract file base $0}
+Reset system
+Startup system localhost
+Start executable SignalGenerator --local --LogKeyboard=1 --SpinningWheel=1 --ShowDisplayStatistics=1
+Start executable P3SignalProcessing --local
+Start executable StimulusPresentation --local
+Wait for Connected
+Load parameterfile "../parms/examples/StimulusPresentation_SignalGenerator.prm"
+</pre>
+
+This is the equivalent C# code using BCI2000RemoteNET:
+<pre>/batch/StimulusPresentation_SignalGenerator.cs</pre>
+<pre>
+using BCI2000RemoteNET;
+using System.RuntimeInformation.InteropServices;
+BCI2000Remote bci = new(new BCI2000Connection());
+bool isWindows = RuntimeInformation.IsOSPlatform(OSPlatform.Windows);
+bci.connection.StartOperator("../prog/Operator" + isWindows ? ".exe" : ""); //Add file extension if on windows 
+bci.connection.Connect();
+bci.LoadParameters("../parms/examples/StimulusPresentation_SignalGenerator.prm");
+bci.StartupModules(new() {
+	{"SignalGenerator", new() {"LogKeyboard=1", "SpinningWheel=1", "ShowDisplayStatistics=1"}},
+	{"P3SignalProcessing", null}
+	{"StimulusPresentation", null}
+	});
+</pre> 
+
+C# startup scripts have access to all of the constructs of the C# language, so different actions can be taken depending on conditions such as the operating system, as seen in the above script, or take other input such as command line options.
+
+This startup script can then be compiled to a .NET executable:
+Windows:
+<code>csc.exe /r:"path/to/BCI2000RemoteNET.dll" StimulusPresentation_SignalGenerator.cs</code>
+Non-Windows:
+</code>csc /r:"path/to/BCI2000RemoteNET.dll" StimulusPresentation_SignalGenerator.cs</code>
+
+The resulting executable can be run directly on Windows:
+<code>./StimulusPresentation_SignalGenerator.exe</code>
+or via Mono on other platforms:
+<code>mono ./StimulusPresentation_SignalGenerator.exe</code>
+
+==Note On Security==
+The BCI2000 command line interface can be used to run arbitrary system shell commands. It is also entirely unsecured and unencrypted. Anyone who has access to it effectively has full access to the computer on which it runs. This is not a problem if running locally, and is generally not a problem if running on a firewalled local network. However, due to the unsecured nature of the interface, running BCI2000 across the internet is highly discouraged. That is, if you set BCI2000 to listen at an address of an external network interface, or to listen at all connections by passing the address <code>0.0.0.0</code>, make sure that port 3999 (or whichever port BCI2000 is listening on), is not forwarded beyond the local network by your router. Support for interfacing with BCI2000 over TLS is planned, so that safe connection can be made over the internet.
+

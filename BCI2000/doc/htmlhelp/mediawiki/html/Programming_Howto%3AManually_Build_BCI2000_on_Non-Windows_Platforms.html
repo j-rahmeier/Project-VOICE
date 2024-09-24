@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Programming Howto:Manually Build BCI2000 on Non-Windows Platforms - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul><li class="toc1">Concepts</li><ul><li class="toc2"><a href="Programming_Reference%253AFilter_Chain.html">Filter Chain</a></li><li class="toc2"><a href="Programming_Reference%253ASignals.html">Signals</a></li><li class="toc2"><a href="Programming_Reference%253AError_Handling.html">Error Handling</a></li><li class="toc2"><a href="Programming_Reference%253ALocalization.html">Localization</a></li><li class="toc2"><a href="Programming_Reference%253ARapid_Development.html">Rapid Development</a></li></ul><li class="toc1">Reference</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFilter_Class.html">GenericFilter</a></li><li class="toc2"><a href="Programming_Reference%253AEnvironment_Class.html">Environment</a></li><li class="toc2"><a href="Programming_Reference%253AGenericVisualization_Class.html">GenericVisualization</a></li><li class="toc2"><a href="Programming_Reference%253AErrors_and_Warnings.html">Errors and Warnings</a></li><li class="toc2"><a href="Programming_Reference%253ADebug_Output.html">Debug Output</a></li></ul><li class="toc1">Data Acquisition</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericADC_Class.html">GenericADC</a></li></ul><li class="toc1">Data Storage</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFileWriter_Class.html">GenericFileWriter</a></li><li class="toc2"><a href="Programming_Reference%253ABCI2000FileReader_Class.html">BCI2000FileReader</a></li></ul><li class="toc1">Signal Processing</li><ul><li class="toc2"><a href="Programming_Reference%253AIIRFilterBase_Class.html">IIR Filters</a></li></ul><li class="toc1">Application Modules</li><ul><li class="toc2"><a href="Programming_Reference%253AApplicationBase_Class.html">ApplicationBase</a></li><li class="toc2"><a href="Programming_Reference%253AFeedbackTask_Class.html">FeedbackTask</a></li><li class="toc2"><a href="Programming_Reference%253AStimulusTask_Class.html">StimulusTask</a></li><li class="toc2"><a href="Programming_Reference%253A3D_API.html">3D API</a></li></ul><li class="toc1">Howtos</li><ul><li class="toc2"><a href="Programming_Howto%253ABuilding_BCI2000.html">Building BCI2000</a></li><li class="toc2"><a href="Programming_Howto%253ASVN_Client_Setup.html">SVN Client Setup</a></li><li class="toc2"><a href="Programming_Howto%253AUsing_TortoiseSVN.html">Using TortoiseSVN</a></li></ul><li class="toc1"><a href="Programming_FAQ.html">FAQ</a></li><li class="toc1">Tutorials</li><ul><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html">Data Acquisition</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html">Signal Processing</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html">Matlab Signal Processing</a></li></ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">Manually Build BCI2000 on Non-Windows Platforms</h1>
+ <p class = "subtitle">Programming Howto</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Programming_Howto%253AManually_Build_BCI2000_on_Non-Windows_Platforms.html#Installing_Dependencies"><span class="tocnumber">1</span> <span class="toctext">Installing Dependencies</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Programming_Howto%253AManually_Build_BCI2000_on_Non-Windows_Platforms.html#Configure_BCI2000_for_Compilation"><span class="tocnumber">2</span> <span class="toctext">Configure BCI2000 for Compilation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="Programming_Howto%253AManually_Build_BCI2000_on_Non-Windows_Platforms.html#Run_the_CMake_GUI"><span class="tocnumber">2.1</span> <span class="toctext">Run the CMake GUI</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="Programming_Howto%253AManually_Build_BCI2000_on_Non-Windows_Platforms.html#Tell_CMake_which_Qt_installation_to_use"><span class="tocnumber">2.2</span> <span class="toctext">Tell CMake which Qt installation to use</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Programming_Howto%253AManually_Build_BCI2000_on_Non-Windows_Platforms.html#Perform_the_configuration_step"><span class="tocnumber">2.3</span> <span class="toctext">Perform the configuration step</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Programming_Howto%253AManually_Build_BCI2000_on_Non-Windows_Platforms.html#Choose_Build_Options"><span class="tocnumber">2.4</span> <span class="toctext">Choose Build Options</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="Programming_Howto%253AManually_Build_BCI2000_on_Non-Windows_Platforms.html#Generate_Makefiles"><span class="tocnumber">2.5</span> <span class="toctext">Generate Makefiles</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="Programming_Howto%253AManually_Build_BCI2000_on_Non-Windows_Platforms.html#Compile_BCI2000"><span class="tocnumber">3</span> <span class="toctext">Compile BCI2000</span></a>
+<ul>
+<li class="toclevel-2 tocsection-9"><a href="Programming_Howto%253AManually_Build_BCI2000_on_Non-Windows_Platforms.html#Open_Terminal"><span class="tocnumber">3.1</span> <span class="toctext">Open Terminal</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="Programming_Howto%253AManually_Build_BCI2000_on_Non-Windows_Platforms.html#Build_Makefiles"><span class="tocnumber">3.2</span> <span class="toctext">Build Makefiles</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Installing_Dependencies">Installing Dependencies</span></h2>
+<p>There are three dependencies that need to be installed before you can compile BCI2000:
+</p>
+<ul><li>ffmpeg (version 4.4.1, version 5 does not work with BCI2000)</li>
+<li>portaudio</li>
+<li>sdl2</li></ul>
+<p>These can be installed using the 
+</p>
+<pre>install_dependencies
+</pre>
+<p>script in the BCI2000 home directory. This will automatically detect your homebrew or it will download a portable version of homebrew in your BCI2000 directory. Then it will install the necessary dependencies. Alternatively, you can manually install them, and they will be automatically detected by CMake. If you have already installed homebrew, this can be done with
+</p>
+<pre>brew install ffmpeg@4
+brew link ffmpeg@4
+brew install portaudio
+brew install sdl2
+</pre>
+<h2><span class="mw-headline" id="Configure_BCI2000_for_Compilation">Configure BCI2000 for Compilation</span></h2>
+<h3><span class="mw-headline" id="Run_the_CMake_GUI">Run the CMake GUI</span></h3>
+<p>Double-click "Configure.sh.cmd" in your BCI2000 build directory.
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:Cmake-init-non-windows.png" class="image"><img alt="Cmake-init-non-windows.png" src="../images/thumb/5/53/Cmake-init-non-windows.png/700px-Cmake-init-non-windows.png" decoding="async" width="700" height="720" srcset="../images/thumb/5/53/Cmake-init-non-windows.png/1050px-Cmake-init-non-windows.png 1.5x, ../images/thumb/5/53/Cmake-init-non-windows.png/1400px-Cmake-init-non-windows.png 2x" /></a>
+</p>
+<h3><span class="mw-headline" id="Tell_CMake_which_Qt_installation_to_use">Tell CMake which Qt installation to use</span></h3>
+<p>Click "AddEntry" in the CMake window (<i>Note that checking off "Advanced" in Cmake is optional and does not impact the compilation</i>) and enter the path to a Qt directory. If you installed Qt with homebrew, this can be found with
+</p>
+<pre>brew list qt@5
+</pre>
+<p>The installation directory is only the part of the paths that are
+</p>
+<pre>.../hombrew/Cellar/qt@5/&lt;version&gt;
+</pre>
+<p>Use everything up to the version and nothing past it.
+Use CMAKE_PREFIX_PATH as the name for the new entry. Be aware that the entry's name is case sensitive. <b>Currently, on non-windows platform, Qt 5 is the only version that is supported.</b>
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:Cmake-add-cache-non-windows.png" class="image"><img alt="Cmake-add-cache-non-windows.png" src="../images/thumb/0/02/Cmake-add-cache-non-windows.png/700px-Cmake-add-cache-non-windows.png" decoding="async" width="700" height="465" srcset="../images/0/02/Cmake-add-cache-non-windows.png 1.5x" /></a>
+</p>
+<h3><span class="mw-headline" id="Perform_the_configuration_step">Perform the configuration step</span></h3>
+<p>In the CMake window, click "Configure" and choose a generator that is consistent with your compiler. This tutorial will be using Unix Makefiles. Then click "Done" to perform the configuration step. 
+<a href="https://www.bci2000.org/mediawiki/index.php/File:Cmake-generators-non-windows.png" class="image"><img alt="Cmake-generators-non-windows.png" src="../images/thumb/f/f0/Cmake-generators-non-windows.png/700px-Cmake-generators-non-windows.png" decoding="async" width="700" height="481" srcset="../images/thumb/f/f0/Cmake-generators-non-windows.png/1050px-Cmake-generators-non-windows.png 1.5x, ../images/thumb/f/f0/Cmake-generators-non-windows.png/1400px-Cmake-generators-non-windows.png 2x" /></a>
+<br />You will see a list of targets scrolling by, and a number of new entries in the variable list at the top of the window, marked in red.
+</p>
+<h3><span class="mw-headline" id="Choose_Build_Options">Choose Build Options</span></h3>
+<p>Make sure the "Grouped" checkbox is checked, and configure the build by customizing values in the "BUILD" group, "EXTENSIONS" group,  and "USE" group. 
+<a href="https://www.bci2000.org/mediawiki/index.php/File:Cmake-configured-non-windows.png" class="image"><img alt="Cmake-configured-non-windows.png" src="../images/thumb/6/67/Cmake-configured-non-windows.png/700px-Cmake-configured-non-windows.png" decoding="async" width="700" height="720" srcset="../images/thumb/6/67/Cmake-configured-non-windows.png/1050px-Cmake-configured-non-windows.png 1.5x, ../images/thumb/6/67/Cmake-configured-non-windows.png/1400px-Cmake-configured-non-windows.png 2x" /></a>
+</p>
+<h3><span class="mw-headline" id="Generate_Makefiles">Generate Makefiles</span></h3>
+<p>Then, click "Generate" to create build files. When CMake displays its "Generating done" message, your BCI2000 build directory will now contain a Makefile (or a project file for your compiler of chioce), as well as a number of additional CMake-generated files.
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:Cmake-done-non-windows.png" class="image"><img alt="Cmake-done-non-windows.png" src="../images/thumb/5/51/Cmake-done-non-windows.png/700px-Cmake-done-non-windows.png" decoding="async" width="700" height="720" srcset="../images/thumb/5/51/Cmake-done-non-windows.png/1050px-Cmake-done-non-windows.png 1.5x, ../images/thumb/5/51/Cmake-done-non-windows.png/1400px-Cmake-done-non-windows.png 2x" /></a>
+</p>
+<h2><span class="mw-headline" id="Compile_BCI2000">Compile BCI2000</span></h2>
+<h3><span class="mw-headline" id="Open_Terminal">Open Terminal</span></h3>
+<p>Open a new terminal window and navigate to your BCI2000 build directory.
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:Terminal-bulid-directory-non-windows.png" class="image"><img alt="Terminal-bulid-directory-non-windows.png" src="../images/thumb/a/af/Terminal-bulid-directory-non-windows.png/700px-Terminal-bulid-directory-non-windows.png" decoding="async" width="700" height="487" srcset="../images/thumb/a/af/Terminal-bulid-directory-non-windows.png/1050px-Terminal-bulid-directory-non-windows.png 1.5x, ../images/thumb/a/af/Terminal-bulid-directory-non-windows.png/1400px-Terminal-bulid-directory-non-windows.png 2x" /></a>
+</p>
+<h3><span class="mw-headline" id="Build_Makefiles">Build Makefiles</span></h3>
+<p>Run:
+</p>
+<pre>make
+</pre>
+<p>from your BCI2000 build directory. Once this is finished your BCI2000 prog directory will contain a number of executables, one for each module, plus a few helper executables. Not everything works the same or, in some cases, at all on non-windows platforms. See, <a href="Non-Windows_Functionality.html" title="Non-Windows Functionality">Non-Windows Functionality</a> for more information.
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:Make-done-non-windows.png" class="image"><img alt="Make-done-non-windows.png" src="../images/thumb/9/9c/Make-done-non-windows.png/700px-Make-done-non-windows.png" decoding="async" width="700" height="487" srcset="../images/thumb/9/9c/Make-done-non-windows.png/1050px-Make-done-non-windows.png 1.5x, ../images/thumb/9/9c/Make-done-non-windows.png/1400px-Make-done-non-windows.png 2x" /></a>
+</p><p>The build process is now complete. Run 
+</p>
+<pre>make
+</pre>
+<p>again to recompile. Or
+</p>
+<pre>make &lt;target&gt;
+</pre>
+<p>to recompile only a specific target.
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524001159
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.026 seconds
+Real time usage: 0.033 seconds
+Preprocessor visited node count: 35/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2511-0!canonical and timestamp 20230524001159 and revision id 9932
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Programming_Howto:Manually_Build_BCI2000_on_Non-Windows_Platforms&amp;oldid=9932">http://www.bci2000.org/mediawiki/index.php?title=Programming_Howto:Manually_Build_BCI2000_on_Non-Windows_Platforms&amp;oldid=9932</a>"</div>
+ </div>
+</body>
+</html>

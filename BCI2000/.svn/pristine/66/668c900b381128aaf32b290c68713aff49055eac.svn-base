@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>User Reference:SourceFilter - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul><li class="toc1"><a href="User_Reference%253AOperator_Module.html">Operator Module</a></li><li class="toc1"><a href="User_Reference%253AOperator_Module_Scripting.html">Operator Scripting</a></li><li class="toc1"><a href="User_Reference%253AModule_Command_Line_Options.html">Module Command Line Options</a></li><li class="toc1"><a href="User_Reference%253AData_File_Formats.html">Data File Formats</a></li><li class="toc1"><a href="User_Reference%253AFilters.html">Configuration Guide</a></li><li class="toc1"><a href="User_FAQ.html">FAQ</a></li><li class="toc1">Applications</li><ul><li class="toc2"><a href="User_Reference%253ACursorTask.html">Cursor Task</a></li><li class="toc2"><a href="User_Reference%253AP3SpellerTask.html">P3Speller Task</a></li><li class="toc2"><a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:StimulusPresentation">Stimulus Presentation</a></li></ul><li class="toc1">Tools</li><ul><li class="toc2"><a href="User_Reference%253ABCI2000Certification.html">BCI2000Certification</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Launcher.html">BCI2000Launcher</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Viewer.html">BCI2000Viewer</a></li><li class="toc2"><a href="User_Reference%253ABCI2000FileInfo.html">BCI2000FileInfo</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Export.html">BCI2000Export</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Analysis.html">BCI2000Analysis</a></li><li class="toc2"><a href="User_Reference%253ABCI2000_Offline_Analysis.html">BCI2000 Offline Analysis</a></li><li class="toc2"><a href="User_Reference%253AEloc_Helper.html">Eloc Helper</a></li><li class="toc2"><a href="User_Reference%253AEEGLabImport.html">EEGLabImport</a></li><li class="toc2"><a href="User_Reference%253AMatlab_Tools.html">Matlab Tools</a></li><li class="toc2"><a href="User_Reference%253AMatlab_MEX_Files.html">Matlab MEX Files</a></li><li class="toc2"><a href="User_Reference%253ACommand_Line_Processing.html">Command Line Processing</a></li></ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">SourceFilter</h1>
+ <p class = "subtitle">User Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="User_Reference%253ASourceFilter.html#Function"><span class="tocnumber">1</span> <span class="toctext">Function</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="User_Reference%253ASourceFilter.html#Parameters"><span class="tocnumber">2</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="User_Reference%253ASourceFilter.html#NotchFilter"><span class="tocnumber">2.1</span> <span class="toctext">NotchFilter</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="User_Reference%253ASourceFilter.html#HighPassFilter"><span class="tocnumber">2.2</span> <span class="toctext">HighPassFilter</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="User_Reference%253ASourceFilter.html#LowPassFilter"><span class="tocnumber">2.3</span> <span class="toctext">LowPassFilter</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="User_Reference%253ASourceFilter.html#UnfilteredChannels"><span class="tocnumber">2.4</span> <span class="toctext">UnfilteredChannels</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="User_Reference%253ASourceFilter.html#Remarks"><span class="tocnumber">3</span> <span class="toctext">Remarks</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="User_Reference%253ASourceFilter.html#See_also"><span class="tocnumber">4</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Function">Function</span></h2>
+<p>Most EEG amplifiers offer filtering in hardware. Generally, they have a line noise hum filter, or "notch filter", built in, and perform some high pass filtering.
+For amplifiers that do not provide these filters themselves, there is the <i>SourceFilter</i> as a software solution.
+</p><p>Unlike other filters, the <i>SourceFilter</i> filter will be applied immediately after data acquisition, 
+and it will modify the data which will be saved to disk, i.e., it will behave just as if 
+it were a hardware filter built into the amplifier.
+</p>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<h3><span class="mw-headline" id="NotchFilter">NotchFilter</span></h3>
+<p>Configures the notch filter. The proper setting depends on your <a rel="nofollow" class="external text" href="http://en.wikipedia.org/wiki/List_of_countries_with_mains_power_plugs%2C_voltages_and_frequencies">country</a>.
+</p>
+<ul><li>0: disabled,</li>
+<li>1: at 50Hz (Europe, Asia, Africa, parts of South America)</li>
+<li>2: at 60Hz (North America, parts of South America).</li></ul>
+<p>The notch filter is realized as a 2x3rd order Chebychev bandstop.
+</p>
+<h3><span class="mw-headline" id="HighPassFilter">HighPassFilter</span></h3>
+<p>Configures the high pass filter:
+</p>
+<ul><li>0: disabled,</li>
+<li>1: at 0.1Hz.</li>
+<li>2: at 1Hz.</li></ul>
+<p>The high pass filter is realized as a 1st order IIR filter.
+</p>
+<h3><span class="mw-headline" id="LowPassFilter">LowPassFilter</span></h3>
+<p>Configures the low pass filter:
+</p>
+<ul><li>0: disabled,</li>
+<li>1: at 9Hz,</li>
+<li>2: at 30Hz,</li>
+<li>3: at 40Hz,</li>
+<li>4: at 70Hz.</li></ul>
+<p>The low pass filter is realized as a 2nd order Butterworth IIR filter.
+</p>
+<h3><span class="mw-headline" id="UnfilteredChannels">UnfilteredChannels</span></h3>
+<p>This is a list of indices to the channels should be left unfiltered (for example, hardware triggers and other auxiliary channels).
+</p>
+<h2><span class="mw-headline" id="Remarks">Remarks</span></h2>
+<p>Generally, the <i>SourceFilter</i> will be available in source modules connecting to amplifiers that require it. Adding the <i>SourceFilter</i> to modules that do not yet contain it requires <a href="Programming_Howto%253ABuilding_BCI2000.html" title="Programming Howto:Building BCI2000">recompilation</a>.
+</p><p>To add the <i>SourceFilter</i> to a new or existing source module, edit its CMakeLists.txt file by adding a line
+</p>
+<pre>BCI2000_INCLUDE( "SOURCEFILTER" )
+</pre>
+<p>above the line containing BCI2000_ADD_SIGNAL_SOURCE_MODULE.
+Re-run CMake, and recompile.
+</p><p>If you are not using CMake, add the following files to the project:
+</p>
+<pre>BCI2000/src/shared/modules/signalsource/SourceFilter.cpp
+BCI2000/src/shared/modules/signalprocessing/IIRFilterBase.cpp
+BCI2000/src/extlib/math/FilterDesign.cpp
+</pre>
+<p>Also, make sure that the following include paths are set in your project:
+</p>
+<pre>BCI2000/src/shared/modules/signalsource
+BCI2000/src/shared/modules/signalprocessing
+BCI2000/src/extlib/math/
+</pre>
+<p>After recompiling and linking, your source module will use the SourceFilter to preprocess recorded data.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Reference%253AFilters.html" title="User Reference:Filters">User Reference:Filters</a>, <a href="Programming_Howto%253ABuilding_BCI2000.html" title="Programming Howto:Building BCI2000">Programming Howto:Building BCI2000</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20220610133127
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.011 seconds
+Real time usage: 0.017 seconds
+Preprocessor visited node count: 24/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1640-0!canonical and timestamp 20220610133127 and revision id 7412
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=User_Reference:SourceFilter&amp;oldid=7412">http://www.bci2000.org/mediawiki/index.php?title=User_Reference:SourceFilter&amp;oldid=7412</a>"</div>
+ </div>
+</body>
+</html>

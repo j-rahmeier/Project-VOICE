@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>User Reference:Operator Module - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul><li class="toc1">Operator Module</li><li class="toc1"><a href="User_Reference%253AOperator_Module_Scripting.html">Operator Scripting</a></li><li class="toc1"><a href="User_Reference%253AModule_Command_Line_Options.html">Module Command Line Options</a></li><li class="toc1"><a href="User_Reference%253AData_File_Formats.html">Data File Formats</a></li><li class="toc1"><a href="User_Reference%253AFilters.html">Configuration Guide</a></li><li class="toc1"><a href="User_FAQ.html">FAQ</a></li><li class="toc1">Applications</li><ul><li class="toc2"><a href="User_Reference%253ACursorTask.html">Cursor Task</a></li><li class="toc2"><a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:P3SpellerTask">P3Speller Task</a></li><li class="toc2"><a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:StimulusPresentation">Stimulus Presentation</a></li></ul><li class="toc1">Tools</li><ul><li class="toc2"><a href="User_Reference%253ABCI2000Certification.html">BCI2000Certification</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Launcher.html">BCI2000Launcher</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Viewer.html">BCI2000Viewer</a></li><li class="toc2"><a href="User_Reference%253ABCI2000FileInfo.html">BCI2000FileInfo</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Export.html">BCI2000Export</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Analysis.html">BCI2000Analysis</a></li><li class="toc2"><a href="User_Reference%253ABCI2000_Offline_Analysis.html">BCI2000 Offline Analysis</a></li><li class="toc2"><a href="User_Reference%253AEloc_Helper.html">Eloc Helper</a></li><li class="toc2"><a href="User_Reference%253AEEGLabImport.html">EEGLabImport</a></li><li class="toc2"><a href="User_Reference%253AMatlab_Tools.html">Matlab Tools</a></li><li class="toc2"><a href="User_Reference%253AMatlab_MEX_Files.html">Matlab MEX Files</a></li><li class="toc2"><a href="User_Reference%253ACommand_Line_Processing.html">Command Line Processing</a></li></ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">Operator Module</h1>
+ <p class = "subtitle">User Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>The operator module is the user interface seen by the experimentator.
+It allows to view and edit system parameters, save and load parameter files, and start and stop system operation.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="User_Reference%253AOperator_Module.html#Starting_Up_BCI2000"><span class="tocnumber">1</span> <span class="toctext">Starting Up BCI2000</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="User_Reference%253AOperator_Module.html#Main_Window"><span class="tocnumber">2</span> <span class="toctext">Main Window</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="User_Reference%253AOperator_Module.html#Operation_Buttons"><span class="tocnumber">2.1</span> <span class="toctext">Operation Buttons</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="User_Reference%253AOperator_Module.html#Function_Buttons"><span class="tocnumber">2.2</span> <span class="toctext">Function Buttons</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="User_Reference%253AOperator_Module.html#Status_Area"><span class="tocnumber">2.3</span> <span class="toctext">Status Area</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="User_Reference%253AOperator_Module.html#Main_Menu_Bar"><span class="tocnumber">2.4</span> <span class="toctext">Main Menu Bar</span></a>
+<ul>
+<li class="toclevel-3 tocsection-7"><a href="User_Reference%253AOperator_Module.html#File_Menu"><span class="tocnumber">2.4.1</span> <span class="toctext">File Menu</span></a></li>
+<li class="toclevel-3 tocsection-8"><a href="User_Reference%253AOperator_Module.html#View_Menu"><span class="tocnumber">2.4.2</span> <span class="toctext">View Menu</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="User_Reference%253AOperator_Module.html#Help_Menu"><span class="tocnumber">2.4.3</span> <span class="toctext">Help Menu</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-10"><a href="User_Reference%253AOperator_Module.html#Preferences_Dialog"><span class="tocnumber">2.5</span> <span class="toctext">Preferences Dialog</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="User_Reference%253AOperator_Module.html#Parameter_Configuration_Window"><span class="tocnumber">2.6</span> <span class="toctext">Parameter Configuration Window</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="User_Reference%253AOperator_Module.html#Matrix_Editor_Window"><span class="tocnumber">2.7</span> <span class="toctext">Matrix Editor Window</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="User_Reference%253AOperator_Module.html#Visualization_Windows"><span class="tocnumber">2.8</span> <span class="toctext">Visualization Windows</span></a>
+<ul>
+<li class="toclevel-3 tocsection-14"><a href="User_Reference%253AOperator_Module.html#Unit_Display"><span class="tocnumber">2.8.1</span> <span class="toctext">Unit Display</span></a></li>
+<li class="toclevel-3 tocsection-15"><a href="User_Reference%253AOperator_Module.html#Choosing_Signal_Colors"><span class="tocnumber">2.8.2</span> <span class="toctext">Choosing Signal Colors</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-16"><a href="User_Reference%253AOperator_Module.html#See_also"><span class="tocnumber">3</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Starting_Up_BCI2000">Starting Up BCI2000</span></h2>
+<p>In addition to the operator module, BCI2000 consists of a number of <a href="Technical_Reference%253ACore_Modules.html" title="Technical Reference:Core Modules">core modules</a> which must be started up together with the operator module.
+For a given experiment, data acquisition, signal processing, and application must be selected by combining appropriate modules at startup time.
+This can be done two ways:
+</p>
+<ol><li>Using the batch scripts in the <tt>BCI2000/batch</tt> folder -- choose one of the available scripts, or modify one to fit your needs.<br />Script files provide an easy way to customize BCI2000 behavior. They are written in the <a href="User_Reference%253AOperator_Module_Scripting.html" title="User Reference:Operator Module Scripting">Operator Scripting language</a>.</li>
+<li>Using <a href="User_Reference%253ABCI2000Launcher.html" title="User Reference:BCI2000Launcher">BCI2000Launcher</a>. This tool provides a GUI for module selection, and allows for automated loading of parameter files at startup.</li></ol>
+<h2><span class="mw-headline" id="Main_Window">Main Window</span></h2>
+<div class="center"><div class="thumb tnone"><div class="thumbinner" style="width:608px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:OperatorMainWindow.png" class="image"><img alt="" src="../images/1/10/OperatorMainWindow.png" decoding="async" width="606" height="180" class="thumbimage" /></a>  <div class="thumbcaption">The Operator Module's Main Window</div></div></div></div>
+<h3><span class="mw-headline" id="Operation_Buttons">Operation Buttons</span></h3>
+<p>The main window contains four large buttons. These buttons correspond to the tasks that need to be performed during an experiment:
+</p>
+<ul><li>Config</li></ul>
+<dl><dd>opens the configuration window,</dd></dl>
+<ul><li>SetConfig</li></ul>
+<dl><dd>applies the current set of parameters to the system,</dd></dl>
+<ul><li>Start</li></ul>
+<dl><dd>starts system operation,</dd></dl>
+<ul><li>Quit</li></ul>
+<dl><dd>exits the system once the experiment has finished.</dd></dl>
+<p>Not all buttons are functional all the time; availability of a function depends on system state, and is indicated by the button's state.
+</p>
+<h3><span class="mw-headline" id="Function_Buttons">Function Buttons</span></h3>
+<p>There are four function buttons that execute <a href="User_Reference%253AOperator_Module_Scripting.html" title="User Reference:Operator Module Scripting">Operator Scripts</a>.
+Scripts and button captions may be configured freely from the preferences dialog. When the Operator module is the frontmost application, button scripts may be executed using the F1-F4 keys on the keyboard.
+</p>
+<h3><span class="mw-headline" id="Status_Area">Status Area</span></h3>
+<p>The status area, at the bottom of the main window, contains four fields.
+System status is displayed on the left, and module status is displayed in the three rightmost fields, in the natural order of core modules (Data Acquisition, Signal Processing, Application).
+</p>
+<h3><span class="mw-headline" id="Main_Menu_Bar">Main Menu Bar</span></h3>
+<h4><span class="mw-headline" id="File_Menu">File Menu</span></h4>
+<ul><li>Preferences...</li></ul>
+<dl><dd>opens the <a href="User_Reference%253AOperator_Module.html#Preferences_Dialog">Preferences Dialog</a>.</dd></dl>
+<ul><li>Exit...</li></ul>
+<dl><dd>terminates BCI2000 after displaying a confirmation message. This menu entry is always available, even if the Quit button is dimmed.</dd></dl>
+<h4><span class="mw-headline" id="View_Menu">View Menu</span></h4>
+<ul><li>States...</li></ul>
+<dl><dd>displays a window that lists the state variables currently available in the system.</dd></dl>
+<ul><li>Operator Log</li></ul>
+<dl><dd>toggles visibility of the log window. The log window becomes automatically visible when there are error or warning messages; for informative messages, and debugging output, it is necessary to make it visible using this menu entry.</dd></dl>
+<ul><li>Connection Info</li></ul>
+<dl><dd>toggles visibility of the connection information window. This window displays information whether connections between operator and core modules are established, network addresses, and the number of messages that have been transferred so far.</dd></dl>
+<h4><span class="mw-headline" id="Help_Menu">Help Menu</span></h4>
+<ul><li>About...</li></ul>
+<dl><dd>displays extensive information about the operator module's version number, the source code revision it was built from, and the time of the build. This information is also kept inside the <i>OperatorVersion</i> parameter on the system tab, and written into data files along with all system parameters.</dd></dl>
+<h3><span class="mw-headline" id="Preferences_Dialog">Preferences Dialog</span></h3>
+<div class="center"><div class="thumb tnone"><div class="thumbinner" style="width:513px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:OperatorPreferences.png" class="image"><img alt="" src="../images/6/68/OperatorPreferences.png" decoding="async" width="511" height="375" class="thumbimage" /></a>  <div class="thumbcaption">The Preferences Dialog</div></div></div></div>
+<p>On the left side, the preferences dialog allows you to associate operator scripts with events, and on the top right, you may configure the main window's function buttons using operator script commands. Please see the <a href="User_Reference%253AOperator_Module_Scripting.html" title="User Reference:Operator Module Scripting">User Reference:Operator Module Scripting</a> page for scripting details.
+</p><p>Scripts may be specified <a href="User_Reference%253AModule_Command_Line_Options.html" title="User Reference:Module Command Line Options">from the command line at startup</a>.
+</p><p>On the bottom right, you may specify the global <i>User Level</i> to be one of <i>beginner</i>, <i>intermediate</i>, or <i>advanced</i>.
+When the user level is set to <i>advanced</i>, a similar ruler control is displayed for each individual parameter in the <a href="User_Reference%253AOperator_Module.html#Parameter_Configuration_Dialog">Parameter Configuration Dialog</a>.
+For each parameter, its user level is compared to the global user level setting, and the parameter is displayed only if its user level is equal to or below the global setting.
+Thus, it is possible to simplify the configuration dialog for less experienced users, or for your own convenience, in sitations where full access to configuration options is not necessary.
+As a typical example, once you have set up a stimulation experiment, you will only change the <i>SubjectName</i> and <i>SubjectRun</i> parameters. Setting these two parameter's user levels to <i>beginner</i>, and leaving the other's at <i>advanced</i>, you may now switch the global user level to <i>beginner</i>, and will only see the two selected parameters displayed in the configuration dialog. 
+</p>
+<h3><span class="mw-headline" id="Parameter_Configuration_Window">Parameter Configuration Window</span></h3>
+<div class="center"><div class="thumb tnone"><div class="thumbinner" style="width:699px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:OperatorConfiguration.png" class="image"><img alt="" src="../images/a/a1/OperatorConfiguration.png" decoding="async" width="697" height="621" class="thumbimage" /></a>  <div class="thumbcaption">The Parameter Configuration Window</div></div></div></div>
+<p>On the left side, this window displays a number of register tabs that correspond to parameter sections. 
+Clicking on a tab will display the parameters from the corresponding section.
+</p><p>Within a section, parameters are grouped according to subsections. In most cases, subsections correspond to individual filters; however, filters with a large number of parameters might choose to group them into subsections to make configuration easier.
+Within subsections, the order of parameter display depends on the order in which parameters are <a href="Programming_Reference%253AGenericFilter_Class.html#Publish" title="Programming Reference:GenericFilter Class">published by the filter</a>.
+</p><p>For single-valued parameters, an edit field is displayed that holds the parameter's value.
+This is also true for list parameters; there, list entries must be separated by white space.
+Within entries, space characters may be encoded as '%20'.
+For some parameters, drop-down menus, checkboxes, or chooser buttons are displayed to make it more convenient for the user to enter parameter values. (For programmers, this feature is explained on the <a href="Technical_Reference%253AParameter_Definition.html" title="Technical Reference:Parameter Definition">Technical Reference:Parameter Definition</a> page.)
+Matrix-valued parameters display a button to load or save a matrix in ASCII format, and an <i>Edit</i> button that opens up a <a href="User_Reference%253AOperator_Module.html#Matrix_Editor_Window">Matrix Editor Window</a>.
+</p><p>On the right side, there is a pair of <i>Save/Load Parameters</i> buttons that allows saving and retrieving the current configuration to/from <a href="Technical_Reference%253AParameter_File.html" title="Technical Reference:Parameter File">parameter files</a>.
+Behavior of the load/save operation may be fine-tuned using the <i>Configure Load</i> and <i>Configure Save</i> buttons.
+These buttons both display a list of parameter names, allowing to select parameters to be ignored during load/save operations.
+This is especially useful to save only a subset of parameters, and thus factor out partial configurations depending on, e.g., the data acquisition module used rather than the experiment itself.
+</p><p>Below these buttons, there is another button labeled "Help". Clicking this button will change the mouse cursor into a question mark. Then, a click on a parameter name or edit field will open the appropriate help page when available.
+This help button is available only when a recent version of the BCI2000 <tt>doc</tt> directory is present along with the <tt>prog</tt> directory where the operator module resides.
+</p>
+<h3><span class="mw-headline" id="Matrix_Editor_Window">Matrix Editor Window</span></h3>
+<div class="center"><div class="thumb tnone"><div class="thumbinner" style="width:454px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:OperatorMatrix.png" class="image"><img alt="" src="../images/f/f7/OperatorMatrix.png" decoding="async" width="452" height="350" class="thumbimage" /></a>  <div class="thumbcaption">The Matrix Editor Window</div></div></div></div>
+<p>The matrix editor allows you to
+</p>
+<ul><li>modify the values in matrix-valued parameters</li></ul>
+<dl><dd>-- click an entry to edit it;</dd></dl>
+<ul><li>change the size of the matrix</li></ul>
+<dl><dd>-- change the "number of rows" or "number of columns" fields, and click the "Set new matrix size" button;</dd></dl>
+<ul><li>edit row and column titles (labels)</li></ul>
+<dl><dd>-- double-click a row or column title to edit it;</dd></dl>
+<ul><li>convert matrix entries into sub-matrices and back into single entries</li></ul>
+<dl><dd>-- use the context menu's "Convert to sub-matrix"/"Replace by single cell" items;</dd></dl>
+<ul><li>open another matrix editor to edit the contents of a sub-matrix</li></ul>
+<dl><dd>-- use the context menu's "Edit sub-matrix" item.</dd></dl>
+<h3><span class="mw-headline" id="Visualization_Windows">Visualization Windows</span></h3>
+<div class="center"><div class="thumb tnone"><div class="thumbinner" style="width:590px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:OperatorVisualization.png" class="image"><img alt="" src="../images/6/6a/OperatorVisualization.png" decoding="async" width="588" height="387" class="thumbimage" /></a>  <div class="thumbcaption">A Visualization Window</div></div></div></div>
+<p>Visualization windows may be moved and resized, and remember their positions across sessions.
+</p><p><br />
+In a context menu, the following options are available:
+</p>
+<ul><li>adjusting signal amplitude,</li>
+<li>adjusting the time interval displayed in the window,</li>
+<li>choosing signal colors,</li>
+<li>choosing the number of signals displayed,</li>
+<li>applying highpass, lowpass, and notch filter combination to the displayed signal,</li>
+<li>switching between signal display as lines, and colored blocks ("display mode"),</li>
+<li>switching signal baselines, and unit display on and off.</li></ul>
+<p>For signal visualizations, the arrow keys and page up/page down keys may be used to scroll through channels.
+The full set of keyboard shortcuts is:
+</p>
+<table>
+<tbody><tr>
+<td><i>up/down</i></td>
+<td>back/forward one channel,
+</td></tr>
+<tr>
+<td><i>page-up/page-down</i></td>
+<td>back/forward one screenful of channels,
+</td></tr>
+<tr>
+<td><i> 'b'/space</i></td>
+<td>same as page-up/page-down  ('less'-like shortcuts),
+</td></tr>
+<tr>
+<td><i>-/+</i></td>
+<td>reduce/enlarge the signal,
+</td></tr>
+<tr>
+<td><i>,/.</i></td>
+<td>fewer/more channels,
+</td></tr>
+<tr>
+<td><i>left/right</i></td>
+<td>slow down/speed up the time sweep,
+</td></tr>
+<tr>
+<td><i>home/end</i></td>
+<td>jump to the first/last screenful of channels,
+</td></tr>
+<tr>
+<td><i>typing a number and pressing return (or 'g')</i></td>
+<td>jump to the specified channel number.
+</td></tr></tbody></table>
+<h4><span class="mw-headline" id="Unit_Display">Unit Display</span></h4>
+<p>When the signal's physical unit is displayed, it is represented as a white bar:
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:SignalUnitDisplay.PNG" class="image"><img alt="SignalUnitDisplay.PNG" src="../images/c/c4/SignalUnitDisplay.PNG" decoding="async" width="104" height="104" /></a></div></div>
+<p>In the example, there are white markers above and below the bar, indicating the range corresponding to the value written in the bar.
+These markers may be missing; then the range corresponds to the height of the bar itself.
+</p><p>Finally, the physical unit may be displayed with a white marker attached to the bar:
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:SignalUnitDisplay2.PNG" class="image"><img alt="SignalUnitDisplay2.PNG" src="../images/5/55/SignalUnitDisplay2.PNG" decoding="async" width="70" height="145" /></a></div></div>
+<p>This display is used for nonnegative signals. Here, the physical unit corresponds to the distance of the white marker to the signal's baseline.
+</p>
+<h4><span class="mw-headline" id="Choosing_Signal_Colors">Choosing Signal Colors</span></h4>
+<p>Clicking <i>Choose Signal Colors...</i> from the context menu will open up a color chooser dialog.
+This dialog provides fields for "User defined colors" to the left, defining a list of channel colors, terminated with a black entry.
+</p><p>Signal colors are taken from these fields in the order in which they appear; when there are more signals displayed than colors defined, colors will be re-used in order.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Technical_Reference%253ASystem_Design.html" title="Technical Reference:System Design">Technical Reference:System Design</a>, <a href="User_Reference%253AOperator_Module_Scripting.html" title="User Reference:Operator Module Scripting">User Reference:Operator Module Scripting</a>, <a href="User_Reference%253AOperator.ini.html" title="User Reference:Operator.ini">User Reference:Operator.ini</a>, <a href="User_Reference%253AModule_Command_Line_Options.html" title="User Reference:Module Command Line Options">User Reference:Module Command Line Options</a>, <a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:Timing" title="User Reference:Timing">User Reference:Timing</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524000346
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.044 seconds
+Real time usage: 0.051 seconds
+Preprocessor visited node count: 74/1000000
+Post‐expand include size: 1013/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    7.890      1 -total
+ 51.28%    4.046      1 Template:UnitDisplay
+ 47.24%    3.727      1 Template:ChooseColors
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1566-0!canonical and timestamp 20230524000346 and revision id 9855
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=User_Reference:Operator_Module&amp;oldid=9855">http://www.bci2000.org/mediawiki/index.php?title=User_Reference:Operator_Module&amp;oldid=9855</a>"</div>
+ </div>
+</body>
+</html>

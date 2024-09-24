@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>User Reference:CursorTask - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul><li class="toc1"><a href="User_Reference%253AOperator_Module.html">Operator Module</a></li><li class="toc1"><a href="User_Reference%253AOperator_Module_Scripting.html">Operator Scripting</a></li><li class="toc1"><a href="User_Reference%253AModule_Command_Line_Options.html">Module Command Line Options</a></li><li class="toc1"><a href="User_Reference%253AData_File_Formats.html">Data File Formats</a></li><li class="toc1"><a href="User_Reference%253AFilters.html">Configuration Guide</a></li><li class="toc1"><a href="User_FAQ.html">FAQ</a></li><li class="toc1">Applications</li><ul><li class="toc2">Cursor Task</li><li class="toc2"><a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:P3SpellerTask">P3Speller Task</a></li><li class="toc2"><a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:StimulusPresentation">Stimulus Presentation</a></li></ul><li class="toc1">Tools</li><ul><li class="toc2"><a href="User_Reference%253ABCI2000Certification.html">BCI2000Certification</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Launcher.html">BCI2000Launcher</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Viewer.html">BCI2000Viewer</a></li><li class="toc2"><a href="User_Reference%253ABCI2000FileInfo.html">BCI2000FileInfo</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Export.html">BCI2000Export</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Analysis.html">BCI2000Analysis</a></li><li class="toc2"><a href="User_Reference%253ABCI2000_Offline_Analysis.html">BCI2000 Offline Analysis</a></li><li class="toc2"><a href="User_Reference%253AEloc_Helper.html">Eloc Helper</a></li><li class="toc2"><a href="User_Reference%253AEEGLabImport.html">EEGLabImport</a></li><li class="toc2"><a href="User_Reference%253AMatlab_Tools.html">Matlab Tools</a></li><li class="toc2"><a href="User_Reference%253AMatlab_MEX_Files.html">Matlab MEX Files</a></li><li class="toc2"><a href="User_Reference%253ACommand_Line_Processing.html">Command Line Processing</a></li></ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">CursorTask</h1>
+ <p class = "subtitle">User Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="User_Reference%253ACursorTask.html#Synopsis"><span class="tocnumber">1</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="User_Reference%253ACursorTask.html#Functional_Description"><span class="tocnumber">2</span> <span class="toctext">Functional Description</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="User_Reference%253ACursorTask.html#Timeline"><span class="tocnumber">2.1</span> <span class="toctext">Timeline</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="User_Reference%253ACursorTask.html#Introduction"><span class="tocnumber">2.2</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="User_Reference%253ACursorTask.html#Visual_Representation"><span class="tocnumber">2.3</span> <span class="toctext">Visual Representation</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="User_Reference%253ACursorTask.html#Control_Signal"><span class="tocnumber">2.4</span> <span class="toctext">Control Signal</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="User_Reference%253ACursorTask.html#Parameters"><span class="tocnumber">3</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-8"><a href="User_Reference%253ACursorTask.html#Sequencing"><span class="tocnumber">3.1</span> <span class="toctext">Sequencing</span></a>
+<ul>
+<li class="toclevel-3"><a href="User_Reference%253ACursorTask.html#PreRunDuration"><span class="tocnumber">3.1.1</span> <span class="toctext">PreRunDuration</span></a></li>
+<li class="toclevel-3"><a href="User_Reference%253ACursorTask.html#PreFeedbackDuration"><span class="tocnumber">3.1.2</span> <span class="toctext">PreFeedbackDuration</span></a></li>
+<li class="toclevel-3"><a href="User_Reference%253ACursorTask.html#FeedbackDuration"><span class="tocnumber">3.1.3</span> <span class="toctext">FeedbackDuration</span></a></li>
+<li class="toclevel-3"><a href="User_Reference%253ACursorTask.html#PostFeedbackDuration"><span class="tocnumber">3.1.4</span> <span class="toctext">PostFeedbackDuration</span></a></li>
+<li class="toclevel-3"><a href="User_Reference%253ACursorTask.html#ITIDuration"><span class="tocnumber">3.1.5</span> <span class="toctext">ITIDuration</span></a></li>
+<li class="toclevel-3"><a href="User_Reference%253ACursorTask.html#NumberOfTrials"><span class="tocnumber">3.1.6</span> <span class="toctext">NumberOfTrials</span></a></li>
+<li class="toclevel-3"><a href="User_Reference%253ACursorTask.html#MinRunLength"><span class="tocnumber">3.1.7</span> <span class="toctext">MinRunLength</span></a></li>
+<li class="toclevel-3"><a href="User_Reference%253ACursorTask.html#NumberTargets"><span class="tocnumber">3.1.8</span> <span class="toctext">NumberTargets</span></a></li>
+<li class="toclevel-3"><a href="User_Reference%253ACursorTask.html#TargetSequence"><span class="tocnumber">3.1.9</span> <span class="toctext">TargetSequence</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="User_Reference%253ACursorTask.html#MaxFeedbackDuration"><span class="tocnumber">3.1.10</span> <span class="toctext">MaxFeedbackDuration</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-10"><a href="User_Reference%253ACursorTask.html#Visual_Appearance"><span class="tocnumber">3.2</span> <span class="toctext">Visual Appearance</span></a>
+<ul>
+<li class="toclevel-3 tocsection-11"><a href="User_Reference%253ACursorTask.html#CameraPos"><span class="tocnumber">3.2.1</span> <span class="toctext">CameraPos</span></a></li>
+<li class="toclevel-3 tocsection-12"><a href="User_Reference%253ACursorTask.html#CameraAim"><span class="tocnumber">3.2.2</span> <span class="toctext">CameraAim</span></a></li>
+<li class="toclevel-3 tocsection-13"><a href="User_Reference%253ACursorTask.html#CameraProjection"><span class="tocnumber">3.2.3</span> <span class="toctext">CameraProjection</span></a></li>
+<li class="toclevel-3 tocsection-14"><a href="User_Reference%253ACursorTask.html#LightSourcePos"><span class="tocnumber">3.2.4</span> <span class="toctext">LightSourcePos</span></a></li>
+<li class="toclevel-3 tocsection-15"><a href="User_Reference%253ACursorTask.html#LightSourceColor"><span class="tocnumber">3.2.5</span> <span class="toctext">LightSourceColor</span></a></li>
+<li class="toclevel-3 tocsection-16"><a href="User_Reference%253ACursorTask.html#WorkspaceBoundaryColor"><span class="tocnumber">3.2.6</span> <span class="toctext">WorkspaceBoundaryColor</span></a></li>
+<li class="toclevel-3 tocsection-17"><a href="User_Reference%253ACursorTask.html#WorkspaceBoundaryTexture"><span class="tocnumber">3.2.7</span> <span class="toctext">WorkspaceBoundaryTexture</span></a></li>
+<li class="toclevel-3 tocsection-18"><a href="User_Reference%253ACursorTask.html#CursorWidth"><span class="tocnumber">3.2.8</span> <span class="toctext">CursorWidth</span></a></li>
+<li class="toclevel-3 tocsection-19"><a href="User_Reference%253ACursorTask.html#CursorColorFront.2C_CursorColorBack"><span class="tocnumber">3.2.9</span> <span class="toctext">CursorColorFront, CursorColorBack</span></a></li>
+<li class="toclevel-3 tocsection-20"><a href="User_Reference%253ACursorTask.html#CursorTexture"><span class="tocnumber">3.2.10</span> <span class="toctext">CursorTexture</span></a></li>
+<li class="toclevel-3 tocsection-21"><a href="User_Reference%253ACursorTask.html#CursorPos"><span class="tocnumber">3.2.11</span> <span class="toctext">CursorPos</span></a></li>
+<li class="toclevel-3 tocsection-22"><a href="User_Reference%253ACursorTask.html#Targets"><span class="tocnumber">3.2.12</span> <span class="toctext">Targets</span></a></li>
+<li class="toclevel-3 tocsection-23"><a href="User_Reference%253ACursorTask.html#TargetColor"><span class="tocnumber">3.2.13</span> <span class="toctext">TargetColor</span></a></li>
+<li class="toclevel-3 tocsection-24"><a href="User_Reference%253ACursorTask.html#TargetTexture"><span class="tocnumber">3.2.14</span> <span class="toctext">TargetTexture</span></a></li>
+<li class="toclevel-3 tocsection-25"><a href="User_Reference%253ACursorTask.html#TestAllTargets"><span class="tocnumber">3.2.15</span> <span class="toctext">TestAllTargets</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-26"><a href="User_Reference%253ACursorTask.html#Window_Properties"><span class="tocnumber">3.3</span> <span class="toctext">Window Properties</span></a>
+<ul>
+<li class="toclevel-3"><a href="User_Reference%253ACursorTask.html#WindowWidth.2C_WindowHeight"><span class="tocnumber">3.3.1</span> <span class="toctext">WindowWidth, WindowHeight</span></a></li>
+<li class="toclevel-3"><a href="User_Reference%253ACursorTask.html#WindowLeft.2C_WindowTop"><span class="tocnumber">3.3.2</span> <span class="toctext">WindowLeft, WindowTop</span></a></li>
+<li class="toclevel-3 tocsection-27"><a href="User_Reference%253ACursorTask.html#RenderingQuality"><span class="tocnumber">3.3.3</span> <span class="toctext">RenderingQuality</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-28"><a href="User_Reference%253ACursorTask.html#States"><span class="tocnumber">4</span> <span class="toctext">States</span></a>
+<ul>
+<li class="toclevel-2"><a href="User_Reference%253ACursorTask.html#PreStimulusTime"><span class="tocnumber">4.1</span> <span class="toctext">PreStimulusTime</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253ACursorTask.html#StimulusTime"><span class="tocnumber">4.2</span> <span class="toctext">StimulusTime</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253ACursorTask.html#PresentationRequested"><span class="tocnumber">4.3</span> <span class="toctext">PresentationRequested</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253ACursorTask.html#PresentationDisplayed"><span class="tocnumber">4.4</span> <span class="toctext">PresentationDisplayed</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253ACursorTask.html#PresentationTime"><span class="tocnumber">4.5</span> <span class="toctext">PresentationTime</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253ACursorTask.html#PresentationFrame"><span class="tocnumber">4.6</span> <span class="toctext">PresentationFrame</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253ACursorTask.html#AudioBufferTime"><span class="tocnumber">4.7</span> <span class="toctext">AudioBufferTime</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253ACursorTask.html#AudioPresentationTime"><span class="tocnumber">4.8</span> <span class="toctext">AudioPresentationTime</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253ACursorTask.html#TargetCode"><span class="tocnumber">4.9</span> <span class="toctext">TargetCode</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253ACursorTask.html#ResultCode"><span class="tocnumber">4.10</span> <span class="toctext">ResultCode</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253ACursorTask.html#Feedback"><span class="tocnumber">4.11</span> <span class="toctext">Feedback</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253ACursorTask.html#PauseApplication"><span class="tocnumber">4.12</span> <span class="toctext">PauseApplication</span></a></li>
+<li class="toclevel-2 tocsection-29"><a href="User_Reference%253ACursorTask.html#CursorPosX.2C_CursorPosY.2C_CursorPosZ"><span class="tocnumber">4.13</span> <span class="toctext">CursorPosX, CursorPosY, CursorPosZ</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-30"><a href="User_Reference%253ACursorTask.html#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>The purpose of the <i>CursorTask</i> is to provide a BCI2000 User Application module 
+that can realize 1D, 2D, or 3D cursor movement tasks.
+It displays a box-shaped scene in which a ball-shaped cursor moves, controlled by the output of the <a href="Technical_Reference%253ACore_Modules.html" title="Technical Reference:Core Modules">Signal Processing Module</a>.
+In this scene, targets appear as cuboids or rectangles.
+Box, cursor, and targets may be texturized.
+</p>
+<h2><span class="mw-headline" id="Functional_Description">Functional Description</span></h2>
+<h3><span class="mw-headline" id="Timeline">Timeline</span></h3>
+<p><a href="https://www.bci2000.org/mediawiki/index.php/File:CursorTask_Timeline.png" class="image"><img alt="CursorTask Timeline.png" src="../images/thumb/b/b3/CursorTask_Timeline.png/640px-CursorTask_Timeline.png" decoding="async" width="640" height="251" srcset="../images/thumb/b/b3/CursorTask_Timeline.png/960px-CursorTask_Timeline.png 1.5x, ../images/thumb/b/b3/CursorTask_Timeline.png/1280px-CursorTask_Timeline.png 2x" /></a>
+</p>
+<h3><span class="mw-headline" id="Introduction">Introduction</span></h3>
+<p>The <i>CursorTask</i> implements a cursor movement task based on a 3-dimensional 
+control signal communicated to it by an appropriate BCI2000 Signal Processing 
+module. This task progresses through five subsequent stages (as illustrated in the <a href="User_Reference%253ACursorTask.html#Timeline">Timeline</a>): 
+In stage 1, the screen shows an 
+empty workspace. This period is called <i>Inter-Trial Interval</i>. 
+Subsequently, a target (that is represented as a cuboid) appears in one out of 
+<i>n</i> possible locations. This period is called <i>Pre-Trial Pause</i>. 
+After the pre-trial pause, the cursor appears in stage 3. It immediately starts to 
+move as determined by the 3-dimensional control signal. During stages 3 and 4,
+the user's task is to move the cursor towards and into the target. This period
+of cursor movement is called the <i>Feedback Period</i> or <i>Trial Period</i>.
+Period 4 can end in one of three ways: Either the cursor hits the correct target, 
+it misses by hitting any other of the defined targets, or the feedback period takes
+too long and times out. Stage 5, the <i>Reward Period</i>, follows stage 4.
+The cursor disappears and the target changes its color to indicate completion
+of the trial period. After a defined duration, the target disappears and the
+next trial starts with an Inter-Trial Interval.
+</p>
+<h3><span class="mw-headline" id="Visual_Representation">Visual Representation</span></h3>
+<p><a href="https://www.bci2000.org/mediawiki/index.php/File:CursorTask_Screen.png" class="image"><img alt="CursorTask Screen.png" src="../images/thumb/1/16/CursorTask_Screen.png/512px-CursorTask_Screen.png" decoding="async" width="512" height="385" srcset="../images/thumb/1/16/CursorTask_Screen.png/768px-CursorTask_Screen.png 1.5x, ../images/thumb/1/16/CursorTask_Screen.png/1024px-CursorTask_Screen.png 2x" /></a>
+</p><p>The visual representation of the <i>CursorTask</i> consists of a 3-dimensional workspace that can 
+(if selected) be indicated by five bounding rectangles. These rectangles can have a 
+user-selectable texture, which is the same for each rectangle. Targets are 
+represented by cuboids, whose edges can also have a particular texture. 
+Finally, the cursor is represented by a sphere. It also may have a user-defined 
+texture. To facilitate depth perception, the cursor's color provides an 
+additional cue about the cursor's Z position as follows. The operator specifies 
+the cursor's color at the topmost and at the bottomleast Z positions. 
+For any color between these extremes, the cursor's color will be linearly 
+interpolated between the two colors. (Specifically, each of the three color 
+components (i.e., red, green, and blue) will be interpolated to result in the 
+cursor's color for a given Z position.)
+</p>
+<h3><span class="mw-headline" id="Control_Signal">Control Signal</span></h3>
+<p>Cursor movement is controlled by the output of the <a href="Technical_Reference%253ACore_Modules.html" title="Technical Reference:Core Modules">Signal Processing Module</a>.
+In this signal, channels 1, 2, and 3 correspond to dimensions X, Y, and Z, and there is a single value (element) 
+present in each channel, defining cursor speed in the respective dimension.
+</p><p>Additional channels or elements that might be present in the control signal will be ignored by the <i>CursorTask</i>
+application module.
+</p>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<h3><span class="mw-headline" id="Sequencing">Sequencing</span></h3>
+<h4><span class="mw-headline" id="PreRunDuration">PreRunDuration</span></h4>
+<p>The duration of the pause preceding the first trial.
+Given in <a href="BCI2000_Glossary.html#Sample_Block" title="BCI2000 Glossary">sample blocks</a>, or in time units when immediately followed with 's', 'ms', or similar.
+</p>
+<h4><span class="mw-headline" id="PreFeedbackDuration">PreFeedbackDuration</span></h4>
+<p>The duration of target display before feedback begins.
+Given in <a href="BCI2000_Glossary.html#Sample_Block" title="BCI2000 Glossary">sample blocks</a>, or in time units when immediately followed with 's', 'ms', or similar.
+</p>
+<h4><span class="mw-headline" id="FeedbackDuration">FeedbackDuration</span></h4>
+<p>Typical duration of feedback. 
+Given in <a href="BCI2000_Glossary.html#Sample_Block" title="BCI2000 Glossary">sample blocks</a>, or in time units when immediately followed with 's', 'ms', or similar.
+</p><p>This parameter is not a hard limit to feedback duration but determines cursor speed such that, for a normalized control signal, cursor movement will take the specified time from the cursor's starting point to the screen's edge.
+Feedback trials will typically have this duration, provided that the cursor starts at the center of the screen, targets are located at the screen's edges, and ignoring cursor and target width (for further details, see <a href="User_Reference%253ANormalizer.html" title="User Reference:Normalizer">User Reference:Normalizer</a>).
+</p>
+<h4><span class="mw-headline" id="PostFeedbackDuration">PostFeedbackDuration</span></h4>
+<p>The duration of result display after feedback.
+Given in <a href="BCI2000_Glossary.html#Sample_Block" title="BCI2000 Glossary">sample blocks</a>, or in time units when immediately followed with 's', 'ms', or similar.
+</p>
+<h4><span class="mw-headline" id="ITIDuration">ITIDuration</span></h4>
+<p>The duration of the inter-trial interval.
+Given in <a href="BCI2000_Glossary.html#Sample_Block" title="BCI2000 Glossary">sample blocks</a>, or in time units when immediately followed with 's', 'ms', or similar.
+</p>
+<h4><span class="mw-headline" id="NumberOfTrials">NumberOfTrials</span></h4>
+<p>The number of trials in a run. If this parameter is set, then MinRunLength should be blank, and vice-versa.
+</p>
+<h4><span class="mw-headline" id="MinRunLength">MinRunLength</span></h4>
+<p>The duration of a run, i.e. the time corresponding to a continuously recorded data file.
+A run will not stop during a trial, so its actual length may be larger than this value by the length of a trial.
+If this parameter is set, then NumberOfTrials should be blank, and vice-versa.
+Given in <a href="BCI2000_Glossary.html#Sample_Block" title="BCI2000 Glossary">sample blocks</a>, or in time units when immediately followed with 's', 'ms', or similar.
+</p>
+<h4><span class="mw-headline" id="NumberTargets">NumberTargets</span></h4>
+<p>The number of targets on the feedback screen.
+</p>
+<h4><span class="mw-headline" id="TargetSequence">TargetSequence</span></h4>
+<p>A list of indices, each one being from 1 to NumberTargets.  This list specifies an optional fixed sequence of stimuli, through which the presentation will cycle.   Leave this parameter blank if you want the default behavior, which is for stimuli to be selected randomly.
+</p>
+<h4><span class="mw-headline" id="MaxFeedbackDuration">MaxFeedbackDuration</span></h4>
+<p>Abort a trial after this amount of feedback time has expired.
+Unlike the <i>FeedbackDuration</i> parameter, this is a hard limit.
+Given in <a href="BCI2000_Glossary.html#Sample_Block" title="BCI2000 Glossary">sample blocks</a>, or in time units when immediately followed with 's', 'ms', or similar.
+</p>
+<h3><span class="mw-headline" id="Visual_Appearance">Visual Appearance</span></h3>
+<p>Positions and sizes are given in a <b>percent coordinate system</b>.
+There, [0 0 0] corresponds to the bottom left corner of the workspace, and its diagonal counterpart has [100 100 100] as its coordinates.
+</p>
+<h4><span class="mw-headline" id="CameraPos">CameraPos</span></h4>
+<p>Camera position vector in percent coordinates of the 3D area.
+</p>
+<h4><span class="mw-headline" id="CameraAim">CameraAim</span></h4>
+<p>Camera aim point in percent coordinates.
+</p>
+<h4><span class="mw-headline" id="CameraProjection">CameraProjection</span></h4>
+<p>An enumerated value specifying one of the following camera projections:
+</p>
+<ul><li>0: flat,</li>
+<li>1: wide angle perspective,</li>
+<li>2: narrow angle perspective.</li></ul>
+<h4><span class="mw-headline" id="LightSourcePos">LightSourcePos</span></h4>
+<p>Light source position in percent coordinates.
+</p>
+<h4><span class="mw-headline" id="LightSourceColor">LightSourceColor</span></h4>
+<p>The light source's color in RGB encoding.
+</p>
+<h4><span class="mw-headline" id="WorkspaceBoundaryColor">WorkspaceBoundaryColor</span></h4>
+<p>The workspace boundary color in RGB encoding. 
+The special value of <tt>0xff000000</tt> hides the workspace boundary.
+</p>
+<h4><span class="mw-headline" id="WorkspaceBoundaryTexture">WorkspaceBoundaryTexture</span></h4>
+<p>The path to a workspace boundary texture, or empty.
+Currently, Windows BMP files are accepted as textures.
+Paths may be absolute, or relative to the executable's working directory at startup, which usually matches the executable's location.
+</p>
+<h4><span class="mw-headline" id="CursorWidth">CursorWidth</span></h4>
+<p>The feedback cursor's width, given in percent of screen width.
+</p>
+<h4><span id="CursorColorFront,_CursorColorBack"></span><span class="mw-headline" id="CursorColorFront.2C_CursorColorBack">CursorColorFront, CursorColorBack</span></h4>
+<p>The cursor's color when it is in the front resp. back of the workspace, given as an RGB value.
+When different colors are specified for front and back, the cursor's z coordinate will be used to linearly interpolate between the two color values.
+</p>
+<h4><span class="mw-headline" id="CursorTexture">CursorTexture</span></h4>
+<p>The path to a texture file to be used for the cursor.
+</p>
+<h4><span class="mw-headline" id="CursorPos">CursorPos</span></h4>
+<p>The cursor's starting position, given as a vector in percent coordinates.
+</p>
+<h4><span class="mw-headline" id="Targets">Targets</span></h4>
+<p>A matrix with 6 columns, and rows corresponding to individual targets.
+The first three columns define the position coordinates of the target's center, given in percent coordinates;
+the last three columns define the target's three-dimensional extent.
+Targets are always cuboids aligned with the three coordinate axes.
+</p>
+<h4><span class="mw-headline" id="TargetColor">TargetColor</span></h4>
+<p>Target color in RGB encoding.
+</p>
+<h4><span class="mw-headline" id="TargetTexture">TargetTexture</span></h4>
+<p>Path to a texture file to be used for targets, or empty for none.
+Currently, Windows BMP files are accepted as textures.
+Paths may be absolute, or relative to the executable's working directory at startup, which usually matches the executable's location.
+</p>
+<h4><span class="mw-headline" id="TestAllTargets">TestAllTargets</span></h4>
+<p>An enumerated value that determines collision test behavior:
+</p>
+<ul><li>0 to test only the visible current target,</li>
+<li>1 to test all targets.</li></ul>
+<h3><span class="mw-headline" id="Window_Properties">Window Properties</span></h3>
+<h4><span id="WindowWidth,_WindowHeight"></span><span class="mw-headline" id="WindowWidth.2C_WindowHeight">WindowWidth, WindowHeight</span></h4>
+<p>The width and height of the subject-visible application window, in pixels.
+</p>
+<h4><span id="WindowLeft,_WindowTop"></span><span class="mw-headline" id="WindowLeft.2C_WindowTop">WindowLeft, WindowTop</span></h4>
+<p>The screen position of the application window's top left corner, in pixels.
+</p>
+<h4><span class="mw-headline" id="RenderingQuality">RenderingQuality</span></h4>
+<p>An enumerated value specifying one of the following:
+</p>
+<ul><li>0: low<br />2D rendering. Lighting, shading, and textures are switched off, even if specified otherwise for individual objects. Also, collision detection ignores objects' z positions. On machines without OpenGL compatible 3D hardware, 2D rendering is considerably faster than 3D rendering.</li>
+<li>1: high<br />3D rendering. Lighting, shading, and textures are applied as specified.</li></ul>
+<h2><span class="mw-headline" id="States">States</span></h2>
+<h3><span class="mw-headline" id="PreStimulusTime">PreStimulusTime</span></h3>
+<p>A 16-bit time stamp in the same format as the <i>SourceTime</i> state. 
+This time stamp is set immediately before the application module is going to update the stimulus/feedback display.
+Note that a data block is saved together with the state vector that existed immediately after it was acquired.
+Thus, <i>PreStimulusTime</i> will be the prestimulus time of the block prior to the current block.
+</p>
+<h3><span class="mw-headline" id="StimulusTime">StimulusTime</span></h3>
+<p>A 16-bit time stamp in the same format as the <i>SourceTime</i> state. 
+This time stamp is set immediately after the application module has updated the stimulus/feedback display.
+Note that a data block is saved together with the state vector that existed immediately after it was acquired.
+Thus, <i>StimulusTime</i> will be the stimulus time of the block prior to the current block.
+</p>
+<h3><span class="mw-headline" id="PresentationRequested">PresentationRequested</span></h3>
+<p>This 32-bit state contains a list of ids for all presentations that have been requested during the current block. The list ends with a value of 2^31. A 32-bit presentation id is formed by combining the 16-bit <i>SourceTime</i> state of the presentation request's data block in the most significant bits, with the time difference between that source time stamp and the time when the presentation request happened, in the least significant bits:
+</p><p><code>PresentationID = SourceTime &lt;&lt; 8 | (RequestTime - SourceTime) &amp; 0xff</code>
+</p><p>This definition makes presentation ids unique within the range of a minute, and allows to extract the value of the request's time stamp from its id.
+</p>
+<h3><span class="mw-headline" id="PresentationDisplayed">PresentationDisplayed</span></h3>
+<p>This 32-bit state contains a list of ids for all presentations that have been displayed during the current block. The list ends with a value of 2^31. Presentation ids appear in the <i>PresentationRequested</i> state when presentation is requested, and subsequently in the <i>PresentationDisplayed</i> state when presentation has occurred.
+</p>
+<h3><span class="mw-headline" id="PresentationTime">PresentationTime</span></h3>
+<p>A 16-bit time stamp in the same format as the <i>SourceTime</i> state.
+For each id occurring in the <i>PresentationDisplayed</i> state, this state contains the time stamp of the respective update to video memory. From this point in time, up to two additional frame durations may be required before the display's surface actually shows a difference in signal. This depends on the internals of the display, and cannot be determined from software.
+</p>
+<h3><span class="mw-headline" id="PresentationFrame">PresentationFrame</span></h3>
+<p>A 12-bit state that contains, for each id occurring in the <i>PresentationDisplayed</i> state, the frame number of the respective update to video memory. Frame numbers have an arbitrary offset, and wrap around at a value of 2^11.
+<a href="https://www.bci2000.org/mediawiki/index.php/File:PresentationFlow.png" class="image"><img alt="PresentationFlow.png" src="../images/2/2c/PresentationFlow.png" decoding="async" width="600" height="424" /></a>
+</p>
+<h3><span class="mw-headline" id="AudioBufferTime">AudioBufferTime</span></h3>
+<p>A 16-bit time stamp in the same format as the <i>SourceTime</i> state.
+For each audio presentation that has occurred during the current block, this state contains the time stamp when non-zero audio data were about to enter the system's audio buffer.
+</p>
+<h3><span class="mw-headline" id="AudioPresentationTime">AudioPresentationTime</span></h3>
+<p>A 16-bit time stamp in the same format as the <i>SourceTime</i> state.
+For each audio presentation that has occurred during the current block, this state contains the estimated time stamp when non-zero audio data were being played from the system's speakers or headphones. The estimate takes the length of the system's audio buffers into account but will not be able to detect external sources of delays, such as additional audio processing steps.
+</p>
+<h3><span class="mw-headline" id="TargetCode">TargetCode</span></h3>
+<p>During a feedback trial, this state indicates the user's task, i.e. the target the cursor is supposed to hit.
+A <i>TargetCode</i> value of zero indicates that there is no target specified; <i>TargetCode</i> switching from zero to nonzero indicates the beginning of a trial.
+</p>
+<h3><span class="mw-headline" id="ResultCode">ResultCode</span></h3>
+<p>At the end of a feedback trial, <i>ResultCode</i> is set to the target code of the outcome, i.e. the target that was hit by the cursor.
+When a time of <i>PostTrialDuration</i> has passed, <i>ResultCode</i> is reset to zero.
+</p>
+<h3><span class="mw-headline" id="Feedback">Feedback</span></h3>
+<p>This state's value is 1 when the cursor is displayed on the feedback screen.
+Typically, this also implies that the cursor moves according to the <a href="BCI2000_Glossary.html#Control_Signal" title="BCI2000 Glossary">control signal</a>.
+</p>
+<h3><span class="mw-headline" id="PauseApplication">PauseApplication</span></h3>
+<p>While this state is set to 1, no task processing occurs, i.e. the task is paused, and may be resumed by setting PauseApplication to 0.
+</p>
+<h3><span id="CursorPosX,_CursorPosY,_CursorPosZ"></span><span class="mw-headline" id="CursorPosX.2C_CursorPosY.2C_CursorPosZ">CursorPosX, CursorPosY, CursorPosZ</span></h3>
+<p>These states record the cursor's position, translated into the <tt>0..4095</tt> range such that the 3D scene's left, down, and top planes all correspond to 0, and the right, up, and bottom planes correspond to <tt>4095</tt>.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Programming_Reference%253A3D_API.html" title="Programming Reference:3D API">Programming Reference:3D API</a>, <a href="Programming_Reference%253AFeedbackTask_Class.html" title="Programming Reference:FeedbackTask Class">Programming Reference:FeedbackTask Class</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524175618
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.063 seconds
+Real time usage: 0.074 seconds
+Preprocessor visited node count: 156/1000000
+Post‐expand include size: 8635/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   23.739      1 -total
+ 31.80%    7.548      1 Template:FeedbackTaskParams
+ 19.62%    4.657      1 Template:ApplicationBaseStates
+ 15.33%    3.640      1 Template:FeedbackTaskStates
+ 10.45%    2.481      1 Template:FeedbackTaskTimeline
+  9.49%    2.252      1 Template:ApplicationWindowParams
+  9.34%    2.216      2 Template:FilePath
+  7.70%    1.829      7 Template:TimeParam
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1513-0!canonical and timestamp 20230524175618 and revision id 6388
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=User_Reference:CursorTask&amp;oldid=6388">http://www.bci2000.org/mediawiki/index.php?title=User_Reference:CursorTask&amp;oldid=6388</a>"</div>
+ </div>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>User Reference:Operator.ini - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul><li class="toc1"><a href="User_Reference%253AOperator_Module.html">Operator Module</a></li><li class="toc1"><a href="User_Reference%253AOperator_Module_Scripting.html">Operator Scripting</a></li><li class="toc1"><a href="User_Reference%253AModule_Command_Line_Options.html">Module Command Line Options</a></li><li class="toc1"><a href="User_Reference%253AData_File_Formats.html">Data File Formats</a></li><li class="toc1"><a href="User_Reference%253AFilters.html">Configuration Guide</a></li><li class="toc1"><a href="User_FAQ.html">FAQ</a></li><li class="toc1">Applications</li><ul><li class="toc2"><a href="User_Reference%253ACursorTask.html">Cursor Task</a></li><li class="toc2"><a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:P3SpellerTask">P3Speller Task</a></li><li class="toc2"><a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:StimulusPresentation">Stimulus Presentation</a></li></ul><li class="toc1">Tools</li><ul><li class="toc2"><a href="User_Reference%253ABCI2000Certification.html">BCI2000Certification</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Launcher.html">BCI2000Launcher</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Viewer.html">BCI2000Viewer</a></li><li class="toc2"><a href="User_Reference%253ABCI2000FileInfo.html">BCI2000FileInfo</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Export.html">BCI2000Export</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Analysis.html">BCI2000Analysis</a></li><li class="toc2"><a href="User_Reference%253ABCI2000_Offline_Analysis.html">BCI2000 Offline Analysis</a></li><li class="toc2"><a href="User_Reference%253AEloc_Helper.html">Eloc Helper</a></li><li class="toc2"><a href="User_Reference%253AEEGLabImport.html">EEGLabImport</a></li><li class="toc2"><a href="User_Reference%253AMatlab_Tools.html">Matlab Tools</a></li><li class="toc2"><a href="User_Reference%253AMatlab_MEX_Files.html">Matlab MEX Files</a></li><li class="toc2"><a href="User_Reference%253ACommand_Line_Processing.html">Command Line Processing</a></li></ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">Operator.ini</h1>
+ <p class = "subtitle">User Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p><tt>Operator.ini</tt> is a configuration file located in the same directory as the Operator module.
+It contains information such as window positions, button labels, and button scripts.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Operator_ini.html#Format"><span class="tocnumber">1</span> <span class="toctext">Format</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Operator_ini.html#Moving_between_machines"><span class="tocnumber">2</span> <span class="toctext">Moving between machines</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Operator_ini.html#Sections"><span class="tocnumber">3</span> <span class="toctext">Sections</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Operator_ini.html#Config"><span class="tocnumber">3.1</span> <span class="toctext">Config</span></a>
+<ul>
+<li class="toclevel-3 tocsection-5"><a href="Operator_ini.html#MainWindow.5CGeometry"><span class="tocnumber">3.1.1</span> <span class="toctext">MainWindow\Geometry</span></a></li>
+<li class="toclevel-3 tocsection-6"><a href="Operator_ini.html#SysLog.5CGeometry"><span class="tocnumber">3.1.2</span> <span class="toctext">SysLog\Geometry</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="Operator_ini.html#ConfigWindow.5CGeometry"><span class="tocnumber">3.1.3</span> <span class="toctext">ConfigWindow\Geometry</span></a></li>
+<li class="toclevel-3 tocsection-8"><a href="Operator_ini.html#WatchesWindow.5CGeometry"><span class="tocnumber">3.1.4</span> <span class="toctext">WatchesWindow\Geometry</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="Operator_ini.html#WatchesWindow.5CState"><span class="tocnumber">3.1.5</span> <span class="toctext">WatchesWindow\State</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="Operator_ini.html#Scripts.5CAfterModulesConnected"><span class="tocnumber">3.1.6</span> <span class="toctext">Scripts\AfterModulesConnected</span></a></li>
+<li class="toclevel-3 tocsection-11"><a href="Operator_ini.html#Scripts.5COnExit"><span class="tocnumber">3.1.7</span> <span class="toctext">Scripts\OnExit</span></a></li>
+<li class="toclevel-3 tocsection-12"><a href="Operator_ini.html#Scripts.5COnSetConfig"><span class="tocnumber">3.1.8</span> <span class="toctext">Scripts\OnSetConfig</span></a></li>
+<li class="toclevel-3 tocsection-13"><a href="Operator_ini.html#Scripts.5COnResume"><span class="tocnumber">3.1.9</span> <span class="toctext">Scripts\OnResume</span></a></li>
+<li class="toclevel-3 tocsection-14"><a href="Operator_ini.html#Scripts.5COnSuspend"><span class="tocnumber">3.1.10</span> <span class="toctext">Scripts\OnSuspend</span></a></li>
+<li class="toclevel-3 tocsection-15"><a href="Operator_ini.html#Scripts.5COnStart"><span class="tocnumber">3.1.11</span> <span class="toctext">Scripts\OnStart</span></a></li>
+<li class="toclevel-3 tocsection-16"><a href="Operator_ini.html#Scripts.5COnStartRun"><span class="tocnumber">3.1.12</span> <span class="toctext">Scripts\OnStartRun</span></a></li>
+<li class="toclevel-3 tocsection-17"><a href="Operator_ini.html#Scripts.5COnShutdown"><span class="tocnumber">3.1.13</span> <span class="toctext">Scripts\OnShutdown</span></a></li>
+<li class="toclevel-3 tocsection-18"><a href="Operator_ini.html#Buttons.5CButton1Name"><span class="tocnumber">3.1.14</span> <span class="toctext">Buttons\Button1Name</span></a></li>
+<li class="toclevel-3 tocsection-19"><a href="Operator_ini.html#Buttons.5CButton2Name"><span class="tocnumber">3.1.15</span> <span class="toctext">Buttons\Button2Name</span></a></li>
+<li class="toclevel-3 tocsection-20"><a href="Operator_ini.html#Buttons.5CButton3Name"><span class="tocnumber">3.1.16</span> <span class="toctext">Buttons\Button3Name</span></a></li>
+<li class="toclevel-3 tocsection-21"><a href="Operator_ini.html#Buttons.5CButton4Name"><span class="tocnumber">3.1.17</span> <span class="toctext">Buttons\Button4Name</span></a></li>
+<li class="toclevel-3 tocsection-22"><a href="Operator_ini.html#Buttons.5CButton1Cmd"><span class="tocnumber">3.1.18</span> <span class="toctext">Buttons\Button1Cmd</span></a></li>
+<li class="toclevel-3 tocsection-23"><a href="Operator_ini.html#Buttons.5CButton2Cmd"><span class="tocnumber">3.1.19</span> <span class="toctext">Buttons\Button2Cmd</span></a></li>
+<li class="toclevel-3 tocsection-24"><a href="Operator_ini.html#Buttons.5CButton3Cmd"><span class="tocnumber">3.1.20</span> <span class="toctext">Buttons\Button3Cmd</span></a></li>
+<li class="toclevel-3 tocsection-25"><a href="Operator_ini.html#Buttons.5CButton4Cmd"><span class="tocnumber">3.1.21</span> <span class="toctext">Buttons\Button4Cmd</span></a></li>
+<li class="toclevel-3 tocsection-26"><a href="Operator_ini.html#Various.5CGlobalUserLevel"><span class="tocnumber">3.1.22</span> <span class="toctext">Various\GlobalUserLevel</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-27"><a href="Operator_ini.html#Parameters"><span class="tocnumber">3.2</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-2 tocsection-28"><a href="Operator_ini.html#Visualization"><span class="tocnumber">3.3</span> <span class="toctext">Visualization</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-29"><a href="Operator_ini.html#See_also"><span class="tocnumber">4</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Format">Format</span></h2>
+<p><tt>Operator.ini</tt> is a typical <tt>.ini</tt> file consisting of headings ("Sections") and entries ("Values").
+For individual sections, values are unique, and may appear in any order. Value names may consist of multiple levels like file system paths, with a backslash \ as a separator.
+</p><p>Section and value names are case-insensitive.
+</p>
+<h2><span class="mw-headline" id="Moving_between_machines">Moving between machines</span></h2>
+<p>It is possible to move <tt>Operator.ini</tt> files between BCI2000 installations, and computers; note however that <tt>geometry</tt> values use an internal representation provided by Qt, and may not transfer well between BCI2000 installations based on different versions of Qt. Apart from that, windows might be located at a screen position not available on a different machine, e.g. due to multiple monitors being located at different desktop coordinates. BCI2000 tries to handle such edge cases gracefully by moving windows onto the main monitor. If the result is undesired but you still want to use other settings from such an <tt>Operator.ini</tt> file, just remove all <tt>geometry</tt>, <tt>Width</tt>, <tt>Height</tt>, <tt>Left</tt> and <tt>Top</tt> values from the file, retaining the ones you want to keep.
+</p>
+<h2><span class="mw-headline" id="Sections">Sections</span></h2>
+<h3><span class="mw-headline" id="Config">Config</span></h3>
+<h4><span id="MainWindow\Geometry"></span><span class="mw-headline" id="MainWindow.5CGeometry">MainWindow\Geometry</span></h4>
+<p>The Operator's main window size and position, as provided by Qt's <tt>QWidget::saveGeometry()</tt> function.
+</p>
+<h4><span id="SysLog\Geometry"></span><span class="mw-headline" id="SysLog.5CGeometry">SysLog\Geometry</span></h4>
+<p>The Sys Log window size and position, as provided by Qt's <tt>QWidget::saveGeometry()</tt> function.
+</p>
+<h4><span id="ConfigWindow\Geometry"></span><span class="mw-headline" id="ConfigWindow.5CGeometry">ConfigWindow\Geometry</span></h4>
+<p>The Config Window window size and position, as provided by Qt's <tt>QWidget::saveGeometry()</tt> function.
+</p>
+<h4><span id="WatchesWindow\Geometry"></span><span class="mw-headline" id="WatchesWindow.5CGeometry">WatchesWindow\Geometry</span></h4>
+<p>The Watches window size and position, as provided by Qt's <tt>QWidget::saveGeometry()</tt> function.
+</p>
+<h4><span id="WatchesWindow\State"></span><span class="mw-headline" id="WatchesWindow.5CState">WatchesWindow\State</span></h4>
+<p>The Watches window's splitter position, as provided by Qt's <tt>QSplitter::saveState()</tt> function.
+</p>
+<h4><span id="Scripts\AfterModulesConnected"></span><span class="mw-headline" id="Scripts.5CAfterModulesConnected">Scripts\AfterModulesConnected</span></h4>
+<h4><span id="Scripts\OnExit"></span><span class="mw-headline" id="Scripts.5COnExit">Scripts\OnExit</span></h4>
+<h4><span id="Scripts\OnSetConfig"></span><span class="mw-headline" id="Scripts.5COnSetConfig">Scripts\OnSetConfig</span></h4>
+<h4><span id="Scripts\OnResume"></span><span class="mw-headline" id="Scripts.5COnResume">Scripts\OnResume</span></h4>
+<h4><span id="Scripts\OnSuspend"></span><span class="mw-headline" id="Scripts.5COnSuspend">Scripts\OnSuspend</span></h4>
+<h4><span id="Scripts\OnStart"></span><span class="mw-headline" id="Scripts.5COnStart">Scripts\OnStart</span></h4>
+<h4><span id="Scripts\OnStartRun"></span><span class="mw-headline" id="Scripts.5COnStartRun">Scripts\OnStartRun</span></h4>
+<h4><span id="Scripts\OnShutdown"></span><span class="mw-headline" id="Scripts.5COnShutdown">Scripts\OnShutdown</span></h4>
+<p>Operator scripts as configured on the <a href="User_Reference%253AOperator_Module.html#Preferences_Dialog" title="User Reference:Operator Module">Operator's Preferences Dialog</a>.
+</p>
+<h4><span id="Buttons\Button1Name"></span><span class="mw-headline" id="Buttons.5CButton1Name">Buttons\Button1Name</span></h4>
+<h4><span id="Buttons\Button2Name"></span><span class="mw-headline" id="Buttons.5CButton2Name">Buttons\Button2Name</span></h4>
+<h4><span id="Buttons\Button3Name"></span><span class="mw-headline" id="Buttons.5CButton3Name">Buttons\Button3Name</span></h4>
+<h4><span id="Buttons\Button4Name"></span><span class="mw-headline" id="Buttons.5CButton4Name">Buttons\Button4Name</span></h4>
+<p>Button names as configured on the <a href="User_Reference%253AOperator_Module.html#Preferences_Dialog" title="User Reference:Operator Module">Operator's Preferences Dialog</a>.
+</p>
+<h4><span id="Buttons\Button1Cmd"></span><span class="mw-headline" id="Buttons.5CButton1Cmd">Buttons\Button1Cmd</span></h4>
+<h4><span id="Buttons\Button2Cmd"></span><span class="mw-headline" id="Buttons.5CButton2Cmd">Buttons\Button2Cmd</span></h4>
+<h4><span id="Buttons\Button3Cmd"></span><span class="mw-headline" id="Buttons.5CButton3Cmd">Buttons\Button3Cmd</span></h4>
+<h4><span id="Buttons\Button4Cmd"></span><span class="mw-headline" id="Buttons.5CButton4Cmd">Buttons\Button4Cmd</span></h4>
+<p>Button scripts as configured on the <a href="User_Reference%253AOperator_Module.html#Preferences_Dialog" title="User Reference:Operator Module">Operator's Preferences Dialog</a>.
+</p>
+<h4><span id="Various\GlobalUserLevel"></span><span class="mw-headline" id="Various.5CGlobalUserLevel">Various\GlobalUserLevel</span></h4>
+<p>A number between 1 and 3, representing the global user level as configured on the <a href="User_Reference%253AOperator_Module.html#Preferences_Dialog" title="User Reference:Operator Module">Operator's Preferences Dialog</a>.
+The numbers represent user competence in ascending order:
+1: Beginner,
+2: Intermediate,
+3: Advanced.
+</p>
+<h3><span class="mw-headline" id="Parameters">Parameters</span></h3>
+<p>In this section, user levels for individual parameters are stored. Whenever a parameter's user level exceeds the globally set user level, it will be omitted from the parameter configuration dialog.
+The entry name consists of the parameter's name, and the string "UserLevel", separated by a backslash.
+</p><p>Also, the settings from the "Configure Load..." and "Configure Save..." dialogs in the <a href="User_Reference%253AOperator_Module.html#Parameter_Configuration_Window" title="User Reference:Operator Module">Operator Module's Parameter Configuration Window</a> are stored here.
+The entry name consists of the the parameter's name, and the string "LoadFilter" resp. "SaveFilter", separated by a backslash.
+Contrary to intuition, and value of "1" means that the parameter is filtered out, and a value of "0" means that the parameter is
+written/read when saving/loading a parameter file.
+</p>
+<h3><span class="mw-headline" id="Visualization">Visualization</span></h3>
+<p>In the Visualization section, position and size of visualization windows are stored. 
+Visualization windows are identified by their visualization ID (typically, a short string consisting of uppercase letters and numbers).
+</p><p>Normally, visualization IDs are only visible to the code that produces visualizations, not to the end user. To make it possible
+to match visualization windows to visualizaton IDs, the window's title is listed here as well, but its value has no effect on
+new windows. Instead, it will be overwritten with the current window title.
+</p><p>Entry names are built from the visualization ID, a backslash, and a property name. Valid properties are: <i>Title, Width, Height, Top, Bottom,</i> representing the window's title, size and position.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Reference%253AOperator_Module.html#Preferences_Dialog" title="User Reference:Operator Module">User_Reference:Operator_Module#Preferences_Dialog</a>, <a href="User_Reference%253AOperator_Module.html#Parameter_Configuration_Window" title="User Reference:Operator Module">User_Reference:Operator_Module#Parameter_Configuration_Window</a>,
+<a href="User_Reference%253AOperator_Module_Scripting.html" title="User Reference:Operator Module Scripting">User_Reference:Operator_Module_Scripting</a>, <a href="Programming_Reference%253AGenericVisualization_Class.html" title="Programming Reference:GenericVisualization Class">Programming_Reference:GenericVisualization_Class</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524175524
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.023 seconds
+Real time usage: 0.026 seconds
+Preprocessor visited node count: 92/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2471-0!canonical and timestamp 20230524175524 and revision id 10097
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=User_Reference:Operator.ini&amp;oldid=10097">http://www.bci2000.org/mediawiki/index.php?title=User_Reference:Operator.ini&amp;oldid=10097</a>"</div>
+ </div>
+</body>
+</html>

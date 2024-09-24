@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:AudioExtension - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">AudioExtension</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Contributions%253AAudioExtension.html#Synopsis"><span class="tocnumber">1</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Contributions%253AAudioExtension.html#Location"><span class="tocnumber">2</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Contributions%253AAudioExtension.html#Versioning"><span class="tocnumber">3</span> <span class="toctext">Versioning</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Contributions%253AAudioExtension.html#Authors"><span class="tocnumber">3.1</span> <span class="toctext">Authors</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Contributions%253AAudioExtension.html#Version_History"><span class="tocnumber">3.2</span> <span class="toctext">Version History</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Contributions%253AAudioExtension.html#Source_Code_Revisions"><span class="tocnumber">3.3</span> <span class="toctext">Source Code Revisions</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="Contributions%253AAudioExtension.html#Todo"><span class="tocnumber">3.4</span> <span class="toctext">Todo</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="Contributions%253AAudioExtension.html#Known_Issues"><span class="tocnumber">3.5</span> <span class="toctext">Known Issues</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-9"><a href="Contributions%253AAudioExtension.html#Functional_Description"><span class="tocnumber">4</span> <span class="toctext">Functional Description</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="Contributions%253AAudioExtension.html#Integration_into_BCI2000"><span class="tocnumber">5</span> <span class="toctext">Integration into BCI2000</span></a>
+<ul>
+<li class="toclevel-2 tocsection-11"><a href="Contributions%253AAudioExtension.html#Building_with_ASIO_support"><span class="tocnumber">5.1</span> <span class="toctext">Building with ASIO support</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="Contributions%253AAudioExtension.html#Block_Diagram"><span class="tocnumber">6</span> <span class="toctext">Block Diagram</span></a></li>
+<li class="toclevel-1 tocsection-13"><a href="Contributions%253AAudioExtension.html#Parameters"><span class="tocnumber">7</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-14"><a href="Contributions%253AAudioExtension.html#EnableAudioExtension"><span class="tocnumber">7.1</span> <span class="toctext">EnableAudioExtension</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="Contributions%253AAudioExtension.html#AudioMixer"><span class="tocnumber">7.2</span> <span class="toctext">AudioMixer</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="Contributions%253AAudioExtension.html#AudioInputDevice"><span class="tocnumber">7.3</span> <span class="toctext">AudioInputDevice</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="Contributions%253AAudioExtension.html#AudioOutputDevice"><span class="tocnumber">7.4</span> <span class="toctext">AudioOutputDevice</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="Contributions%253AAudioExtension.html#AudioInputFile"><span class="tocnumber">7.5</span> <span class="toctext">AudioInputFile</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="Contributions%253AAudioExtension.html#AudioRecordInput"><span class="tocnumber">7.6</span> <span class="toctext">AudioRecordInput</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="Contributions%253AAudioExtension.html#AudioRecordOutput"><span class="tocnumber">7.7</span> <span class="toctext">AudioRecordOutput</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="Contributions%253AAudioExtension.html#AudioRecordingFormat"><span class="tocnumber">7.8</span> <span class="toctext">AudioRecordingFormat</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="Contributions%253AAudioExtension.html#AudioInputFilterbank.2C_AudioOutputFilterbank"><span class="tocnumber">7.9</span> <span class="toctext">AudioInputFilterbank, AudioOutputFilterbank</span></a></li>
+<li class="toclevel-2 tocsection-23"><a href="Contributions%253AAudioExtension.html#AudioEnvelopeSmoothing"><span class="tocnumber">7.10</span> <span class="toctext">AudioEnvelopeSmoothing</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-24"><a href="Contributions%253AAudioExtension.html#State_Variables"><span class="tocnumber">8</span> <span class="toctext">State Variables</span></a>
+<ul>
+<li class="toclevel-2 tocsection-25"><a href="Contributions%253AAudioExtension.html#Audio.5BIn.2FOut.5DEnvelope.5B0-3.5D"><span class="tocnumber">8.1</span> <span class="toctext">Audio[In/Out]Envelope[0-3]</span></a></li>
+<li class="toclevel-2 tocsection-26"><a href="Contributions%253AAudioExtension.html#AudioFrame"><span class="tocnumber">8.2</span> <span class="toctext">AudioFrame</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-27"><a href="Contributions%253AAudioExtension.html#See_also"><span class="tocnumber">9</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>An environment extension which manages multichannel, low latency audio I/O.
+</p>
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><a rel="nofollow" class="external free" href="http://www.bci2000.org/svn/trunk/src/contrib/Extensions/AudioExtension">http://www.bci2000.org/svn/trunk/src/contrib/Extensions/AudioExtension</a>
+</p>
+<h2><span class="mw-headline" id="Versioning">Versioning</span></h2>
+<h3><span class="mw-headline" id="Authors">Authors</span></h3>
+<p>Griffin Milsap (griffin.milsap@gmail.com)
+</p><p>Jordan Powell (jpow7@outlook.com)
+</p>
+<h3><span class="mw-headline" id="Version_History">Version History</span></h3>
+<ul><li>2012/06/11: Initial public release;</li></ul>
+<h3><span class="mw-headline" id="Source_Code_Revisions">Source Code Revisions</span></h3>
+<ul><li>Initial development: 4095</li>
+<li>Tested under: 5896</li>
+<li>Known to compile under: 5896</li>
+<li>Broken since: --</li></ul>
+<h3><span class="mw-headline" id="Todo">Todo</span></h3>
+<ul><li>Fix Known Issues</li>
+<li>Add per-sample resolution to envelopes</li></ul>
+<h3><span class="mw-headline" id="Known_Issues">Known Issues</span></h3>
+<ul><li>Using DirectSound when suspending and resuming states can cause an issue where the file recorded drops samples, this can be fixed by suspending and resuming until the audio clears up. <i>Luckily, AudioExtensions plays back what has been recorded so its easy to detect when this issue happens</i>, just restart the trial to fix or use ASIO where no known issues exist.</li></ul>
+<ul><li>When compiling in Debug mode the audio clips and some data may be lost, this <b>DOES NOT</b> occur in release mode.</li></ul>
+<h2><span class="mw-headline" id="Functional_Description">Functional Description</span></h2>
+<p>Experiments which require audio input or real-time audio synthesis based on system state are now possible with the AudioExtension.  This extension is capable of recording multiple channels of audio input, synthesizing tones or noise, and reading encoded audio files.  These channels are input to a mixing matrix which mixes those inputs to multiple channels of audio output.  Both input and output are run through a simple filterbank, then they have their envelope extracted and logged into states via the bcievent interface.  Audio input and output channels can be recorded into audio files losslessly and can be resynchronized offline.  The mixing matrix is a matrix of expressions which can be used to dynamically change audio mixing based on the system state.
+</p>
+<h2><span class="mw-headline" id="Integration_into_BCI2000">Integration into BCI2000</span></h2>
+<p>Compile the extension into your source module by enabling contributed extensions in your CMake configuration.  You can do this by going into your root build folder and deleting <code>CMakeCache.txt</code> and re-running the project batch file, or by running <code>cmake -i</code> and enabling <b>BUILD_AUDIOEXTENSION</b>.  Once the extension is built into the source module, enable it by starting the source module with the <code>--EnableAudioExtension=1</code> command line argument (NB, as explained below, the numeric value here matters, and denotes the audio API to be used:  =1 means DirectSound).
+</p>
+<h3><span class="mw-headline" id="Building_with_ASIO_support">Building with ASIO support</span></h3>
+<p>ASIO is a driver that allows for recording from devices with up to four input channels. It also can provide lower latency than other audio drivers. To compile with ASIO support, visit <a rel="nofollow" class="external free" href="https://www.steinberg.net/en/company/developers.html">https://www.steinberg.net/en/company/developers.html</a> and download the ASIO SDK. Extract the downloaded SDK zip file to <code>src/extlib/portaudio</code> and rename it <code>asio</code>. Enable the AudioExtension in CMake and click "Configure". Make sure the "Advanced" option is checked in the CMake GUI and enable <code>PORTAUDIO_ENABLE_ASIO</code>. Click "Generate" and recompile BCI2000. ASIO will now appear as an option under the <code>EnableAudioExtension</code> parameter when BCI2000 is run with the AudioExtension enabled.
+</p>
+<h2><span class="mw-headline" id="Block_Diagram">Block Diagram</span></h2>
+<p><a href="https://www.bci2000.org/mediawiki/index.php/File:AudioExtensionBlockDiagram.png" class="image"><img alt="AudioExtensionBlockDiagram.png" src="../images/1/1e/AudioExtensionBlockDiagram.png" decoding="async" width="654" height="686" /></a>
+</p>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<p>The AudioExtension is configured in the Source tab within the AudioExtension section.  The configurable parameters are:
+</p>
+<h3><span class="mw-headline" id="EnableAudioExtension">EnableAudioExtension</span></h3>
+<p>Enables/Disables the AudioExtension.  This parameter performs double-duty as an audio host API selector.  The following values of this parameter are valid.  NOTE: Not all audio APIs are available on all platforms.
+</p>
+<ul><li><ul><li>[0] - Disabled</li>
+<li>[1] - DirectSound</li>
+<li>[2] - MME</li>
+<li>[3] - ASIO</li>
+<li>[4] - SoundManager</li>
+<li>[5] - CoreAudio</li>
+<li>[6] - Disabled</li>
+<li>[7] - OSS</li>
+<li>[8] - ALSA</li>
+<li>[9] - AL</li>
+<li>[10] - BeOs</li>
+<li>[11] - WDMKS</li>
+<li>[12] - JACK</li>
+<li>[13] - WASAPI</li>
+<li>[14] - AudioScienceHPI</li></ul></li></ul>
+<h3><span class="mw-headline" id="AudioMixer">AudioMixer</span></h3>
+<p>The Audio Mixer is represented as an <b>N x N</b> Matrix, where <b>N</b> is the number of output channels on the selected device. 
+</p><p>If the input device has 2 inputs and 2 outputs, the user must open the <b>AudioMixer</b> and set the matrix size to 2 x 2. To specify which input will be mapped to a specific output you place a <code>1</code> at the intersection of the row (input) and column (output). 
+</p><p><i>For the simplest configuration set the number of inputs and outputs and place a <code>1</code> in a diagonal line from the top left hand corner to the bottom right hand corner. </i> 
+</p>
+<pre>   row:1, column:1; row:2, column:2; row:3, column:3; ... , row:(N-1), column:(N-1); row:N, column:N;
+</pre>
+<p><br />
+By Default the Matrix will have numeric values for all the labels. To specify a different label, double click on the label and type the specified input type. 
+</p><p>Below are a list of valid input labels:
+</p>
+<ul><li><code>X</code> - This is automatically interpreted as INPUT[X], where x is the input channel on the device.</li>
+<li><code>INPUT[X]</code> - This input will come from channel X on the sound capturing device.</li>
+<li><code>FILE[X]</code> - This input will come from channel X in the specified <i>AudioInputFile</i> listed in the <i>Source</i> Tab of BCI2000 Config.</li>
+<li><code>TONE[X]</code> - This input will be a synthesized sine wave with the frequency of X Hz.</li>
+<li><code>NOISE[X]</code> - This input will be generated white noise at X Hz.  <i>NOTE: NOISE[] is white noise at the audio sampling rate (which defaults to 44100)</i></li></ul>
+<h3><span class="mw-headline" id="AudioInputDevice">AudioInputDevice</span></h3>
+<p>Requires a number, which corresponds to an input device ID. Each Audio Recording Device connected to the computer has an associated number. To select a specific device, enter the number into the corresponding box. To view a list of detected Audio Input Devices in BCI2000 click on <code>Set Config</code> and the devices will be listed below 'Audio Extension Enabled' in the operator log.
+</p><p><br />
+<b>Format:</b>
+</p>
+<pre>             Audio Input Device ID [ <b>i</b> ]&#160;: <i>[Name of Audio Device] supports  <b>N</b> Input Channels</i>
+</pre>
+<p><br />
+Where <b>i</b> is a number that corresponds to the Name of the Audio Device. A value of -1 selects the default input device on this host API.
+</p><p>Where <b>N</b> is the number of input channels that can capture audio. This is also used as the number to set up the <i>AudioMixer</i> during configuration.
+</p>
+<h3><span class="mw-headline" id="AudioOutputDevice">AudioOutputDevice</span></h3>
+<p>Requires a number, which corresponds to an output device ID. Each Audio Playback Device connected to the computer has an associated number. To select a specific device, enter the number into the corresponding box. To view a list of detected Audio Input Devices in BCI2000 click on <code>Set Config</code> and the devices will be listed below 'Audio Extension Enabled' in the operator log.
+</p><p><br />
+<b>Format:</b>
+</p>
+<pre>             Audio Output Device ID [ <b>i</b> ]&#160;: <i>[Name of Audio Device] Supports N Output Channels</i>
+</pre>
+<p><br />
+Where <b>i</b> is a number that corresponds to the Name of the Audio Device. A value of -1 selects the default output device on this host API.
+</p><p>Where <b>N</b> is the number of output channels that where audio can be stored. This is also used as the number to set up the <i>AudioMixer</i> during configuration.
+</p>
+<h3><span class="mw-headline" id="AudioInputFile">AudioInputFile</span></h3>
+<p>Audio file to use as audio input to AudioMixer.  The selected file can have any non-zero number of channels and be encoded in almost any format (except MP3), but MUST be encoded at 44100 Hz.
+</p>
+<h3><span class="mw-headline" id="AudioRecordInput">AudioRecordInput</span></h3>
+<p>Enables/Disables recording of audio data to a file in the DataDirectory.
+</p>
+<h3><span class="mw-headline" id="AudioRecordOutput">AudioRecordOutput</span></h3>
+<p>Enables/Disables recording of audio data to a file in the DataDirectory.
+</p>
+<h3><span class="mw-headline" id="AudioRecordingFormat">AudioRecordingFormat</span></h3>
+<p>Changes the file format and encoding options of the recorded output files.  This parameter has the following three options:
+</p>
+<ul><li>Raw - Records to 16 bit Microsoft formatted WAV files with no compression.  These files open directly in MATLAB if that's interesting to you.</li>
+<li>Lossless - Records to FLAC formatted files.  These files are slightly smaller than RAW files, but have no quality loss.</li>
+<li>Lossy - Records to Ogg Vorbis files.  These files are similar to MP3 but do not have the associated licensing issues.  They are compressed using a lossy algorithm, so the resulting files are very small but sound slightly worse than lossless encoding.  This format is good for long recordings where perfect quality is not necessary.</li></ul>
+<h3><span id="AudioInputFilterbank,_AudioOutputFilterbank"></span><span class="mw-headline" id="AudioInputFilterbank.2C_AudioOutputFilterbank">AudioInputFilterbank, AudioOutputFilterbank</span></h3>
+<p>A filterbank which filters audio input and output before rectification/smoothing for envelope extraction.  These butterworth filters will not be applied to the audible signal.  The format of the filter bank is as follows:
+</p>
+<ul><li>Type - The characteristic of the filter.  The following values are valid.
+<ul><li>Lowpass - Creates a low pass filter</li>
+<li>Highpass - Creates a high pass filter</li>
+<li>Bandpass - Creates a band pass filter <a href="Contributions%253AAudioExtension.html#Known_Issues" title="Contributions:AudioExtension">*See Known Issues*</a></li>
+<li>Bandstop - Creates a band stop, or notch filter</li></ul></li>
+<li>Order - The order of the filter model.  Higher order filters are more accurate but more expensive computationally.</li>
+<li>Cutoff1 - The cutoff frequency for Lowpass and Highpass filters, and the cut-on frequency for Bandpass and Bandstop filters.</li>
+<li>Cutoff2 - The cut-off frequency for Bandpass and Bandstop filters.</li></ul>
+<p>The matrix can have as many rows as necessary to filter the signal.  Filters can be applied in any order and their transfer functions are multiplied before filtering occurs.
+</p>
+<h3><span class="mw-headline" id="AudioEnvelopeSmoothing">AudioEnvelopeSmoothing</span></h3>
+<p>The cutoff frequency for the low pass filter which is applied to the filtered and full-wave rectified audio data.  This should be set to the highest frequency you want to see in the resulting audio envelope.
+</p>
+<h2><span class="mw-headline" id="State_Variables">State Variables</span></h2>
+<p>The AudioExtension outputs the following state variables:
+</p>
+<h3><span id="Audio[In/Out]Envelope[0-3]"></span><span class="mw-headline" id="Audio.5BIn.2FOut.5DEnvelope.5B0-3.5D">Audio[In/Out]Envelope[0-3]</span></h3>
+<p>These are the envelope values of each channel (up to channel 4) of the audio inputs and outputs (in the AudioMixer matrix).  These 16 bit unsigned values correspond to the resulting envelope after the audio envelope extraction.  For architectural reasons, it is not possible to publish states after system startup, so you are limited to four channels of input and output.  The AudioExtension can be easily modified to change the number of channels by editing the <code>#define NUM_INPUT_ENVELOPES 4</code> and <code>#define NUM_OUTPUT_ENVELOPES</code> lines in AudioExtension.cpp, and recompiling your source module.
+</p>
+<h3><span class="mw-headline" id="AudioFrame">AudioFrame</span></h3>
+<p>This 32 bit unsigned number corresponds to the current frame of audio data in the recorded output files.  This can be used to resynchronize the lossless audio to the resulting .dat file offline.  Audio is sampled internally at 44100 Hz, so this number will roll over once every 27 hours or so.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Reference%253ALogging_Input.html" title="User Reference:Logging Input">User Reference:Logging Input</a>, <a href="Contributions%253AExtensions.html" title="Contributions:Extensions">Contributions:Extensions</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524175442
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.033 seconds
+Real time usage: 0.037 seconds
+Preprocessor visited node count: 85/1000000
+Post‐expand include size: 15/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2045-0!canonical and timestamp 20230524175442 and revision id 8218
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:AudioExtension&amp;oldid=8218">http://www.bci2000.org/mediawiki/index.php?title=Contributions:AudioExtension&amp;oldid=8218</a>"</div>
+ </div>
+</body>
+</html>

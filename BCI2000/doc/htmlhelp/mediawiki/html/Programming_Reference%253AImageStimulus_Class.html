@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Programming Reference:ImageStimulus Class - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul><li class="toc1">Concepts</li><ul><li class="toc2"><a href="Programming_Reference%253AFilter_Chain.html">Filter Chain</a></li><li class="toc2"><a href="Programming_Reference%253ASignals.html">Signals</a></li><li class="toc2"><a href="Programming_Reference%253AError_Handling.html">Error Handling</a></li><li class="toc2"><a href="Programming_Reference%253ALocalization.html">Localization</a></li><li class="toc2"><a href="Programming_Reference%253ARapid_Development.html">Rapid Development</a></li></ul><li class="toc1">Reference</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFilter_Class.html">GenericFilter</a></li><li class="toc2"><a href="Programming_Reference%253AEnvironment_Class.html">Environment</a></li><li class="toc2"><a href="Programming_Reference%253AGenericVisualization_Class.html">GenericVisualization</a></li><li class="toc2"><a href="Programming_Reference%253AErrors_and_Warnings.html">Errors and Warnings</a></li><li class="toc2"><a href="Programming_Reference%253ADebug_Output.html">Debug Output</a></li></ul><li class="toc1">Data Acquisition</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericADC_Class.html">GenericADC</a></li></ul><li class="toc1">Data Storage</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFileWriter_Class.html">GenericFileWriter</a></li><li class="toc2"><a href="Programming_Reference%253ABCI2000FileReader_Class.html">BCI2000FileReader</a></li></ul><li class="toc1">Signal Processing</li><ul><li class="toc2"><a href="Programming_Reference%253AIIRFilterBase_Class.html">IIR Filters</a></li></ul><li class="toc1">Application Modules</li><ul><li class="toc2"><a href="Programming_Reference%253AApplicationBase_Class.html">ApplicationBase</a></li><li class="toc2"><a href="Programming_Reference%253AFeedbackTask_Class.html">FeedbackTask</a></li><li class="toc2"><a href="Programming_Reference%253AStimulusTask_Class.html">StimulusTask</a></li><li class="toc2"><a href="Programming_Reference%253A3D_API.html">3D API</a></li></ul><li class="toc1">Howtos</li><ul><li class="toc2"><a href="Programming_Howto%253ABuilding_BCI2000.html">Building BCI2000</a></li><li class="toc2"><a href="Programming_Howto%253ASVN_Client_Setup.html">SVN Client Setup</a></li><li class="toc2"><a href="Programming_Howto%253AUsing_TortoiseSVN.html">Using TortoiseSVN</a></li></ul><li class="toc1"><a href="Programming_FAQ.html">FAQ</a></li><li class="toc1">Tutorials</li><ul><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html">Data Acquisition</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html">Signal Processing</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html">Matlab Signal Processing</a></li></ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">ImageStimulus Class</h1>
+ <p class = "subtitle">Programming Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Programming_Reference%253AImageStimulus_Class.html#Location"><span class="tocnumber">1</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Programming_Reference%253AImageStimulus_Class.html#Synopsis"><span class="tocnumber">2</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Programming_Reference%253AImageStimulus_Class.html#Properties"><span class="tocnumber">3</span> <span class="toctext">Properties</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Programming_Reference%253AImageStimulus_Class.html#string_File_.28rw.29"><span class="tocnumber">3.1</span> <span class="toctext">string File (rw)</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Programming_Reference%253AImageStimulus_Class.html#enum_RenderingMode_.28rw.29"><span class="tocnumber">3.2</span> <span class="toctext">enum RenderingMode (rw)</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Programming_Reference%253AImageStimulus_Class.html#Inherited_from_VisualStimulus"><span class="tocnumber">3.3</span> <span class="toctext">Inherited from VisualStimulus</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AImageStimulus_Class.html#enum_PresentationMode_.28rw.29"><span class="tocnumber">3.4</span> <span class="toctext">enum PresentationMode (rw)</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AImageStimulus_Class.html#float_DimFactor_.28rw.29"><span class="tocnumber">3.5</span> <span class="toctext">float DimFactor (rw)</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="Programming_Reference%253AImageStimulus_Class.html#Inherited_from_GraphObject"><span class="tocnumber">3.6</span> <span class="toctext">Inherited from GraphObject</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AImageStimulus_Class.html#GraphDisplay_Display_.28r.29"><span class="tocnumber">3.7</span> <span class="toctext">GraphDisplay Display (r)</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AImageStimulus_Class.html#bool_Visible_.28r.29"><span class="tocnumber">3.8</span> <span class="toctext">bool Visible (r)</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AImageStimulus_Class.html#float_ZOrder_.28rw.29"><span class="tocnumber">3.9</span> <span class="toctext">float ZOrder (rw)</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AImageStimulus_Class.html#enum_AspectRatioMode_.28rw.29"><span class="tocnumber">3.10</span> <span class="toctext">enum AspectRatioMode (rw)</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AImageStimulus_Class.html#GUI::Rect_DisplayRect_.28rw.29"><span class="tocnumber">3.11</span> <span class="toctext">GUI::Rect DisplayRect (rw)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="Programming_Reference%253AImageStimulus_Class.html#Methods"><span class="tocnumber">4</span> <span class="toctext">Methods</span></a>
+<ul>
+<li class="toclevel-2 tocsection-9"><a href="Programming_Reference%253AImageStimulus_Class.html#Inherited_from_GraphObject_2"><span class="tocnumber">4.1</span> <span class="toctext">Inherited from GraphObject</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AImageStimulus_Class.html#Show.28.29"><span class="tocnumber">4.2</span> <span class="toctext">Show()</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AImageStimulus_Class.html#Hide.28.29"><span class="tocnumber">4.3</span> <span class="toctext">Hide()</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AImageStimulus_Class.html#Invalidate.28.29"><span class="tocnumber">4.4</span> <span class="toctext">Invalidate()</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AImageStimulus_Class.html#Paint.28.29"><span class="tocnumber">4.5</span> <span class="toctext">Paint()</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AImageStimulus_Class.html#Change.28.29"><span class="tocnumber">4.6</span> <span class="toctext">Change()</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AImageStimulus_Class.html#bool_Click.28GUI::Point.29"><span class="tocnumber">4.7</span> <span class="toctext">bool Click(GUI::Point)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="Programming_Reference%253AImageStimulus_Class.html#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><tt>src/shared/modules/application/stimuli</tt>
+</p>
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>The <tt>ImageStimulus</tt> class provides a <a href="Programming_Reference%253AVisualStimulus_Class.html" title="Programming Reference:VisualStimulus Class">VisualStimulus</a> that displays an image loaded from a file.
+</p>
+<h2><span class="mw-headline" id="Properties">Properties</span></h2>
+<h3><span id="string_File_(rw)"></span><span class="mw-headline" id="string_File_.28rw.29">string File (rw)</span></h3>
+<p>A relative or absolute path to an image file. When relative, the path is interpreted relative to the application module's working directory at startup.
+</p>
+<h3><span id="enum_RenderingMode_(rw)"></span><span class="mw-headline" id="enum_RenderingMode_.28rw.29">enum RenderingMode (rw)</span></h3>
+<p>One of <i>GUI::RenderingMode::Transparent</i> or <i>GUI::RenderingMode::Opaque</i>. When <i>Transparent</i>, the image's bottom leftmost pixel is taken to represent its background, and pixels of this color are not drawn, allowing objects below the <tt>ImageStimulus</tt> to appear.
+</p>
+<h3><span class="mw-headline" id="Inherited_from_VisualStimulus">Inherited from <a href="Programming_Reference%253AVisualStimulus_Class.html" title="Programming Reference:VisualStimulus Class">VisualStimulus</a></span></h3>
+<h3><span id="enum_PresentationMode_(rw)"></span><span class="mw-headline" id="enum_PresentationMode_.28rw.29">enum PresentationMode (rw)</span></h3>
+<p>This property determines the way a stimulus is presented. It is one of the following:
+</p>
+<dl><dt>ShowHide</dt>
+<dd>The stimulus is initially invisible, and visible while being presented.</dd>
+<dt>Intensify</dt>
+<dd>During presentation, the contrast of the stimulus is increased.</dd>
+<dt>Grayscale</dt>
+<dd>During presentation, the stimulus is displayed in grayscale rather than color.</dd>
+<dt>Invert</dt>
+<dd>During presentation, the stimulus appears color-inverted.</dd>
+<dt>Dim</dt>
+<dd>During presentation, the contrast of the stimulus is reduced.</dd>
+<dt>HideShow</dt>
+<dd>The stimulus is initially visible, and invisible while being presented.</dd></dl>
+<h3><span id="float_DimFactor_(rw)"></span><span class="mw-headline" id="float_DimFactor_.28rw.29">float DimFactor (rw)</span></h3>
+<p>Determines the contrast ratio between presentation and non-presentation in <i>Dim</i> and <i>Intensify</i> modes.
+In <i>Intensify</i> mode, values greater 1 will result in a brighter appearance during presentation; in <i>Dim</i> mode, values greater 1 will result in a darker appearance during presentation. Due to saturation effects, the result may not be as expected.
+</p>
+<h3><span class="mw-headline" id="Inherited_from_GraphObject">Inherited from <a href="Programming_Reference%253AGraphObject_Class.html" title="Programming Reference:GraphObject Class">GraphObject</a></span></h3>
+<h3><span id="GraphDisplay_Display_(r)"></span><span class="mw-headline" id="GraphDisplay_Display_.28r.29">GraphDisplay Display (r)</span></h3>
+<p>The <tt>GraphDisplay</tt> object that was specified when the object was created.
+</p>
+<h3><span id="bool_Visible_(r)"></span><span class="mw-headline" id="bool_Visible_.28r.29">bool Visible (r)</span></h3>
+<p><i>True</i> if the object is visible, <i>false</i> if it is hidden. Use the <i>Hide()</i> and <i>Show()</i> methods to set this property.
+</p>
+<h3><span id="float_ZOrder_(rw)"></span><span class="mw-headline" id="float_ZOrder_.28rw.29">float ZOrder (rw)</span></h3>
+<p>Determines the order in which GraphObjects are drawn. GraphObjects with smaller values of ZOrder are drawn on top of those with larger values, hiding these.
+</p>
+<h3><span id="enum_AspectRatioMode_(rw)"></span><span class="mw-headline" id="enum_AspectRatioMode_.28rw.29">enum AspectRatioMode (rw)</span></h3>
+<p>One of the following options:
+</p>
+<dl><dt>AdjustNone</dt>
+<dd>No adjustment is made.</dd>
+<dt>AdjustWidth</dt>
+<dd>The object's width is adapted to its contents, while keeping its height constant.</dd>
+<dt>AdjustHeight</dt>
+<dd>The object's height is adapted to its contents, keeping its width constant.</dd>
+<dt>AdjustBoth</dt>
+<dd>Both the object's height and width are adjusted to its content.</dd></dl>
+<p>The exact behavior of aspect ratio adjustment depends on the object's type. E.g., for bitmap images, <i>AdjustBoth</i> will size the image such that one image pixel corresponds to one screen pixel; <i>AdjustHeight</i> and <i>AdjustWidth</i> will adjust such that the original aspect ratio is preserved.
+</p>
+<h3><span id="GUI::Rect_DisplayRect_(rw)"></span><span class="mw-headline" id="GUI::Rect_DisplayRect_.28rw.29">GUI::Rect DisplayRect (rw)</span></h3>
+<p>The bounding rectangle of the space that is occupied by the object. This is given in coordinates relative to the size of the object's <tt>GraphDisplay</tt>; there, the upper left corner corresponds to (0,0), the lower right corner to (1,1).
+When a <tt>GraphObject</tt> is created, its display rectangle is empty.
+</p>
+<h2><span class="mw-headline" id="Methods">Methods</span></h2>
+<h3><span class="mw-headline" id="Inherited_from_GraphObject_2">Inherited from <a href="Programming_Reference%253AGraphObject_Class.html" title="Programming Reference:GraphObject Class">GraphObject</a></span></h3>
+<h3><span id="Show()"></span><span class="mw-headline" id="Show.28.29">Show()</span></h3>
+<p>Makes the object visible. Initially, objects are created in visible state.
+</p>
+<h3><span id="Hide()"></span><span class="mw-headline" id="Hide.28.29">Hide()</span></h3>
+<p>Makes the object invisible.
+</p>
+<h3><span id="Invalidate()"></span><span class="mw-headline" id="Invalidate.28.29">Invalidate()</span></h3>
+<p>Invalidates the object's bounding rectangle, i.e. marks it as needing to be repainted. Typically, this function is called from a derived class, indicating that a change in object properties has occurred that requires a repaint.
+</p>
+<h3><span id="Paint()"></span><span class="mw-headline" id="Paint.28.29">Paint()</span></h3>
+<p>Asks an object to paint itself by calling its <tt>OnPaint</tt> event handler.
+</p>
+<h3><span id="Change()"></span><span class="mw-headline" id="Change.28.29">Change()</span></h3>
+<p>Notifies an object of a change in display properties by calling its <tt>OnChange</tt> event handler.
+</p>
+<h3><span id="bool_Click(GUI::Point)"></span><span class="mw-headline" id="bool_Click.28GUI::Point.29">bool Click(GUI::Point)</span></h3>
+<p>Tests whether the specified point is inside an object's bounding rectangle, and calls its <tt>OnClick</tt> event handler if this is the case.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Programming_Reference%253AVisualStimulus_Class.html" title="Programming Reference:VisualStimulus Class">Programming Reference:VisualStimulus Class</a>, <a href="Programming_Reference%253AGraphObject_Class.html" title="Programming Reference:GraphObject Class">Programming Reference:GraphObject Class</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524175548
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.027 seconds
+Real time usage: 0.034 seconds
+Preprocessor visited node count: 55/1000000
+Post‐expand include size: 3483/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   11.153      1 -total
+ 52.21%    5.823      1 Template:VisualStimulusProperties
+ 24.81%    2.767      1 Template:GraphObjectProperties
+ 20.87%    2.327      1 Template:GraphObjectMethods
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1841-0!canonical and timestamp 20230524175548 and revision id 4285
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:ImageStimulus_Class&amp;oldid=4285">http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:ImageStimulus_Class&amp;oldid=4285</a>"</div>
+ </div>
+</body>
+</html>

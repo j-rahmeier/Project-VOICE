@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>User Reference:BCI2000 Offline Analysis - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul><li class="toc1"><a href="User_Reference%253AOperator_Module.html">Operator Module</a></li><li class="toc1"><a href="User_Reference%253AOperator_Module_Scripting.html">Operator Scripting</a></li><li class="toc1"><a href="User_Reference%253AModule_Command_Line_Options.html">Module Command Line Options</a></li><li class="toc1"><a href="User_Reference%253AData_File_Formats.html">Data File Formats</a></li><li class="toc1"><a href="User_Reference%253AFilters.html">Configuration Guide</a></li><li class="toc1"><a href="User_FAQ.html">FAQ</a></li><li class="toc1">Applications</li><ul><li class="toc2"><a href="User_Reference%253ACursorTask.html">Cursor Task</a></li><li class="toc2"><a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:P3SpellerTask">P3Speller Task</a></li><li class="toc2"><a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:StimulusPresentation">Stimulus Presentation</a></li></ul><li class="toc1">Tools</li><ul><li class="toc2"><a href="User_Reference%253ABCI2000Certification.html">BCI2000Certification</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Launcher.html">BCI2000Launcher</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Viewer.html">BCI2000Viewer</a></li><li class="toc2"><a href="User_Reference%253ABCI2000FileInfo.html">BCI2000FileInfo</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Export.html">BCI2000Export</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Analysis.html">BCI2000Analysis</a></li><li class="toc2">BCI2000 Offline Analysis</li><li class="toc2"><a href="User_Reference%253AEloc_Helper.html">Eloc Helper</a></li><li class="toc2"><a href="User_Reference%253AEEGLabImport.html">EEGLabImport</a></li><li class="toc2"><a href="User_Reference%253AMatlab_Tools.html">Matlab Tools</a></li><li class="toc2"><a href="User_Reference%253AMatlab_MEX_Files.html">Matlab MEX Files</a></li><li class="toc2"><a href="User_Reference%253ACommand_Line_Processing.html">Command Line Processing</a></li></ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">BCI2000 Offline Analysis</h1>
+ <p class = "subtitle">User Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p><i>BCI2000 Offline Analysis</i> is a graphical tool for finding useful features in EEG and ECoG data.  It should not be confused with the <a href="User_Reference%253AMatlab_Tools.html" title="User Reference:Matlab Tools">matlab tools for offline data analysis</a>, which are of more interest to experienced Matlab users.
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:OfflineAnalysis.png" class="image"><img alt="OfflineAnalysis.png" src="../images/a/a8/OfflineAnalysis.png" decoding="async" width="554" height="513" /></a> 
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="User_Reference%253ABCI2000_Offline_Analysis.html#Basic_Operation"><span class="tocnumber">1</span> <span class="toctext">Basic Operation</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="User_Reference%253ABCI2000_Offline_Analysis.html#Installing_and_Running"><span class="tocnumber">2</span> <span class="toctext">Installing and Running</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="User_Reference%253ABCI2000_Offline_Analysis.html#Systems_with_MATLAB_v7.0_or_greater_installed"><span class="tocnumber">2.1</span> <span class="toctext">Systems with MATLAB v7.0 or greater installed</span></a>
+<ul>
+<li class="toclevel-3 tocsection-4"><a href="User_Reference%253ABCI2000_Offline_Analysis.html#Startup_Script"><span class="tocnumber">2.1.1</span> <span class="toctext">Startup Script</span></a></li>
+<li class="toclevel-3 tocsection-5"><a href="User_Reference%253ABCI2000_Offline_Analysis.html#From_the_MATLAB_command_line"><span class="tocnumber">2.1.2</span> <span class="toctext">From the MATLAB command line</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-6"><a href="User_Reference%253ABCI2000_Offline_Analysis.html#Systems_that_do_not_have_MATLAB_installed_or_with_versions_that_predate_MATLAB_v7.0"><span class="tocnumber">2.2</span> <span class="toctext">Systems that do not have MATLAB installed or with versions that predate MATLAB v7.0</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="User_Reference%253ABCI2000_Offline_Analysis.html#Reference"><span class="tocnumber">3</span> <span class="toctext">Reference</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="User_Reference%253ABCI2000_Offline_Analysis.html#Troubleshooting"><span class="tocnumber">4</span> <span class="toctext">Troubleshooting</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="User_Reference%253ABCI2000_Offline_Analysis.html#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Basic_Operation">Basic Operation</span></h2>
+<p>The OfflineAnalysis tool operates in two steps. In a first step, it transforms recorded data such that it is now represented by a certain set of features rather than by EEG time courses. The set of features differs by the type of data analyzed as follows:
+</p><p>For P300 (ERP) data, a single feature corresponds to
+</p>
+<ul><li>raw EEG amplitude</li>
+<li>at a certain time offset after the stimulus</li>
+<li>in a certain channel.</li></ul>
+<p>For mu rhythm (SMR) data, a single feature corresponds to
+</p>
+<ul><li>absolute value of EEG amplitude</li>
+<li>at a certain frequency</li>
+<li>in a certain channel.</li></ul>
+<p>After transformation from raw EEG into features, data are selected/sorted into two groups according to the conditions specified in the OfflineAnalysis GUI. Again, the meaning of these conditions depends on the type of data analyzed: For P300 data, one condition is the presentation of an unattended stimulus, while the other condition is the presentation of an attended stimulus. For mu rhythm data, one condition may be imagined movement of the left hand, while the other condition may be rest.
+</p><p>Now, for a single feature, there exists a number of sampled values, taken from two sets (conditions). What OfflineAnalysis now does is that it uses these values to compute a number representing how much a feature's value tells about the condition under which it was recorded. That measure is called "determination coefficient", or "r^2 (r squared)," and is a number between 0 and 1. The larger a feature's r^2, the more correlation exists between a feature's value and the condition under which it was recorded. For details about  how r^2 values are computed, see <a href="Glossary.html" title="Glossary">Coefficient of Determination</a>.
+</p><p>Finally, OfflineAnalysis produces a main graph that shows r^2 values, plotted over the two dimensions that locate a feature. Using this graph, one may identify and select individual channels and time offsets/frequencies for which to display more detailed information, i.e. topographic plots, ERP wave forms, spectra.
+</p>
+<h2><span class="mw-headline" id="Installing_and_Running">Installing and Running</span></h2>
+<p>In order to run <i>BCI2000 Offline Analysis</i> you'll need a system running Windows.  If your system meets this requirement, please choose from one of the following:
+</p>
+<h3><span class="mw-headline" id="Systems_with_MATLAB_v7.0_or_greater_installed">Systems with MATLAB v7.0 or greater installed</span></h3>
+<h4><span class="mw-headline" id="Startup_Script">Startup Script</span></h4>
+<p>If you have not yet opened MATLAB, the easiest way to run <i>BCI2000 Offline Analysis</i> is to double click the OfflineAnalysis.bat file that resides in <tt>tools/OfflineAnalysis/</tt>
+</p>
+<h4><span class="mw-headline" id="From_the_MATLAB_command_line">From the MATLAB command line</span></h4>
+<p>If MATLAB is already running, navigate to <tt>tools/OfflineAnalysis/</tt> using the <i>Current Directory</i> explorer or typing the absolute path into the textbox at the top of the MATLAB window.  Then, type OfflineAnalysis at the MATLAB command prompt in order to start analyzing your data.
+</p>
+<h3><span class="mw-headline" id="Systems_that_do_not_have_MATLAB_installed_or_with_versions_that_predate_MATLAB_v7.0">Systems that do not have MATLAB installed or with versions that predate MATLAB v7.0</span></h3>
+<ol><li>Install the MATLAB Component Runtime (MCR)
+<ol><li>Download MATLAB runtime version 8.5 (R2015a) from the <a rel="nofollow" class="external text" href="http://www.mathworks.com/products/compiler/mcr/index.html">MathWorks website</a>.</li>
+<li>When the download is complete, run the installer.</li>
+<li>Follow the on-screen instructions to complete the installation.</li></ol></li>
+<li>Navigate to <tt>tools/OfflineAnalysis/</tt></li>
+<li>If you installed the x64 version of MATLAB runtime version 8.5, double-click <tt>OfflineAnalysisWin64.exe</tt> to begin analyzing your data. Otherwise, run <tt>OfflineAnalysisWin32.exe</tt>.</li></ol>
+<h2><span class="mw-headline" id="Reference">Reference</span></h2>
+<p>For a <i>BCI2000 Offline Analysis</i> and <i>Eloc Helper</i> tutorial, please see <a href="https://www.bci2000.org/mediawiki/index.php/User_Tutorial:Performing_an_Offline_Analysis_of_EEG_Data" title="User Tutorial:Performing an Offline Analysis of EEG Data">User Tutorial:Performing an Offline Analysis of EEG Data</a> and <a href="https://www.bci2000.org/mediawiki/index.php/User_Tutorial:Performing_a_Time-Domain_Offline_Analysis_of_EEG_Data" title="User Tutorial:Performing a Time-Domain Offline Analysis of EEG Data">User Tutorial:Performing a Time-Domain Offline Analysis of EEG Data</a>.
+</p><p><b>File&gt;Save Settings -</b> "Save Settings" allows you to save the values you've entered for all fields excluding "Data files", "Ignore warnings" and "Overwrite existing plots".  This functionality may be particularly useful if you want to run the same or similar analyses between sessions.  
+</p><p><b>File&gt;Load Settings -</b> "Load Settings" allows you to load a settings file previously created using File&gt;Save Settings. 
+</p><p><b>Analysis Domain -</b> The BCI2000 Offline Analysis tool allows for you to analyze your data either in the frequency domain or the time domain.  Be aware that certain fields will be labeled differently depending on the domain that is chosen.  Specifically, choosing "Frequency" will make the "Spectra Channels" and "Topo Frequencies" fields available.  Choosing "Time" on the other hand will make the fields "Waveform Channels" and "Topo Times" available.  Additionally, the values for the target conditions, trial change condition and spatial filter will be overwritten so as to correspond with the chosen domain.  
+</p><p>A frequency domain analysis will result in up to three plots comprising a feature plot, a spectra plot (one spectrum for each channel specified) and up to 9 topographic plots (one for each topo frequency specified).  Typically the best frequency domain features can be found in the range of 9-12 Hz and 18-25 Hz.  Please see <a href="https://www.bci2000.org/mediawiki/index.php/User_Tutorial:Performing_an_Offline_Analysis_of_EEG_Data" title="User Tutorial:Performing an Offline Analysis of EEG Data">User Tutorial:Performing an Offline Analysis of EEG Data</a> for a more complete explanation of this type of analysis.  
+</p><p>A time domain analysis will result in up to three plots comprising a feature plot, a waveform plot (consisting of one waveform for each channel specified) and up to 9 topographic plots (one for each topo time specified).  Typically P300 features are found at around 300 ms following presentation of the stimulus.  Please see <a href="https://www.bci2000.org/mediawiki/index.php/User_Tutorial:Performing_a_Time-Domain_Offline_Analysis_of_EEG_Data" title="User Tutorial:Performing a Time-Domain Offline Analysis of EEG Data">User Tutorial:Performing a Time-Domain Offline Analysis of EEG Data</a> for a more complete explanation of this type of analysis.  
+</p><p><b>Acquisition Type -</b> Acquisition type allows the user to indicate whether the data was acquired using an EEG or an ECoG.
+</p><p><b>Data Files -</b> Any number of BCI2000 data files with the same state information and number of channels may be analyzed in a single run.  To select a file to add to the list of files to be analyzed, simply click the "Add" button, choose the desired file and click "Open."  To add multiple files from the same directory, click on any one of the desired files and then control-click the additional files.  Then, when all desired files are selected, click "Open."  If files have already been added to the data files list then subsequent uses of the above procedure will append the selected files to the list allowing for addition of files from different directories.
+</p><p><b>Montage File <i>(optional)</i> -</b> If topographic plots are desired, you must specify a montage file that is congruent with the chosen acquisition type (i.e., EEG or ECoG).  If you do not yet have a montage file, you can create one using the Eloc Helper tool that comes with BCI2000 Offline Analysis.  For more information about Eloc Helper, please see <a href="User_Reference%253AEloc_Helper.html" title="User Reference:Eloc Helper">User Reference:Eloc Helper</a>.  In place of a montage file, you may also use data files that specify channel names that are compliant with the 10-20 standard.  In this case, <i>BCI2000 Offline Analysis</i> will use the channel name corresponding to each electrode to infer the location of that electrode.
+</p><p><b>Target Conditions -</b> Target conditions consists of four fields that allow for the specification of two different conditions.  Each condition consists of the condition itself (i.e., a MATLAB-syntax Boolean statement) and the label for the corresponding data (e.g., "Opening and Closing Both Hands").  Typically you will want to specify two different conditions in order to compare two different datasets.  Occasionally, however, you may want to inspect a single dataset to investigate certain artifacts such as subject-related noise.  In this case, you can omit the second condition (i.e., both the condition and the label).  To learn more about condition syntax, please see <a href="https://www.bci2000.org/mediawiki/index.php/User_Tutorial:Performing_an_Offline_Analysis_of_EEG_Data" title="User Tutorial:Performing an Offline Analysis of EEG Data">User Tutorial:Performing an Offline Analysis of EEG Data</a> or <a href="https://www.bci2000.org/mediawiki/index.php/User_Tutorial:Performing_a_Time-Domain_Offline_Analysis_of_EEG_Data" title="User Tutorial:Performing a Time-Domain Offline Analysis of EEG Data">User Tutorial:Performing a Time-Domain Offline Analysis of EEG Data</a>.
+</p><p><b>Trial Change Condition -</b> The trial change condition allows for the user to indicate to <i>BCI2000 Offline Analysis</i> how to determine the position of the trial edges.  The condition must be a MATLAB-syntax Boolean statement.  To learn more about condition syntax, please see <a href="https://www.bci2000.org/mediawiki/index.php/User_Tutorial:Performing_an_Offline_Analysis_of_EEG_Data" title="User Tutorial:Performing an Offline Analysis of EEG Data">User Tutorial:Performing an Offline Analysis of EEG Data</a> or <a href="https://www.bci2000.org/mediawiki/index.php/User_Tutorial:Performing_a_Time-Domain_Offline_Analysis_of_EEG_Data" title="User Tutorial:Performing a Time-Domain Offline Analysis of EEG Data">User Tutorial:Performing a Time-Domain Offline Analysis of EEG Data</a>.
+</p><p><b>Spectra Channels <i>(optional)</i> -</b> <i>Note: This field is available only if you've chosen "Frequency" as the analysis domain</i>. If you would like to have the analysis generate spectra plots, you must enter at least one channel in this field.  Multiple channels can be specified using a comma-delimited list (e.g., "1,2,3") or a space-delimited list (e.g., "1 2 3").
+</p><p><b>Topo Frequencies <i>(optional)</i> -</b> <i>Note: This field is available only if you've chosen "Frequency" as the analysis domain</i>. If you would like to have the analysis generate topographic plots, you must enter at least one frequency in this field.  Multiple frequencies can be specified using a comma-delimited list (e.g., "8, 11, 22") or a space-delimited list (e.g., "8 11 22").
+</p><p><b>Waveform Channels <i>(optional)</i> -</b> <i>Note: This field is available only if you've chosen "Time" as the analysis domain</i>. If you would like to have the analysis generate P300 waveform plots, you must enter at least one channel in this field.  Multiple channels can be specified using a comma-delimited list (e.g., "1,2,3") or a space-delimited list (e.g., "1 2 3").
+</p><p><b>Topo Time <i>(optional)</i> -</b> <i>Note: This field is available only if you've chosen "Time" as the analysis domain</i>. If you would like to have the analysis generate topographic plots, you must enter at least one time in this field.  Multiple times can be specified using a comma-delimited list (e.g., "200, 300, 400") or a space-delimited list (e.g., "200 300 400").
+</p><p><b>Spatial Filter -</b> By applying the right spatial filter to your data, you will likely be able to achieve better results.  Depending on the data, however, the optimal filter will differ.  <i>BCI2000 Offline Analysis</i> offers the CAR filter which is typically effective as long as the response isn't spread out over a large number of electrodes.  To apply a CAR filter to your data before processing, choose "Common Average Reference".  Otherwise, choose "None" in order to run the analysis on the raw data.
+</p><p><b>Ignore warnings -</b> In order to get an accurate representation of the data, it is recommended that the analysis be performed on no less than 10 trials. <i>BCI2000 Offline Analysis</i> will generate a warning if this condition is not met.  This warning can be ignored by checking this box.  If a particular combination of data files and conditions results in less than 3 trials, an error is displayed and the analysis is halted.  Errors cannot be overridden.
+</p><p><b>Overwrite existing plots -</b> Each time the analysis is run, up to three plots may be generated.  If you want to compare the results from different runs, ensure that this checkbox is unchecked.  In this case, <i>BCI2000 Offline Analysis</i> will generate the plots in new figures instead of simply overwriting the plots from previous analyses.
+</p>
+<h2><span class="mw-headline" id="Troubleshooting">Troubleshooting</span></h2>
+<p><i>Clicking on any button results in the error "Undefined command/function ..." followed by "Error while evaluating figure ..."</i><br />
+If you're receiving this error, it is possible that after opening <i>BCI2000 Offline Analysis</i> you changed MATLAB's working directory.  Make sure that your working directory is the same directory that contains the OfflineAnalysis script.
+</p><p><i>The analysis doesn't seem to be generating any topographic plots</i>
+In order to generate topographic plots, it is necessary to specify a montage file and at least one topo frequency (for frequency domain analyses) or topo time (for time domain analyses).  If the analysis you're running doesn't generate a topogrphic plot, please ensure that you've entered values in both of these fields.
+</p><p><i>The analysis doesn't seem to be generating any spectra or waveform plots</i>
+In order to generate spectra or waveform plots, it is necessary to specify at least one spectra channel (for frequency domain analyses) or waveform channel (for time domain analyses).  If your analysis is not resulting in one of these plots, please ensure that you have entered values into the appropriate field.
+</p><p><i>I've typed in a valid target or trial change condition, but I get the error "Invalid ... condition specified".</i>
+Condition syntax is case-sensitive.  For instance, while states.TargetCode may be a valid state condition, states.targetcode is not.  Please double-check your conditions to ensure that the state variables are capitalized correctly.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="https://www.bci2000.org/mediawiki/index.php/User_Tutorial:Performing_an_Offline_Analysis_of_EEG_Data" title="User Tutorial:Performing an Offline Analysis of EEG Data">User Tutorial:Performing an Offline Analysis of EEG Data</a>, <a href="https://www.bci2000.org/mediawiki/index.php/User_Tutorial:Performing_a_Time-Domain_Offline_Analysis_of_EEG_Data" title="User Tutorial:Performing a Time-Domain Offline Analysis of EEG Data">User Tutorial:Performing a Time-Domain Offline Analysis of EEG Data</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524175616
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.027 seconds
+Real time usage: 0.030 seconds
+Preprocessor visited node count: 39/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1679-0!canonical and timestamp 20230524175616 and revision id 8885
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=User_Reference:BCI2000_Offline_Analysis&amp;oldid=8885">http://www.bci2000.org/mediawiki/index.php?title=User_Reference:BCI2000_Offline_Analysis&amp;oldid=8885</a>"</div>
+ </div>
+</body>
+</html>

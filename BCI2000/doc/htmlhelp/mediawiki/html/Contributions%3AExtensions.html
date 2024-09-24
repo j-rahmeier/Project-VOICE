@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:Extensions - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">Extensions</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>A framework <i>Extension</i> is an optional contributed plugin which can affect multiple modules.  For example, various manufacturer-specific  <a href="User_Reference%253ALogging_Input.html" title="User Reference:Logging Input">input-device loggers</a> are provided in the <code>src/contrib/Extensions</code> folder, and these can be optionally added to the BCI2000 framework for SignalSource modules, thereby giving all source modules the ability to log input from the corresponding devices.  Selecting a custom Extension, and re-building your modules to include it, requires the use of CMake and a supported C++ compiler:  see the <a href="Programming_Howto%253AQuickstart_Guide.html" title="Programming Howto:Quickstart Guide">Programming Howto:Quickstart Guide</a> for a walkthrough that shows you how to recompile BCI2000 modules. 
+</p><p>The following user extensions are available in the <a href="Contributions%253AContents.html" title="Contributions:Contents">Contributions</a> section of BCI2000:
+</p>
+<ul><li><a href="Contributions%253ACyberGloveLogger.html" title="Contributions:CyberGloveLogger">Contributions:CyberGloveLogger</a>: A logger extension which acquires data from CGI, CGII and CGIII Cybergloves.</li>
+<li><a href="Contributions%253ADataGloveLogger.html" title="Contributions:DataGloveLogger">Contributions:DataGloveLogger</a>: A logger extension which acquires data from the 5DT Data Glove Ultra.</li>
+<li><a href="Contributions%253AEyetrackerLogger.html" title="Contributions:EyetrackerLogger">Contributions:EyetrackerLogger</a>: A logger extension which acquires data from Tobii eyetrackers.</li>
+<li><a href="Contributions%253AEyetrackerLoggerTobii3.html" title="Contributions:EyetrackerLoggerTobii3">Contributions:EyetrackerLoggerTobii3</a>: A logger extension which acquires data from Tobii eyetrackers using SDK version 3</li>
+<li><a href="Contributions%253AEyetrackerLoggerTobiiPro.html" title="Contributions:EyetrackerLoggerTobiiPro">Contributions:EyetrackerLoggerTobiiPro</a>: A logger extension which acquires data from Tobii eyetrackers using Pro SDK</li>
+<li><a href="Contributions%253AEyetrackerLoggerTobiiX.html" title="Contributions:EyetrackerLoggerTobiiX">Contributions:EyetrackerLoggerTobiiX</a>: A logger extension which acquires data from Tobii Eye X eyetrackers.</li>
+<li><a href="Contributions%253AEyetrackerLoggerEyeLink.html" title="Contributions:EyetrackerLoggerEyeLink">Contributions:EyetrackerLoggerEyeLink</a>: A logger extension which acquires data from EyeLink eyetrackers.</li>
+<li><a href="Contributions%253AGazeMonitorFilter.html" title="Contributions:GazeMonitorFilter">Contributions:GazeMonitorFilter</a>: An application module filter extension which supports the EyetrackerLogger.</li>
+<li><a href="Contributions%253AWiimoteLogger.html" title="Contributions:WiimoteLogger">Contributions:WiimoteLogger</a>: A logger extension which acquires data from Nintendo Wii Remotes.</li>
+<li><a href="Contributions%253AWebcamLogger.html" title="Contributions:WebcamLogger">Contributions:WebcamLogger</a>: A logger extension which allows for synchronizing webcam video.</li>
+<li><a href="Contributions%253AAudioExtension.html" title="Contributions:AudioExtension">Contributions:AudioExtension</a>: An all purpose audio toolkit which allows for realtime multichannel audio I/O.</li>
+<li><a href="Contributions%253AStimBoxFilter.html" title="Contributions:StimBoxFilter">Contributions:StimBoxFilter</a>: A logger and controller for the gtec g.STIMbox.</li>
+<li><a href="Contributions%253AParallelPortFilter.html" title="Contributions:ParallelPortFilter">Contributions:ParallelPortFilter</a>: A logger and controller for communication through parallel ports.</li>
+<li><a href="Contributions%253AXsensMTwLogger.html" title="Contributions:XsensMTwLogger">Contributions:XsensMTwLogger</a>: A logger for recording from Xsens wireless inertial measurement units.</li>
+<li><a href="Contributions%253ABioPacLogger.html" title="Contributions:BioPacLogger">Contributions:BioPacLogger</a>: A logger extension which acquires data from BioPac MP160 amplifier.</li>
+<li><a href="Contributions%253ASecondaryBCI2000Controller.html" title="Contributions:SecondaryBCI2000Controller">Contributions:SecondaryBCI2000Controller</a>: An extension that allows to run two instances of BCI2000 in parallel,</li></ul>
+<p>being controlled by the first instance's GUI.
+</p>
+<ul><li><a href="Contributions%253AResponseTimeBox.html" title="Contributions:ResponseTimeBox">Contributions:ResponseTimeBox</a>: A logger that stores event information (button, sound, light, TTL) from the Response Time Box into BCI2000 states.</li></ul>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Programming_Reference%253AEnvironmentExtension_Class.html" title="Programming Reference:EnvironmentExtension Class">Programming Reference:EnvironmentExtension Class</a>
+</p><p><a href="Programming_Tutorial%253AImplementing_an_Input_Logger.html" title="Programming Tutorial:Implementing an Input Logger">Programming Tutorial:Implementing an Input Logger</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524000950
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.010 seconds
+Real time usage: 0.013 seconds
+Preprocessor visited node count: 23/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2010-0!canonical and timestamp 20230524000950 and revision id 9803
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:Extensions&amp;oldid=9803">http://www.bci2000.org/mediawiki/index.php?title=Contributions:Extensions&amp;oldid=9803</a>"</div>
+ </div>
+</body>
+</html>

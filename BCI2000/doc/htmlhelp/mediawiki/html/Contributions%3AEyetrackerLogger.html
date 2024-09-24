@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:EyetrackerLogger - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">EyetrackerLogger</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Contributions%253AEyetrackerLogger.html#Synopsis"><span class="tocnumber">1</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Contributions%253AEyetrackerLogger.html#Location"><span class="tocnumber">2</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Contributions%253AEyetrackerLogger.html#Versioning"><span class="tocnumber">3</span> <span class="toctext">Versioning</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Contributions%253AEyetrackerLogger.html#Authors"><span class="tocnumber">3.1</span> <span class="toctext">Authors</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Contributions%253AEyetrackerLogger.html#Version_History"><span class="tocnumber">3.2</span> <span class="toctext">Version History</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Contributions%253AEyetrackerLogger.html#Source_Code_Revisions"><span class="tocnumber">3.3</span> <span class="toctext">Source Code Revisions</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="Contributions%253AEyetrackerLogger.html#Todo"><span class="tocnumber">3.4</span> <span class="toctext">Todo</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="Contributions%253AEyetrackerLogger.html#Functional_Description"><span class="tocnumber">4</span> <span class="toctext">Functional Description</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="Contributions%253AEyetrackerLogger.html#Integration_into_BCI2000"><span class="tocnumber">5</span> <span class="toctext">Integration into BCI2000</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="Contributions%253AEyetrackerLogger.html#Usage_and_Calibration"><span class="tocnumber">6</span> <span class="toctext">Usage and Calibration</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="Contributions%253AEyetrackerLogger.html#Parameters"><span class="tocnumber">7</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="Contributions%253AEyetrackerLogger.html#State_Variables"><span class="tocnumber">8</span> <span class="toctext">State Variables</span></a>
+<ul>
+<li class="toclevel-2 tocsection-13"><a href="Contributions%253AEyetrackerLogger.html#GazeX.2C_GazeY"><span class="tocnumber">8.1</span> <span class="toctext">GazeX, GazeY</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="Contributions%253AEyetrackerLogger.html#PosX.2C_PosY"><span class="tocnumber">8.2</span> <span class="toctext">PosX, PosY</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="Contributions%253AEyetrackerLogger.html#PupilSize"><span class="tocnumber">8.3</span> <span class="toctext">PupilSize</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="Contributions%253AEyetrackerLogger.html#EyeDist"><span class="tocnumber">8.4</span> <span class="toctext">EyeDist</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="Contributions%253AEyetrackerLogger.html#EyeValidity"><span class="tocnumber">8.5</span> <span class="toctext">EyeValidity</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="Contributions%253AEyetrackerLogger.html#EyetrackerStatesOK"><span class="tocnumber">8.6</span> <span class="toctext">EyetrackerStatesOK</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-19"><a href="Contributions%253AEyetrackerLogger.html#See_also"><span class="tocnumber">9</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>A filter that records state information from <i>Tobii Eyetrackers</i> into state variables.
+</p>
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><a rel="nofollow" class="external free" href="http://www.bci2000.org/svn/trunk/src/contrib/Extensions/EyetrackerLogger">http://www.bci2000.org/svn/trunk/src/contrib/Extensions/EyetrackerLogger</a>
+</p>
+<h2><span class="mw-headline" id="Versioning">Versioning</span></h2>
+<h3><span class="mw-headline" id="Authors">Authors</span></h3>
+<p>Griffin Milsap (griffin.milsap@gmail.com), Jeremy Hill (jezhill@gmail.com).
+</p>
+<h3><span class="mw-headline" id="Version_History">Version History</span></h3>
+<p>06/09/2011: Initial public release;
+06/10/2011: Hacked in scale and offset for gaze data;
+</p>
+<h3><span class="mw-headline" id="Source_Code_Revisions">Source Code Revisions</span></h3>
+<ul><li>Initial development: 3318</li>
+<li>Tested under: 3318</li>
+<li>Known to compile under: 3318</li>
+<li>Broken since: --</li></ul>
+<h3><span class="mw-headline" id="Todo">Todo</span></h3>
+<ul><li>Upgrade SDK version to 3.0 (once it's out of beta)</li>
+<li>Include a fixation/monitor filter</li>
+<li>Maybe a Qt calibration app</li></ul>
+<h2><span class="mw-headline" id="Functional_Description">Functional Description</span></h2>
+<p>In many cases, an experiment may require data about where the participant is looking.  In these experiments, an eyetracker is the only way to gather data relating to gaze position and eye location.  There are many eyetracking methods currently on the market, but many of these require the subject to hold their head steady -- often while strapped to a structure of some sort.  The Tobii eyetrackers require no such restriction so they were a natural choice when it came to interfacing with BCI2000.
+</p>
+<h2><span class="mw-headline" id="Integration_into_BCI2000">Integration into BCI2000</span></h2>
+<p>Compile the extension into your source module by enabling contributed extensions in your CMake configuration.  You can do this by going into your root build folder and deleting <code>CMakeCache.txt</code> and re-running the project batch file, or by running <code>cmake -i</code> and enabling <b>BUILD_EYETRACKERLOGGER</b>.  Once the extension is built into the source module, enable it by starting the source module with the <code>--LogEyetracker=1</code> command line argument.
+</p>
+<h2><span class="mw-headline" id="Usage_and_Calibration">Usage and Calibration</span></h2>
+<p>Set up the eyetracker as detailed in the documentation that came with your device.  The device will connect to your machine and communicate through the ethernet port.  As such, it'd be wise to disconnect and turn off any other networking devices while using the eyetracker.  It is possible that your network request could go out over a different network interface if you're not careful which makes for a troubleshooting nightmare.  When you start the source module, ensure that the <code>--LogEyetracker=1</code> command line parameter is set.  Run the Eyetracker Browser utility which came with your eyetracker drivers and use it to locate the device on your local network.  Copy the network address to the clipboard and paste it in the <code>NetworkLocation</code> parameter within BCI2000.  If the listed port is different, put that in the <code>Port</code> parameter in the BCI2000 operator. 
+</p><p>Calibration can now occur.  Calibration should be done per subject per sitting.  Re-calibration is not necessary between runs, but any time that the subject changes eyewear, makeup, or position, or if the lighting conditions change it should be re-calibrated. A good rule of thumb would be to recalibrate at the start of every session.  Once a calibration is performed, it is saved in the Tobii device until the next calibration (even if there's a power loss).
+</p><p>BCI2000 does not provide any way to calibrate the eyetracker.  This should be done using the Tobii SDK sample application.  The SDK can be obtained here: <a rel="nofollow" class="external free" href="http://www.tobii.com/analysis-and-research/global/products/software/tobii-software-development-kit/">http://www.tobii.com/analysis-and-research/global/products/software/tobii-software-development-kit/</a>.  The 2.0 or Beta 3.0 SDK can be used to calibrate the device.  When installed, open <code>C:\Program Files\Tobii\Tobii Eye Tracker SDK 2.0.1\samples\</code> for the 2.0.1 SDK or <code>C:\Program Files\Tobii\SDK\Samples\</code> for the 3.0 Beta SDK and find the "Eye Tracker Components C++" or "EyetrackerComponents.Cpp" sample project.  There should be a pre-built executable in this directory or a "prebuild" directory which can be used to run a calibration.  Use the network address from the Eyetracker Browser and follow the instructions to calibrate and test your device.  When you're done you can close the calibration utility and run BCI2000 - which will use the calibration saved on the device.
+</p><p>If you're using an T60/T120 or any future Tobii eyetracker with an attached display, you'll probably have it in a dual screen setup showing different things on both monitors - either extended or dualview.  Typically, the Tobii monitor is used to present the task to the subject and the other monitor is used for the experimenter to control BCI2000 from.  This can present a bit of a problem when calibrating because the sample application will only run on your "primary display" which may or may not be your Tobii monitor.  Either set your primary display to be the Tobii screen or temporarily set the screen configuration into "clone" mode.  A different screen resolution or aspect ratio does not impact the Tobii calibration process.  
+</p><p>Once the device is calibrated, it can be used reliably in BCI2000.  The logger will report information about eye validity in a text visualization window and feed states into the system.
+</p>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<p>The eyetracker is configured in the Source tab within the EyetrackerLogger section.  The configurable parameters are:
+</p>
+<ul><li><code>LogEyetracker</code>   - Enables/Disables logging of Eyetracker states</li>
+<li><code>NetworkLocation</code> - The network address of the Eyetracker given by the Tobii Eyetracker Browser</li>
+<li><code>Port</code>  - The port that the Tobii communicates over - Tobii default is 4455</li>
+<li><code>LogGazeData</code> - Enables/Disables logging of gaze data</li>
+<li><code>LogEyePos</code> - Enables/Disables logging of eye position (as seen from the camera)</li>
+<li><code>LogPupilSize</code> - Enables/Disables logging of pupil size (very rough)</li>
+<li><code>LogEyeDist</code> - Enables/Disables logging of the distance from the screen to the eyes (again, rough)</li>
+<li><code>GazeScale</code> - Scales the incoming gaze data first</li>
+<li><code>GazeOffset</code> - Offsets the incoming gaze data after scaling</li></ul>
+<p>Note: GazeScale and GazeOffset are quick hacks to address an issue with gaze data being clamped around the edges of the screen.  The eyetracker gives back values which are between 0.0 and 1.0 for onscreen gaze but supports looking slightly offscreen by allowing gaze data returned to go above 1.0 and below 0.0.  BCI2000 needs this scaled between 0.0 and 1.0 before the gaze data is multiplied by 65535 for storage in the 16 bit state.  These two parameters account for this scaling and offset and prevents the clamping from happening as often as it would otherwise.  These parameters will be removed once BCI2000 supports typed states.
+</p><p>The following code retreives the actual ~(0.0-1.0) range that the eyetracker outputs directly (assuming you've scaled and offset the signal to avoid clipping) from each eye and averages it to find a gaze position.
+</p>
+<pre>float x = State( "EyetrackerLeftEyeGazeX" ) + State( "EyetrackerRightEyeGazeX" ); x /= ( 2.0f * 65535.0f );
+float y = State( "EyetrackerLeftEyeGazeY" ) + State( "EyetrackerRightEyeGazeY" ); y /= ( 2.0f * 65535.0f );
+x -= ( float )Parameter( "GazeOffset" ); x /= ( float )Parameter( "GazeScale" );
+y -= ( float )Parameter( "GazeOffset" ); y /= ( float )Parameter( "GazeScale" );
+</pre>
+<h2><span class="mw-headline" id="State_Variables">State Variables</span></h2>
+<p>Unless otherwise specified, all states are prefixed with <code>Eyetracker&lt;Left/Right&gt;Eye</code> which corresponds with each individual eye.  The EyetrackerLogger extension does not support subjects with more than two eyes at the moment.
+</p>
+<h3><span id="GazeX,_GazeY"></span><span class="mw-headline" id="GazeX.2C_GazeY">GazeX, GazeY</span></h3>
+<p>The eye gaze position (where - on the screen - the subject is looking) is returned from the Tobii SDK as 32 bit floating point numbers which (roughly) range from 0.0 to 1.0.  They are multiplied by 65535 and stored as 16 bit integers in these states if the <code>LogGazeData</code> parameter is enabled.  (0,0) corresponds to the top left of the screen, (65535,65535) corresponds to the right bottom of the screen. -- See <a href="Contributions%253AEyetrackerLogger.html#EyetrackerStatesOK" title="Contributions:EyetrackerLogger">EyetrackerStatesOK</a>.
+</p>
+<h3><span id="PosX,_PosY"></span><span class="mw-headline" id="PosX.2C_PosY">PosX, PosY</span></h3>
+<p>The eye position relative to the camera in 2D space is returned if <code>LogEyePos</code> is enabled.  Again, these are returned from the library as floating point numbers from 0.0 to 1.0 and are scaled to 16 bit integer values from 0 to 65535.  (0,0) corresponds to the top left of the camera's view, and (65535,65535) corresponds to the bottom right of the camera's view.
+</p>
+<h3><span class="mw-headline" id="PupilSize">PupilSize</span></h3>
+<p>The pupil size in mm is saved in this state if <code>LogPupilSize</code> is enabled.  It corresponds to the length of the longest chord drawn from one side of the pupil to the other.  The size will change depending on the eye position and distance from the screen.  Although it is given in mm, it would be best to use this as a relative measurement.
+</p>
+<h3><span class="mw-headline" id="EyeDist">EyeDist</span></h3>
+<p>The distance between the screen and the eyes in mm is saved in this state if <code>LogEyeDist</code> is enabled.  This measurement is an approximation.  The actual measurement will depend on whether or not the test subject is wearing glasses or not.
+</p>
+<h3><span class="mw-headline" id="EyeValidity">EyeValidity</span></h3>
+<p>This state is a number from 0 to 4 and is documented in the Tobii SDK manual.  It is repeated here for convenience.
+</p>
+<ul><li>0 - The eye tracker is certain that the data for this eye is right.  There is no risk of confusing data from the other eye.</li>
+<li>1 - The eye tracker has only recorded one eye and made some assumptions and estimations regarding which is the left and which is the right eye.  However, it is still very likely that the assumption made is correct.  The validity code for the other eye is in this case always set to 3.</li>
+<li>2 - The eye tracker has only recorded one eye, and has no way of determining which one is the left eye and which one is the right eye.  The validity code for both eyes is set to 2.</li>
+<li>3 - The eye tracker is fairly confident that the actual gaze data belongs to the other eye.  The other eye will always have validity code 1.</li>
+<li>4 - The actual gaze data is missing or definitely belonging to the other eye.</li></ul>
+<table class="wikitable">
+
+<tbody><tr>
+<th>Code (Right - Left)
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td>0 - 0
+</td>
+<td>Both eyes found.  Data is valid for both eyes.
+</td></tr>
+<tr>
+<td>0 - 4 or 4 - 0
+</td>
+<td>One eye found.  Gaze data is the same for both eyes.
+</td></tr>
+<tr>
+<td>1 - 3 or 3 - 1
+</td>
+<td>One eye found.  Gaze data is the same for both eyes.
+</td></tr>
+<tr>
+<td>2 - 2
+</td>
+<td>One eye found.  Gaze data is the same for both eyes.
+</td></tr>
+<tr>
+<td>4 - 4
+</td>
+<td>No eye found.  Gaze data for both eyes are invalid.
+</td></tr></tbody></table>
+<p>It'd probably be wise to remove all data points with a validity state of 2 or higher while running your analysis.
+</p>
+<h3><span class="mw-headline" id="EyetrackerStatesOK">EyetrackerStatesOK</span></h3>
+<p>Early versions of the extension didn't take into account that the library may return a number greater than 1.0 or less than 0.0.  This resulted in "pac-man" style wrap around of gaze coordinates in 2.0 and crashes in 3.0.  If the output from the library is out of bounds, it is clamped to the boundaries and the "EyetrackerStatesOK" parameter is changed.  A value of "1" corresponds to valid gaze data, a value of "0" corresponds to invalid "clamped" gaze data.  Use the "GazeOffset" and "GazeScale" parameters to avoid clamping.  Those parameters scale and offset the data so that when it does go out of range, it can still be fit into the 16 bit state.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Reference%253ALogging_Input.html" title="User Reference:Logging Input">User Reference:Logging Input</a>, <a href="Contributions%253AExtensions.html" title="Contributions:Extensions">Contributions:Extensions</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524175453
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.020 seconds
+Real time usage: 0.026 seconds
+Preprocessor visited node count: 65/1000000
+Post‐expand include size: 15/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 390/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2012-0!canonical and timestamp 20230524175453 and revision id 8974
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:EyetrackerLogger&amp;oldid=8974">http://www.bci2000.org/mediawiki/index.php?title=Contributions:EyetrackerLogger&amp;oldid=8974</a>"</div>
+ </div>
+</body>
+</html>

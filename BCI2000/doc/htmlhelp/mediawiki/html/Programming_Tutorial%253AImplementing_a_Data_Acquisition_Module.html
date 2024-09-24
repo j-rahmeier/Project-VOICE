@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Programming Tutorial:Implementing a Source Module - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul><li class="toc1">Concepts</li><ul><li class="toc2"><a href="Programming_Reference%253AFilter_Chain.html">Filter Chain</a></li><li class="toc2"><a href="Programming_Reference%253ASignals.html">Signals</a></li><li class="toc2"><a href="Programming_Reference%253AError_Handling.html">Error Handling</a></li><li class="toc2"><a href="Programming_Reference%253ALocalization.html">Localization</a></li><li class="toc2"><a href="Programming_Reference%253ARapid_Development.html">Rapid Development</a></li></ul><li class="toc1">Reference</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFilter_Class.html">GenericFilter</a></li><li class="toc2"><a href="Programming_Reference%253AEnvironment_Class.html">Environment</a></li><li class="toc2"><a href="Programming_Reference%253AGenericVisualization_Class.html">GenericVisualization</a></li><li class="toc2"><a href="Programming_Reference%253AErrors_and_Warnings.html">Errors and Warnings</a></li><li class="toc2"><a href="Programming_Reference%253ADebug_Output.html">Debug Output</a></li></ul><li class="toc1">Data Acquisition</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericADC_Class.html">GenericADC</a></li></ul><li class="toc1">Data Storage</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFileWriter_Class.html">GenericFileWriter</a></li><li class="toc2"><a href="Programming_Reference%253ABCI2000FileReader_Class.html">BCI2000FileReader</a></li></ul><li class="toc1">Signal Processing</li><ul><li class="toc2"><a href="Programming_Reference%253AIIRFilterBase_Class.html">IIR Filters</a></li></ul><li class="toc1">Application Modules</li><ul><li class="toc2"><a href="Programming_Reference%253AApplicationBase_Class.html">ApplicationBase</a></li><li class="toc2"><a href="Programming_Reference%253AFeedbackTask_Class.html">FeedbackTask</a></li><li class="toc2"><a href="Programming_Reference%253AStimulusTask_Class.html">StimulusTask</a></li><li class="toc2"><a href="Programming_Reference%253A3D_API.html">3D API</a></li></ul><li class="toc1">Howtos</li><ul><li class="toc2"><a href="Programming_Howto%253ABuilding_BCI2000.html">Building BCI2000</a></li><li class="toc2"><a href="Programming_Howto%253ASVN_Client_Setup.html">SVN Client Setup</a></li><li class="toc2"><a href="Programming_Howto%253AUsing_TortoiseSVN.html">Using TortoiseSVN</a></li></ul><li class="toc1"><a href="Programming_FAQ.html">FAQ</a></li><li class="toc1">Tutorials</li><ul><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html">Data Acquisition</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html">Signal Processing</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html">Matlab Signal Processing</a></li></ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">Implementing a Source Module</h1>
+ <p class = "subtitle">Programming Tutorial</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>Source modules (data acquisition modules) are factored into 
+</p>
+<ul><li>code required for any hardware, and</li>
+<li>code required to access a specific hardware.</li></ul>
+<p>You provide only specific code. This is in a function that waits for and reads A/D
+data (line 3 in the pseudo code shown at <a href="Technical_Reference%253ACore_Modules.html" title="Technical Reference:Core Modules">Technical Reference:Core Modules</a>),
+together with some helper functions that perform initialization and
+cleanup tasks.
+Together these functions form a class derived from
+<tt>GenericADC</tt>.
+</p><p>Depending on system load, it may be possible that the BCI2000 system cannot keep up with data
+acquisition for short periods of time. To handle such cases gracefully, it is useful
+to acquire data inside a separate thread, and to keep a buffer of multiple data blocks which
+is going to be filled when data cannot be processed in a timely manner.
+A framework for this kind of data acquisition is given by the <tt>BufferedADC</tt> class.
+In the following, we will consider a source module that is derived from the <tt>BufferedADC</tt>
+class.
+</p><p>To simplify the process of creating a source module, there is a helper program
+located at <tt>build/NewBCI2000Module</tt>. When being run, it will create the files required for
+a source module from templates, with extensive comments detailing implementation steps and decisions.
+Still, the following may be helpful for you to read, even if you
+are going to use <tt>NewBCI2000Module</tt>.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html#Example_Scenario"><span class="tocnumber">1</span> <span class="toctext">Example Scenario</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html#Writing_the_ADC_Header_File"><span class="tocnumber">2</span> <span class="toctext">Writing the ADC Header File</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html#ADC_Implementation"><span class="tocnumber">3</span> <span class="toctext">ADC Implementation</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html#ADC_Auto-Configuration"><span class="tocnumber">4</span> <span class="toctext">ADC Auto-Configuration</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html#ADC_Initialization"><span class="tocnumber">5</span> <span class="toctext">ADC Initialization</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html#Start_and_Stop"><span class="tocnumber">6</span> <span class="toctext">Start and Stop</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html#Data_Acquisition"><span class="tocnumber">7</span> <span class="toctext">Data Acquisition</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html#Adding_the_SourceFilter"><span class="tocnumber">8</span> <span class="toctext">Adding the <i>SourceFilter</i></span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html#Finished"><span class="tocnumber">9</span> <span class="toctext">Finished</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Example_Scenario">Example Scenario</span></h2>
+<p>Your <i>Tachyon Corporation</i>  A/D card comes with a C-style
+software interface
+declared in a header file <tt>"TachyonLib.h"</tt> that consists of
+three
+functions
+</p>
+<pre>#define TACHYON_NO_ERROR 0
+void* TachyonOpen();
+int TachyonClose(void* handle);
+int TachyonGetNumberOfChannels(void* handle);
+int TachyonStart(void* handle, int inSamplingRate);
+int TachyonStop(void* handle );
+int TachyonWaitForData(void* handle, short** outBuffer, int inCount);
+</pre>
+<p>From the library help file, you learn that <tt>TachyonStart</tt>
+configures the
+card and starts acquisition to some internal buffer; that
+<tt>TachyonStop</tt>
+stops acquisition to the buffer, and that <tt>TachyonWaitForData</tt>
+will block execution until the specified amount of data has been
+acquired, and
+that it will return a pointer to a buffer containing the data in its
+first argument.
+Each of the functions will return zero if everything went well, otherwise
+some error value will be returned.
+Luckily, <i>Tachyon Corporation</i>  gives you just
+what you need for a BCI2000 source module, so implementing the ADC
+class is
+quite straightforward.
+</p>
+<h2><span class="mw-headline" id="Writing_the_ADC_Header_File">Writing the ADC Header File</span></h2>
+<p>In your class' header file, <tt>"TachyonADC.h"</tt>, you write
+</p>
+<pre>#ifndef TACHYON_ADC_H
+#define TACHYON_ADC_H
+
+#include "BufferedADC.h"
+
+class TachyonADC&#160;: public BufferedADC
+{
+ public:
+   TachyonADC();
+   ~TachyonADC();
+
+   void OnPublish() override;
+   void OnAutoConfig() override;
+   void OnPreflight(SignalProperties&amp;) const override;
+   void OnInitialize(const SignalProperties&amp;) override;
+   void OnStartAcquisition() override;
+   void OnStopAcquisition() override;
+   void DoAcquire(GenericSignal&amp;) override;
+
+ private:
+   void* mHandle;
+   int mSourceCh,
+        mSampleBlockSize,
+        mSamplingRate;
+};
+#endif // TACHYON_ADC_H
+</pre>
+<h2><span class="mw-headline" id="ADC_Implementation">ADC Implementation</span></h2>
+<p>In the .cpp file, you will need some <tt>#includes</tt>, and a filter
+registration:
+</p>
+<pre>#include "TachyonADC.h"
+#include "Tachyon/TachyonLib.h"
+#include "BCIStream.h"
+
+RegisterFilter( TachyonADC, 1 );
+</pre>
+<p>From the constructor, you initialize your class variables to safe default
+values (note they are not automatically initialized to zero by the compiler);
+from the destructor, you deallocate memory and other resources, if any;
+from the <tt>OnPublish()</tt> function, you request parameters and states that your ADC
+needs:
+</p>
+<pre>TachyonADC::TachyonADC()
+: mSourceCh(0),
+  mSampleBlockSize(0),
+  mSamplingRate(0),
+  mHandle(nullptr)
+{
+}
+
+TachyonADC::~TachyonADC()
+{
+  if (mHandle)
+    TachyonClose(mHandle);
+}
+
+void TachyonADC::OnPublish()
+{
+  BEGIN_PARAMETER_DEFINITIONS
+    "Source int SourceCh=        auto auto&#160;%&#160;% "
+        "// this is the number of digitized channels",
+    "Source int SampleBlockSize= 16 5 1 128 "
+        "// this is the number of samples transmitted at a time",
+    "Source int SamplingRate=    128Hz 128Hz 1 4000 "
+        "// this is the sample rate",
+  END_PARAMETER_DEFINITIONS
+
+  BEGIN_STREAM_DEFINITIONS
+    "DigitalInput 8 0 0 0", // a stream that holds digital input data
+  END_STREAM_DEFINITIONS
+}
+</pre>
+<p>The <tt>STREAM_DEFINITION</tt> defines a digital input stream that is synchronous with input data.
+If your amplifier/DAC has digital inputs, use such a stream to record them and make them available
+to BCI2000 components through the <a href="Technical_Reference%253AState_Definition.html#State_Concept" title="Technical Reference:State Definition"><tt>State</tt></a> interface.
+</p>
+<h2><span class="mw-headline" id="ADC_Auto-Configuration">ADC Auto-Configuration</span></h2>
+<p>In the <tt>OnAutoConfig</tt> function, it is possible to set parameters that have been set to a value of "auto".
+This way, hardware information may be read from the amplifier, avoiding double effort to synchronize user settings
+with hardware properties.
+In this example, we get the number of channels through the <tt>TachyonGetNumberOfChannels()</tt> function, and 
+assign it to the <tt>SourceCh</tt> parameter. If the user wants to override this, it is still possible to specify an actual
+number instead of "auto" in the parameter file/Operator config dialog.
+</p>
+<pre>void TachyonADC::OnAutoConfig()
+{
+  if (mHandle)
+    TachyonClose(mHandle);
+  mHandle = TachyonOpen();
+  if (!mHandle)
+    throw bcierr &lt;&lt; "Could not connect to Tachyon hardware";
+  Parameter("SourceCh") = TachyonGetNumberOfChannels(mHandle);
+}
+</pre>
+<p><br />
+</p>
+<h2><span class="mw-headline" id="ADC_Initialization">ADC Initialization</span></h2>
+<p>Your <tt>OnPreflight</tt> function will check whether the board works
+with the
+parameters requested, and communicate the dimensions of its output
+signal:
+</p>
+<pre>void TachyonADC::OnPreflight(SignalProperties&amp; outputProperties) const
+{
+  if(TACHYON_NO_ERROR&#160;!= TachyonStart(mHandle, Parameter("SamplingRate").InHertz()))
+    bcierr &lt;&lt; "SamplingRate and/or SourceCh parameters are not compatible"
+           &lt;&lt; " with the A/D card";
+  TachyonStop(mHandle);
+  outputProperties = SignalProperties(Parameter("SourceCh") + 1,
+                          Parameter("SampleBlockSize"),
+                          SignalType::int16 );
+  outputProperties.ChannelLabels()[Parameter( "SourceCh" )] = "@DigitalInput";
+}
+</pre>
+<p>Here, the last argument of the <tt>SignalProperties</tt> constructor
+determines not only the type of the signal propagated to the BCI2000
+filters
+but also the format of the <tt>dat</tt> file written by the source
+module.
+</p><p>You might want to write <tt>SignalType::int32</tt> or <tt>SignalType::float32</tt> instead if your data acquisition hardware acquires data in one of those formats.
+</p><p>Note that we allocate one more channel than the number of signal channels. This channel is for the digital input, which is a 
+stream state, and as such not accessible from the helper thread our acquisition code runs in.
+By naming it <tt>@DigitalInput</tt>, we tell the framework to copy the channel's content into the stream state called "DigitalInput".
+</p><p>The actual <tt>OnInitialize</tt> function will only be called if <tt>OnPreflight</tt> did not report any errors. 
+Thus, you may skip any further checks, and write 
+</p>
+<pre>void TachyonADC::OnInitialize(const SignalProperties&amp;)
+{
+  mSourceCh = Parameter("SourceCh");
+  mSampleBlockSize = Parameter("SampleBlockSize");
+  mSamplingRate = Parameter("SamplingRate");
+}
+</pre>
+<h2><span class="mw-headline" id="Start_and_Stop">Start and Stop</span></h2>
+<p>In <tt>OnStartAcquisition</tt>, the hardware is supposed to be set into a state such that it acquires data, whereas
+<tt>OnStopAcquisition</tt> is supposed to stop all data acquisition activity from the device.
+</p><p>Both <tt>OnStartAcquisition</tt> and <tt>OnStopAcquisition</tt> are called from the same separate data acquisition 
+thread that <tt>DoAcquire</tt> is called from.
+</p>
+<pre>void TachyonADC::OnStartAcquisition()
+{
+  int err = TachyonStart(mHandle, mSamplingRate);
+  if( err&#160;!= TACHYON_NO_ERROR )
+    bcierr &lt;&lt; "Could not start acquisition due to error " &lt;&lt; err;
+}
+
+void TachyonADC::OnStopAcquisition()
+{
+  int err = TachyonStop();
+  if( err&#160;!= TACHYON_NO_ERROR )
+    bcierr &lt;&lt; "Could not stop acquisition due to error " &lt;&lt; err;
+}
+</pre>
+<h2><span class="mw-headline" id="Data_Acquisition">Data Acquisition</span></h2>
+<p>Note that the <tt>DoAcquire</tt> function may not return unless the output signal is filled with data, so it is
+crucial that <tt>TachyonWaitForData</tt> is a blocking function.
+(If your card does not provide such a function, and you need to poll
+for data, don't forget to call <tt>Sleep( 0 )</tt> inside your polling loop to
+avoid tying up the CPU.)
+</p>
+<pre>void TachyonADC::DoAcquire( GenericSignal&amp; outputSignal )
+{
+  int valuesToRead = mSampleBlockSize * (mSourceCh + 1); // +1 for DigitalInput
+  short* buffer;
+  int err = TachyonWaitForData(&amp;buffer, valuesToRead);
+  if (err == TACHYON_NO_ERROR)
+  {
+    int i = 0;
+    for (int channel = 0; channel &lt; mSourceCh + 1; ++channel)
+      for (int sample = 0; sample &lt; mSampleBlockSize; ++sample)
+        outputSignal(channel, sample) = buffer[i++];
+  }
+  else
+    bcierr &lt;&lt; "Error reading data: " &lt;&lt; err;
+}
+</pre>
+<p>As you can see, we read one more channel than the number of signal channels. This is because <tt>TachyonWaitForData()</tt> gives
+us one more value for the digital input, which we put into the last channel. Your code may look more complicated than this if you
+need to call a separate function to obtain the state of the digital input.
+In any case, it is important to understand that you cannot access states directly from <tt>DoAcquire()</tt> because it runs in a 
+separate thread. Also, stream states such as <tt>DigitalInput</tt> need to be synchronized with signal data as it is acquired, rather
+than as it is sent from source to other BCI2000 components.
+</p>
+<h2><span class="mw-headline" id="Adding_the_SourceFilter">Adding the <i>SourceFilter</i></span></h2>
+<p>Most measurement equipment comes with hardware filters that allow you to filter out line noise.
+For equipment that does not offer such an option, consider adding the <a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:SourceFilter" title="User Reference:SourceFilter">SourceFilter</a> to your data acquisition module as described <a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:SourceFilter#Remarks" title="User Reference:SourceFilter">here</a>.
+</p>
+<h2><span class="mw-headline" id="Finished">Finished</span></h2>
+<p>You are done! Use your <tt>TachyonADC.cpp</tt> to replace the
+<tt>GenericADC</tt>
+descendant in an existing source module, add the
+<tt>TachyonADC.lib</tt> shipped
+with your card to the project, compile, and link.
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524175602
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.016 seconds
+Real time usage: 0.019 seconds
+Preprocessor visited node count: 76/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 3672/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1450-0!canonical and timestamp 20230524175602 and revision id 9712
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Programming_Tutorial:Implementing_a_Source_Module&amp;oldid=9712">http://www.bci2000.org/mediawiki/index.php?title=Programming_Tutorial:Implementing_a_Source_Module&amp;oldid=9712</a>"</div>
+ </div>
+</body>
+</html>

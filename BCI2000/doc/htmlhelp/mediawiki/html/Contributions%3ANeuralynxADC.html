@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:NeuralynxADC - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">NeuralynxADC</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Contributions%253ANeuralynxADC.html#Synopsis"><span class="tocnumber">1</span> <span class="toctext">Synopsis</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="Contributions%253ANeuralynxADC.html#Known_Issues"><span class="tocnumber">1.1</span> <span class="toctext">Known Issues</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-3"><a href="Contributions%253ANeuralynxADC.html#Location"><span class="tocnumber">2</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="Contributions%253ANeuralynxADC.html#Versioning"><span class="tocnumber">3</span> <span class="toctext">Versioning</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="Contributions%253ANeuralynxADC.html#Authors"><span class="tocnumber">3.1</span> <span class="toctext">Authors</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Contributions%253ANeuralynxADC.html#Version_History"><span class="tocnumber">3.2</span> <span class="toctext">Version History</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="Contributions%253ANeuralynxADC.html#Source_Code_Revisions"><span class="tocnumber">3.3</span> <span class="toctext">Source Code Revisions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="Contributions%253ANeuralynxADC.html#Hardware_Configuration"><span class="tocnumber">4</span> <span class="toctext">Hardware Configuration</span></a>
+<ul>
+<li class="toclevel-2 tocsection-9"><a href="Contributions%253ANeuralynxADC.html#Acquisition_via_the_NetCom_Interface"><span class="tocnumber">4.1</span> <span class="toctext">Acquisition via the NetCom Interface</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="Contributions%253ANeuralynxADC.html#Acquisition_via_low-latency_connection"><span class="tocnumber">4.2</span> <span class="toctext">Acquisition via low-latency connection</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-11"><a href="Contributions%253ANeuralynxADC.html#Parameters"><span class="tocnumber">5</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-12"><a href="Contributions%253ANeuralynxADC.html#Signal_Properties"><span class="tocnumber">5.1</span> <span class="toctext">Signal Properties</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="Contributions%253ANeuralynxADC.html#NeuralynxNetCom"><span class="tocnumber">5.2</span> <span class="toctext">NeuralynxNetCom</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="Contributions%253ANeuralynxADC.html#NeuralynxUDPStream"><span class="tocnumber">5.3</span> <span class="toctext">NeuralynxUDPStream</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-15"><a href="Contributions%253ANeuralynxADC.html#States"><span class="tocnumber">6</span> <span class="toctext">States</span></a></li>
+<li class="toclevel-1 tocsection-16"><a href="Contributions%253ANeuralynxADC.html#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>The NeuralynxNetComADC allows data acquisition from <a rel="nofollow" class="external text" href="https://neuralynx.com/">Neuralynx</a> Cheetah or Pegasus system. <br />
+The module is able to record data with two different modes:<br />
+(1) Acquisition via the NetCom interface, which connects to Cheetah/Pegasus. <br />
+(2) Low-latency data acquisition via a fiber cable directly connected to the Acquisition amplifier.<br />
+</p>
+<h3><span class="mw-headline" id="Known_Issues">Known Issues</span></h3>
+<p>BCI2000 will not be able to keep up for high sampling rates &amp; channel counts. This will result in a high roundtrip time and increasing memory usage over time, as incoming data is buffered but not processed in time. 
+If the low latency data acquisition is used, make sure to downsample data from 32kHz if you use all 512 Channels.
+</p><p><br />
+This module requires the VS2012 C++ runtime to be installed (<a rel="nofollow" class="external free" href="https://www.microsoft.com/en-us/download/details.aspx?id=30679">https://www.microsoft.com/en-us/download/details.aspx?id=30679</a>). If the runtime is not installed you will get an error for a missing DLL!
+</p>
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<h2><span class="mw-headline" id="Versioning">Versioning</span></h2>
+<h3><span class="mw-headline" id="Authors">Authors</span></h3>
+<p>Markus Adamek
+</p>
+<h3><span class="mw-headline" id="Version_History">Version History</span></h3>
+<h3><span class="mw-headline" id="Source_Code_Revisions">Source Code Revisions</span></h3>
+<ul><li>Initial development: 6024</li>
+<li>Tested under: 6082</li>
+<li>Known to compile under: 6082</li>
+<li>Broken since: --</li></ul>
+<h2><span class="mw-headline" id="Hardware_Configuration">Hardware Configuration</span></h2>
+<p>This Acquisition module has two ways to stream data from a Pegasus/Cheetah System.
+</p>
+<h3><span class="mw-headline" id="Acquisition_via_the_NetCom_Interface">Acquisition via the NetCom Interface</span></h3>
+<p>To acquire data via the NetCom interface the experimental Computer (Running BCI2000) has to be connected to the Pegasus/Cheetah System (Running the Acquisition Software) via Ethernet.
+</p><p>(1) Make sure that both computers are on the same subnet and that the Acquisition Software is running on the Pegasus/Cheetah System (You don't need to start an acquisition or recording).<br />
+(2) Configure BCI2000 with the correct IP address (ServerName). Be aware that the Pegasus/Cheetah System has multiple Network ports!<br />
+(3) After pressing Set Config in BCI2000 it should seamlessly connect to the Pegasus/Cheetah System. BCI2000 will automatically start data acquisition. <br />
+You can check if BCI2000 has connected correctly by opening the Acquisition System Status on the Pegasus/Cheetah System. In this window you should see a field called NetCom Clients. If BCI2000 is connected, it should be listed.<br />
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:Netcominterface.png" class="image"><img alt="Netcominterface.png" src="../images/a/a1/Netcominterface.png" decoding="async" width="718" height="272" /></a>
+</p><p><br />
+</p>
+<h3><span class="mw-headline" id="Acquisition_via_low-latency_connection">Acquisition via low-latency connection</span></h3>
+<p>The low-latency stream allows us to tap directly into the data streamed from the ADC without the Pegasus/Cheetah System. This approach significantly reduces latency and increases the stability of the timebase.
+While data is streamed directly from the amplifier, configuration still requires the Pegasus/Cheetah System and connection via the NetCom interface. You can follow the steps above to ensure that you are able to connect to the NetCom Interface.
+</p><p>The low-latency stream requires direct connection to the amplifier via a fiber optic ethernet connection. Therefore, the BCI2000 computer requires an optical ethernet interface. 
+<b>The optical ethernet card has to be configured identical to the card installed in the Pegasus/Cheetah System (see (5) below).</b>
+</p><p>(1) Obtain the IP address, subnet mask as well as the MAC address. 
+To get this information open a command window on the Pegasus/Cheetah System (To find the command prompt type cmd in the Windows 10 search bar).
+Type <code>ipconfig -all</code> which will give you information of all Network adapters.
+You will need to find the physical port that connects the amplifier with the Pegasus/Cheetah System. A good way to ensure that you chose the correct adapter is to turn of the amplifier and check which adapter changed.
+Your result might look different than the example below.
+</p>
+<div class="mw-highlight mw-highlight-lang-bash mw-content-ltr" dir="ltr"><pre><span></span>Ethernet adapter Ethernet:
+  Connection-specific DNS Suffix  .&#160;:
+  Description . . . . . . . . . . .&#160;: Intel<span class="o">(</span>R<span class="o">)</span> Ethernet Server Adapter I350-F2
+  Physical Address. . . . . . . . .&#160;: <span class="m">48</span>-2A-E3-40-45-DB
+  Link-local IPv6 Address . . . . .&#160;: fe80::cc21:7e8e:f65a:158e%11
+  IPv4 Address. . . . . . . . . . .&#160;: <span class="m">172</span>.20.2.144
+  Subnet Mask . . . . . . . . . . .&#160;: <span class="m">255</span>.255.0.0
+  Lease Obtained. . . . . . . . . .&#160;: Wednesday, July <span class="m">15</span>, <span class="m">2020</span> <span class="m">8</span>:25:32 AM
+  Lease Expires . . . . . . . . . .&#160;: Thursday, July <span class="m">16</span>, <span class="m">2020</span> <span class="m">8</span>:25:25 AM
+  Default Gateway . . . . . . . . .&#160;: <span class="m">172</span>.20.1.1
+  DHCP Server . . . . . . . . . . .&#160;: <span class="m">172</span>.20.1.1
+  DHCPv6 IAID . . . . . . . . . . .&#160;: <span class="m">105392867</span>
+  DHCPv6 Client DUID. . . . . . . .&#160;: <span class="m">00</span>-01-00-01-24-67-EF-14-48-2A-E3-40-45-DB
+  DNS Servers . . . . . . . . . . .&#160;: <span class="m">172</span>.20.1.1
+  NetBIOS over Tcpip. . . . . . . .&#160;: Enabled
+</pre></div>
+<p>You will need the information shown in Physical Address (MAC address), IPv4 Address, and Subnet Mask.
+</p><p>(2) Change the settings of the fiber card Network Adapter on your BCI2000 machine.
+To change the MAC address you can use a tool like the <a rel="nofollow" class="external text" href="https://technitium.com/tmac/">Technitium MAC Address Changer</a>. Make sure that you are changing the correct Network connection!
+</p><p>(3) Replace your current MAC address with the Physical Address obtained from the Pegasus/Cheetah System.
+To change IP address and Subnet mask you can follow a tutorial like this one:<a rel="nofollow" class="external text" href="https://www.wikihow.com/Change-Your-IP-Address">Change IP Address (Start at step 3)  </a>.
+</p><p>(4) Connect the BCI2000 computer to the Amplifier with an appropriate fiber cable. The BCI2000 machine should be connected via the free fiber-cable ethernet port on the amplifier. Make sure that you plugged the fiber cable into the free port on the amplifier and not the free fiber port on the Pegasus/Cheetah System.
+</p><p>(5) Adapt "Advanced" options of your optical ethernet card in the Device Manager to the following values:
+</p>
+<ul><li>Flow control: Disabled,</li>
+<li>Jumbo Packet: 9014 bytes,</li>
+<li>Receive Buffers: 4096,</li>
+<li>Transmit Buffers: 4096.</li></ul>
+<p>(6) Check if the data gets streamed to the BCI2000 computer. If you have configured everything correctly, data should now be streamed to your computer if the acquisition is started on the Pegasus/Cheetah System.
+The easiest way to check this is to open the Task Manager (Ctrl+Shift+Esc) on the BCI2000 system. In the performance tab, you can monitor incoming and outgoing traffic on your network adapters. If you were successful, you should see a steady inflow of data on the ethernet port which connects your computer to the amplifier. If you are unsure, open the task manager on the Pegasus/Cheetah System, you should see the same type of data usage.
+</p><p>(7) Start BCI2000 and enable UseDirectUDPStream for the Low-Latency stream.
+</p>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<h3><span class="mw-headline" id="Signal_Properties">Signal Properties</span></h3>
+<p>Signal Properties describe Settings common to most Amplifiers.
+</p>
+<ul><li><b>SourceCh:</b> The number of channels that the Neuralynx software reads.</li>
+<li><b>SampleBlockSize:</b> Samples per channel per digitized block. Together with the sampling rate, this parameter determines how often per second data is collected, processed, and feedback is updated.</li>
+<li><b>SamplingRate:</b> Sampling rate of the data. The SamplingRate has to be an integer fraction of 32kHz.</li>
+<li><b>ChannelNames:</b> List of Names for Channels. Space-separated list; Must be the same length as Number of Channels. If set to auto, BCI2000 will query the Names from the Neuralynx system.</li>
+<li><b>SourceChOffset:</b> Setting is not used in this module, default is 0</li>
+<li><b>SourceChGain:</b> This is also not used, default is 1</li></ul>
+<h3><span class="mw-headline" id="NeuralynxNetCom">NeuralynxNetCom</span></h3>
+<p>This Section describes Settings Necessary to communicate with the Cheetah/Pegasus System via the NetCom Interface
+</p>
+<ul><li><b>ServerName:</b> IP Address of the NetCom server (Typically the IP of your Cheetah/Pegasus System)</li></ul>
+<h3><span class="mw-headline" id="NeuralynxUDPStream">NeuralynxUDPStream</span></h3>
+<p>Settings if you want to use the Low Latency Stream. This requires a fiber-optic connection between the Amplifier and the BCI2000 computer.
+</p>
+<ul><li><b>Boards:</b> The Number of Boards which are connected in the Neuralynx Chassis</li>
+<li><b>SourceChnList:</b> List of transmitted Channels. This allows you to only submit a subset of Channels. Its a list of channel ids (starting from 0). If set to auto, all channels will be transmitted.</li>
+<li><b>UseDirectUDPSTream:</b> Easy way to switch the UDP stream on or off. This has to be enabled for low latency communication</li>
+<li><b>UDPStreamPort:</b> Port through which the BCI2000 computer receives data from the Neuralynx System. This port is provided by Neuralynx.</li>
+<li><b>DecimationFactor:</b> Decimation Factor for incoming Data. Incoming Data is sampled at 32kHz. If Decimation Factor is set, SamplingRate has to match or has to be set to auto. similarly, if SamplingRate is set, DecimationFactor can be set to auto and the system will determine the correct decimation factor automatically. The following Decimation factors are supported: 2,  4,  5,  8, 10, 16, 20, 25, 32, 40, 50, 64, 80, 100, 125, 128. Downsampling is done after an antialiasing filter is applied to the original signal. The filter depends on the decimation factor.</li>
+<li><b>NRDStreamingFile:</b> Leave Empty. This can be used to stream data from a Neuralynx NRD file for debugging purposes.</li></ul>
+<h2><span class="mw-headline" id="States">States</span></h2>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Reference%253AFilters.html" title="User Reference:Filters">User Reference:Filters</a>, <a href="Contributions%253AADCs.html" title="Contributions:ADCs">Contributions:ADCs</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524090633
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.029 seconds
+Real time usage: 0.033 seconds
+Preprocessor visited node count: 53/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 1356/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2289-0!canonical and timestamp 20230524090633 and revision id 10053
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:NeuralynxADC&amp;oldid=10053">http://www.bci2000.org/mediawiki/index.php?title=Contributions:NeuralynxADC&amp;oldid=10053</a>"</div>
+ </div>
+</body>
+</html>

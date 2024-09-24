@@ -1,0 +1,7 @@
+Source:Signal%20Properties int       SourceCh=         8      // number of digitized and stored channels
+Source:Signal%20Properties list      ChannelNames=     8  Ch1 Ch2 Ch3 Ch4 Ch5 Ch6 Ch7 Ch8 // list of channel names
+Source:Signal%20Properties floatlist SourceChOffset=   1 auto  8    0   0   0   0   0   0   0   0 // Offset for channels in A/D units
+Source:Signal%20Properties floatlist SourceChGain=     1 auto  8    1   1   1   1   1   1   1   1 // gain for each channel (A/D units -> muV)
+
+Source:Signal%20Properties int       SampleBlockSize=      25 // number of samples transmitted at a time
+Source:Signal%20Properties int       SamplingRate=        250 // sample rate

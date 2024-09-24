@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Programming Reference:BCI2000FileReader Class - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul><li class="toc1">Concepts</li><ul><li class="toc2"><a href="Programming_Reference%253AFilter_Chain.html">Filter Chain</a></li><li class="toc2"><a href="Programming_Reference%253ASignals.html">Signals</a></li><li class="toc2"><a href="Programming_Reference%253AError_Handling.html">Error Handling</a></li><li class="toc2"><a href="Programming_Reference%253ALocalization.html">Localization</a></li><li class="toc2"><a href="Programming_Reference%253ARapid_Development.html">Rapid Development</a></li></ul><li class="toc1">Reference</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFilter_Class.html">GenericFilter</a></li><li class="toc2"><a href="Programming_Reference%253AEnvironment_Class.html">Environment</a></li><li class="toc2"><a href="Programming_Reference%253AGenericVisualization_Class.html">GenericVisualization</a></li><li class="toc2"><a href="Programming_Reference%253AErrors_and_Warnings.html">Errors and Warnings</a></li><li class="toc2"><a href="Programming_Reference%253ADebug_Output.html">Debug Output</a></li></ul><li class="toc1">Data Acquisition</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericADC_Class.html">GenericADC</a></li></ul><li class="toc1">Data Storage</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFileWriter_Class.html">GenericFileWriter</a></li><li class="toc2">BCI2000FileReader</li></ul><li class="toc1">Signal Processing</li><ul><li class="toc2"><a href="Programming_Reference%253AIIRFilterBase_Class.html">IIR Filters</a></li></ul><li class="toc1">Application Modules</li><ul><li class="toc2"><a href="Programming_Reference%253AApplicationBase_Class.html">ApplicationBase</a></li><li class="toc2"><a href="Programming_Reference%253AFeedbackTask_Class.html">FeedbackTask</a></li><li class="toc2"><a href="Programming_Reference%253AStimulusTask_Class.html">StimulusTask</a></li><li class="toc2"><a href="Programming_Reference%253A3D_API.html">3D API</a></li></ul><li class="toc1">Howtos</li><ul><li class="toc2"><a href="Programming_Howto%253ABuilding_BCI2000.html">Building BCI2000</a></li><li class="toc2"><a href="Programming_Howto%253ASVN_Client_Setup.html">SVN Client Setup</a></li><li class="toc2"><a href="Programming_Howto%253AUsing_TortoiseSVN.html">Using TortoiseSVN</a></li></ul><li class="toc1"><a href="Programming_FAQ.html">FAQ</a></li><li class="toc1">Tutorials</li><ul><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html">Data Acquisition</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html">Signal Processing</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html">Matlab Signal Processing</a></li></ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">BCI2000FileReader Class</h1>
+ <p class = "subtitle">Programming Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>The <tt>BCI2000FileReader</tt> class provides an interface to data stored in a single BCI2000 data file.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Programming_Reference%253ABCI2000FileReader.html#Methods"><span class="tocnumber">1</span> <span class="toctext">Methods</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="Programming_Reference%253ABCI2000FileReader.html#BCI2000FileReader.28.5Bfile_name.5D.29"><span class="tocnumber">1.1</span> <span class="toctext">BCI2000FileReader([file name])</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="Programming_Reference%253ABCI2000FileReader.html#Open.28file_name.2C_.5Bbuffer_size.3D50kB.5D.29"><span class="tocnumber">1.2</span> <span class="toctext">Open(file name, [buffer size=50kB])</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="Programming_Reference%253ABCI2000FileReader.html#RawValue.28channel.2C_sample.29"><span class="tocnumber">1.3</span> <span class="toctext">RawValue(channel, sample)</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Programming_Reference%253ABCI2000FileReader.html#CalibratedValue.28channel.2C_sample.29"><span class="tocnumber">1.4</span> <span class="toctext">CalibratedValue(channel, sample)</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Programming_Reference%253ABCI2000FileReader.html#ReadStateVector.28sample.29"><span class="tocnumber">1.5</span> <span class="toctext">ReadStateVector(sample)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="Programming_Reference%253ABCI2000FileReader.html#Properties"><span class="tocnumber">2</span> <span class="toctext">Properties</span></a>
+<ul>
+<li class="toclevel-2 tocsection-8"><a href="Programming_Reference%253ABCI2000FileReader.html#IsOpen_.28r.29"><span class="tocnumber">2.1</span> <span class="toctext">IsOpen (r)</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="Programming_Reference%253ABCI2000FileReader.html#ErrorState_.28r.29"><span class="tocnumber">2.2</span> <span class="toctext">ErrorState (r)</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="Programming_Reference%253ABCI2000FileReader.html#NumSamples_.28r.29"><span class="tocnumber">2.3</span> <span class="toctext">NumSamples (r)</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="Programming_Reference%253ABCI2000FileReader.html#SamplingRate_.28r.29"><span class="tocnumber">2.4</span> <span class="toctext">SamplingRate (r)</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="Programming_Reference%253ABCI2000FileReader.html#SignalProperties_.28r.29"><span class="tocnumber">2.5</span> <span class="toctext">SignalProperties (r)</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="Programming_Reference%253ABCI2000FileReader.html#FileFormatVersion_.28r.29"><span class="tocnumber">2.6</span> <span class="toctext">FileFormatVersion (r)</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="Programming_Reference%253ABCI2000FileReader.html#HeaderLength_.28r.29"><span class="tocnumber">2.7</span> <span class="toctext">HeaderLength (r)</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="Programming_Reference%253ABCI2000FileReader.html#StateVectorLength_.28r.29"><span class="tocnumber">2.8</span> <span class="toctext">StateVectorLength (r)</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="Programming_Reference%253ABCI2000FileReader.html#Parameters_.28r.29"><span class="tocnumber">2.9</span> <span class="toctext">Parameters (r)</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="Programming_Reference%253ABCI2000FileReader.html#Parameter_.28r.29"><span class="tocnumber">2.10</span> <span class="toctext">Parameter (r)</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="Programming_Reference%253ABCI2000FileReader.html#States_.28r.29"><span class="tocnumber">2.11</span> <span class="toctext">States (r)</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="Programming_Reference%253ABCI2000FileReader.html#State_.28r.29"><span class="tocnumber">2.12</span> <span class="toctext">State (r)</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="Programming_Reference%253ABCI2000FileReader.html#StateVector_.28r.29"><span class="tocnumber">2.13</span> <span class="toctext">StateVector (r)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-21"><a href="Programming_Reference%253ABCI2000FileReader.html#Performance_Considerations"><span class="tocnumber">3</span> <span class="toctext">Performance Considerations</span></a></li>
+<li class="toclevel-1 tocsection-22"><a href="Programming_Reference%253ABCI2000FileReader.html#See_also"><span class="tocnumber">4</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Methods">Methods</span></h2>
+<h3><span id="BCI2000FileReader([file_name])"></span><span class="mw-headline" id="BCI2000FileReader.28.5Bfile_name.5D.29">BCI2000FileReader([file name])</span></h3>
+<p>With a file name given as an argument, the constructor will try to open the specified file.
+</p>
+<h3><span id="Open(file_name,_[buffer_size=50kB])"></span><span class="mw-headline" id="Open.28file_name.2C_.5Bbuffer_size.3D50kB.5D.29">Open(file name, [buffer size=50kB])</span></h3>
+<p>Will open the specified data file. Use the <tt>IsOpen</tt> and <tt>ErrorState</tt> properties to check whether a file is actually open.
+In a second argument, the size of <tt>BCI2000FileReader</tt>'s internal data buffer may be specified in bytes; when no buffer size argument is given, a default size of 50kB is used.
+</p>
+<h3><span id="RawValue(channel,_sample)"></span><span class="mw-headline" id="RawValue.28channel.2C_sample.29">RawValue(channel, sample)</span></h3>
+<p>Sets the current sample position to the value specified in the second argument, and returns the raw sample value for the channel specified in the first argument.
+</p>
+<h3><span id="CalibratedValue(channel,_sample)"></span><span class="mw-headline" id="CalibratedValue.28channel.2C_sample.29">CalibratedValue(channel, sample)</span></h3>
+<p>Sets the current sample position to the value specified in the second argument, and returns the calibrated sample value for the channel specified in the first argument.
+The calibrated sample value is obtained by applying channel-specific sample offsets and gains as present in the file's <i>SourceChOffset</i> and <i>SourceChGain</i> parameters.
+</p>
+<h3><span id="ReadStateVector(sample)"></span><span class="mw-headline" id="ReadStateVector.28sample.29">ReadStateVector(sample)</span></h3>
+<p>Sets the current sample position to the specified value, and reads state vector data.
+</p>
+<h2><span class="mw-headline" id="Properties">Properties</span></h2>
+<h3><span id="IsOpen_(r)"></span><span class="mw-headline" id="IsOpen_.28r.29">IsOpen (r)</span></h3>
+<p><i>true</i> when a file has been opened successfully, <i>false</i> otherwise.
+</p>
+<h3><span id="ErrorState_(r)"></span><span class="mw-headline" id="ErrorState_.28r.29">ErrorState (r)</span></h3>
+<p>One of
+</p>
+<ul><li>NoError,</li>
+<li>FileOpenError,</li>
+<li>MalformedHeader.</li></ul>
+<h3><span id="NumSamples_(r)"></span><span class="mw-headline" id="NumSamples_.28r.29">NumSamples (r)</span></h3>
+<p>The number of samples in the currently opened data file.
+</p>
+<h3><span id="SamplingRate_(r)"></span><span class="mw-headline" id="SamplingRate_.28r.29">SamplingRate (r)</span></h3>
+<p>The currently opened data file's sampling rate.
+</p>
+<h3><span id="SignalProperties_(r)"></span><span class="mw-headline" id="SignalProperties_.28r.29">SignalProperties (r)</span></h3>
+<p>A <a href="Programming_Reference%253ASignals.html#SignalProperties_Class" title="Programming Reference:Signals"><tt>SignalProperties</tt></a> object describing the current file's data format, number of channels, sample block size (in its Elements property), and physical units.
+</p>
+<h3><span id="FileFormatVersion_(r)"></span><span class="mw-headline" id="FileFormatVersion_.28r.29">FileFormatVersion (r)</span></h3>
+<p>A string describing the file's format as specified by the file header. Currently, this is "1.0" or "1.1".
+</p>
+<h3><span id="HeaderLength_(r)"></span><span class="mw-headline" id="HeaderLength_.28r.29">HeaderLength (r)</span></h3>
+<p>The data file's header length in bytes.
+</p>
+<h3><span id="StateVectorLength_(r)"></span><span class="mw-headline" id="StateVectorLength_.28r.29">StateVectorLength (r)</span></h3>
+<p>The state vector's length in bytes.
+</p>
+<h3><span id="Parameters_(r)"></span><span class="mw-headline" id="Parameters_.28r.29">Parameters (r)</span></h3>
+<p>A <a href="Programming_Reference%253AParameters.html#ParamList_Class" title="Programming Reference:Parameters"><tt>ParamList</tt></a> object that contains all parameters present in the file.
+</p>
+<h3><span id="Parameter_(r)"></span><span class="mw-headline" id="Parameter_.28r.29">Parameter (r)</span></h3>
+<p>Access to an individual parameter, following the <a href="Programming_Reference%253AEnvironment_Class.html#Access_to_Parameters_and_States" title="Programming Reference:Environment Class">syntax provided by the <tt>Environment</tt> class</a>.
+</p>
+<h3><span id="States_(r)"></span><span class="mw-headline" id="States_.28r.29">States (r)</span></h3>
+<p>A <a href="Programming_Reference%253AStates.html#StateList_Class" title="Programming Reference:States"><tt>StateList</tt></a> object containing all state variables present in the file.
+</p>
+<h3><span id="State_(r)"></span><span class="mw-headline" id="State_.28r.29">State (r)</span></h3>
+<p>Access to an individual state variable, following the <a href="Programming_Reference%253AEnvironment_Class.html#Access_to_Parameters_and_States" title="Programming Reference:Environment Class">syntax provided by the <tt>Environment</tt> class</a>. The returned value will match the state variable's value at the current sample position, as specified to a previous call to one of the <tt>RawValue</tt>, <tt>CalibratedValue</tt>, or <tt>ReadStateVector</tt> methods.
+</p>
+<h3><span id="StateVector_(r)"></span><span class="mw-headline" id="StateVector_.28r.29">StateVector (r)</span></h3>
+<p>Access to the full state vector, with state values matching those at the current sample position.
+</p>
+<h2><span class="mw-headline" id="Performance_Considerations">Performance Considerations</span></h2>
+<p>To improve performance when reading data, <tt>BCI2000FileReader</tt> uses an internal buffer which is 50kB in size by default but may be set to a different value using an optional second argument to <tt>BCI2000FileReader::Open()</tt>.
+</p><p>Buffering strategy is optimized for <i>sequential forward access</i>, which is supposed to be the most relevant use case. Buffering is non-overlapping, with the requested sample always the first one in the buffer in case the buffer needs updating. In case of sequential access in <i>reverse</i> direction, this buffering scheme breaks down and becomes maximally inefficient because the entire buffer is updated on each access.
+</p><p>In a BCI2000 data file, data is organized such that, for each sample, values from all channels and states are stored, followed with all values from the next sample point, etc. When reading data from multiple channels, this implies that it is favorable to iterate over <i>channels</i> in an <i>inner</i> loop, and over <i>samples</i> in an <i>outer</i> loop; otherwise, buffering will become less efficient by a factor identical to the number of channels read.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Technical_Reference%253ABCI2000_File_Format.html" title="Technical Reference:BCI2000 File Format">Technical Reference:BCI2000 File Format</a>, <a href="User_Reference%253ABCI2000FileWriter.html" title="User Reference:BCI2000FileWriter">User Reference:BCI2000FileWriter</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524175536
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.020 seconds
+Real time usage: 0.023 seconds
+Preprocessor visited node count: 71/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1783-0!canonical and timestamp 20230524175536 and revision id 5765
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:BCI2000FileReader_Class&amp;oldid=5765">http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:BCI2000FileReader_Class&amp;oldid=5765</a>"</div>
+ </div>
+</body>
+</html>

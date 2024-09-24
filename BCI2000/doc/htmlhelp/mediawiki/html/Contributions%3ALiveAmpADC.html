@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:LiveAmpADC - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">LiveAmpADC</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>LiveAmpADC
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Contributions%253ALiveAmpADC.html#Function"><span class="tocnumber">1</span> <span class="toctext">Function</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="Contributions%253ALiveAmpADC.html#LiveAmp_Hardware"><span class="tocnumber">1.1</span> <span class="toctext">LiveAmp Hardware</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-3"><a href="Contributions%253ALiveAmpADC.html#Installation"><span class="tocnumber">2</span> <span class="toctext">Installation</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="Contributions%253ALiveAmpADC.html#Parameters:LiveAmpADC"><span class="tocnumber">3</span> <span class="toctext">Parameters:LiveAmpADC</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="Contributions%253ALiveAmpADC.html#SerialNumber"><span class="tocnumber">3.1</span> <span class="toctext">SerialNumber</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Contributions%253ALiveAmpADC.html#SourceCh"><span class="tocnumber">3.2</span> <span class="toctext">SourceCh</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="Contributions%253ALiveAmpADC.html#SampleBlockSize"><span class="tocnumber">3.3</span> <span class="toctext">SampleBlockSize</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="Contributions%253ALiveAmpADC.html#SamplingRate"><span class="tocnumber">3.4</span> <span class="toctext">SamplingRate</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="Contributions%253ALiveAmpADC.html#SourceChGain"><span class="tocnumber">3.5</span> <span class="toctext">SourceChGain</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="Contributions%253ALiveAmpADC.html#SourceChOffset"><span class="tocnumber">3.6</span> <span class="toctext">SourceChOffset</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="Contributions%253ALiveAmpADC.html#ChannelNames"><span class="tocnumber">3.7</span> <span class="toctext">ChannelNames</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="Contributions%253ALiveAmpADC.html#AcquisitionMode"><span class="tocnumber">3.8</span> <span class="toctext">AcquisitionMode</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-13"><a href="Contributions%253ALiveAmpADC.html#Parameters:LiveAmp"><span class="tocnumber">4</span> <span class="toctext">Parameters:LiveAmp</span></a>
+<ul>
+<li class="toclevel-2 tocsection-14"><a href="Contributions%253ALiveAmpADC.html#EegChList"><span class="tocnumber">4.1</span> <span class="toctext">EegChList</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="Contributions%253ALiveAmpADC.html#BipolarChannels"><span class="tocnumber">4.2</span> <span class="toctext">BipolarChannels</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="Contributions%253ALiveAmpADC.html#AuxChList"><span class="tocnumber">4.3</span> <span class="toctext">AuxChList</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="Contributions%253ALiveAmpADC.html#ACCList"><span class="tocnumber">4.4</span> <span class="toctext">ACCList</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="Contributions%253ALiveAmpADC.html#TriggerChList"><span class="tocnumber">4.5</span> <span class="toctext">TriggerChList</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-19"><a href="Contributions%253ALiveAmpADC.html#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Function">Function</span></h2>
+<p>The <i>LiveAmpADC</i> filter acquires data from a <i>LiveAmp</i> wireless (Bluetooth) amplifier. 
+The <i>LiveAmp</i> is an amplifier/digitizer combination from Brain Products.
+Support for this device in BCI2000 consists of a BCI2000-compatible Source Module (<i>LiveAmpSource.exe</i>).
+</p>
+<h3><span class="mw-headline" id="LiveAmp_Hardware">LiveAmp Hardware</span></h3>
+<p>Either up to 32 referential EEG/ExG channels (with either passive or active electrodes) or up to 24 EEG/ExG referential channels plus up to 8 bipolar ExG channels (with passive electrodes only).\\ 
+8 AUX channel can be attached to AUX input, using the Sensor Trigger Extension. There is one Trigger channel and 8 Digital I/O.
+There is a built-in 3-axis acceleration sensor with 3 separate channels (x, y, z).\\ 
+More on hardware can be found at: <a rel="nofollow" class="external text" href="http://www.brainproducts.com/productdetails.php?id=63">LiveAmp Technical details</a>.
+</p>
+<h2><span class="mw-headline" id="Installation">Installation</span></h2>
+<p>The BlueTooth dongle UBT21 must be installed first. The driver comes with the LiveAmp.
+</p>
+<h2><span class="mw-headline" id="Parameters:LiveAmpADC">Parameters:LiveAmpADC</span></h2>
+<p>Parameters common to all source modules are described under <a href="User_Reference%253ADataIOFilter.html" title="User Reference:DataIOFilter">User Reference:DataIOFilter</a>.
+In addition, the <i>LiveAmpADC</i> provides the following parameters:
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:LiveAmpADC.png" class="image"><img alt="LiveAmpADC.png" src="../images/thumb/2/2b/LiveAmpADC.png/500px-LiveAmpADC.png" decoding="async" width="500" height="560" srcset="../images/thumb/2/2b/LiveAmpADC.png/750px-LiveAmpADC.png 1.5x, ../images/2/2b/LiveAmpADC.png 2x" /></a></div></div>
+<h3><span class="mw-headline" id="SerialNumber">SerialNumber</span></h3>
+<p>Each LiveAmp has the serial number. The serial number can be found on the back of the amplifier. This number must be set as a parameter (without letters "LA-"). It is necessary for the Bluetooth connection 
+</p>
+<h3><span class="mw-headline" id="SourceCh">SourceCh</span></h3>
+<p>The total number of channels: EEG + AUX + Acc + Triggers (see parameters below). 
+</p>
+<h3><span class="mw-headline" id="SampleBlockSize">SampleBlockSize</span></h3>
+<p>Samples per channel per digitized block. 
+Together with the sampling rate, this parameter determines how often per second data are collected, processed, and feedback is updated. For example, at 500 Hz sampling and a SampleBlockSize of 20, the system (e.g., source signal display, signal processing, and stimulus presentation) will be updated 25 times per second.
+</p>
+<h3><span class="mw-headline" id="SamplingRate">SamplingRate</span></h3>
+<p>The sample rate of the system. All data is either acquired at 250, 500 or 1000Hz
+In case you are experiencing problems by higher sampling rates (e.g., data loss, jerky display, etc.), increase the SampleBlockSize so that you are updating the system less frequently (usually, updating the system 20-30 times per second is sufficient for most applications), and increase Visualize-&gt;VisualizeSourceDecimation. This parameter will decrease the number of samples per second that are actually drawn in the Source display.
+</p>
+<h3><span class="mw-headline" id="SourceChGain">SourceChGain</span></h3>
+<p>Gain for each channel. 
+</p>
+<h3><span class="mw-headline" id="SourceChOffset">SourceChOffset</span></h3>
+<p>Offset for each channel.
+</p>
+<h3><span class="mw-headline" id="ChannelNames">ChannelNames</span></h3>
+<p>Names of each channel.
+</p>
+<h3><span class="mw-headline" id="AcquisitionMode">AcquisitionMode</span></h3>
+<p>Data acquisition mode, it can be: 
+</p>
+<ul><li>inactive - no recording</li>
+<li>analog signal acquisition - standard recording mode</li>
+<li>test signal - a test signal, same on all channels</li></ul>
+<h2><span class="mw-headline" id="Parameters:LiveAmp">Parameters:LiveAmp</span></h2>
+<h3><span class="mw-headline" id="EegChList">EegChList</span></h3>
+<p>List of indexes of EEG channels used. For example, you can write index in any order, like: 21, 3, 5, 6, 7, 8 (the order of channels does not matter). That means that only 6 EEG physical channels will be recorder: 3,5,6,7,8 and 21. Channels may not be listed twice.
+</p>
+<h3><span class="mw-headline" id="BipolarChannels">BipolarChannels</span></h3>
+<p>Checking this option the last 8 of 32 channels will be bipolar. When user wants to record bipolar channel, he/she must put appropriate indexes in the 'EegCHList' (indexes between 25 and 32). 
+</p>
+<h3><span class="mw-headline" id="AuxChList">AuxChList</span></h3>
+<p>List of indexes of AUX channels. For example, if there are 6 AUX available, you can put 1, 2, 5, 6. That mans that only 4 AUX channel will be recorder, with indexes 1,2, 5 and 6.
+</p>
+<h3><span class="mw-headline" id="ACCList">ACCList</span></h3>
+<p>List of indexes of Acc (acceleration sensor) channels. There are 3 Acc channels, with indexes 1(x), 2(y) and 3(z).
+</p>
+<h3><span class="mw-headline" id="TriggerChList">TriggerChList</span></h3>
+<p>List of indexes of trigger channels. There is one analog and 8 digital channels. The order of indexes can be used in the same manner as EEG and AUX channel indexes. 
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Reference%253AFilters.html" title="User Reference:Filters">User Reference:Filters</a>, <a href="Contributions%253AADCs.html" title="Contributions:ADCs">Contributions:ADCs</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524175500
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.023 seconds
+Real time usage: 0.026 seconds
+Preprocessor visited node count: 59/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2104-0!canonical and timestamp 20230524175500 and revision id 8464
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:LiveAmpADC&amp;oldid=8464">http://www.bci2000.org/mediawiki/index.php?title=Contributions:LiveAmpADC&amp;oldid=8464</a>"</div>
+ </div>
+</body>
+</html>

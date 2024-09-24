@@ -1,0 +1,90 @@
+HKCR
+{
+  ForceRemove .dat = s 'bcidatfile'
+  {
+  }
+  ForceRemove .bcidat = s 'bcidatfile'
+  {
+  }
+  ForceRemove .prm = s 'bciprmfile'
+  {
+  }
+  ForceRemove .bciprm = s 'bciprmfile'
+  {
+  }
+  ForceRemove .bciscript = s 'bciscriptfile'
+  {
+  }
+  ForceRemove .bcianalysis = s 'bcianalysisfile'
+  {
+  }
+  ForceRemove .bcigraph = s 'bcigraphfile'
+  {
+  }
+  ForceRemove .applog = s 'bciapplogfile'
+  {
+  }
+  ForceRemove .bciapplog = s 'bciapplogfile'
+  {
+  }
+  NoRemove bcidatfile
+  {
+    ForceRemove comdll = s '%MODULE%'
+    ForceRemove DefaultIcon = s '%MODULE%,1'
+    shell
+    {
+      open
+      {
+        ForceRemove command = s '"%MODULEPATH,1%Tools\BCI2000Viewer\BCI2000Viewer.exe" "%%1"'
+      }
+    }
+  }
+  NoRemove bciprmfile
+  {
+    ForceRemove DefaultIcon = s '%MODULE%,2'
+    shell
+    {
+      open
+      {
+        ForceRemove command = e '"%%SystemRoot%%\System32\NOTEPAD.EXE" "%%1"'
+      }
+    }
+  }
+  NoRemove bciscriptfile
+  {
+    ForceRemove DefaultIcon = s '%MODULE%,2'
+    shell
+    {
+      open
+      {
+        ForceRemove command = e '"%%SystemRoot%%\System32\NOTEPAD.EXE" "%%1"'
+      }
+    }
+  }
+  NoRemove bcianalysisfile
+  {
+    ForceRemove DefaultIcon = s '%MODULE%,3'
+    shell
+    {
+      open
+      {
+        ForceRemove command = s '"%MODULEPATH%..\Tools\BCI2000Analysis\BCI2000Analysis.exe" "%%1"'
+      }
+    }
+  }
+  NoRemove bcigraphfile
+  {
+    ForceRemove DefaultIcon = s '%MODULE%,3'
+  }
+  NoRemove bciapplogfile
+  {
+    ForceRemove DefaultIcon = s '%MODULE%,2'
+    shell
+    {
+      open
+      {
+        ForceRemove command = e '"%%SystemRoot%%\System32\NOTEPAD.EXE" "%%1"'
+      }
+    }
+  }
+}

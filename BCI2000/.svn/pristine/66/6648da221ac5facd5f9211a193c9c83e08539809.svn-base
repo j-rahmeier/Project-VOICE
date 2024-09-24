@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>User Tutorial:Performing an Offline Analysis of ECoG Data - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul><li class="toc1"><a href="User_Tutorial%253ABCI2000_Tour.html">Tour</a></li><li class="toc1"><a href="User_Tutorial%253AMu_Rhythm_BCI_Tutorial.html">Mu Tutorial</a></li><li class="toc1"><a href="User_Tutorial%253AP300_BCI_Tutorial.html">P300 Tutorial</a></li></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">Performing an Offline Analysis of ECoG Data</h1>
+ <p class = "subtitle">User Tutorial</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>In this section of the tutorial, we will take you through the steps for performing a frequency-domain analysis of data recorded using an ECoG.  Regardless of the selected recording technique, we expect the basic properties of the Mu rhythm to be identical for all humans, while the rhythm's spatial pattern and exact frequency range will differ.  As in <a href="User_Tutorial%253APerforming_an_Offline_Analysis_of_EEG_Data.html" title="User Tutorial:Performing an Offline Analysis of EEG Data">User Tutorial:Performing an Offline Analysis of EEG Data</a>, we will use <i>BCI2000 Offline Analysis</i> to help determine the frequencies and locations that best facilitate response classification for online control.
+</p>
+<h2><span class="mw-headline" id="Experimental_Design">Experimental Design</span></h2>
+<p>This tutorial will make use of the <tt>ecog1_1.dat</tt>, <tt>ecog1_2.dat</tt> and <tt>ecog1_3.dat</tt> sessions that are included as part of the supplementary sample files downloadable <a rel="nofollow" class="external text" href="http://www.bci2000.org/downloads/bin/sampleFiles.zip">here</a>.  Please download this file and extract the contents to <tt>data/samplefiles/</tt>.
+</p><p>In the ecog1 sessions, the subject was asked to move each hand in a predefined pattern.  The resulting data was recorded using <i>BCI2000</i> and labeled using the StimulusCode state variable such that TargetCode is equal to 1 when the subject is responding to the instruction to move his/her left hand, 2 when the subject is responding to the instruction to move his/her right hand and 0 when the subject is responding to the instruction to rest.  If you are relatively new to <i>BCI2000</i>, you may find it helpful to inspect the data files we'll be using with the <i>BCI2000 Viewer</i>.  Using this tool, you will be able to see how state variables change with respect to the data over time.  For instruction on how to inspect data using the <i>BCI2000 Viewer</i>, please see <a href="User_Reference%253ABCI2000Viewer.html" title="User Reference:BCI2000Viewer">User Reference:BCI2000Viewer</a>.
+</p>
+<h2><span class="mw-headline" id="The_Results">The Results</span></h2>
+<p>In <a href="User_Tutorial%253APerforming_an_Offline_Analysis_of_EEG_Data.html" title="User Tutorial:Performing an Offline Analysis of EEG Data">User Tutorial:Performing an Offline Analysis of EEG Data</a> we manually entered all the analysis parameters.  In this tutorial we will make use of the <i>BCI2000 Offline Analysis</i> "Load Settings" feature that allows us to load previously saved settings.  In order to load the settings for this tutorial, please do the following:
+</p>
+<ol><li>Open BCI2000 Offline Analysis. If this is your first time using BCI2000 Offline Analysis, you may want to review the instructions on how to install and run this application: <a href="User_Reference%253ABCI2000_Offline_Analysis.html" title="User Reference:BCI2000 Offline Analysis">User Reference:BCI2000 Offline Analysis</a>.</li>
+<li>Click the "Add" button next to "Data Files" and navigate to <tt>data/samplefiles/</tt>. From there, select the files <tt>ecog1_1.dat</tt>, <tt>ecog1_2.dat</tt> and <tt>ecog1_3.dat</tt> and click "Open". To select multiple files, you'll need to first click on any one file and then, while holding down the control button on your keyboard, click the remaining files.  If these files aren't present, please download the <a rel="nofollow" class="external text" href="http://www.bci2000.org/downloads/bin/sampleFiles.zip">supplementary sample files</a> and extract them to <tt>data/samplefiles/</tt>.</li>
+<li>Click File&gt;Load Settings</li>
+<li>Navigate to <tt>data/samplefiles/</tt></li>
+<li>Double-click or otherwise open <tt>ecog1Analysis.bws</tt></li></ol>
+<p>Now, click "Generate Plots".  Once your analysis is complete, you will see feature, spectra and topography plots similar to those below:
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:Ecog1Feature.png" class="image"><img alt="Ecog1Feature.png" src="../images/thumb/c/c8/Ecog1Feature.png/600px-Ecog1Feature.png" width="600" height="481" srcset="../images/thumb/c/c8/Ecog1Feature.png/900px-Ecog1Feature.png 1.5x, ../images/thumb/c/c8/Ecog1Feature.png/1200px-Ecog1Feature.png 2x" /></a>
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:Ecog1Spectrum.png" class="image"><img alt="Ecog1Spectrum.png" src="../images/thumb/8/84/Ecog1Spectrum.png/600px-Ecog1Spectrum.png" width="600" height="234" srcset="../images/thumb/8/84/Ecog1Spectrum.png/900px-Ecog1Spectrum.png 1.5x, ../images/thumb/8/84/Ecog1Spectrum.png/1200px-Ecog1Spectrum.png 2x" /></a>
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:Ecog1Topo.png" class="image"><img alt="Ecog1Topo.png" src="../images/thumb/e/e5/Ecog1Topo.png/600px-Ecog1Topo.png" width="600" height="511" srcset="../images/thumb/e/e5/Ecog1Topo.png/900px-Ecog1Topo.png 1.5x, ../images/thumb/e/e5/Ecog1Topo.png/1200px-Ecog1Topo.png 2x" /></a>
+</p><p>In designing this analysis, we followed a similar procedure to the procedure outlined in <a href="User_Tutorial%253APerforming_an_Offline_Analysis_of_EEG_Data.html" title="User Tutorial:Performing an Offline Analysis of EEG Data">User Tutorial:Performing an Offline Analysis of EEG Data</a>.  We begin by looking for clusters of high <a href="Glossary.html" title="Glossary">r-squared</a> values.  Again, these clusters are typically the first indication that the frequency/channel pairs that comprise the cluster may be good features for online analysis.  In the generated feature plot, we see that one of the clusters with the highest <a href="Glossary.html" title="Glossary">r-squared</a> values is centered around (25 Hz, Channel 14).  So, we continue by creating a topography at 25 Hz and a spectra for channel 14.  In the previous tutorial, we used these plots to evaluate the physiological plausibility of this response.  We first note that there are significant changes in the spectra between movement and rest.  Also, the most significant of these changes occur around the beta frequency range.  When inspecting the topographies resulting from the EEG-based analysis, we were able to relate the spatial response to areas of the motor cortex known to control the muscle being moved.  We can do this in ECoG as well.  In this case, however, the location of an electrode will differ based on where the grid was placed.  We must also be aware that an ECoG grid is subject to shifts in position over time.  Because the above response is related to movement of the right hand, we expect the response to appear over the motor cortex of the left-hemisphere.  There are, however, many reasons why this may not be the case.  One simple reason is that the subject may not be performing the requested instruction.  Regardless, it is reasonable to conclude from our analysis that (25 Hz, Channel 14) may be an effective feature for use in an on-line recognition task.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Tutorial%253AObtaining_Mu_Rhythm_Parameters_in_an_Initial_Session.html" title="User Tutorial:Obtaining Mu Rhythm Parameters in an Initial Session">User Tutorial:Obtaining Mu Rhythm Parameters in an Initial Session</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20200807151316
+Cache expiry: 86400
+Dynamic content: false
+CPU time usage: 0.016 seconds
+Real time usage: 0.037 seconds
+Preprocessor visited node count: 11/1000000
+Preprocessor generated node count: 16/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+</div>
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1716-0!canonical and timestamp 20200807151316 and revision id 4066
+ -->
+</div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=User_Tutorial:Performing_an_Offline_Analysis_of_ECoG_Data&amp;oldid=4066">http://www.bci2000.org/mediawiki/index.php?title=User_Tutorial:Performing_an_Offline_Analysis_of_ECoG_Data&amp;oldid=4066</a>"</div>
+ </div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+#/bin/sh
+read -p "Please drag and drop your Qt folder, then press ENTER: " qt_dir
+echo "Using Qt located at ${qt_dir}"
+
+echo "Beginning Installation..."
+
+cd "$(dirname "$0" )"
+
+echo "Installing Dependencies..."
+
+./install_dependencies
+
+cd build
+
+echo "Beginning build..."
+
+cmake . -DCMAKE_PREFIX_PATH=${qt_dir} && make -j `getconf _NPROCESSORS_ONLN`

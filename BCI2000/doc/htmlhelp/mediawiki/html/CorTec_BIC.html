@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>CortecADC - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">CortecADC</h1>
+ <p class = "subtitle"></p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div class="thumb tright"><div class="thumbinner" style="width:402px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:CorTec_BrainInterchange.png" class="image"><img alt="" src="../images/thumb/3/31/CorTec_BrainInterchange.png/400px-CorTec_BrainInterchange.png" decoding="async" width="400" height="378" class="thumbimage" srcset="../images/3/31/CorTec_BrainInterchange.png 1.5x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://www.bci2000.org/mediawiki/index.php/File:CorTec_BrainInterchange.png" class="internal" title="Enlarge"></a></div>CorTec Brain Interchange Implant</div></div></div>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="CorTec_BIC.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="CorTec_BIC.html#Versioning"><span class="tocnumber">2</span> <span class="toctext">Versioning</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="CorTec_BIC.html#Authors"><span class="tocnumber">2.1</span> <span class="toctext">Authors</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="CorTec_BIC.html#Version_History"><span class="tocnumber">2.2</span> <span class="toctext">Version History</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="CorTec_BIC.html#Source_Code_Revisions"><span class="tocnumber">2.3</span> <span class="toctext">Source Code Revisions</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="CorTec_BIC.html#Known_Issues"><span class="tocnumber">2.4</span> <span class="toctext">Known Issues</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="CorTec_BIC.html#Parameters"><span class="tocnumber">3</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-8"><a href="CorTec_BIC.html#SourceCh"><span class="tocnumber">3.1</span> <span class="toctext">SourceCh</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="CorTec_BIC.html#SampleBlockSize"><span class="tocnumber">3.2</span> <span class="toctext">SampleBlockSize</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="CorTec_BIC.html#SamplingRate"><span class="tocnumber">3.3</span> <span class="toctext">SamplingRate</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="CorTec_BIC.html#SourceChOffset"><span class="tocnumber">3.4</span> <span class="toctext">SourceChOffset</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="CorTec_BIC.html#SourceChGain"><span class="tocnumber">3.5</span> <span class="toctext">SourceChGain</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="CorTec_BIC.html#ChannelNames"><span class="tocnumber">3.6</span> <span class="toctext">ChannelNames</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="CorTec_BIC.html#ReferenceCh"><span class="tocnumber">3.7</span> <span class="toctext">ReferenceCh</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-15"><a href="CorTec_BIC.html#Stimulation_Parameters"><span class="tocnumber">4</span> <span class="toctext">Stimulation Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-16"><a href="CorTec_BIC.html#EnableStimulation"><span class="tocnumber">4.1</span> <span class="toctext">EnableStimulation</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="CorTec_BIC.html#AcquisitionMode"><span class="tocnumber">4.2</span> <span class="toctext">AcquisitionMode</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="CorTec_BIC.html#StimulationPulses"><span class="tocnumber">4.3</span> <span class="toctext">StimulationPulses</span></a>
+<ul>
+<li class="toclevel-3 tocsection-19"><a href="CorTec_BIC.html#PulseID"><span class="tocnumber">4.3.1</span> <span class="toctext">PulseID</span></a></li>
+<li class="toclevel-3 tocsection-20"><a href="CorTec_BIC.html#Pulse_Amplitude"><span class="tocnumber">4.3.2</span> <span class="toctext">Pulse Amplitude</span></a></li>
+<li class="toclevel-3 tocsection-21"><a href="CorTec_BIC.html#Pulse_Duration"><span class="tocnumber">4.3.3</span> <span class="toctext">Pulse Duration</span></a></li>
+<li class="toclevel-3 tocsection-22"><a href="CorTec_BIC.html#Dead_Zone_0"><span class="tocnumber">4.3.4</span> <span class="toctext">Dead Zone 0</span></a></li>
+<li class="toclevel-3 tocsection-23"><a href="CorTec_BIC.html#Dead_Zone_1"><span class="tocnumber">4.3.5</span> <span class="toctext">Dead Zone 1</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-24"><a href="CorTec_BIC.html#StimulationTriggers"><span class="tocnumber">4.4</span> <span class="toctext">StimulationTriggers</span></a>
+<ul>
+<li class="toclevel-3 tocsection-25"><a href="CorTec_BIC.html#Trigger"><span class="tocnumber">4.4.1</span> <span class="toctext">Trigger</span></a></li>
+<li class="toclevel-3 tocsection-26"><a href="CorTec_BIC.html#PulseID_2"><span class="tocnumber">4.4.2</span> <span class="toctext">PulseID</span></a></li>
+<li class="toclevel-3 tocsection-27"><a href="CorTec_BIC.html#Source_Ch"><span class="tocnumber">4.4.3</span> <span class="toctext">Source Ch</span></a></li>
+<li class="toclevel-3 tocsection-28"><a href="CorTec_BIC.html#Destination_Ch"><span class="tocnumber">4.4.4</span> <span class="toctext">Destination Ch</span></a></li>
+<li class="toclevel-3 tocsection-29"><a href="CorTec_BIC.html#Pulse_Repetition"><span class="tocnumber">4.4.5</span> <span class="toctext">Pulse Repetition</span></a></li>
+<li class="toclevel-3 tocsection-30"><a href="CorTec_BIC.html#Train_Frequency_.28optional.29"><span class="tocnumber">4.4.6</span> <span class="toctext">Train Frequency (optional)</span></a></li>
+<li class="toclevel-3 tocsection-31"><a href="CorTec_BIC.html#Train_Repetition_.28optional.29"><span class="tocnumber">4.4.7</span> <span class="toctext">Train Repetition (optional)</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-32"><a href="CorTec_BIC.html#Device_Parameters"><span class="tocnumber">5</span> <span class="toctext">Device Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-33"><a href="CorTec_BIC.html#DeviceInfo"><span class="tocnumber">5.1</span> <span class="toctext">DeviceInfo</span></a></li>
+<li class="toclevel-2 tocsection-34"><a href="CorTec_BIC.html#StateInfo"><span class="tocnumber">5.2</span> <span class="toctext">StateInfo</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-35"><a href="CorTec_BIC.html#States"><span class="tocnumber">6</span> <span class="toctext">States</span></a>
+<ul>
+<li class="toclevel-2 tocsection-36"><a href="CorTec_BIC.html#ImplantLostSample"><span class="tocnumber">6.1</span> <span class="toctext">ImplantLostSample</span></a></li>
+<li class="toclevel-2 tocsection-37"><a href="CorTec_BIC.html#ImplantVoltage"><span class="tocnumber">6.2</span> <span class="toctext">ImplantVoltage</span></a></li>
+<li class="toclevel-2 tocsection-38"><a href="CorTec_BIC.html#ImplantHumidity"><span class="tocnumber">6.3</span> <span class="toctext">ImplantHumidity</span></a></li>
+<li class="toclevel-2 tocsection-39"><a href="CorTec_BIC.html#ImplantControlValue"><span class="tocnumber">6.4</span> <span class="toctext">ImplantControlValue</span></a></li>
+<li class="toclevel-2 tocsection-40"><a href="CorTec_BIC.html#ImplantPrimaryCoilCurrent"><span class="tocnumber">6.5</span> <span class="toctext">ImplantPrimaryCoilCurrent</span></a></li>
+<li class="toclevel-2 tocsection-41"><a href="CorTec_BIC.html#ImplantTemperature"><span class="tocnumber">6.6</span> <span class="toctext">ImplantTemperature</span></a></li>
+<li class="toclevel-2 tocsection-42"><a href="CorTec_BIC.html#ImplantStimulation"><span class="tocnumber">6.7</span> <span class="toctext">ImplantStimulation</span></a></li>
+<li class="toclevel-2 tocsection-43"><a href="CorTec_BIC.html#RequestedStimulation"><span class="tocnumber">6.8</span> <span class="toctext">RequestedStimulation</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-44"><a href="CorTec_BIC.html#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Introduction">Introduction</span></h2>
+<p>CortecADC is a source module that allows for inter-cranial recording and stimulating over 32 channels via a fully implantable device. It is intended for long-term measurement of neural activity and electrical stimulation of brain tissue. See the <a rel="nofollow" class="external text" href="https://www.cortec-neuro.com/solutions/complete-system/">CorTec site</a> for more information.
+</p>
+<h2><span class="mw-headline" id="Versioning">Versioning</span></h2>
+<h3><span class="mw-headline" id="Authors">Authors</span></h3>
+<ul><li>Alexander Belsten (belsten@neurotechcenter.org)</li>
+<li>Markus Adamek (adamek@neurotechcenter.org)</li>
+<li>William Engelhardt (engelhardt@neurotechcenter.org)</li></ul>
+<h3><span class="mw-headline" id="Version_History">Version History</span></h3>
+<ul><li>11/29/2018 - R5829 - Initial untested version (Adamek)</li>
+<li>04/19/2021 - R6271 - First working version (Belsten)</li>
+<li>07/22/2021 - R6339 - Changed <i>ImplantLostSample</i> from a BCI2000 state to a stream, so it can record individual sample loss (instead of over the whole block). This change is untested. (Belsten)</li>
+<li>01/01/2023 - R7133 - Updated API to version 1.0.200. (Engelhardt)</li></ul>
+<h3><span class="mw-headline" id="Source_Code_Revisions">Source Code Revisions</span></h3>
+<ul><li>Initial development: 6266</li>
+<li>Tested under: 6271</li>
+<li>Known to compile under: 6271</li>
+<li>Broken since: --</li></ul>
+<h3><span class="mw-headline" id="Known_Issues">Known Issues</span></h3>
+<ul><li>Lost samples - The <code>ImplantLostSamples</code> state records what samples are lost, and their locations. Lost samples are replaced with the previous valid sample for all channels. In offline analysis, be sure to remove these samples and replace them with interpolates.</li>
+<li>The Brain Interchange Communication Unit has been seen to work with certain USB inputs, and not with others. If you are experiencing connection issues, try using a different USB port.</li></ul>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<h3><span class="mw-headline" id="SourceCh">SourceCh</span></h3>
+<p>The total number of digitized and stored channels. In the current implementation, this parameter cannot be edited, and will default to how many channels are available from the implant. 
+</p>
+<h3><span class="mw-headline" id="SampleBlockSize">SampleBlockSize</span></h3>
+<p>Samples per channel per digitized block. 
+Together with the sampling rate, this parameter determines how often per second data are collected, processed, and feedback is updated. For example, at 1000 Hz sampling and a SampleBlockSize of 20, the system (e.g., source signal display, signal processing, and stimulus presentation) will be updated 50 times per second.
+</p>
+<h3><span class="mw-headline" id="SamplingRate">SamplingRate</span></h3>
+<p>The sample rate of the system. This parameter cannot be edited, and will default to the sampling rate available from the implant. 
+In case you are experiencing problems by higher sampling rates (e.g., data loss, jerky display, etc.), increase the SampleBlockSize so that you are updating the system less frequently (usually, updating the system 20-30 times per second is sufficient for most applications), and increase Visualize-&gt;VisualizeSourceDecimation. This parameter will decrease the number of samples per second that are actually drawn in the Source display.
+</p>
+<h3><span class="mw-headline" id="SourceChOffset">SourceChOffset</span></h3>
+<p>Offset for each channel.
+</p>
+<h3><span class="mw-headline" id="SourceChGain">SourceChGain</span></h3>
+<p>Gain for each channel. 
+</p>
+<h3><span class="mw-headline" id="ChannelNames">ChannelNames</span></h3>
+<p>Names of each channel.
+</p>
+<h3><span class="mw-headline" id="ReferenceCh">ReferenceCh</span></h3>
+<p>This list defines what channels will be used as reference. This list is uploaded to the device and set in hardware, effecting the raw bio-signal data that is recorded by BCI2000. If you do not want to effect the raw bio-signal data that is recorded, you can use the <a rel="nofollow" class="external text" href="https://www.bci2000.org/mediawiki/index.php/User_Reference:SpatialFilter">spatial filter</a>. If this parameter is set to auto, no reference channels are used.
+</p>
+<h2><span class="mw-headline" id="Stimulation_Parameters">Stimulation Parameters</span></h2>
+<p>These parameters can be found in the "Stimulation" tab of the BCI2000 config window. 
+</p>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 379.33333333333px"><div style="width: 379.33333333333px">
+			<div class="thumb" style="width: 377.33333333333px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:CortecADC_stimulation_parm.PNG" class="image"><img alt="CortecADC stimulation parm.PNG" src="../images/thumb/8/8c/CortecADC_stimulation_parm.PNG/566px-CortecADC_stimulation_parm.PNG" decoding="async" width="378" height="300" srcset="../images/8/8c/CortecADC_stimulation_parm.PNG 1.5x" /></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 378.66666666667px"><div style="width: 378.66666666667px">
+			<div class="thumb" style="width: 376.66666666667px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:CortecADC_stimulationpulses_parm.PNG" class="image"><img alt="CortecADC stimulationpulses parm.PNG" src="../images/a/a5/CortecADC_stimulationpulses_parm.PNG" decoding="async" width="377" height="300" /></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 378.66666666667px"><div style="width: 378.66666666667px">
+			<div class="thumb" style="width: 376.66666666667px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:CortecADC_stimulationtriggers_parm1.PNG" class="image"><img alt="CortecADC stimulationtriggers parm1.PNG" src="../images/0/0e/CortecADC_stimulationtriggers_parm1.PNG" decoding="async" width="377" height="300" /></a></div></div>
+			<div class="gallerytext">
+			</div>
+		</div></li>
+</ul>
+<h3><span class="mw-headline" id="EnableStimulation">EnableStimulation</span></h3>
+<p>This parameter enables/disables stimulation. 
+</p>
+<h3><span class="mw-headline" id="AcquisitionMode">AcquisitionMode</span></h3>
+<p>There are 2 modes: the <b>default stimulation mode</b>, then the <b>impedance measurement mode</b>. The only difference is that the impedance measurement mode prints out the impedance of the used electrodes when you set the configuration, and the default stimulation mode does not. All electrodes that are being recorded from will conduct the impedance measurement.
+</p>
+<h3><span class="mw-headline" id="StimulationPulses">StimulationPulses</span></h3>
+<p>This parameter defines the shape of the charge balanced stimulation pulses, as described in Fig 1. The pulses are defined in one column of this parameter matrix, and it is possible to define an arbitrary number of pulses, each of which are associated with a user defined integer called a <i>PulseID</i>.  The rows are labeled and there are some limitations to the magnitudes and durations which are elaborated on in the subsequent section. 
+</p>
+<div class="center"><div class="thumb tnone"><div class="thumbinner" style="width:602px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:CortecADC_pulse_def.png" class="image"><img alt="" src="../images/thumb/a/a6/CortecADC_pulse_def.png/600px-CortecADC_pulse_def.png" decoding="async" width="600" height="403" class="thumbimage" srcset="../images/thumb/a/a6/CortecADC_pulse_def.png/900px-CortecADC_pulse_def.png 1.5x, ../images/thumb/a/a6/CortecADC_pulse_def.png/1200px-CortecADC_pulse_def.png 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://www.bci2000.org/mediawiki/index.php/File:CortecADC_pulse_def.png" class="internal" title="Enlarge"></a></div>Figure 1. Pulse definition</div></div></div></div>
+<h4><span class="mw-headline" id="PulseID">PulseID</span></h4>
+<p>This must be an integer greater than or equal to zero. This ID will be used in the <i>StimulationTriggers</i> parameter. 
+</p>
+<h4><span class="mw-headline" id="Pulse_Amplitude">Pulse Amplitude</span></h4>
+<p>The pulse amplitude defines the amplitude of the main pulse in units of µA. The counter pulse will have a negative amplitude that is one-quarter of the magnitude of the main pulse. 
+</p><p>The valid values of this parameter are in the range 0 to 6120 µA. The granularity changes for smaller amplitudes as follows:
+</p>
+<ul><li>amplitude &lt;=  3060 µA: step size of 12</li>
+<li>amplitude &gt;  3060 µA: step size of 24</li></ul>
+<p>This leads to a set of acceptable values that looks like: [0, 12, ..., 3048, 3060, 3084, ... 6096, 6120]
+You can define this parameter not to be one of the acceptable values in this range, but it will be rounded to the nearest valid value, and other parameters will be varied to maintain charge balance. 
+</p>
+<h4><span class="mw-headline" id="Pulse_Duration">Pulse Duration</span></h4>
+<p>The pulse duration defines the duration of the main pulse in µs. The counter pulse will have a duration that is four times longer than the main pulse duration. Pulse duration values are set in steps of 10 µs. The acceptable range is between 10 and 2550 µs. Again, if the provided value is not a multiple of 10, it will be rounded to the nearest valid value, and other parameters will be modified to maintain charge balance. 
+</p>
+<h4><span class="mw-headline" id="Dead_Zone_0">Dead Zone 0</span></h4>
+<p>Holds the duration of the pause between main and counter pulse in µs. Values can be set in steps of 10 µs. The acceptable range is between 10 and 2550 µs. The same duration dead zone will also occur after the counter pulse.
+</p>
+<h4><span class="mw-headline" id="Dead_Zone_1">Dead Zone 1</span></h4>
+<p>Holds the duration of the pause after the pulse was delivered. Values can be set in steps of 80 µs. The acceptable range goes from 10 to 20400 µs. Note that the steps are starting from 0 while the minimum value is 10 µs. This leads to a set of acceptable values that looks like: [10, 80, 160, 240, ... , 20400] µs.
+</p>
+<h3><span class="mw-headline" id="StimulationTriggers">StimulationTriggers</span></h3>
+<p>This parameter defines when stimulation is applied, what pulse is used, how many pulses are applied, and the source and destination locations of the stimulation. These parameters are defined in the rows of this matrix with labels
+</p>
+<h4><span class="mw-headline" id="Trigger">Trigger</span></h4>
+<p>This must be a <a rel="nofollow" class="external text" href="User_Reference%253AExpression_Syntax.html">BCI2000 expression</a>. When this expression evaluates true during the run, the stimulation is applied. 
+</p>
+<h4><span class="mw-headline" id="PulseID_2">PulseID</span></h4>
+<p>The second row should contain a valid PulseID that is to be used. 
+</p>
+<h4><span class="mw-headline" id="Source_Ch">Source Ch</span></h4>
+<p>The third row is an embedded list that defines the source electrodes. 
+</p>
+<h4><span class="mw-headline" id="Destination_Ch">Destination Ch</span></h4>
+<p>The fourth row is also an embedded list that defines the destination electrodes. 
+</p>
+<h4><span class="mw-headline" id="Pulse_Repetition">Pulse Repetition</span></h4>
+<p>The fifth row defines how many times that pulse is repeated. The max is 255.
+</p>
+<h4><span id="Train_Frequency_(optional)"></span><span class="mw-headline" id="Train_Frequency_.28optional.29">Train Frequency (optional)</span></h4>
+<p>The sixth row defines the frequency of the train. This is implemented by determining the amount of downtime after the pulses are done, in a resolution of microseconds. So if your desired frequency produces a desired wait time with a resolution of less than a microsecond, this will be rounded to the nearest microsecond.
+</p>
+<h4><span id="Train_Repetition_(optional)"></span><span class="mw-headline" id="Train_Repetition_.28optional.29">Train Repetition (optional)</span></h4>
+<p>The seventh row defines how many times the entire train is repeated, at the frequency set by the previous row.
+</p>
+<div class="center"><div class="thumb tnone"><div class="thumbinner" style="width:1002px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:Cotec_Stimulation_Train.png" class="image"><img alt="" src="../images/thumb/f/f7/Cotec_Stimulation_Train.png/1000px-Cotec_Stimulation_Train.png" decoding="async" width="1000" height="400" class="thumbimage" srcset="../images/thumb/f/f7/Cotec_Stimulation_Train.png/1500px-Cotec_Stimulation_Train.png 1.5x, ../images/thumb/f/f7/Cotec_Stimulation_Train.png/2000px-Cotec_Stimulation_Train.png 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://www.bci2000.org/mediawiki/index.php/File:Cotec_Stimulation_Train.png" class="internal" title="Enlarge"></a></div>Figure 1. Stimulation train definition</div></div></div></div>
+<p><i>Note</i>: If a train is not desired, you can either set Train Frequency and Repetition to 0, or delete those 2 rows.
+</p>
+<h2><span class="mw-headline" id="Device_Parameters">Device Parameters</span></h2>
+<h3><span class="mw-headline" id="DeviceInfo">DeviceInfo</span></h3>
+<p>This parameter cannot be edited and is automatically populated with information returned from the device, such as device type, device ID, and the firmware version. 
+</p>
+<h3><span class="mw-headline" id="StateInfo">StateInfo</span></h3>
+<p>This parameter cannot be edited and is automatically populated with information regarding state units and their multiplier. The device provides information such as humidity, temperature, control value, etc., which are recorded in BCI2000 states (see state information on this page for a complete enumeration of states). The device provides these values with floats, but BCI2000 states can only be integers. The multipliers defined in this parameter are used to increase the amount of precision in the state values. To approximately recover the original float values with the units defined in this parameter, divide each state by its corresponding multiplier.
+</p>
+<h2><span class="mw-headline" id="States">States</span></h2>
+<p>The states encode auxiliary information returned from the Cortec implant. The device provides this data in floating point numbers, however BCI2000 can only record integers to it's states. To maintain some precision, these floats are multiplied by constants, then recorded to the states as integers. To approximately recover the original data, divide the state by its corresponding constant. Constants are shown in the following table. 
+</p>
+<table class="wikitable" style="text-align:right;">
+
+<tbody><tr style="font-weight:bold;">
+<th>State
+</th>
+<th style="text-align:center;">Constant
+</th></tr>
+<tr>
+<td>ImplantVoltage
+</td>
+<td style="text-align:center;">1000
+</td></tr>
+<tr>
+<td>ImplantHumidity
+</td>
+<td style="text-align:center;">100
+</td></tr>
+<tr>
+<td>ImplantControlValue
+</td>
+<td style="text-align:center;">100
+</td></tr>
+<tr>
+<td>ImplantPrimaryCoilCurrent
+</td>
+<td style="text-align:center;">1000
+</td></tr>
+<tr>
+<td>ImplantTemperature
+</td>
+<td style="text-align:center;">100
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="ImplantLostSample">ImplantLostSample</span></h3>
+<p>The communication protocol the device uses does not re-send lost data. This state annotates what samples were lost in the bio-signal data. Currently, lost samples are made up by duplicating the previous sample. 
+</p>
+<h3><span class="mw-headline" id="ImplantVoltage">ImplantVoltage</span></h3>
+<p>16 bit state that changes when new supply voltage value is received from the implant. After dividing the integer state value by the the voltage multiplier defined in the StateInfo parameter, the units are in volts.
+</p>
+<h3><span class="mw-headline" id="ImplantHumidity">ImplantHumidity</span></h3>
+<p>16 bit state that changes when new humidity value is received from the implant. Units in %rh. 
+</p>
+<h3><span class="mw-headline" id="ImplantControlValue">ImplantControlValue</span></h3>
+<p>16 bit state that changes when new current control value is received from the external unit. The power of the implant is controlled by the external unit. The control value provides a measure of how good the coupling between the two coils is and how much more power can be provided if necessary.
+The value is between 0.0 and 100.0 percent, where 0.0 translates to no power and 100.0 translates to maximum power applied.
+</p>
+<h3><span class="mw-headline" id="ImplantPrimaryCoilCurrent">ImplantPrimaryCoilCurrent</span></h3>
+<p>16 bit state that change when new primary coil current value is received from the external unit. The primary coil refers to the coil inside the head piece of the external unit. Units are mA. 
+</p>
+<h3><span class="mw-headline" id="ImplantTemperature">ImplantTemperature</span></h3>
+<p>16 bit state that changes when new temperature value is received from the implant. Units are degrees Celsius. 
+</p>
+<h3><span class="mw-headline" id="ImplantStimulation">ImplantStimulation</span></h3>
+<p>Binary state that changes when the device reports that it is stimulating. 
+</p>
+<h3><span class="mw-headline" id="RequestedStimulation">RequestedStimulation</span></h3>
+<p>Binary state that records when a stimulation trigger expression evaluates true. State remains true for the duration triggered stimulation. This is useful for determining the latency between when stimulation is requested and when it is actually applied. This is done by computing the difference in time between the rising edges of <i>ImplantStimulation</i> and <i>RequestedStimulation</i> states.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Reference%253AFilters.html" title="User Reference:Filters">User Reference:Filters</a>, <a href="Contributions%253AADCs.html" title="Contributions:ADCs">Contributions:ADCs</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524132137
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.054 seconds
+Real time usage: 0.062 seconds
+Preprocessor visited node count: 139/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 1643/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2268-0!canonical and timestamp 20230524132137 and revision id 10198
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=CortecADC&amp;oldid=10198">http://www.bci2000.org/mediawiki/index.php?title=CortecADC&amp;oldid=10198</a>"</div>
+ </div>
+</body>
+</html>

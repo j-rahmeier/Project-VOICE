@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Programming Reference:Error Handling - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul><li class="toc1">Concepts</li><ul><li class="toc2"><a href="Programming_Reference%253AFilter_Chain.html">Filter Chain</a></li><li class="toc2"><a href="Programming_Reference%253ASignals.html">Signals</a></li><li class="toc2">Error Handling</li><li class="toc2"><a href="Programming_Reference%253ALocalization.html">Localization</a></li><li class="toc2"><a href="Programming_Reference%253ARapid_Development.html">Rapid Development</a></li></ul><li class="toc1">Reference</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFilter_Class.html">GenericFilter</a></li><li class="toc2"><a href="Programming_Reference%253AEnvironment_Class.html">Environment</a></li><li class="toc2"><a href="Programming_Reference%253AGenericVisualization_Class.html">GenericVisualization</a></li><li class="toc2"><a href="Programming_Reference%253AErrors_and_Warnings.html">Errors and Warnings</a></li><li class="toc2"><a href="Programming_Reference%253ADebug_Output.html">Debug Output</a></li></ul><li class="toc1">Data Acquisition</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericADC_Class.html">GenericADC</a></li></ul><li class="toc1">Data Storage</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFileWriter_Class.html">GenericFileWriter</a></li><li class="toc2"><a href="Programming_Reference%253ABCI2000FileReader_Class.html">BCI2000FileReader</a></li></ul><li class="toc1">Signal Processing</li><ul><li class="toc2"><a href="Programming_Reference%253AIIRFilterBase_Class.html">IIR Filters</a></li></ul><li class="toc1">Application Modules</li><ul><li class="toc2"><a href="Programming_Reference%253AApplicationBase_Class.html">ApplicationBase</a></li><li class="toc2"><a href="Programming_Reference%253AFeedbackTask_Class.html">FeedbackTask</a></li><li class="toc2"><a href="Programming_Reference%253AStimulusTask_Class.html">StimulusTask</a></li><li class="toc2"><a href="Programming_Reference%253A3D_API.html">3D API</a></li></ul><li class="toc1">Howtos</li><ul><li class="toc2"><a href="Programming_Howto%253ABuilding_BCI2000.html">Building BCI2000</a></li><li class="toc2"><a href="Programming_Howto%253ASVN_Client_Setup.html">SVN Client Setup</a></li><li class="toc2"><a href="Programming_Howto%253AUsing_TortoiseSVN.html">Using TortoiseSVN</a></li></ul><li class="toc1"><a href="Programming_FAQ.html">FAQ</a></li><li class="toc1">Tutorials</li><ul><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html">Data Acquisition</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html">Signal Processing</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html">Matlab Signal Processing</a></li></ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">Error Handling</h1>
+ <p class = "subtitle">Programming Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Programming_Reference%253AError_Handling.html#Handling_Errors"><span class="tocnumber">1</span> <span class="toctext">Handling Errors</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="Programming_Reference%253AError_Handling.html#Types_of_Errors"><span class="tocnumber">1.1</span> <span class="toctext">Types of Errors</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="Programming_Reference%253AError_Handling.html#Parameter_Setup_Errors"><span class="tocnumber">1.2</span> <span class="toctext">Parameter Setup Errors</span></a>
+<ul>
+<li class="toclevel-3 tocsection-4"><a href="Programming_Reference%253AError_Handling.html#Definition_of_the_Term"><span class="tocnumber">1.2.1</span> <span class="toctext">Definition of the Term</span></a></li>
+<li class="toclevel-3 tocsection-5"><a href="Programming_Reference%253AError_Handling.html#Strategies"><span class="tocnumber">1.2.2</span> <span class="toctext">Strategies</span></a></li>
+<li class="toclevel-3 tocsection-6"><a href="Programming_Reference%253AError_Handling.html#User_Interface_Details"><span class="tocnumber">1.2.3</span> <span class="toctext">User Interface Details</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-7"><a href="Programming_Reference%253AError_Handling.html#Runtime_Errors"><span class="tocnumber">1.3</span> <span class="toctext">Runtime Errors</span></a>
+<ul>
+<li class="toclevel-3 tocsection-8"><a href="Programming_Reference%253AError_Handling.html#Definition_of_the_Term_2"><span class="tocnumber">1.3.1</span> <span class="toctext">Definition of the Term</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="Programming_Reference%253AError_Handling.html#Strategies_2"><span class="tocnumber">1.3.2</span> <span class="toctext">Strategies</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="Programming_Reference%253AError_Handling.html#User_Interface_Details_2"><span class="tocnumber">1.3.3</span> <span class="toctext">User Interface Details</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-11"><a href="Programming_Reference%253AError_Handling.html#Logic_Errors"><span class="tocnumber">1.4</span> <span class="toctext">Logic Errors</span></a>
+<ul>
+<li class="toclevel-3 tocsection-12"><a href="Programming_Reference%253AError_Handling.html#Definition_of_the_Term_3"><span class="tocnumber">1.4.1</span> <span class="toctext">Definition of the Term</span></a></li>
+<li class="toclevel-3 tocsection-13"><a href="Programming_Reference%253AError_Handling.html#Strategies_3"><span class="tocnumber">1.4.2</span> <span class="toctext">Strategies</span></a></li>
+<li class="toclevel-3 tocsection-14"><a href="Programming_Reference%253AError_Handling.html#User_Interface_Details_3"><span class="tocnumber">1.4.3</span> <span class="toctext">User Interface Details</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-15"><a href="Programming_Reference%253AError_Handling.html#Implementation_Details"><span class="tocnumber">2</span> <span class="toctext">Implementation Details</span></a>
+<ul>
+<li class="toclevel-2 tocsection-16"><a href="Programming_Reference%253AError_Handling.html#Interface_to_the_Programmer"><span class="tocnumber">2.1</span> <span class="toctext">Interface to the Programmer</span></a>
+<ul>
+<li class="toclevel-3 tocsection-17"><a href="Programming_Reference%253AError_Handling.html#Reporting_Errors"><span class="tocnumber">2.1.1</span> <span class="toctext">Reporting Errors</span></a></li>
+<li class="toclevel-3 tocsection-18"><a href="Programming_Reference%253AError_Handling.html#Checking_Parameters"><span class="tocnumber">2.1.2</span> <span class="toctext">Checking Parameters</span></a></li>
+<li class="toclevel-3 tocsection-19"><a href="Programming_Reference%253AError_Handling.html#Accessing_Environment_Objects"><span class="tocnumber">2.1.3</span> <span class="toctext">Accessing Environment Objects</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-20"><a href="Programming_Reference%253AError_Handling.html#Implementation_on_the_Framework_Side"><span class="tocnumber">2.2</span> <span class="toctext">Implementation on the Framework Side</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-21"><a href="Programming_Reference%253AError_Handling.html#See_also"><span class="tocnumber">3</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Handling_Errors">Handling Errors</span></h2>
+<h3><span class="mw-headline" id="Types_of_Errors">Types of Errors</span></h3>
+<p>We assume that all errors we need to consider fall into one of the following categories, each of which implies a different type of approach to error avoidance/error handling:
+</p>
+<ul><li>Parameter Setup Errors</li>
+<li>Runtime Errors</li>
+<li>Logic (Programming) Errors</li></ul>
+<p><br />
+</p>
+<h3><span class="mw-headline" id="Parameter_Setup_Errors">Parameter Setup Errors</span></h3>
+<h4><span class="mw-headline" id="Definition_of_the_Term">Definition of the Term</span></h4>
+<p>This category covers anything a user can do wrong by using a program with parameters that are out of range, inconsistent, or otherwise erroneous (e.g., by specifying an output file at a location where the user has no write permission).
+</p><p>Parameter setup errors, when unhandled, become runtime errors.
+</p>
+<h4><span class="mw-headline" id="Strategies">Strategies</span></h4>
+<p>As a guideline for approaching Parameter Setup Errors we adopt the following principle: "Whatever a
+user does from within an application program should never make that application crash."
+</p><p>In BCI2000, this translates into a thorough parameter check done by each module before any parameter settings are actually applied to the system.
+</p><p>Parameter checking should comprise
+</p>
+<ul><li>Range and Consistency checks, whereby ranges generally depend on the values of other parameters;</li>
+<li>Signal property checks: Does the output signal of one filter meet the next filter's requirements for its input signal?</li>
+<li>Resource availability checks:
+<ul><li>Are needed system resources available? (E.g., is it possible to open a required sound output device?)</li>
+<li>Are auxiliary files (e.g., media files) available and readable?</li>
+<li>Do output files have legal file names? Are output files writeable? (We could even check whether there is enough space left to write the EEG file, but this is not practical because a concurrent process might use up the space while our system runs.)</li></ul></li></ul>
+<p><br />
+In each of these cases, the user should get appropriate feedback guiding her towards fixing the problem.
+</p><p>Whenever the system tries to fix a parameter setup error by using some default set of parameters, it should do so only if
+</p>
+<ul><li>it presents the user with a warning that tells her what it did and why it did so, and if</li>
+<li>the automatically fixed parameters are treated as if changed by the user, i.e. with a parameter check performed on them.</li></ul>
+<p>Otherwise, people may unknowingly using a system that doesn't do what they want it to, or have
+a system that creates new parameter inconsistencies when trying to fix others.
+</p>
+<h4><span class="mw-headline" id="User_Interface_Details">User Interface Details</span></h4>
+<p>The user interface for Parameter Setup Error handling is, along with the parameter setup dialog, part of the operator module. A first implementation of a GUI based user interface consists in a floating, non-modal error window popping up from the operator module that presents a list of error related textual messages to the user, allowing for browsing error messages
+while changing respective parameters via the parameter setup dialog. After the next parameter check, the operator module will close that window or replace its contents based on the result of the check.
+Parameter checking occurs when the user clicks the "SetConfig" button in the operator main window, followed by actually applying parameters if the check was successful.
+</p><p><br />
+</p>
+<h3><span class="mw-headline" id="Runtime_Errors">Runtime Errors</span></h3>
+<h4><span class="mw-headline" id="Definition_of_the_Term_2">Definition of the Term</span></h4>
+<p>This category covers everything that can go wrong in the course of running an application program, 
+insofar as that malfunction is due to a lack of resources in the underlying system required for proper operation (i.e., not due to a programming error). Assuming that parameter checking has been implemented properly as outlined above, we can narrow the term `Runtime Error' to cases for which the following statement holds: A runtime error occurs whenever the system runs out of resources that were still available during parameter checking.
+</p><p>Typical reasons for this kind of error are
+</p>
+<ul><li>the system runs out of disk space while recording data,</li>
+<li>files being moved, trashed, or locked by a concurrent process,</li>
+<li>a network connection becomes unavailable.</li></ul>
+<p>Runtime errors, when unhandled, become logic errors because the code implies assumptions that no longer hold once a runtime error has occurred.
+</p>
+<h4><span class="mw-headline" id="Strategies_2">Strategies</span></h4>
+<p>In a properly designed and implemented system, runtime errors, in the restricted sense described above, will not occur frequently. However, as they are caused by undesired circumstances outside the scope of the application program itself, it seems important to provide information to the user that is as detailed as possible in order to enable her to prevent this type of situation in the future, and to make her aware of the fact that the application program depends on her willingness to provide a smooth operating environment. After displaying a message of this kind, it seems appropriate to simply abort execution altogether, while trying to avoid a loss of the data acquired up to that time.
+</p>
+<h4><span class="mw-headline" id="User_Interface_Details_2">User Interface Details</span></h4>
+<p>In general, it is desirable to have runtime errors displayed along with the user interface of the operator module. However, as this requires a working connection between the module where the error occurs, and the operator module, this may not always be possible. Therefore, in addition to an operator-based error reporting interface, each module should have a less demanding mechanism to provide error information to the user, e.g., a local log file.
+</p><p><br />
+</p>
+<h3><span class="mw-headline" id="Logic_Errors">Logic Errors</span></h3>
+<h4><span class="mw-headline" id="Definition_of_the_Term_3">Definition of the Term</span></h4>
+<p>Logic, or programming, errors in general can be due to a programmer who, in his or her code, implicitly or explicitly makes assumptions that do not always hold.
+</p>
+<h4><span class="mw-headline" id="Strategies_3">Strategies</span></h4>
+<p>Programming errors are not supposed to occur at all in a tested version of an application. Therefore, instead of trying to 'handle' them, it is important to make them show up as close to their point of origin in the code as possible, by frequently and explicitly checking whether
+implicit assumptions actually hold, and aborting execution with an error message if this is not the case.
+</p><p>Typically, such checks use an "assertion" facility provided by the programming language. BCI2000 provides its own <tt>bciassert</tt> macro in <tt>BCIAssert.h</tt> to make sure that failed assertions result in messages that are displayed by the BCI2000 operator module. Unlike the standard assert macro, BCI2000 assertions do not evaluate to empty in release builds.
+</p><p>Aside from that, writing code as explicit, general, and simple as possible greatly reduces the possibility of making logic errors in the first place.
+</p>
+<h4><span class="mw-headline" id="User_Interface_Details_3">User Interface Details</span></h4>
+<p>As programming errors are errors about which a user can do nothing, simply aborting the program or module with an error message seems appropriate.
+</p><p><br />
+</p>
+<h2><span class="mw-headline" id="Implementation_Details">Implementation Details</span></h2>
+<h3><span class="mw-headline" id="Interface_to_the_Programmer">Interface to the Programmer</span></h3>
+<h4><span class="mw-headline" id="Reporting_Errors">Reporting Errors</span></h4>
+<p>For a simple and general way to provide user communication and a means of error reporting to a module's programmer, there exist two global objects derived from <tt>std::ostream</tt>, one named
+<tt>bciout</tt> and the other named <tt>bcierr</tt>, analogous to <tt>std::cout</tt> and <tt>std::cerr</tt>, where <tt>bciout</tt> is used to transfer general messages and warnings while <tt>bcierr</tt> takes actual errors.
+A code example then looks like this:
+</p>
+<pre> #include "BCIError.h"
+ ...
+ using namespace std;
+ ...
+ ofstream outputStream( fileName );
+ if( !outputStream.is_open() )
+ {
+   bcierr &lt;&lt; "Cannot open the file \""
+          &lt;&lt; fileName
+          &lt;&lt; "\" for output"
+          &lt;&lt; endl;
+ }
+</pre>
+<p>Furthermore, for handling runtime errors from which it is difficult to recover, code may throw an exception that will abort execution and eventually lead to an error message being sent to the operator module (for framework related details see the section entitled "Implementation on the Framework Side"):
+</p>
+<pre>#include "BCIException.h"
+...
+if( ernie.find( bert )&#160;!= ernie.end() )
+   throw bciexception( "Ernie just ate Bert. I don't know how to tell the story." );
+tellMyStory( ernie, bert );
+...
+</pre>
+<h4><span class="mw-headline" id="Checking_Parameters">Checking Parameters</span></h4>
+<p>Checking parameters is done in a separate member function of the filter base class which, similar to the member function that does the actual processing, takes input and output signal representatives as parameters, thus allowing for signal property checking.
+</p><p>For the actual implementation, its declaration is as follows:
+</p>
+<pre>void GenericFilter::Preflight ( const SignalProperties&amp; Input, 
+                                      SignalProperties&amp; Output ) const;
+</pre>
+<p>For a filter class derived from <tt>GenericFilter</tt>, this function is supposed to perform
+parameter checking as described in the "Strategies" section. Instead of returning an error value, it writes possible error messages into <tt>bcierr</tt>. Furthermore, it communicates dimensions of its output signal which it guarantees not to exceed, and it does so by adjusting the properties of the second SignalProperties object in its argument list, e.g.
+</p>
+<pre>Output = SignalProperties( Input.Channels(), 1 );
+</pre>
+<p>or
+</p>
+<pre>Output = SignalProperties( 0, 0 );
+</pre>
+<p>if it declares not to use its output signal.
+</p><p>The <tt>const</tt> declaration for its <tt>this</tt> pointer prohibits initialization functionality from <tt>GenericFilter::Initialize()</tt> entering into <tt>Preflight()</tt>. Such behavior is unwanted because it would corrupt the idea of performing a <i>complete</i>  parameter check before actually <i>altering</i> the state of a filter object.
+</p><p>A necessary condition for a correct implementation of the <tt>Preflight()</tt> function is that any parameter, as well as any state that will be accessed during the processing phase, be accessed
+from <tt>Preflight()</tt> at least once. For parameters and states defined by the filter itself (i.e. inside its constructor), range and accessibility checks are automatically performed by the framework; parameters and states defined by other filters must be explicitly accessed from <tt>Preflight()</tt>. If a <tt>GenericFilter</tt> descendant fails to access an externally defined parameter or state during <tt>Preflight()</tt>, the first access during the processing phase will result in a runtime error.
+</p>
+<h4><span class="mw-headline" id="Accessing_Environment_Objects">Accessing Environment Objects</span></h4>
+<p>We consider parameters and states part of the BCI2000 "environment". <tt>GenericFilter</tt> descendants have access to that environment, analogous to the concept of environment variables found in some operating systems. Internally, access to the environment is mediated through a mix-in-class named <tt>Environment</tt> that provides accessor symbols to a filter programmer.
+</p><p><b>Low Level Access to Environment Objects</b> is provided by the following symbols:
+</p>
+<ul><li><tt>Parameters</tt> syntactically behaves like a <tt>ParamList*</tt>,</li>
+<li><tt>States</tt> behaves like a <tt>StateList*</tt>,</li>
+<li>and <tt>Statevector</tt> behaves like a <tt>StateVector*</tt>.</li></ul>
+<p>As an example, 
+</p>
+<pre>float  myParameterValue = 0.0;
+Param* param = Parameters-&gt;GetParamPtr( "MyParameter" );
+if( param )
+  myParameterValue = atof( param-&gt;GetValue() );
+else
+  bcierr &lt;&lt; "Could not access \"MyParameter\"" &lt;&lt; endl;
+</pre>
+<p>Unlike true pointers, these symbols cannot be assigned any values, cannot be assigned to variables, or have other manipulating operators applied. For example, the lines
+</p>
+<pre>delete Parameters;
+Parameters = new ParamList;
+</pre>
+<p>will all result in compiler errors.
+</p><p><b>Convenient Access to Environment Objects</b> is possible through a number of symbols which offer built-in checking and error reporting:
+</p>
+<ul><li><tt>Parameter(Name)[(Index 1[, Index 2])</tt></li></ul>
+<p>This symbol stands for the value of the named parameter.  Indices may be given in numerical or textual form; if omitted, they default to 0. The type of the symbol <tt>Parameter()</tt> may be numerical or a string type, depending on its use. (If the compiler complains about ambiguities, use explicit typecasts.) If a parameter with the given name does not exist, an error message is written into <tt>bcierr</tt>. If the specified indices do not exist, no error is reported. In both cases, on read access, the string constant <tt>"0"</tt> resp. the number 0 is returned.
+</p><p>Examples: 
+</p>
+<pre>int myValue = Parameter( "MyParam" ); 
+string myOtherValue = Parameter( "MyOtherParam" ); 
+Parameter( "My3rdParam" )( 2, 3 ) = my3rdValue; 
+</pre>
+<ul><li><tt>OptionalParameter(Name[, Default Value])(Index 1[, Index 2])</tt></li></ul>
+<p>This symbol behaves like the symbol <tt>Parameter()</tt> but will not report an error if the parameter does not exist. Instead, it will return the default value given in its first argument. Assignments to this symbol are not possible. 
+</p>
+<ul><li><tt>State(Name)</tt></li></ul>
+<p>This symbol allows for reading a state's value from the state vector and setting a state's value in the state vector. Trying to access a state that is not accessible will result in an error reported via <tt>bcierr</tt>. 
+</p><p>Examples:
+</p>
+<pre>short currentStateOfAffairs = State( "OfAffairs" ); 
+State( "OfAffairs" ) = nextStateOfAffairs;
+</pre>
+<ul><li><tt>OptionalState(Name[, Default Value])</tt></li></ul>
+<p>Analagous to <tt>OptionalParameter()</tt>, this symbol does not report an error if the specified state does not exist but returns the given default value. Assignments to this symbol are not possible. 
+</p>
+<ul><li><tt>PreflightCondition(Condition)</tt></li></ul>
+<p>This symbol is meant to be used inside implementations of  <tt>GenericFilter::Preflight()</tt>. If the boolean condition given as its argument is false, it will output an error message into <tt>bcierr</tt> containing the condition given in its argument. 
+</p><p>Example: 
+</p><p><tt>PreflightCondition( Parameter( "TransmitCh" ) &lt;= Parameter( "SourceCh" ) );</tt> 
+</p><p>If TransmitCh is greater than SourceCh, a message will be sent to <tt>bcierr</tt> and  displayed to the user, stating: 
+</p><p><tt>A necessary condition is violated. Please make sure that the following is true:   
+Parameter( "TransmitCh" ) &lt;= Parameter( "SourceCh" )</tt>
+</p>
+<h3><span class="mw-headline" id="Implementation_on_the_Framework_Side">Implementation on the Framework Side</span></h3>
+<p>The behaviour of the operator module in response to an error message that arrives from one of the modules depends on its context, i.e., on the execution phase the system is in. That way, no additional programming interface elements visible to a filter/module programmer are needed to implement an error handling scheme as described in the "Handling Errors"section. 
+</p><p>During the <b>preflight phase,</b>  errors are <i>Configuration Errors</i>. A module's framework code behind <tt>bcierr</tt> just collects error messages; on return from the preflight function, it
+sends those messages to the operator module which then, from the contents of the message (i.e., whether it was empty or not), determines whether the preflight was successful; on not receiving any message after some timeout it assumes a broken connection or a crashed module.
+</p><p>(For now, a simple timeout scheme with a fixed timeout interval of 5s seems appropriate. In the future, one might consider a module requesting additional timeout periods if it expects lengthy calculations.)
+</p><p>During all <b>other phases,</b>  the code behind <tt>bcierr</tt> immediately (i.e., on flushing the <tt>std::ostream</tt>) sends its message buffer to a log file as well as to the operator module, indicating a <i>Runtime Error</i> to the operator module which will, in turn, halt the system,shut down the other modules, and display the message to the user.
+</p><p>In addition, the top level exception handling code of each module contains similar functionality,
+sending an exception's associated description string into a log file and to the operator module, if possible, then quitting the module in which the exception occurred. This not only ensures
+a proper general handling of exceptions within the framework but also allows a programmer to handle <i>Runtime Errors</i> by raising her own exceptions, eliminating the need to take care of the error
+condition in the code following the detection of an error.
+</p>
+<hr />
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Programming_Reference%253AErrors_and_Warnings.html" title="Programming Reference:Errors and Warnings">Programming Reference:Errors and Warnings</a>, <a href="Programming_Reference%253AEnvironment_Class.html" title="Programming Reference:Environment Class">Programming Reference:Environment Class</a>, <a href="Programming_Reference%253ADebug_Output.html" title="Programming Reference:Debug Output">Programming Reference:Debug Output</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524193558
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.026 seconds
+Real time usage: 0.028 seconds
+Preprocessor visited node count: 62/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1424-0!canonical and timestamp 20230524193558 and revision id 6229
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:Error_Handling&amp;oldid=6229">http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:Error_Handling&amp;oldid=6229</a>"</div>
+ </div>
+</body>
+</html>

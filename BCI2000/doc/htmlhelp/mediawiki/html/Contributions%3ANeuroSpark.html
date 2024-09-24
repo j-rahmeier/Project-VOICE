@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:NeuroSpark - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">NeuroSpark</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Contributions%253ANeuroSpark.html#Location"><span class="tocnumber">1</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Contributions%253ANeuroSpark.html#Versioning"><span class="tocnumber">2</span> <span class="toctext">Versioning</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="Contributions%253ANeuroSpark.html#Author"><span class="tocnumber">2.1</span> <span class="toctext">Author</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="Contributions%253ANeuroSpark.html#Version_History"><span class="tocnumber">2.2</span> <span class="toctext">Version History</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Contributions%253ANeuroSpark.html#Source_Code_Revisions"><span class="tocnumber">2.3</span> <span class="toctext">Source Code Revisions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="Contributions%253ANeuroSpark.html#Functional_Description"><span class="tocnumber">3</span> <span class="toctext">Functional Description</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="Contributions%253ANeuroSpark.html#Usage_of_HEEG_Software"><span class="tocnumber">4</span> <span class="toctext">Usage of HEEG Software</span></a>
+<ul>
+<li class="toclevel-2 tocsection-8"><a href="Contributions%253ANeuroSpark.html#Connect_the_software_to_the_NeuroSpark_device"><span class="tocnumber">4.1</span> <span class="toctext">Connect the software to the NeuroSpark device</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="Contributions%253ANeuroSpark.html#Using_the_software_as_an_emulator"><span class="tocnumber">4.2</span> <span class="toctext">Using the software as an emulator</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="Contributions%253ANeuroSpark.html#Setting_Up_BCI2000"><span class="tocnumber">5</span> <span class="toctext">Setting Up BCI2000</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="Contributions%253ANeuroSpark.html#Usage_Steps"><span class="tocnumber">6</span> <span class="toctext">Usage Steps</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="Contributions%253ANeuroSpark.html#Parameters"><span class="tocnumber">7</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-13"><a href="Contributions%253ANeuroSpark.html#SourceCh"><span class="tocnumber">7.1</span> <span class="toctext">SourceCh</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="Contributions%253ANeuroSpark.html#SampleBlockSize"><span class="tocnumber">7.2</span> <span class="toctext">SampleBlockSize</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="Contributions%253ANeuroSpark.html#SamplingRate"><span class="tocnumber">7.3</span> <span class="toctext">SamplingRate</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="Contributions%253ANeuroSpark.html#SourceChGain"><span class="tocnumber">7.4</span> <span class="toctext">SourceChGain</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="Contributions%253ANeuroSpark.html#SourceChOffset"><span class="tocnumber">7.5</span> <span class="toctext">SourceChOffset</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-18"><a href="Contributions%253ANeuroSpark.html#Notes"><span class="tocnumber">8</span> <span class="toctext">Notes</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><a rel="nofollow" class="external free" href="http://www.bci2000.org/svn/trunk/src/contrib/SignalSource/NeuroSpark">http://www.bci2000.org/svn/trunk/src/contrib/SignalSource/NeuroSpark</a>
+</p>
+<h2><span class="mw-headline" id="Versioning">Versioning</span></h2>
+<h3><span class="mw-headline" id="Author">Author</span></h3>
+<p>Jintao Li, Frontier Lab for Applied Neurotechnology (<a rel="nofollow" class="external free" href="https://ant.chenfrontierlab.com">https://ant.chenfrontierlab.com</a>)
+</p>
+<h3><span class="mw-headline" id="Version_History">Version History</span></h3>
+<ul><li>V1.00 - 05/17/2022</li></ul>
+<h3><span class="mw-headline" id="Source_Code_Revisions">Source Code Revisions</span></h3>
+<h2><span class="mw-headline" id="Functional_Description">Functional Description</span></h2>
+<p>This Source module allows BCI2000 to receive electrophysiological data collected by Neuracle’s NeuroSpark device, and streamed out by HEEG software. The Source module has been tested with HEEG software version 1.00.00.9263.
+</p>
+<h2><span class="mw-headline" id="Usage_of_HEEG_Software">Usage of HEEG Software</span></h2>
+<p>HEEG data acquisition software is a product by Neuracle that streams out electrophysiological data. There are two modes of HEEG software. The first one is to connect it to the NeuroSpark device, and stream data collected by the device. The software can also act as an emulator to send out data without NeuroSpark.
+In both ways, data are transported via TCP.
+</p>
+<h3><span class="mw-headline" id="Connect_the_software_to_the_NeuroSpark_device">Connect the software to the NeuroSpark device</span></h3>
+<p>Start the HEEG software and open the device
+</p>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 668.66666666667px"><div style="width: 668.66666666667px">
+			<div class="thumb" style="width: 666.66666666667px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:HEEG_software_1.png" class="image"><img alt="" src="../images/d/d2/HEEG_software_1.png" decoding="async" width="667" height="350" /></a></div></div>
+			<div class="gallerytext">
+<p>Figure 1: Open device
+</p>
+			</div>
+		</div></li>
+</ul>
+<h3><span class="mw-headline" id="Using_the_software_as_an_emulator">Using the software as an emulator</span></h3>
+<p>Using the data emulator instead of the device before opening the device
+</p>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 668.66666666667px"><div style="width: 668.66666666667px">
+			<div class="thumb" style="width: 666.66666666667px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:HEEG_software_2.png" class="image"><img alt="" src="../images/4/45/HEEG_software_2.png" decoding="async" width="667" height="350" /></a></div></div>
+			<div class="gallerytext">
+<p>Figure 2: Device setting
+</p>
+			</div>
+		</div></li>
+</ul>
+<p>Setup the streaming data channels
+</p>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 671.33333333333px"><div style="width: 671.33333333333px">
+			<div class="thumb" style="width: 669.33333333333px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:HEEG_software_3.png" class="image"><img alt="" src="../images/f/f5/HEEG_software_3.png" decoding="async" width="670" height="350" /></a></div></div>
+			<div class="gallerytext">
+<p>Figure 3: Setup data channels
+</p>
+			</div>
+		</div></li>
+</ul>
+<p>Setting C1-C4 as streaming data channels
+</p>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 637.33333333333px"><div style="width: 637.33333333333px">
+			<div class="thumb" style="width: 635.33333333333px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:HEEG_software_4.png" class="image"><img alt="" src="../images/c/cd/HEEG_software_4.png" decoding="async" width="636" height="300" /></a></div></div>
+			<div class="gallerytext">
+<p>Figure 4: Setting C1-C4 as streaming data channels
+</p>
+			</div>
+		</div></li>
+</ul>
+<p>After opening the device, start the data acquisition, then the TCP/IP streaming starts automatically.
+</p>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 656.66666666667px"><div style="width: 656.66666666667px">
+			<div class="thumb" style="width: 654.66666666667px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:HEEG_software_5.png" class="image"><img alt="" src="../images/9/98/HEEG_software_5.png" decoding="async" width="655" height="350" /></a></div></div>
+			<div class="gallerytext">
+<p>Figure 5: Signal window
+</p>
+			</div>
+		</div></li>
+</ul>
+<h2><span class="mw-headline" id="Setting_Up_BCI2000">Setting Up BCI2000</span></h2>
+<p>Once you compiled BCI2000 correctly and generated the solution, create a batch file to run the NeuroSpark Source Module. Just copy one of the existing batch files in BCI2000/batch. Then replace the first line beginning with "Start executable" with "Start executable NeuroSpark --local".
+</p>
+<h2><span class="mw-headline" id="Usage_Steps">Usage Steps</span></h2>
+<p>Make sure you start data streaming within the HEEG software start the data acquisition before you start BCI2000.
+</p>
+<ol><li>Double click the batch file you just created.</li>
+<li>Click the "Config" button.</li>
+<li>Set suitable parameters. Detail about these parameters can be found below.</li>
+<li>Click "Set Config".</li>
+<li>Click "Start" to start the experiment.</li></ol>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<p>The Source module can configure all necessary parameters automatically. The only parameter you may need to set yourself is SampleBlockSize.
+</p>
+<h3><span class="mw-headline" id="SourceCh">SourceCh</span></h3>
+<p>The value should be the same as the number in HEEG software or just leave it auto.
+</p>
+<h3><span class="mw-headline" id="SampleBlockSize">SampleBlockSize</span></h3>
+<p>The value is default to 20 if you set it ‘auto’, which is also the minimum. HEEG software sends out certain number of samples per block, which is decided by sample rate, in order to ensure that BCI2000 receives these samples correctly, SampleBlockSize has to be a multiple of that. For example, if the sample rate is 2000 Hz, HEEG streams out 2 samples per channel per block, so SampleBlockSize should be a multiple of 2.
+</p>
+<h3><span class="mw-headline" id="SamplingRate">SamplingRate</span></h3>
+<p>Enter the number of sampling rate that matches that in the HEEG software(250, 500, 1000, 2000, 4000, 8000, 16000) or leave it auto.
+</p>
+<h3><span class="mw-headline" id="SourceChGain">SourceChGain</span></h3>
+<p>Use 'auto', or a list of SourceCh numbers of 1.
+</p>
+<h3><span class="mw-headline" id="SourceChOffset">SourceChOffset</span></h3>
+<p>Use 'auto', or a list of SourceCh numbers of 0.
+</p>
+<h2><span class="mw-headline" id="Notes">Notes</span></h2>
+<ol><li>You may be able to lower the variance in timing by setting the priority of the HEEG software to highest in the TaskManager.</li>
+<li>At present, the highest sample rate of HEEG is 2000 Hz (at least in emulator mode), which means even you set sample rate higher than 2000 Hz, like 4000 Hz, it would send out data in 2000 Hz.</li></ol>
+<!-- 
+NewPP limit report
+Cached time: 20230524175505
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.032 seconds
+Real time usage: 0.038 seconds
+Preprocessor visited node count: 86/1000000
+Post‐expand include size: 15/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 2512/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2438-0!canonical and timestamp 20230524175505 and revision id 9564
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:NeuroSpark&amp;oldid=9564">http://www.bci2000.org/mediawiki/index.php?title=Contributions:NeuroSpark&amp;oldid=9564</a>"</div>
+ </div>
+</body>
+</html>

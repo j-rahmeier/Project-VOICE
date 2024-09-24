@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Programming Reference:NatusADC - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul><li class="toc1">Concepts</li><ul><li class="toc2"><a href="Programming_Reference%253AFilter_Chain.html">Filter Chain</a></li><li class="toc2"><a href="Programming_Reference%253ASignals.html">Signals</a></li><li class="toc2"><a href="Programming_Reference%253AError_Handling.html">Error Handling</a></li><li class="toc2"><a href="Programming_Reference%253ALocalization.html">Localization</a></li><li class="toc2"><a href="Programming_Reference%253ARapid_Development.html">Rapid Development</a></li></ul><li class="toc1">Reference</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFilter_Class.html">GenericFilter</a></li><li class="toc2"><a href="Programming_Reference%253AEnvironment_Class.html">Environment</a></li><li class="toc2"><a href="Programming_Reference%253AGenericVisualization_Class.html">GenericVisualization</a></li><li class="toc2"><a href="Programming_Reference%253AErrors_and_Warnings.html">Errors and Warnings</a></li><li class="toc2"><a href="Programming_Reference%253ADebug_Output.html">Debug Output</a></li></ul><li class="toc1">Data Acquisition</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericADC_Class.html">GenericADC</a></li></ul><li class="toc1">Data Storage</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFileWriter_Class.html">GenericFileWriter</a></li><li class="toc2"><a href="Programming_Reference%253ABCI2000FileReader_Class.html">BCI2000FileReader</a></li></ul><li class="toc1">Signal Processing</li><ul><li class="toc2"><a href="Programming_Reference%253AIIRFilterBase_Class.html">IIR Filters</a></li></ul><li class="toc1">Application Modules</li><ul><li class="toc2"><a href="Programming_Reference%253AApplicationBase_Class.html">ApplicationBase</a></li><li class="toc2"><a href="Programming_Reference%253AFeedbackTask_Class.html">FeedbackTask</a></li><li class="toc2"><a href="Programming_Reference%253AStimulusTask_Class.html">StimulusTask</a></li><li class="toc2"><a href="Programming_Reference%253A3D_API.html">3D API</a></li></ul><li class="toc1">Howtos</li><ul><li class="toc2"><a href="Programming_Howto%253ABuilding_BCI2000.html">Building BCI2000</a></li><li class="toc2"><a href="Programming_Howto%253ASVN_Client_Setup.html">SVN Client Setup</a></li><li class="toc2"><a href="Programming_Howto%253AUsing_TortoiseSVN.html">Using TortoiseSVN</a></li></ul><li class="toc1"><a href="Programming_FAQ.html">FAQ</a></li><li class="toc1">Tutorials</li><ul><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html">Data Acquisition</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html">Signal Processing</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html">Matlab Signal Processing</a></li></ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">NatusADC</h1>
+ <p class = "subtitle">Programming Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>NatusADC module has 3 main classes - NatusPackageInterface, NatusDataServer and NatusClient. The overview of the NatusADC working is shown in the image below.
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Prog_Ref_NatusADC_NatusWorking.png" class="image" title="Overview of NatusADC working"><img alt="Overview of NatusADC working" src="../images/thumb/9/93/Prog_Ref_NatusADC_NatusWorking.png/800px-Prog_Ref_NatusADC_NatusWorking.png" decoding="async" width="800" height="285" srcset="../images/9/93/Prog_Ref_NatusADC_NatusWorking.png 1.5x" /></a></div></div>
+<p>NatusDataServer processes and sends signal from the device to the client application. A project named XLDataExportClient reads signals from the device and calls the NatusDataServer's functions to send the signal to the client. NatusClient is the client application within the BCI2000 that receives the signals and does the initial processing. NatusPackageInterface contains the implementation of data transfer protocol between serve/device and client and is used by NatusClient and NatusDataServer to communicate with each other over TCP and UDP. NatusDataServer and NatusPackageInterface are independent of the BCI2000 where as NatusClient relies on BCI2000. 
+</p><p><br />
+The below image explains the context in which packet, blocks, samples and channels are used in this project. A packet may have one or block, a block may have one or more samples and a sample contains values for all the channels.
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:NatusPacketImage.png" class="image" title="Packet, block and samples relationship"><img alt="Packet, block and samples relationship" src="../images/thumb/a/a2/NatusPacketImage.png/600px-NatusPacketImage.png" decoding="async" width="600" height="350" srcset="../images/a/a2/NatusPacketImage.png 1.5x" /></a></div></div>
+<p><br />
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Programming_Reference%253ANatusADC.html#NatusPackageInterface"><span class="tocnumber">1</span> <span class="toctext">NatusPackageInterface</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="Programming_Reference%253ANatusADC.html#TCP_Commands"><span class="tocnumber">1.1</span> <span class="toctext">TCP Commands</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="Programming_Reference%253ANatusADC.html#UDP_Commands"><span class="tocnumber">1.2</span> <span class="toctext">UDP Commands</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="Programming_Reference%253ANatusADC.html#Functions_and_Variables"><span class="tocnumber">1.3</span> <span class="toctext">Functions and Variables</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="Programming_Reference%253ANatusADC.html#NatusDataServer"><span class="tocnumber">2</span> <span class="toctext">NatusDataServer</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="Programming_Reference%253ANatusADC.html#Functions_and_Variables_2"><span class="tocnumber">2.1</span> <span class="toctext">Functions and Variables</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="Programming_Reference%253ANatusADC.html#NatusClient"><span class="tocnumber">3</span> <span class="toctext">NatusClient</span></a>
+<ul>
+<li class="toclevel-2 tocsection-8"><a href="Programming_Reference%253ANatusADC.html#Functions_and_Variables_3"><span class="tocnumber">3.1</span> <span class="toctext">Functions and Variables</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-9"><a href="Programming_Reference%253ANatusADC.html#See_also"><span class="tocnumber">4</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="NatusPackageInterface">NatusPackageInterface</span></h2>
+<p>This class handles the communication between the server/device and the client. It should be included with both - NatusDataServer and NatusClient Class. The class performs the following functions -constructing TCP and UDP packets, sending the packets over TCP/UDP port, receiving packets over TCP/UDP Port, reconstructing the data from the packets and listening for connections on device/server-side. 
+<br />
+The format of the packets constructed along with each field size is as follows:
+</p>
+<table class="wikitable">
+<caption>Caption: Package
+</caption>
+<tbody><tr>
+<th>PacketLength
+</th>
+<th>Command
+</th>
+<th>Payload
+</th>
+<th>
+</th></tr>
+<tr>
+<td>uint32
+</td>
+<td>uint8
+</td>
+<td>Variable Length
+</td>
+<td>uint8 (always 0)
+</td></tr></tbody></table>
+<p><br />
+</p>
+<h3><span class="mw-headline" id="TCP_Commands">TCP Commands</span></h3>
+<p>The commands through which the NatusDataServer and NatusClient communicate are as follows:
+</p>
+<dl><dt>CMD_Ping</dt>
+<dd>To check if the connection is successful and data can be sent and received.</dd></dl>
+<ul><li>Command Number: 0x01</li>
+<li>Parameters/Payload: 0xff</li>
+<li>Return Value: returns payload</li></ul>
+<dl><dt>CMD_GetInformation</dt>
+<dd>To send the device information such as the number of channels and sampling rate to the client application.</dd></dl>
+<ul><li>Command Number: 0x02</li>
+<li>Parameters/Payload: NULL</li>
+<li>Return Value: struct NatusDeviceInformation which contains the number of channels, sampling rate, and device identifier.</li></ul>
+<dl><dt>CMD_GetChannelNames</dt>
+<dd>To send the channel names as set by the device to the client  application. If no channel names are set, NULL is sent.</dd></dl>
+<ul><li>Command Number: 0x03</li>
+<li>Parameters/Payload: NULL</li>
+<li>Return Value: struct NatusChannelInformation which contains all the channels and stream names.</li></ul>
+<dl><dt>CMD_StartStream</dt>
+<dd>To start sending channel data over UDP port.</dd></dl>
+<ul><li>Command Number: 0x10</li>
+<li>Parameters/Payload: NULL</li>
+<li>Return Value: NULL</li></ul>
+<dl><dt>CMD_StopStream</dt>
+<dd>To stop sending channel data</dd></dl>
+<ul><li>Command Number: 0x1F</li>
+<li>Parameters/Payload: NULL</li>
+<li>Return Value: NULL</li></ul>
+<dl><dt>CMD_SelectChannels</dt>
+<dd>To send data only for the channels numbers mentioned in the payload. It corresponds to the SourceChList parameter.</dd></dl>
+<ul><li>Command Number: 0x20</li>
+<li>Parameters/Payload: a list of channel numbers separated by space and stored in a string</li>
+<li>Return Value: NULL</li></ul>
+<dl><dt>CMD_SetBlockSize</dt>
+<dd>To set the number of blocks to send per packet. It corresponds to the SeverBlockSize parameter.</dd></dl>
+<ul><li>Command Number: 0x21</li>
+<li>Parameters/Payload: number of blocks to send per packet stored in uint32_t datatype.</li>
+<li>Return Value: NULL</li></ul>
+<dl><dt>CMD_GetDecimationFactor</dt>
+<dd>To get the current decimation factor of the device/server.</dd></dl>
+<ul><li>Command Number: 0x22</li>
+<li>Parameters/Payload: decimation factor stored in uint32_t datatype.</li>
+<li>Return Value: NULL</li></ul>
+<dl><dt>CMD_SetDecimationFactor</dt>
+<dd>To set the decimation factor of the device/server.</dd></dl>
+<ul><li>Command Number: 0x23</li>
+<li>Parameters/Payload: NULL</li>
+<li>Return Value: decimation factor stored in uint32_t datatype but casted into uint8_t datatype for transmission over TCP.</li></ul>
+<dl><dt>CMD_ERR</dt>
+<dd>The command is sent if there is any type of error.</dd></dl>
+<ul><li>Command Number: 0xFF</li>
+<li>Parameters/Payload: command which caused the error and the payload generated by the function handling the command.</li>
+<li>Return Value: NULL</li></ul>
+<p><u>Note:</u> The packet format for this command is as follows: 
+</p>
+<table class="wikitable">
+<caption>Caption: Error Package
+</caption>
+<tbody><tr>
+<th>PacketLength
+</th>
+<th>CMD_ERR (0xFF)
+</th>
+<th>Command
+</th>
+<th>Payload
+</th>
+<th>
+</th></tr>
+<tr>
+<td>uint32
+</td>
+<td>uint8
+</td>
+<td>uint8
+</td>
+<td>Variable Length
+</td>
+<td>uint8 (always 0)
+</td></tr></tbody></table>
+<p><br />
+</p>
+<h3><span class="mw-headline" id="UDP_Commands">UDP Commands</span></h3>
+<dl><dt>CMD_StreamPackage</dt>
+<dd>The command is sent from the server/device to the client  application when only 1 block per packet is sent.</dd></dl>
+<ul><li>Command Number: 0x11</li>
+<li>Parameters/Payload: Channel data of 1 block</li>
+<li>Return Value: NULL</li></ul>
+<dl><dt>CMD_VariableSizeStreamPackage</dt>
+<dd>The command is sent from the server/device to the client application when more than 1 block per packet is sent.</dd></dl>
+<ul><li>Command Number: 0x12</li>
+<li>Parameters/Payload: Channel data of more than 1 block (number of blocks as set by the CMD_SetBlockSize command)</li>
+<li>Return Value: NULL</li></ul>
+<h3><span class="mw-headline" id="Functions_and_Variables">Functions and Variables</span></h3>
+<p>The public and protected functions and variables defined in this class are as follows: 
+</p>
+<ul><li><b>void Poll ()</b> - The function runs on server/device and continuously waits for any command from the NatusClient over the TCP protocol.</li>
+<li><b>void send_data (uint8_t cmd, uint8_t* payload, uint32_t len_payload, bool isError=false, PackageType t = Control)</b> - The function creates a packet using cmd (the command) and the payload. The default values for isError is false (i.e., no error) and PackageType is Control (TCP prototcol). The channel data is sent over Stream PackageType (i.e., UDP Protocol).</li>
+<li><b>virtual void data_received (CmdStruct * payload) = 0</b> - The function should be implemented in the child classes to ensure proper processing, in respect ot the child class, of the data recieved via TCP or UDP protocol is done.</li>
+<li><b>void printMessage (std::string)</b> - Print the string parameter on the warning window.</li>
+<li><b>CmdStruct* getNextPackage ()</b> - The function gets a TCP packet (from the server or from the Client, as the case may be) and store in struct CmdStruct. Definietion of CmdStruct can be found in <i>NatusPackageInterface.h</i> file.</li>
+<li><b>CmdStruct* getNextUDPPackage ()</b> - The function is same as CmdStruct* getNextPackage(), except that it received packet over UDP protocol.</li>
+<li><b>void delete_cmdstruct (CmdStruct* )</b> - The function frees the memory occupied by a CmdStruct pointer.</li>
+<li><b>void initWSA ()</b> - The function initializes the Winsock.</li>
+<li><b>SOCKET connection</b> - It stores the TCP socket connection, i.e, in server/device - the connection to the client and in client - the connection to the server/device.</li>
+<li><b>SOCKET udpSocket</b> - It stores the UDP socket connection.</li>
+<li><b>sockaddr_in _udpReceiver</b> - It stores the socket address for IPv4.</li></ul>
+<h2><span class="mw-headline" id="NatusDataServer">NatusDataServer</span></h2>
+<p>This class handles the server-side processing. It performs the following functions - starts-up the TCP and UDP server, check for new connections, gracefully disconnects from the client, registers various callbacks on client connection and deregister the callbacks when the client disconnects and responds to the commands (described in the NatusPackageInterface section) from the client via TCP protocol.
+</p>
+<h3><span class="mw-headline" id="Functions_and_Variables_2">Functions and Variables</span></h3>
+<p>The public and protected functions and variables defined in this class are as follows: 
+</p>
+<ul><li><b>void Startup (std::uint16_t port)</b> - The function starts up the server and listens for a TCP connection on the port number specified by <i>port</i> and a UDP connection on the port number <i>port+1</i>.</li>
+<li><b>void CheckForConnection ()</b> - The function checks for a client connection request and accept it if there is one.</li>
+<li><b>void RegisterDataStreamCallback (NatusDataStreamRequest, void*)</b> - The function registers the callbacks to start &amp; stop streams.</li>
+<li><b>void RegisterInformationCallback (NatusInformationRequest, void*)</b> - The function registers the callback to get the device information.</li>
+<li><b>void RegisterChannelInformationCallback (NatusChannelInfoRequest, void*)</b> - The function registers the callback to get the device's channels' names.</li>
+<li><b>void RegisterErrorCallback (NatusResponse, void*)</b> - The function registers the callback to call incase of any error.</li>
+<li><b>void UnregisterCallbacks ()</b> - The function deregisters all the callbacks. It is called before closing the connection with the client.</li>
+<li><b>void SendStreamData (float* data, uint32_t numdata)</b> - The function accepts the channel <i>data</i> and the number of channels <i>numdata</i> and prepares the data by decimating it (if decimation factor is set) and by making packets with required number of blocks which are then sent to the client.</li>
+<li><b>void Disconnect ()</b> - The function gracefully closes the UDP and TCP connection with the client.</li>
+<li><b>bool HasClient ()</b> - The function checks if there is a client connected to the server/device.</li>
+<li><b>int _channelsToStream[MAX_NUM_CHANNELS]</b> -  It stores the channel numbers which are to be streamed. The end of the array is defined by storing the last element as -1.</li>
+<li><b>int _numberOfChannelsToStream</b> - It stores the number of channels to stream.</li>
+<li><b>void data_received (CmdStruct *payload)</b> - The function checks for the command received from the client and calls the appropriate function to fulfill the client's request.</li>
+<li><b>void start_UDP_sever (std::uint16_t port)</b> - The function opens up a UDP connection at the <i>port</i>.</li></ul>
+<h2><span class="mw-headline" id="NatusClient">NatusClient</span></h2>
+<p>This class handles the client-side processing. It connects with the server/device, gets data from the operator module of the NatusADC and sends it to the server/device. It uses various commands as described in the NatusDataServer to set different parameters. Another important function of this class 'interpolateMissingBlocks' linearly interpolates the missing UDP packets which contain the channel data values. Eg. <br /> 
+Consider the scenario where for a single channel with 1 sample per block, 1 block per packet is sent with decimation factor is 1. Suppose we received packet 1 and 3, packet 2 was lost. Data for packet 2 is interpolated as follows: 
+<br /> Interpolation formula
+<i>Interpolated Value = ((Current Packet value – Previous Packet value) / (Current Packet Number – Previous Packet Number)) * (Interpolated Packet Number – Previous Packet Number) + Previous Packet Value</i>
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Programming_Reference_NatusADC_Interpolation.png" class="image" title="Linear Interpolation example"><img alt="Linear Interpolation example" src="../images/thumb/2/29/Programming_Reference_NatusADC_Interpolation.png/500px-Programming_Reference_NatusADC_Interpolation.png" decoding="async" width="500" height="336" srcset="../images/thumb/2/29/Programming_Reference_NatusADC_Interpolation.png/750px-Programming_Reference_NatusADC_Interpolation.png 1.5x, ../images/2/29/Programming_Reference_NatusADC_Interpolation.png 2x" /></a></div></div>
+<h3><span class="mw-headline" id="Functions_and_Variables_3">Functions and Variables</span></h3>
+<p>The public and protected functions and variables defined in this class are as follows: 
+</p>
+<ul><li><b>NatusDeviceInformation GetInformation ()</b> - The function sends a CMD_GetInformation command to the server/device over TCP to query the sampling rate and number of channels of the device. It stores the received information in the <i>NatusDeviceInformation</i> struct type variable.</li>
+<li><b>void Connect (std::string server_name, int port)</b> - The function establishes a TCP connection with the <i>server_name</i> server at port number <i>port</i> and calls the <i>init_udp</i> function to establish a UDP connection at port <i>port+1</i>.</li>
+<li><b>bool TryConnect (std::string server_name, int port)</b> - The function tries to establish a TCP and UDP connection again with the <i>server_name</i> if the connection is lost and returns <i>true</i> if the connection is successful otherwise <i>false</i>.</li>
+<li><b>void Disconnect ()</b> - The function gracefully closes the TCP and UDP connection with the server/device.</li>
+<li><b>void StartStream ()</b> - The function sends the CMD_StartStream command to the server/device to request the channel stream data, which the server/device sends over the UDP.</li>
+<li><b>void StopStream ()</b> -  The function sends the CMD_StopStream command to the server/device.</li>
+<li><b>uint8_t Ping (uint8_t ping)</b> - The function sends a CMD_PING command to the sever/device with data stored in <i>ping</i> as payload.</li>
+<li><b>NatusSampleBlock* ReadStream ()</b> - The function gets channel data blocks from the server/device through a UDP protocol, calls the <i>interpolateMissingBlocks</i> if there is any missing blocks, adds the block to the <i>_receivequeue</i> and returns the first block from the <i>_receivequeue</i>.</li>
+<li><b>NatusSampleBlock* create_natus_sampleblock (uint8_t* payload)</b> - The function creates and returns a NatusSampleBlock structure variable from the payload passes. NatusSampleBlock contains block number, number of samples, samples and a boolean specifying whether the block was recieved from the server/device or was interpolated.</li>
+<li><b>void DeleteSampleBlock (NatusSampleBlock*)</b> - The function free the space occupied by the NatusSampleBlock variable passed to it.</li>
+<li><b>void SetSampleBlockSize (uint32_t blocksize)</b> - The function sends CMD_SetBlockSize command to the server/device to set number of blocks to be sent in a packet as <i>blocksize</i>.</li>
+<li><b>void SetDecimationFactor (uint32_t decimationFactor)</b> - The function sends CMD_SetDecimationFactor command to the server/device to set the decimation factor as <i>decimationFactor</i>.</li>
+<li><b>NatusChannelInformation GetChannelInfo ()</b> - The function sends CMD_GetChannelNames command to the server/device to query the channel and stream names of the device and stores them in a NatusChannelInformation structure.</li>
+<li><b>int GetDecimationFactor ()</b> - The function queries from the server/device over TCP, the current decimation factor and returns it.</li>
+<li><b>int SelectChannelsToStream (std::string channels)</b> -  The function sends CMD_SelectChannels command to the server/device along with the channels to stream stored in a space separated <i>channels</i> string.</li>
+<li><b>int _channelsToStream[MAX_NUM_CHANNELS]</b> - It stores the channel numbers which are to be streamed.</li>
+<li><b>NatusChannelInformation channelInfo</b> - The structure stores the channel and stream names of the device.  The NatusChannelInformation structure definition can be found in <i>NatusPackageInterface.h</i> file.</li>
+<li><b>void data_received (CmdStruct *payload)</b> - The function checks if the data received from the server/device does not contain a CMD_ERR code.</li>
+<li><b>CmdStruct* blockForPackage(uint32_t timeout)</b> - The function waits to receive a TCP packet from server/device for the time specified by the <i>timeout</i> variable.</li>
+<li><b>std::queue&lt;NatusSampleBlock*&gt; _receivequeue</b> - The queue stores the blocks received for processing.</li>
+<li><b>bool init_udp (int port)</b> - The function creates and binds a UDP socket. If completed successfully, it returns <i>true</i>, otherwise <i>false</i>.</li>
+<li><b>NatusSampleBlock _prevblock</b> - It stores the last data block received from the server/device and is used to check if any block is lost in between, when the client receives a new data block.</li>
+<li><b>void interpolateMissingBlocks (NatusSampleBlock*)</b> - The function linearly interpolates any number of missing blocks between the current received data block and the last recieved data block.</li>
+<li><b>void emptyReceiveQueue ()</b> - The function frees the memory occupied by the queue <i>_receivequeue</i> whenever the connection is closed or restarted.</li></ul>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Contributions%253ANatusADC.html" title="Contributions:NatusADC">Contributions:NatusADC</a>, <a href="User_Reference%253ADataIOFilter.html" title="User Reference:DataIOFilter">User Reference:DataIOFilter</a>, <a href="Programming_Reference%253AGenericADC_Class.html" title="Programming Reference:GenericADC Class">Programming Reference:GenericADC Class</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524175550
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.035 seconds
+Real time usage: 0.039 seconds
+Preprocessor visited node count: 30/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2241-0!canonical and timestamp 20230524175550 and revision id 9267
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:NatusADC&amp;oldid=9267">http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:NatusADC&amp;oldid=9267</a>"</div>
+ </div>
+</body>
+</html>

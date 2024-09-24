@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:actiCHampPlus - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">actiCHampPlus</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Contributions%253AactiCHampPlus.html#Synopsis"><span class="tocnumber">1</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Contributions%253AactiCHampPlus.html#Use"><span class="tocnumber">2</span> <span class="toctext">Use</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Contributions%253AactiCHampPlus.html#Known_Issues"><span class="tocnumber">3</span> <span class="toctext">Known Issues</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="Contributions%253AactiCHampPlus.html#Versioning"><span class="tocnumber">4</span> <span class="toctext">Versioning</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="Contributions%253AactiCHampPlus.html#Author"><span class="tocnumber">4.1</span> <span class="toctext">Author</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Contributions%253AactiCHampPlus.html#Source_Code_Revisions"><span class="tocnumber">4.2</span> <span class="toctext">Source Code Revisions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="Contributions%253AactiCHampPlus.html#Parameters"><span class="tocnumber">5</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-8"><a href="Contributions%253AactiCHampPlus.html#SourceCh"><span class="tocnumber">5.1</span> <span class="toctext">SourceCh</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="Contributions%253AactiCHampPlus.html#ChannelNames"><span class="tocnumber">5.2</span> <span class="toctext">ChannelNames</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="Contributions%253AactiCHampPlus.html#AUXChList"><span class="tocnumber">5.3</span> <span class="toctext">AUXChList</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="Contributions%253AactiCHampPlus.html#TotalEEGChannels"><span class="tocnumber">5.4</span> <span class="toctext">TotalEEGChannels</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="Contributions%253AactiCHampPlus.html#SampleBlockSize"><span class="tocnumber">5.5</span> <span class="toctext">SampleBlockSize</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="Contributions%253AactiCHampPlus.html#HardwareSamplingRate"><span class="tocnumber">5.6</span> <span class="toctext">HardwareSamplingRate</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="Contributions%253AactiCHampPlus.html#SubSampleDivisor"><span class="tocnumber">5.7</span> <span class="toctext">SubSampleDivisor</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="Contributions%253AactiCHampPlus.html#SamplingRate"><span class="tocnumber">5.8</span> <span class="toctext">SamplingRate</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="Contributions%253AactiCHampPlus.html#actiCHampAmplifierID"><span class="tocnumber">5.9</span> <span class="toctext">actiCHampAmplifierID</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="Contributions%253AactiCHampPlus.html#AcquisitionMode"><span class="tocnumber">5.10</span> <span class="toctext">AcquisitionMode</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="Contributions%253AactiCHampPlus.html#ImpedancePauseTime"><span class="tocnumber">5.11</span> <span class="toctext">ImpedancePauseTime</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-19"><a href="Contributions%253AactiCHampPlus.html#See_also"><span class="tocnumber">6</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<div class="floatright"><a href="https://www.bci2000.org/mediawiki/index.php/File:ActiCHamp_Plus.png" class="image"><img alt="ActiCHamp Plus.png" src="../images/6/62/ActiCHamp_Plus.png" decoding="async" width="300" height="316" /></a></div>
+<p>This module allows BCI2000 to collect data from Brain Vision's actiCHamp Plus amplifier. The actiCHamp Plus can be used  with passive and active electrodes and is capable of reading from 32 up to 160 channels at 100kHz. To accommodate additional channels (ie. 64-160), additional modules are installed on the top of amp. The amplifier also has 8 auxiliary channels for gathering data from additional physiological sensors at up to 100kHz. The amplifier is powered by a lithium-ion battery pack to ensure long recording times. The amplifier is connected the computer running BCI2000 via USB. Note, the amplifier module must be plugged into the battery pack to function correctly.
+</p><p>Note: This source module is only available on Windows Machines. 
+</p>
+<h2><span class="mw-headline" id="Use">Use</span></h2>
+<p>This module is included in the contributions section of BCI2000. It can be included by enabling the <code>BUILD_CONTRIB</code> in CMAKE before compiling BCI2000. After compiling, in the <code>BCI2000/prog</code> directory, there will be an executable called <code>actiCHampPlus.exe</code>. To then run BCI2000 with the executable, add <code>Start executable actiCHampPlus</code> to your batch file. 
+</p><p><br />
+</p>
+<h2><span class="mw-headline" id="Known_Issues">Known Issues</span></h2>
+<p>After the initial compile of the source module, there is sometimes an error that reads <i>"No actiCHampPlus devices found. Try unplugging actiChampPlus and restarting BCI2000"</i>. To fix this error, go to <code>BCI2000\src\contrib\SignalSource\actiCHampPlus\lib\dylib\&lt;x64/x86&gt;\</code>, copy the file <code>ActiChamp_&lt;x64/x86&gt;.dll</code> and paste it in the <code>BCI2000\prog</code> directory. The file will already exist in that folder so when prompted, replace it. 
+</p>
+<h2><span class="mw-headline" id="Versioning">Versioning</span></h2>
+<h3><span class="mw-headline" id="Author">Author</span></h3>
+<p>Alex Belsten (belsten@neurotechcenter.org)
+</p>
+<h3><span class="mw-headline" id="Source_Code_Revisions">Source Code Revisions</span></h3>
+<ul><li>Initial development: 6037</li>
+<li>Tested under: 6039</li>
+<li>Known to compile under: 6064</li>
+<li>Broken since: N/A</li></ul>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<div class="floatright"><a href="https://www.bci2000.org/mediawiki/index.php/File:ActiCHampPlus_BCI2000_config_high-res.PNG" class="image"><img alt="ActiCHampPlus BCI2000 config high-res.PNG" src="../images/thumb/0/08/ActiCHampPlus_BCI2000_config_high-res.PNG/600px-ActiCHampPlus_BCI2000_config_high-res.PNG" decoding="async" width="600" height="667" srcset="../images/thumb/0/08/ActiCHampPlus_BCI2000_config_high-res.PNG/900px-ActiCHampPlus_BCI2000_config_high-res.PNG 1.5x, ../images/0/08/ActiCHampPlus_BCI2000_config_high-res.PNG 2x" /></a></div>
+<h3><span class="mw-headline" id="SourceCh">SourceCh</span></h3>
+<p>The number of channels that will be recorded from (EEG and auxiliary). Set this parameter to auto to automatically make the parameter equal to the <i>TotalEEGChannels</i> plus the number of elements in the <i>AUXChList</i> parameters.
+</p>
+<h3><span class="mw-headline" id="ChannelNames">ChannelNames</span></h3>
+<p>Names of each channel. If set to auto, the default is "Ch&lt;#&gt;" and "Aux&lt;#&gt;" 
+</p>
+<h3><span class="mw-headline" id="AUXChList">AUXChList</span></h3>
+<p>List of auxiliary channels to use. This parameter also defines the order in which BCI2000 stores and presents data.
+</p>
+<h3><span class="mw-headline" id="TotalEEGChannels">TotalEEGChannels</span></h3>
+<p>Total number of EEG channels to record from. 
+</p>
+<h3><span class="mw-headline" id="SampleBlockSize">SampleBlockSize</span></h3>
+<p>Number of samples that are transmitted at a time. 
+</p>
+<h3><span class="mw-headline" id="HardwareSamplingRate">HardwareSamplingRate</span></h3>
+<p>Sampling at which the actiChamp is run. The actiChamp Plus can be run at three different frequencies: 10kHz, 50kHz and 100kHz.
+</p>
+<h3><span class="mw-headline" id="SubSampleDivisor">SubSampleDivisor</span></h3>
+<p>Factor that decimates the hardware sampling rate. The hardware sampling rate is divided by this value to yield the actual sampling rate. This parameter has seven values: 1, 2, 5, 10, 20, 50, and 100. 
+</p>
+<h3><span class="mw-headline" id="SamplingRate">SamplingRate</span></h3>
+<p>This parameter is defined by the hardware sampling rate and sub sample divisor. This parameter should always be set to 'auto'.
+</p>
+<h3><span class="mw-headline" id="actiCHampAmplifierID">actiCHampAmplifierID</span></h3>
+<p>Index of the actiChamp Plus. For systems with one actiChamp Plus device, this parameter should be 0.
+</p>
+<h3><span class="mw-headline" id="AcquisitionMode">AcquisitionMode</span></h3>
+<p>1. Normal signal acquisition: Once connection to amplifier is established, data will be passed from the amplifier to BCI2000 normally.
+</p><p>2. Impedance measurement: Once connection to amplifier is established, BCI2000 will present the impedance for all channels. This data will be presented in a pop-up window for all of the EEG channels and the ground. Data will then be passed from the amplifier to BCI2000 normally. If active electrodes are being used, each electrode will illuminate an LED corresponding to the amount of impedance. If the impedance is low the electrode LED will be green. If the impedance is high the LED will be red, else it will be yellow.
+</p>
+<h3><span class="mw-headline" id="ImpedancePauseTime">ImpedancePauseTime</span></h3>
+<p>Amount of time to illuminate LEDs on active electrodes during impedance check. Helpful when trying to correct high impedance channels. 
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Reference%253AFilters.html" title="User Reference:Filters">User Reference:Filters</a>, <a href="Contributions%253AADCs.html" title="Contributions:ADCs">Contributions:ADCs</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524175515
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.024 seconds
+Real time usage: 0.027 seconds
+Preprocessor visited node count: 58/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2290-0!canonical and timestamp 20230524175515 and revision id 8492
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:actiCHampPlus&amp;oldid=8492">http://www.bci2000.org/mediawiki/index.php?title=Contributions:actiCHampPlus&amp;oldid=8492</a>"</div>
+ </div>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:EEGOSource - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">EEGOSource</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Contributions%253AEEGOSource.html#Synopsis"><span class="tocnumber">1</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Contributions%253AEEGOSource.html#Location"><span class="tocnumber">2</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Contributions%253AEEGOSource.html#Versioning"><span class="tocnumber">3</span> <span class="toctext">Versioning</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Contributions%253AEEGOSource.html#Authors"><span class="tocnumber">3.1</span> <span class="toctext">Authors</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Contributions%253AEEGOSource.html#Version_History"><span class="tocnumber">3.2</span> <span class="toctext">Version History</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Contributions%253AEEGOSource.html#Source_Code_Revisions"><span class="tocnumber">3.3</span> <span class="toctext">Source Code Revisions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="Contributions%253AEEGOSource.html#Functional_Description"><span class="tocnumber">4</span> <span class="toctext">Functional Description</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="Contributions%253AEEGOSource.html#Clinical_Setup"><span class="tocnumber">5</span> <span class="toctext">Clinical Setup</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="Contributions%253AEEGOSource.html#Installation"><span class="tocnumber">6</span> <span class="toctext">Installation</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="Contributions%253AEEGOSource.html#Parameters"><span class="tocnumber">7</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-11"><a href="Contributions%253AEEGOSource.html#Valid_Operating_Modes"><span class="tocnumber">7.1</span> <span class="toctext">Valid Operating Modes</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="Contributions%253AEEGOSource.html#State_Variables"><span class="tocnumber">7.2</span> <span class="toctext">State Variables</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-13"><a href="Contributions%253AEEGOSource.html#See_also"><span class="tocnumber">8</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><a rel="nofollow" class="external free" href="http://www.bci2000.org/svn/trunk/src/contrib/SignalSource/EEGOSource">http://www.bci2000.org/svn/trunk/src/contrib/SignalSource/EEGOSource</a>
+</p>
+<h2><span class="mw-headline" id="Versioning">Versioning</span></h2>
+<h3><span class="mw-headline" id="Authors">Authors</span></h3>
+<p>Steffen Heimes (sheimes@ant-neuro.com)
+ANT Neuro
+</p>
+<h3><span class="mw-headline" id="Version_History">Version History</span></h3>
+<p>Version 1.0: January 2016
+</p>
+<ul><li>#</li></ul>
+<h3><span class="mw-headline" id="Source_Code_Revisions">Source Code Revisions</span></h3>
+<ul><li>Initial development: #</li>
+<li>Tested under: #</li>
+<li>Known to compile under: #</li>
+<li>Broken since: --</li></ul>
+<h2><span class="mw-headline" id="Functional_Description">Functional Description</span></h2>
+<p>This setup requires the following components: 
+</p>
+<ul><li><b>#</b>:</li>
+<li><b>#</b>:</li></ul>
+<p><br />
+</p><p>is a clinical monitoring system capable of acquiring EEG or ECoG signals from up to 256 channels. Paired with the QI-123A LAN converter box, this system can provide a research data stream in addition to the clinical data stream. The research data stream can be sampled at up to 2kHz for 256 channels, 5kHz for 128 channels or 10kHz for 64 channels.
+[edit]
+</p>
+<ul><li><b>Input range</b>: ±3.2 mV or ±12.8 mV (selectable)</li>
+<li><b>Effective resolution</b>: 16 bit (97.65 nV/LSB) or 16 bit (390.62 nV/LSB) (selectable)</li>
+<li><b>Input impedance</b>: 200 MΩ</li>
+<li><b>Sampling Rates</b>: 100Hz, 200Hz, 500Hz, 1000Hz, 2000Hz, 5000Hz, 10000Hz</li></ul>
+<h2><span class="mw-headline" id="Clinical_Setup">Clinical Setup</span></h2>
+<h2><span class="mw-headline" id="Installation">Installation</span></h2>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<ul><li><b>SourceCh</b> total number of channels to be acquired from the source module or auto for all channels (256 channels)</li>
+<li><b>SampleBlockSize</b> number of samples acquired in each block or auto for default setting (1/10th of sampling rate)
+<ul><li><b>NOTE:</b> <span style="text-decoration: underline;">Only specific combinations of SampleBlockSize and SampleRate are valid!  See <a href="Contributions%253AEEGOSource.html#Valid_Operating_Modes">#Valid Operating Modes</a></span></li></ul></li>
+<li><b>SampleRate</b> determines the rate at which the device samples data. <br />
+<ul><li><b>NOTE:</b> <span style="text-decoration: underline;">Only specific combinations of SampleBlockSize and SampleRate are valid!  See <a href="Contributions%253AEEGOSource.html#Valid_Operating_Modes">#Valid Operating Modes</a></span></li></ul></li>
+<li><b>ChannelNames</b> is a convenience parameter.  Name channels here and they can be referenced by these names later.</li>
+<li><b>SourceChOffset</b> auto for default settings (0 for each channel).</li>
+<li><b>SourceChGain</b> auto for default settings (1 for each channel).</li>
+<li><b>SourceChList</b> list of channels that should be acquired or auto for all channels</li>
+<li><b>SourceBufferSize</b></li></ul>
+<h3><span class="mw-headline" id="Valid_Operating_Modes">Valid Operating Modes</span></h3>
+<h3><span class="mw-headline" id="State_Variables">State Variables</span></h3>
+<ul><li><b>#</b></li></ul>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Reference%253AFilters.html" title="User Reference:Filters">User Reference:Filters</a>, <a href="Contributions%253AADCs.html" title="Contributions:ADCs">Contributions:ADCs</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524193509
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.017 seconds
+Real time usage: 0.021 seconds
+Preprocessor visited node count: 45/1000000
+Post‐expand include size: 15/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2096-0!canonical and timestamp 20230524193509 and revision id 7596
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:EEGOSource&amp;oldid=7596">http://www.bci2000.org/mediawiki/index.php?title=Contributions:EEGOSource&amp;oldid=7596</a>"</div>
+ </div>
+</body>
+</html>

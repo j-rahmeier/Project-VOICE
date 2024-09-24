@@ -1,0 +1,13 @@
+###########################################################################
+## $Id$
+## Authors: jezhill@gmail.com
+
+add_subdirectory( ${CMAKE_CURRENT_LIST_DIR}/WebcamRecorder ${CMAKE_CURRENT_BINARY_DIR}/CMakeFiles/contrib/Extensions/WebcamRecorder )
+
+list( APPEND BCI2000_SIGSRC_FILES
+   ${BCI2000_EXTENSION_DIR}/WebcamLogger.cpp
+   ${BCI2000_EXTENSION_DIR}/WebcamController.cpp
+)
+
+
+

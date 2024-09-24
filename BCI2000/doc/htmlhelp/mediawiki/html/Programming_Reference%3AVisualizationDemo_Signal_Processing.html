@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Programming Reference:VisualizationDemo Signal Processing - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul><li class="toc1">Concepts</li><ul><li class="toc2"><a href="Programming_Reference%253AFilter_Chain.html">Filter Chain</a></li><li class="toc2"><a href="Programming_Reference%253ASignals.html">Signals</a></li><li class="toc2"><a href="Programming_Reference%253AError_Handling.html">Error Handling</a></li><li class="toc2"><a href="Programming_Reference%253ALocalization.html">Localization</a></li><li class="toc2"><a href="Programming_Reference%253ARapid_Development.html">Rapid Development</a></li></ul><li class="toc1">Reference</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFilter_Class.html">GenericFilter</a></li><li class="toc2"><a href="Programming_Reference%253AEnvironment_Class.html">Environment</a></li><li class="toc2"><a href="Programming_Reference%253AGenericVisualization_Class.html">GenericVisualization</a></li><li class="toc2"><a href="Programming_Reference%253AErrors_and_Warnings.html">Errors and Warnings</a></li><li class="toc2"><a href="Programming_Reference%253ADebug_Output.html">Debug Output</a></li></ul><li class="toc1">Data Acquisition</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericADC_Class.html">GenericADC</a></li></ul><li class="toc1">Data Storage</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFileWriter_Class.html">GenericFileWriter</a></li><li class="toc2"><a href="Programming_Reference%253ABCI2000FileReader_Class.html">BCI2000FileReader</a></li></ul><li class="toc1">Signal Processing</li><ul><li class="toc2"><a href="Programming_Reference%253AIIRFilterBase_Class.html">IIR Filters</a></li></ul><li class="toc1">Application Modules</li><ul><li class="toc2"><a href="Programming_Reference%253AApplicationBase_Class.html">ApplicationBase</a></li><li class="toc2"><a href="Programming_Reference%253AFeedbackTask_Class.html">FeedbackTask</a></li><li class="toc2"><a href="Programming_Reference%253AStimulusTask_Class.html">StimulusTask</a></li><li class="toc2"><a href="Programming_Reference%253A3D_API.html">3D API</a></li></ul><li class="toc1">Howtos</li><ul><li class="toc2"><a href="Programming_Howto%253ABuilding_BCI2000.html">Building BCI2000</a></li><li class="toc2"><a href="Programming_Howto%253ASVN_Client_Setup.html">SVN Client Setup</a></li><li class="toc2"><a href="Programming_Howto%253AUsing_TortoiseSVN.html">Using TortoiseSVN</a></li></ul><li class="toc1"><a href="Programming_FAQ.html">FAQ</a></li><li class="toc1">Tutorials</li><ul><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html">Data Acquisition</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html">Signal Processing</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html">Matlab Signal Processing</a></li></ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">VisualizationDemo Signal Processing</h1>
+ <p class = "subtitle">Programming Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Programming_Reference%253AVisualizationDemo_Signal_Processing.html#Location"><span class="tocnumber">1</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Programming_Reference%253AVisualizationDemo_Signal_Processing.html#Synopsis"><span class="tocnumber">2</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Programming_Reference%253AVisualizationDemo_Signal_Processing.html#Inheritance"><span class="tocnumber">3</span> <span class="toctext">Inheritance</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="Programming_Reference%253AVisualizationDemo_Signal_Processing.html#Function"><span class="tocnumber">4</span> <span class="toctext">Function</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="Programming_Reference%253AVisualizationDemo_Signal_Processing.html#Implementation"><span class="tocnumber">5</span> <span class="toctext">Implementation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="Programming_Reference%253AVisualizationDemo_Signal_Processing.html#Declaration_of_internal_variables"><span class="tocnumber">5.1</span> <span class="toctext">Declaration of internal variables</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="Programming_Reference%253AVisualizationDemo_Signal_Processing.html#Initialize.28.29_method"><span class="tocnumber">5.2</span> <span class="toctext">Initialize() method</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="Programming_Reference%253AVisualizationDemo_Signal_Processing.html#Process.28.29_method"><span class="tocnumber">5.3</span> <span class="toctext">Process() method</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="Programming_Reference%253AVisualizationDemo_Signal_Processing.html#BCI2000_GraphDisplay_vs._QPainter_rendering"><span class="tocnumber">5.4</span> <span class="toctext">BCI2000 GraphDisplay vs. QPainter rendering</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="Programming_Reference%253AVisualizationDemo_Signal_Processing.html#Parameters"><span class="tocnumber">6</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-11"><a href="Programming_Reference%253AVisualizationDemo_Signal_Processing.html#VisImageWidth"><span class="tocnumber">6.1</span> <span class="toctext">VisImageWidth</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="Programming_Reference%253AVisualizationDemo_Signal_Processing.html#VisImageHeight"><span class="tocnumber">6.2</span> <span class="toctext">VisImageHeight</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="Programming_Reference%253AVisualizationDemo_Signal_Processing.html#VisImageBackground"><span class="tocnumber">6.3</span> <span class="toctext">VisImageBackground</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="Programming_Reference%253AVisualizationDemo_Signal_Processing.html#VisImageDecimation"><span class="tocnumber">6.4</span> <span class="toctext">VisImageDecimation</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-15"><a href="Programming_Reference%253AVisualizationDemo_Signal_Processing.html#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><tt>src/contrib/SignalProcessing/VisualizationDemo</tt>
+</p>
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>The <i>VisualizationDemo</i> signal processing module demonstrates how to send visualizations with arbitrary pixel content to the operator module. Two rendering methods are provided: Native Qt <i>QPainter</i>-based rendering, and BCI2000's own <i>GraphDisplay</i> based rendering.
+</p>
+<h2><span class="mw-headline" id="Inheritance">Inheritance</span></h2>
+<p>The <i>VisualizationDemoFilter</i> signal processing filter derives from <i>GenericFilter</i>.
+</p>
+<h2><span class="mw-headline" id="Function">Function</span></h2>
+<p>The <i>VisualizationDemoFilter</i> computes the determination coefficient (squared correlation, <img class="mwe-math-fallback-image-inline tex" alt="r^2" src="../images/math/b/f/0/bf0e22b63959a3aae3c6c971f02227cb.png" /> values) between its first and second input channel. The determination coefficient is visualized in form of a pie chart, and the pie chart is sent to the operator module as bitmap visualization data.
+</p><p>For various values of the <img class="mwe-math-fallback-image-inline tex" alt="r^2" src="../images/math/b/f/0/bf0e22b63959a3aae3c6c971f02227cb.png" /> value, the operator visualization window appears as follows:
+</p>
+<ul class="gallery mw-gallery-nolines">
+		<li class="gallerybox" style="width: 255px"><div style="width: 255px">
+			<div class="thumb" style="width: 250px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:VisualizationDemo1.PNG" class="image"><img alt="" src="../images/3/37/VisualizationDemo1.PNG" decoding="async" width="250" height="281" /></a></div></div>
+			<div class="gallerytext">
+<p>Display of a small value
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 255px"><div style="width: 255px">
+			<div class="thumb" style="width: 250px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:VisualizationDemo2.PNG" class="image"><img alt="" src="../images/b/b5/VisualizationDemo2.PNG" decoding="async" width="250" height="281" /></a></div></div>
+			<div class="gallerytext">
+<p>Display of a medium value
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 255px"><div style="width: 255px">
+			<div class="thumb" style="width: 250px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:VisualizationDemo3.PNG" class="image"><img alt="" src="../images/a/aa/VisualizationDemo3.PNG" decoding="async" width="250" height="281" /></a></div></div>
+			<div class="gallerytext">
+<p>Display of a large value
+</p>
+			</div>
+		</div></li>
+</ul>
+<h2><span class="mw-headline" id="Implementation">Implementation</span></h2>
+<p>A <i>BitmapVisualization</i> object is used to send visualization window configuration, and bitmap data to the operator module. In the filter's <tt>Initialize()</tt> method, the bitmap visualization object's <tt>SendReferenceFrame()</tt> method is called to set an anchor for further visualization data. In the filter's <tt>Process()</tt> method, rendered visualization data is sent to the operator module using the bitmap visualization object's <tt>SendDifferenceFrame</tt> method as an update to existing image data.
+</p>
+<h3><span class="mw-headline" id="Declaration_of_internal_variables">Declaration of internal variables</span></h3>
+<p>The code example uses a pointer to an internal private <tt>struct</tt> to hide implementation details from the outer header file of the filter class (PIMPL idiom).
+</p>
+<div class="mw-highlight mw-highlight-lang-cpp mw-content-ltr" dir="ltr"><pre><span></span><span class="k">struct</span> <span class="nc">VisualizationDemoFilter</span><span class="o">::</span><span class="n">Private</span>
+<span class="p">{</span>
+  <span class="n">Private</span><span class="p">();</span>
+  <span class="o">~</span><span class="n">Private</span><span class="p">();</span>
+  <span class="kt">double</span> <span class="nf">computeCorrelation</span><span class="p">(</span><span class="k">const</span> <span class="n">GenericSignal</span><span class="o">&amp;</span><span class="p">,</span> <span class="kt">int</span> <span class="n">idx1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">idx2</span><span class="p">);</span>
+
+  <span class="n">RGBColor</span> <span class="n">mBackground</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">mHeight</span><span class="p">,</span> <span class="n">mWidth</span><span class="p">,</span> <span class="n">mDecimation</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">mDecimationCounter</span><span class="p">;</span>
+
+  <span class="c1">// Object used to send visualization data to the operator</span>
+  <span class="n">BitmapVisualization</span> <span class="n">mVis</span><span class="p">;</span>
+
+  <span class="c1">// Object that holds image contents</span>
+  <span class="n">GUI</span><span class="o">::</span><span class="n">GraphDisplay</span> <span class="n">mImage</span><span class="p">;</span>
+  <span class="c1">// Objects that populate the image</span>
+  <span class="n">PieShape</span><span class="o">*</span> <span class="n">mpShape</span><span class="p">;</span>
+  <span class="n">TextField</span><span class="o">*</span> <span class="n">mpValueField</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+<h3><span id="Initialize()_method"></span><span class="mw-headline" id="Initialize.28.29_method"><tt>Initialize()</tt> method</span></h3>
+<div class="mw-highlight mw-highlight-lang-cpp mw-content-ltr" dir="ltr"><pre><span></span><span class="kt">void</span> <span class="n">VisualizationDemoFilter</span><span class="o">::</span><span class="n">Initialize</span><span class="p">(</span>
+  <span class="k">const</span> <span class="n">SignalProperties</span><span class="o">&amp;</span> <span class="n">Input</span><span class="p">,</span>
+  <span class="k">const</span> <span class="n">SignalProperties</span><span class="o">&amp;</span> <span class="n">Output</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// Initialize properties from parameters.</span>
+  <span class="n">p</span><span class="o">-&gt;</span><span class="n">mWidth</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="s">&quot;VisImageWidth&quot;</span><span class="p">);</span>
+  <span class="n">p</span><span class="o">-&gt;</span><span class="n">mHeight</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="s">&quot;VisImageHeight&quot;</span><span class="p">);</span>
+  <span class="n">p</span><span class="o">-&gt;</span><span class="n">mBackground</span> <span class="o">=</span> <span class="n">RGBColor</span><span class="p">(</span><span class="n">Parameter</span><span class="p">(</span><span class="s">&quot;VisImageBackground&quot;</span><span class="p">));</span>
+  <span class="n">p</span><span class="o">-&gt;</span><span class="n">mDecimation</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="s">&quot;VisImageDecimation&quot;</span><span class="p">);</span>
+  <span class="c1">// Set the image&#39;s width and height.</span>
+  <span class="n">GUI</span><span class="o">::</span><span class="n">DrawContext</span> <span class="n">c</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span> <span class="p">};</span>
+  <span class="n">c</span><span class="p">.</span><span class="n">rect</span><span class="p">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">mWidth</span><span class="p">;</span>
+  <span class="n">c</span><span class="p">.</span><span class="n">rect</span><span class="p">.</span><span class="n">bottom</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">mHeight</span><span class="p">;</span>
+  <span class="n">p</span><span class="o">-&gt;</span><span class="n">mImage</span><span class="p">.</span><span class="n">SetContext</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+
+  <span class="c1">// Set visualization window properties.</span>
+  <span class="n">p</span><span class="o">-&gt;</span><span class="n">mVis</span><span class="p">.</span><span class="n">Send</span><span class="p">(</span><span class="n">CfgID</span><span class="o">::</span><span class="n">Left</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+  <span class="n">p</span><span class="o">-&gt;</span><span class="n">mVis</span><span class="p">.</span><span class="n">Send</span><span class="p">(</span><span class="n">CfgID</span><span class="o">::</span><span class="n">Top</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+  <span class="n">p</span><span class="o">-&gt;</span><span class="n">mVis</span><span class="p">.</span><span class="n">Send</span><span class="p">(</span><span class="n">CfgID</span><span class="o">::</span><span class="n">Width</span><span class="p">,</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">mWidth</span><span class="p">);</span>
+  <span class="n">p</span><span class="o">-&gt;</span><span class="n">mVis</span><span class="p">.</span><span class="n">Send</span><span class="p">(</span><span class="n">CfgID</span><span class="o">::</span><span class="n">Height</span><span class="p">,</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">mHeight</span><span class="p">);</span>
+  <span class="n">p</span><span class="o">-&gt;</span><span class="n">mVis</span><span class="p">.</span><span class="n">Send</span><span class="p">(</span><span class="n">CfgID</span><span class="o">::</span><span class="n">WindowTitle</span><span class="p">,</span> <span class="s">&quot;Visualization Demo&quot;</span><span class="p">);</span>
+  <span class="c1">// Setting WindowFrame to false will hide title bar and window frame.</span>
+  <span class="n">p</span><span class="o">-&gt;</span><span class="n">mVis</span><span class="p">.</span><span class="n">Send</span><span class="p">(</span><span class="n">CfgID</span><span class="o">::</span><span class="n">WindowFrame</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
+  <span class="n">p</span><span class="o">-&gt;</span><span class="n">mVis</span><span class="p">.</span><span class="n">Send</span><span class="p">(</span><span class="n">CfgID</span><span class="o">::</span><span class="n">Visible</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
+
+  <span class="c1">// Send an initial reference frame.</span>
+  <span class="n">p</span><span class="o">-&gt;</span><span class="n">mpValueField</span><span class="o">-&gt;</span><span class="n">SetVisible</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+  <span class="n">p</span><span class="o">-&gt;</span><span class="n">mpShape</span><span class="o">-&gt;</span><span class="n">SetVisible</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+  <span class="n">p</span><span class="o">-&gt;</span><span class="n">mImage</span><span class="p">.</span><span class="n">SetColor</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">mBackground</span><span class="p">);</span>
+  <span class="c1">// Render the image.</span>
+  <span class="n">p</span><span class="o">-&gt;</span><span class="n">mImage</span><span class="p">.</span><span class="n">Paint</span><span class="p">();</span>
+  <span class="c1">// Send the image&#39;s bitmap data to the operator as a reference frame.</span>
+  <span class="n">p</span><span class="o">-&gt;</span><span class="n">mVis</span><span class="p">.</span><span class="n">SendReferenceFrame</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">mImage</span><span class="p">.</span><span class="n">BitmapData</span><span class="p">());</span>
+  <span class="n">p</span><span class="o">-&gt;</span><span class="n">mpShape</span><span class="o">-&gt;</span><span class="n">SetVisible</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+  <span class="n">p</span><span class="o">-&gt;</span><span class="n">mpValueField</span><span class="o">-&gt;</span><span class="n">SetVisible</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+<h3><span id="Process()_method"></span><span class="mw-headline" id="Process.28.29_method"><tt>Process()</tt> method</span></h3>
+<p>When indicated by the decimation counter, the <tt>Process()</tt> function computes the squared correlation between the input signal's first two channels, and draws a pie shape according to the result. The image is rendered by calling <tt>GraphDisplay::Paint()</tt> on the offscreen buffer, and then its bitmap data are sent as a difference frame by calling <tt>BitmapVisualization::SendDifferenceFrame()</tt> on the visualization object.
+Finally, the decimation counter is updated for the next call to <tt>Process()</tt>.
+</p>
+<div class="mw-highlight mw-highlight-lang-cpp mw-content-ltr" dir="ltr"><pre><span></span><span class="kt">void</span> <span class="n">VisualizationDemoFilter</span><span class="o">::</span><span class="n">Process</span><span class="p">(</span>
+  <span class="k">const</span> <span class="n">GenericSignal</span><span class="o">&amp;</span> <span class="n">Input</span><span class="p">,</span>
+        <span class="n">GenericSignal</span><span class="o">&amp;</span> <span class="n">Output</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">Output</span> <span class="o">=</span> <span class="n">Input</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">mDecimationCounter</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">// For demonstration, compute squared correlation between channel 1 and channel 2.</span>
+    <span class="kt">double</span> <span class="n">value</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">computeCorrelation</span><span class="p">(</span><span class="n">Input</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="n">value</span> <span class="o">*=</span> <span class="n">value</span><span class="p">;</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">ostringstream</span> <span class="n">oss</span><span class="p">;</span>
+    <span class="n">oss</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">setprecision</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">fixed</span> <span class="o">&lt;&lt;</span> <span class="n">value</span><span class="p">;</span>
+
+    <span class="c1">// Draw a pie shape that is full angle when value == 1, and that reduces to a line when value == 1.</span>
+    <span class="c1">// Send the image as a difference frame when done.</span>
+    <span class="n">p</span><span class="o">-&gt;</span><span class="n">mpValueField</span><span class="o">-&gt;</span><span class="n">SetText</span><span class="p">(</span><span class="n">oss</span><span class="p">.</span><span class="n">str</span><span class="p">());</span>
+    <span class="kt">float</span> <span class="n">angle</span> <span class="o">=</span> <span class="mi">270</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">value</span> <span class="o">==</span> <span class="n">value</span><span class="p">)</span> <span class="c1">// not NaN</span>
+      <span class="n">angle</span> <span class="o">=</span> <span class="mi">360</span> <span class="o">*</span> <span class="n">value</span><span class="p">;</span>
+    <span class="n">p</span><span class="o">-&gt;</span><span class="n">mpShape</span><span class="o">-&gt;</span><span class="n">SetStartAngle</span><span class="p">(</span><span class="mi">180</span> <span class="o">-</span> <span class="n">angle</span> <span class="o">/</span> <span class="mi">2</span><span class="p">).</span><span class="n">SetEndAngle</span><span class="p">(</span><span class="mi">180</span> <span class="o">+</span> <span class="n">angle</span> <span class="o">/</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="c1">// Actually render the image.</span>
+    <span class="n">p</span><span class="o">-&gt;</span><span class="n">mImage</span><span class="p">.</span><span class="n">Paint</span><span class="p">();</span>
+    <span class="c1">// Send the image&#39;s bitmap data as a difference frame.</span>
+    <span class="n">p</span><span class="o">-&gt;</span><span class="n">mVis</span><span class="p">.</span><span class="n">SendDifferenceFrame</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">mImage</span><span class="p">.</span><span class="n">BitmapData</span><span class="p">());</span>
+  <span class="p">}</span>
+  <span class="c1">// Update decimation counter.</span>
+  <span class="o">++</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">mDecimationCounter</span> <span class="o">%=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">mDecimation</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+<h3><span class="mw-headline" id="BCI2000_GraphDisplay_vs._QPainter_rendering">BCI2000 GraphDisplay vs. QPainter rendering</span></h3>
+<p>The code presented here is using the BCI2000 <a href="Programming_Reference%253AGraphDisplay_Class.html" title="Programming Reference:GraphDisplay Class"><tt>GraphDisplay</tt></a> class.
+</p><p><a href="Programming_Reference%253AGraphDisplay_Class.html" title="Programming Reference:GraphDisplay Class"><tt>GraphDisplay</tt></a> is a layer of abstraction that allows to render shapes and text objects into
+a normalized coordinate system.
+Code that uses <a href="Programming_Reference%253AGraphDisplay_Class.html" title="Programming Reference:GraphDisplay Class"><tt>GraphDisplay</tt></a> is most likely to survive breaking changes in the
+drawing backend (currently Qt) and BCI2000 dependencies.
+</p><p>In contrast, <tt>QPainter</tt>-based rendering provides access to more complex drawing functions
+but suffers from a limitation in Qt which makes text rendering impossible outside
+the main GUI thread.
+</p><p>In the <i>VisualizationDemo</i> source code, <tt>QPainter</tt>-based rendering is available through a compiler switch.
+</p>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<h3><span class="mw-headline" id="VisImageWidth">VisImageWidth</span></h3>
+<p>Native image width in pixels.
+</p>
+<h3><span class="mw-headline" id="VisImageHeight">VisImageHeight</span></h3>
+<p>Native image height in pixels.
+</p>
+<h3><span class="mw-headline" id="VisImageBackground">VisImageBackground</span></h3>
+<p>The images' background color, in hexadecimal notation.
+</p>
+<h3><span class="mw-headline" id="VisImageDecimation">VisImageDecimation</span></h3>
+<p>A positive integer that indicates how often images are refreshed. 1 means every refresh on every signal packet.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Programming_Reference%253AGraphDisplay_Class.html" title="Programming Reference:GraphDisplay Class">Programming Reference:GraphDisplay Class</a>, <a href="Programming_Reference%253AGenericVisualization_Class.html" title="Programming Reference:GenericVisualization Class">Programming Reference:GenericVisualization Class</a>, <a href="Programming_Reference%253AComplexVisualizationDemo_Signal_Processing.html" title="Programming Reference:ComplexVisualizationDemo Signal Processing">Programming Reference:ComplexVisualizationDemo Signal Processing</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524175601
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.049 seconds
+Real time usage: 0.054 seconds
+Preprocessor visited node count: 80/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 15352/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2228-0!canonical!math=0 and timestamp 20230524175601 and revision id 8198
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:VisualizationDemo_Signal_Processing&amp;oldid=8198">http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:VisualizationDemo_Signal_Processing&amp;oldid=8198</a>"</div>
+ </div>
+</body>
+</html>

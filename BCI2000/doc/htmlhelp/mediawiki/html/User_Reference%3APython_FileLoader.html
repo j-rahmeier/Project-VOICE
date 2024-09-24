@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>User Reference:Python FileLoader - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul><li class="toc1"><a href="User_Reference%253AOperator_Module.html">Operator Module</a></li><li class="toc1"><a href="User_Reference%253AOperator_Module_Scripting.html">Operator Scripting</a></li><li class="toc1"><a href="User_Reference%253AModule_Command_Line_Options.html">Module Command Line Options</a></li><li class="toc1"><a href="User_Reference%253AData_File_Formats.html">Data File Formats</a></li><li class="toc1"><a href="User_Reference%253AFilters.html">Configuration Guide</a></li><li class="toc1"><a href="User_FAQ.html">FAQ</a></li><li class="toc1">Applications</li><ul><li class="toc2"><a href="User_Reference%253ACursorTask.html">Cursor Task</a></li><li class="toc2"><a href="User_Reference%253AP3SpellerTask.html">P3Speller Task</a></li><li class="toc2"><a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:StimulusPresentation">Stimulus Presentation</a></li></ul><li class="toc1">Tools</li><ul><li class="toc2"><a href="User_Reference%253ABCI2000Certification.html">BCI2000Certification</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Launcher.html">BCI2000Launcher</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Viewer.html">BCI2000Viewer</a></li><li class="toc2"><a href="User_Reference%253ABCI2000FileInfo.html">BCI2000FileInfo</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Export.html">BCI2000Export</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Analysis.html">BCI2000Analysis</a></li><li class="toc2"><a href="User_Reference%253ABCI2000_Offline_Analysis.html">BCI2000 Offline Analysis</a></li><li class="toc2"><a href="User_Reference%253AEloc_Helper.html">Eloc Helper</a></li><li class="toc2"><a href="User_Reference%253AEEGLabImport.html">EEGLabImport</a></li><li class="toc2"><a href="User_Reference%253AMatlab_Tools.html">Matlab Tools</a></li><li class="toc2"><a href="User_Reference%253AMatlab_MEX_Files.html">Matlab MEX Files</a></li><li class="toc2"><a href="User_Reference%253ACommand_Line_Processing.html">Command Line Processing</a></li></ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">Python FileLoader</h1>
+ <p class = "subtitle">User Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="User_Reference%253APython_FileLoader.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="User_Reference%253APython_FileLoader.html#Installing_the_package"><span class="tocnumber">2</span> <span class="toctext">Installing the package</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="User_Reference%253APython_FileLoader.html#Usage"><span class="tocnumber">3</span> <span class="toctext">Usage</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="User_Reference%253APython_FileLoader.html#Reading_a_File"><span class="tocnumber">3.1</span> <span class="toctext">Reading a File</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="User_Reference%253APython_FileLoader.html#Getting_Data_from_the_object"><span class="tocnumber">3.2</span> <span class="toctext">Getting Data from the object</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="User_Reference%253APython_FileLoader.html#Working_with_random_access"><span class="tocnumber">3.3</span> <span class="toctext">Working with random access</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Introduction">Introduction</span></h2>
+<p>The <a rel="nofollow" class="external text" href="https://github.com/markusadamek/BCI2kReader">BCI2kReader</a> package allows to read BCI2000 .dat files in Python. The reader is written completely in python and works with python 2 and python 3. 
+</p>
+<h2><span class="mw-headline" id="Installing_the_package">Installing the package</span></h2>
+<p>The package can either be installed with the python package manager (pip) or you can download the latest version from <a rel="nofollow" class="external text" href="https://github.com/markusadamek/BCI2kReader">GitHub</a>.
+</p><p>To install the package via pip:
+</p>
+<pre>pip install BCI2kReader
+</pre>
+<p>To get the latest (development) version from GitHub
+</p>
+<pre>git clone <a rel="nofollow" class="external free" href="https://github.com/markusadamek/BCI2kReader">https://github.com/markusadamek/BCI2kReader</a>
+</pre>
+<p>To Install the development version move to the cloned directory and run:
+</p>
+<pre>pip install .
+</pre>
+<h2><span class="mw-headline" id="Usage">Usage</span></h2>
+<p>To use the reader you have to create a BCI2kReader object, which inherits from <a rel="nofollow" class="external text" href="https://docs.python.org/3/library/io.html#io.IOBase">io.IOBase</a>. The reader has two basic modes, caching and non-caching. In caching mode, the BCI2kReader object will retain the data in memory as soon as a full readout of the file has taken place. If you need to save memory, the BCI2kReader object also supports that all read operations are done directly from the file. 
+</p>
+<h3><span class="mw-headline" id="Reading_a_File">Reading a File</span></h3>
+<p>The simplest way to open a file is with pythons with command (see <a rel="nofollow" class="external free" href="https://docs.python.org/3/tutorial/inputoutput.html#methods-of-file-objects">https://docs.python.org/3/tutorial/inputoutput.html#methods-of-file-objects</a> for more information about file IO and the with statement).
+</p><p><br />
+</p>
+<pre>from BCI2kReader import BCI2kReader as b2k
+
+
+with b2k.BCI2kReader('yourbci2000testfile.dat') as file:
+</pre>
+<p>if you want to open the file without caching enabled:
+</p>
+<pre>with b2k.BCI2kReader('yourbci2000testfile.dat', False) as file:
+</pre>
+<p>It is also possible to clear the cache to free memory:
+</p>
+<pre>      file.purge()
+</pre>
+<h3><span class="mw-headline" id="Getting_Data_from_the_object">Getting Data from the object</span></h3>
+<p>The easiest way to get the data is to use the properties for signals and states. The signals are provided as a <a rel="nofollow" class="external text" href="https://docs.scipy.org/doc/numpy-1.15.0/reference/generated/numpy.ndarray.html">numpy ndarray</a> with the dimensions (channels, samples). The states are provided as a StateDictionary which inherits from <a rel="nofollow" class="external text" href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">dict</a> with the state name as key.
+</p>
+<pre>   eeg_data = file.signals
+   states = file.states
+</pre>
+<h3><span class="mw-headline" id="Working_with_random_access">Working with random access</span></h3>
+<!-- 
+NewPP limit report
+Cached time: 20220609212300
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.009 seconds
+Real time usage: 0.011 seconds
+Preprocessor visited node count: 17/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2227-0!canonical and timestamp 20220609212300 and revision id 8117
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=User_Reference:Python_FileLoader&amp;oldid=8117">http://www.bci2000.org/mediawiki/index.php?title=User_Reference:Python_FileLoader&amp;oldid=8117</a>"</div>
+ </div>
+</body>
+</html>

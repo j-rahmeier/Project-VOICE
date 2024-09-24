@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Introduction to Adaptive Neurotechnologies - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">Introduction to Adaptive Neurotechnologies</h1>
+ <p class = "subtitle"></p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>This article presents a brief introduction to the field of neurotechnology and in particular adaptive neurotechnology (AN). The main objective is to introduce the essential concepts as well as the principle application areas for these technologies.  
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Introduction_to_Adaptive_Neurotechnologies.html#Introduction_to_Neurotechnologies"><span class="tocnumber">1</span> <span class="toctext">Introduction to Neurotechnologies</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="Introduction_to_Adaptive_Neurotechnologies.html#Studying_the_Nervous_System:_Neuroimaging"><span class="tocnumber">1.1</span> <span class="toctext">Studying the Nervous System: Neuroimaging</span></a>
+<ul>
+<li class="toclevel-3 tocsection-3"><a href="Introduction_to_Adaptive_Neurotechnologies.html#Structural_Imaging"><span class="tocnumber">1.1.1</span> <span class="toctext">Structural Imaging</span></a>
+<ul>
+<li class="toclevel-4 tocsection-4"><a href="Introduction_to_Adaptive_Neurotechnologies.html#Computed_Tomography_.28CT.29"><span class="tocnumber">1.1.1.1</span> <span class="toctext">Computed Tomography (CT)</span></a></li>
+<li class="toclevel-4 tocsection-5"><a href="Introduction_to_Adaptive_Neurotechnologies.html#Magnetic_Resonance_Imaging_.28MRI.29"><span class="tocnumber">1.1.1.2</span> <span class="toctext">Magnetic Resonance Imaging (MRI)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-3 tocsection-6"><a href="Introduction_to_Adaptive_Neurotechnologies.html#Functional_Imaging"><span class="tocnumber">1.1.2</span> <span class="toctext">Functional Imaging</span></a>
+<ul>
+<li class="toclevel-4 tocsection-7"><a href="Introduction_to_Adaptive_Neurotechnologies.html#Electroencephalography_.28EEG.29"><span class="tocnumber">1.1.2.1</span> <span class="toctext">Electroencephalography (EEG)</span></a></li>
+<li class="toclevel-4 tocsection-8"><a href="Introduction_to_Adaptive_Neurotechnologies.html#functional_Magnetic_Resonance_Imaging_.28fMRI.29"><span class="tocnumber">1.1.2.2</span> <span class="toctext">functional Magnetic Resonance Imaging (fMRI)</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-9"><a href="Introduction_to_Adaptive_Neurotechnologies.html#Interacting_with_the_Nervous_System:_Neuromodulation"><span class="tocnumber">1.2</span> <span class="toctext">Interacting with the Nervous System: Neuromodulation</span></a>
+<ul>
+<li class="toclevel-3 tocsection-10"><a href="Introduction_to_Adaptive_Neurotechnologies.html#Neurostimulation"><span class="tocnumber">1.2.1</span> <span class="toctext">Neurostimulation</span></a></li>
+<li class="toclevel-3 tocsection-11"><a href="Introduction_to_Adaptive_Neurotechnologies.html#Neurofeedback"><span class="tocnumber">1.2.2</span> <span class="toctext">Neurofeedback</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="Introduction_to_Adaptive_Neurotechnologies.html#Introduction_to_Adaptive_Neurotechnologies"><span class="tocnumber">2</span> <span class="toctext">Introduction to Adaptive Neurotechnologies</span></a>
+<ul>
+<li class="toclevel-2 tocsection-13"><a href="Introduction_to_Adaptive_Neurotechnologies.html#Application_Areas"><span class="tocnumber">2.1</span> <span class="toctext">Application Areas</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="Introduction_to_Adaptive_Neurotechnologies.html#Application_Area_I:_Replacing_Lost_Capabilities"><span class="tocnumber">2.2</span> <span class="toctext">Application Area I: Replacing Lost Capabilities</span></a>
+<ul>
+<li class="toclevel-3 tocsection-15"><a href="Introduction_to_Adaptive_Neurotechnologies.html#Communication"><span class="tocnumber">2.2.1</span> <span class="toctext">Communication</span></a></li>
+<li class="toclevel-3 tocsection-16"><a href="Introduction_to_Adaptive_Neurotechnologies.html#Control"><span class="tocnumber">2.2.2</span> <span class="toctext">Control</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-17"><a href="Introduction_to_Adaptive_Neurotechnologies.html#Application_Area_II:_Restoring_Lost_Functions"><span class="tocnumber">2.3</span> <span class="toctext">Application Area II: Restoring Lost Functions</span></a>
+<ul>
+<li class="toclevel-3 tocsection-18"><a href="Introduction_to_Adaptive_Neurotechnologies.html#Movement:_Imagination_to_Reality"><span class="tocnumber">2.3.1</span> <span class="toctext">Movement: Imagination to Reality</span></a></li>
+<li class="toclevel-3 tocsection-19"><a href="Introduction_to_Adaptive_Neurotechnologies.html#Bladder_and_bowel_control"><span class="tocnumber">2.3.2</span> <span class="toctext">Bladder and bowel control</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-20"><a href="Introduction_to_Adaptive_Neurotechnologies.html#Application_Area_III:_Improving_Functions"><span class="tocnumber">2.4</span> <span class="toctext">Application Area III: Improving Functions</span></a>
+<ul>
+<li class="toclevel-3 tocsection-21"><a href="Introduction_to_Adaptive_Neurotechnologies.html#Rehabilitation"><span class="tocnumber">2.4.1</span> <span class="toctext">Rehabilitation</span></a></li>
+<li class="toclevel-3 tocsection-22"><a href="Introduction_to_Adaptive_Neurotechnologies.html#Healthy_Users"><span class="tocnumber">2.4.2</span> <span class="toctext">Healthy Users</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-23"><a href="Introduction_to_Adaptive_Neurotechnologies.html#Application_Area_IV:_Enhancing_Natural_Functions"><span class="tocnumber">2.5</span> <span class="toctext">Application Area IV: Enhancing Natural Functions</span></a>
+<ul>
+<li class="toclevel-3 tocsection-24"><a href="Introduction_to_Adaptive_Neurotechnologies.html#Alertness"><span class="tocnumber">2.5.1</span> <span class="toctext">Alertness</span></a></li>
+<li class="toclevel-3 tocsection-25"><a href="Introduction_to_Adaptive_Neurotechnologies.html#Overload"><span class="tocnumber">2.5.2</span> <span class="toctext">Overload</span></a></li>
+<li class="toclevel-3 tocsection-26"><a href="Introduction_to_Adaptive_Neurotechnologies.html#Error_Detection"><span class="tocnumber">2.5.3</span> <span class="toctext">Error Detection</span></a></li>
+<li class="toclevel-3 tocsection-27"><a href="Introduction_to_Adaptive_Neurotechnologies.html#Training_and_Optimization"><span class="tocnumber">2.5.4</span> <span class="toctext">Training and Optimization</span></a></li>
+<li class="toclevel-3 tocsection-28"><a href="Introduction_to_Adaptive_Neurotechnologies.html#Object_Detection"><span class="tocnumber">2.5.5</span> <span class="toctext">Object Detection</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-29"><a href="Introduction_to_Adaptive_Neurotechnologies.html#Application_Area_V:Supplementing_Natural_Function"><span class="tocnumber">2.6</span> <span class="toctext">Application Area V:Supplementing Natural Function</span></a>
+<ul>
+<li class="toclevel-3 tocsection-30"><a href="Introduction_to_Adaptive_Neurotechnologies.html#Third_Hand.2FArm"><span class="tocnumber">2.6.1</span> <span class="toctext">Third Hand/Arm</span></a></li>
+<li class="toclevel-3 tocsection-31"><a href="Introduction_to_Adaptive_Neurotechnologies.html#Extra_Finger"><span class="tocnumber">2.6.2</span> <span class="toctext">Extra Finger</span></a></li>
+<li class="toclevel-3 tocsection-32"><a href="Introduction_to_Adaptive_Neurotechnologies.html#Artistic_Expression"><span class="tocnumber">2.6.3</span> <span class="toctext">Artistic Expression</span></a></li>
+<li class="toclevel-3 tocsection-33"><a href="Introduction_to_Adaptive_Neurotechnologies.html#Challenges_with_ANs_to_Supplement_Functions"><span class="tocnumber">2.6.4</span> <span class="toctext">Challenges with ANs to Supplement Functions</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-34"><a href="Introduction_to_Adaptive_Neurotechnologies.html#References"><span class="tocnumber">3</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction_to_Neurotechnologies">Introduction to Neurotechnologies</span></h1>
+<p>The human central nervous system (CNS) is the most convoluted known neural network. The inherent complexity of CNS poses serious challenges to studying its behavior as well as treating its anomalies. The longing for understanding the intricacies of the CNS, in tandem with the ever-increasing need for assisting patients who are suffering from debilitating neurological disorders, has been the principal driving factor for collaboration among engineers and scientists from different disciplines–this collective interdisciplinary endeavor gave rise to the field that is known as neurotechnology. Neurotechnology is an avant-garde, interdisciplinary field that employs state-of-the-art technologies to study and interact with the CNS. From different imaging, recording, and monitoring modalities to innovative neuromodulation techniques, neurotechnology embodies a broad range of methodologies.
+</p>
+<h2><span class="mw-headline" id="Studying_the_Nervous_System:_Neuroimaging">Studying the Nervous System: Neuroimaging</span></h2>
+<p>Imaging is a crucial step in investigating both the physiological structure and the function of the nervous system. 
+</p>
+<h3><span class="mw-headline" id="Structural_Imaging">Structural Imaging</span></h3>
+<p>Structural imaging techniques allow for studying anatomy, configuration, and structure of the nervous system on different scales. Here we introduce two common imaging techniques for studying the macroscopic structure of the brain and the spinal cord.
+</p>
+<h4><span id="Computed_Tomography_(CT)"></span><span class="mw-headline" id="Computed_Tomography_.28CT.29">Computed Tomography (CT)</span></h4>
+<p>Computed tomography (CT) is a noninvasive imaging technique that can produce detailed images of internal organs, bones, soft tissue, and blood vessels (Toga). Although the term "Computed tomography" might refer to a group of imaging techniques such as Positron Emission Tomography or Single-Photon Emission Computed Tomography (in the most general sense) SPECT), here we only use it to refer to X-ray CT scan. A CT of the brain (and in general any other tissue) entails two steps: in the first step, the scanner uses a rotating X-ray beam to generate cross-sectional images—or "slices"—of the brain. These 2D images are called tomographic images, and they are more informative than conventional X-rays. In the next step, a computer stacks successive slices and creates a 3D image of the brain. CT scan of the brain allows for easier identification and location of basic structures and possible tumors or abnormalities. 
+<sup id="cite_ref-1" class="reference"><a href="Introduction_to_Adaptive_Neurotechnologies.html#cite_note-1">&#91;1&#93;</a></sup>
+</p>
+<h4><span id="Magnetic_Resonance_Imaging_(MRI)"></span><span class="mw-headline" id="Magnetic_Resonance_Imaging_.28MRI.29">Magnetic Resonance Imaging (MRI)</span></h4>
+<p>Magnetic resonance imaging (MRI) is another noninvasive imaging technique that creates a high-definition 3D image of the brain or other internal organs (Toga). The underlying mechanism of MRI is based on the intrinsic magnetic properties of fundamental particles and, in particular, the hydrogen atoms in water molecules. In the presence of a uniform external magnetic field, a secondary nonuniform magnetic field with a certain gradient can be used to evoke electromagnetic radiation, which will reveal the configuration of these atoms (Bruggen). MRI can be used in two main modes: T1-weighted modes are used to detect the water content of tissues, and T2-weighted modes are used to study the fatty tissues. MIR has a much better resolution compared to CT. While brain CT scan is generally used to diagnose acute bleeding or skull fracture, MRI is the ideal method for visualization of more chronic pathological conditions.
+<sup id="cite_ref-2" class="reference"><a href="Introduction_to_Adaptive_Neurotechnologies.html#cite_note-2">&#91;2&#93;</a></sup>
+</p>
+<h3><span class="mw-headline" id="Functional_Imaging">Functional Imaging</span></h3>
+<p>Functional imaging techniques allow for recording and studying the functionality of different parts of the nervous system. There are two general approaches to functional imaging direct and indirect. The former approach is based on capturing the electrophysiological signals which are a direct indication of neuronal activities, and the latter is based on measuring the hemodynamic signals which are the secondary indication of neuronal activities. Here we briefly introduce two common modalities.
+</p>
+<h4><span id="Electroencephalography_(EEG)"></span><span class="mw-headline" id="Electroencephalography_.28EEG.29">Electroencephalography (EEG)</span></h4>
+<p>Electroencephalography (EEG) is a noninvasive recording technique that allows capturing large-scale brain signals from the surface of the scalp. EEG signals primarily reflect the synaptic potential of cortical neuronal populations that fire in a synchronous mode. Due to the excitable nature of neurons measuring their electrical activities is considered a direct approach to study their functioning. The intracranial EEG– also known as Electrocorticography (ECoG)–uses implanted electrodes to capture the electrical activities directly from the surface of the cortex. 
+</p>
+<h4><span id="functional_Magnetic_Resonance_Imaging_(fMRI)"></span><span class="mw-headline" id="functional_Magnetic_Resonance_Imaging_.28fMRI.29">functional Magnetic Resonance Imaging (fMRI)</span></h4>
+<p>functional Magnetic Resonance Imaging (fMRI) is the most common technique for recording the hemodynamic activity of the nervous system. fMRI measures the blood-oxygen-level-dependent (BOLD) signals which is an indirect approach to identifying which area of the brain has a relatively higher activity. The idea behind these groups of imaging techniques is that measuring the contrast in BOLD signals allows for identifying the more active regions in the network that are consuming higher levels of oxygen and thus receive more blood flow. While fMRI and other recording modalities based on BOLD signals enjoy a high spatial resolution, the indirect nature gives them a lower temporal resolution compared to direct functional imaging techniques such as EEG and ECoG.
+</p>
+<h2><span class="mw-headline" id="Interacting_with_the_Nervous_System:_Neuromodulation">Interacting with the Nervous System: Neuromodulation</span></h2>
+<p>One of the key features of the nervous system is neuroplasticity which is the ability to change through neurogenesis and reorganization. 
+<sup id="cite_ref-3" class="reference"><a href="Introduction_to_Adaptive_Neurotechnologies.html#cite_note-3">&#91;3&#93;</a></sup> 
+<sup id="cite_ref-4" class="reference"><a href="Introduction_to_Adaptive_Neurotechnologies.html#cite_note-4">&#91;4&#93;</a></sup>
+Neuroplasticity is the natural mechanism by means of which the nervous system develops and repairs itself. At the same time, this unique property allows for inducing changes in the structural and functional attributes of the nervous system. Neuromodulation is the area in adaptive neurotechnologies that focus on harnessing this inherent ability and utilizing it to prompt desired changes in the neuronal circuitry. 
+<sup id="cite_ref-5" class="reference"><a href="Introduction_to_Adaptive_Neurotechnologies.html#cite_note-5">&#91;5&#93;</a></sup>       
+</p>
+<h3><span class="mw-headline" id="Neurostimulation">Neurostimulation</span></h3>
+<p>Stimulating the nervous system is the most common strategy for inducing neuromodulation. This can be achieved via different approaches, including electric, magnetic, and mechanical stimulation. 
+</p>
+<h3><span class="mw-headline" id="Neurofeedback">Neurofeedback</span></h3>
+<p>Neurofeedback is another strategy for inducing neuromodulation. In contrast to neurostimulation, neurofeedback does not rely on external components; rather, it is based on controlling certain aspects of the subject's nervous system via reinforced learning. For instance, when the subject is engaged in performing a cognitive task, providing feedback can help the subject to apply volitional effort towards accomplishing the ongoing task.
+Neurofeedback has proved to be effective for BCI training and alleviating pain.
+<sup id="cite_ref-6" class="reference"><a href="Introduction_to_Adaptive_Neurotechnologies.html#cite_note-6">&#91;6&#93;</a></sup>
+<sup id="cite_ref-7" class="reference"><a href="Introduction_to_Adaptive_Neurotechnologies.html#cite_note-7">&#91;7&#93;</a></sup>
+</p>
+<h1><span class="mw-headline" id="Introduction_to_Adaptive_Neurotechnologies">Introduction to Adaptive Neurotechnologies</span></h1>
+<p>Adaptive neurotechnology (AN) is a well-established branch in the field that allows for developing neuro-assistive and neurorehabilitation systems. At the very core, the functionality of these systems relies on the direct, closed-loop interaction with the nervous system in real-time and requires three basic steps:
+</p>
+<ul><li>Recording and processing the neuronal activities, e.g. electrophysiological or hemodynamic signals.</li>
+<li>Translating the biosignals into the desired output, e.g. command for robotic systems or prosthetics.</li>
+<li>Improving performance via neurofeedback and neuromodulation</li></ul>
+<h2><span class="mw-headline" id="Application_Areas">Application Areas</span></h2>
+<div class="thumb tright"><div class="thumbinner" style="width:502px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:Wolpaw_adaptive_cycle.png" class="image"><img alt="Five application area for BCI-based adaptive neurotechnologies" src="../images/thumb/e/e7/Wolpaw_adaptive_cycle.png/500px-Wolpaw_adaptive_cycle.png" decoding="async" width="500" height="497" class="thumbimage" srcset="../images/thumb/e/e7/Wolpaw_adaptive_cycle.png/750px-Wolpaw_adaptive_cycle.png 1.5x, ../images/e/e7/Wolpaw_adaptive_cycle.png 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://www.bci2000.org/mediawiki/index.php/File:Wolpaw_adaptive_cycle.png" class="internal" title="Enlarge"></a></div>Five application area for BCI-based adaptive neurotechnologies</div></div></div>
+<p>Fulfillment of these basic steps is typically achieved by Brain-Computer Interfaces (BCI) which are the integral components in AN. Five principal application areas can be envisioned for BCI-based AN:
+</p>
+<ol><li>Replacing lost capabilities, such as spelling</li>
+<li>Restoring lost functions, such as grasping</li>
+<li>Improving functions, such as upper limb movement</li>
+<li>Enhancing natural functions, such as error detection</li>
+<li>Supplementing natural function, such as a future “third hand”</li></ol>
+<h2><span class="mw-headline" id="Application_Area_I:_Replacing_Lost_Capabilities">Application Area I: Replacing Lost Capabilities</span></h2>
+<p>Most adults can talk, write an email, move to different rooms, get a glass of water, or perform other everyday tasks without assistance. But millions of people in the US alone have trouble speaking, walking, using their hands, or performing other tasks that require movement. For some of these people, ANs can replace these lost capabilities by replacing the brain’s normal output pathways. Instead of relying on information sent from the brain to the muscles, ANs can detect the user’s mental activity and send those messages or commands to an artificial device. There are many different ways that ANs can replace functions that a user lost due to injury, disease, or other causes. These ways can be viewed as tools for communication or device control.
+</p>
+<h3><span class="mw-headline" id="Communication">Communication</span></h3>
+<p>One of the most basic communication needs is simply answering questions with “YES” or “NO”. This may seem very limited, but it can make a huge difference in the lives of patients, as well as the people who love them or care for them. Someone might ask questions like “Do you have pain in your left foot?” or “Should I turn on the fan now?” or “Do you want to move to the living room now?” It’s very important to phrase questions carefully so the user can clearly respond with yes or no. Asking a patient if s/he wants to hear music could be confusing. What kind of music? Will you just play the song once, or will you put on background music continuously? Thus, several yes/no questions might be needed to fully determine what the user wants, and people need to make sure the patient can understand the different options that are available. Similarly, asking if a patient would like a chicken enchilada or wants to go swimming can be foolish if the patient can only eat through a feeding tube or has lost the motor control needed to swim. Some ANs have gone beyond yes and no by providing a third option such as “skip”, meaning that the user doesn’t want to answer that question now. Another option is “end”, meaning that the user wants to end the communication session. But, with yes, no, skip, or end, we’re already up to four possible choices that the user could communicate. With only six choices, a user could choose from any letter in the English alphabet or the numbers from 1 to ten. Of course, this requires making two selections. First, the user chooses a group of six items, such as the letters A-H, and then the system could present a second level of choices with those eight letters. Some AN-based spellers use two levels of selection like this. Many systems used for spelling don’t require two levels. For example, the user might see a monitor that has six rows and six columns. You can ask the user to focus on one of these 36 items, and maybe perform a mental task like counting each time a certain letter flashes. ANs could detect the user’s brain activity to determine which of the 36 items s/he wants to communicate. What next? The system might just present answers like yes or no, or more complex messages with spellers, on the monitor. This can be adequate if someone is in the room watching the monitor. However, once you know what someone wants to communicate, it’s relatively easy to convey that message in other ways, such as through a voice synthesizer, email, Twitter, or Facebook. Communication can be more challenging with some users. ANs have been developed for people who aren’t familiar with the English language, such as spellers for Chinese, Japanese, and Arabic speakers. Other ANs have provided communication tools that don’t require vision for people with visual disabilities. Instead of observing items on a monitor, a user might pay attention to different sounds or vibrations, such as stimuli presented to the left vs. right ear or the left vs. right hand. In another approach, people could imagine moving the left hand to convey yes or move a cursor left toward a target letter, or instead imagine moving the right hand to convey no or move a cursor toward a different letter.
+</p>
+<h3><span class="mw-headline" id="Control">Control</span></h3>
+<p>ANs can also replace lost functions by helping people control devices, such as a wheelchair, prosthetic arm, or a mobile robot. The mobile robot could go to the kitchen, open the refrigerator, get a glass of water, and bring it to the patient. These control applications have to rely heavily on intelligent software that can manage many complex details that we take for granted. If you want to get a glass of water, you have to figure out the best path to get to the kitchen and back. This requires detecting any obstacles, like chairs or tables, and avoiding them. This may seem easy for people, but robotic devices like wheelchairs and mobile robots need cameras and advanced software to detect and avoid obstacles. Many ANs for control don’t rely on any outside devices beyond a laptop. People could control a web browser or common software applications with AN. Some groups have developed ANs to control games. The commercial game “World of Warcraft” has been used in a few different ANs, since it was a very popular game. In one approach, a user’s character changed from an elf to a bear if the user’s brain activity conveyed stress. Other groups have let users move the game character in three directions, with a fourth option that can perform different tasks depending on the game context. A few companies have released their own games designed to work with BCIs. Ultimately, we’d like to provide ANs that can replace lost functions as completely as possible – meaning that the user can just perform the same mental activities as a healthy person, and get the same results. This is a long way off. Communication with ANs is much slower than typing or talking. Controlling all of the details of a prosthetic hand, including each finger movement, is not yet possible. Moving a wheelchair or robot to another room takes a lot more time than just walking there. However, there has been a lot of progress. The last few years have seen better sensors to detect brain activity, improved interaction with other software, immersive VR-based environments that are designed to be as user-friendly as possible, faster recognition of what the user wants to convey, and improved customization to each individual user. We hope that ongoing research will lead to new ANs that can help meet the needs and desires of the many different people who need help to replace lost functions.
+</p><p><br />
+</p>
+<h2><span class="mw-headline" id="Application_Area_II:_Restoring_Lost_Functions">Application Area II: Restoring Lost Functions</span></h2>
+<p>Many people have trouble doing things that were once easy. For example, some people may have intact arms or legs, but can no longer use them because of damage to the brain or spinal cord. Difficulty controlling bladder or bowel activity can also occur. Some ANs can help restore lost functions by sending information directly from the brain to devices that can help their arms, legs, or other areas work properly.
+</p>
+<h3><span class="mw-headline" id="Movement:_Imagination_to_Reality">Movement: Imagination to Reality</span></h3>
+<p>For most people, moving the hand is easy. You just think about grasping with your right hand, and it moves just the way you think. But what if the brain areas that produce that movement are damaged? What if the brain is intact, but the spinal cord can no longer send information from the brain to the hand? For these users, and some others with movement disabilities, an orthosis could be the best choice to restore control of movement. An orthosis is a device that can be attached to part of the body, such as a hand, to help that body part complete a movement.
+Muscle control can also be restored with a device called a functional electrical stimulator, or FES. An FES is a device that sends a weak electrical current through the muscles. This electrical current can make the muscles activate. This is similar to how your nervous system naturally controls muscles. People who want to move usually send a signal from the brain, along the spinal cord, that causes electrical activity to trigger movement. With FES, this electrical activity comes from an outside device instead. FES pads must be placed over specific muscles that are responsible for a movement. For example, placing FES pads placed over the forearm could cause the hand to flex at the wrist.
+These types of devices can be controlled with ANs that directly read brain activity relating to movement. When you think about grasping with your right hand, the motor areas of your brain are active. In fact, millions of neurons work together for even simple movements. This activity varies a little across different people, and ANs that use motor imagery may need some time to learn each person’s unique brain signals. But, the brain activity involved in different kinds of movements is generally predictable. So, with a few hours of training, people could control an orthosis or FES that makes their right hand grasp or open just by thinking about one of those two movements.
+While grasping is a common task that ANs can help restore, some people need other types of ANs to control other parts of the body. Some ANs are designed to help people who have trouble walking by stimulating muscles in the feet, legs, and hips. ANs can also control exoskeletons and/or orthoses that influence these parts of the body. The basic principle is the same: when you think about walking, the movement areas of the brain are active in relatively predictable ways. Thinking about walking doesn’t produce exactly the same activity as thinking about moving the hand, so ANs could potentially be used to restore function in different parts of the body.
+Besides restoring the ability to walk, ANs can also help people with gait. Many people can walk, but have trouble walking smoothly. One major cause is Parkinson’s disease. People with this disease may still be able to walk, but their gait can appear jerky and erratic, because the brain areas that control movement no longer produce the chemicals needed for smooth movements. For these people, walking can be risky, with a high risk of falling. Besides, many patients are understandably uncomfortable walking or performing other movements when other people can see that they have a problem. Aside from restoring basic functionality and safety, ANs can help restore dignity to people who might be embarrassed to invite friends to their homes or go outside. ANs that help restore the ability to walk can be more challenging than ANs for grasping for two reasons. First, ANs for walking are usually more bulky and expensive, because walking requires precise control of many different muscle groups. Second, ANs for walking involve more issues with safety, since mistakes could cause the user to fall.
+</p>
+<h3><span class="mw-headline" id="Bladder_and_bowel_control">Bladder and bowel control</span></h3>
+<p>Many persons with disabilities cannot control the muscles that are responsible for bladder and bowel control. ANs could be used to activate a device that activates the bladder or bowel muscles based on brain activity. This would not require high-bandwidth communication, since these are activities that people select relatively infrequently, and can be executed with a simple switch mechanism.
+</p><p><br />
+</p>
+<h2><span class="mw-headline" id="Application_Area_III:_Improving_Functions">Application Area III: Improving Functions</span></h2>
+<p>Most ANs are designed to provide some benefit very quickly, as part of a real-time interaction. If a user wants to stand up with the help of AN, a delay of even a second between thought and action can be frustrating. ANs for communication, gaming, virtual navigation, web browsing, and many other applications typically focus on accomplishing a user’s immediate goals as quickly as possible. If the user wants some benefit from the AN, then the AN has to be active at that moment to provide that benefit.
+However, ANs to improve function instead aim to create a lasting improvement in the nervous system – changes that persist even when the AN is no longer being used. Hundreds of millions of people have trouble with movement, memory, attention, or other mental activities. These motor and cognitive impairments could result from stroke, injuries, dementia, Alzheimer’s disease, Parkinson’s disease, or other causes. ANs could help people retrain their nervous systems to counteract damage, leaving them with an improved capability to function even when they are not using ANs anymore. These types of ANs could help healthy people as well, along with ANs to reduce stress.
+</p>
+<h3><span class="mw-headline" id="Rehabilitation">Rehabilitation</span></h3>
+<p>Some ANs aim to help people retrain the brain or spinal cord to work properly again. Millions of people each year participate in physiotherapy, which means that a medical expert called a physiotherapist helps them perform exercises that are designed to help them learn to move again. Often, this physiotherapy involves a device called a functional electrical stimulator, or FES, described in the “restore” section. Physiotherapists may also use a virtual avatar that moves the hand when the user is supposed to move the hand.
+In the last few years, several groups have described ANs that could provide better results by linking the FES system and other tools to brain activity. That is, the system only activates the FES or the avatar when AN detects the correct movement imagination in the user’s brain. This helps patients learn how to imagine (and then perform) the movement again. Tools like orthoses and exoskeletons can also be important components of a rehabilitation system.
+Another option for rehabilitation involves the H-reflex. The H-reflex is a natural reaction that people have after certain types of muscle stimulation. ANs can use the H-reflex to help restore spinal cord function that they lost because of an injury. This approach has already shown remarkable results in testing with rats and cats, leading to high hopes for extending this work to help people.
+ANs are helpful for people with trouble moving and also for people with other problems. Some groups have developed ANs to help people improve their memory. In this approach, the ANs can detect brain activity related to mental tasks like remembering cards or letters. The AN might show people a sequence of letters and then ask: is this the same as the letter that you saw earlier? Like other ANs for rehabilitation, these tools can help people restore neurons involved in memory. Related work could help people who have trouble with attention, emotion, or other mental functions.
+</p>
+<h3><span class="mw-headline" id="Healthy_Users">Healthy Users</span></h3>
+<p>These tools to improve function are also being explored for healthy users. Some groups have studied ANs with elite competitive athletes in several different sports. For these users, even tiny improvements could make the difference in winning a competition. More broadly, many people would love to be faster, stronger, nimbler, or smarter. Future ANs might be able to help with these goals, but raise some ethical issues that should be considered further.
+In addition to improving peak performance, ANs could also reduce the time needed to learn new skills. Research has provided the theoretical basis for learning different types of skills and facts more quickly. People could use this to improve their work productivity or performance or to learn new games or hobbies. This is also a more futuristic direction for ANs.
+One application for healthy users is not especially futuristic – relaxation. For decades, people have used different systems that can help them relax. Here, the goal is to provide some improvement that persists when the AN is no longer active, but the improvement is simply feeling more peaceful. Older systems detected tension from electrical activity in the brain and muscles. Newer tools can also use methods like eye tracking and posture analysis. By helping people reduce activities like jaw clenching, teeth grinding, forehead tension, poor posture, and rapid shifts of attention, ANs can improve well-being.
+</p>
+<h2><span class="mw-headline" id="Application_Area_IV:_Enhancing_Natural_Functions">Application Area IV: Enhancing Natural Functions</span></h2>
+<p>ANs can also help enhance CNS function. While our brains are capable of some remarkable tasks, we can’t always do them perfectly. People might make mistakes because they are tired, inexperienced, overloaded, or confused. Even experts who feel they’re ready for challenging tasks make mistakes. Drugs, alcohol, injuries, illness, distraction, and other factors can also reduce performance. Some types of ANS can help detect and counteract problems that result from various causes of human error.
+</p>
+<h3><span class="mw-headline" id="Alertness">Alertness</span></h3>
+<p>Nobody can be alert all the time. People can recognize some times when they might not be at their best, such as when they feel sleepy or have been performing a boring task for a long time. Research has also shown that people may be prone to mistakes even when they feel alert. People who doze off when driving – even for a second – can cause accidents. Other people, such as pilots, train conductors, surgeons, security staff, or some military personnel can also create serious risks when their brains are not functioning at peak performance.
+One very well-established direction for ANs involves monitoring alertness. When people become tired, they have predictable changes that can be detected. You’re probably familiar with the feeling of heavy eyelids when you are tired, and devices to measure eye activity can be a good way to monitor alertness. EEG and heart activity can also indicate lapses in alertness and can help identify periods when errors are more likely.
+For example, some car companies have been exploring ways to detect alertness lapses in drivers. NASA and other groups have long been exploring ways to use ANs to determine when pilots, astronauts, or others might not be able to work effectively. Research from about 20 years ago studied expert sonar operators performing realistic sonar detection task. The authors found that these sonar operators were prone to make mistakes at certain times when their EEG showed predictable patterns.
+</p>
+<h3><span class="mw-headline" id="Overload">Overload</span></h3>
+<p>The most alert people can still make mistakes if they can’t manage all of the mental tasks expected of them. This can be especially problematic if people are confused or don’t fully understand what they are supposed to do. Often, people might not want to say they don’t know what to do or can’t handle work because they do not want to look stupid or get in trouble. Different groups have studied how the EEG and other signals change when people are overloaded with too much information and/or too many tasks based on this information. In a typical study, users are asked to perform a task that is simple at first but becomes more difficult. When people start to miss information presented on a monitor, fail to press the right buttons, or simply say they’ve had too much, researchers can study what changed through AN.
+</p>
+<h3><span class="mw-headline" id="Error_Detection">Error Detection</span></h3>
+<p>A closely related direction involves using the EEG and other activity to determine when people think they just made a mistake. This approach can’t identify all mistakes, since it relies on people recognizing that they made a mistake. Still, this is a fairly common situation. Some work has proposed an automated backspace feature if someone errs while spelling.
+What can be done with this information? This is a question that goes beyond ANs, and depends heavily on the situation. ANs might simply inform the user that he or she should rest. ANs could also inform a supervisor, who might ask the user to take a break, review recently completed tasks, or ask another employee to take over. Automated tools could stop processing work that the user just completed, flag it for later review, offload some tasks onto another user or a software routine, or attempt error correction.
+More broadly, information from monitoring alertness, overload, or errors could be used to learn more about different software, industrial designs, work assignments, or other details that help people perform most effectively. These non-realtime methods are related to human factors engineering human-computer interaction (HCI), two fields that are concerned with finding the most efficient, usable ways to help people interact with machines.
+</p>
+<h3><span class="mw-headline" id="Training_and_Optimization">Training and Optimization</span></h3>
+<p>ANs have also been used to study how people learn new tasks and perform them most effectively. Employers (including the private and military sectors) have to spend a lot of time and money training new people. Aside from work, people often want to be better at sports, musical instruments, games, or other activities. Elite athletes are interested in even tiny improvements that could give them an edge. ANs can use different signals to learn how the CNS changes while learning and performing tasks to reduce training time and maximize performance.
+</p>
+<h3><span class="mw-headline" id="Object_Detection">Object Detection</span></h3>
+<p>There are some situations that require people to detect certain target items and then press a button or perform some other tasks when they appear. For example, staff might be asked to view thousands of pictures from a traffic camera and identify one truck with a certain license plate or a suspicious feature. ANs have been used to enhance performance by detecting specific brain patterns that reflect that someone just saw a target. This approach can make it possible to present more images per second than waiting for someone to press a button. The system can then identify which pictures got the user’s attention and present them for later review while discarding the pictures that were not considered targets.
+</p>
+<h2><span class="mw-headline" id="Application_Area_V:Supplementing_Natural_Function">Application Area V:Supplementing Natural Function</span></h2>
+<p>“I only have two hands!” This common expression underscores that people often wish they could supplement their natural abilities with something like a third hand. These kinds of ANs have not been explored as much as other directions, and supplemental ANs that really provide an overall boost to performance are somewhat further in the future than other ANs.
+</p>
+<h3><span id="Third_Hand/Arm"></span><span class="mw-headline" id="Third_Hand.2FArm">Third Hand/Arm</span></h3>
+<p>As we discussed elsewhere on this web page, ANs can be used to help control a patient’s arm or a prosthetic arm. In addition to helping patients get closer to the natural human capacity to use two arms, these types of ANs could also provide control of one or more additional arms. People could type with both hands while also using a pencil, cell phone, remote control, or musical instrument. In addition to providing the ability to do different conventional tasks at the same time, ANs could provide new capabilities, like carrying bulkier objects or playing more complex musical pieces. More elaborate ANs could even provide control of an exoskeleton that could supplement or improve our bodies in different ways.
+</p>
+<h3><span class="mw-headline" id="Extra_Finger">Extra Finger</span></h3>
+<p>For more precise control, one extra finger might let people type faster or play games more competitively. Even an additional binary command could allow an extra “select” or “confirm” command to improve human-computer interaction. This might be possible through ANs that can directly or indirectly simulate a mouse click, keystroke, or button press. An extra finger might supplement non-electronic activities that require complex finger movements like knitting, gardening, or washing dishes.
+</p>
+<h3><span class="mw-headline" id="Artistic_Expression">Artistic Expression</span></h3>
+<p>People can already play musical instruments, dance, or act. But what if ANs could supplement these natural types of artistic expression? For example, some groups have proposed or demonstrated ANs that create a new type of music. They combine music from people playing classical instruments with computer-generated music based on a user’s mood derived from brainwaves. ANs could also measure brain activity to change background lighting, costumes, or other aspects of performance art.
+</p>
+<h3><span class="mw-headline" id="Challenges_with_ANs_to_Supplement_Functions">Challenges with ANs to Supplement Functions</span></h3>
+<p>From the standpoint of the signals recorded from the brain, ANs for supplemental control could be quite different from ANs to restore, improve, or replace control of peoples’ natural limbs. ANs based on motor imagery typically rely on the signals that the brain naturally produces when imagining movement. However, people don’t naturally produce brain signals to control a third hand or eleventh finger. Perhaps people could learn to control a supplemental arm with the same signals that control a natural arm, and/or learn to perform other tasks that can provide supplemental control. Or, like the ANs for musical expression, ANs could supplement activities with naturally occurring brain signals.
+One issue that is especially challenging in ANs to supplement function is distraction. The user may have to devote some attention to control the AN as well as another task without getting too distracted. Depending on the overall system design, the user may need to do many things simultaneously. If this multitasking gets too confusing or stressful, then the supplemental AN wouldn’t be very helpful overall. In some domains, such as computer games that require very fast reflexes, users would probably find that using AN while playing a game is so distracting that their game performance declines. Further research is needed to develop task combinations, usage environments, and AN systems that are seamless and easy to use. Distraction may be less of a problem when the AN doesn’t require performing additional mental tasks to control it.
+</p>
+<h1><span class="mw-headline" id="References">References</span></h1>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="Introduction_to_Adaptive_Neurotechnologies.html#cite_ref-1">↑</a></span> <span class="reference-text">Toga, Arthur W. Brain mapping: An encyclopedic reference. Academic Press, 2015.</span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><a href="Introduction_to_Adaptive_Neurotechnologies.html#cite_ref-2">↑</a></span> <span class="reference-text">Van Bruggen, Nick, and Timothy PL Roberts, eds. Biomedical imaging in experimental neuroscience. CRC Press, 2002.</span>
+</li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><a href="Introduction_to_Adaptive_Neurotechnologies.html#cite_ref-3">↑</a></span> <span class="reference-text">Fuchs, Eberhard, and Gabriele Flügge. "Adult neuroplasticity: more than 40 years of research." Neural plasticity 2014 (2014).</span>
+</li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><a href="Introduction_to_Adaptive_Neurotechnologies.html#cite_ref-4">↑</a></span> <span class="reference-text">Götz, Magdalena, and Wieland B. Huttner. "The cell biology of neurogenesis." Nature reviews Molecular cell biology 6.10 (2005): 777-788.</span>
+</li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><a href="Introduction_to_Adaptive_Neurotechnologies.html#cite_ref-5">↑</a></span> <span class="reference-text">Marder, Eve. "Neuromodulation of neuronal circuits: back to the future." Neuron 76.1 (2012): 1-11.</span>
+</li>
+<li id="cite_note-6"><span class="mw-cite-backlink"><a href="Introduction_to_Adaptive_Neurotechnologies.html#cite_ref-6">↑</a></span> <span class="reference-text">Neuper, Christa, and Gert Pfurtscheller. "Neurofeedback training for BCI control." Brain-computer interfaces (2009): 65-78.</span>
+</li>
+<li id="cite_note-7"><span class="mw-cite-backlink"><a href="Introduction_to_Adaptive_Neurotechnologies.html#cite_ref-7">↑</a></span> <span class="reference-text">Jensen, Mark P., et al. "Neurofeedback treatment for pain associated with complex regional pain syndrome type I." Journal of Neurotherapy 11.1 (2007): 45-53.</span>
+</li>
+</ol></div>
+<!-- 
+NewPP limit report
+Cached time: 20230524103733
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.060 seconds
+Real time usage: 0.077 seconds
+Preprocessor visited node count: 177/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 2405/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2330-0!canonical and timestamp 20230524103733 and revision id 8842
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Introduction_to_Adaptive_Neurotechnologies&amp;oldid=8842">http://www.bci2000.org/mediawiki/index.php?title=Introduction_to_Adaptive_Neurotechnologies&amp;oldid=8842</a>"</div>
+ </div>
+</body>
+</html>

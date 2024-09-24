@@ -1,0 +1,10 @@
+###########################################################################
+## $Id$
+## Authors: griffin.milsap@gmail.com
+
+# Add the GazeMonitorFilter to all application modules
+
+SET( BCI2000_APP_FILES
+   ${BCI2000_APP_FILES}
+   ${BCI2000_EXTENSION_DIR}/GazeMonitorFilter.cpp
+)

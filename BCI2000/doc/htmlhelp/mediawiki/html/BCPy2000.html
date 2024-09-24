@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>BCPy2000 - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">BCPy2000</h1>
+ <p class = "subtitle"></p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="BCPy2000.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="BCPy2000.html#Location"><span class="tocnumber">2</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="BCPy2000.html#Prerequisites"><span class="tocnumber">3</span> <span class="toctext">Prerequisites</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="BCPy2000.html#Video_Demonstration"><span class="tocnumber">4</span> <span class="toctext">Video Demonstration</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="BCPy2000.html#Configuration"><span class="tocnumber">5</span> <span class="toctext">Configuration</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="BCPy2000.html#BCPy2000_source_modules"><span class="tocnumber">5.1</span> <span class="toctext">BCPy2000 source modules</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="BCPy2000.html#BCPy2000_Installer"><span class="tocnumber">5.2</span> <span class="toctext">BCPy2000 Installer</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="BCPy2000.html#Portable_Python_Installation"><span class="tocnumber">5.3</span> <span class="toctext">Portable Python Installation</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-9"><a href="BCPy2000.html#Running_BCPy2000"><span class="tocnumber">6</span> <span class="toctext">Running BCPy2000</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="BCPy2000.html#API"><span class="tocnumber">7</span> <span class="toctext">API</span></a>
+<ul>
+<li class="toclevel-2 tocsection-11"><a href="BCPy2000.html#Parameters"><span class="tocnumber">7.1</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="BCPy2000.html#States"><span class="tocnumber">7.2</span> <span class="toctext">States</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-13"><a href="BCPy2000.html#Hooks"><span class="tocnumber">8</span> <span class="toctext">Hooks</span></a>
+<ul>
+<li class="toclevel-2 tocsection-14"><a href="BCPy2000.html#Description"><span class="tocnumber">8.1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="BCPy2000.html#Construct"><span class="tocnumber">8.2</span> <span class="toctext">Construct</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="BCPy2000.html#Preflight"><span class="tocnumber">8.3</span> <span class="toctext">Preflight</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="BCPy2000.html#Initialize"><span class="tocnumber">8.4</span> <span class="toctext">Initialize</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="BCPy2000.html#StartRun"><span class="tocnumber">8.5</span> <span class="toctext">StartRun</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="BCPy2000.html#Phases"><span class="tocnumber">8.6</span> <span class="toctext">Phases</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="BCPy2000.html#Transition"><span class="tocnumber">8.7</span> <span class="toctext">Transition</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="BCPy2000.html#Processing"><span class="tocnumber">8.8</span> <span class="toctext">Processing</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="BCPy2000.html#StopRun"><span class="tocnumber">8.9</span> <span class="toctext">StopRun</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-23"><a href="BCPy2000.html#References"><span class="tocnumber">9</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-24"><a href="BCPy2000.html#See_Also"><span class="tocnumber">10</span> <span class="toctext">See Also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Introduction">Introduction</span></h2>
+<p>BCPy2000 is a software project for rapid and flexible development of brain-computer interface systems. It is based on the BCI2000 project and uses Python v3.6.8 for the 32-bit version and v3.8.6 for the 64-bit version. It leverages high-level packages such as Psychopy for stimulus presentation and NumPy and SciPy for signal processing and classification.
+</p><p>The project is modular, with three independent modules: application, signal source, and signal processing. You can use BCI2000's Signal Source module, which supports a wide range of EEG acquisition modules, or run the modules as Python modules.
+</p><p>BCPy2000 is designed for developers and clinicians with some Python experience. It lets you build your own experiments and modules based on your own code. The demo implementation showcases higher-level Python tools to give you a starting point. BCPy2000 offers a flexible platform for customizing your brain-computer interface system.
+</p><p>
+Here is a high-level overview of why you should consider BCPy2000: </p><div class="thumb embedvideo  ev_center autoResize" style="width: 648px;"><div class="embedvideo autoResize" style=" width: 646px;"><div class="embedvideowrap" style="width: 640px;"><iframe title="Play video" src="https://www.youtube.com/embed/YfEj91uP9O8?" width="640" height="360" frameborder="0" allowfullscreen="true"></iframe></div></div></div>
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><a rel="nofollow" class="external free" href="http://www.bci2000.org/svn/trunk/src/contrib/BCPy2000">http://www.bci2000.org/svn/trunk/src/contrib/BCPy2000</a>
+</p>
+<h2><span class="mw-headline" id="Prerequisites">Prerequisites</span></h2>
+<p>For this project you will need two things, our portable Python package, and BCI2000. You can find the 32 bit version of our portable Python <a rel="nofollow" class="external text" href="https://www.bci2000.org/downloads/Python36-32.zip">here</a> and the 64 version <a rel="nofollow" class="external text" href="https://bci2000.org/downloads/Python_384_64.zip">here.</a> BCPy2000 will be compiled automatically with other BCI2000 programs. Compilation is only supported in BCI2000 with the Visual Studio or MinGW compilers. You can find these instructions at <a href="Programming_Howto%253ABuilding_BCI2000.html" title="Programming Howto:Building BCI2000">Programming_Howto:Building_BCI2000</a>. One consideration when building BCPy2000 is that you must choose a Qt_5 installation which corresponds to whatever version of BCPy2000 you are build, for example, if you are building a 32 bit version of BCPy2000 make sure that you have downloaded and select a 32 bit version of Qt. You also need to make sure that when you are configuring BCI2000 in CMake, you choose the "BUILD_BCPY2000" and "BUILD_CONTRIB" flags. Once you have done this you can configure and generate your BCI2000 solution.
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th colspan="6">Requirements
+</th></tr>
+<tr>
+<td rowspan="1">64x BCPy2000
+</td>
+<td><a rel="nofollow" class="external text" href="https://wustl.box.com/s/d0ktout3d6ayvkyimlmp2xx5slkkeoua">Python</a>
+</td>
+<td>64x Qt installation
+</td>
+<td colspan="2">64x Visual Studio
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="Video_Demonstration">Video Demonstration</span></h2><p>
+In this video we go over what BCPy2000 is, how to install it, a demonstration of our Triangle application, a section on how you can create your own BCPy2000 experiments, and a demonstration of a P300 task involving a live subject: </p><div class="thumb embedvideo  ev_center autoResize" style="width: 648px;"><div class="embedvideo autoResize" style=" width: 646px;"><div class="embedvideowrap" style="width: 640px;"><iframe title="Play video" src="https://www.youtube.com/embed/uLK3yl5MNu0?" width="640" height="360" frameborder="0" allowfullscreen="true"></iframe></div></div></div>
+<h2><span class="mw-headline" id="Configuration">Configuration</span></h2>
+<h4><span class="mw-headline" id="BCPy2000_source_modules">BCPy2000 source modules</span></h4>
+<p>Once you are in Visual Studio, you can edit the Python Application, Signal Processing, and Source modules and build them individually or all together (note that when you first open this project you will want to build the entire solution first). All three modules share filter and wrapper classes which allow Python functions to be loaded dynamically from a DLL at runtime. These files are where you will be able to make any necessary customization of the interface between the BCI2000 C++ code and the Python code should you want to. After building the application, source, and signal processing modules, then, from your main BCI home directory you will need to navigate to src\contrib\BCPy2000\demo and copy the contents of the batch, data, parms, prog, and python folders into each corresponding folder in the main directory.
+</p>
+<h4><span class="mw-headline" id="BCPy2000_Installer">BCPy2000 Installer</span></h4>
+<p>We recently released an <a rel="nofollow" class="external text" href="https://wustl.box.com/s/d0ktout3d6ayvkyimlmp2xx5slkkeoua">executable installer</a> for BCPy2000. After downloading, open the executable and let the setup wizard guide you through the installation process. Here you can specify where to install BCPy2000; the default installation location is under Program Files. After installation, you'll find a new System environment variable under your user's Path, pointing to the new Python environment. 
+</p>
+<h4><span class="mw-headline" id="Portable_Python_Installation">Portable Python Installation</span></h4>
+<p>Use the provided <a rel="nofollow" class="external text" href="https://wustl.box.com/s/d0ktout3d6ayvkyimlmp2xx5slkkeoua">executable installer</a> or follow these steps to configure Python as a system variable:
+</p>
+<ol><li>Unzip a Portable Python package, choosing either the <a rel="nofollow" class="external text" href="https://www.bci2000.org/downloads/Python36-32.zip">32</a> or <a rel="nofollow" class="external text" href="https://bci2000.org/downloads/Python_384_64.zip">64-bit</a> version.</li></ol>
+<ol><li>Set the PATH of the unzipped package's file directory in System Variables, accessible through the Windows search bar.</li>
+<li>Create a new Path named "PYTHONHOME_BCI2000" to avoid interference with other Python installations.</li>
+<li>The portable Python package contains all Python dependencies, including the BCPy2000 and Psychopy code, as well as other high-level packages.</li>
+<li>(Optional)Customize your Python environment by adding new packages using pip in the command prompt.</li></ol>
+<p>With the necessary components installed, you can now implement your own experiment.
+</p>
+<h2><span class="mw-headline" id="Running_BCPy2000">Running BCPy2000</span></h2>
+<p>Once you have set up your portable Python package and have compiled, built, and copied the executables to each corresponding folder you can run a batch file. We included a demonstration called "triangle application" which asks the user to imagine moving their hands or feet in order to guide a cursor into one of three corners of a triangle while simultaneously giving the user color and sound feedback which corresponds to an imagination task and a sound. To open the triangle application you need to open the Triangle application batch file "PythonDemo1_Triangle_p3.bat." Once opened you should first see the operator window which allows you to set configurations, run, and suspend the running of the application. You can edit a myriad of variables and customize the experiment in the configuration menu. Under the visualize you can allow for the BCI2000 operator do show timing and raw brain signal. Another important section is the source section in which you can define number of channels, sampling rate, and block size along with many other important source generation configurations. Under data you can edit the specifics of how data is stored and where it is stored. You can also change how the Python application and signal processing modules are configured. One useful flag is the "show signal time" modifier which allows for developers to monitor several states during runtime. You can also save any changes that you made to the configuration by hitting "save configuration" and saving it into the /parms/ folder. Once you are happy with your configuration you can hit "set config" which will initialize the application, and then "start run" which will start the stimuli.
+</p>
+<h2><span class="mw-headline" id="API">API</span></h2>
+<h4><span class="mw-headline" id="Parameters">Parameters</span></h4>
+<p>self.params is a dictionary of parameters, indexed by parameter name. Parameter values are stored as strings, or as lists of strings (for list parameters) or nested lists of strings (for matrix parameters). Numeric values can be obtained by the appropriate call to int or float -- for example:
+ch_ind = map(int, self.params['TransmitChList'])
+</p>
+<h4><span class="mw-headline" id="States">States</span></h4>
+<p>self.states is a dictionary of the current values of the BCI2000 state variables, indexed by name and returning values of type int.
+</p>
+<h2><span class="mw-headline" id="Hooks">Hooks</span></h2>
+<p>These are the methods of a framework object which you can override when you implement a subclass. The framework then calls these methods automatically at the appropriate times. Hooks are identifiable by their initial character being capitalized. They also comprise many of the definitions which you will build on in your own application/ source implementation. default implementations exist for all of these hooks and do nothing by default. This is where you customize the functionality of your modules.
+</p>
+<h4><span class="mw-headline" id="Description">Description</span></h4>
+<p>This is simply there for you to give a short description of what the application is. 
+</p>
+<h4><span class="mw-headline" id="Construct">Construct</span></h4>
+<p>The construct defines all of the parameters and states which you want to record and store for your application. Parameters are the things which comprise our application’s functionality. States are essentially event markers. Each state reflects important events during our real-time system operation and are saved to the data file with each associated sample. 
+</p>
+<h4><span class="mw-headline" id="Preflight">Preflight</span></h4>
+<p>Here we set up our screen with which we will later create our visual stimuli on. We also specify things like our screen size, screen ID, and instantiate the actual screen. This is called when "Set Config" is pressed.
+</p>
+<h4><span class="mw-headline" id="Initialize">Initialize</span></h4>
+<p>This is where we set up stimuli. First we import psychopy and the BCPy2000/Psychopy renderer. This is important to import here so that openGL, which is how psychopy renders stimuli, is executed in the correct thread. We also draw any stimuli(visual, and auditory) and then register all of those stimuli in this definition. We also can add state monitors here which allow for us to have the option for developers to ensure that the application is doing what they want it to do. Developers can use these statemonitors to check a myriad of internal components (states) such as the current block of data that is being written, the current trial, the samples per second, and the frames per second. 
+</p>
+<h4><span class="mw-headline" id="StartRun">StartRun</span></h4>
+<p>This starts the visual stimulus and is called when the "Start" or "Resume" button is pressed. This is where you want to set your stimuli's on state to true.
+</p>
+<h4><span class="mw-headline" id="Phases">Phases</span></h4>
+<p>This is where we define phases using calls to self.phase and self.design. These phases correspond to the states which we set up in the constructor definition. Here we can set the duration and name of each phase as well as what the next phase is supposed to be. 
+</p>
+<h4><span class="mw-headline" id="Transition">Transition</span></h4>
+<p>This presents stimuli and updates state variables to record what is going on.
+</p>
+<h4><span class="mw-headline" id="Processing">Processing</span></h4>
+<p>This processes each new signal packet. Which will be recorded in the experiment’s data file. 
+</p>
+<h4><span class="mw-headline" id="StopRun">StopRun</span></h4>
+<p>This is called when we either close the application or reconfigure it. This is where you set all of your states to their off state.
+</p>
+<h2><span class="mw-headline" id="References">References</span></h2>
+<p>1. <a rel="nofollow" class="external text" href="http://bci2000.org/downloads/BCPy2000/BCPy2000.html">BCPy20000 Python 2.7 implementation</a>
+2. <a rel="nofollow" class="external text" href="https://www.psychopy.org/">PsychoPy Website</a>
+3. <a rel="nofollow" class="external text" href="https://numpy.org">NumPy Website</a>
+4. <a rel="nofollow" class="external text" href="https://www.scipy.org">SciPy Website</a>
+</p>
+<h2><span class="mw-headline" id="See_Also">See Also</span></h2>
+<ul><li><a href="Programming_Howto%253ABuilding_BCI2000.html" title="Programming Howto:Building BCI2000">Programming_Howto:Building_BCI2000</a></li>
+<li><a href="Programming_Howto%253ABuilding_and_Customizing_BCI2000.html" title="Programming Howto:Building and Customizing BCI2000">Programming_Howto:Building_and_Customizing_BCI2000</a></li></ul>
+<!-- 
+NewPP limit report
+Cached time: 20230524000336
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.024 seconds
+Real time usage: 0.028 seconds
+Preprocessor visited node count: 85/1000000
+Post‐expand include size: 15/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 686/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2323-0!canonical and timestamp 20230524000336 and revision id 10168
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=BCPy2000&amp;oldid=10168">http://www.bci2000.org/mediawiki/index.php?title=BCPy2000&amp;oldid=10168</a>"</div>
+ </div>
+</body>
+</html>

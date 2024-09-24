@@ -1,0 +1,35 @@
+###########################################################################
+## $Id: CMakeLists.txt 8173 2024-06-01 14:30:21Z mellinger $
+## Authors: juergen.mellinger@uni-tuebingen.de
+## Description: Build information for P300Classifier
+
+BCI2000_INCLUDE( SWLDA )
+set(SOURCES
+  main.cpp 
+  CARfilter.cpp
+  CDataFile.cpp
+  CmdLine.cpp
+  configdialog.cpp
+  configdialog.qrc
+  downsampling.cpp
+  filter.cpp
+  GetP3Responses.cpp
+  GetScore.cpp
+  load_bcidat.cpp
+  P300_Classify.cpp
+  pages.cpp
+  ReadIniParameters.cpp
+  StimulusPresentation_Classify.cpp
+  SWLDA.cpp
+  WritePrm.cpp
+)
+if(APPLE)
+  list(APPEND SOURCES
+    Info.plist
+  )
+endif()
+
+BCI2000_ADD_TOOLS_GUIAPP( 
+  P300Classifier
+  ${SOURCES}
+)

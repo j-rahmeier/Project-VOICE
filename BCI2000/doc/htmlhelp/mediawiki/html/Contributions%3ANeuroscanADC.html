@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:NeuroscanADC - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">NeuroscanADC</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Contributions%253ANeuroscanADC.html#Synopsis"><span class="tocnumber">1</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Contributions%253ANeuroscanADC.html#Location"><span class="tocnumber">2</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Contributions%253ANeuroscanADC.html#Versioning"><span class="tocnumber">3</span> <span class="toctext">Versioning</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Contributions%253ANeuroscanADC.html#Author"><span class="tocnumber">3.1</span> <span class="toctext">Author</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Contributions%253ANeuroscanADC.html#Version_History"><span class="tocnumber">3.2</span> <span class="toctext">Version History</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Contributions%253ANeuroscanADC.html#Source_Code_Revisions"><span class="tocnumber">3.3</span> <span class="toctext">Source Code Revisions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="Contributions%253ANeuroscanADC.html#Functional_Description"><span class="tocnumber">4</span> <span class="toctext">Functional Description</span></a>
+<ul>
+<li class="toclevel-2 tocsection-8"><a href="Contributions%253ANeuroscanADC.html#Neuroscan_Source_Module"><span class="tocnumber">4.1</span> <span class="toctext">Neuroscan Source Module</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="Contributions%253ANeuroscanADC.html#Undocumented_Communication"><span class="tocnumber">4.2</span> <span class="toctext">Undocumented Communication</span></a>
+<ul>
+<li class="toclevel-3 tocsection-10"><a href="Contributions%253ANeuroscanADC.html#Request_Basic_Information"><span class="tocnumber">4.2.1</span> <span class="toctext">Request Basic Information</span></a></li>
+<li class="toclevel-3 tocsection-11"><a href="Contributions%253ANeuroscanADC.html#Receive_16-bit_Data_Packet"><span class="tocnumber">4.2.2</span> <span class="toctext">Receive 16-bit Data Packet</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="Contributions%253ANeuroscanADC.html#Parameters"><span class="tocnumber">5</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-13"><a href="Contributions%253ANeuroscanADC.html#ServerAddress"><span class="tocnumber">5.1</span> <span class="toctext">ServerAddress</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-14"><a href="Contributions%253ANeuroscanADC.html#States"><span class="tocnumber">6</span> <span class="toctext">States</span></a>
+<ul>
+<li class="toclevel-2 tocsection-15"><a href="Contributions%253ANeuroscanADC.html#NeuroscanEvent1"><span class="tocnumber">6.1</span> <span class="toctext">NeuroscanEvent1</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-16"><a href="Contributions%253ANeuroscanADC.html#The_neurogetparams_Command_Line_Tool"><span class="tocnumber">7</span> <span class="toctext">The neurogetparams Command Line Tool</span></a></li>
+<li class="toclevel-1 tocsection-17"><a href="Contributions%253ANeuroscanADC.html#See_also"><span class="tocnumber">8</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>The <i>NeuroscanADC</i> component implements the client side of the TCP/IP-based Neuroscan Acquire protocol. Thus, it may be used to interface BCI2000 with Neuroscan EEG systems.
+</p>
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><a rel="nofollow" class="external free" href="http://www.bci2000.org/svn/trunk/src/contrib/SignalSource/Neuroscan">http://www.bci2000.org/svn/trunk/src/contrib/SignalSource/Neuroscan</a>
+</p><p>In recent versions of BCI2000, the executable for this source module is called <i>NeuroscanClient</i>. Earlier, it was called <i>Neuroscan</i>.
+</p>
+<h2><span class="mw-headline" id="Versioning">Versioning</span></h2>
+<h3><span class="mw-headline" id="Author">Author</span></h3>
+<p>Gerwin Schalk, (c) 2004 Wadsworth Center, New York State Department of Health.
+</p>
+<h3><span class="mw-headline" id="Version_History">Version History</span></h3>
+<ul><li>V1.00 - 04/28/2004 - First working version</li>
+<li>V1.10 - 05/17/2004 - Now includes support for 32bit data</li></ul>
+<h3><span class="mw-headline" id="Source_Code_Revisions">Source Code Revisions</span></h3>
+<ul><li>Initial development: 268</li>
+<li>Tested under: 1110</li>
+<li>Known to compile under: 1528</li>
+<li>Broken since: --</li></ul>
+<h2><span class="mw-headline" id="Functional_Description">Functional Description</span></h2>
+<p><b>NuAmps/SynAmps</b> are EEG recording systems from Neuroscan, Inc., that are 
+widely used in clinical settings. The increasing use of BCI2000 in those 
+environments created the need for Neuroscan support in BCI2000. This page 
+describes this support that consists of two components: A BCI2000-compatible 
+Source Module (<tt>NeuroscanClient.exe</tt>) and a command-line tool 
+(<tt>neurogetparams</tt>). These components are described below and have been 
+tested with <b>Neuroscan Acquire</b> version 4.3.1.
+</p>
+<h3><span class="mw-headline" id="Neuroscan_Source_Module">Neuroscan Source Module</span></h3>
+<p>The BCI2000-compatible Source Module <tt>NeuroscanClient.exe</tt> can be used instead 
+of any other source module. In addition to standard parameters (i.e. 
+<i>SampleBlockSize,</i> <i>SamplingRate,</i> <i>SourceCh</i>), it only 
+requests one Neuroscan-specific parameter <i>(ServerAddress)</i> that defines 
+the IP address (or host name) and the port number of the <i>Acquire</i> server. 
+An example for an appropriate definition is <tt>localhost:3999</tt>. Before 
+starting BCI2000, you need to start <b>Acquire,</b> click on the <b>S</b> symbol 
+in the top right corner (to enable the server) and start the server on any port. 
+Please note that by default, <b>Acquire</b> suggests port 4000, which is a port 
+used by BCI2000. You might use port 3999 instead. Once the server is running, 
+you can start BCI2000. It is imperative that certain parameters (e.g., the 
+number of channels) in BCI2000 match the settings in <b>Acquire.</b> You can 
+read these settings from <b>Acquire</b> using the command line tool described in 
+the following section. This command line tool can create a parameter file 
+fragment that needs to be loaded on top of an existing parameter file every time 
+a setting in <b>Acquire</b> is changed.
+</p>
+<h3><span class="mw-headline" id="Undocumented_Communication">Undocumented Communication</span></h3>
+<p><b>Neuroscan Acquire</b> supports communication options that are not documented 
+in the <tt>NetAcquire.doc</tt> document. BCI2000 needs to use two of them, the 
+request for basic Neuroscan configuration information (which will return 
+information such as the number of channels and the sampling rate) and the 
+receipt of packets of data, to function properly. They are listed below:
+</p>
+<table border="1">
+<tbody><tr>
+<th>Packet ID</th>
+<th>Code</th>
+<th>Request</th>
+<th>Body Size
+</th></tr>
+<tr>
+<td>"CTRL"</td>
+<td>3 (Client Ctrl Code)</td>
+<td>5 (Req Basic Info)</td>
+<td>0
+</td></tr>
+<tr>
+<td>"DATA"</td>
+<td>1 (Datatype Info)</td>
+<td>3 (InfoType BasicInfo)</td>
+<td>bodyLen
+</td></tr>
+<tr>
+<td>"DATA"</td>
+<td>2 (EEG Data)</td>
+<td>1 (Raw 16-bit)</td>
+<td>bodyLen
+</td></tr></tbody></table>
+<h4><span class="mw-headline" id="Request_Basic_Information">Request Basic Information</span></h4>
+<p>The client sends a request for basic information ("CTRL", Client Ctrl Code, Req 
+Basic Info). The server responds by sending a data block ("DATA", Datatype Info, 
+InfoType BasicInfo) that contains a data structure describing the current 
+configuration of data acquisition in Acquire. This data structure is as follows:
+</p>
+<pre>struct AcqBasicInfo
+ {
+ DWORD dwSize;      // Size of structure, used for version control
+ int   nEegChan;    // Number of EEG channels
+ int   nEvtChan;    // Number of event channels
+ int   nBlockPnts;  // Samples in block
+ int   nRate;       // Sampling rate (in Hz)
+ int   nDataSize;   // 2 for "short", 4 for "int" type of data
+ float fResolution; // Resolution for LSB
+ };
+</pre>
+<p>The first element, dwSize, can and should be cross checked with the length of 
+the structure <b>AcqBasicInfo</b> and must match.
+</p>
+<h4><span class="mw-headline" id="Receive_16-bit_Data_Packet">Receive 16-bit Data Packet</span></h4>
+<p>The client may send a <b>Request to Start Sending Data</b> to the Acquire server 
+(as described in the <tt>NetAcquire.doc</tt> document). This will prompt the 
+server to start sending blocks of raw signal values. In order to interpret these 
+signal values, the client must first have sent a <b>Request for Basic Information,</b> as described above. The incoming data packets ("DATA", EEG Data, 
+Raw 16-bit) can then be interpreted using this information and the code below.
+</p>
+<pre>// make sure the body has the right length
+assert((int)(pMsg-&gt;m_dwSize) == 
+              (int)(m_BasicInfo.nEegChan+m_BasicInfo.nEvtChan)
+              *m_BasicInfo.nBlockPnts*m_BasicInfo.nDataSize);
+// process raw 16 bit data
+for (int samp=0; samp&lt;m_BasicInfo.nBlockPnts; samp++)
+ {
+ for (int ch=0; ch&lt;m_BasicInfo.nEegChan+m_BasicInfo.nEvtChan; ch++)
+  {
+  short *sample=(short *)pMsg-&gt;m_pBody;
+  printf("%d ", sample[samp*(m_BasicInfo.nEegChan+m_BasicInfo.nEvtChan)+ch]);
+  }
+ }
+</pre>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<h3><span class="mw-headline" id="ServerAddress">ServerAddress</span></h3>
+<p>Address and port of the Neuroscan Acquire server, given in <tt>address:port</tt> format.
+</p>
+<h2><span class="mw-headline" id="States">States</span></h2>
+<h3><span class="mw-headline" id="NeuroscanEvent1">NeuroscanEvent1</span></h3>
+<p>An 8-bit state that encodes event information as sent over the Neuroscan Acquire protocol.
+</p>
+<h2><span class="mw-headline" id="The_neurogetparams_Command_Line_Tool">The <tt>neurogetparams</tt> Command Line Tool</span></h2>
+<p>This command line tool reads system settings from the <b>Neuroscan Acquire</b>
+server, displays them on a screen and creates a BCI2000 parameter file fragment 
+if desired. It can be used as follows: <tt>neurogetparams -address 
+localhost:3999 -paramfile test.prm</tt>. (The <b>Acquire</b> server has to be 
+enabled before using this tool.) Once BCI2000 is configured correctly, this 
+parameter file fragment needs to be loaded on top of the existing configuration 
+to make sure that the settings match. You only need to repeat this procedure if 
+you change settings in <b>Acquire</b> (e.g., such as the number of channels or 
+the amplification).
+</p>
+<pre>BCI2000 Parameter Tool for Neuroscan Acquire V4.3
+*******************************************************************
+(C)2004 Gerwin Schalk and Juergen Mellinger
+        Wadsworth Center, New York State Dept of Health, Albany, NY
+        Eberhardt-Karls University of Tuebingen, Germany
+*******************************************************************
+Signal Channels: 32
+Event Channels:  1
+Block Size:      40
+Sampling Rate:   1000
+Bits/Sample:     16
+Resolution:      0.168uV/LSB
+Parameter file test.prm successfully written
+</pre>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Reference%253AFilters.html" title="User Reference:Filters">User Reference:Filters</a>, <a href="Contributions%253AADCs.html" title="Contributions:ADCs">Contributions:ADCs</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524175505
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.019 seconds
+Real time usage: 0.022 seconds
+Preprocessor visited node count: 68/1000000
+Post‐expand include size: 15/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 1438/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1649-0!canonical and timestamp 20230524175505 and revision id 6039
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:NeuroscanADC&amp;oldid=6039">http://www.bci2000.org/mediawiki/index.php?title=Contributions:NeuroscanADC&amp;oldid=6039</a>"</div>
+ </div>
+</body>
+</html>

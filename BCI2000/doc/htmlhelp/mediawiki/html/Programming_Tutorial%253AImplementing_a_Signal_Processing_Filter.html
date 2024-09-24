@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Programming Tutorial:Implementing a Signal Processing Filter - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul><li class="toc1">Concepts</li><ul><li class="toc2"><a href="Programming_Reference%253AFilter_Chain.html">Filter Chain</a></li><li class="toc2"><a href="Programming_Reference%253ASignals.html">Signals</a></li><li class="toc2"><a href="Programming_Reference%253AError_Handling.html">Error Handling</a></li><li class="toc2"><a href="Programming_Reference%253ALocalization.html">Localization</a></li><li class="toc2"><a href="Programming_Reference%253ARapid_Development.html">Rapid Development</a></li></ul><li class="toc1">Reference</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFilter_Class.html">GenericFilter</a></li><li class="toc2"><a href="Programming_Reference%253AEnvironment_Class.html">Environment</a></li><li class="toc2"><a href="Programming_Reference%253AGenericVisualization_Class.html">GenericVisualization</a></li><li class="toc2"><a href="Programming_Reference%253AErrors_and_Warnings.html">Errors and Warnings</a></li><li class="toc2"><a href="Programming_Reference%253ADebug_Output.html">Debug Output</a></li></ul><li class="toc1">Data Acquisition</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericADC_Class.html">GenericADC</a></li></ul><li class="toc1">Data Storage</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFileWriter_Class.html">GenericFileWriter</a></li><li class="toc2"><a href="Programming_Reference%253ABCI2000FileReader_Class.html">BCI2000FileReader</a></li></ul><li class="toc1">Signal Processing</li><ul><li class="toc2"><a href="Programming_Reference%253AIIRFilterBase_Class.html">IIR Filters</a></li></ul><li class="toc1">Application Modules</li><ul><li class="toc2"><a href="Programming_Reference%253AApplicationBase_Class.html">ApplicationBase</a></li><li class="toc2"><a href="Programming_Reference%253AFeedbackTask_Class.html">FeedbackTask</a></li><li class="toc2"><a href="Programming_Reference%253AStimulusTask_Class.html">StimulusTask</a></li><li class="toc2"><a href="Programming_Reference%253A3D_API.html">3D API</a></li></ul><li class="toc1">Howtos</li><ul><li class="toc2"><a href="Programming_Howto%253ABuilding_BCI2000.html">Building BCI2000</a></li><li class="toc2"><a href="Programming_Howto%253ASVN_Client_Setup.html">SVN Client Setup</a></li><li class="toc2"><a href="Programming_Howto%253AUsing_TortoiseSVN.html">Using TortoiseSVN</a></li></ul><li class="toc1"><a href="Programming_FAQ.html">FAQ</a></li><li class="toc1">Tutorials</li><ul><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html">Data Acquisition</a></li><li class="toc2">Signal Processing</li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html">Matlab Signal Processing</a></li></ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">Implementing a Signal Processing Filter</h1>
+ <p class = "subtitle">Programming Tutorial</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>This tutorial shows you how to derive a new filter class from
+<tt>GenericFilter</tt>, how to check preconditions, initialize your
+filter,
+and process data.
+It will also show you how to visualize the output signal of the filter and present it
+to the operator user.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html#A_simple_low_pass_filter"><span class="tocnumber">1</span> <span class="toctext">A simple low pass filter</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html#The_filter_skeleton"><span class="tocnumber">2</span> <span class="toctext">The filter skeleton</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html#The_Process_function"><span class="tocnumber">3</span> <span class="toctext">The Process function</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html#The_Initialize_member_function"><span class="tocnumber">4</span> <span class="toctext">The Initialize member function</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html#The_Preflight_function"><span class="tocnumber">5</span> <span class="toctext">The Preflight function</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html#Constructor_and_destructor"><span class="tocnumber">6</span> <span class="toctext">Constructor and destructor</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html#Filter_instantiation"><span class="tocnumber">7</span> <span class="toctext">Filter instantiation</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html#Visualizing_filter_output"><span class="tocnumber">8</span> <span class="toctext">Visualizing filter output</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="A_simple_low_pass_filter">A simple low pass filter</span></h2>
+<p>We want to implement a low pass filter with a time constant <img class="mwe-math-fallback-image-inline tex" alt="T" src="../images/math/b/9/e/b9ece18c950afbfa6b0fdbfa4ff731d3.png" /> (given
+in units
+of a sample's duration), a sequence <img class="mwe-math-fallback-image-inline tex" alt="S_{in,t}" src="../images/math/8/9/6/896a9779d349753d7d1e2d35e8102599.png" /> as input and a sequence
+<img class="mwe-math-fallback-image-inline tex" alt="S_{out,t}" src="../images/math/f/a/0/fa0c42070441d10ec4910c6441897da4.png" /> as output (where <img class="mwe-math-fallback-image-inline tex" alt="t" src="../images/math/e/3/5/e358efa489f58062f10dd7316b65649e.png" /> is a sample index proportional to
+time), and obeying
+</p><p><img class="mwe-math-fallback-image-inline tex" alt="S_{out, 0} = \left( 1-e^{-1/T} \right) S_{in, 0}" src="../images/math/1/d/5/1d564e55e1728a923c4d0d68771f1981.png" />
+</p><p><img class="mwe-math-fallback-image-inline tex" alt="S_{out, t} = e^{-1/T} S_{out, t-1} + \left( 1-e^{-1/T} \right) S_{in, t}" src="../images/math/7/a/6/7a6ae41336b7027a5a237bbdeaf9517e.png" />
+</p>
+<h2><span class="mw-headline" id="The_filter_skeleton">The filter skeleton</span></h2>
+<p>The resulting filter class is to be called <tt>LPFilter</tt>.
+We create two new files, <tt>LPFilter.h</tt>, and
+<tt>LPFilter.cpp</tt>,
+and put a minimal filter declaration into <tt>LPFilter.h</tt>:
+</p>
+<pre>#ifndef LP_FILTER_H
+#define LP_FILTER_H
+
+#include "GenericFilter.h"
+
+class LPFilter&#160;: public GenericFilter
+{
+ public:
+   LPFilter();
+   ~LPFilter();
+
+   void Preflight( const SignalProperties&amp;, SignalProperties&amp; ) const override;
+   void Initialize( const SignalProperties&amp;, const SignalProperties&amp; ) override;
+   void Process( const GenericSignal&amp;, GenericSignal&amp; ) override;
+};
+#endif // LP_FILTER_H
+</pre>
+<p>Into <tt>LPFilter.cpp</tt> we put the lines
+</p>
+<pre>#include "LPFilter.h"
+
+#include "MeasurementUnits.h"
+#include "BCIError.h"
+#include &lt;vector&gt;
+#include &lt;cmath&gt;
+</pre>
+<h2><span class="mw-headline" id="The_Process_function">The <tt>Process</tt> function</span></h2>
+<p>When implementing a filter, a good strategy is to begin with the
+<tt>Process</tt>
+function, and to consider the remaining class member functions mere
+helpers, mainly
+determined by the code of <tt>Process</tt>.
+So we convert the filter prescription into the <tt>Process</tt>
+code, introducing member variables <i>ad hoc</i>, ignoring possible error
+conditions, and postponing efficiency considerations:
+</p>
+<pre>void LPFilter::Process( const GenericSignal&amp; Input, GenericSignal&amp; Output )
+{
+  // This implements the prescription's second line for all channels:
+  for( int channel = 0; channel &lt; Input.Channels(); ++channel )
+  {
+    for( int sample = 0; sample &lt; Input.Elements(); ++sample )
+    {
+      mPreviousOutput[ channel ] *= mDecayFactor;
+      mPreviousOutput[ channel ] +=
+           Input( channel, sample ) * ( 1.0 - mDecayFactor );
+      Output( channel, sample ) = mPreviousOutput[ channel ];
+    }
+  }
+}
+</pre>
+<h2><span class="mw-headline" id="The_Initialize_member_function">The <tt>Initialize</tt> member function</span></h2>
+<p>As you will notice when comparing <tt>Process</tt> to the equations above, we introduced member variables representing these sub-expressions:
+</p><p><img class="mwe-math-fallback-image-inline tex" alt="\texttt{mPreviousOutput[ ]}= S_{out, t-1}" src="../images/math/8/f/a/8fa978d83f2eaa22092c266e8fd9a2e3.png" />
+</p><p><img class="mwe-math-fallback-image-inline tex" alt="\texttt{mDecayFactor} = e^{-1/T}" src="../images/math/4/4/b/44b8025ec8d1528e9a29634949a2ad6d.png" />
+</p><p>We introduce these members into the class declaration, adding the
+following lines
+after the <tt>Process</tt> declaration:
+</p>
+<pre>  private:
+    double              mDecayFactor;
+    std::vector&lt;double&gt; mPreviousOutput;
+</pre>
+<p>The next step is to initialize these member variables, introducing
+filter
+parameters as needed. This is done in the <tt>Initialize</tt> member
+function --
+we write it down without considering possible error conditions:
+</p>
+<pre>void LPFilter::Initialize( const SignalProperties&amp; Input,
+                           const SignalProperties&amp; Output )
+{
+  // This will initialize all elements with 0,
+  // implementing the first line of the filter prescription:
+  mPreviousOutput.clear();
+  mPreviousOutput.resize( Input.Channels(), 0 );
+
+  double timeConstant = Parameter( "LPTimeConstant" );
+  mDecayFactor =&#160;::exp( -1.0 / timeConstant );
+}
+</pre>
+<p>Now this version is quite inconvenient for a user going to configure our filter
+-- the time constant is given in units of a sample's duration, resulting in a
+need to re-configure each time the sampling rate is changed.
+A better idea is to let the user choose whether to give the
+time constant in seconds or in sample blocks. 
+To achieve this, there is a utility class <tt>MeasurementUnits</tt>
+that has
+a member <tt>ReadAsTime()</tt>, returning values in units of sample
+blocks which
+is the natural time unit in a BCI2000 system.
+Writing a number followed by an "s" will allow the user to specify a
+time value in
+seconds; writing a number without the "s" will be interpreted as sample blocks.
+Thus, our user friendly version of <tt>Initialize</tt> reads
+</p>
+<pre>void LPFilter::Initialize( const SignalProperties&amp;, const SignalProperties&amp; )
+{
+  mPreviousOutput.clear();
+  mPreviousOutput.resize( Input.Channels(), 0 );
+  // Get the time constant in units of a sample block's duration:
+  double timeConstant = MeasurementUnits::ReadAsTime( Parameter( "LPTimeConstant" ) );
+  // Convert it into units of a sample's duration:
+  timeConstant *= Parameter( "SampleBlockSize" );
+  mDecayFactor =&#160;::exp( -1.0 / timeConstant );
+}
+</pre>
+<h2><span class="mw-headline" id="The_Preflight_function">The <tt>Preflight</tt> function</span></h2>
+<p>Up to now, we have not considered any error conditions that might occur
+during
+execution of our filter code. Scanning through the <tt>Process</tt>
+and
+<tt>Initialize</tt> code, we identify a number of implicit
+assumptions:
+</p>
+<ol><li>The time constant is not zero -- otherwise, a division by zero will occur.</li>
+<li>The time constant is not negative -- otherwise, the output signal is no longer guaranteed to be finite, and a numeric overflow may occur.</li>
+<li>The output signal is assumed to hold at least as much data as the input signal contains.</li></ol>
+<p>The first two assumptions may be violated if a user enters an illegal
+value into the LPTimeConstant parameter; we need to make sure that an
+error
+is reported, and no code is executed that depends on these two
+assumptions.
+For the last assumption, we request an appropriate output signal from
+the
+<tt>Preflight</tt> function. Thus, the <tt>Preflight</tt> code reads
+</p>
+<pre>void LPFilter::Preflight( const SignalProperties&amp; Input,
+                                SignalProperties&amp; Output ) const
+{
+  double LPTimeConstant = MeasurementUnits::ReadAsTime( Parameter( "LPTimeConstant" ) );
+  LPTimeConstant *= Parameter( "SampleBlockSize" );
+  // The PreflightCondition macro will automatically generate an error
+  // message if its argument evaluates to false.
+  // However, we need to make sure that its argument is user-readable
+  // -- this is why we chose a variable name that matches the parameter
+  // name.
+  PreflightCondition( LPTimeConstant &gt; 0 );
+  // Alternatively, we might write:
+  if( LPTimeConstant &lt;= 0 )
+    bcierr &lt;&lt; "The LPTimeConstant parameter must be greater 0";
+
+  // Request output signal properties:
+  Output = Input;
+}
+</pre>
+<h2><span class="mw-headline" id="Constructor_and_destructor">Constructor and destructor</span></h2>
+<p>Because we do not explicitly acquire resources, nor perform
+asynchronous
+operations, there is nothing to be done inside the <tt>LPFilter</tt>
+<i>destructor</i> .
+Our <i>constructor</i>  will contain initializers for the members we
+declared,
+and a BCI2000 parameter definition for LPTimeConstant. Specifying the empty string for both low and high range tells the framework not to perform an automatic range check on that parameter.
+</p>
+<pre>LPFilter::LPFilter()
+: mDecayFactor( 0 ),
+  mPreviousOutput( 0 )
+{
+  BEGIN_PARAMETER_DEFINITIONS
+    "Filtering float LPTimeConstant= 16s"
+      " 16s&#160;%&#160;% // time constant for the low pass filter in blocks or seconds",
+  END_PARAMETER_DEFINITIONS
+}
+
+LPFilter::~LPFilter()
+{
+}
+</pre>
+<h2><span class="mw-headline" id="Filter_instantiation">Filter instantiation</span></h2>
+<p>To have our filter instantiated in a signal processing module, we add
+a line
+containing a <tt>Filter</tt> statement to the module's
+<tt>PipeDefinition.cpp</tt>.
+This statement expects a string parameter which is used to determine
+the filter's
+position in the filter chain.
+If we want to use the filter in the AR Signal Processing module, and
+place it after
+the <tt>SpatialFilter</tt>, we add
+</p>
+<pre>#include "LPFilter.h"
+...
+Filter( LPFilter, 2.B1 );
+</pre>
+<p>to the file <tt>SignalProcessing/AR/PipeDefinition.cpp</tt>.
+Now, if we compile and link the AR Signal Processing module, we get an
+"unresolved
+external" linker error that reminds us to add our
+<tt>LPFilter.cpp</tt> to that module's project.
+</p>
+<h2><span class="mw-headline" id="Visualizing_filter_output">Visualizing filter output</span></h2>
+<p>Once our filter has been added to the filter chain, the BCI2000 framework will automatically create a parameter <i>VisualizeLPFilter</i> that is accessible under <i>Visualize-&gt;Processing Stages</i> in the operator module's configuration dialog. This parameter allows the user to view the <i>LPfilter's</i> output signal in a visualization window. In most cases, this visualization approach is sufficient. For the sake of this tutorial, however, we will disable automatic visualization, and implement our own signal visualization.
+</p><p>To disable automatic visualization, we override the <tt>GenericFilter::AllowsVisualization()</tt> member function to return <tt>false</tt>.
+In addition, to present the LPFilter's output signal in an operator window, we introduce a member of type
+<tt>GenericVisualization</tt>
+into our filter class, adding
+</p>
+<pre>#include "GenericVisualization.h"
+...
+class LPFilter&#160;: public GenericFilter
+{
+  public:
+...
+    bool AllowsVisualization() const override { return false; }
+
+  private:
+...
+    GenericVisualization  mSignalVis;
+};
+...
+</pre>
+<p><tt>GenericVisualization</tt>'s constructor takes a string-valued
+visualization
+ID as a parameter; we need to get a unique ID in order to get our data
+routed
+to the correct operator window. Given the circumstances, a string consisting of the letters "LPFLT" appears unique enough, so we
+change the <tt>LPFilter</tt> constructor to read
+</p>
+<pre>LPFilter::LPFilter()
+: mDecayFactor( 0 ),
+  mPreviousOutput( 0 ),
+  mSignalVis( "LPFLT" )
+{
+  BEGIN_PARAMETER_DEFINITIONS
+    "Filtering float LPTimeConstant= 16s"
+      " 16s&#160;%&#160;% // time constant for the low pass filter in blocks or seconds",
+    "Visualize int VisualizeLowPass= 1"
+      " 1 0 1 // visualize low pass output signal (0=no, 1=yes)",
+  END_PARAMETER_DEFINITIONS
+}
+</pre>
+<p>In <tt>Initialize</tt>, we add
+</p>
+<pre>  mSignalVis.Send( CfgID::WindowTitle, "Low Pass" );
+  mSignalVis.Send( CfgID::GraphType, CfgID::Polyline );
+  mSignalVis.Send( CfgID::NumSamples, 2 * Parameter( "SamplingRate" ) );
+</pre>
+<p>Finally, to update the display in regular intervals, we add the
+following at the
+end of <tt>Process</tt>:
+</p>
+<pre>  if( Parameter( "VisualizeLowPass" ) == 1 )
+    mSignalVis.Send( Output );
+</pre>
+<p>We might also send data to the already existing task log memo window,
+adding
+another member
+</p>
+<pre>  GenericVisualization  mTaskLogVis;
+</pre>
+<p>initializing it with
+</p>
+<pre>LPFilter::LPFilter()
+: ...
+  mTaskLogVis( SourceID::TaskLog )
+{
+ ...
+}
+</pre>
+<p>and, from inside <tt>Process</tt>, writing some text to it as in
+</p>
+<pre>  if( output( 0, 0 ) &gt; 10 )
+  {
+    mTaskLogVis &lt;&lt; "LPFilter: (0,0) entry of output exceeds 10 and is "
+                &lt;&lt; output( 0, 0 )
+                &lt;&lt; std::endl;
+  }
+</pre>
+<!-- 
+NewPP limit report
+Cached time: 20230524084442
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.021 seconds
+Real time usage: 0.025 seconds
+Preprocessor visited node count: 130/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 5703/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1451-0!canonical!math=0 and timestamp 20230524084442 and revision id 9246
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Programming_Tutorial:Implementing_a_Signal_Processing_Filter&amp;oldid=9246">http://www.bci2000.org/mediawiki/index.php?title=Programming_Tutorial:Implementing_a_Signal_Processing_Filter&amp;oldid=9246</a>"</div>
+ </div>
+</body>
+</html>

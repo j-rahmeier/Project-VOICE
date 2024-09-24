@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:MicRecorderFilter - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">MicRecorderFilter</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Contributions%253AMicRecorderFilter.html#Synopsis"><span class="tocnumber">1</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Contributions%253AMicRecorderFilter.html#Location"><span class="tocnumber">2</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Contributions%253AMicRecorderFilter.html#Versioning"><span class="tocnumber">3</span> <span class="toctext">Versioning</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Contributions%253AMicRecorderFilter.html#Author"><span class="tocnumber">3.1</span> <span class="toctext">Author</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Contributions%253AMicRecorderFilter.html#Version_History"><span class="tocnumber">3.2</span> <span class="toctext">Version History</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Contributions%253AMicRecorderFilter.html#Source_Code_Revisions"><span class="tocnumber">3.3</span> <span class="toctext">Source Code Revisions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="Contributions%253AMicRecorderFilter.html#Platform_Limitations"><span class="tocnumber">4</span> <span class="toctext">Platform Limitations</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="Contributions%253AMicRecorderFilter.html#Functional_Description"><span class="tocnumber">5</span> <span class="toctext">Functional Description</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="Contributions%253AMicRecorderFilter.html#Supported_Microphones"><span class="tocnumber">6</span> <span class="toctext">Supported Microphones</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="Contributions%253AMicRecorderFilter.html#Integration_into_BCI2000"><span class="tocnumber">7</span> <span class="toctext">Integration into BCI2000</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="Contributions%253AMicRecorderFilter.html#Parameters"><span class="tocnumber">8</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-12"><a href="Contributions%253AMicRecorderFilter.html#RecordMic"><span class="tocnumber">8.1</span> <span class="toctext">RecordMic</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="Contributions%253AMicRecorderFilter.html#MicName"><span class="tocnumber">8.2</span> <span class="toctext">MicName</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="Contributions%253AMicRecorderFilter.html#MicRecordingFre"><span class="tocnumber">8.3</span> <span class="toctext">MicRecordingFre</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="Contributions%253AMicRecorderFilter.html#MicBitDepth"><span class="tocnumber">8.4</span> <span class="toctext">MicBitDepth</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="Contributions%253AMicRecorderFilter.html#MicNumChannels"><span class="tocnumber">8.5</span> <span class="toctext">MicNumChannels</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="Contributions%253AMicRecorderFilter.html#MicDebugInfo"><span class="tocnumber">8.6</span> <span class="toctext">MicDebugInfo</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-18"><a href="Contributions%253AMicRecorderFilter.html#State_Variables"><span class="tocnumber">9</span> <span class="toctext">State Variables</span></a></li>
+<li class="toclevel-1 tocsection-19"><a href="Contributions%253AMicRecorderFilter.html#See_also"><span class="tocnumber">10</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>A filter that leverages hardware acceleration to record from a time-locked microphone at high frequency and is saved as a ".wav" file alongside the ".dat" file generated..
+</p>
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><a rel="nofollow" class="external free" href="http://www.bci2000.org/svn/trunk/src/contrib/Application/MicRecorder">http://www.bci2000.org/svn/trunk/src/contrib/Application/MicRecorder</a>
+</p>
+<h2><span class="mw-headline" id="Versioning">Versioning</span></h2>
+<h3><span class="mw-headline" id="Author">Author</span></h3>
+<p>Tim Blakely (tim.blakely@gmail.com).
+</p>
+<h3><span class="mw-headline" id="Version_History">Version History</span></h3>
+<p>09/16/2010: Initial version; 
+</p>
+<h3><span class="mw-headline" id="Source_Code_Revisions">Source Code Revisions</span></h3>
+<ul><li>Initial development: 2945</li>
+<li>Tested under: 2946</li>
+<li>Known to compile under: 2946</li>
+<li>Broken since: --</li></ul>
+<h2><span class="mw-headline" id="Platform_Limitations">Platform Limitations</span></h2>
+<p>Currently functional in Windows 98/Windows 2000/Windows XP/Windows Vista/Windows 7
+</p>
+<h2><span class="mw-headline" id="Functional_Description">Functional Description</span></h2>
+<p>The microphone recording filter is implemented as a standalone filter, much like the 5DT dataglove and uses the Waveform Audio API present in nearly every version of Windows since 95.  Though this means that the filter is only usable in Windows, this new MicRecorder class could be updated to support Linux/Mac with minimal changes to the underlying code if they support some type of asynchronous recording.
+</p><p>Upon initialization, it enumerates all the possible sound recording sources present on the system which includes any type of microphone that Windows can detect as a mic (USB, line-in, Speaker Output, S/PDIF, etc) and selects the source based on a string parameter.  The recording frequency, bit depth, and number of channels for stereo or mono recording are all set by parameters.  To determine what formats are supported by which sources, debugging information can be enabled as a boolean parameter that will enumerate all supported recording combinations to bciout.  
+</p><p>Hardware buffer initialization is currently hardcoded to use a hardware sample block size of 1k with enough audio buffer blocks to support up to 1 second of buffer read delay should the need arise.  Empirical tests show that this is more than adequate for all recording combinations tested, from 8-bit mono 11.025kHz to 16 bit stereo 96kHz.
+</p><p>Once the BCI2000 data recording stream is activated (State("Running") switches to '1'), it opens the a destination WAV file with the same name as the currently recording DAT file.  The MicRecorderFilter then initiates the hardware recording in a separate thread handled by the Win32 API.  When the hardware buffer is filled, a hardware interrupt is fired and the MicRecorder callback is called which reads the audio buffer and writes it to a file, keeping track of the total number of samples that have been written to disk.  With the current audio buffer length of 1k, this bytecount is updated a little over 90 times a second when recording at 16-bit mono 48kHz, though it can be updated more frequently by lowering the buffer length to 512 or 256 bytes at the cost of more processing time.  
+</p><p>During recording, each sample block passed through BCI2000 updates a state variable called MicSample with the number of samples recorded.  This state acts as an index into the WAV file.  Because this state is updated asynchronously with the actual audio recording, it records the last update of the number of samples recorded which introduces a tiny bit of jitter into the indexing state.  However, the audio is still being recorded in the meantime, which means that while the dSamplesRecorded/dSampleBlock will vary slightly, the actual offset between the audio file and the brain signal should remain constant.
+</p>
+<h2><span class="mw-headline" id="Supported_Microphones">Supported Microphones</span></h2>
+<p>The MicRecorderFilter module has been tested to work with many different types of microphones: line-in, stereo mix, and USB microphones.  In general, any piece of hardware that Windows sees as a recording device can be used as a recording source.
+</p>
+<h2><span class="mw-headline" id="Integration_into_BCI2000">Integration into BCI2000</span></h2>
+<p>The MicRecorder is integrated as a filter (MicRecorder) into BCI2000. Simply add the MicRecorderFilter.h/.cpp and MicRecorder.h/cpp to a module and it will be configured into the filter chain (defaults to priority 3, changeable in MicRecorderFilter.h).
+</p>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<p>The microphone recorder is configured in the panel HumanInterfaceDevices in the section Microphone. 
+</p>
+<h3><span class="mw-headline" id="RecordMic">RecordMic</span></h3>
+<p>		= [checked]/unchecked
+			- Enable/disable recording
+</p>
+<h3><span class="mw-headline" id="MicName">MicName</span></h3>
+<p>		= [Stereo] 
+			- A partial, case-sensitive string that denotes what recording device you would like to record from
+</p>
+<h3><span class="mw-headline" id="MicRecordingFre">MicRecordingFre</span></h3>
+<p>		= 11.025kHz/22.05kHz/44.1kHz/[48kHz]/96kHz
+			- Sampling rate of microphone recording hardware
+</p>
+<h3><span class="mw-headline" id="MicBitDepth">MicBitDepth</span></h3>
+<p>		= 8-bit/[16-bit]
+			- Recording bit depth of microphone
+</p>
+<h3><span class="mw-headline" id="MicNumChannels">MicNumChannels</span></h3>
+<p>		= [Mono]/Stereo
+			- Number of channels from microphone to be recorded
+</p>
+<h3><span class="mw-headline" id="MicDebugInfo">MicDebugInfo</span></h3>
+<p>		= checked/[unchecked]
+			- Outputs detailed debug information about each microphone device including capable recording parameter combinations
+</p>
+<h2><span class="mw-headline" id="State_Variables">State Variables</span></h2>
+<p>The MicRecorderFilter adds a single state variable called "MicSample".  This state is updated with every sample block and acts as an index into the WAV file generated.  For example, if the state variable MicSample changes to 1500, the biosignal recording is synced with the 1500th sample in the WAV file.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Reference%253AFilters.html" title="User Reference:Filters">User Reference:Filters</a>, <a href="Contributions%253AApplications.html" title="Contributions:Applications">Contributions:Applications</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524001320
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.015 seconds
+Real time usage: 0.022 seconds
+Preprocessor visited node count: 59/1000000
+Post‐expand include size: 15/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1991-0!canonical and timestamp 20230524001320 and revision id 5792
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:MicRecorderFilter&amp;oldid=5792">http://www.bci2000.org/mediawiki/index.php?title=Contributions:MicRecorderFilter&amp;oldid=5792</a>"</div>
+ </div>
+</body>
+</html>

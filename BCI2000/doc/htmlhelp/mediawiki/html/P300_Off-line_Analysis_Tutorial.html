@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>P300 Off-line Analysis Tutorial - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">P300 Off-line Analysis Tutorial</h1>
+ <p class = "subtitle"></p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="P300_Off-line_Analysis_Tutorial.html#Starting_an_Analysis_Session"><span class="tocnumber">1</span> <span class="toctext">Starting an Analysis Session</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="P300_Off-line_Analysis_Tutorial.html#Opening_Files_with_Mario"><span class="tocnumber">2</span> <span class="toctext">Opening Files with Mario</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="P300_Off-line_Analysis_Tutorial.html#Selecting_Channels"><span class="tocnumber">3</span> <span class="toctext">Selecting Channels</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="P300_Off-line_Analysis_Tutorial.html#Selecting_the_Spatial_Filter"><span class="tocnumber">4</span> <span class="toctext">Selecting the Spatial Filter</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="P300_Off-line_Analysis_Tutorial.html#Feature_Extraction_Analysis"><span class="tocnumber">5</span> <span class="toctext">Feature Extraction Analysis</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="P300_Off-line_Analysis_Tutorial.html#View_results"><span class="tocnumber">6</span> <span class="toctext">View results</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="P300_Off-line_Analysis_Tutorial.html#R-square_Matrix"><span class="tocnumber">6.1</span> <span class="toctext">R-square Matrix</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="P300_Off-line_Analysis_Tutorial.html#Amplitude_Waveform"><span class="tocnumber">6.2</span> <span class="toctext">Amplitude Waveform</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="P300_Off-line_Analysis_Tutorial.html#ERP_Response"><span class="tocnumber">6.3</span> <span class="toctext">ERP Response</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="P300_Off-line_Analysis_Tutorial.html#String_Prediction"><span class="tocnumber">6.4</span> <span class="toctext">String Prediction</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Starting_an_Analysis_Session">Starting an Analysis Session</span></h2>
+<p>Every recording session has its own history. It is very difficult to say in advance what might happen during the recording. So we will assume that everything was perfect (the subject collaborated, no channel went lost, etc); later on we will consider the main causes of contamination, how to recognize it and what to do. 
+</p><p>If the recording session runs smoothly, you should now have eight files named TestSubjS001R01.dat to TestSubjS001R08.dat, in the folder c:\bci2000\data\Mu\TestSubj, corresponding to the eight runs, respectively. 
+</p><p>Before you start the analysis you should locate, on your hard disk, the correct montage file. This is a file that describes the list of channels that were acquired. In this tutorial we will use OneAndOnly_16ch.eloc.txt, which is located in the folder C:\BCI2000\Tutorial\Montages\. If you need to edit the *.mmf file, check its data format. 
+</p>
+<h2><span class="mw-headline" id="Opening_Files_with_Mario">Opening Files with Mario</span></h2>
+<p>After having run mario.exe, press "Select Data Files".
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:P300_1.jpg" class="image"><img alt="P300 1.jpg" src="../images/7/7f/P300_1.jpg" decoding="async" width="437" height="578" /></a>
+</p><p>A dialog window will ask you to select the dat files. You can either select a single data file, or select multiple files. This time, we will select all files in the dataset. 
+</p><p>A green box will surround the Raw Data box in the main window. 
+</p><p>As an optional (but recommended) operation, click on the LOAD MONTAGE button and choose the mmf file. This will allow you to see the labels of each channel and allow you to apply spatial filters that depend on the electrode position. 
+</p><p>You can load an additional parameter file with choices different from those used in the experiment. 
+</p><p>At this point, you can check that P300 is selected in the Analysis menu (indicating that a P300 dataset has been recognized) and select the LOAD DATA button to confirm your choices. This will enable the EDIT CHANNEL LIST button that you can use to select the channels you want to include in your analysis.
+</p>
+<h2><span class="mw-headline" id="Selecting_Channels">Selecting Channels</span></h2>
+<p>When you select the EDIT CHANNEL LIST button, two forms will show you the channel list (valid ones and not-valid ones) and an image showing valid channels and their location. 
+</p><p>Clicking on Add and Remove buttons allows you to move a channel from one list to the other enabling or disabling it. 
+</p>
+<h2><span class="mw-headline" id="Selecting_the_Spatial_Filter">Selecting the Spatial Filter</span></h2>
+<p>Return to the main window to choose which filter to apply for your analysis, selecting from the following filter choices: 
+</p>
+<ul><li>RAW</li>
+<li>CAR</li>
+<li>Large Laplacian</li>
+<li>Small Laplacian</li></ul>
+<p>Common Average Reference (CAR) will be fine for most of the situations. 
+</p><p>We hope soon, to release a user defined solution for any custom analysis. 
+</p>
+<h2><span class="mw-headline" id="Feature_Extraction_Analysis">Feature Extraction Analysis</span></h2>
+<p>The Analysis field in the Feature Extraction panel will appear automatically depending on the files loaded. The Feature Extractor field shows the only currently available option (MEM).
+You can view/edit analysis details by clicking "Set Analysis Details"
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:P300_2.jpg" class="image"><img alt="P300 2.jpg" src="../images/d/df/P300_2.jpg" decoding="async" width="161" height="198" /></a>
+</p><p>This form reports all the remaining settings for the P300 analysis. Most of the values are set as default values. With settings such as the ones reported in this figure, the analysis software will: 
+</p>
+<ul><li>sample the spectrum at points starting from 0.1 Hz to 15 Hz</li>
+<li>take a 650 ms long epoch of data.</li></ul>
+<p>You can modify these settings according to your aims. When you are finished, remember to confirm your choices by clicking on DONE. It will allow the program accept changes. 
+</p><p>At this point you can start the analysis by pressing the Evaluate and Plot button.
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:P300_3.jpg" class="image"><img alt="P300 3.jpg" src="../images/4/49/P300_3.jpg" decoding="async" width="437" height="578" /></a>
+</p>
+<h2><span class="mw-headline" id="View_results">View results</span></h2>
+<p>The first figure that appears is the R-square matrix (channels x elapsed time after stimulus)
+</p>
+<h3><span class="mw-headline" id="R-square_Matrix">R-square Matrix</span></h3>
+<p>The r-square matrix highlights the most relevant ERP features for the separation of potentials due to frequent or rare stimuli.
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:P300_4.jpg" class="image"><img alt="P300 4.jpg" src="../images/1/15/P300_4.jpg" decoding="async" width="568" height="502" /></a>
+</p><p>Each row of the matrix is related to a single channel, while a column represents a fixed latency. The color codes the statistical significance of the difference between the two kinds of evoked potentials. 
+</p><p>Thus a red color would mean that the ERP consequent to a rare stimulus is significantly more positive than the ERP consequent to a frequent stimulus.
+</p><p>This figure is independent of the channel and latency settings that were set in the parameter dialog (since it summarizes all results). 
+</p><p>Clicking on the matrix will modify the channel/latency settings for the other figures; in fact the cell of the matrix that was clicked is characterized by one channel and one latency, whose waveform and topography (respectively) will be shown in the other two figures.
+</p><p>You can choose whether to overwrite or to put the most recently evoked figures beside the previous one. Two sets of waveform/topography figures are available, and are linked to the click of the left or right mouse button.
+</p><p>Clicking on any point of map will open four more windows: 
+</p>
+<ul><li>Amplitude waveforms at selected channel(s)</li>
+<li>Topographic plots at selected latency(ies)</li>
+<li>ERP response to each stimulus</li>
+<li>An off-line prediction of the string read</li></ul>
+<h3><span class="mw-headline" id="Amplitude_Waveform">Amplitude Waveform</span></h3>
+<p>The whole timecourse of ERPs generated are displayed in the top panel, regardless of the specific stimulus (line of letters) that generated it. Rare ERPs are plotted in solid lines, while frequent ERPs are dotted. If two channels were selected in the P300 parameter dialog, they are plotted in red and in blue, respectively.
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:P300_5.jpg" class="image"><img alt="P300 5.jpg" src="../images/5/58/P300_5.jpg" decoding="async" width="568" height="502" /></a>
+</p><p>The bottom panel shows the r-square time course. It is roughly proportional to the difference between rare and frequent ERPs, but since r-square is sensitive to the dispersion (variance) of single trials, small differences in amplitude can result in a high r-square, if they are very reproducible.
+</p><p>Topographic plots. This figure represents the scalp distribution of the r-square.
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:P300_6.jpg" class="image"><img alt="P300 6.jpg" src="../images/b/b6/P300_6.jpg" decoding="async" width="568" height="502" /></a>
+</p><p>The color coding is the same as the r-square matrix figure, and values on each channel are interpolated to create a continuous bidimensional map. The higher the number of electrodes, the more accurate is the map. With Surface Laplacian spatial filteriing, the number of channels shown on the scalp may not coincide with the whole number of electrodes, since the value of the laplacian is not computed on the border channels.
+</p>
+<h3><span class="mw-headline" id="ERP_Response">ERP Response</span></h3>
+<p><a href="https://www.bci2000.org/mediawiki/index.php/File:P300_7.jpg" class="image"><img alt="P300 7.jpg" src="../images/b/b5/P300_7.jpg" decoding="async" width="568" height="502" /></a>
+</p><p>The figure shows the medium temporal course for the 12 stimuli. Red graphs are rare events while blue ones are frequent events.
+</p>
+<h3><span class="mw-headline" id="String_Prediction">String Prediction</span></h3>
+<p>Mario also allows you to check the word that the BCI2000 system would have predicted if the current feature was used online.
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:P300_8.jpg" class="image"><img alt="P300 8.jpg" src="../images/6/6f/P300_8.jpg" decoding="async" width="322" height="111" /></a>
+</p><p>In this example, since the sequence should have been SPELLWITHBCI, only 4 characters out of 12 (33%) have been correctly predicted. This score is well above chance, though quite inefficient.
+</p><p><br />
+</p>
+<table border="3" cellspacing="5" cellpadding="20" align="center">
+<tbody><tr>
+<td>S
+</td>
+<td>P
+</td>
+<td>E
+</td>
+<td>L
+</td>
+<td>L
+</td>
+<td>W
+</td>
+<td>I
+</td>
+<td>T
+</td>
+<td>H
+</td>
+<td>B
+</td>
+<td>C
+</td>
+<td>I
+</td></tr>
+<tr>
+<td style="background:#ff3322">4
+</td>
+<td style="background:#ff3322">M
+</td>
+<td>E
+</td>
+<td>L
+</td>
+<td>L
+</td>
+<td style="background:#ff3322">4
+</td>
+<td style="background:#ff3322">_
+</td>
+<td>T
+</td>
+<td style="background:#ff3322">A
+</td>
+<td style="background:#ff3322">K
+</td>
+<td style="background:#ff3322">G
+</td>
+<td style="background:#ff3322">4
+</td></tr></tbody></table>
+<p><br />
+In summary, we must select the latency and the channel where the maxima of an ERP component, whose spatio-temporal shape is compatible with the P300 phenomenon, occurs. Testing the speller can suggest which component has the highest probability to predict the user's selected letter.
+</p><p><br />
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524125231
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.039 seconds
+Real time usage: 0.050 seconds
+Preprocessor visited node count: 36/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1398-0!canonical and timestamp 20230524125231 and revision id 6095
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=P300_Off-line_Analysis_Tutorial&amp;oldid=6095">http://www.bci2000.org/mediawiki/index.php?title=P300_Off-line_Analysis_Tutorial&amp;oldid=6095</a>"</div>
+ </div>
+</body>
+</html>

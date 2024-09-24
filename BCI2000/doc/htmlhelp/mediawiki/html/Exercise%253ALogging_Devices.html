@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Exercise:Logging Devices - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">Logging Devices</h1>
+ <p class = "subtitle">Exercise</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>This exercise walks you through the process of connecting a human-interface device or other measurement device, and "logging" its output as state variables, synchronized with the brain signals you are recording.
+</p>
+<ol><li>Copy one of the existing batch files and use it as a template to write your own batch file.</li>
+<li>In your new batch file,  open the Operator,  SignalGenerator,  DummySignalProcessing and DummyApplication.</li>
+<li>Launch BCI2000 using your new batch file.</li>
+<li>In the Operator, open the <i>View</i> menu and select <i>States</i>.</li>
+<li>Note down the names of the state variables,  then quit BCI2000 again.</li>
+<li>Edit your batch file such that the source module (in this case SignalGenerator) is started with the <a href="User_Reference%253AModule_Command_Line_Options.html" title="User Reference:Module Command Line Options">command-line option</a> <code>--LogMouse=1</code></li>
+<li>Relaunch BCI2000 using the updated batch file, and check the States again.  Note that there are now additional state variables, in accordance to what the <a href="User_Reference%253ALogging_Input.html" title="User Reference:Logging Input">documentation on the mouse and joystick loggers</a> tells us to expect.</li></ol>
+<p>What sorts of neuroscientific questions could you address, by recording signals from human-interface devices, synchronized in real-time to brain signal recordings?   What sort of experiments would you imagine doing?   Which state variables would be relevant, and how would you process them?
+</p><p>Now we need a way of visualizing the state variable(s) you find most interesting.  The exact way you do this may depend on the state(s) you are interested in.   A simple preliminary way might be to use the shell in the <i>MatlabSignalProcessing</i> module to repeatedly examine the global variable <code>bci_States</code>, or similarly, <code>self.states</code> from the shell of one of the Python modules.  One of the most flexible ways would be to use the <a href="User_Reference%253AExpressionFilter.html" title="User Reference:ExpressionFilter">ExpressionFilter</a>, which has been built into <i>DummySignalProcessing</i> for the purposes of this exercise. State variables can be drawn into the signal pipeline by entering their names into the <b>Expressions</b> parameter (found in the config dialog's <b>Filtering</b> tab).  This also allows you to view the signal, if you fill the  <b>VisualizeExpressionFilter</b> checkbox in the <b>Visualize</b> tab.   If the signals are out of the range of visualization, the ExpressionFilter allows arithmetic expressions that can be used to compensate for this.  For example, <code>(MousePosX-1000)/1000</code> is a valid expression.
+</p><p>The following devices are supported on the workshop installations.  You can log as many devices simultaneously as the CPU and number of available USB ports will allow (just keep appending the flags).   For whichever device(s) you choose, check to see which states are added.
+</p>
+<ul><li>To log the mouse or trackpad, use <code>--LogMouse=1</code></li>
+<li>To log the joystick, use <code>--LogJoystick=1</code></li>
+<li>To log the 5DT Data Glove Ultra, use <code>--LogDataGlove=1</code> . <b>Please be gentle with the data glove</b>.</li>
+<li>To log the Nintendo Wiimote:
+<ol><li>Ensure that a Bluetooth dongle is attached.</li>
+<li>Press the (1) and (2) buttons simultaneously on the Wiimote. Lights will flash for several seconds, during which the Wiimote is receptive to pairing.</li>
+<li>Launch <code>ConnectWiimotes.exe</code></li>
+<li>Wait for the program to find the Wiimote and pair with it.</li>
+<li>Since the Windows XP Bluetooth implementation is flaky, verify that the device is connected using the Start menu -&gt; Control Panel -&gt; Bluetooth Devices.   You should see an entry for the Wiimote there:   if it says "connected" underneath,  connection has succeeded.   If the word "connected" is absent, it has failed:   close the control panel, re-run <code>ConnectWiimote.exe</code>, and re-open the control panel to verify. Repeat until it works.</li>
+<li>The Wiimote will now stay connected across multiple BCI2000 sessions, but there will be a constant drain on the batteries. Therefore, please disconnect it as soon as you are no longer using it (go to the control panel again, highlight the Wiimote and click "Remove").</li>
+<li>The flag you need when starting your source module is <code>--LogWiimote=1</code></li></ol></li></ul>
+<p>The BCI2000 platform also supports Tobii eyetrackers via the EyetrackerLogger and various forms of EEG-synchronized audio and video acquisition via the AudioExtension and WebcamLogger. See our <a href="Contributions%253AExtensions.html" title="Contributions:Extensions">contributed extensions</a> page for more details.
+</p><p>What other hardware devices do you think it would be useful for BCI2000 to support?     If you have custom hardware you wish to integrate into BCI2000, you may be interested in the <a href="Programming_Tutorial%253AImplementing_an_Input_Logger.html" title="Programming Tutorial:Implementing an Input Logger">programming tutorial on implementing an input logger</a>.
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524142020
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.010 seconds
+Real time usage: 0.014 seconds
+Preprocessor visited node count: 1/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 1/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2008-0!canonical and timestamp 20230524142020 and revision id 7099
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Exercise:Logging_Devices&amp;oldid=7099">http://www.bci2000.org/mediawiki/index.php?title=Exercise:Logging_Devices&amp;oldid=7099</a>"</div>
+ </div>
+</body>
+</html>

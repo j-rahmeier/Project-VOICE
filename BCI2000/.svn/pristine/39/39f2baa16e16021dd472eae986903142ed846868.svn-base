@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>User Reference:IIRBandpass - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul><li class="toc1"><a href="User_Reference%253AOperator_Module.html">Operator Module</a></li><li class="toc1"><a href="User_Reference%253AOperator_Module_Scripting.html">Operator Scripting</a></li><li class="toc1"><a href="User_Reference%253AModule_Command_Line_Options.html">Module Command Line Options</a></li><li class="toc1"><a href="User_Reference%253AData_File_Formats.html">Data File Formats</a></li><li class="toc1"><a href="User_Reference%253AFilters.html">Configuration Guide</a></li><li class="toc1"><a href="User_FAQ.html">FAQ</a></li><li class="toc1">Applications</li><ul><li class="toc2"><a href="User_Reference%253ACursorTask.html">Cursor Task</a></li><li class="toc2"><a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:P3SpellerTask">P3Speller Task</a></li><li class="toc2"><a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:StimulusPresentation">Stimulus Presentation</a></li></ul><li class="toc1">Tools</li><ul><li class="toc2"><a href="User_Reference%253ABCI2000Certification.html">BCI2000Certification</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Launcher.html">BCI2000Launcher</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Viewer.html">BCI2000Viewer</a></li><li class="toc2"><a href="User_Reference%253ABCI2000FileInfo.html">BCI2000FileInfo</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Export.html">BCI2000Export</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Analysis.html">BCI2000Analysis</a></li><li class="toc2"><a href="User_Reference%253ABCI2000_Offline_Analysis.html">BCI2000 Offline Analysis</a></li><li class="toc2"><a href="User_Reference%253AEloc_Helper.html">Eloc Helper</a></li><li class="toc2"><a href="User_Reference%253AEEGLabImport.html">EEGLabImport</a></li><li class="toc2"><a href="User_Reference%253AMatlab_Tools.html">Matlab Tools</a></li><li class="toc2"><a href="User_Reference%253AMatlab_MEX_Files.html">Matlab MEX Files</a></li><li class="toc2"><a href="User_Reference%253ACommand_Line_Processing.html">Command Line Processing</a></li></ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">IIRBandpass</h1>
+ <p class = "subtitle">User Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="User_Reference%253AIIRBandpass.html#Synopsis"><span class="tocnumber">1</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="User_Reference%253AIIRBandpass.html#Authors"><span class="tocnumber">2</span> <span class="toctext">Authors</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="User_Reference%253AIIRBandpass.html#Parameters"><span class="tocnumber">3</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="User_Reference%253AIIRBandpass.html#HighPassCorner"><span class="tocnumber">3.1</span> <span class="toctext">HighPassCorner</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="User_Reference%253AIIRBandpass.html#HighPassOrder"><span class="tocnumber">3.2</span> <span class="toctext">HighPassOrder</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="User_Reference%253AIIRBandpass.html#LowPassCorner"><span class="tocnumber">3.3</span> <span class="toctext">LowPassCorner</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="User_Reference%253AIIRBandpass.html#LowPassOrder"><span class="tocnumber">3.4</span> <span class="toctext">LowPassOrder</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="User_Reference%253AIIRBandpass.html#NotchCenter"><span class="tocnumber">3.5</span> <span class="toctext">NotchCenter</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="User_Reference%253AIIRBandpass.html#NotchOrder"><span class="tocnumber">3.6</span> <span class="toctext">NotchOrder</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="User_Reference%253AIIRBandpass.html#Downsample"><span class="tocnumber">3.7</span> <span class="toctext">Downsample</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="User_Reference%253AIIRBandpass.html#Rectification"><span class="tocnumber">3.8</span> <span class="toctext">Rectification</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="User_Reference%253AIIRBandpass.html#States"><span class="tocnumber">4</span> <span class="toctext">States</span></a></li>
+<li class="toclevel-1 tocsection-13"><a href="User_Reference%253AIIRBandpass.html#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>Design an IIR filter consisting of up to three parts (high-pass, low-pass and notch) and apply it as part of the signal-processing chain. To use it as a bandpass, specify the desired lower end of the band as a high-pass corner, and the desired upper end of the band as a low-pass corner.
+</p>
+<h2><span class="mw-headline" id="Authors">Authors</span></h2>
+<p>Jeremy Hill
+</p>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<h3><span class="mw-headline" id="HighPassCorner">HighPassCorner</span></h3>
+<p>High-pass cutoff frequency. The default is 0, which disables the high-pass.
+</p>
+<h3><span class="mw-headline" id="HighPassOrder">HighPassOrder</span></h3>
+<p>Filter order for the high-pass. The default is 2. A value of 0 disables the high-pass.
+</p>
+<h3><span class="mw-headline" id="LowPassCorner">LowPassCorner</span></h3>
+<p>Low-pass cutoff frequency. The default is 0, which disables the low-pass.
+</p>
+<h3><span class="mw-headline" id="LowPassOrder">LowPassOrder</span></h3>
+<p>Filter order for the low-pass. The default is 4. A value of 0 disables the high-pass.
+</p>
+<h3><span class="mw-headline" id="NotchCenter">NotchCenter</span></h3>
+<p>Notch center frequency. The default is 0, which disables the notch filter.
+</p>
+<h3><span class="mw-headline" id="NotchOrder">NotchOrder</span></h3>
+<p>Filter order for the notch. The default is 4. A value of 0 disables the notch filter.
+</p>
+<h3><span class="mw-headline" id="Downsample">Downsample</span></h3>
+<p>If <i>LowPassCorner</i> is set, downsample to a sampling rate of circa 4*<i>LowPassCorner</i> provided that is smaller than the current sampling rate. Downsampling is always is done by an integer factor such that the resulting sampling rate is close to (and larger than) 4*<i>LowPassCorner</i>.
+</p><p>The default is 1 (do downsampling).
+</p>
+<h3><span class="mw-headline" id="Rectification">Rectification</span></h3>
+<p>If set to 1, negative values will be replaced with zeros (Half-Wave). If set to 2, negative values will be replaced with their absolute values (Full-Wave). Set to 0 (the default) to disable rectification. Note that rectification is done <i>after</i> bandpass filtering, so another low pass filter is likely required to obtain an amplitude estimate.
+</p>
+<h2><span class="mw-headline" id="States">States</span></h2>
+<p>None.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Reference%253AFilters.html" title="User Reference:Filters">User Reference:Filters</a>, <a href="Contributions%253AHilbertSignalProcessing.html" title="Contributions:HilbertSignalProcessing">Contributions:HilbertSignalProcessing</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524103850
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.016 seconds
+Real time usage: 0.018 seconds
+Preprocessor visited node count: 38/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2036-0!canonical and timestamp 20230524103850 and revision id 10018
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=User_Reference:IIRBandpass&amp;oldid=10018">http://www.bci2000.org/mediawiki/index.php?title=User_Reference:IIRBandpass&amp;oldid=10018</a>"</div>
+ </div>
+</body>
+</html>

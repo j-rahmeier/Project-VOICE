@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Programming Howto:Download the BCI2000 Sourcecode - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul><li class="toc1">Concepts</li><ul><li class="toc2"><a href="Programming_Reference%253AFilter_Chain.html">Filter Chain</a></li><li class="toc2"><a href="Programming_Reference%253ASignals.html">Signals</a></li><li class="toc2"><a href="Programming_Reference%253AError_Handling.html">Error Handling</a></li><li class="toc2"><a href="Programming_Reference%253ALocalization.html">Localization</a></li><li class="toc2"><a href="Programming_Reference%253ARapid_Development.html">Rapid Development</a></li></ul><li class="toc1">Reference</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFilter_Class.html">GenericFilter</a></li><li class="toc2"><a href="Programming_Reference%253AEnvironment_Class.html">Environment</a></li><li class="toc2"><a href="Programming_Reference%253AGenericVisualization_Class.html">GenericVisualization</a></li><li class="toc2"><a href="Programming_Reference%253AErrors_and_Warnings.html">Errors and Warnings</a></li><li class="toc2"><a href="Programming_Reference%253ADebug_Output.html">Debug Output</a></li></ul><li class="toc1">Data Acquisition</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericADC_Class.html">GenericADC</a></li></ul><li class="toc1">Data Storage</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFileWriter_Class.html">GenericFileWriter</a></li><li class="toc2"><a href="Programming_Reference%253ABCI2000FileReader_Class.html">BCI2000FileReader</a></li></ul><li class="toc1">Signal Processing</li><ul><li class="toc2"><a href="Programming_Reference%253AIIRFilterBase_Class.html">IIR Filters</a></li></ul><li class="toc1">Application Modules</li><ul><li class="toc2"><a href="Programming_Reference%253AApplicationBase_Class.html">ApplicationBase</a></li><li class="toc2"><a href="Programming_Reference%253AFeedbackTask_Class.html">FeedbackTask</a></li><li class="toc2"><a href="Programming_Reference%253AStimulusTask_Class.html">StimulusTask</a></li><li class="toc2"><a href="Programming_Reference%253A3D_API.html">3D API</a></li></ul><li class="toc1">Howtos</li><ul><li class="toc2"><a href="Programming_Howto%253ABuilding_BCI2000.html">Building BCI2000</a></li><li class="toc2"><a href="Programming_Howto%253ASVN_Client_Setup.html">SVN Client Setup</a></li><li class="toc2"><a href="Programming_Howto%253AUsing_TortoiseSVN.html">Using TortoiseSVN</a></li></ul><li class="toc1"><a href="Programming_FAQ.html">FAQ</a></li><li class="toc1">Tutorials</li><ul><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html">Data Acquisition</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html">Signal Processing</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html">Matlab Signal Processing</a></li></ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">Download the BCI2000 Sourcecode</h1>
+ <p class = "subtitle">Programming Howto</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Programming_Howto%253ADownload_the_BCI2000_Sourcecode.html#Back"><span class="tocnumber">1</span> <span class="toctext">Back</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Programming_Howto%253ADownload_the_BCI2000_Sourcecode.html#Choose_a_checkout_directory"><span class="tocnumber">2</span> <span class="toctext">Choose a checkout directory</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Programming_Howto%253ADownload_the_BCI2000_Sourcecode.html#Enter_user_name_and_password"><span class="tocnumber">3</span> <span class="toctext">Enter user name and password</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="Programming_Howto%253ADownload_the_BCI2000_Sourcecode.html#Wait_for_the_checkout_to_complete"><span class="tocnumber">4</span> <span class="toctext">Wait for the checkout to complete</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="Programming_Howto%253ADownload_the_BCI2000_Sourcecode.html#Next_step"><span class="tocnumber">5</span> <span class="toctext">Next step</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="Programming_Howto%253ADownload_the_BCI2000_Sourcecode.html#See_also"><span class="tocnumber">6</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Back">Back</span></h2>
+<p>To <a href="Programming_Howto%253ABuilding_and_Customizing_BCI2000.html" title="Programming Howto:Building and Customizing BCI2000">this howto's overview page</a>.
+</p>
+<h2><span class="mw-headline" id="Choose_a_checkout_directory">Choose a checkout directory</span></h2>
+<p>Right-click a Windows explorer window, and choose "SVN Checkout..." from the context menu. Use <code><a rel="nofollow" class="external free" href="https://www.bci2000.org/svn/trunk">https://www.bci2000.org/svn/trunk</a></code> as the repository URL.
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:SVN_3-2294.png.png" class="image"><img alt="SVN 3-2294.png.png" src="../images/c/cb/SVN_3-2294.png.png" decoding="async" width="524" height="407" /></a></div></div>
+<p>Enter the desired checkout directory in the dialog that comes up.
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:SVN_4-2294.png" class="image"><img alt="SVN 4-2294.png" src="../images/d/df/SVN_4-2294.png" decoding="async" width="524" height="407" /></a></div></div>
+<h2><span class="mw-headline" id="Enter_user_name_and_password">Enter user name and password</span></h2>
+<p>When prompted, enter user name and password as chosen in the registration step.
+Check "Save authentication" if you don't like to enter your credentials each time you check out or update BCI2000.
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:SVN_3-2315.png" class="image"><img alt="SVN 3-2315.png" src="../images/2/2b/SVN_3-2315.png" decoding="async" width="346" height="243" /></a></div></div>
+<h2><span class="mw-headline" id="Wait_for_the_checkout_to_complete">Wait for the checkout to complete</span></h2>
+<p>A list of files will scroll by while the source code is downloaded.
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:SVN_4-2326.png" class="image"><img alt="SVN 4-2326.png" src="../images/4/46/SVN_4-2326.png" decoding="async" width="667" height="306" /></a></div></div>
+<p>Once the download has been finished, click "OK" to dismiss the checkout dialog.
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:SVN_5-2333.png" class="image"><img alt="SVN 5-2333.png" src="../images/a/a7/SVN_5-2333.png" decoding="async" width="667" height="306" /></a></div></div>
+<h2><span class="mw-headline" id="Next_step">Next step</span></h2>
+<p>As a next step, learn how to <a href="Programming_Howto%253AConfigure_BCI2000_for_Compilation.html" title="Programming Howto:Configure BCI2000 for Compilation">configure BCI2000 for compilation</a>.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Programming_Howto%253ABuilding_and_Customizing_BCI2000.html" title="Programming Howto:Building and Customizing BCI2000">Programming Howto:Building and Customizing BCI2000</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524070222
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.028 seconds
+Real time usage: 0.035 seconds
+Preprocessor visited node count: 24/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2169-0!canonical and timestamp 20230524070222 and revision id 8785
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Programming_Howto:Download_the_BCI2000_Sourcecode&amp;oldid=8785">http://www.bci2000.org/mediawiki/index.php?title=Programming_Howto:Download_the_BCI2000_Sourcecode&amp;oldid=8785</a>"</div>
+ </div>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Timing Theory - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">Timing Theory</h1>
+ <p class = "subtitle"></p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>Timing is a complex issue, entering into the design of a BCI system at multiple places, in differing contexts and perspectives. Focusing on a single of these, rather than the full picture, may lead to unrealistic goals, and/or significant waste of effort.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Timing_Theory.html#Timing_Limitations_of_the_Brain"><span class="tocnumber">1</span> <span class="toctext">Timing Limitations of the Brain</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Timing_Theory.html#Causality"><span class="tocnumber">2</span> <span class="toctext">Causality</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Timing_Theory.html#Nyquist.27s_Theorem"><span class="tocnumber">3</span> <span class="toctext">Nyquist's Theorem</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="Timing_Theory.html#Processing_Delay"><span class="tocnumber">4</span> <span class="toctext">Processing Delay</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="Timing_Theory.html#Blockwise_IO"><span class="tocnumber">5</span> <span class="toctext">Blockwise IO</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="Timing_Theory.html#Realistic_Example"><span class="tocnumber">6</span> <span class="toctext">Realistic Example</span></a></li>
+</ul>
+</div>
+
+<h3><span class="mw-headline" id="Timing_Limitations_of_the_Brain">Timing Limitations of the Brain</span></h3>
+<p>First, human perception and processing in the brain itself have fundamental timing/bandwidth restrictions against which timing issues in a BCI system have to be compared, in order to avoid significant waste of effort improving beyond limits that could reasonably enter into the result of any experiment performed using such a system. It seems no coincidence that readily available video and audio playback hardware works within those limits, such as the visual system's temporal resolution at around 1/25s, and the auditory system's transition from perception of individual stimuli vs. continuous sound at roughly the same range between 1/25 and 1/15s. In Electrophysiology, the smallest time scale of evoked responses time-locked to a stimulus has been found to be the N100 wave so far, corresponding to a temporal resolution of 1/10s.
+From these observations, it appears that the brain itself cannot make use of a temporal resolution beyond 1/25s=40ms.
+</p><p>It is known that steady-state answers of primary sensory areals will follow steady-state stimuli up to 40Hz. By definition, steady-state signals do not convey any information other than what is known a priori. Thus, steady-state stimuli cannot be used for communication between the brain and its environments; they are merely a tool to analyze transmission pathways, and representation of frequencies beyond 25Hz in steady state experiments does not contradict the observation of a 25Hz bandwidth limit on environment-to-brain communication.
+</p>
+<h3><span class="mw-headline" id="Causality">Causality</span></h3>
+<p>Second, it is important to observe that timely processing of brain signals, and timely presentation of stimuli, is only relevant for interactions which are truly causal, i.e. stimulus delivery that depends on the analysis of immediately preceding brain signals. In contrast, noncausal, which means predictable, interaction, as well as later analysis of experimental data is not affected by how fast a BCI system is able to process data; rather, it only depends on how accurately any time delays are recorded together with brain data, such that they may be used in later data analysis.
+</p>
+<h3><span id="Nyquist's_Theorem"></span><span class="mw-headline" id="Nyquist.27s_Theorem">Nyquist's Theorem</span></h3>
+<p>Third, bandwidth limitations both in data acquisition technology, and inherent in the kind of brain signals available to transfer information from or to the brain, impose fundamental limits onto the adverse effect that timing issues may have on experimental outcomes. Nyquist's theorem implies that, e.g. a brain rhythm with a frequency of 20Hz cannot be modulated to transport information about a temporal separation better than 1/10s. Moreover, standard EEG itself is bandwidth limited to 70Hz, and even in case of more sophisticated techniques such as ECoG which theoretically provide much more bandwidth, the amount of bandwidth available for bi-directional causal interaction between brain and BCI system is limited by the amount of unrelated background activity, which acts as a noise floor, masking the typically smaller amplitudes available at higher frequencies.
+</p>
+<h3><span class="mw-headline" id="Processing_Delay">Processing Delay</span></h3>
+<p>Fourth, the impact of processing delay depends on the kind of computation performed, in how it scales in terms of computational effort, and how well it is parallelizable. Where possible, BCI2000 will already exploit parallel computation in order to minimize processing delay. However, such gains are generally modest because they are limited by the number of full processor cores available in a machine. As an example, consider a typical desktop processor, 4 to 8 full cores are available, resulting in a factor 8 speedup at best. For a full-matrix spatial filter, parallelization is straightforward, and computational effort scales as O(n^2) in terms of channels, and O(n) in terms of sampling rate. Technological advance in the realm of data acquisition easily doubles both sampling rate, and number of channels within a few years, and will result in a computational effort increase by a factor of 8, consuming all of the gain available from parallelism. Basically, this means that in case of a well-parallelizable problem requiring polynomial time, significant processing delay will prevail and tend to get worse over time; this simply has to be accepted, as there is no technology that can mitigate this kind of problem. Rather, economically choosing algorithms, plus accepting and managing processing delays that exist, is the primary way to cope.
+</p>
+<h3><span class="mw-headline" id="Blockwise_IO">Blockwise IO</span></h3>
+<p>Fifth, unavoidable and significant delays exist due to the block-wise nature of data input and output in available computer systems. Data protocol overhead and physical limitations make it necessary to read EEG data in sample blocks, provide visual stimulation data in terms of full video frames, and fill audio output buffers in blocks. A CPU serving physical input/output channels, rather than just memory transfers, is typically unable to cope with the effort required to do so in a per-sample manner. Transferring data in blocks greatly reduces processing overhead, but inevitably introduces considerable delays corresponding to the temporal extent of a data block.
+</p>
+<h3><span class="mw-headline" id="Realistic_Example">Realistic Example</span></h3>
+<p>As an illustration, consider a BCI that provides visual stimulation on a flat-panel screen, responding to EEG data in real time. In such a system, typical delays will be
+</p>
+<ul><li>acquisition buffer delay: time delay between physical EEG amplitude measurement, and availability of EEG amplitude data for processing: half the acquisition buffer duration on average, full acquisition buffer duration max (typically 25ms).</li>
+<li>processing delay (strongly dependent on data rate and algorithmic complexity)</li>
+<li>frame rendering delay: time required to compute and store frame content in video memory</li>
+<li>frame swap delay: time delay between delivery of a frame of video, and delivery of the next modified version of a video frame, e.g. buffer swap: video frame duration (typically 16ms)</li>
+<li>frame transmission delay: time delay between modification of frame data in video buffer, and reception of the modified frame in display hardware: video frame duration (typically 16ms)</li>
+<li>display response time: time delay between frame change, and physical luminance/color change on display surface (typically 5ms)</li></ul>
+<p>In the example, video output delay will be 37ms, EEG input delay 25ms, together 62ms. If the sum of processing and frame rendering delay is sufficiently small, both will be masked by frame swap delay, and not enter into the total delay between input and output; still, the irreducible delay of 62ms will be large enough to warrant efforts for _managing_ delays rather than trying to _avoid_ them.
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524021450
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.010 seconds
+Real time usage: 0.018 seconds
+Preprocessor visited node count: 18/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2115-0!canonical and timestamp 20230524021450 and revision id 7808
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Timing_Theory&amp;oldid=7808">http://www.bci2000.org/mediawiki/index.php?title=Timing_Theory&amp;oldid=7808</a>"</div>
+ </div>
+</body>
+</html>

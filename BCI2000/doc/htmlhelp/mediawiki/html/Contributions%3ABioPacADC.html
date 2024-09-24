@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:BioPacADC - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">BioPacADC</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Contributions%253ABioPacADC.html#Synopsis"><span class="tocnumber">1</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Contributions%253ABioPacADC.html#Location"><span class="tocnumber">2</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Contributions%253ABioPacADC.html#Versioning"><span class="tocnumber">3</span> <span class="toctext">Versioning</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Contributions%253ABioPacADC.html#Authors"><span class="tocnumber">3.1</span> <span class="toctext">Authors</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Contributions%253ABioPacADC.html#Version_History"><span class="tocnumber">3.2</span> <span class="toctext">Version History</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="Contributions%253ABioPacADC.html#Video_Overview"><span class="tocnumber">4</span> <span class="toctext">Video Overview</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="Contributions%253ABioPacADC.html#Functional_Description"><span class="tocnumber">5</span> <span class="toctext">Functional Description</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="Contributions%253ABioPacADC.html#Hardware_Set_Up"><span class="tocnumber">6</span> <span class="toctext">Hardware Set Up</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="Contributions%253ABioPacADC.html#Calibration"><span class="tocnumber">7</span> <span class="toctext">Calibration</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="Contributions%253ABioPacADC.html#Signal_Info"><span class="tocnumber">8</span> <span class="toctext">Signal Info</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="Contributions%253ABioPacADC.html#Parameters"><span class="tocnumber">9</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-12"><a href="Contributions%253ABioPacADC.html#SourceCh"><span class="tocnumber">9.1</span> <span class="toctext">SourceCh</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="Contributions%253ABioPacADC.html#SampleBlockSize"><span class="tocnumber">9.2</span> <span class="toctext">SampleBlockSize</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="Contributions%253ABioPacADC.html#SamplingRate"><span class="tocnumber">9.3</span> <span class="toctext">SamplingRate</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="Contributions%253ABioPacADC.html#SourceChMatrix"><span class="tocnumber">9.4</span> <span class="toctext">SourceChMatrix</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="Contributions%253ABioPacADC.html#StreamChMatrix"><span class="tocnumber">9.5</span> <span class="toctext">StreamChMatrix</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-17"><a href="Contributions%253ABioPacADC.html#See_also"><span class="tocnumber">10</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>The BioPacADC source module enables signal acquisition from BioPac MP160
+</p>
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><a rel="nofollow" class="external free" href="http://www.bci2000.org/svn/trunk/src/private/SignalSource/BioPacADC">http://www.bci2000.org/svn/trunk/src/private/SignalSource/BioPacADC</a>
+</p>
+<h2><span class="mw-headline" id="Versioning">Versioning</span></h2>
+<h3><span class="mw-headline" id="Authors">Authors</span></h3>
+<p>Huiling Huang (huiling@neurotechcenter.org)
+</p><p>Juergen Mellinger (mellinger@neurotechcenter.org)
+</p><p>William Engelhardt (engelhardt@neurotechcenter.org)
+</p>
+<h3><span class="mw-headline" id="Version_History">Version History</span></h3>
+<ul><li>2022-04-15: Initial public release by Huiling Huang (huiling@neurotechcenter.org)</li></ul>
+<h2><span class="mw-headline" id="Video_Overview">Video Overview</span></h2>
+<p><br />
+</p>
+<div class="errorbox">EmbedVideo is missing a required parameter.</div>
+<p><br />
+</p>
+<h2><span class="mw-headline" id="Functional_Description">Functional Description</span></h2>
+<p>The MP160 is implemented as both a BCI2000 source module and as a “logger.” As a source module, the MP160 is treated as the time base for data acquisition. This means that any peripheral devices will be sampled with respect to the MP160. You should implement the MP160 as a bci2000 source module if this is your primary electrophysiological signal acquisition device. As a logger, the MP160 is implemented alongside a primary electrophysiological amplifier. This means data acquired from the MP160 is resampled to the primary source device. You should implement the MP160 as a logger if you are using it to acquire additional biometric information (such as skin conductance or respiration) but want to use another device for your primary electrophysiological amplifier. 
+</p><p>In this tutorial, we will implement the MP160, BN-RSPEC, BN-EGG2, BN-EMG2, and BN-PPGED into BCI2000, which will allow us to acquire the respiration signal, electrogastrogram, electromyogram, and electrodermal signal. 
+</p>
+<h2><span class="mw-headline" id="Hardware_Set_Up">Hardware Set Up</span></h2>
+<p>Figure 1 shows all the necessary hardware from MP160. Make sure you have the MP160 and a wireless amplifier, the power supply for the MP160, an Ethernet USB adapter, and an Ethernet cable that can connect your MP160 with the BCI2000 PC. You will also need the Windows BCI2000 PC that will be running BCI2000. The hardware connection is simple(Figure 2). Using the Ethernet cable, plug one end into the MP160 and the other end into the Ethernet USB adapter. Then connect the adapter to the BCI2000 PC. Alternatively, if your PC has an Ethernet port, you could directly connect the PC with the MP160 using an Ethernet cable.
+</p>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 732.66666666667px"><div style="width: 732.66666666667px">
+			<div class="thumb" style="width: 730.66666666667px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:All_device_3_min.png" class="image"><img alt="" src="../images/thumb/7/74/All_device_3_min.png/1096px-All_device_3_min.png" decoding="async" width="731" height="600" srcset="../images/7/74/All_device_3_min.png 1.5x" /></a></div></div>
+			<div class="gallerytext">
+<p>Figure 1: BioPac hardware.
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 802px"><div style="width: 802px">
+			<div class="thumb" style="width: 800px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:Connect_together_2_min.jpeg" class="image"><img alt="" src="../images/thumb/b/b5/Connect_together_2_min.jpeg/1200px-Connect_together_2_min.jpeg" decoding="async" width="800" height="600" srcset="../images/thumb/b/b5/Connect_together_2_min.jpeg/1800px-Connect_together_2_min.jpeg 1.5x, ../images/thumb/b/b5/Connect_together_2_min.jpeg/2400px-Connect_together_2_min.jpeg 2x" /></a></div></div>
+			<div class="gallerytext">
+<p>Figure 2: Hardware connection.
+</p>
+			</div>
+		</div></li>
+</ul>
+<h2><span class="mw-headline" id="Calibration">Calibration</span></h2>
+<p>For skin conductance measurements, we need to first calibrate the amplifier before data are acquired. After configuration setup, press “Set Config”, and a dialog will pop up. Then disconnect the leads to the electrodes and press “Calibrate”. Once the calibration is successful, you can reconnect the patient and record data.
+</p>
+<h2><span class="mw-headline" id="Signal_Info">Signal Info</span></h2>
+<table class="wikitable">
+<caption><b>Signal Info</b>
+</caption>
+<tbody><tr>
+<th>Signal Type
+</th>
+<th>Signal Range
+</th>
+<th>Signal Resolution
+</th></tr>
+<tr>
+<td>Respiration
+</td>
+<td>[-10, 10] V
+</td>
+<td>13 bits
+</td></tr>
+<tr>
+<td>EDA
+</td>
+<td>[0, 50] µS
+</td>
+<td>13 bits
+</td></tr>
+<tr>
+<td>EGG
+</td>
+<td>[-10, 10] mV
+</td>
+<td>16 bits
+</td></tr>
+<tr>
+<td>EMG
+</td>
+<td>[-10, 10] mV
+</td>
+<td>16 bits
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<h3><span class="mw-headline" id="SourceCh">SourceCh</span></h3>
+<p>The number of connected channels of MP160. This number must exactly match the number of wireless transmitters you are planning to connect to the MP160.
+</p>
+<h3><span class="mw-headline" id="SampleBlockSize">SampleBlockSize</span></h3>
+<p>The number of samples to acquire for every system clock.
+</p>
+<h3><span class="mw-headline" id="SamplingRate">SamplingRate</span></h3>
+<p>The MP160 supports the following sampling rates: 0.1, 0.125, 0.2, 0.25, 0.4, 0.5, 0.625, 1, 1.25, 2, 2.5, 4, 5, 6.25, 10, 20, 25, 40, 50, 62.5, 100, 125, 200, 250, 400, 500, 625, 1000, 1250, 2000, 2500, 4000, 5000, 6250, 10000, 12500, 20000, 25000, 40000, 50000, 100000, 20000HZ. 
+The maximum sampling rate for BN-RSPEC, BN-PPGED, BN-EGG2, and BN-EMG2 is 2000HZ. So in our case, the maximum sampling rate here is 2000HZ.
+</p>
+<h3><span class="mw-headline" id="SourceChMatrix">SourceChMatrix</span></h3>
+<p>The information of the connected channels. You need to specify the channel ID and corresponding signal types in this matrix.
+</p>
+<h3><span class="mw-headline" id="StreamChMatrix">StreamChMatrix</span></h3>
+<p>The channel you wish to be shown in the stream window rather than be shown in the source signal window. For example, if you are acquiring EGG and EMG signals from the MP160, but you only want to monitor the EGG signal in the source signal window, then you can config the EMG signal to be shown in StreamChMatrix. 
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Contributions%253AADCs.html" title="Contributions:ADCs">Contributions:ADCs</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524175446
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.028 seconds
+Real time usage: 0.033 seconds
+Preprocessor visited node count: 65/1000000
+Post‐expand include size: 15/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 1346/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2419-0!canonical and timestamp 20230524175446 and revision id 9918
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:BioPacADC&amp;oldid=9918">http://www.bci2000.org/mediawiki/index.php?title=Contributions:BioPacADC&amp;oldid=9918</a>"</div>
+ </div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+###########################################################################
+## $Id$
+## Authors: griffin.milsap@gmail.com
+## Description: Build information for ARSignalProcessing in Qt
+
+# Create the signal processing module
+BCI2000_ADD_SIGNAL_PROCESSING_MODULE( 
+  ARSignalProcessing
+  PipeDefinition.cpp
+)
+

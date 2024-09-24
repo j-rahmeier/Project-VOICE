@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:NihonKohdenSource - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">NihonKohdenSource</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Contributions%253ANihonKohdenSource.html#Synopsis"><span class="tocnumber">1</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Contributions%253ANihonKohdenSource.html#Location"><span class="tocnumber">2</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Contributions%253ANihonKohdenSource.html#Versioning"><span class="tocnumber">3</span> <span class="toctext">Versioning</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Contributions%253ANihonKohdenSource.html#Authors"><span class="tocnumber">3.1</span> <span class="toctext">Authors</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Contributions%253ANihonKohdenSource.html#Version_History"><span class="tocnumber">3.2</span> <span class="toctext">Version History</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Contributions%253ANihonKohdenSource.html#Source_Code_Revisions"><span class="tocnumber">3.3</span> <span class="toctext">Source Code Revisions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="Contributions%253ANihonKohdenSource.html#Functional_Description"><span class="tocnumber">4</span> <span class="toctext">Functional Description</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="Contributions%253ANihonKohdenSource.html#Clinical_Setup"><span class="tocnumber">5</span> <span class="toctext">Clinical Setup</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="Contributions%253ANihonKohdenSource.html#Installation"><span class="tocnumber">6</span> <span class="toctext">Installation</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="Contributions%253ANihonKohdenSource.html#Parameters"><span class="tocnumber">7</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-11"><a href="Contributions%253ANihonKohdenSource.html#Valid_Operating_Modes"><span class="tocnumber">7.1</span> <span class="toctext">Valid Operating Modes</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="Contributions%253ANihonKohdenSource.html#Valid_Operating_Modes_2"><span class="tocnumber">7.2</span> <span class="toctext">Valid Operating Modes</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="Contributions%253ANihonKohdenSource.html#State_Variables"><span class="tocnumber">7.3</span> <span class="toctext">State Variables</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-14"><a href="Contributions%253ANihonKohdenSource.html#DC_Input_From_Other_Devices"><span class="tocnumber">8</span> <span class="toctext">DC Input From Other Devices</span></a></li>
+<li class="toclevel-1 tocsection-15"><a href="Contributions%253ANihonKohdenSource.html#Certification_Results"><span class="tocnumber">9</span> <span class="toctext">Certification Results</span></a>
+<ul>
+<li class="toclevel-2 tocsection-16"><a href="Contributions%253ANihonKohdenSource.html#PC_Specifications"><span class="tocnumber">9.1</span> <span class="toctext">PC Specifications</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="Contributions%253ANihonKohdenSource.html#Certification_Tests_Performed"><span class="tocnumber">9.2</span> <span class="toctext">Certification Tests Performed</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="Contributions%253ANihonKohdenSource.html#Success_Criteria_and_Overall_Results"><span class="tocnumber">9.3</span> <span class="toctext">Success Criteria and Overall Results</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-19"><a href="Contributions%253ANihonKohdenSource.html#See_also"><span class="tocnumber">10</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>The Nihon Kohden JE-120A amplifier is a clinical monitoring system capable of acquiring EEG or ECoG signals from up to 256 channels. 
+Paired with the QI-123A LAN converter box, this system can provide a research data stream in addition to the clinical data stream. 
+The research data stream can be sampled at up to 2kHz for 256 channels, 5kHz for 128 channels or 10kHz for 64 channels.
+</p>
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><a rel="nofollow" class="external free" href="http://www.bci2000.org/svn/trunk/src/private/SignalSource/NihonKohdenSource">http://www.bci2000.org/svn/trunk/src/private/SignalSource/NihonKohdenSource</a>
+</p>
+<h2><span class="mw-headline" id="Versioning">Versioning</span></h2>
+<h3><span class="mw-headline" id="Authors">Authors</span></h3>
+<p>Griffin Milsap (griffin.milsap@gmail.com)
+Johns Hopkins University
+</p><p>Peter Brunner (brunner@neurotechcenter.org)
+Washington University in St. Louis
+</p><p>Markus Adamek (adamek@neurotechcenter.org)
+Washington University in St. Louis
+</p><p>Alexander Belsten (belsten@neurotechcenter.org)
+Washington University in St. Louis
+</p>
+<h3><span class="mw-headline" id="Version_History">Version History</span></h3>
+<ol><li>Version 1.0 (r4913): November 2015 - Initial release.</li>
+<li>Version 1.1 (r6245): March 2021 - Updated to support x64.</li></ol>
+<h3><span class="mw-headline" id="Source_Code_Revisions">Source Code Revisions</span></h3>
+<ul><li>Initial development: 4913</li>
+<li>Tested under: 6245</li>
+<li>Known to compile under: 6245</li>
+<li>Broken since: --</li></ul>
+<h2><span class="mw-headline" id="Functional_Description">Functional Description</span></h2>
+<p>This setup requires the following components: 
+</p>
+<ul><li><b>JE-120A amplifier</b>:</li>
+<li><b>QI-123A LAN converter</b>:</li></ul>
+<p>The amplifier is a clinical monitoring system capable of acquiring EEG or ECoG signals from up to 256 channels. Paired with the QI-123A LAN converter box, this system can provide a research data stream in addition to the clinical data stream. The research data stream can be sampled at up to 2kHz for 256 channels, 5kHz for 128 channels or 10kHz for 64 channels.
+</p>
+<ul><li><b>Input range</b>: ±3.2 mV or ±12.8 mV (selectable)</li>
+<li><b>Effective resolution</b>: 16 bit (97.65 nV/LSB) or 16 bit (390.62 nV/LSB) (selectable)</li>
+<li><b>Input impedance</b>: 200 MΩ</li>
+<li><b>Sampling Rates</b>: 100Hz, 200Hz, 500Hz, 1000Hz, 2000Hz, 5000Hz, 10000Hz</li></ul>
+<h2><span class="mw-headline" id="Clinical_Setup">Clinical Setup</span></h2>
+<h2><span class="mw-headline" id="Installation">Installation</span></h2>
+<p>This source module is located in a private directory of BCI2000. To build the source, you must have the necessary credentials, enable <code>BUILD_PRIVATE</code> in CMake, and modify the CMakeLists.txt in the private and SignalSource directories to build to NihonKohdenSource.
+</p>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<ul><li><b>SourceCh</b> total number of channels to be acquired from the source module or auto for all channels enabled in the Neuroworkbench</li>
+<li><b>SampleBlockSize</b> number of samples acquired in each block or auto for default setting (1/10th of sampling rate)
+<ul><li><b>NOTE:</b> <span style="text-decoration: underline;">Only specific combinations of SampleBlockSize and SampleRate are valid!  See <a href="Contributions%253ANihonKohdenSource.html#Valid_Operating_Modes">#Valid Operating Modes</a></span></li></ul></li>
+<li><b>SampleRate</b> determines the rate at which the device samples data. <br />
+<ul><li><b>NOTE:</b> <span style="text-decoration: underline;">Only specific combinations of SampleBlockSize and SampleRate are valid!  See <a href="Contributions%253ANihonKohdenSource.html#Valid_Operating_Modes">#Valid Operating Modes</a></span></li></ul></li>
+<li><b>ChannelNames</b> is a convenience parameter.  Name channels here and they can be referenced by these names later.</li>
+<li><b>SourceChOffset</b> auto for default settings (0 for each channel).</li>
+<li><b>SourceChGain</b> auto for default settings (1 for each channel).</li>
+<li><b>SourceChList</b> list of channels that should be acquired or auto for all channels enabled in the Neuroworkbench</li>
+<li><b>SourceBufferSize</b></li></ul>
+<h3><span class="mw-headline" id="Valid_Operating_Modes">Valid Operating Modes</span></h3>
+<p>The NihonKohdenSource only accepts specific sampling rates. The number of channels acquired is limited at sampling rates of 5000 Hz and above. The following table shows all valid combinations of sample rate and maximum number of channels. 
+</p>
+<table border="1">
+<tbody><tr>
+<th>SamplingRate
+</th>
+<th>Max SourceCh
+</th>
+<th>Aliasing Filter Cut-Off
+</th></tr>
+<tr>
+<th>[samples/sec]
+</th>
+<th>[channels]
+</th>
+<th>[Hz]
+</th></tr>
+<tr>
+<td>100
+</td>
+<td>256
+</td>
+<td>30 or 35
+</td></tr>
+<tr>
+<td>200
+</td>
+<td>256
+</td>
+<td>60 or 70
+</td></tr>
+<tr>
+<td>500
+</td>
+<td>256
+</td>
+<td>120
+</td></tr>
+<tr>
+<td>1000
+</td>
+<td>256
+</td>
+<td>300
+</td></tr>
+<tr>
+<td>2000
+</td>
+<td>256
+</td>
+<td>600
+</td></tr>
+<tr>
+<td>5000
+</td>
+<td>128
+</td>
+<td>1200
+</td></tr>
+<tr>
+<td>10000
+</td>
+<td>64
+</td>
+<td>3000
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="Valid_Operating_Modes_2">Valid Operating Modes</span></h3>
+<h3><span class="mw-headline" id="State_Variables">State Variables</span></h3>
+<ul><li><b>DC01</b> to <b>DC16</b> DC Input data
+<ul><li>Digital Range: 0 to 65535</li>
+<li>Analog Range: 0xFFFF(Max)-0x8000(0V)-0x0000(Min). (Signed.)</li>
+<li>1LSB: 366.3uV</li></ul></li>
+<li><b>SpO2</b>
+<ul><li>Digital Range: 0 to 100</li>
+<li>0 means 0%, 100 means 100%</li></ul></li>
+<li><b>EtCO2</b>
+<ul><li>Digital Range: 0 to 100</li>
+<li>0 means 0mmHg, 100 means 100mmHg</li></ul></li>
+<li><b>BP1</b> to <b>BP2</b>
+<ul><li>not implemented</li></ul></li>
+<li><b>DigitalMark1</b> to <b>DigitalMark2</b>
+<ul><li>not implemented</li></ul></li></ul>
+<h2><span class="mw-headline" id="DC_Input_From_Other_Devices">DC Input From Other Devices</span></h2>
+<p>Analog data from a g.TRIGbox and parallel port can be obtained though the JE120A's DC inputs. A parallel port Y-splitter and a custom cable is necessary. Connection of the custom cables and Y-splitter is outlined in the image below.
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:Parrallel_Ports_to_JE120A.jpg" class="image" title="alt text"><img alt="alt text" src="../images/thumb/0/05/Parrallel_Ports_to_JE120A.jpg/700px-Parrallel_Ports_to_JE120A.jpg" decoding="async" width="700" height="525" srcset="../images/thumb/0/05/Parrallel_Ports_to_JE120A.jpg/1050px-Parrallel_Ports_to_JE120A.jpg 1.5x, ../images/0/05/Parrallel_Ports_to_JE120A.jpg 2x" /></a> 
+</p><p>The outputs from the g.TRIGbox and parallel port to the DC input of the JE120A are defined below. Note that the g.TRIGbox trigger outputs are the TTL pins. See <a href="Contributions%253AParallelPortFilter.html" title="Contributions:ParallelPortFilter">Contributions:ParallelPortFilter</a> for information on how to set the outputs of a parallel port from BCI2000. 
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>JE120A
+</th>
+<th>
+</th>
+<th>g.TRIGbox
+</th>
+<th>
+</th>
+<th>Parallel Port
+</th>
+<th>
+</th></tr>
+<tr>
+<td>Pin No.
+</td>
+<td>Signal
+</td>
+<td>Pin No.
+</td>
+<td>Signal
+</td>
+<td>Pin No.
+</td>
+<td>Signal
+</td></tr>
+<tr>
+<td>1
+</td>
+<td>DC01
+</td>
+<td>2
+</td>
+<td>Output A
+</td>
+<td>-
+</td>
+<td>-
+</td></tr>
+<tr>
+<td>2
+</td>
+<td>DC02
+</td>
+<td>3
+</td>
+<td>Output B
+</td>
+<td>-
+</td>
+<td>-
+</td></tr>
+<tr>
+<td>3
+</td>
+<td>DC03
+</td>
+<td>4
+</td>
+<td>Output C
+</td>
+<td>-
+</td>
+<td>-
+</td></tr>
+<tr>
+<td>4
+</td>
+<td>DC04
+</td>
+<td>5
+</td>
+<td>Output D
+</td>
+<td>-
+</td>
+<td>-
+</td></tr>
+<tr>
+<td>5
+</td>
+<td>DC05
+</td>
+<td>8
+</td>
+<td>Encoded Output
+</td>
+<td>-
+</td>
+<td>-
+</td></tr>
+<tr>
+<td>6
+</td>
+<td>DC06
+</td>
+<td>-
+</td>
+<td>-
+</td>
+<td>-
+</td>
+<td>-
+</td></tr>
+<tr>
+<td>7
+</td>
+<td>DC07
+</td>
+<td>-
+</td>
+<td>-
+</td>
+<td>-
+</td>
+<td>-
+</td></tr>
+<tr>
+<td>8
+</td>
+<td>DC08
+</td>
+<td>-
+</td>
+<td>-
+</td>
+<td>-
+</td>
+<td>-
+</td></tr>
+<tr>
+<td>9
+</td>
+<td>DC09
+</td>
+<td>-
+</td>
+<td>-
+</td>
+<td>2
+</td>
+<td>Data0
+</td></tr>
+<tr>
+<td>10
+</td>
+<td>DC10
+</td>
+<td>-
+</td>
+<td>-
+</td>
+<td>3
+</td>
+<td>Data1
+</td></tr>
+<tr>
+<td>11
+</td>
+<td>DC11
+</td>
+<td>-
+</td>
+<td>-
+</td>
+<td>4
+</td>
+<td>Data2
+</td></tr>
+<tr>
+<td>12
+</td>
+<td>DC12
+</td>
+<td>-
+</td>
+<td>-
+</td>
+<td>5
+</td>
+<td>Data3
+</td></tr>
+<tr>
+<td>13
+</td>
+<td>DC13
+</td>
+<td>-
+</td>
+<td>-
+</td>
+<td>6
+</td>
+<td>Data4
+</td></tr>
+<tr>
+<td>14
+</td>
+<td>DC14
+</td>
+<td>-
+</td>
+<td>-
+</td>
+<td>7
+</td>
+<td>Data5
+</td></tr>
+<tr>
+<td>15
+</td>
+<td>DC15
+</td>
+<td>-
+</td>
+<td>-
+</td>
+<td>8
+</td>
+<td>Data6
+</td></tr>
+<tr>
+<td>16
+</td>
+<td>DC16
+</td>
+<td>-
+</td>
+<td>-
+</td>
+<td>9
+</td>
+<td>Data7
+</td></tr>
+<tr>
+<td>24
+</td>
+<td>GND
+</td>
+<td>1
+</td>
+<td>GND
+</td>
+<td>24
+</td>
+<td>GND
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="Certification_Results">Certification Results</span></h2>
+<p>The Nihon Kohden certification was performed to give a better understanding of the restraints that must be placed on the system when using this device. Certification success criteria was determined internally and without rigor, and reflects our experience with psychophysical experiments and the performance we expect to need for the system. More information about certification testing can be found on the <a href="User_Reference%253ABCI2000Certification.html" title="User Reference:BCI2000Certification">certification wiki page</a>. 
+</p>
+<h3><span class="mw-headline" id="PC_Specifications">PC Specifications</span></h3>
+<ul><li>Lenovo Thinkpad E580 (<a rel="nofollow" class="external free" href="https://www.lenovo.com/us/en/laptops/thinkpad/thinkpad-e-series/ThinkPad-E580/p/22TP2TEE580">https://www.lenovo.com/us/en/laptops/thinkpad/thinkpad-e-series/ThinkPad-E580/p/22TP2TEE580</a>)</li>
+<li>Processor: Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz 2.7GHz</li>
+<li>Installed Ram: 8.00 GB</li>
+<li>Graphics Card: Intel(R) HD Graphics 620</li>
+<li>System Type: 64-bit operating system, x64-based processor</li>
+<li>BCI2000 compiled with MSVC2019 and Qt 5.15.2</li>
+<li>g.USBamp UB with driver version 3.16.00 installed</li></ul>
+<h3><span class="mw-headline" id="Certification_Tests_Performed">Certification Tests Performed</span></h3>
+<p>Certification testing varied number of channels (4, 8, 16) task (P3Spell (7x7 grid), P3Spell (1x1 grid), CursorTask, CursorTaskLow, and StimulusPresentation), and tested audio and video latency, for a total of 15 performed tasks.
+</p>
+<h3><span class="mw-headline" id="Success_Criteria_and_Overall_Results">Success Criteria and Overall Results</span></h3>
+<table border="1">
+<tbody><tr>
+<td>Name
+</td>
+<td>Actual Latency
+</td>
+<td>Success Criteria
+</td>
+<td>Result
+</td></tr>
+<tr>
+<td>Timestamp Latency Mean
+</td>
+<td>2.81 µs
+</td>
+<td>1 ms
+</td>
+<td>passed
+</td></tr>
+<tr>
+<td>Timestamp Latency STD
+</td>
+<td>2.75 ms
+</td>
+<td>5 ms
+</td>
+<td>passed
+</td></tr>
+<tr>
+<td>Processing Latency Mean
+</td>
+<td>35 ms
+</td>
+<td>20 ms
+</td>
+<td>failed
+</td></tr>
+<tr>
+<td>Processing Latency STD
+</td>
+<td>164 ms
+</td>
+<td>10 ms
+</td>
+<td>failed
+</td></tr>
+<tr>
+<td>Video Latency Mean
+</td>
+<td>66.9 ms
+</td>
+<td>65 ms
+</td>
+<td>failed
+</td></tr>
+<tr>
+<td>Video Latency STD
+</td>
+<td>6.31 ms
+</td>
+<td>20 ms
+</td>
+<td>passed
+</td></tr>
+<tr>
+<td>Audio Latency Mean
+</td>
+<td>76.2 ms
+</td>
+<td>65 ms
+</td>
+<td>failed
+</td></tr>
+<tr>
+<td>Audio Latency STD
+</td>
+<td>3.94 ms
+</td>
+<td>20 ms
+</td>
+<td>passed
+</td></tr></tbody></table>
+<p><br />
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Reference%253AFilters.html" title="User Reference:Filters">User Reference:Filters</a>, <a href="Contributions%253AADCs.html" title="Contributions:ADCs">Contributions:ADCs</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524175507
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.042 seconds
+Real time usage: 0.046 seconds
+Preprocessor visited node count: 68/1000000
+Post‐expand include size: 15/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2092-0!canonical and timestamp 20230524175507 and revision id 9655
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:NihonKohdenSource&amp;oldid=9655">http://www.bci2000.org/mediawiki/index.php?title=Contributions:NihonKohdenSource&amp;oldid=9655</a>"</div>
+ </div>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Programming Howto:Install Prerequisites - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul><li class="toc1">Concepts</li><ul><li class="toc2"><a href="Programming_Reference%253AFilter_Chain.html">Filter Chain</a></li><li class="toc2"><a href="Programming_Reference%253ASignals.html">Signals</a></li><li class="toc2"><a href="Programming_Reference%253AError_Handling.html">Error Handling</a></li><li class="toc2"><a href="Programming_Reference%253ALocalization.html">Localization</a></li><li class="toc2"><a href="Programming_Reference%253ARapid_Development.html">Rapid Development</a></li></ul><li class="toc1">Reference</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFilter_Class.html">GenericFilter</a></li><li class="toc2"><a href="Programming_Reference%253AEnvironment_Class.html">Environment</a></li><li class="toc2"><a href="Programming_Reference%253AGenericVisualization_Class.html">GenericVisualization</a></li><li class="toc2"><a href="Programming_Reference%253AErrors_and_Warnings.html">Errors and Warnings</a></li><li class="toc2"><a href="Programming_Reference%253ADebug_Output.html">Debug Output</a></li></ul><li class="toc1">Data Acquisition</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericADC_Class.html">GenericADC</a></li></ul><li class="toc1">Data Storage</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFileWriter_Class.html">GenericFileWriter</a></li><li class="toc2"><a href="Programming_Reference%253ABCI2000FileReader_Class.html">BCI2000FileReader</a></li></ul><li class="toc1">Signal Processing</li><ul><li class="toc2"><a href="Programming_Reference%253AIIRFilterBase_Class.html">IIR Filters</a></li></ul><li class="toc1">Application Modules</li><ul><li class="toc2"><a href="Programming_Reference%253AApplicationBase_Class.html">ApplicationBase</a></li><li class="toc2"><a href="Programming_Reference%253AFeedbackTask_Class.html">FeedbackTask</a></li><li class="toc2"><a href="Programming_Reference%253AStimulusTask_Class.html">StimulusTask</a></li><li class="toc2"><a href="Programming_Reference%253A3D_API.html">3D API</a></li></ul><li class="toc1">Howtos</li><ul><li class="toc2"><a href="Programming_Howto%253ABuilding_BCI2000.html">Building BCI2000</a></li><li class="toc2"><a href="Programming_Howto%253ASVN_Client_Setup.html">SVN Client Setup</a></li><li class="toc2"><a href="Programming_Howto%253AUsing_TortoiseSVN.html">Using TortoiseSVN</a></li></ul><li class="toc1"><a href="Programming_FAQ.html">FAQ</a></li><li class="toc1">Tutorials</li><ul><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html">Data Acquisition</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html">Signal Processing</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html">Matlab Signal Processing</a></li></ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">Install Prerequisites</h1>
+ <p class = "subtitle">Programming Howto</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Programming_Howto%253AInstall_Prerequisites.html#Back"><span class="tocnumber">1</span> <span class="toctext">Back</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Programming_Howto%253AInstall_Prerequisites.html#TortoiseSVN"><span class="tocnumber">2</span> <span class="toctext">TortoiseSVN</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Programming_Howto%253AInstall_Prerequisites.html#CMake"><span class="tocnumber">3</span> <span class="toctext">CMake</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="Programming_Howto%253AInstall_Prerequisites.html#VisualStudio"><span class="tocnumber">4</span> <span class="toctext">VisualStudio</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="Programming_Howto%253AInstall_Prerequisites.html#Qt"><span class="tocnumber">5</span> <span class="toctext">Qt</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="Programming_Howto%253AInstall_Prerequisites.html#Qt_Versioning"><span class="tocnumber">5.1</span> <span class="toctext">Qt Versioning</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="Programming_Howto%253AInstall_Prerequisites.html#Next_step"><span class="tocnumber">6</span> <span class="toctext">Next step</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="Programming_Howto%253AInstall_Prerequisites.html#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Back">Back</span></h2>
+<p>To <a href="Programming_Howto%253ABuilding_and_Customizing_BCI2000.html" title="Programming Howto:Building and Customizing BCI2000">this howto's overview page</a>.
+</p>
+<h2><span class="mw-headline" id="TortoiseSVN">TortoiseSVN</span></h2>
+<p>Download the TortoiseSVN installer from <a rel="nofollow" class="external text" href="https://tortoisesvn.net">tortoisesvn.net</a>.
+</p><p>Run the installer:
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:TortoiseSVN_2-1985.png" class="image"><img alt="TortoiseSVN 2-1985.png" src="../images/b/be/TortoiseSVN_2-1985.png" decoding="async" width="509" height="398" /></a></div></div>
+<p>Don't forget to install command line client tools:
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:TortoiseSVN_3-1990.png" class="image"><img alt="TortoiseSVN 3-1990.png" src="../images/d/d9/TortoiseSVN_3-1990.png" decoding="async" width="509" height="398" /></a></div></div>
+<p>This will allow you to later check the build number and run various commands. 
+</p><p>Click "Finish" to dismiss the installer dialog:
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:TortoiseSVN_4-2001.png" class="image"><img alt="TortoiseSVN 4-2001.png" src="../images/4/48/TortoiseSVN_4-2001.png" decoding="async" width="509" height="398" /></a></div></div>
+<h2><span class="mw-headline" id="CMake">CMake</span></h2>
+<p>Download the CMake installer from <a rel="nofollow" class="external text" href="https://cmake.org">cmake.org/download</a>. The latest release to date is 3.22.3, but most recent versions should work.
+</p><p>Run the installer:
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:CMake_2-2013.png" class="image"><img alt="CMake 2-2013.png" src="../images/b/b9/CMake_2-2013.png" decoding="async" width="495" height="387" /></a></div></div>
+<p>Choose "Add to path for all users":
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:CMake_3-2019.png" class="image"><img alt="CMake 3-2019.png" src="../images/7/74/CMake_3-2019.png" decoding="async" width="495" height="387" /></a></div></div>
+<p>Follow the installation instructions. Click "Finish" to dismiss the installer dialog:
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:CMake_4-2025.png" class="image"><img alt="CMake 4-2025.png" src="../images/a/a8/CMake_4-2025.png" decoding="async" width="495" height="387" /></a></div></div>
+<h2><span class="mw-headline" id="VisualStudio">VisualStudio</span></h2>
+<p>Download the VisualStudio Community installer from <a rel="nofollow" class="external text" href="https://visualstudio.com/downloads/">visualstudio.com</a>. BCI2000 compilation will work with VS2017, VS2019 or VS2022 but does not work with VS2015 or below. <br /><i>*Note that BCI2000 is most frequently tested with VS2019. </i>
+</p><p>Run the installer:
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Install_vs2017_community_1.png" class="image"><img alt="Install vs2017 community 1.png" src="../images/5/5d/Install_vs2017_community_1.png" decoding="async" width="521" height="261" /></a></div></div>
+<p>Make sure to install the C++ compiler:
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Install_vs2017_community_2.png" class="image"><img alt="Install vs2017 community 2.png" src="../images/thumb/6/65/Install_vs2017_community_2.png/600px-Install_vs2017_community_2.png" decoding="async" width="600" height="340" srcset="../images/6/65/Install_vs2017_community_2.png 1.5x" /></a></div></div>
+<h2><span class="mw-headline" id="Qt">Qt</span></h2>
+<p>Download the Qt open source installer from <a rel="nofollow" class="external text" href="https://www.qt.io/download">www.qt.io</a>.
+</p><p>Use the "go open source" link to download a version of qt available for open source software:
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Qt_installer_1-2.PNG" class="image"><img alt="Qt installer 1-2.PNG" src="../images/3/35/Qt_installer_1-2.PNG" decoding="async" width="607" height="276" /></a></div></div>
+<p>Download the Qt online installer:
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Qt_installer_2-2.PNG" class="image"><img alt="Qt installer 2-2.PNG" src="../images/c/c1/Qt_installer_2-2.PNG" decoding="async" width="1310" height="353" /></a></div></div>
+<p>Run the installer:
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Qt_installer_1.png" class="image"><img alt="Qt installer 1.png" src="../images/b/b8/Qt_installer_1.png" decoding="async" width="952" height="632" /></a></div></div>
+<p>If you do not already have an account, follow the steps to create one:
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Qt_installer_account.PNG" class="image"><img alt="Qt installer account.PNG" src="../images/0/01/Qt_installer_account.PNG" decoding="async" width="952" height="632" /></a></div></div>
+<p>Agree to the open source obligations, and click "Next" to continue:
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Qt_installer_open_source_obligations.PNG" class="image"><img alt="Qt installer open source obligations.PNG" src="../images/3/3f/Qt_installer_open_source_obligations.PNG" decoding="async" width="952" height="632" /></a></div></div>
+<p>Click "Next" to start the installation:
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Qt_installer_3.png" class="image"><img alt="Qt installer 3.png" src="../images/b/bb/Qt_installer_3.png" decoding="async" width="952" height="632" /></a></div></div>
+<p>Choose a directory, and click "Next" to continue:
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Qt_installer_4.png" class="image"><img alt="Qt installer 4.png" src="../images/5/56/Qt_installer_4.png" decoding="async" width="952" height="632" /></a></div></div>
+<h4><span class="mw-headline" id="Qt_Versioning">Qt Versioning</span></h4>
+<p>Choose a Qt version that is consistent with the version of VisualStudio you downloaded earlier. Another consideration is the framework you wish to build BCI2000 with. For example, in this tutorial, we are compiling for the 2019 Visual Studio on a 64 bit system, make sure you select MSVC 2019 64-bit, which is demonstrated in the photo below. If you're using Visual Studio 2017 find the latest version of Qt that supports Visual Studio 2017 for whatever architecture you want to build BCI2000 on and install that version of Qt. Note that VisualStudio 2017 is binary compatible with VisualStudio 2015, so you may use the MSVC2015 32-bit package for a 32bit build using VisualStudio 2017.
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Qt_installer_5.png" class="image"><img alt="Qt installer 5.png" src="../images/9/9f/Qt_installer_5.png" decoding="async" width="952" height="632" /></a></div></div>
+<p>Agree to the License Agreement, and click "Next" to continue:
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Qt_installer_6.png" class="image"><img alt="Qt installer 6.png" src="../images/3/37/Qt_installer_6.png" decoding="async" width="952" height="632" /></a></div></div>
+<p>Click "Next" when prompted for Start Menu shortcuts:
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Qt_installer_7.png" class="image"><img alt="Qt installer 7.png" src="../images/f/f0/Qt_installer_7.png" decoding="async" width="952" height="632" /></a></div></div>
+<p>Click "Install" to download and install Qt files:
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Qt_installer_8.png" class="image"><img alt="Qt installer 8.png" src="../images/f/f7/Qt_installer_8.png" decoding="async" width="952" height="632" /></a></div></div>
+<p>Progress will be indicated during installation.
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Qt_installer_9.png" class="image"><img alt="Qt installer 9.png" src="../images/c/c6/Qt_installer_9.png" decoding="async" width="952" height="632" /></a></div></div>
+<p>Installation may take a long time.
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Qt_installer_10.png" class="image"><img alt="Qt installer 10.png" src="../images/5/5d/Qt_installer_10.png" decoding="async" width="952" height="632" /></a></div></div>
+<p>Uncheck "Launch Qt Creator" before clicking "Finish":
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Qt_installer_11.png" class="image"><img alt="Qt installer 11.png" src="../images/3/34/Qt_installer_11.png" decoding="async" width="952" height="632" /></a></div></div>
+<h2><span class="mw-headline" id="Next_step">Next step</span></h2>
+<p>As a next step, learn how to <a href="Programming_Howto%253ARegister_with_BCI2000_Project.html" title="Programming Howto:Register with BCI2000 Project">register with the BCI2000 Project</a>.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Programming_Howto%253ABuilding_and_Customizing_BCI2000.html" title="Programming Howto:Building and Customizing BCI2000">Programming Howto:Building and Customizing BCI2000</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524000330
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.050 seconds
+Real time usage: 0.063 seconds
+Preprocessor visited node count: 48/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2167-0!canonical and timestamp 20230524000330 and revision id 9394
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Programming_Howto:Install_Prerequisites&amp;oldid=9394">http://www.bci2000.org/mediawiki/index.php?title=Programming_Howto:Install_Prerequisites&amp;oldid=9394</a>"</div>
+ </div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>User Tutorial:Data Analysis - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul><li class="toc1"><a href="User_Tutorial%253ABCI2000_Tour.html">Tour</a></li><li class="toc1"><a href="User_Tutorial%253AMu_Rhythm_BCI_Tutorial.html">Mu Tutorial</a></li><li class="toc1"><a href="User_Tutorial%253AP300_BCI_Tutorial.html">P300 Tutorial</a></li></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">Data Analysis</h1>
+ <p class = "subtitle">User Tutorial</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>There is a number of data analysis tutorials provided. These show how to analyze some sample data that is included with <i>BCI2000</i>.
+</p>
+<div id="toc" class="toc"><div class="toctitle" lang="en" dir="ltr"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="User_Tutorial%253AData_Analysis.html#Mu_Rhythm.2FSMR_Data_Analysis"><span class="tocnumber">1</span> <span class="toctext">Mu Rhythm/SMR Data Analysis</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="User_Tutorial%253AData_Analysis.html#P300.2FERP_Data_Analysis"><span class="tocnumber">2</span> <span class="toctext">P300/ERP Data Analysis</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="User_Tutorial%253AData_Analysis.html#Custom_Data_Analysis"><span class="tocnumber">3</span> <span class="toctext">Custom Data Analysis</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="User_Tutorial%253AData_Analysis.html#See_also"><span class="tocnumber">4</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span id="Mu_Rhythm/SMR_Data_Analysis"></span><span class="mw-headline" id="Mu_Rhythm.2FSMR_Data_Analysis">Mu Rhythm/SMR Data Analysis</span></h2>
+<ul><li><a href="User_Tutorial%253APerforming_an_Offline_Analysis_of_EEG_Data.html" title="User Tutorial:Performing an Offline Analysis of EEG Data">Performing an Offline Analysis of EEG Data</a></li></ul>
+<dl><dd>will guide you through an offline analysis using some sample EEG data included with <i>BCI2000</i>.</dd></dl>
+<ul><li><a href="User_Tutorial%253AInterpreting_the_Results.html" title="User Tutorial:Interpreting the Results">Interpreting the Results</a></li></ul>
+<dl><dd>will compare the results of the previous step with other similar data.</dd></dl>
+<p>As we know, EEG data is not the only type of data that is of interest in BCI.  Following are some additional tutorials for working with different types of datasets:
+</p>
+<ul><li><a href="User_Tutorial%253APerforming_an_Offline_Analysis_of_ECoG_Data.html" title="User Tutorial:Performing an Offline Analysis of ECoG Data">Performing an Offline Analysis of ECoG Data</a></li></ul>
+<dl><dd>will guide you through an offline analysis using some sample ECoG data included with <i>BCI2000</i></dd></dl>
+<ul><li><a href="User_Tutorial%253APerforming_an_Offline_Analysis_of_MEG_Data.html" title="User Tutorial:Performing an Offline Analysis of MEG Data">Performing an Offline Analysis of MEG Data</a></li></ul>
+<dl><dd>will guide you through an offline analysis using some sample MEG data included with <i>BCI2000</i></dd></dl>
+<h2><span id="P300/ERP_Data_Analysis"></span><span class="mw-headline" id="P300.2FERP_Data_Analysis">P300/ERP Data Analysis</span></h2>
+<ul><li><a href="User_Tutorial%253APerforming_a_Time-Domain_Offline_Analysis_of_EEG_Data.html" title="User Tutorial:Performing a Time-Domain Offline Analysis of EEG Data">Performing a Time-Domain Offline Analysis of EEG Data</a></li></ul>
+<dl><dd>will guide you through a time-domain offline analysis using some sample EEG data included with <i>BCI2000</i>.</dd></dl>
+<p>As we know, EEG data is not the only type of data that is of interest in BCI.  Following is an additional tutorial for working with ECoG datasets:
+</p>
+<ul><li><a href="User_Tutorial%253APerforming_a_Time-Domain_Offline_Analysis_of_ECoG_Data.html" title="User Tutorial:Performing a Time-Domain Offline Analysis of ECoG Data">Performing a Time-Domain Offline Analysis of ECoG Data</a></li></ul>
+<dl><dd>will guide you through a time-domain offline analysis using some sample ECoG data included with <i>BCI2000</i></dd></dl>
+<ul><li><a href="User_Reference%253AP300Classifier.html#Tutorial" title="User Reference:P300Classifier">Using the P300Classifier tool</a></li></ul>
+<dl><dd>will show you how to train a classifier, and to obtain a set of configuration parameters, from data recorded with <a href="User_Reference%253AStimulusPresentationTask.html" title="User Reference:StimulusPresentationTask">StimulusPresentation</a> or <a href="User_Reference%253AP3SpellerTask.html" title="User Reference:P3SpellerTask">P3Speller</a> application modules.</dd></dl>
+<h2><span class="mw-headline" id="Custom_Data_Analysis">Custom Data Analysis</span></h2>
+<p>For users who wish to go beyond the constraints of the analysis procedures in the tutorials, the following resources may be useful:
+</p>
+<ul><li>The <a href="User_Reference%253ACommand_Line_Processing.html" title="User Reference:Command Line Processing">BCI2000 command-line tools</a> can be used to recreate a chain of BCI2000 processing steps offline, from a system command-line.</li>
+<li>The Matlab function <tt>bci2000chain</tt>, part of BCI2000's suite of <a href="User_Reference%253AMatlab_Tools.html" title="User Reference:Matlab Tools">Matlab tools</a>, provides a convenient interface to this from within Matlab.</li></ul>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Tutorial%253ABCI2000_Tour.html" title="User Tutorial:BCI2000 Tour">User Tutorial:BCI2000 Tour</a>, <a href="User_Tutorial%253AMu_Rhythm_BCI_Tutorial.html" title="User Tutorial:Mu Rhythm BCI Tutorial">User Tutorial:Mu Rhythm BCI Tutorial</a>, <a href="User_Tutorial%253AP300_BCI_Tutorial.html" title="User Tutorial:P300 BCI Tutorial">User Tutorial:P300 BCI Tutorial</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20200807132220
+Cache expiry: 86400
+Dynamic content: false
+CPU time usage: 0.011 seconds
+Real time usage: 0.057 seconds
+Preprocessor visited node count: 15/1000000
+Preprocessor generated node count: 20/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+</div>
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1875-0!canonical and timestamp 20200807132220 and revision id 7104
+ -->
+</div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=User_Tutorial:Data_Analysis&amp;oldid=7104">http://www.bci2000.org/mediawiki/index.php?title=User_Tutorial:Data_Analysis&amp;oldid=7104</a>"</div>
+ </div>
+</body>
+</html>

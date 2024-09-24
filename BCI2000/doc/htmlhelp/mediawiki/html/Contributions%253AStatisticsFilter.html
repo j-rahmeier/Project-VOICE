@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:StatisticsFilter - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">StatisticsFilter</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Contributions%253AStatisticsFilter.html#Synopsis"><span class="tocnumber">1</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Contributions%253AStatisticsFilter.html#Location"><span class="tocnumber">2</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Contributions%253AStatisticsFilter.html#Versioning"><span class="tocnumber">3</span> <span class="toctext">Versioning</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Contributions%253AStatisticsFilter.html#Author"><span class="tocnumber">3.1</span> <span class="toctext">Author</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Contributions%253AStatisticsFilter.html#Source_Code_Revisions"><span class="tocnumber">3.2</span> <span class="toctext">Source Code Revisions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="Contributions%253AStatisticsFilter.html#Methods"><span class="tocnumber">4</span> <span class="toctext">Methods</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="Contributions%253AStatisticsFilter.html#Aim"><span class="tocnumber">4.1</span> <span class="toctext">Aim</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="Contributions%253AStatisticsFilter.html#Approach"><span class="tocnumber">4.2</span> <span class="toctext">Approach</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="Contributions%253AStatisticsFilter.html#Implementation"><span class="tocnumber">4.3</span> <span class="toctext">Implementation</span></a>
+<ul>
+<li class="toclevel-3 tocsection-10"><a href="Contributions%253AStatisticsFilter.html#General_derivation_of_formulae"><span class="tocnumber">4.3.1</span> <span class="toctext">General derivation of formulae</span></a></li>
+<li class="toclevel-3 tocsection-11"><a href="Contributions%253AStatisticsFilter.html#Weight_function"><span class="tocnumber">4.3.2</span> <span class="toctext">Weight function</span></a></li>
+<li class="toclevel-3 tocsection-12"><a href="Contributions%253AStatisticsFilter.html#Higher_order_moments"><span class="tocnumber">4.3.3</span> <span class="toctext">Higher order moments</span></a></li>
+<li class="toclevel-3 tocsection-13"><a href="Contributions%253AStatisticsFilter.html#Dynamic_resolution_histograms.3D"><span class="tocnumber">4.3.4</span> <span class="toctext">Dynamic resolution histograms=</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-14"><a href="Contributions%253AStatisticsFilter.html#Functional_Description"><span class="tocnumber">5</span> <span class="toctext">Functional Description</span></a>
+<ul>
+<li class="toclevel-2 tocsection-15"><a href="Contributions%253AStatisticsFilter.html#User-defined_Objects"><span class="tocnumber">5.1</span> <span class="toctext">User-defined Objects</span></a>
+<ul>
+<li class="toclevel-3 tocsection-16"><a href="Contributions%253AStatisticsFilter.html#Observers_and_ChannelSets"><span class="tocnumber">5.1.1</span> <span class="toctext">Observers and ChannelSets</span></a></li>
+<li class="toclevel-3 tocsection-17"><a href="Contributions%253AStatisticsFilter.html#Views"><span class="tocnumber">5.1.2</span> <span class="toctext">Views</span></a></li>
+<li class="toclevel-3 tocsection-18"><a href="Contributions%253AStatisticsFilter.html#Output_format"><span class="tocnumber">5.1.3</span> <span class="toctext">Output format</span></a></li>
+<li class="toclevel-3 tocsection-19"><a href="Contributions%253AStatisticsFilter.html#Computation_of_weighted_statistics"><span class="tocnumber">5.1.4</span> <span class="toctext">Computation of weighted statistics</span></a></li>
+<li class="toclevel-3 tocsection-20"><a href="Contributions%253AStatisticsFilter.html#Expressions"><span class="tocnumber">5.1.5</span> <span class="toctext">Expressions</span></a>
+<ul>
+<li class="toclevel-4 tocsection-21"><a href="Contributions%253AStatisticsFilter.html#RSquared.28_obs1.2C_obs2.2C_idx1.2C_idx2_.29"><span class="tocnumber">5.1.5.1</span> <span class="toctext">RSquared( obs1, obs2, idx1, idx2 )</span></a></li>
+<li class="toclevel-4 tocsection-22"><a href="Contributions%253AStatisticsFilter.html#ZScore.28_obs1.2C_obs2.2C_idx1.2C_idx2_.29"><span class="tocnumber">5.1.5.2</span> <span class="toctext">ZScore( obs1, obs2, idx1, idx2 )</span></a></li>
+<li class="toclevel-4 tocsection-23"><a href="Contributions%253AStatisticsFilter.html#obs.Count.28.29"><span class="tocnumber">5.1.5.3</span> <span class="toctext">obs.Count()</span></a></li>
+<li class="toclevel-4 tocsection-24"><a href="Contributions%253AStatisticsFilter.html#obs.Mean.28.29"><span class="tocnumber">5.1.5.4</span> <span class="toctext">obs.Mean()</span></a></li>
+<li class="toclevel-4 tocsection-25"><a href="Contributions%253AStatisticsFilter.html#obs.Variance.28.29"><span class="tocnumber">5.1.5.5</span> <span class="toctext">obs.Variance()</span></a></li>
+<li class="toclevel-4 tocsection-26"><a href="Contributions%253AStatisticsFilter.html#obs.Covariance.28idx1.2Cidx2.29"><span class="tocnumber">5.1.5.6</span> <span class="toctext">obs.Covariance(idx1,idx2)</span></a></li>
+<li class="toclevel-4 tocsection-27"><a href="Contributions%253AStatisticsFilter.html#obs.Correlation.28idx1.2Cidx2.29"><span class="tocnumber">5.1.5.7</span> <span class="toctext">obs.Correlation(idx1,idx2)</span></a></li>
+<li class="toclevel-4 tocsection-28"><a href="Contributions%253AStatisticsFilter.html#obs.Skewness.28.29.2C_obs.Kurtosis.28.29"><span class="tocnumber">5.1.5.8</span> <span class="toctext">obs.Skewness(), obs.Kurtosis()</span></a></li>
+<li class="toclevel-4 tocsection-29"><a href="Contributions%253AStatisticsFilter.html#obs.CentralMoment.28n.29"><span class="tocnumber">5.1.5.9</span> <span class="toctext">obs.CentralMoment(n)</span></a></li>
+<li class="toclevel-4 tocsection-30"><a href="Contributions%253AStatisticsFilter.html#obs.Quantile.28p.29"><span class="tocnumber">5.1.5.10</span> <span class="toctext">obs.Quantile(p)</span></a></li>
+<li class="toclevel-4 tocsection-31"><a href="Contributions%253AStatisticsFilter.html#obs.QQuantiles.28n.29"><span class="tocnumber">5.1.5.11</span> <span class="toctext">obs.QQuantiles(n)</span></a></li>
+<li class="toclevel-4 tocsection-32"><a href="Contributions%253AStatisticsFilter.html#obs.Histogram.28center.2C_resolution.2C_numBins.29"><span class="tocnumber">5.1.5.12</span> <span class="toctext">obs.Histogram(center, resolution, numBins)</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-33"><a href="Contributions%253AStatisticsFilter.html#Parameters"><span class="tocnumber">6</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-34"><a href="Contributions%253AStatisticsFilter.html#ChannelSets"><span class="tocnumber">6.1</span> <span class="toctext">ChannelSets</span></a></li>
+<li class="toclevel-2 tocsection-35"><a href="Contributions%253AStatisticsFilter.html#Observers"><span class="tocnumber">6.2</span> <span class="toctext">Observers</span></a></li>
+<li class="toclevel-2 tocsection-36"><a href="Contributions%253AStatisticsFilter.html#Views_2"><span class="tocnumber">6.3</span> <span class="toctext">Views</span></a></li>
+<li class="toclevel-2 tocsection-37"><a href="Contributions%253AStatisticsFilter.html#OutputView"><span class="tocnumber">6.4</span> <span class="toctext">OutputView</span></a></li>
+<li class="toclevel-2 tocsection-38"><a href="Contributions%253AStatisticsFilter.html#VisualizeViews"><span class="tocnumber">6.5</span> <span class="toctext">VisualizeViews</span></a></li>
+<li class="toclevel-2 tocsection-39"><a href="Contributions%253AStatisticsFilter.html#EventScripts"><span class="tocnumber">6.6</span> <span class="toctext">EventScripts</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-40"><a href="Contributions%253AStatisticsFilter.html#States"><span class="tocnumber">7</span> <span class="toctext">States</span></a></li>
+<li class="toclevel-1 tocsection-41"><a href="Contributions%253AStatisticsFilter.html#See_also"><span class="tocnumber">8</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>The StatisticsFilter is able to compute a number of statistical measures over a signal it is observing. Statistics are computed over decaying time windows of past data, and are thus updated continuously. Amongst other purposes, the StatisticsFilter may be used to compute feature maps displaying correlation between task and features online, during a measurement.
+</p>
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><a rel="nofollow" class="external free" href="http://www.bci2000.org/svn/trunk/src/contrib/SignalProcessing/Statistics">http://www.bci2000.org/svn/trunk/src/contrib/SignalProcessing/Statistics</a>
+</p>
+<h2><span class="mw-headline" id="Versioning">Versioning</span></h2>
+<h3><span class="mw-headline" id="Author">Author</span></h3>
+<p>juergen.mellinger@uni-tuebingen.de
+</p>
+<h3><span class="mw-headline" id="Source_Code_Revisions">Source Code Revisions</span></h3>
+<ul><li>Initial development: 3758</li>
+<li>Tested under: 4151</li>
+<li>Known to compile under: 4164</li></ul>
+<h2><span class="mw-headline" id="Methods">Methods</span></h2>
+<h3><span class="mw-headline" id="Aim">Aim</span></h3>
+<p>To compute statistical measures from streams of data such that, at each point in time, estimates of those measure are available that depend on recent data more strongly than on old data.
+</p>
+<h3><span class="mw-headline" id="Approach">Approach</span></h3>
+<p>Assigning weights to past data, such that a data point's weight only depends on its age, then doing "weighted statistics" on the data.
+</p>
+<ul><li>"Weighted statistics" is a general approach typically used in order to correct for biases in samples, and formulae for common functions on weighted samples are e.g. implemented in the GNU Scientific Library: <a rel="nofollow" class="external free" href="http://www.gnu.org/software/gsl/manual/html_node/Weighted-Samples.html">http://www.gnu.org/software/gsl/manual/html_node/Weighted-Samples.html</a></li>
+<li>"Weighted statistics" is formally equivalent to computation of statistical measures on probability distributions, by replacing probabilities with normalized weights.</li></ul>
+<h3><span class="mw-headline" id="Implementation">Implementation</span></h3>
+<h4><span class="mw-headline" id="General_derivation_of_formulae">General derivation of formulae</span></h4>
+<p>Each statistical measure is computed from weighted power sums of observed data, i.e. for power <i>n</i>, each data point is taken to the <i>n</i>th power, and the weighted sum of data point powers is computed. Statistical measures such as count, mean, average, variance, etc. may then be expressed in terms of power sums, and computed from weighted data by obtaining weighted power sums as described.
+</p><p>Writing <img class="mwe-math-fallback-image-inline tex" alt="P_n" src="../images/math/9/b/3/9b34c48707062a07e6c080655df4337f.png" /> for the <i>n</i>th power sum, and <img class="mwe-math-fallback-image-inline tex" alt="\mu_n" src="../images/math/3/1/d/31d7b6b479c6101d7aeac72c96180d0e.png" /> for the <i>n</i>th raw moment of a distribution, we have:
+</p><p><img class="mwe-math-fallback-image-inline tex" alt="\mu_n = P_n/P_0" src="../images/math/3/d/7/3d7b5f4b5b1ec80b7d7b431c9b593077.png" />.
+</p><p>From there, it is straightforward to obtain expressions for all statistical measures by using the well-known formulae applying connecting them to the raw moments:
+</p><p>count = <img class="mwe-math-fallback-image-inline tex" alt="P_0" src="../images/math/1/3/8/13899aa46204b02713a854702142955d.png" />,
+</p><p>mean = <img class="mwe-math-fallback-image-inline tex" alt="\frac{P_1}{P_0}" src="../images/math/0/c/5/0c5803952496ab62eb981af9568962d9.png" />,
+</p><p>variance = <img class="mwe-math-fallback-image-inline tex" alt="\frac{P_2}{P_0}-\frac{P_1^2}{P_0^2}" src="../images/math/d/4/2/d42f7f3f1281b9e0850421cfffaeee04.png" />.
+</p><p>In the multivariate case, powers are to be replaced by outer products of vectors with themselves, e.g. <img class="mwe-math-fallback-image-inline tex" alt="P_1" src="../images/math/4/7/d/47ddd0a8d1607438330cf19c0c1ac45e.png" /> is a vector, <img class="mwe-math-fallback-image-inline tex" alt="P_2" src="../images/math/2/d/1/2d145e3684093dda8dbfe869afa543f9.png" /> is a square matrix, <img class="mwe-math-fallback-image-inline tex" alt="P_3" src="../images/math/e/7/9/e796bf8ab080239efc771161ea64089d.png" /> is an array with 3 indices, etc.
+Then, covariance becomes (writing ^ for the outer vector product):
+</p><p>covariance matrix = <img class="mwe-math-fallback-image-inline tex" alt="\frac{P_2}{P_0}-\frac{P_1\wedge P_1}{P_0^2}" src="../images/math/0/6/9/069d964f9394a3a55784014aba1cbe6c.png" />.
+</p><p>For statistical measures describing the relation between two sets of observables, e.g. the rsquared, or the z score, the same principle applies: the measure is expressed in terms of power sums over each of the two sets, and the weighted power sums from each set are inserted into the resulting expression.
+</p><p>Detailed formulae for all statistical measures may be found in the BCI2000 source code (which is written in a self-documenting manner):
+<a rel="nofollow" class="external free" href="http://www.bci2000.org/tracproj/browser/trunk/src/extlib/math/statistics/ObserverBase.cpp">http://www.bci2000.org/tracproj/browser/trunk/src/extlib/math/statistics/ObserverBase.cpp</a>
+</p>
+<h4><span class="mw-headline" id="Weight_function">Weight function</span></h4>
+<p>As a weight function, we choose a decaying exponential, and take the associated time constant to represent a measure of "past observation duration". The decaying exponential is not chosen arbitrarily, but is of special significance because it represents a one-parametric distribution of minimal entropy over the interval (-inf, 0], just as the zero-mean Gaussian represents a one-parametric minimal-entropy distribution over the interval (-inf, inf). 
+</p><p>At the same time, computation of the resulting power sums can be done very efficiently by an algorithm equivalent to a first-order low pass filter as follows:
+</p>
+<pre>1: Initialize nth power sum to 0 (all 0 entries in the multivariate case);
+2: for each observed data vector do:
+3:     multiply nth power sum with a decay factor &lt;= 1;
+4:     compute nth power of data vector (nth outer product with itself in the multivariate case);
+5:     add the result of (4) to the power sum;
+6: done.
+</pre>
+<p>In each step, an appropriate decay factor may be determined from the user-supplied time constant, and the time interval between the previous and the current observation. For data sampled at equally spaced time points, the decay factor is constant.
+</p>
+<h4><span class="mw-headline" id="Higher_order_moments">Higher order moments</span></h4>
+<p>In the multivariate case, the implementation is restricted to <img class="mwe-math-fallback-image-inline tex" alt="n\leq 2" src="../images/math/f/9/6/f966f2370b1373880f458d101c9d8de0.png" />, which is sufficient to compute covariance/correlation between two streams of data. In the univariate case, central moments of any order may be requested by the user. In either case, only those power sums are maintained which are necessary to compute the measure(s) requested by the user (e.g., the multivariate <img class="mwe-math-fallback-image-inline tex" alt="P_2" src="../images/math/2/d/1/2d145e3684093dda8dbfe869afa543f9.png" /> matrix is not maintained unless the user wants a covariance or correlation to be computed; if he requests an rsquared between sets of multivariate data, only the diagonal elements of the <img class="mwe-math-fallback-image-inline tex" alt="P_2" src="../images/math/2/d/1/2d145e3684093dda8dbfe869afa543f9.png" /> matrix are maintained for each set).
+</p>
+<h4><span id="Dynamic_resolution_histograms="></span><span class="mw-headline" id="Dynamic_resolution_histograms.3D">Dynamic resolution histograms=</span></h4>
+<p>If the user requests histogram or quantile data, past data values are stored together with weights, and kept in sorted order according to values. All stored weights are multiplied by the same decay factor as used for power sums when a new data point arrives. When the value of the new data point is already present, the weight of the existing entry is increased by 1. Otherwise, a new entry is created, and set to 1. In order for the algorithm to have constant (rather than linear) space requirements, pairs of entries are combined into a single entry when their associated values are below a certain threshold. The threshold is not fixed but dynamically determined such that the accuracy of computed quantiles stays above a user-specified minimum.
+</p>
+<h2><span class="mw-headline" id="Functional_Description">Functional Description</span></h2>
+<p>The StatisticsFilter allows to statistically observe incoming data, and to compute various statistical measures over these data. Data observation may be restricted to boolean conditions involving state variables. Also, when computing statistics, older data may be weighted less, allowing for continuously updated statistics.
+</p><p>In addition to its input signal, the StatisticsFilter is able to include its own output into observation.
+</p>
+<h3><span class="mw-headline" id="User-defined_Objects">User-defined Objects</span></h3>
+<p>Configuration of the StatisticsFilter is done by defining objects which belong to one of the following classes: <b>ChannelSets,</b> <b>Observers,</b> and <b>Views.</b>
+For each class, there exists a parameter containing definitions of objects that belong that class. In these matrix-valued parameters, columns vary according to class, but each row corresponds to exactly one object. Objects must be uniquely named, and object names are specified by setting the corresponding row's label (double-click the row's header).
+</p>
+<h4><span class="mw-headline" id="Observers_and_ChannelSets">Observers and ChannelSets</span></h4>
+<ul><li><b>Observers</b> are the central components of the StatisticsFilter. They "observe" their inputs over time, and may provide statistical information based on their observations.</li>
+<li>For each observer, there exists an observation condition in a column labelled "observe when." There, a boolean expression is expected, such as "TargetCode==1". No observation is made while the observation condition evaluates to "false".</li>
+<li>Observers also have a typical observation duration in the column labelled "observe over". When computing statistics, data are exponentially weighted according to their age. An observer's "observe over" entry defines for which age a data point's weight has decayed to a factor of exp(-1). An observer's data will only age when new data is being observed, i.e. while its observation condition evaluates to "true".</li>
+<li>Observers keep their observation data in between runs, but may be reset at any time by specifying an appropriate expression in their "reset when" column.</li>
+<li><b>ChannelSets</b> serve to define observers' inputs. Besides ChannelSets, BCI2000 expressions may be specified, e.g. in order to set a BCI2000 state to be the input to an observer. An observer's input is specified in the column labelled "observe what".</li></ul>
+<h4><span class="mw-headline" id="Views">Views</span></h4>
+<ul><li><b>Views</b> define the output of statistical information. A view is a mathematical expression, which may contain general mathematical functions such as log(), sqrt(), +, *, / as well as statistical functions operating on observer objects. E.g., to get the mean value of the signal observed by observer "obs1", one defines a view computing the expression "obs1.mean()".</li>
+<li>To compute the squared correlation coefficient ("Determination coefficient, r^2") between two conditions, one needs to define two observers, one for each condition. Into each observer's "observe when" column, one enters the desired condition, e.g. "TargetCode==1" and "TargetCode==2". Then, one creates a view to compute the r^2 value. For two observers "obs1" and "obs2", the corresponding expression would be "RSquared( obs1, obs2 )".</li>
+<li>To compute correlation between two signals, one defines a single observer with multivariate input. E.g., to compute a continuously updated correlation between the "TargetCode" state, and an input signal, one creates an observer with "true" as observation condition, i.e. an observer that observes continuously. For this observer, two entries are then specified under "observe what": First, "TargetCode", and then "AllChannels" (or the name of a different ChannelSet). This observer's input then has two dimensions: TargetCode and signal. In an output view, one may then write "obs.Correlation(1,2)", or short "obs.Correlation()", to view the 1,2 entry of the correlation matrix.</li>
+<li>Just like ChannelSets, views may be specified as input to observers. This allows for multi-level statistics, where statistical measures themselves become subject of statistical observation.</li></ul>
+<h4><span class="mw-headline" id="Output_format">Output format</span></h4>
+<p>A view's output channels are the outer product of the input channels of the observers involved. Only "compatible" observers may be combined in a view's expression. When an observer has only a single ChannelSet in its input (as has been the case in all examples so far), then output channels directly correspond to input channels. When an observer has multivariate input, and there are ChannelSets associated with two of its input dimensions, then output channels correspond to pairwise combinations of input channels.
+</p><p>Output channel labels are constructed by combining input channel labels, such that is possible to identify each single combination in the output.
+</p>
+<h4><span class="mw-headline" id="Computation_of_weighted_statistics">Computation of weighted statistics</span></h4>
+<p>In order to derive formulae for weighted statistics, one proceeds as if computing statistics from a histogram (or from pairs of histograms, in case of the RSquared() and ZScore() functions). First, the total weight of data points is normalized to 1. Then, statistical measures are expressed in terms of power sums of observed values. Finally, each contributing term in each power sum is weighted by the normalized weight of its corresponding data point.
+</p>
+<h4><span class="mw-headline" id="Expressions">Expressions</span></h4>
+<p>For the syntax of boolean and mathematical expressions, see:
+<a rel="nofollow" class="external free" href="http://www.bci2000.org/wiki/index.php/User_Reference:Expression_Syntax">http://www.bci2000.org/wiki/index.php/User_Reference:Expression_Syntax</a>
+</p><p>In addition to standard functions, the following statistical functions may be used when defining views:
+</p>
+<h5><span id="RSquared(_obs1,_obs2,_idx1,_idx2_)"></span><span class="mw-headline" id="RSquared.28_obs1.2C_obs2.2C_idx1.2C_idx2_.29">RSquared( obs1, obs2, idx1, idx2 )</span></h5>
+<p>Computes the <img class="mwe-math-fallback-image-inline tex" alt="r^2" src="../images/math/b/f/0/bf0e22b63959a3aae3c6c971f02227cb.png" /> value (Determination coefficient, squared Pearson's r) between two sets of observations. For univariate observers, index arguments may be omitted. Otherwise, they specify a pair of dimensions to combine between first and second observer. For more information about the determination coefficient, see <a href="Glossary.html#r2_.28Coefficient_of_Determination.29" title="Glossary">here</a>.
+</p>
+<h5><span id="ZScore(_obs1,_obs2,_idx1,_idx2_)"></span><span class="mw-headline" id="ZScore.28_obs1.2C_obs2.2C_idx1.2C_idx2_.29">ZScore( obs1, obs2, idx1, idx2 )</span></h5>
+<p>Computes a z score between two sets of observations, taking the first observer as a reference. As for the RSquared() function, indices refer to observer input dimensions, and may be omitted in case of two univariate observers.
+</p>
+<h5><span id="obs.Count()"></span><span class="mw-headline" id="obs.Count.28.29">obs.Count()</span></h5>
+<p>Computes the effective number of observations entering into statistics for observer "obs". The effective number of observations takes the weight decay of older observations into account, and approaches a constant for finite entries in the "observe over" column.
+</p>
+<h5><span id="obs.Mean()"></span><span class="mw-headline" id="obs.Mean.28.29">obs.Mean()</span></h5>
+<p>The mean of observations for observer "obs".
+</p>
+<h5><span id="obs.Variance()"></span><span class="mw-headline" id="obs.Variance.28.29">obs.Variance()</span></h5>
+<p>The variance of observations for each dimension of observer "obs".
+</p>
+<h5><span id="obs.Covariance(idx1,idx2)"></span><span class="mw-headline" id="obs.Covariance.28idx1.2Cidx2.29">obs.Covariance(idx1,idx2)</span></h5>
+<p>The covariance of observations for observer "obs". For a two-dimensional observer, indices may be omitted, resulting in the 1,2 entry of the covariance matrix. Diagonal elements of covariance are identical to the elements of variance.
+</p>
+<h5><span id="obs.Correlation(idx1,idx2)"></span><span class="mw-headline" id="obs.Correlation.28idx1.2Cidx2.29">obs.Correlation(idx1,idx2)</span></h5>
+<p>The correlation matrix for the dimensions of observer "obs". For a two-dimensional observer, indices may be omitted, resulting in the 1,2 entry of the correlation matrix. Diagonal elements of correlation are always 1.
+</p>
+<h5><span id="obs.Skewness(),_obs.Kurtosis()"></span><span class="mw-headline" id="obs.Skewness.28.29.2C_obs.Kurtosis.28.29">obs.Skewness(), obs.Kurtosis()</span></h5>
+<p>The skewness and kurtosis for each dimension of observer "obs". Kurtosis is computed such that it becomes zero for Gaussian distributed data.
+</p>
+<h5><span id="obs.CentralMoment(n)"></span><span class="mw-headline" id="obs.CentralMoment.28n.29">obs.CentralMoment(n)</span></h5>
+<p>The n-th central moment for each dimension of observer "obs".
+</p>
+<h5><span id="obs.Quantile(p)"></span><span class="mw-headline" id="obs.Quantile.28p.29">obs.Quantile(p)</span></h5>
+<p>The value corresponding to the the given relative frequency p in each dimension of observer "obs". p is restricted by <img class="mwe-math-fallback-image-inline tex" alt="0\leq p \leq 1" src="../images/math/e/1/5/e15a73dae203172e97edfa425d14ef31.png" />.
+</p>
+<h5><span id="obs.QQuantiles(n)"></span><span class="mw-headline" id="obs.QQuantiles.28n.29">obs.QQuantiles(n)</span></h5>
+<p>For each dimension of observer "obs", a vector of values corresponding to the n-th q-quantile. This vector has n+1 entries, with the minimum in the first entry, and the maximum in the last entry.
+</p>
+<h5><span id="obs.Histogram(center,_resolution,_numBins)"></span><span class="mw-headline" id="obs.Histogram.28center.2C_resolution.2C_numBins.29">obs.Histogram(center, resolution, numBins)</span></h5>
+<p>For each dimension of observer "obs", a vector of histogram frequencies with the specified properties.
+</p>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<h3><span class="mw-headline" id="ChannelSets">ChannelSets</span></h3>
+<p>Rows represent channel sets, defined as space-separated lists of channel names. Use row labels to name channel sets. Channel names may include * and&#160;? wildcards, and character ranges enclosed in [], optionally negated by an exclamation mark. Ranges of channels may be specified using&#160;: or - to separate begin from end.
+</p>
+<h3><span class="mw-headline" id="Observers">Observers</span></h3>
+<p>Rows represent observers. In the "observe what" column, you may specify channel sets, views, or expressions. In the "observe when" column, provide a boolean condition, or "true" in order to observe always. For "observe over", give a typical lifetime of an observation. Specify multiple entries in the first column in order to do multivariate statistics. An observer is reset to its initial state whenever the expression in the "reset when" column evaluates to true. By default, observers keep their information in between runs.
+</p>
+<h3><span class="mw-headline" id="Views_2">Views</span></h3>
+<p>Rows represent views. Views are defined by arithmetic expressions that may contain <a href="Contributions%253AStatisticsFilter.html#Expressions">statistical functions</a>, and properties of observers. Data from multiple columns will be concatenated in the output.
+</p>
+<h3><span class="mw-headline" id="OutputView">OutputView</span></h3>
+<p>Specify a view to be copied into the filter's output signal. When empty, the filter's input will be used as an output.
+</p>
+<h3><span class="mw-headline" id="VisualizeViews">VisualizeViews</span></h3>
+<p>Wildcard expressions matching views to be displayed. Enter a * to display all defined views.
+</p>
+<h3><span class="mw-headline" id="EventScripts">EventScripts</span></h3>
+<p>Specify statements to be executed during StartRun, StopRun, Initialize, or Process. This is intended for creating and initializing variables that are later used within Observer or View expressions.
+</p>
+<h2><span class="mw-headline" id="States">States</span></h2>
+<p>"Observe when", "observe what", and view expressions may contain any state variable present in the system.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Reference%253AFilters.html" title="User Reference:Filters">User Reference:Filters</a>, <a href="Contributions%253ASignalProcessing.html" title="Contributions:SignalProcessing">Contributions:SignalProcessing</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524175511
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.041 seconds
+Real time usage: 0.046 seconds
+Preprocessor visited node count: 202/1000000
+Post‐expand include size: 15/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 2093/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2048-0!canonical!math=0 and timestamp 20230524175511 and revision id 9562
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:StatisticsFilter&amp;oldid=9562">http://www.bci2000.org/mediawiki/index.php?title=Contributions:StatisticsFilter&amp;oldid=9562</a>"</div>
+ </div>
+</body>
+</html>

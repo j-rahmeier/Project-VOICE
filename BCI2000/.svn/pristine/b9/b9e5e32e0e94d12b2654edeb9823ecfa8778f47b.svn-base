@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:HilbertFilter - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">HilbertFilter</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Contributions%253AHilbertFilter.html#Synopsis"><span class="tocnumber">1</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Contributions%253AHilbertFilter.html#Location"><span class="tocnumber">2</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Contributions%253AHilbertFilter.html#Versioning"><span class="tocnumber">3</span> <span class="toctext">Versioning</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Contributions%253AHilbertFilter.html#Authors"><span class="tocnumber">3.1</span> <span class="toctext">Authors</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="Contributions%253AHilbertFilter.html#Parameters"><span class="tocnumber">4</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="Contributions%253AHilbertFilter.html#OutputSignal"><span class="tocnumber">4.1</span> <span class="toctext">OutputSignal</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="Contributions%253AHilbertFilter.html#Delay"><span class="tocnumber">4.2</span> <span class="toctext">Delay</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="Contributions%253AHilbertFilter.html#States"><span class="tocnumber">5</span> <span class="toctext">States</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="Contributions%253AHilbertFilter.html#See_also"><span class="tocnumber">6</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>This filter computes the envelope or the phase of a signal using Hilbert transform. The discrete input signal  <i>x</i>(<i>n</i>) is first transformed to its analytic representation (i.e., analytic signal), which is composed of real and imaginary parts.
+</p>
+<dl><dd><img class="mwe-math-fallback-image-inline tex" alt=" x_{a}(n) = x(n) + j \operatorname{H}(x(n))  " src="../images/math/d/8/7/d87ce9729af73da5f05abadd0603d28b.png" /></dd></dl>
+<p>The real part is the same input signal, and the imaginary part is the Hilbert transform of the input signal. The Hilbert transform is implemented as the convolution of the input signal with the filter <i>h</i>(<i>n</i>). 
+</p>
+<dl><dd><img class="mwe-math-fallback-image-inline tex" alt=" h(n) =  &#10;\begin{cases}&#10;\ \ {2 \over \pi n}, &amp; \mbox{for } n \mbox{ odd}\\&#10;\ \ 0, &amp; \mbox{for } n \mbox{ even}\\&#10;\end{cases}&#10;" src="../images/math/8/e/c/8ec026f8aaf4717e17271dbfcee8f307.png" /></dd></dl>
+<p>To get an ideal Hilbert transform, <i>n</i> must be infinitely long <img class="mwe-math-fallback-image-inline tex" alt="(-\infty &lt; n &lt; \infty)" src="../images/math/5/f/3/5f38840a07fe33fbf733ffd7182bc16f.png" />. However, for real time implementations, <i>h</i>(<i>n</i>) must be truncated and delayed to guarantee a causal filter. Thus, the FIR filter is defined as 
+</p>
+<dl><dd><img class="mwe-math-fallback-image-inline tex" alt=" h(n) =  &#10;\begin{cases}&#10;\ \ {2 \over \pi (n-\delta)}, &amp; \mbox{for } n \mbox{ odd}\\&#10;\ \ 0, &amp; \mbox{for } n \mbox{ even},\\&#10;\end{cases}&#10;" src="../images/math/c/8/0/c800fb76f34a6bb678aed694f626e9a1.png" /></dd></dl>
+<p>for <img class="mwe-math-fallback-image-inline tex" alt=" 0\leq n \leq N-1 " src="../images/math/5/3/3/533c558ebaeb07fba1a0c1bf16d82698.png" />, where <i>N</i> is an odd number representing the length of the filter in samples, and the resulting Hilbert transform is delayed by a number of samples <img class="mwe-math-fallback-image-inline tex" alt=" \delta = (N-1)/2 " src="../images/math/5/1/2/512c3e6e2970f27789632ecdffc373d6.png" />. The real part of the analytic signal must also be delayed by the same amount in order to estimate  the envelope and phase of the input signal.
+</p>
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><a rel="nofollow" class="external free" href="http://www.bci2000.org/svn/trunk/src/contrib/SignalProcessing/HilbertSignalProcessing/HilbertFilter.cpp">http://www.bci2000.org/svn/trunk/src/contrib/SignalProcessing/HilbertSignalProcessing/HilbertFilter.cpp</a>
+</p>
+<h2><span class="mw-headline" id="Versioning">Versioning</span></h2>
+<h3><span class="mw-headline" id="Authors">Authors</span></h3>
+<p>Cristhian Potes, Jeremy Hill
+</p>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<h3><span class="mw-headline" id="OutputSignal">OutputSignal</span></h3>
+<p>This parameter determines which quantity is output from the filter. It may be one of:
+</p>
+<dl><dt>0 - Copy input signal</dt>
+<dd>no processing,</dd>
+<dt>1 - Magnitude</dt>
+<dd>Hilbert envelope amplitude,</dd>
+<dt>2 - Phase</dt>
+<dd>Hilbert phase,</dd>
+<dt>3 - Real part</dt>
+<dd>original input signal, but with a delay to match its timing to the imaginary part.</dd>
+<dt>4 - Imaginary part</dt>
+<dd>original signal filtered with an FIR-Hilbert transformer.</dd></dl>
+<h3><span class="mw-headline" id="Delay">Delay</span></h3>
+<p>As for most BCI2000 parameters expressing time,  this parameter should be expressed either as a number of SampleBlocks (a bare number without unit)  or as a physical length of time with a unit appended (e.g. "0.1s").
+</p><p>The length of the Hilbert filter itself is <img class="mwe-math-fallback-image-inline tex" alt=" N = 2 \delta + 1 " src="../images/math/6/f/0/6f0908acc3a3e88b95de29dad73052ca.png" /> once the delay has been converted to a number of samples <img class="mwe-math-fallback-image-inline tex" alt=" \delta " src="../images/math/f/1/0/f10f03c9836c36537d2539196058bfa2.png" />. Conversely the delay is <img class="mwe-math-fallback-image-inline tex" alt=" \delta = ( N - 1 ) / 2 " src="../images/math/5/1/2/512c3e6e2970f27789632ecdffc373d6.png" />, where <i>N</i> is the (odd) number of samples in the filter.   Empirically, we have found that <i>N</i> ≥ 201 samples   (i.e. <img class="mwe-math-fallback-image-inline tex" alt="\delta" src="../images/math/f/1/0/f10f03c9836c36537d2539196058bfa2.png" /> ≥ 100 samples) is advisable for a reasonable-quality approximation to the infinite Hilbert transform. A warning is issued if the delay is shorter than this.
+</p>
+<h2><span class="mw-headline" id="States">States</span></h2>
+<p>None.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Reference%253AFilters.html" title="User Reference:Filters">User Reference:Filters</a>, <a href="Contributions%253ASignalProcessing.html" title="Contributions:SignalProcessing">Contributions:SignalProcessing</a>, <a href="Contributions%253AHilbertSignalProcessing.html" title="Contributions:HilbertSignalProcessing">Contributions:HilbertSignalProcessing</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524040517
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.020 seconds
+Real time usage: 0.029 seconds
+Preprocessor visited node count: 79/1000000
+Post‐expand include size: 15/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 1771/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2034-0!canonical!math=0 and timestamp 20230524040517 and revision id 6634
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:HilbertFilter&amp;oldid=6634">http://www.bci2000.org/mediawiki/index.php?title=Contributions:HilbertFilter&amp;oldid=6634</a>"</div>
+ </div>
+</body>
+</html>

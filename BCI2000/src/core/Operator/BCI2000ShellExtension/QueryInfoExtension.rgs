@@ -1,0 +1,49 @@
+HKCR
+{
+  NoRemove .dat
+  {
+    NoRemove shellex
+    {
+      ForceRemove {00021500-0000-0000-C000-000000000046} = s '{DEFE0E21-067C-4455-B031-E1FBB3AAFC91}'
+    }
+  }
+  NoRemove .bcidat
+  {
+    NoRemove shellex
+    {
+      ForceRemove {00021500-0000-0000-C000-000000000046} = s '{DEFE0E21-067C-4455-B031-E1FBB3AAFC91}'
+    }
+  }
+  NoRemove CLSID
+  {
+    ForceRemove {DEFE0E21-067C-4455-B031-E1FBB3AAFC91} = s 'BCI2000QueryInfo Class'
+    {
+      InprocServer32 = s '%MODULE%'
+      {
+        val ThreadingModel = s 'Apartment'
+      }
+    }
+  }
+}
+HKLM
+{
+  NoRemove Software
+  {
+    NoRemove Microsoft
+    {
+      NoRemove Windows
+      {
+        NoRemove CurrentVersion
+        {
+          NoRemove 'Shell Extensions'
+          {
+            NoRemove Approved
+            {
+              ForceRemove {DEFE0E21-067C-4455-B031-E1FBB3AAFC91} = s 'BCI2000QueryInfo Class'
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Exercise:BCI2000 Basics - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">BCI2000 Basics</h1>
+ <p class = "subtitle">Exercise</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Exercise%253ABCI2000_Basics.html#BCI2000_System_Basics"><span class="tocnumber">1</span> <span class="toctext">BCI2000 System Basics</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Exercise%253ABCI2000_Basics.html#Exercises_from_the_BCI2000_Book"><span class="tocnumber">2</span> <span class="toctext">Exercises from the BCI2000 Book</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="Exercise%253ABCI2000_Basics.html#Source_Module"><span class="tocnumber">2.1</span> <span class="toctext">Source Module</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="Exercise%253ABCI2000_Basics.html#Signal_Processing_Module"><span class="tocnumber">2.2</span> <span class="toctext">Signal Processing Module</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="BCI2000_System_Basics">BCI2000 System Basics</span></h1>
+<p>For the workshops, you will find a complete BCI2000 distribution, including source code, at <code>C:\BCI2000\3.x</code>
+</p><p>The following questions can be answered by exploring the BCI2000 distribution itself, and the html documentation (perhaps starting with the <a href="User_Tutorial%253ABCI2000_Tour.html" title="User Tutorial:BCI2000 Tour">tour</a> or the <a href="User_Reference%253AContents.html" title="User Reference:Contents">user manual</a>).
+</p>
+<ul><li>What are the files in the <code>prog</code> subdirectory of the BCI2000 distribution?</li>
+<li>What roles does the Operator module perform?</li>
+<li>What role does a SignalSource module perform?  Give one example of a SignalSource module and briefly describe what it does..</li>
+<li>What role does a SignalProcessing module perform?  Give one example of a SignalProcessing module and briefly describe what it does..</li>
+<li>What role does an Application module perform?  Give one example of an Application module and briefly describe what it does.</li>
+<li>Find a <code>.prm</code> file in the <code>parms</code> subdirectory, open it and take a look at the contents. Broadly speaking, what is this file for?</li>
+<li>Find a <code>.bat</code> file in the <code>batch</code> subdirectory, right-click on it and select "Edit", then take a look at the contents. What is this file for?  Are there any parts whose role is unclear?   There are two main advantages to using batch files: what are they? (Hint: <code>batch/MatlabDemo_SignalGenerator.bat</code> contains an example of one of the advantages.)</li></ul>
+<h1><span class="mw-headline" id="Exercises_from_the_BCI2000_Book">Exercises from the BCI2000 Book</span></h1>
+<p>The following exercises are taken from the Springer book "A Practical Guide to Brain-Computer Interfacing with BCI2000" by Gerwin Schalk and Jürgen Mellinger. The book provides descriptions of different aspects of the BCI2000 system, and gives tutorials for use of two different types of brain signals. Each of these exercises addresses a different component of the system. The exercises are meant to be followed in order. 
+</p><p>Chapters 3 and 10 of the book give an overview and detailed description of the most important components of the BCI2000 system, respectively.  We will here provide a realistic exercise that will touch on the key parameters of these components.  This exercise will simulate the configuration of a BCI system that implements a cursor task. Thus, all subsequent exercises assume the use of the  <code> CursorTask_SignalGenerator.bat</code> batch file.  We suggest to start with the <code> CursorTask_SignalGenerator.prm</code> parameter file and to change it appropriately as you go along. It is a good idea if you save the parameter file with a different name as you make changes. 
+</p><p>To begin, start BCI2000 using the batch and parameter files listed above. You can press <b>Set Config</b> and <b>Start</b>. You will notice that you can control the cursor in the display using the mouse. The exercises in the following sections will reconfigure a number of components of the system. The cursor will follow the mouse again only when all configuration changes have been made.
+</p>
+<h2><span class="mw-headline" id="Source_Module">Source Module</span></h2>
+<p>We begin with an exercise relating to signal acquisition. Thus, we will be changing parameters in the <b>Source</b> tab of the BCI2000 configuration dialog.
+</p>
+<ul><li>We assume that we are recording EEG signals from eight channels (C3, Cz, C4, Cp3, Cpz, Cp4, Fpz, Oz) using a data acquisition (DAQ) device that has a sampling rate of 512 Hz. The whole system (i.e. including cursor movement) should be updated 32 times per second. The DAQ device provides floating point signals that are in units of µV. Which BCI2000 parameters need to be changed and why?</li></ul>
+<ul><li>In this exercise, we will use the mouse to modulate the amplitude of a sine wave at C3 and C4 at 18 Hz. This simulates a subject that can modulate the amplitude of a sensorimotor rhythm at these locations and that frequency. With our BCI, we would like to control a computer cursor using one or both of these signals. Which BCI2000 parameters need to be changed and why?</li></ul>
+<p><br />
+</p>
+<h2><span class="mw-headline" id="Signal_Processing_Module">Signal Processing Module</span></h2>
+<p>In the next part of the exercise, we will be extracting the simulated signals (i.e. amplitude of the sine waves) at C3 and C4 and 18 Hz in real time and will be using it for cursor control.  To do this, we will have to deal with at least four components of Signal Processing, i.e. the <i>Spatial Filter</i>, the <i>AR Filter</i>, the <i>Linear Classifier</i>, and the <i>Normalizer</i>. The following exercises address these three components. 
+</p>
+<ul><li>Spatial filtering can substantially improve the results of feature extraction in EEG-based BCIs (McFarland et al 1997, Clinical Neurophysiology). Thus, while not necessary for our simulated example, we will apply a <i>Common Average Reference</i> (CAR) filter. This filter subtracts the average of all other channels from a particular channel. (Some scientists would subtract the average of <i>all</i> channels when calculating the CAR filter. The two methods are equivalent, up to a constant scaling factor. In our example, in which we expect signals at channels C3 and C4, we would thus create two output signals that each have the average of all other channels subtracted. This can be done using the <i>Spatial Filter</i>. Which configuration changes are necessary?</li></ul>
+<ul><li>Once the signals are spatially filtered, we need to convert them into the frequency domain, i.e. to calculate a spectrum. Once we have derived a spectrum, we can extract the signal at 18 Hz that we know is represented in the signal. For reasons described elsewhere (McFarland et al. 1997, Behavioral Research Methods), the most commonly used spectral estimation routine in BCI2000 is the Maximum Entropy Method (MEM) method rather than, for example, the Fast Fourier Transform (FFT). The parameters corresponding to the MEM method are listed in the <i>ARFilter</i> section of the <b>Filtering</b> tab. Which parameters of this section, if any, need to be changed and why?</li></ul>
+<ul><li>The next step is to select from these features (i.e. amplitudes at given locations and frequencies) the linear combination of features that represents the signals of interest. In this case, we know that the signals of interest are the amplitudes at  C3 and C4 at 18 Hz. We also know that activity at C3 corresponds to horizontal movement of the mouse and activity at C4 corresponds to vertical movement of the mouse. Given that we would like the same mapping for control of the cursor, which parameters need to be changed and how?</li></ul>
+<ul><li>For this exercise, let's change the weights of the first and second control signal. To do this, enter <code>5</code> and <code>2</code> in the first and second row and in the right-most column in the parameter <i>Classifier</i> in the <b>Filtering</b> tab, respectively. Set the configuration and start. What happens and why?</li></ul>
+<ul><li>One substantial problem in BCI operation is that the control signal dynamics (e.g. their minimum, maximum, mean, or standard deviation) are initially unknown and may also change over time. This presents a problem for online operation that needs to appropriately use these signals for a particular function, e.g. to control a cursor. As an example, the amplitude of a particular brain signal may change between 10 and 100 on one day, and between 100 and 300 the following day. Thus, in order to effectively use these control signals, they have to be normalized. For example, they should have zero mean and unit variance. How could this be accomplished given that we do not know much about these signals ahead of time?</li></ul>
+<ul><li>Can you think of a few different approaches to estimating these offset and gain parameters from the data acquired in real time? Which approaches could you use for the following two scenarios:  in scenario 1, you know something about the desired task. For example, you may know that there are four targets on the screen (like in the cursor task examples used in these exercises), and you also know what target the cursor should move towards. In scenario 2, you do not know anything about the task, e.g. as in an imaginary wheelchair application in which the user could move toward any target.</li></ul>
+<ul><li>If you use the standard <code>CursorTask_SignalGenerator.bat<code> batch file, and <code>CursorTask_SignalGenerator.prm</code> parameter file, you can control the cursor using your mouse. This functionality was used earlier in this section to demonstrate different signal processing aspects in BCI2000.  If you control the cursor using your mouse, you will notice that there is a small delay between when you move the mouse and when the cursor starts moving. What causes this delay? (Hint: this delay is not due to slow processing or screen update.)</code></code></li></ul>
+<!-- 
+NewPP limit report
+Cached time: 20230524160022
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.012 seconds
+Real time usage: 0.014 seconds
+Preprocessor visited node count: 13/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2009-0!canonical and timestamp 20230524160022 and revision id 6107
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Exercise:BCI2000_Basics&amp;oldid=6107">http://www.bci2000.org/mediawiki/index.php?title=Exercise:BCI2000_Basics&amp;oldid=6107</a>"</div>
+ </div>
+</body>
+</html>

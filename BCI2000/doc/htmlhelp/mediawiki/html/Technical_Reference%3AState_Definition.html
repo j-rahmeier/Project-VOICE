@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Technical Reference:State Definition - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul><li class="toc1">System Design and Communication Protocols</li><ul><li class="toc2"><a href="Technical_Reference%253ASystem_Design.html">System Design</a></li><li class="toc2"><a href="Technical_Reference%253ACore_Modules.html">Core Modules</a></li><li class="toc2"><a href="Technical_Reference%253AStates_of_Operation.html">States of Operation</a></li></ul><li class="toc1">Transmission Protocol Specification</li><ul><li class="toc2"><a href="Technical_Reference%253ABCI2000_Messages.html">BCI2000 Messages</a></li><li class="toc2"><a href="Technical_Reference%253AParameter_Definition.html">Parameter Definition</a></li><li class="toc2">State Definition</li><li class="toc2"><a href="Technical_Reference%253AVisualization_Properties.html">Visualization Properties</a></li></ul><li class="toc1">File Formats</li><ul><li class="toc2"><a href="Technical_Reference%253ABCI2000_File_Format.html">Data File Format</a></li><li class="toc2"><a href="Technical_Reference%253AParameter_File.html">Parameter File Format</a></li></ul><li class="toc1">External Interfaces</li><ul><li class="toc2"><a href="Technical_Reference%253AApp_Connector.html">App Connector</a></li><li class="toc2"><a href="Technical_Reference%253AOperator_Library.html">Operator Library</a></li><li class="toc2"><a href="Technical_Reference%253ABCI2000Remote_Library.html">BCI2000Remote</a></li></ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">State Definition</h1>
+ <p class = "subtitle">Technical Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>This page describes the concept of BCI2000 states, in conjunction with their textual representation as a "state line".
+</p><p>For information about how to access state values from code, please refer to <a href="Programming_Reference%253AEnvironment_Class.html" title="Programming Reference:Environment Class">Programming Reference:Environment Class</a>.
+For information about individual states, please refer to <a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:States" title="User Reference:States">User Reference:States</a>.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Technical_Reference%253AState_Definition.html#State_Concept"><span class="tocnumber">1</span> <span class="toctext">State Concept</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Technical_Reference%253AState_Definition.html#Kinds_of_States"><span class="tocnumber">2</span> <span class="toctext">Kinds of States</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="Technical_Reference%253AState_Definition.html#Events"><span class="tocnumber">2.1</span> <span class="toctext">Events</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="Technical_Reference%253AState_Definition.html#Streams"><span class="tocnumber">2.2</span> <span class="toctext">Streams</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Technical_Reference%253AState_Definition.html#States"><span class="tocnumber">2.3</span> <span class="toctext">States</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="Technical_Reference%253AState_Definition.html#State_Vector"><span class="tocnumber">3</span> <span class="toctext">State Vector</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="Technical_Reference%253AState_Definition.html#State_Lines"><span class="tocnumber">4</span> <span class="toctext">State Lines</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="Technical_Reference%253AState_Definition.html#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="State_Concept">State Concept</span></h2>
+<p>States are variables that represent the internal state of a BCI2000 system as it is evolving over time in response to:
+</p>
+<ul><li>brain signal input</li>
+<li>user interaction through the operator interface</li>
+<li>trial sequencing by the application module.</li></ul>
+<p>Typical quantities/qualities encoded by states are:
+</p>
+<ul><li>whether the system is running or suspended</li>
+<li>the time when a block of data was recorded</li>
+<li>stimulus or task being presented</li>
+<li>the classification result</li>
+<li>the state of an external marker (trigger) to be saved for off-line analysis.</li></ul>
+<p>Typically, state values change once per block of data, or once per trial, but are recorded per-sample in case better resolution is required.
+In a <a href="Technical_Reference%253ABCI2000_File_Format.html" title="Technical Reference:BCI2000 File Format">BCI2000 data file</a>, the full set of states is stored along with the data, allowing for reconstruction of on-line system state off-line.
+</p>
+<h2><span class="mw-headline" id="Kinds_of_States">Kinds of States</span></h2>
+<p>Depending on subtle differences in behavior, states come in three different flavors, or kinds. All of them are recorded per-sample,
+and all of them are available as "States" when reading a data file.
+</p>
+<h3><span class="mw-headline" id="Events">Events</span></h3>
+<p>These are only available in source modules. <i>Events</i> are states that can be written to asynchronously, using the [<a rel="nofollow" class="external autonumber" href="https://www.bci2000.org/mediawiki/index.php/Programming_Reference:Events%7Cbcievent">[1]</a>] interface.
+Event data are collected in a queue along with time stamps, and aligned to samples with a maximum resolution of 1ms immediately after
+a new block of data has been recorded.
+</p>
+<h3><span class="mw-headline" id="Streams">Streams</span></h3>
+<p>Similar to events, streams are only available in source modules. <i>Streams</i> are states that are intended to be used like additional 
+source channels, being recorded synchronously with incoming brain signals. For an example how to use streams in conjunction with 
+the <tt>BufferedADC</tt> class in a BCI2000 source module, see [<a rel="nofollow" class="external text" href="https://www.bci2000.org/mediawiki/index.php/Programming_Tutorial:Implementing_a_Source_Module%7Cthis">tutorial</a>].
+</p><p>When the value of a stream is set for a particular sample position in the current data block, it does not affect further samples.
+</p>
+<h3><span class="mw-headline" id="States">States</span></h3>
+<p>The third kind of states is just called <i>State</i> and behaves specially in that setting a state at a particular sample position in the current data block will set it to that value for all future time points. To ensure proper behavior of states at block boundaries,
+a special carryover value exists at the end of the state vector that does not correspond to any sample position but is used to initialize a state's values when a new block of brain signal data arrives.
+</p>
+<h2><span class="mw-headline" id="State_Vector">State Vector</span></h2>
+<p>In a BCI2000 system, a collection of states is maintained as a <i>State List</i>.
+For each state present in that state list, its value is kept as a range of bits in a bit vector called <i>State Vector</i>.
+BCI2000 modules and filters may read and write state values during processing.
+The state vector's content is saved, in its binary form, into <a href="Technical_Reference%253ABCI2000_File_Format.html" title="Technical Reference:BCI2000 File Format">BCI2000 data files</a> per-block.
+Using the ByteLocation, BitLocation, and Length fields from the state definitions present in a file, a state's value may be read from the data file.
+</p><p>A state vector is a narrowly packed bit field in <b>little endian</b> ordering.
+This implies that, for a state containing more than a single bit, <b>more</b> significant bits are placed at <b>higher</b> bit and byte locations.
+</p><p>As an example, consider a state vector consisting of a 1-bit state "Running", and a 16-bit state "SourceTime". This will result in a three-byte state vector layout like this:
+</p>
+<table border="1" cellspacing="0" cellpadding="1">
+<tbody><tr>
+<th colspan="8">State Vector Byte 0
+</th>
+<th colspan="8">State Vector Byte 1
+</th>
+<th colspan="8">State Vector Byte 2
+</th></tr>
+<tr>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7
+</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7
+</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7
+</th></tr>
+<tr>
+<th>Running</th>
+<th colspan="16">SourceTime</th>
+<th colspan="7">unused
+</th></tr>
+<tr>
+<th>0
+</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+<th>11</th>
+<th>12</th>
+<th>13</th>
+<th>14</th>
+<th>15
+</th>
+<th colspan="7">&#160;
+</th></tr></tbody></table>
+<p>To make reading and writing of state values more efficient, <i>padding</i> states may be present in a state vector. They don't carry information but avoid states to extend across byte boundaries, and provide additional bytes required to access full 4-byte values.
+To separate padding states from actual states, padding states' names are formed from two underscores, the word "pad", and a current number as in <tt>__pad0</tt>, <tt>__pad1</tt>, <tt>__pad2</tt>, and so on.
+</p>
+<h2><span class="mw-headline" id="State_Lines">State Lines</span></h2>
+<p>State lines are a human-readable format used to represent individual states in
+</p>
+<ul><li><a href="Technical_Reference%253ABCI2000_File_Format.html" title="Technical Reference:BCI2000 File Format">BCI2000 data files</a>,</li>
+<li><a href="Technical_Reference%253ABCI2000_Messages.html" title="Technical Reference:BCI2000 Messages">BCI2000 messages</a> sent between modules.</li></ul>
+<p>Core modules and the operator module use this format to communicate in the system initialization phase, as well as during system performance and for system termination.
+</p><p>The format of a state line is
+</p>
+<pre>Name Length Value ByteLocation BitLocation CRLF
+</pre>
+<p>where <tt>Length</tt> refers to the number of bits used to represent the state's value,
+and <tt>ByteLocation</tt> and <tt>BitLocation</tt> refer to its position in the State Vector, with <tt>BitLocation</tt> ranging from 0 to 7.
+</p><p>Depending on the context of a state line, one or more of its fields will be redundant:
+</p>
+<ul><li>In a State message sent from a core module to the operator module, ByteLocation will be ignored, and BitLocation will change its meaning, and transport information about the state kind (see below).</li>
+<li>In a State line contained in a data file, the Value field matches the state's value stored with the first block of data samples.</li>
+<li>If BitLocation is negative, it represents the state variable's <i>kind</i>. The following values are defined:</li></ul>
+<pre><i>-1</i> Padding state, <i>-2</i> State kind, <i>-3</i> Event kind, <i>-4</i> Stream kind.
+</pre>
+<p>Generally, the Value field specifies an <i>initial value</i> of a state. Actual values are stored in the State Vector data structure.
+</p><p>State values are interpreted as unsigned integers, and limited to 32 bit in the current implementation (as defined by the <tt>State::ValueType</tt> typedef in <tt>BCI2000/src/shared/types/State.h</tt>).
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:States" title="User Reference:States">User Reference:States</a>, <a href="Technical_Reference%253AParameter_Definition.html" title="Technical Reference:Parameter Definition">Technical Reference:Parameter Definition</a>, <a href="Programming_Reference%253AEvents.html" title="Programming Reference:Events">Programming Reference:Events</a>, <a href="Programming_Reference%253AStates.html" title="Programming Reference:States">Programming Reference:States</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524000341
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.019 seconds
+Real time usage: 0.022 seconds
+Preprocessor visited node count: 37/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 60/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1430-0!canonical and timestamp 20230524000341 and revision id 10090
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Technical_Reference:State_Definition&amp;oldid=10090">http://www.bci2000.org/mediawiki/index.php?title=Technical_Reference:State_Definition&amp;oldid=10090</a>"</div>
+ </div>
+</body>
+</html>

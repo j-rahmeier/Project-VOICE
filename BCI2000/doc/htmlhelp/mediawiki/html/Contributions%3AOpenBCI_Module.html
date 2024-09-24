@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:OpenBCI Module - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">OpenBCI Module</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>OpenBCI_Module
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Contributions%253AOpenBCI_Module.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="Contributions%253AOpenBCI_Module.html#OpenBCI_Module"><span class="tocnumber">1.1</span> <span class="toctext">OpenBCI_Module</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="Contributions%253AOpenBCI_Module.html#OpenBCI"><span class="tocnumber">1.2</span> <span class="toctext">OpenBCI</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-4"><a href="Contributions%253AOpenBCI_Module.html#OpenBCI_Cyton_Board"><span class="tocnumber">2</span> <span class="toctext">OpenBCI Cyton Board</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="Contributions%253AOpenBCI_Module.html#Cyton_Board_Specs"><span class="tocnumber">2.1</span> <span class="toctext">Cyton Board Specs</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Contributions%253AOpenBCI_Module.html#Breakout_Pins"><span class="tocnumber">2.2</span> <span class="toctext">Breakout Pins</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="Contributions%253AOpenBCI_Module.html#Push_Buttons"><span class="tocnumber">2.3</span> <span class="toctext">Push Buttons</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="Contributions%253AOpenBCI_Module.html#Slide_Switch"><span class="tocnumber">2.4</span> <span class="toctext">Slide Switch</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="Contributions%253AOpenBCI_Module.html#Extension_Board"><span class="tocnumber">2.5</span> <span class="toctext">Extension Board</span></a>
+<ul>
+<li class="toclevel-3 tocsection-10"><a href="Contributions%253AOpenBCI_Module.html#Cyton-Daisy_Board_.28Cyton_board_with_Extension_board.29"><span class="tocnumber">2.5.1</span> <span class="toctext">Cyton-Daisy Board (Cyton board with Extension board)</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-11"><a href="Contributions%253AOpenBCI_Module.html#Steps_to_use_OpenBCI_Module"><span class="tocnumber">3</span> <span class="toctext">Steps to use OpenBCI_Module</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="Contributions%253AOpenBCI_Module.html#Parameters:OpenBCI_Module"><span class="tocnumber">4</span> <span class="toctext">Parameters:OpenBCI_Module</span></a>
+<ul>
+<li class="toclevel-2 tocsection-13"><a href="Contributions%253AOpenBCI_Module.html#Configuration"><span class="tocnumber">4.1</span> <span class="toctext">Configuration</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="Contributions%253AOpenBCI_Module.html#SourceCh"><span class="tocnumber">4.2</span> <span class="toctext">SourceCh</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="Contributions%253AOpenBCI_Module.html#SampleBlockSize"><span class="tocnumber">4.3</span> <span class="toctext">SampleBlockSize</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="Contributions%253AOpenBCI_Module.html#SamplingRate"><span class="tocnumber">4.4</span> <span class="toctext">SamplingRate</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="Contributions%253AOpenBCI_Module.html#ChannelNames"><span class="tocnumber">4.5</span> <span class="toctext">ChannelNames</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="Contributions%253AOpenBCI_Module.html#SourceChOffset"><span class="tocnumber">4.6</span> <span class="toctext">SourceChOffset</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="Contributions%253AOpenBCI_Module.html#SourceChGain"><span class="tocnumber">4.7</span> <span class="toctext">SourceChGain</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="Contributions%253AOpenBCI_Module.html#PortName"><span class="tocnumber">4.8</span> <span class="toctext">PortName</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="Contributions%253AOpenBCI_Module.html#ChannelsGain"><span class="tocnumber">4.9</span> <span class="toctext">ChannelsGain</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="Contributions%253AOpenBCI_Module.html#SourceChList"><span class="tocnumber">4.10</span> <span class="toctext">SourceChList</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-23"><a href="Contributions%253AOpenBCI_Module.html#Troubleshooting_Guide"><span class="tocnumber">5</span> <span class="toctext">Troubleshooting Guide</span></a>
+<ul>
+<li class="toclevel-2 tocsection-24"><a href="Contributions%253AOpenBCI_Module.html#Issue_1"><span class="tocnumber">5.1</span> <span class="toctext">Issue 1</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-25"><a href="Contributions%253AOpenBCI_Module.html#Little_Bug_Note"><span class="tocnumber">6</span> <span class="toctext">Little Bug Note</span></a></li>
+<li class="toclevel-1 tocsection-26"><a href="Contributions%253AOpenBCI_Module.html#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Introduction">Introduction</span></h2>
+<h3><span class="mw-headline" id="OpenBCI_Module">OpenBCI_Module</span></h3>
+<p>OpenBCI_Module can acquire data from OpenBCI Cyton-Daisy board through serial port. It can automatically Open port, Set up Baud Rate and Set up Parity.
+</p>
+<h3><span class="mw-headline" id="OpenBCI">OpenBCI</span></h3>
+<p>The OpenBCI is a low-cost, high-quality biosensing hardware for brain computer interfacing. This arduino compatible biosensing board provides high resolution imaging and recording of EMG, ECG, and EEG signals. This device has been used by researchers, makers, and hobbyists in over 60+ countries as brain computer interfaces to power machines and map brain activity. OpenBCI  allows anyone interested in biosensing and neurofeedback to purchase high quality equipment at affordable prices.
+</p><p>More information on OpenBCI can be found at: <a rel="nofollow" class="external autonumber" href="http://openbci.com/">[1]</a>
+</p>
+<h2><span class="mw-headline" id="OpenBCI_Cyton_Board">OpenBCI Cyton Board</span></h2>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Cyton.PNG" class="image"><img alt="Cyton.PNG" src="../images/8/89/Cyton.PNG" decoding="async" width="500" height="482" /></a></div></div>
+<h3><span class="mw-headline" id="Cyton_Board_Specs">Cyton Board Specs</span></h3>
+<p>Power with 3-6V DC Battery ONLY
+</p><p>PIC32MX250F128B Micrcontroller with chipKIT UDB32-MX2-DIP bootloader
+</p><p>ADS1299 Analog Front End
+</p><p>LIS3DH 3 axis Accelerometer
+</p><p>RFduino BLE radio
+</p><p>Micro SD card slot
+</p><p>Voltage Regulation (3V3, +2.5V, -2.5V)
+</p><p>Board Dimensions 2.41” x 2.41” (octogon has 1” edges)
+</p><p>Mount holes are 1/16” ID, 0.8” x 2.166” on center
+</p>
+<h3><span class="mw-headline" id="Breakout_Pins">Breakout Pins</span></h3>
+<p>Program pins for bootloading PIC, PGC, PGD, VDD, MCLR, GND
+</p><p>Serial pins for programming RFduino, RFTX, RFRX, RFRST, GND
+</p><p>SPI bus pins on the 3V side for Daisy Module expansion DVDD, GND, MISO, MOSI, SCK, CS, CLK, RST
+</p><p>Unused PIC32 pins D11 (A5), D12 (A6), D13 (A7), D17, D18
+</p>
+<h3><span class="mw-headline" id="Push_Buttons">Push Buttons</span></h3>
+<p>The RST pushbutton is connected to MCLR on the PIC. Pressing it will reset the PIC. To put the PIC into bootloader mode so that it can be re-programmed, press the RST button and hold it down. Then press the PROG button. Then release the RST button, and the blue LED will blink pleasantly, announcing that the PIC is ready to accept new code.
+</p>
+<h3><span class="mw-headline" id="Slide_Switch">Slide Switch</span></h3>
+<p>Slide switch is power for the board. The slide switch has three positions:
+</p><p>BLE activates a pull-up on RFduino pin 4
+</p><p>OFF disconnects the battery input
+</p><p>PC does NOT activate pull-up on RFduino pin 4
+</p>
+<h3><span class="mw-headline" id="Extension_Board">Extension Board</span></h3>
+<p>In order to use more than 8 channels, an extension board must be plugged in.
+With an extension board present, the sampling rate will reduce to half of the original sampling rate 
+and a linear interpolation will be used for up-sampling. The pins on the extension board have the same name as pins on the main board. The index for each channel on the extension board is equal to the pin number plus 8. The ground pin on the extension board also needs to be connected to ground.
+</p>
+<h4><span id="Cyton-Daisy_Board_(Cyton_board_with_Extension_board)"></span><span class="mw-headline" id="Cyton-Daisy_Board_.28Cyton_board_with_Extension_board.29">Cyton-Daisy Board (Cyton board with Extension board)</span></h4>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:Cyton-Daisy.jpg" class="image"><img alt="Cyton-Daisy.jpg" src="../images/thumb/1/16/Cyton-Daisy.jpg/500px-Cyton-Daisy.jpg" decoding="async" width="500" height="667" srcset="../images/thumb/1/16/Cyton-Daisy.jpg/750px-Cyton-Daisy.jpg 1.5x, ../images/thumb/1/16/Cyton-Daisy.jpg/1000px-Cyton-Daisy.jpg 2x" /></a></div></div>
+<h2><span class="mw-headline" id="Steps_to_use_OpenBCI_Module">Steps to use OpenBCI_Module</span></h2>
+<p>1. Plug in Bluetooth dongle via USB to your system and switch its mode to "GPIO_6" if it is set to "RESET" (using a button on the left side of dongle).
+</p><p>2. Switch the OpenBCI board to "PC mode" from "OFF" or "BLE" mode (using a button on the right side of the board).
+</p><p>3. If you want to use 16 channels mode, plug in the extension ("Daisy") board.
+</p><p>4. Now, go to the following directory "BCI2000/batch" and RUN once of the *_OpenBCI_Module.bat files.
+</p><p>5. After running it, you will see a dialog box with following options: CONFIG, SET CONFIG, START, QUIT.
+</p><p>6. If you want to configure as per your own wish, click on CONFIG, else click on SET CONFIG which sets the default configuration that uses 8 channels.
+</p><p>7. After the module is connected and successfully working, you can click on START.
+</p><p>8. Users can see the current working condition of the hardware from Operator Log.
+</p><p>9. Click on QUIT to stop everything.
+</p>
+<h2><span class="mw-headline" id="Parameters:OpenBCI_Module">Parameters:OpenBCI_Module</span></h2>
+<h3><span class="mw-headline" id="Configuration">Configuration</span></h3>
+<p>Default Parameter Configuration with 8 Channels and SampleBlockSize=125 (500ms)
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:8Channels_500ms.png" class="image"><img alt="8Channels 500ms.png" src="../images/thumb/9/9c/8Channels_500ms.png/900px-8Channels_500ms.png" decoding="async" width="900" height="824" srcset="../images/9/9c/8Channels_500ms.png 1.5x" /></a></div></div>
+<p>Parameter Configuration with 16 Channels and SampleBlockSize=25 (100ms)
+</p>
+<div class="center"><div class="floatnone"><a href="https://www.bci2000.org/mediawiki/index.php/File:16Channels_100ms.png" class="image"><img alt="16Channels 100ms.png" src="../images/thumb/1/18/16Channels_100ms.png/900px-16Channels_100ms.png" decoding="async" width="900" height="834" srcset="../images/1/18/16Channels_100ms.png 1.5x" /></a></div></div>
+<h3><span class="mw-headline" id="SourceCh">SourceCh</span></h3>
+<p>The total number of channels: EEG.
+</p>
+<h3><span class="mw-headline" id="SampleBlockSize">SampleBlockSize</span></h3>
+<p>Samples per channel per digitized block. 
+Together with the sampling rate, this parameter determines how often per second data are collected, processed, and feedback is updated. For example, at 500 Hz sampling and a SampleBlockSize of 20, the system (e.g., source signal display, signal processing, and stimulus presentation) will be updated 25 times per second.
+For OpenBCI Cyton the sampling rate is 250Hz and it sends data to buffer every half second. So the suggested value for sample block size is 125.
+Note that more frequent updating than two times per second is not possible without altering the OpenBCI firmware.
+</p>
+<h3><span class="mw-headline" id="SamplingRate">SamplingRate</span></h3>
+<p>The sample rate of the system. All data is either acquired at 250Hz
+In case you are experiencing problems by higher sampling rates (e.g., data loss, jerky display, etc.), increase the SampleBlockSize so that you are updating the system less frequently (usually, updating the system 20-30 times per second is sufficient for most applications), and increase Visualize-&gt;VisualizeSourceDecimation. This parameter will decrease the number of samples per second that are actually drawn in the Source display.
+</p>
+<h3><span class="mw-headline" id="ChannelNames">ChannelNames</span></h3>
+<p>Names of each channel.
+</p>
+<h3><span class="mw-headline" id="SourceChOffset">SourceChOffset</span></h3>
+<p>Offset for each channel.
+</p>
+<h3><span class="mw-headline" id="SourceChGain">SourceChGain</span></h3>
+<p>Gain for each channel. 
+</p>
+<h3><span class="mw-headline" id="PortName">PortName</span></h3>
+<p>The name of the port where the Bluetooth dongle is attached to. Once the experimenter plugs in the dongle, you can obtain the port name through <i>Devices and Printers</i> in Windows.
+</p>
+<h3><span class="mw-headline" id="ChannelsGain">ChannelsGain</span></h3>
+<p>The Channel Gain for any channel could be 1 2 4 6 8 12 24(Default)
+</p>
+<h3><span class="mw-headline" id="SourceChList">SourceChList</span></h3>
+<p>Define your own channel list. The default list is 1 2 3 4 5 6 7 8 for 8 channels and similarly 1-16 for 16 channels.
+</p>
+<h2><span class="mw-headline" id="Troubleshooting_Guide">Troubleshooting Guide</span></h2>
+<h3><span class="mw-headline" id="Issue_1">Issue 1</span></h3>
+<p><i>Problem</i>: Trouble connecting device via COM port or No handshaking.
+</p><p><i>Possible reason</i>: Bluetooth communication issues possibly due to the bluetooth of your system trying to connect to the device.
+</p><p><i>Suggested Solution</i>: Turn Off your system's bluetooth and then retry connecting.
+</p><p><br />
+</p>
+<h2><span class="mw-headline" id="Little_Bug_Note">Little Bug Note</span></h2>
+<p>After running the OpenBCI Module with 16 channels and SampleBlockSize of 25, in the timing window, there's latency of around a minute after which it shows the expected output (or straight) line by default. This needs to be resolved.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Reference%253AFilters.html" title="User Reference:Filters">User Reference:Filters</a>, <a href="Contributions%253AADCs.html" title="Contributions:ADCs">Contributions:ADCs</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524173246
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.040 seconds
+Real time usage: 0.048 seconds
+Preprocessor visited node count: 82/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2246-0!canonical and timestamp 20230524173246 and revision id 9340
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:OpenBCI_Module&amp;oldid=9340">http://www.bci2000.org/mediawiki/index.php?title=Contributions:OpenBCI_Module&amp;oldid=9340</a>"</div>
+ </div>
+</body>
+</html>

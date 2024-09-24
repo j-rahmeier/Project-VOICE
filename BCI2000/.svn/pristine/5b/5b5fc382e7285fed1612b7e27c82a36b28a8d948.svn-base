@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Programming Reference:Signals - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul><li class="toc1">Concepts</li><ul><li class="toc2"><a href="Programming_Reference%253AFilter_Chain.html">Filter Chain</a></li><li class="toc2">Signals</li><li class="toc2"><a href="Programming_Reference%253AError_Handling.html">Error Handling</a></li><li class="toc2"><a href="Programming_Reference%253ALocalization.html">Localization</a></li><li class="toc2"><a href="Programming_Reference%253ARapid_Development.html">Rapid Development</a></li></ul><li class="toc1">Reference</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFilter_Class.html">GenericFilter</a></li><li class="toc2"><a href="Programming_Reference%253AEnvironment_Class.html">Environment</a></li><li class="toc2"><a href="Programming_Reference%253AGenericVisualization_Class.html">GenericVisualization</a></li><li class="toc2"><a href="Programming_Reference%253AErrors_and_Warnings.html">Errors and Warnings</a></li><li class="toc2"><a href="Programming_Reference%253ADebug_Output.html">Debug Output</a></li></ul><li class="toc1">Data Acquisition</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericADC_Class.html">GenericADC</a></li></ul><li class="toc1">Data Storage</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFileWriter_Class.html">GenericFileWriter</a></li><li class="toc2"><a href="Programming_Reference%253ABCI2000FileReader_Class.html">BCI2000FileReader</a></li></ul><li class="toc1">Signal Processing</li><ul><li class="toc2"><a href="Programming_Reference%253AIIRFilterBase_Class.html">IIR Filters</a></li></ul><li class="toc1">Application Modules</li><ul><li class="toc2"><a href="Programming_Reference%253AApplicationBase_Class.html">ApplicationBase</a></li><li class="toc2"><a href="Programming_Reference%253AFeedbackTask_Class.html">FeedbackTask</a></li><li class="toc2"><a href="Programming_Reference%253AStimulusTask_Class.html">StimulusTask</a></li><li class="toc2"><a href="Programming_Reference%253A3D_API.html">3D API</a></li></ul><li class="toc1">Howtos</li><ul><li class="toc2"><a href="Programming_Howto%253ABuilding_BCI2000.html">Building BCI2000</a></li><li class="toc2"><a href="Programming_Howto%253ASVN_Client_Setup.html">SVN Client Setup</a></li><li class="toc2"><a href="Programming_Howto%253AUsing_TortoiseSVN.html">Using TortoiseSVN</a></li></ul><li class="toc1"><a href="Programming_FAQ.html">FAQ</a></li><li class="toc1">Tutorials</li><ul><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html">Data Acquisition</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html">Signal Processing</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html">Matlab Signal Processing</a></li></ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">Signals</h1>
+ <p class = "subtitle">Programming Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Programming_Reference%253ASignals.html#GenericSignal_Class"><span class="tocnumber">1</span> <span class="toctext">GenericSignal Class</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="Programming_Reference%253ASignals.html#Location"><span class="tocnumber">1.1</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="Programming_Reference%253ASignals.html#Synopsis"><span class="tocnumber">1.2</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="Programming_Reference%253ASignals.html#Methods"><span class="tocnumber">1.3</span> <span class="toctext">Methods</span></a>
+<ul>
+<li class="toclevel-3 tocsection-5"><a href="Programming_Reference%253ASignals.html#GenericSignal.28int_Channels.2C_int_Elements.2C_SignalType.3Dint16.29"><span class="tocnumber">1.3.1</span> <span class="toctext">GenericSignal(int Channels, int Elements, SignalType=int16)</span></a></li>
+<li class="toclevel-3 tocsection-6"><a href="Programming_Reference%253ASignals.html#GenericSignal.28SignalProperties.29"><span class="tocnumber">1.3.2</span> <span class="toctext">GenericSignal(SignalProperties)</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="Programming_Reference%253ASignals.html#WriteToStream.28ostream.29.2FReadFromStream.28istream.29"><span class="tocnumber">1.3.3</span> <span class="toctext">WriteToStream(ostream)/ReadFromStream(istream)</span></a></li>
+<li class="toclevel-3 tocsection-8"><a href="Programming_Reference%253ASignals.html#WriteBinary.28ostream.29.2FReadBinary.28istream.29"><span class="tocnumber">1.3.4</span> <span class="toctext">WriteBinary(ostream)/ReadBinary(istream)</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="Programming_Reference%253ASignals.html#WriteValueBinary.28ostream.2C_channel.2C_element.29.2FReadValueBinary.28istream.2C_channel.2C_element.29"><span class="tocnumber">1.3.5</span> <span class="toctext">WriteValueBinary(ostream, channel, element)/ReadValueBinary(istream, channel, element)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-10"><a href="Programming_Reference%253ASignals.html#Properties"><span class="tocnumber">1.4</span> <span class="toctext">Properties</span></a>
+<ul>
+<li class="toclevel-3 tocsection-11"><a href="Programming_Reference%253ASignals.html#SignalProperties_Properties_.28rw.29"><span class="tocnumber">1.4.1</span> <span class="toctext">SignalProperties Properties (rw)</span></a></li>
+<li class="toclevel-3 tocsection-12"><a href="Programming_Reference%253ASignals.html#int_Channels_.28r.29"><span class="tocnumber">1.4.2</span> <span class="toctext">int Channels (r)</span></a></li>
+<li class="toclevel-3 tocsection-13"><a href="Programming_Reference%253ASignals.html#int_Elements_.28r.29"><span class="tocnumber">1.4.3</span> <span class="toctext">int Elements (r)</span></a></li>
+<li class="toclevel-3 tocsection-14"><a href="Programming_Reference%253ASignals.html#SignalType_Type_.28r.29"><span class="tocnumber">1.4.4</span> <span class="toctext">SignalType Type (r)</span></a></li>
+<li class="toclevel-3 tocsection-15"><a href="Programming_Reference%253ASignals.html#number_Value.28Channel.2C_Element.29_.28rw.29"><span class="tocnumber">1.4.5</span> <span class="toctext">number Value(Channel, Element) (rw)</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-16"><a href="Programming_Reference%253ASignals.html#SignalProperties_Class"><span class="tocnumber">2</span> <span class="toctext">SignalProperties Class</span></a>
+<ul>
+<li class="toclevel-2 tocsection-17"><a href="Programming_Reference%253ASignals.html#Location_2"><span class="tocnumber">2.1</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="Programming_Reference%253ASignals.html#Synopsis_2"><span class="tocnumber">2.2</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="Programming_Reference%253ASignals.html#Methods_2"><span class="tocnumber">2.3</span> <span class="toctext">Methods</span></a>
+<ul>
+<li class="toclevel-3 tocsection-20"><a href="Programming_Reference%253ASignals.html#SignalProperties.28Channels.2C_Elements.2C_SignalType.3Dint16.29"><span class="tocnumber">2.3.1</span> <span class="toctext">SignalProperties(Channels, Elements, SignalType=int16)</span></a></li>
+<li class="toclevel-3 tocsection-21"><a href="Programming_Reference%253ASignals.html#bool_Accommodates.28SignalProperties.29"><span class="tocnumber">2.3.2</span> <span class="toctext">bool Accommodates(SignalProperties)</span></a></li>
+<li class="toclevel-3 tocsection-22"><a href="Programming_Reference%253ASignals.html#float_ChannelIndex.28string_Address.29.2C_ElementIndex.28string_Address.29"><span class="tocnumber">2.3.3</span> <span class="toctext">float ChannelIndex(string Address), ElementIndex(string Address)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-23"><a href="Programming_Reference%253ASignals.html#Properties_2"><span class="tocnumber">2.4</span> <span class="toctext">Properties</span></a>
+<ul>
+<li class="toclevel-3 tocsection-24"><a href="Programming_Reference%253ASignals.html#int_Channels.2C_Elements_.28rw.29"><span class="tocnumber">2.4.1</span> <span class="toctext">int Channels, Elements (rw)</span></a></li>
+<li class="toclevel-3 tocsection-25"><a href="Programming_Reference%253ASignals.html#SignalType_Type_.28rw.29"><span class="tocnumber">2.4.2</span> <span class="toctext">SignalType Type (rw)</span></a></li>
+<li class="toclevel-3 tocsection-26"><a href="Programming_Reference%253ASignals.html#string_Name_.28rw.29"><span class="tocnumber">2.4.3</span> <span class="toctext">string Name (rw)</span></a></li>
+<li class="toclevel-3 tocsection-27"><a href="Programming_Reference%253ASignals.html#LabelIndex_ChannelLabels.2C_ElementLabels_.28rw.29"><span class="tocnumber">2.4.4</span> <span class="toctext">LabelIndex ChannelLabels, ElementLabels (rw)</span></a></li>
+<li class="toclevel-3 tocsection-28"><a href="Programming_Reference%253ASignals.html#float_SamplingRate_.28r.29"><span class="tocnumber">2.4.5</span> <span class="toctext">float SamplingRate (r)</span></a></li>
+<li class="toclevel-3 tocsection-29"><a href="Programming_Reference%253ASignals.html#float_UpdateRate_.28rw.29"><span class="tocnumber">2.4.6</span> <span class="toctext">float UpdateRate (rw)</span></a></li>
+<li class="toclevel-3 tocsection-30"><a href="Programming_Reference%253ASignals.html#PhysicalUnit_ChannelUnit.2C_ElementUnit.2C_ValueUnit_.28rw.29"><span class="tocnumber">2.4.7</span> <span class="toctext">PhysicalUnit ChannelUnit, ElementUnit, ValueUnit (rw)</span></a></li>
+<li class="toclevel-3 tocsection-31"><a href="Programming_Reference%253ASignals.html#bool_IsEmpty"><span class="tocnumber">2.4.8</span> <span class="toctext">bool IsEmpty</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="GenericSignal_Class">GenericSignal Class</span></h2>
+<h3><span class="mw-headline" id="Location">Location</span></h3>
+<p><tt>src/shared/types</tt>
+</p>
+<h3><span class="mw-headline" id="Synopsis">Synopsis</span></h3>
+<p>Many classes in both Data Acquisition and Signal Processing work on
+signals, i.e., continuously flowing data organized into channels and samples.
+The <tt>GenericSignal</tt> class contains floating point data
+organized as a matrix of channels and "elements" (a generalized
+notion
+of samples -- e.g., spectrally analyzed data might contain the
+spectrum of
+each channel as a list of "elements").
+</p>
+<h3><span class="mw-headline" id="Methods">Methods</span></h3>
+<h4><span id="GenericSignal(int_Channels,_int_Elements,_SignalType=int16)"></span><span class="mw-headline" id="GenericSignal.28int_Channels.2C_int_Elements.2C_SignalType.3Dint16.29">GenericSignal(int Channels, int Elements, SignalType=int16)</span></h4>
+<p>Initializes a <tt>GenericSignal</tt> object to the specified number of channels and elements.
+The signal type argument may be one of
+</p>
+<ul><li>SignalType::int16,</li>
+<li>SignalType::int32,</li>
+<li>SignalType::float32,</li>
+<li>SignalType::float24.</li></ul>
+<h4><span id="GenericSignal(SignalProperties)"></span><span class="mw-headline" id="GenericSignal.28SignalProperties.29">GenericSignal(SignalProperties)</span></h4>
+<p>Initializes a <tt>GenericSignal</tt> object to the properties defined by the <a href="Programming_Reference%253ASignals.html#SignalProperties_Class"><tt>SignalProperties</tt></a> object.
+</p>
+<h4><span id="WriteToStream(ostream)/ReadFromStream(istream)"></span><span class="mw-headline" id="WriteToStream.28ostream.29.2FReadFromStream.28istream.29">WriteToStream(ostream)/ReadFromStream(istream)</span></h4>
+<p>Read/write from/to <tt>std::iostream</tt> streams in human-readable ASCII format.
+</p>
+<h4><span id="WriteBinary(ostream)/ReadBinary(istream)"></span><span class="mw-headline" id="WriteBinary.28ostream.29.2FReadBinary.28istream.29">WriteBinary(ostream)/ReadBinary(istream)</span></h4>
+<p>Read/write from/to <tt>std::iostream</tt> streams as a <a href="Technical_Reference%253ABCI2000_Messages.html#Brain_Signal_Format" title="Technical Reference:BCI2000 Messages">BCI2000 signal message</a>.
+</p>
+<h4><span id="WriteValueBinary(ostream,_channel,_element)/ReadValueBinary(istream,_channel,_element)"></span><span class="mw-headline" id="WriteValueBinary.28ostream.2C_channel.2C_element.29.2FReadValueBinary.28istream.2C_channel.2C_element.29">WriteValueBinary(ostream, channel, element)/ReadValueBinary(istream, channel, element)</span></h4>
+<p>Binary I/O of individual values, depending on the signal's type. These functions are provided for use in <a href="Programming_Reference%253AGenericFileWriter_Class.html" title="Programming Reference:GenericFileWriter Class">FileWriter</a> components, and components that read data from input files.
+</p>
+<h3><span class="mw-headline" id="Properties">Properties</span></h3>
+<h4><span id="SignalProperties_Properties_(rw)"></span><span class="mw-headline" id="SignalProperties_Properties_.28rw.29">SignalProperties Properties (rw)</span></h4>
+<p>The signal's properties, contained in a <tt>SignalProperties</tt> object.
+</p>
+<h4><span id="int_Channels_(r)"></span><span class="mw-headline" id="int_Channels_.28r.29">int Channels (r)</span></h4>
+<p>The number of channels.
+</p>
+<h4><span id="int_Elements_(r)"></span><span class="mw-headline" id="int_Elements_.28r.29">int Elements (r)</span></h4>
+<p>The number of elements.
+</p>
+<h4><span id="SignalType_Type_(r)"></span><span class="mw-headline" id="SignalType_Type_.28r.29">SignalType Type (r)</span></h4>
+<p>The signal type.
+</p>
+<h4><span id="number_Value(Channel,_Element)_(rw)"></span><span class="mw-headline" id="number_Value.28Channel.2C_Element.29_.28rw.29">number Value(Channel, Element) (rw)</span></h4>
+<p>The signal's value at the specified channel/element combination. Access to signal values is also possible (and recommended) using parentheses notation on the signal object itself:
+</p>
+<pre>GenericSignal mySignal( 5, 4 );
+mySignal( 2, 3 ) = 4.5;
+</pre>
+<h2><span class="mw-headline" id="SignalProperties_Class">SignalProperties Class</span></h2>
+<h3><span class="mw-headline" id="Location_2">Location</span></h3>
+<p><tt>src/shared/types</tt>
+</p>
+<h3><span class="mw-headline" id="Synopsis_2">Synopsis</span></h3>
+<p>Sometimes, the number of channels, elements, and bytes
+required
+for storing values, are referred to as "Signal Properties".
+There is a separate class, <tt>SignalProperties</tt>, for expressing
+those
+values, and determining whether a given signal "fits" into another
+one, i.e., 
+whether the values contained in one signal may be copied into another
+signal without loss of information.
+<tt>GenericSignal</tt> class uses a <tt>SignalProperties</tt> member to
+maintain
+information about its properties.
+</p>
+<h3><span class="mw-headline" id="Methods_2">Methods</span></h3>
+<h4><span id="SignalProperties(Channels,_Elements,_SignalType=int16)"></span><span class="mw-headline" id="SignalProperties.28Channels.2C_Elements.2C_SignalType.3Dint16.29">SignalProperties(Channels, Elements, SignalType=int16)</span></h4>
+<p>Initializes a <tt>SignalProperties</tt> object to the specified number of channels and elements.
+The signal type argument may be one of
+</p>
+<ul><li>SignalType::int16,</li>
+<li>SignalType::int32,</li>
+<li>SignalType::float32,</li>
+<li>SignalType::float24.</li></ul>
+<h4><span id="bool_Accommodates(SignalProperties)"></span><span class="mw-headline" id="bool_Accommodates.28SignalProperties.29">bool Accommodates(SignalProperties)</span></h4>
+<p><i>True</i> if a signal of the argument's properties can be represented by a signal with the object's properties without data loss, i.e. the number of channels and elements must at least match the argument's, and the numeric range defined by the signal's type must at least equal the argument's.
+</p>
+<h4><span id="float_ChannelIndex(string_Address),_ElementIndex(string_Address)"></span><span class="mw-headline" id="float_ChannelIndex.28string_Address.29.2C_ElementIndex.28string_Address.29">float ChannelIndex(string Address), ElementIndex(string Address)</span></h4>
+<p>Returns a zero-based channel or element index corresponding to the specified address. The address may be
+</p>
+<ul><li>a label contained in the ChannelLabels or ElementLabels property,</li>
+<li>a value in physical units, with a unit matching the one from the ChannelUnit or ElementUnit property, or</li>
+<li>a plain number, which is treated as a <i>one-based</i> index.</li></ul>
+<p>These interpretations are tried in the above order; if none matches, a negative index is returned, indicating failure to interpret the address.
+</p><p>This function is provided to simplify conversion of parameter values into indices, allowing users to use labels, physical units, or one-based indices as appropriate for the signal that is to be addressed.
+</p>
+<h3><span class="mw-headline" id="Properties_2">Properties</span></h3>
+<h4><span id="int_Channels,_Elements_(rw)"></span><span class="mw-headline" id="int_Channels.2C_Elements_.28rw.29">int Channels, Elements (rw)</span></h4>
+<p>The number of channels and elements.
+</p>
+<h4><span id="SignalType_Type_(rw)"></span><span class="mw-headline" id="SignalType_Type_.28rw.29">SignalType Type (rw)</span></h4>
+<p>The signal's numeric type.
+</p>
+<h4><span id="string_Name_(rw)"></span><span class="mw-headline" id="string_Name_.28rw.29">string Name (rw)</span></h4>
+<p>The signal's name. When a signal is sent to the operator module via a <a href="Programming_Reference%253AGenericVisualization_Class.html" title="Programming Reference:GenericVisualization Class">GenericVisualization</a> object, its name is used as a visualization window title.
+</p>
+<h4><span id="LabelIndex_ChannelLabels,_ElementLabels_(rw)"></span><span class="mw-headline" id="LabelIndex_ChannelLabels.2C_ElementLabels_.28rw.29">LabelIndex ChannelLabels, ElementLabels (rw)</span></h4>
+<p>Labels of channels and elements, represented as <a href="Programming_Reference%253ALabelIndex_Class.html" title="Programming Reference:LabelIndex Class">LabelIndex</a> objects.
+</p>
+<h4><span id="float_SamplingRate_(r)"></span><span class="mw-headline" id="float_SamplingRate_.28r.29">float SamplingRate (r)</span></h4>
+<p>The sampling rate of the signal, given in Hz, or 0 when the dimension in element direction is not time. SamplingRate is a readonly property; to adapt a signal's sampling rate, set its ElementUnit's Gain property to the inverse of the desired sampling rate.
+</p>
+<h4><span id="float_UpdateRate_(rw)"></span><span class="mw-headline" id="float_UpdateRate_.28rw.29">float UpdateRate (rw)</span></h4>
+<p>The update rate of the signal, given in Hz. This number shows how often a signal is updated with new values, irrespective of its dimensions. Note that in general SamplingRate is not equal to UpdateRate*Elements.
+</p>
+<h4><span id="PhysicalUnit_ChannelUnit,_ElementUnit,_ValueUnit_(rw)"></span><span class="mw-headline" id="PhysicalUnit_ChannelUnit.2C_ElementUnit.2C_ValueUnit_.28rw.29">PhysicalUnit ChannelUnit, ElementUnit, ValueUnit (rw)</span></h4>
+<p>Physical units associated with respective dimensions. Typically, there is no physical unit in the channel dimension; in the element dimension, the physical unit would be temporal, measured in seconds, or a frequency, measured in Hz; in the value dimension, the physical unit would be a voltage, or a power thereof. Physical units are represented as objects of type <a href="Programming_Reference%253APhysicalUnit_Class.html" title="Programming Reference:PhysicalUnit Class"><tt>PhysicalUnit</tt></a>.
+</p>
+<h4><span class="mw-headline" id="bool_IsEmpty">bool IsEmpty</span></h4>
+<p><i>True</i> if at least one of channels and elements is zero.
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524001208
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.025 seconds
+Real time usage: 0.030 seconds
+Preprocessor visited node count: 98/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1446-0!canonical and timestamp 20230524001208 and revision id 6119
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:Signals&amp;oldid=6119">http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:Signals&amp;oldid=6119</a>"</div>
+ </div>
+</body>
+</html>

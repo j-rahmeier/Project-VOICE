@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:gHIamp - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">gHIamp</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Contributions%253AgHIamp.html#Synopsis"><span class="tocnumber">1</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Contributions%253AgHIamp.html#Location"><span class="tocnumber">2</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Contributions%253AgHIamp.html#Versioning"><span class="tocnumber">3</span> <span class="toctext">Versioning</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Contributions%253AgHIamp.html#Authors"><span class="tocnumber">3.1</span> <span class="toctext">Authors</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Contributions%253AgHIamp.html#Version_History"><span class="tocnumber">3.2</span> <span class="toctext">Version History</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Contributions%253AgHIamp.html#Source_Code_Revisions"><span class="tocnumber">3.3</span> <span class="toctext">Source Code Revisions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="Contributions%253AgHIamp.html#Functional_Description"><span class="tocnumber">4</span> <span class="toctext">Functional Description</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="Contributions%253AgHIamp.html#Installation"><span class="tocnumber">5</span> <span class="toctext">Installation</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="Contributions%253AgHIamp.html#gHIampgetinfo_Tool"><span class="tocnumber">6</span> <span class="toctext">gHIampgetinfo Tool</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="Contributions%253AgHIamp.html#Parameters"><span class="tocnumber">7</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-11"><a href="Contributions%253AgHIamp.html#Valid_Operating_Modes"><span class="tocnumber">7.1</span> <span class="toctext">Valid Operating Modes</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="Contributions%253AgHIamp.html#Digital_Input"><span class="tocnumber">8</span> <span class="toctext">Digital Input</span></a>
+<ul>
+<li class="toclevel-2 tocsection-13"><a href="Contributions%253AgHIamp.html#State_Variables"><span class="tocnumber">8.1</span> <span class="toctext">State Variables</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-14"><a href="Contributions%253AgHIamp.html#See_also"><span class="tocnumber">9</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>The g.HIamp is a 256 analog channel and 16 digital channel amplifier from g.tec.  The contributed source module acquires raw signals from the amplifier in real time for use in BCI2000.
+</p>
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><a rel="nofollow" class="external free" href="http://www.bci2000.org/svn/trunk/src/core/SignalSource/g.HIampSource">http://www.bci2000.org/svn/trunk/src/core/SignalSource/g.HIampSource</a>
+</p>
+<h2><span class="mw-headline" id="Versioning">Versioning</span></h2>
+<h3><span class="mw-headline" id="Authors">Authors</span></h3>
+<p>Griffin Milsap (griffin.milsap@gmail.com)
+Rensselaer Polytechnic Institute 
+</p><p>Kristopher Kaleb Goering (kaleb.goering@gmail.com)
+University of Kansas
+</p>
+<h3><span class="mw-headline" id="Version_History">Version History</span></h3>
+<p>Version 0.9: August 2011
+</p>
+<ul><li>Supports one g.HIamp</li>
+<li>Supports Filters</li>
+<li>Referencing by any channel</li>
+<li>Future compatible with g.HIamp master/slave configurations</li>
+<li>Using g.HIamp C API version 1.11.02</li></ul>
+<p>Version 1.0 June 2015
+</p>
+<ul><li>Digital Inputs enabled</li>
+<li>Using g.HIamp C API version 2.14.03</li></ul>
+<h3><span class="mw-headline" id="Source_Code_Revisions">Source Code Revisions</span></h3>
+<ul><li>Initial development: 3472</li>
+<li>Tested under: 4908</li>
+<li>Known to compile under: 4908</li>
+<li>Broken since: --</li></ul>
+<h2><span class="mw-headline" id="Functional_Description">Functional Description</span></h2>
+<p>Acquires raw data from the g.HIamp.
+</p>
+<h2><span class="mw-headline" id="Installation">Installation</span></h2>
+<p>Compile the gHIampSource module using <a href="Programming_Reference%253ABuild_System.html#How_To_Build_Using_CMake" class="mw-redirect" title="Programming Reference:Build System">CMake and your compiler</a>.  The resulting gHIampSource.exe should be placed in the prog directory automatically.
+</p>
+<h2><span class="mw-headline" id="gHIampgetinfo_Tool">gHIampgetinfo Tool</span></h2>
+<p>gHIampgetinfo.exe is a simple console application that can be used to determine what gHIamp devices are connected to your system, and what hardware filters they support. This tool is automatically compiled with BCI2000 and resides in the prog directory. 
+</p><p>The outputted tables display the index of the filter (<code>num</code>), the high pass frequency (<code>hpf</code>), the low pass frequency (<code>hpf</code>), the corresponding sampling frequency (<code>sfr</code>), the order of the filter (<code>or</code>), and the type. Type-name correspondence can be seen in the table below:
+</p>
+<table class="wikitable" style="text-align:center;">
+
+<tbody><tr style="font-weight:bold;">
+<th>Type
+</th>
+<th>Name
+</th></tr>
+<tr>
+<td>0
+</td>
+<td>Chebyshev
+</td></tr>
+<tr>
+<td>1
+</td>
+<td>Butterworth
+</td></tr>
+<tr>
+<td>2
+</td>
+<td>Bessel
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<ul><li><b>SourceCh</b> represents the total number of channels to be logged from the source module.</li>
+<li><b>SampleBlockSize</b> should be set equal to the size of the sample block pulled from the device. <br />
+<ul><li><b>NOTE:</b> <span style="text-decoration: underline;">Only specific combinations of SampleBlockSize and SampleRate are valid!  See <a href="Contributions%253AgHIamp.html#Valid_Operating_Modes">#Valid Operating Modes</a></span></li></ul></li>
+<li><b>SampleRate</b> determines the rate at which the device samples data. <br />
+<ul><li><b>NOTE:</b> <span style="text-decoration: underline;">Only specific combinations of SampleBlockSize and SampleRate are valid!  See <a href="Contributions%253AgHIamp.html#Valid_Operating_Modes">#Valid Operating Modes</a></span></li></ul></li>
+<li><b>ChannelNames</b> is a convenience parameter.  Name channels here and they can be referenced by these names later.</li>
+<li><b>SourceChOffset</b> should be set to a list of "0"s -- one 0 for each channel as indicated by SourceCh, separated by spaces.</li>
+<li><b>SourceChGain</b> should be set to a list of "1"s -- one 0 for each channel as indicated by SourceCh, separated by spaces.</li>
+<li><b>DeviceIDMaster</b> is the serial number identifier of the master g.HIamp device.  This serial can be found on the physical device and is typically in a "<b>HA-20XX.XX.XX</b>" format.  This parameter can also be set to "<b>auto</b>" if there is only one g.HIamp device connected to the machine.</li>
+<li><b>DeviceIDs</b> is a list of device serials (typically in "<b>HA-20XX.XX.XX</b>" format) which corresponds to the devices to record channels from.  One of these serials must be specified as the master device in the "DeviceIDMaster" parameter.  This parameter can also be set to "<b>auto</b>" if there is only one g.HIamp device connected to the machine.  <br />
+<ul><li><b>NOTE:</b> <span style="text-decoration: underline;">Device slaving is not yet supported by the module OR the g.HIamp C API. -- This parameter only exists for future compatibility. </span></li></ul></li>
+<li><b>RefChList</b> is a list of channels which can act as "Reference" channels for each amp.  If left blank, no channel will be used as a reference, and the raw signal will be recorded in the output.  <br />
+<ul><li><b>NOTE:</b> <span style="text-decoration: underline;">If specifying reference channels, there must be one reference channel per device specified in "DeviceIDs" in the same order. </span></li></ul></li>
+<li><b>SourceChList</b></li>
+<li><b>FilterEnabled</b></li>
+<li><b>FilterHighPass</b></li>
+<li><b>FilterLowPass</b></li>
+<li><b>FilterModelOrder</b></li>
+<li><b>FilterType</b></li>
+<li><b>NotchEnabled</b></li>
+<li><b>NotchHighPass</b></li>
+<li><b>NotchLowPass</b></li>
+<li><b>NotchModelOrder</b></li>
+<li><b>NotchType</b></li>
+<li><b>SourceBufferSize</b></li>
+<li><b>EnableDigitalInputs</b> is a toggle button to enable both digital input ports and store them in synchronous states DigitalInput1 - DigitalInput16.
+<ul><li><b>NOTE</b> <span style="text-decoration: underline;"> To record digital input, at least one analog channel must also be recorded. </span></li></ul></li></ul>
+<h3><span class="mw-headline" id="Valid_Operating_Modes">Valid Operating Modes</span></h3>
+<p>The gHIamp only accepts specific combinations of sampling rates and sample block sizes.  The following table shows all valid combinations of sample rate and block size.  Operating outside of these modes is untested and could result in problems.
+</p>
+<table border="1">
+<tbody><tr>
+<th>Sample Rate
+</th>
+<th>Valid Sample Block Sizes
+</th></tr>
+<tr>
+<td>256 Samples per second
+</td>
+<td>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 32 64 128 256
+</td></tr>
+<tr>
+<td>512 Samples per second
+</td>
+<td>2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 32 64 128 256
+</td></tr>
+<tr>
+<td>600 Samples per second
+</td>
+<td>4 5 6 7 8 9 10 11 12 13 15 16 17 32 64 128 256
+</td></tr>
+<tr>
+<td>1200 Samples per second
+</td>
+<td>8 9 10 11 12 13 14 15 16 32 64 128 256
+</td></tr>
+<tr>
+<td>2400 Samples per second
+</td>
+<td>16 32 64 128 256
+</td></tr>
+<tr>
+<td>4800 Samples per second
+</td>
+<td>32 64 128 256
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="Digital_Input">Digital Input</span></h2>
+<p>The g.HIamp has two digital input ports which give a total of 16 digital input channels, see figures below. These channels can be read and stored in synchronous states and the same sample rate as the analog channels. More information on the states are below.
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:DigIn1.JPG" class="image"><img alt="DigIn1.JPG" src="../images/5/5c/DigIn1.JPG" decoding="async" width="637" height="396" /></a>
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:DigIn2.JPG" class="image"><img alt="DigIn2.JPG" src="../images/6/67/DigIn2.JPG" decoding="async" width="643" height="384" /></a>
+</p><p><br />
+</p>
+<h3><span class="mw-headline" id="State_Variables">State Variables</span></h3>
+<p>The state name gives which pin the value was read from. They are saved synchronously as the signals are read. Their value can be either a 0 or a 1.
+</p>
+<pre>-----------------------------------------
+StateName           == Sensor
+-----------------------------------------
+DigitalInput1  == Digital In 1 Pin1
+DigitalInput2  == Digital In 1 Pin2
+DigitalInput3  == Digital In 1 Pin3
+DigitalInput4  == Digital In 1 Pin4
+DigitalInput5  == Digital In 1 Pin5
+DigitalInput6  == Digital In 1 Pin6
+DigitalInput7  == Digital In 1 Pin7
+DigitalInput8  == Digital In 1 Pin8
+DigitalInput9  == Digital In 2 Pin1
+DigitalInput10 == Digital In 2 Pin2
+DigitalInput11 == Digital In 2 Pin3
+DigitalInput12 == Digital In 2 Pin4
+DigitalInput13 == Digital In 2 Pin5
+DigitalInput14 == Digital In 2 Pin6
+DigitalInput15 == Digital In 2 Pin7
+DigitalInput16 == Digital In 2 Pin8
+-----------------------------------------
+</pre>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Reference%253AFilters.html" title="User Reference:Filters">User Reference:Filters</a>, <a href="Contributions%253AADCs.html" title="Contributions:ADCs">Contributions:ADCs</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524175516
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.029 seconds
+Real time usage: 0.033 seconds
+Preprocessor visited node count: 59/1000000
+Post‐expand include size: 15/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 744/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2029-0!canonical and timestamp 20230524175516 and revision id 8887
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:gHIamp&amp;oldid=8887">http://www.bci2000.org/mediawiki/index.php?title=Contributions:gHIamp&amp;oldid=8887</a>"</div>
+ </div>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:LabJackADC - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">LabJackADC</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div class="thumb tright"><div class="thumbinner" style="width:402px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:T7.webp" class="image"><img alt="" src="../images/thumb/6/67/T7.webp/400px-T7.webp.png" decoding="async" width="400" height="301" class="thumbimage" srcset="../images/thumb/6/67/T7.webp/600px-T7.webp.png 1.5x, ../images/thumb/6/67/T7.webp/800px-T7.webp.png 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://www.bci2000.org/mediawiki/index.php/File:T7.webp" class="internal" title="Enlarge"></a></div>LabJack T7 Device</div></div></div>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Contributions%253ALabJackADC.html#Synopsis"><span class="tocnumber">1</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Contributions%253ALabJackADC.html#Location"><span class="tocnumber">2</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Contributions%253ALabJackADC.html#Versioning"><span class="tocnumber">3</span> <span class="toctext">Versioning</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Contributions%253ALabJackADC.html#Authors"><span class="tocnumber">3.1</span> <span class="toctext">Authors</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Contributions%253ALabJackADC.html#Version_History"><span class="tocnumber">3.2</span> <span class="toctext">Version History</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Contributions%253ALabJackADC.html#Source_Code_Revisions"><span class="tocnumber">3.3</span> <span class="toctext">Source Code Revisions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="Contributions%253ALabJackADC.html#Functional_Description"><span class="tocnumber">4</span> <span class="toctext">Functional Description</span></a>
+<ul>
+<li class="toclevel-2 tocsection-8"><a href="Contributions%253ALabJackADC.html#Usage"><span class="tocnumber">4.1</span> <span class="toctext">Usage</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="Contributions%253ALabJackADC.html#Connection_Setup"><span class="tocnumber">4.2</span> <span class="toctext">Connection Setup</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="Contributions%253ALabJackADC.html#Parameters"><span class="tocnumber">5</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-11"><a href="Contributions%253ALabJackADC.html#SourceCh"><span class="tocnumber">5.1</span> <span class="toctext">SourceCh</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="Contributions%253ALabJackADC.html#SampleBlockSize"><span class="tocnumber">5.2</span> <span class="toctext">SampleBlockSize</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="Contributions%253ALabJackADC.html#SamplingRate"><span class="tocnumber">5.3</span> <span class="toctext">SamplingRate</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="Contributions%253ALabJackADC.html#ChannelNames"><span class="tocnumber">5.4</span> <span class="toctext">ChannelNames</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="Contributions%253ALabJackADC.html#SourceChGain"><span class="tocnumber">5.5</span> <span class="toctext">SourceChGain</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="Contributions%253ALabJackADC.html#SourceChOffset"><span class="tocnumber">5.6</span> <span class="toctext">SourceChOffset</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="Contributions%253ALabJackADC.html#Resolution"><span class="tocnumber">5.7</span> <span class="toctext">Resolution</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="Contributions%253ALabJackADC.html#Range"><span class="tocnumber">5.8</span> <span class="toctext">Range</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="Contributions%253ALabJackADC.html#Connection"><span class="tocnumber">5.9</span> <span class="toctext">Connection</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-20"><a href="Contributions%253ALabJackADC.html#States"><span class="tocnumber">6</span> <span class="toctext">States</span></a>
+<ul>
+<li class="toclevel-2 tocsection-21"><a href="Contributions%253ALabJackADC.html#DigitalStream"><span class="tocnumber">6.1</span> <span class="toctext">DigitalStream</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-22"><a href="Contributions%253ALabJackADC.html#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>A BCI source module that allows recording of digital/analog inputs and streaming of digital inputs with a LabJack device (T4 or T7).
+</p>
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><a rel="nofollow" class="external free" href="http://www.bci2000.org/svn/trunk/src/contrib/SignalSource/LabJackSource">http://www.bci2000.org/svn/trunk/src/contrib/SignalSource/LabJackSource</a>
+</p>
+<h2><span class="mw-headline" id="Versioning">Versioning</span></h2>
+<h3><span class="mw-headline" id="Authors">Authors</span></h3>
+<p>Robert Ellis (ellis@neurotechcenter.org)
+</p>
+<h3><span class="mw-headline" id="Version_History">Version History</span></h3>
+<p>V1.0-12/15/2022-Allows acquisition of digital/analog signals using a LabJack device
+</p>
+<h3><span class="mw-headline" id="Source_Code_Revisions">Source Code Revisions</span></h3>
+<p>None
+</p>
+<h2><span class="mw-headline" id="Functional_Description">Functional Description</span></h2>
+<p>Allows recording of digital and analog inputs using a LabJack T4 or T7. The first instance of a digital input channel (FIO, MIO, EIO, CIO) listed will be recorded as a digital stream. This module has been tested with a LabJack T7 connected via USB, though it should also function with a LabJack T4 and with ethernet connection.
+</p>
+<h3><span class="mw-headline" id="Usage">Usage</span></h3>
+<p>Make sure to install the necessary drivers <a rel="nofollow" class="external text" href="https://labjack.com/pages/support?doc=/software-driver/installer-downloads/ljm-software-installers-t4-t7-digit/#section-header-two-fhnxc">here</a> beforehand. In CMake, enable “BUILD_CONTRIB” under “BUILD”. To use with a batch file, append “Start executable LabJackADC --local” under “Startup system localhost”.
+</p>
+<h3><span class="mw-headline" id="Connection_Setup">Connection Setup</span></h3>
+<p>USB setup is straightfoward---connect the device to your computer via a USB cable, and confirm the connection by opening Kipling (installed with the necessary drivers in the previous section).
+</p>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 609.33333333333px"><div style="width: 609.33333333333px">
+			<div class="thumb" style="width: 607.33333333333px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:ValidLabJackUSBConnection.PNG" class="image"><img alt="" src="../images/f/f9/ValidLabJackUSBConnection.PNG" decoding="async" width="608" height="150" /></a></div></div>
+			<div class="gallerytext">
+<p>Valid USB connection
+</p>
+			</div>
+		</div></li>
+</ul>
+<p>If the "USB" box is green, you will be able to use LabJackADC with USB connection.
+</p><p>To set up an ethernet connection, connect an ethernet cable between the LabJack device and your computer and go to Kipling. Note that the ethernet cable will not supply the device with power (unlike the USB cable), so you will have to still use the USB cable to supply power to the device. You will likely see a grey Ethernet box. Press on the green USB box and navigate to the Network Settings tab. You should see "Connection Status: Connected" (<a rel="nofollow" class="external text" href="https://old3.labjack.com/support/app-notes/basic-networking-troubleshooting">troubleshoot</a>). We will assign the device a static IP: open Command Prompt on your (Windows) device and run "ping 192.168.1.3", you should see something like 
+</p>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 709.33333333333px"><div style="width: 709.33333333333px">
+			<div class="thumb" style="width: 707.33333333333px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:OpenIPAddress.PNG" class="image"><img alt="" src="../images/9/95/OpenIPAddress.PNG" decoding="async" width="708" height="150" /></a></div></div>
+			<div class="gallerytext">
+<p>Valid IP Address
+</p>
+			</div>
+		</div></li>
+</ul>
+<p>If you do get a response, you will have to use another address (try 192.168.1.226, for example). After finding an address which yields no response, return to Kipling and under configure change the setting to "Manual". Enter this IP in the "IP" field, enter 255.255.255.0 in the "Subnet" field, and enter your routers default gateway into the "Gateway" field (run ipconfig in Command Prompt to find this). In the DNS field, you can enter 0.0.0.0 if you are using a T7, if you are using a T4 its recommended to copy what you used in the "Gateway" field to avoid errors. The "Alt-DNS" field can be left as 0.0.0.0. Apply the changes and go to the "Device Selector" tab.
+</p><p>In the "Device Selector" tab, disconnect the device and press "Refresh Devices". If the Ethernet box is still grey, setting a static IPv4 IP address for the ethernet port could resolve the issue: to do this, open Control Panel, then under Network and Internet, click "View network status and tasks". Under active networks, you should see an ethernet connection. Click on the network for the LabJack device and open Properties. In the list of items one should be named "Internet Protocol Version 4 (TCP/IPv4)". Double click this item and in the new menu click "Use the following IP address". For the IP address use 192.168.1.2 and use the same Subnet and Gateway you used for the LabJack. 
+</p><p>After applying these changes return to the Device Selector in Kipling and refresh devices. You should see either a yellow or green Ethernet box. If this is the case, the connection can be established and you may use an ethernet connection for LabJackADC. When restarting your computer, it may be the case that the connection won't automatically reestablish--in this case go to Kipling, and click on the Ethernet box, even if it is grey, and the connection should reestablish. If you run into errors, more information can be found <a rel="nofollow" class="external text" href="https://old3.labjack.com/support/app-notes/wifi-and-ethernet-t7-t4-t7-pro">here</a> and <a rel="nofollow" class="external text" href="https://old3.labjack.com/support/app-notes/networking/direct-connection-ethernet-app-note">here</a>.
+</p>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 377.33333333333px"><div style="width: 377.33333333333px">
+			<div class="thumb" style="width: 375.33333333333px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:Labjackparams.PNG" class="image"><img alt="" src="../images/thumb/d/db/Labjackparams.PNG/563px-Labjackparams.PNG" decoding="async" width="376" height="350" srcset="../images/d/db/Labjackparams.PNG 1.5x" /></a></div></div>
+			<div class="gallerytext">
+<p>LabJackADC Parameters
+</p>
+			</div>
+		</div></li>
+</ul>
+<h3><span class="mw-headline" id="SourceCh">SourceCh</span></h3>
+<p>Number of source channels to be used. Currently supports up to 36 channels (AIN0-13, FIO0-7, MIO0-1, EIO0-7, CIO0-3).
+</p>
+<h3><span class="mw-headline" id="SampleBlockSize">SampleBlockSize</span></h3>
+<p>Number of samples to be collected before processing
+</p>
+<h3><span class="mw-headline" id="SamplingRate">SamplingRate</span></h3>
+<p>Number of samples to be collected per second. Maximum sampling rate depends on setup (connection type, numbers of channels used, resolution, etc). Information about LabJack’s sampling rate can be found <a rel="nofollow" class="external text" href="https://labjack.com/pages/support?doc=/datasheets/t-series-datasheet/a-1-data-rates-t-series-datasheet/">here</a>.
+</p>
+<h3><span class="mw-headline" id="ChannelNames">ChannelNames</span></h3>
+<p>Channel names must be entered in the format of their label (ex: “AIN0”, ”FIO3”). The first FIO channel listed will have data stored as a stream under “DigitalStream”. The channels listed under "SourceCh" are supported
+</p>
+<h3><span class="mw-headline" id="SourceChGain">SourceChGain</span></h3>
+<p>Factor by which channel’s data will be scaled
+</p>
+<h3><span class="mw-headline" id="SourceChOffset">SourceChOffset</span></h3>
+<p>Value by which each channel’s data will be offset
+</p>
+<h3><span class="mw-headline" id="Resolution">Resolution</span></h3>
+<p>Allows the user to adjust the resolution used. Takes a value between 0 and 8, where 0 is the default/recommended value. More information on resolution <a rel="nofollow" class="external text" href="https://labjack.com/pages/support?doc=/datasheets/t-series-datasheet/a-3-2-2-t7-noise-and-resolution-t-series-datasheet/">here</a>.
+</p>
+<h3><span class="mw-headline" id="Range">Range</span></h3>
+<p>The amplitude of the signal, between 0V and 10V. Higher ranges get processed faster, while lower ranges take more time to process. More information <a rel="nofollow" class="external text" href="https://labjack.com/pages/support?doc=/datasheets/t-series-datasheet/a-3-2-2-t7-noise-and-resolution-t-series-datasheet/">here</a>.
+</p>
+<h3><span class="mw-headline" id="Connection">Connection</span></h3>
+<p>Specifies which connection to be used: 1 uses USB connection, 2 uses Ethernet connection, and 0 uses the first connection detected (USB or ethernet).
+</p>
+<h2><span class="mw-headline" id="States">States</span></h2>
+<h3><span class="mw-headline" id="DigitalStream">DigitalStream</span></h3>
+<p>The first FIO channel listed in <i>ChannelNames</i> will have data stored in <i>DigitalStream</i>.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Reference%253AFilters.html" title="User Reference:Filters">User Reference:Filters</a>, <a href="Contributions%253AADCs.html" title="Contributions:ADCs">Contributions:ADCs</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524175500
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.033 seconds
+Real time usage: 0.037 seconds
+Preprocessor visited node count: 87/1000000
+Post‐expand include size: 15/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 1573/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2520-0!canonical and timestamp 20230524175500 and revision id 10012
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:LabJackADC&amp;oldid=10012">http://www.bci2000.org/mediawiki/index.php?title=Contributions:LabJackADC&amp;oldid=10012</a>"</div>
+ </div>
+</body>
+</html>

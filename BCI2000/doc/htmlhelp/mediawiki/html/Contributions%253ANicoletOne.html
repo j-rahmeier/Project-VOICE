@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:NicoletOne - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">NicoletOne</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Contributions%253ANicoletOne.html#Synopsis"><span class="tocnumber">1</span> <span class="toctext">Synopsis</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="Contributions%253ANicoletOne.html#Known_Issues"><span class="tocnumber">1.1</span> <span class="toctext">Known Issues</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-3"><a href="Contributions%253ANicoletOne.html#Location"><span class="tocnumber">2</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="Contributions%253ANicoletOne.html#Versioning"><span class="tocnumber">3</span> <span class="toctext">Versioning</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="Contributions%253ANicoletOne.html#Authors"><span class="tocnumber">3.1</span> <span class="toctext">Authors</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Contributions%253ANicoletOne.html#Version_History"><span class="tocnumber">3.2</span> <span class="toctext">Version History</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="Contributions%253ANicoletOne.html#Source_Code_Revisions"><span class="tocnumber">3.3</span> <span class="toctext">Source Code Revisions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="Contributions%253ANicoletOne.html#Functional_Description"><span class="tocnumber">4</span> <span class="toctext">Functional Description</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="Contributions%253ANicoletOne.html#Installation"><span class="tocnumber">5</span> <span class="toctext">Installation</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="Contributions%253ANicoletOne.html#Compilation"><span class="tocnumber">6</span> <span class="toctext">Compilation</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="Contributions%253ANicoletOne.html#Parameters"><span class="tocnumber">7</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="Contributions%253ANicoletOne.html#States"><span class="tocnumber">8</span> <span class="toctext">States</span></a></li>
+<li class="toclevel-1 tocsection-13"><a href="Contributions%253ANicoletOne.html#Future_Work"><span class="tocnumber">9</span> <span class="toctext">Future Work</span></a></li>
+<li class="toclevel-1 tocsection-14"><a href="Contributions%253ANicoletOne.html#See_also"><span class="tocnumber">10</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>The NicoletOne series of EEG amplifiers are produced by Viasys Healthcare, now CareFusion.  They perform EEG logging through an instance of "Recorder.exe".  As required by the "Live Data" api the NicoletOne module sets up an MFC based Winsock connection in a separate thread to acquire information from the recording computer.
+</p>
+<h3><span class="mw-headline" id="Known_Issues">Known Issues</span></h3>
+<ul><li>The module currently has poor latency problems.  Every second or so a latency spike of 50-100ms occurs which yields poor system performance.  This is due to the socketed nature of communications between the recorder software and the module.</li></ul>
+<ul><li>The module will issue an error - "Couldn't connect to the device - Device may have a connection already.  Try again later." - sometimes.  This is due to some residual usage of the socket by the module after the module terminates.  The behavior is caused by some bug in the library for the device.  Until it is fixed, this error will appear upon "Set Config".  Simply wait a few minutes for this error to go away, or restart the computer if necessary.  The bug cannot be fixed by changing the source code of the module.</li></ul>
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><a rel="nofollow" class="external free" href="http://www.bci2000.org/svn/branches/3.0/src/contrib/SignalSource/NicoletOne">http://www.bci2000.org/svn/branches/3.0/src/contrib/SignalSource/NicoletOne</a>
+</p>
+<h2><span class="mw-headline" id="Versioning">Versioning</span></h2>
+<h3><span class="mw-headline" id="Authors">Authors</span></h3>
+<p>Griffin Milsap (griffin.milsap@gmail.com)
+Rensselaer Polytechnic Institute
+</p>
+<h3><span class="mw-headline" id="Version_History">Version History</span></h3>
+<h3><span class="mw-headline" id="Source_Code_Revisions">Source Code Revisions</span></h3>
+<h2><span class="mw-headline" id="Functional_Description">Functional Description</span></h2>
+<p>Acquires signal data from the NicoletOne series of devices through the Viasys "Recorder.exe" software. 
+</p><p>The amplifier is configured using the "Recorder.exe" software.  Although this means that it is possible to change the sampling rate or number of acive channels mid-run, the source module will be on the lookout for these changes and stop the experiment if they occur.  BCI2000 has no means of dealing with changes such as these mid-run.  When BCI2000 hits the preflight stage, the source module will query the "Recorder.exe" software.
+</p><p>Although the devices are capable of recording bipolar signals and perform math operations on the signals within the Recorder.exe software, these signals are not understood by BCI2000 and are not supported.  When configuring the amplifier in "Recorder.exe", do not use these special types of signals.
+</p>
+<h2><span class="mw-headline" id="Installation">Installation</span></h2>
+<p>The NicoletOne hardware interfaces only with its counterpart software from Viasys - Recorder.exe.  This software can only be attained through Viasys or with your NicoletOne amplifier.   A security dongle will also be required.  If your main BCI system will be running on Windows XP 32, it is possible to run with only one computer.  If you plan to run BCI2000 on Windows Vista or 7 (32 or 64), you'll need to acquire a second computer running Windows XP for the "Recorder.exe" software - as it only runs on Windows XP 32.  If a separate XP recording machine is to be used, a network switch may also be necessary to connect the BCI computer, Recording computer, and the amplifier together.
+</p><p>Install the Viasys software on the recording computer.  You do not need to install the "Study Room" suite.  Once the Viasys software has been installed on the recording computer, plug the security dongle in and install drivers for it.  The NicoletOne communicates through ethernet with the recording computer.  If a separate recording computer is being used, connect the ethernet port on the recording computer to an ethernet switch, then connect the NicoletOne to the same network switch.  If the recording computer is the same as the BCI computer, just plug the NicoletOne directly into the recording/BCI computer.
+</p><p>Set the IP address of the recording computer to 192.168.101.2 with a subnet mask of 255.255.255.0. This can be accomplished by going to "Control Panel"-&gt;"Network Connections", right clicking on your ethernet adapter, opening "Properties", scrolling down to "Internet Protocol", selecting it, clicking "Properties", selecting "Use the following IP address", and filling in 192.168.101.2 in the IP address field and filling in 255.255.255.0 in the subnet mask field.  If the recording computer and BCI computer are not the same, the BCI computer will need to be on the same subnet in order to communicate with the recording computer.  This is best accomplished by setting the IP address of the BCI computer to 192.168.101.3 with a subnet mask of 255.255.255.0.
+</p><p>If the BCI computer and the recording computer are not the same, it may help to make sure they're on the same workgroup.  This can be accomplished by right clicking "My Computer", going to properties, going to the "Computer Name" tab, clicking the "Change..." button, and changing the Workgroup field.  This may not be necessary, but it helps sometimes.
+</p><p>Copy the "SocketDef.reg" file in the <a rel="nofollow" class="external free" href="http://www.bci2000.org/svn/branches/3.0/src/contrib/SignalSource/NicoletOne/reg">http://www.bci2000.org/svn/branches/3.0/src/contrib/SignalSource/NicoletOne/reg</a> folder to the recording computer and double click the file (even if the recording and BCI computer are the same).  This adds a registry entry to the recording computer which tells the "Recorder.exe" software what port to output its recorded data to.  This only needs to be performed once.
+</p><p>On the BCI computer, go to <a rel="nofollow" class="external free" href="http://www.bci2000.org/svn/branches/3.0/src/contrib/SignalSource/NicoletOne/lib/DLLs">http://www.bci2000.org/svn/branches/3.0/src/contrib/SignalSource/NicoletOne/lib/DLLs</a> and run "RegisterDLL.bat".  This only needs to performed once.  This runs the dll files as services. and sets them up to be run when the computer starts up in the future. 
+</p><p>At this point, restart both the BCI and the Recording computer.  When the recording computer boots up, start "Recorder.exe" (There should be a shortcut on the desktop).  When Recorder.exe starts up, it will likely pop up an error box saying that communication with the amplifier cannot be established.  This is normal behavior.  Wait for recorder to start up and go to the "Protocol" menu item.  A long list of supported protocols should appear.  Select a protocol which works with your amplifier.  Internally, the development and testing of this module was performed with the NicoletOne V32 amplifier (as indicated on the front of the device).  The V32 Neonate protocol works for this amplifier.  Once a proper protocol has been selected, a dialog asking which amplifier to use should appear.  Hopefully, if everything has been installed successfully, the amplifier should appear in this box.  Select it and click "OK".  
+</p><p>Important: When the "Recorder.exe" program starts up, it will automatically start logging the EEG data to files on the hard drive.  Click the "Record" button at the top of the application to turn off recording.  BCI2000 will record to its own file format.  Recording the EEG to the recording computer simultaneously just takes up extra hard drive space and is redundant.  
+</p><p>When the module starts up it will attempt to connect to the recording computer at 192.168.101.2.  If it is not at that IP address the module will error.  This IP address is hard coded in and is assumed to be constant due to the fact that the recording computer must be set to 192.168.101.2.
+</p>
+<h2><span class="mw-headline" id="Compilation">Compilation</span></h2>
+<p>Due to the nature of the "LiveData" api provided by Viasys, the NicoletOne module can <i>only</i> be compiled using Microsoft Visual Studio Professional Edition (Any version).  The Visual Studio Express editions cannot be used to compile this module because Microsoft does not allow compilation of MFC based projects in the express editions.  If you have the professional edition of any CMake supported version of Visual Studio, simply generate project files for BCI2000 and build the project.
+</p>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<ul><li><b>SourceCh</b> must be set to the number of channels reported by Recorder.exe</li>
+<li><b>SamplingRate</b> must be set to the current sampling rate of the device.</li>
+<li><b>SampleBlockSize</b> is the number of samples to acquire for every system clock.  This can be set to whatever gives good system performance.</li>
+<li><b>ChannelNames</b> should be set to the names of the signals incoming from the "Recorder.exe" software.</li>
+<li><b>SourceChOffset</b> should be set to whatever the Recorder.exe program outputs.</li>
+<li><b>SourceChGain</b> should be set to whatever the Recorder.exe program outputs.</li></ul>
+<p>A note on these parameters: When "SetConfig" is pushed, the preflight error messages should be informative enough to set these parameters correctly.  If these values are changed by Recorder.exe mid run, the source module will stop collecting data and the system will shut down.
+</p>
+<h2><span class="mw-headline" id="States">States</span></h2>
+<p>None.
+</p>
+<h2><span class="mw-headline" id="Future_Work">Future Work</span></h2>
+<p>Perhaps an implementation for bipolar signals and support for multiple amplifiers could be implemented later. 
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Reference%253AFilters.html" title="User Reference:Filters">User Reference:Filters</a>, <a href="Contributions%253AADCs.html" title="Contributions:ADCs">Contributions:ADCs</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524001319
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.016 seconds
+Real time usage: 0.018 seconds
+Preprocessor visited node count: 50/1000000
+Post‐expand include size: 45/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1988-0!canonical and timestamp 20230524001319 and revision id 5738
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:NicoletOne&amp;oldid=5738">http://www.bci2000.org/mediawiki/index.php?title=Contributions:NicoletOne&amp;oldid=5738</a>"</div>
+ </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+////////////////////////////////////////////////////////////////////////////////
+// Authors: $author$
+// Description: $name$ header
+////////////////////////////////////////////////////////////////////////////////
+
+#ifndef INCLUDED_$ucname$_H  // makes sure this header is not included more than once
+#define INCLUDED_$ucname$_H
+
+#include "HyperscanningApplicationBase.h"
+
+class $name$ : public HyperscanningApplicationBase
+{
+ public:
+  $name$();
+  ~$name$();
+  void SharedPublish() override;
+  void SharedPreflight( const SignalProperties& Input, SignalProperties& Output ) const override;
+  void SharedInitialize( const SignalProperties& Input, const SignalProperties& Output ) override;
+  void SharedStartRun() override;
+  void SharedProcess( const GenericSignal& Input, GenericSignal& Output ) override;
+  void SharedStopRun() override;
+  void SharedHalt() override;
+
+ private:
+   ApplicationWindow& mrDisplay;
+   // Use this space to declare any $name$-specific methods and member variables you'll need
+};
+
+#endif // INCLUDED_$ucname$_H

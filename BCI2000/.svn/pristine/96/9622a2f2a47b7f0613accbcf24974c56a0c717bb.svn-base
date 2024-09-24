@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Programming Reference:Scene Class - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul><li class="toc1">Concepts</li><ul><li class="toc2"><a href="Programming_Reference%253AFilter_Chain.html">Filter Chain</a></li><li class="toc2"><a href="Programming_Reference%253ASignals.html">Signals</a></li><li class="toc2"><a href="Programming_Reference%253AError_Handling.html">Error Handling</a></li><li class="toc2"><a href="Programming_Reference%253ALocalization.html">Localization</a></li><li class="toc2"><a href="Programming_Reference%253ARapid_Development.html">Rapid Development</a></li></ul><li class="toc1">Reference</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFilter_Class.html">GenericFilter</a></li><li class="toc2"><a href="Programming_Reference%253AEnvironment_Class.html">Environment</a></li><li class="toc2"><a href="Programming_Reference%253AGenericVisualization_Class.html">GenericVisualization</a></li><li class="toc2"><a href="Programming_Reference%253AErrors_and_Warnings.html">Errors and Warnings</a></li><li class="toc2"><a href="Programming_Reference%253ADebug_Output.html">Debug Output</a></li></ul><li class="toc1">Data Acquisition</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericADC_Class.html">GenericADC</a></li></ul><li class="toc1">Data Storage</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFileWriter_Class.html">GenericFileWriter</a></li><li class="toc2"><a href="Programming_Reference%253ABCI2000FileReader_Class.html">BCI2000FileReader</a></li></ul><li class="toc1">Signal Processing</li><ul><li class="toc2"><a href="Programming_Reference%253AIIRFilterBase_Class.html">IIR Filters</a></li></ul><li class="toc1">Application Modules</li><ul><li class="toc2"><a href="Programming_Reference%253AApplicationBase_Class.html">ApplicationBase</a></li><li class="toc2"><a href="Programming_Reference%253AFeedbackTask_Class.html">FeedbackTask</a></li><li class="toc2"><a href="Programming_Reference%253AStimulusTask_Class.html">StimulusTask</a></li><li class="toc2"><a href="Programming_Reference%253A3D_API.html">3D API</a></li></ul><li class="toc1">Howtos</li><ul><li class="toc2"><a href="Programming_Howto%253ABuilding_BCI2000.html">Building BCI2000</a></li><li class="toc2"><a href="Programming_Howto%253ASVN_Client_Setup.html">SVN Client Setup</a></li><li class="toc2"><a href="Programming_Howto%253AUsing_TortoiseSVN.html">Using TortoiseSVN</a></li></ul><li class="toc1"><a href="Programming_FAQ.html">FAQ</a></li><li class="toc1">Tutorials</li><ul><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html">Data Acquisition</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html">Signal Processing</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html">Matlab Signal Processing</a></li></ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">Scene Class</h1>
+ <p class = "subtitle">Programming Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Programming_Reference%253AScene_Class.html#Location"><span class="tocnumber">1</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Programming_Reference%253AScene_Class.html#Synopsis"><span class="tocnumber">2</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Programming_Reference%253AScene_Class.html#Methods"><span class="tocnumber">3</span> <span class="toctext">Methods</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Programming_Reference%253AScene_Class.html#Scene.28GraphDisplay.29"><span class="tocnumber">3.1</span> <span class="toctext">Scene(GraphDisplay)</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Programming_Reference%253AScene_Class.html#Add.28primObj_pointer.29"><span class="tocnumber">3.2</span> <span class="toctext">Add(primObj pointer)</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Programming_Reference%253AScene_Class.html#Remove.28primObj_pointer.29"><span class="tocnumber">3.3</span> <span class="toctext">Remove(primObj pointer)</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="Programming_Reference%253AScene_Class.html#DeleteObjects.28.29"><span class="tocnumber">3.4</span> <span class="toctext">DeleteObjects()</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="Programming_Reference%253AScene_Class.html#Move.28float_deltaT.29"><span class="tocnumber">3.5</span> <span class="toctext">Move(float deltaT)</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AScene_Class.html#Show.28.29"><span class="tocnumber">3.6</span> <span class="toctext">Show()</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AScene_Class.html#Hide.28.29"><span class="tocnumber">3.7</span> <span class="toctext">Hide()</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AScene_Class.html#Invalidate.28.29"><span class="tocnumber">3.8</span> <span class="toctext">Invalidate()</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AScene_Class.html#Paint.28.29"><span class="tocnumber">3.9</span> <span class="toctext">Paint()</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AScene_Class.html#Change.28.29"><span class="tocnumber">3.10</span> <span class="toctext">Change()</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AScene_Class.html#bool_Click.28GUI::Point.29"><span class="tocnumber">3.11</span> <span class="toctext">bool Click(GUI::Point)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-9"><a href="Programming_Reference%253AScene_Class.html#Properties"><span class="tocnumber">4</span> <span class="toctext">Properties</span></a>
+<ul>
+<li class="toclevel-2 tocsection-10"><a href="Programming_Reference%253AScene_Class.html#OnCollideFunc_OnCollide_.28w.29"><span class="tocnumber">4.1</span> <span class="toctext">OnCollideFunc OnCollide (w)</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="Programming_Reference%253AScene_Class.html#SetOfObjects_Objects_.28r.29"><span class="tocnumber">4.2</span> <span class="toctext">SetOfObjects Objects (r)</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="Programming_Reference%253AScene_Class.html#string_ImagePath_.28rw.29"><span class="tocnumber">4.3</span> <span class="toctext">string ImagePath (rw)</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="Programming_Reference%253AScene_Class.html#float_CameraX.2C_CameraY.2C_CameraZ_.28rw.29"><span class="tocnumber">4.4</span> <span class="toctext">float CameraX, CameraY, CameraZ (rw)</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="Programming_Reference%253AScene_Class.html#cameraNLight_CameraAndLight_.28rw.29"><span class="tocnumber">4.5</span> <span class="toctext">cameraNLight CameraAndLight (rw)</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="Programming_Reference%253AScene_Class.html#int_BitDepth_.28rw.29"><span class="tocnumber">4.6</span> <span class="toctext">int BitDepth (rw)</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="Programming_Reference%253AScene_Class.html#bool_DoubleBuffering_.28rw.29"><span class="tocnumber">4.7</span> <span class="toctext">bool DoubleBuffering (rw)</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="Programming_Reference%253AScene_Class.html#bool_DisableVsync_.28rw.29"><span class="tocnumber">4.8</span> <span class="toctext">bool DisableVsync (rw)</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="Programming_Reference%253AScene_Class.html#bool_HardwareAccelerated_.28r.29"><span class="tocnumber">4.9</span> <span class="toctext">bool HardwareAccelerated (r)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-19"><a href="Programming_Reference%253AScene_Class.html#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><tt>src/extlib/3DAPI</tt>
+</p>
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>The <tt>Scene</tt> class provides a rectangular view on a 3D scene. Inheriting from <a href="Programming_Reference%253AGraphObject_Class.html" title="Programming Reference:GraphObject Class"><tt>GraphObject</tt></a>, a <tt>Scene</tt> object is drawn onto a <a href="Programming_Reference%253AGraphDisplay_Class.html" title="Programming Reference:GraphDisplay Class"><tt>GraphDisplay</tt></a>.
+</p><p>The scene itself consists of scene objects as defined by the <a href="Programming_Reference%253A3D_API.html" title="Programming Reference:3D API">3D API</a>.
+</p>
+<h2><span class="mw-headline" id="Methods">Methods</span></h2>
+<h3><span id="Scene(GraphDisplay)"></span><span class="mw-headline" id="Scene.28GraphDisplay.29">Scene(GraphDisplay)</span></h3>
+<p>In the constructor, specify the <a href="Programming_Reference%253AGraphDisplay_Class.html" title="Programming Reference:GraphDisplay Class">GraphDisplay</a> associated with the scene object.
+</p>
+<h3><span id="Add(primObj_pointer)"></span><span class="mw-headline" id="Add.28primObj_pointer.29">Add(primObj pointer)</span></h3>
+<p>Adds a 3D API object to the scene.
+</p>
+<h3><span id="Remove(primObj_pointer)"></span><span class="mw-headline" id="Remove.28primObj_pointer.29">Remove(primObj pointer)</span></h3>
+<p>Removes a 3D API object from the scene.
+</p>
+<h3><span id="DeleteObjects()"></span><span class="mw-headline" id="DeleteObjects.28.29">DeleteObjects()</span></h3>
+<p>Deletes all objects that are part of the scene.
+</p>
+<h3><span id="Move(float_deltaT)"></span><span class="mw-headline" id="Move.28float_deltaT.29">Move(float deltaT)</span></h3>
+<p>Moves all 3D API objects one step forward in time, using their specified velocities, and tests for collisions.
+</p>
+<h3><span id="Show()"></span><span class="mw-headline" id="Show.28.29">Show()</span></h3>
+<p>Makes the object visible. Initially, objects are created in visible state.
+</p>
+<h3><span id="Hide()"></span><span class="mw-headline" id="Hide.28.29">Hide()</span></h3>
+<p>Makes the object invisible.
+</p>
+<h3><span id="Invalidate()"></span><span class="mw-headline" id="Invalidate.28.29">Invalidate()</span></h3>
+<p>Invalidates the object's bounding rectangle, i.e. marks it as needing to be repainted. Typically, this function is called from a derived class, indicating that a change in object properties has occurred that requires a repaint.
+</p>
+<h3><span id="Paint()"></span><span class="mw-headline" id="Paint.28.29">Paint()</span></h3>
+<p>Asks an object to paint itself by calling its <tt>OnPaint</tt> event handler.
+</p>
+<h3><span id="Change()"></span><span class="mw-headline" id="Change.28.29">Change()</span></h3>
+<p>Notifies an object of a change in display properties by calling its <tt>OnChange</tt> event handler.
+</p>
+<h3><span id="bool_Click(GUI::Point)"></span><span class="mw-headline" id="bool_Click.28GUI::Point.29">bool Click(GUI::Point)</span></h3>
+<p>Tests whether the specified point is inside an object's bounding rectangle, and calls its <tt>OnClick</tt> event handler if this is the case.
+</p>
+<h2><span class="mw-headline" id="Properties">Properties</span></h2>
+<h3><span id="OnCollideFunc_OnCollide_(w)"></span><span class="mw-headline" id="OnCollideFunc_OnCollide_.28w.29">OnCollideFunc OnCollide (w)</span></h3>
+<p>Specifies a callback function to be called for each collision between scene objects. The callback function takes references to a pair of scene objects as arguments.
+Collision testing is done from the <tt>Move()</tt> member function.
+</p>
+<h3><span id="SetOfObjects_Objects_(r)"></span><span class="mw-headline" id="SetOfObjects_Objects_.28r.29">SetOfObjects Objects (r)</span></h3>
+<p>The objects contained in the scene, as a <tt>std::set</tt> of object pointers.
+</p>
+<h3><span id="string_ImagePath_(rw)"></span><span class="mw-headline" id="string_ImagePath_.28rw.29">string ImagePath (rw)</span></h3>
+<p>Reference path for texture images specified using relative paths.
+</p>
+<h3><span id="float_CameraX,_CameraY,_CameraZ_(rw)"></span><span class="mw-headline" id="float_CameraX.2C_CameraY.2C_CameraZ_.28rw.29">float CameraX, CameraY, CameraZ (rw)</span></h3>
+<p>Camera position in scene coordinates.
+</p>
+<h3><span id="cameraNLight_CameraAndLight_(rw)"></span><span class="mw-headline" id="cameraNLight_CameraAndLight_.28rw.29">cameraNLight CameraAndLight (rw)</span></h3>
+<p>Provides access to the scene's 3D API <tt>cameraNLight</tt> object that defines details of projection and scene lighting.
+</p>
+<h3><span id="int_BitDepth_(rw)"></span><span class="mw-headline" id="int_BitDepth_.28rw.29">int BitDepth (rw)</span></h3>
+<p>The scene's rendering bit depth. Typically, this is 16 or 24.
+</p>
+<h3><span id="bool_DoubleBuffering_(rw)"></span><span class="mw-headline" id="bool_DoubleBuffering_.28rw.29">bool DoubleBuffering (rw)</span></h3>
+<p>Switch double buffering on or off. When switched on, the scene will be rendered into an offscreen buffer, and only displayed after rendering is finished.
+</p>
+<h3><span id="bool_DisableVsync_(rw)"></span><span class="mw-headline" id="bool_DisableVsync_.28rw.29">bool DisableVsync (rw)</span></h3>
+<p>When double buffering is enabled, buffer switching will be synchronized to the display's vertical sync pulse. While this is desired for most purposes, it will affect BCI2000 system timing, and should thus be disabled. This will not work for all graphics cards.
+</p>
+<h3><span id="bool_HardwareAccelerated_(r)"></span><span class="mw-headline" id="bool_HardwareAccelerated_.28r.29">bool HardwareAccelerated (r)</span></h3>
+<p><i>True</i> if OpenGL rendering is realized in hardware, <i>false</i> in case of a software renderer.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Programming_Reference%253A3D_API.html" title="Programming Reference:3D API">Programming Reference:3D API</a>, <a href="Programming_Reference%253AGraphObject_Class.html" title="Programming Reference:GraphObject Class">Programming Reference:GraphObject Class</a>, <a href="Programming_Reference%253AGraphDisplay_Class.html" title="Programming Reference:GraphDisplay Class">Programming Reference:GraphDisplay Class</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524175554
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.022 seconds
+Real time usage: 0.027 seconds
+Preprocessor visited node count: 70/1000000
+Post‐expand include size: 896/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    2.752      1 Template:GraphObjectMethods
+100.00%    2.752      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1856-0!canonical and timestamp 20230524175554 and revision id 4335
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:Scene_Class&amp;oldid=4335">http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:Scene_Class&amp;oldid=4335</a>"</div>
+ </div>
+</body>
+</html>

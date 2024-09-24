@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:StimBoxFilter - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">StimBoxFilter</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Contributions%253AStimBoxFilter.html#Synopsis"><span class="tocnumber">1</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Contributions%253AStimBoxFilter.html#Location"><span class="tocnumber">2</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Contributions%253AStimBoxFilter.html#Versioning"><span class="tocnumber">3</span> <span class="toctext">Versioning</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Contributions%253AStimBoxFilter.html#Authors"><span class="tocnumber">3.1</span> <span class="toctext">Authors</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Contributions%253AStimBoxFilter.html#Version_History"><span class="tocnumber">3.2</span> <span class="toctext">Version History</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Contributions%253AStimBoxFilter.html#Source_Code_Revisions"><span class="tocnumber">3.3</span> <span class="toctext">Source Code Revisions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="Contributions%253AStimBoxFilter.html#Functional_Description"><span class="tocnumber">4</span> <span class="toctext">Functional Description</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="Contributions%253AStimBoxFilter.html#Integration_into_BCI2000"><span class="tocnumber">5</span> <span class="toctext">Integration into BCI2000</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="Contributions%253AStimBoxFilter.html#Parameters"><span class="tocnumber">6</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-10"><a href="Contributions%253AStimBoxFilter.html#EnableStimBoxFilter"><span class="tocnumber">6.1</span> <span class="toctext">EnableStimBoxFilter</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="Contributions%253AStimBoxFilter.html#DigitalOutputs"><span class="tocnumber">6.2</span> <span class="toctext">DigitalOutputs</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="Contributions%253AStimBoxFilter.html#State_Variables"><span class="tocnumber">7</span> <span class="toctext">State Variables</span></a>
+<ul>
+<li class="toclevel-2 tocsection-13"><a href="Contributions%253AStimBoxFilter.html#StimBoxInput.5B1-14.5D"><span class="tocnumber">7.1</span> <span class="toctext">StimBoxInput[1-14]</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-14"><a href="Contributions%253AStimBoxFilter.html#See_also"><span class="tocnumber">8</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>An integration of the g.STIMbox with BCI2000
+</p>
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><a rel="nofollow" class="external free" href="http://www.bci2000.org/svn/trunk/src/contrib/Extensions/StimBoxFilter">http://www.bci2000.org/svn/trunk/src/contrib/Extensions/StimBoxFilter</a>
+</p>
+<h2><span class="mw-headline" id="Versioning">Versioning</span></h2>
+<h3><span class="mw-headline" id="Authors">Authors</span></h3>
+<p>Griffin Milsap (griffin.milsap@gmail.com)
+</p>
+<h3><span class="mw-headline" id="Version_History">Version History</span></h3>
+<ul><li>2013/09/23: Initial public release;</li></ul>
+<h3><span class="mw-headline" id="Source_Code_Revisions">Source Code Revisions</span></h3>
+<ul><li>Initial development: 4580</li>
+<li>Tested under: 4580</li>
+<li>Known to compile under: 4580</li>
+<li>Broken since: --</li></ul>
+<h2><span class="mw-headline" id="Functional_Description">Functional Description</span></h2>
+<p>The g.STIMbox is a USB digital I/O card.  This simple filter extension resides in the Application module and makes input and output with the card easy.
+</p>
+<h2><span class="mw-headline" id="Integration_into_BCI2000">Integration into BCI2000</span></h2>
+<p>Compile the extension into your source module by enabling contributed extensions in your CMake configuration.  You can do this by going into your root build folder and deleting <code>CMakeCache.txt</code> and re-running the project batch file, or by running <code>cmake -i</code> and enabling <b>BUILD_STIMBOXFILTER</b>.  Once the extension is built into the source module, enable it by starting the source module with the <code>--StimBoxFilter=[COMPORT]</code> command line argument (NB, as explained below, the numeric value here matters, and denotes the COM port to be used:  =1 means COM port 1).
+</p>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<p>The StimBoxFilter is configured in the g.STIMbox tab.  The configurable parameters are:
+</p>
+<h3><span class="mw-headline" id="EnableStimBoxFilter">EnableStimBoxFilter</span></h3>
+<p>Enables/Disables the StimBoxFilter.  This parameter performs double-duty as the COM port selector. NOTE: The COM port that the g.STIMbox is connected to can be determined by accessing the Device Manager within the Windows control panel.
+</p>
+<ul><li>[0] - Disabled</li>
+<li>Any other number indicates the COM port to attempt communication with the g.STIMbox on.</li></ul>
+<h3><span class="mw-headline" id="DigitalOutputs">DigitalOutputs</span></h3>
+<p>This matrix of expressions that controls the outputs on the device.  The g.STIMbox has 16 digital outputs which can be controlled via expressions in this matrix.  Some of the outputs can only be accessed via the D-SUB connector on the front of the box.  To control a port, create a new row in this matrix and change the row label to the number of the port you wish to control.  If the expression in column 1 in that row evaluates to True, the port will be set high, and the port will be set low whenever the expression evaluates to False.  If an 'F' is specified immediately after the row label (for example, '3F'), that port is assumed to be in 'Frequency Mode' and the port frequency will be set to whatever the expression evaluates to.  If the expression evaluates to 0 or False, the port will be set low (off).  Note that changing the frequency while in frequency mode will reset the port to 'high' immediately.  This means that changing the frequency too often will result in the port reading 'high' all the time.
+</p><p>Example:
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>(Row Label)
+</th>
+<th>(Column 1)
+</th>
+<th>(Description)
+</th></tr>
+<tr>
+<th>1
+</th>
+<td>1
+</td>
+<td>// Output 1 is always high
+</td></tr>
+<tr>
+<th>2
+</th>
+<td>0
+</td>
+<td>// Output 2 is always low
+</td></tr>
+<tr>
+<th>5
+</th>
+<td>0.5
+</td>
+<td>// Outputs don't need to be specified in order, 0.5 evaluates to True
+</td></tr>
+<tr>
+<th>3
+</th>
+<td>Signal(1,1) &gt; 50
+</td>
+<td>// Output 3 is high when the input signal exceeds 50.
+</td></tr>
+<tr>
+<th>4F
+</th>
+<td>StimulusType
+</td>
+<td>// Output 4 will evaluate the state "StimulusType" to determine output frequency.
+</td></tr>
+<tr>
+<th>5
+</th>
+<td>!StimBoxInput1
+</td>
+<td>// Line 3 is ignored, Output 5 = Input 1
+</td></tr></tbody></table>
+<p>Special Notes:
+</p>
+<ul><li>Valid frequencies for frequency mode are between 1 and 50 Hz.</li></ul>
+<h2><span class="mw-headline" id="State_Variables">State Variables</span></h2>
+<p>The StimBoxFilter outputs the following state variables:
+</p>
+<h3><span id="StimBoxInput[1-14]"></span><span class="mw-headline" id="StimBoxInput.5B1-14.5D">StimBoxInput[1-14]</span></h3>
+<p>There are 14 digital inputs on the StimBox.  Some of the inputs can only be accessed via the D-SUB connectors on the front of the box.  These inputs are asynchronously sampled at 256 Hz and set as BCI2000 states once per block.  Note that this means there is data loss if your signal changes more than once per BCI2000 block.  Clocking BCI2000 at &gt;256 blocks per second is also inadvisable, so this is expected.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Reference%253ALogging_Input.html" title="User Reference:Logging Input">User Reference:Logging Input</a>, <a href="Contributions%253AExtensions.html" title="Contributions:Extensions">Contributions:Extensions</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524070917
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.018 seconds
+Real time usage: 0.021 seconds
+Preprocessor visited node count: 44/1000000
+Post‐expand include size: 15/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2064-0!canonical and timestamp 20230524070917 and revision id 7321
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:StimBoxFilter&amp;oldid=7321">http://www.bci2000.org/mediawiki/index.php?title=Contributions:StimBoxFilter&amp;oldid=7321</a>"</div>
+ </div>
+</body>
+</html>

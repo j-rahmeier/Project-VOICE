@@ -1,0 +1,16 @@
+Source:Buffering int SourceBufferSize= 2s 2s % % // size of data acquisition ring buffer (in blocks or seconds)
+Source:BufferedADC int SourceCh= 128 auto % % 
+Source:PacketType2 int SampleBlockSize= 40 40 1 % 
+Source:BufferedADC int SamplingRate= auto auto % % 
+Source:Signal%20Properties list ChannelNames= 1 auto // list of channel names
+Source:BufferedADC list SourceChOffset= 1 auto 
+Source:BufferedADC list SourceChGain= 1 auto 
+Source:BufferedADC string ServerIP= 10.10.10.51 localhost % % // IP address of amplifier
+Source:BufferedADC int CommandPort= auto auto 1 65535 // port number corresponding to the command layer
+Source:BufferedADC int NotificationPort= auto auto 1 65535 // port number corresponding to the notification layer
+Source:BufferedADC int StreamPort= auto auto 1 65535 // port number corresponding to the stream layer
+Source:BufferedADC string AmplifierID= auto auto 0 % // the ID of the Amplifier from which data should be collected
+Source:BufferedADC int AmpState= 0 0 0 1 // set amp state to: 0 DefaultAcquisitionState, 1 DefaultSignalGeneration (enumeration)
+Source:GTEN int RunTranscranialStim= 0 0 0 1 // Perform Transcranial Stimulation (boolean)
+Source:GTEN string ModulationPlanFile= % // Modulation Plan file made in RVE (inputfile)
+Source:GTEN matrix StimulationExpressions= { ID%200 ID%201 } { StimulationExpression } State(StimulusCode)==1 State(StimulusCode)==2 // Expression to stimulate a Block Id

@@ -1,0 +1,55 @@
+#/bin/sh
+
+brew --version > /dev/null
+if [ "$?" -ne 0 ]
+then
+	mkdir src/extlib/homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C src/extlib/homebrew
+	BREW=src/extlib/homebrew/bin/brew
+else
+	BREW=brew
+fi
+
+pkg-config --help 2>&1 > /dev/null
+if [ "$?" -ne 0 ]
+then
+	echo "Installing pkg-config"
+	${BREW} install pkg-config
+	PKGCONFIG=src/extlib/homebrew/bin/pkg-config
+else
+	echo "pkg-config already installed"
+	PKGCONFIG=pkg-config
+fi
+
+echo "Installing FFMPEG ( 1 / 5 )..."
+if ! ${BREW} list ffmpeg@7 > /dev/null
+then
+	${BREW} install ffmpeg@7
+	${BREW} link ffmpeg@7
+fi
+
+echo "Installing PortAudio ( 2 / 5 )..."
+$PKGCONFIG portaudio-2.0
+if [[ "$?" -ne 0 && ! -d ${BREW}/../../Cellar/portaudio ]]
+then
+	${BREW} install portaudio
+fi
+
+echo "Installing libsndfile ( 3 / 5 )..."
+$PKGCONFIG sndfile
+if [[ "$?" -ne 0 && ! -d ${BREW}/../../Cellar/sndfile ]]
+then
+	${BREW} install libsndfile
+fi
+
+echo "Installing SDL2 ( 4 / 5 )..."
+$PKGCONFIG SDL2
+if [[ "$?" -ne 0 && ! -d ${BREW}/../../Cellar/sdl2 ]]
+then
+	${BREW} install sdl2
+fi
+
+echo "Installing dylibbundler ( 5 / 5 )..."
+if ! ${BREW} list dylibbundler > /dev/null
+then
+	${BREW} install dylibbundler
+fi

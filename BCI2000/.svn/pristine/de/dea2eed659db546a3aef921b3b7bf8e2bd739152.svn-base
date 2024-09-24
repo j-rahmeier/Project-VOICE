@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>PsychoPy - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='https://www.bci2000.org/mediawiki/index.php/Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="https://www.bci2000.org/mediawiki/index.php/User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="https://www.bci2000.org/mediawiki/index.php/User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="https://www.bci2000.org/mediawiki/index.php/Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="https://www.bci2000.org/mediawiki/index.php/Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="https://www.bci2000.org/mediawiki/index.php/Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="https://www.bci2000.org/mediawiki/index.php/BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">PsychoPy</h1>
+ <p class = "subtitle"></p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>PsychoPy is an open-source application used to perform a large number of neuroscience, psychology, and psychophysics experiments. [1] This wiki page first describes the two components that remotely start BCI2000 from PsychoPy. The next section describes the steps to add the new components in the PsychoPy application. The final section goes over two tutorial examples.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="https://www.bci2000.org/mediawiki/index.php/PsychoPy.html#Video_Overview"><span class="tocnumber">1</span> <span class="toctext">Video Overview</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="https://www.bci2000.org/mediawiki/index.php/PsychoPy.html#Prerequisites"><span class="tocnumber">2</span> <span class="toctext">Prerequisites</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="https://www.bci2000.org/mediawiki/index.php/PsychoPy.html#Components"><span class="tocnumber">3</span> <span class="toctext">Components</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="https://www.bci2000.org/mediawiki/index.php/PsychoPy.html#BCI2000Start"><span class="tocnumber">3.1</span> <span class="toctext">BCI2000Start</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="https://www.bci2000.org/mediawiki/index.php/PsychoPy.html#BCI2000UpdateState"><span class="tocnumber">3.2</span> <span class="toctext">BCI2000UpdateState</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="https://www.bci2000.org/mediawiki/index.php/PsychoPy.html#Integrating_BCI2000_into_PyschoPy"><span class="tocnumber">4</span> <span class="toctext">Integrating BCI2000 into PyschoPy</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="https://www.bci2000.org/mediawiki/index.php/PsychoPy.html#Standalone_version"><span class="tocnumber">4.1</span> <span class="toctext">Standalone version</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="https://www.bci2000.org/mediawiki/index.php/PsychoPy.html#Developer_version"><span class="tocnumber">4.2</span> <span class="toctext">Developer version</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-9"><a href="https://www.bci2000.org/mediawiki/index.php/PsychoPy.html#Tutorial"><span class="tocnumber">5</span> <span class="toctext">Tutorial</span></a>
+<ul>
+<li class="toclevel-2 tocsection-10"><a href="https://www.bci2000.org/mediawiki/index.php/PsychoPy.html#Using_Response_Component_Variable_Option"><span class="tocnumber">5.1</span> <span class="toctext">Using Response Component Variable Option</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="https://www.bci2000.org/mediawiki/index.php/PsychoPy.html#Using_Use_Expression_Option"><span class="tocnumber">5.2</span> <span class="toctext">Using Use Expression Option</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="https://www.bci2000.org/mediawiki/index.php/PsychoPy.html#References"><span class="tocnumber">6</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-13"><a href="https://www.bci2000.org/mediawiki/index.php/PsychoPy.html#See_Also"><span class="tocnumber">7</span> <span class="toctext">See Also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Video_Overview">Video Overview</span></h2>
+<div class="thumb embedvideo  ev_center autoResize" style="width: 648px;"><div class="embedvideo autoResize" style=" width: 646px;"><div class="embedvideowrap" style="width: 640px;"><iframe title="Play video" src="https://www.youtube.com/embed/yPacLewE3Xo?" width="640" height="360" frameborder="0" allowfullscreen="true"></iframe></div></div></div>
+<h2><span class="mw-headline" id="Prerequisites">Prerequisites</span></h2>
+<p>For this project, you will need two things: <a rel="nofollow" class="external text" href="https://www.bci2000.org/mediawiki/index.php/Programming_Howto%253ABuilding_and_Customizing_BCI2000.html">BCI2000</a> compiled for your system and the newest version of <a rel="nofollow" class="external text" href="https://www.psychopy.org/download.html">PsychoPy</a>.
+</p>
+<h2><span class="mw-headline" id="Components">Components</span></h2>
+<h3><span class="mw-headline" id="BCI2000Start">BCI2000Start</span></h3>
+<p>This component starts up the BCI2000 modules remotely. The component takes two parameters:
+</p>
+<dl><dt>Path</dt>
+<dd>Path to the BCI2000 <i>prog</i> directory, which contains the <i>BCI2000Remote.py</i> file.</dd>
+<dt>States</dt>
+<dd>List of new states to add to BCI2000. The states in the list are defined as follows: 'StateName defaultValue maxValue.' Eg: lastKey 0 255, correctKey 0 1.</dd></dl>
+<p><b>NOTE:</b> You can specify the modules with which you want to run the experiment with the <i>BCI.StartupModules</i> command in the Init.py file previously copied into your PsychoPy environment. You can also specify which parameters to use for the experiment and specify other command-line arguments with the <i>BCI.LoadParameterRemote</i> command.
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:BCI2000Start.png" class="image" title="BCIStart Component"><img alt="&quot;BCI2000 start component image showing its parameters&quot;" src="../images/6/6a/BCI2000Start.png" decoding="async" width="471" height="299" /></a>
+</p>
+<h3><span class="mw-headline" id="BCI2000UpdateState">BCI2000UpdateState</span></h3>
+<p>This component defines which state to update and when. It takes the following parameters:
+</p>
+<dl><dt>State Name</dt>
+<dd>The name of the state in BCI2000 to update.</dd>
+<dt>Response Component Variable</dt>
+<dd>The variable to which the state is to be set OR the variable which contains the new value of the state. <b>Note-</b> the variable is written as <i>$VariableName</i>.</dd>
+<dt>Use Expression</dt>
+<dd>If it is checked, the code written in 'Expression' is executed for each Frame and the variable specified in the Response Component Variable is not used to update the state.</dd>
+<dt>Expression</dt>
+<dd>The code to execute for each Frame. It is given for the cases where the Response Component Variable is not available and the user wants more control over how the state is updated. <b>Note-</b> the user would have to use commands such as <i>bci.Execute</i> and <i>SET STATE</i> to update the state in such cases. See <a href="https://www.bci2000.org/mediawiki/index.php/Programming_Reference%253ABCI2000Remote_Class.html" title="Programming Reference:BCI2000Remote Class">Programming Reference:BCI2000Remote Class</a> and <a href="https://www.bci2000.org/mediawiki/index.php/User_Reference%253AOperator_Module_Scripting.html" title="User Reference:Operator Module Scripting">User Reference:Operator Module Scripting</a> for more details.</dd></dl>
+<p><a href="https://www.bci2000.org/mediawiki/index.php/File:BCI2000UpdateState.png" class="image" title="BCIUpdateStart Component"><img alt="&quot;BCI2000 update state component image showing its parameters&quot;" src="../images/0/02/BCI2000UpdateState.png" decoding="async" width="539" height="572" /></a>
+</p>
+<h2><span class="mw-headline" id="Integrating_BCI2000_into_PyschoPy">Integrating BCI2000 into PyschoPy</span></h2>
+<p>Clone PsychoPy from the <a rel="nofollow" class="external text" href="https://github.com/psychopy/psychopy">PyschoPy</a> repository. You can also download the PsychoPy standalone version from the PsychoPy <a rel="nofollow" class="external text" href="https://www.psychopy.org/download.html">downloads page</a>.<br />
+Below is a picture of PsychoPy before integrating BCI2000. Notice that in the rightmost column, under <b>Custom</b> Components, there is no BCI2000 component.
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:PsychoPyWithoutBCI.png" class="image" title="PsychoPy Homepage without BCI2000 Components"><img alt="&quot;PsychoPy Homepage without BCI2000 Components&quot;" src="../images/e/e6/PsychoPyWithoutBCI.png" decoding="async" width="1425" height="805" /></a>
+</p><p><br />
+</p>
+<h3><span class="mw-headline" id="Standalone_version">Standalone version</span></h3>
+<p>For Windows, Copy the folders <b>BCIStart</b> and <b>BCIUpdateState</b> from the <i>src/contrib/PsychoPy Components</i> directory of your BCI2000 repository into the folder {$PsychoPyHome}\Lib\site-packages\psychopy\experiment\components folder.
+</p><p><br />
+</p>
+<h3><span class="mw-headline" id="Developer_version">Developer version</span></h3>
+<p>Copy the folders <b>BCIStart</b> and <b>BCIUpdateState</b> from the <i>src/contrib/PsychoPy Components</i> directory of your BCI2000 repository into the folder {$PsychoPyHome}\psychopy\experiment\components.
+Open the terminal and navigate to the PsychoPy home directory where <i>setup.py</i> resides.
+Run the following command in the terminal: <br />
+<code>pip install -e .</code> <br /><br />
+<br /><br />
+Start PsychoPy application by running "python \psychopy\app\psychopyApp.py" from wherever you cloned your PsychoPy repository. If you downloaded the standalone version installer, you can simply press the Windows key and search for PsychoPy. Once you're under the <b>Custom</b> Components (in the rightmost column), you should see the two new components - <i>BCI2000Start</i> and <i>BCI2000UpdateState</i> as shown in the figure below.
+</p><p><a href="https://www.bci2000.org/mediawiki/index.php/File:PsychoPy_Start.png" class="image" title="PsychoPy Homepage with BCI2000 Components"><img alt="&quot;PsychoPy Homepage with BCI2000 Components&quot;" src="../images/9/97/PsychoPy_Start.png" decoding="async" width="1427" height="571" /></a>
+</p><p><b>Note:</b> Make sure you don't run the experiments in full screen if you are using a single screen.
+</p>
+<h2><span class="mw-headline" id="Tutorial">Tutorial</span></h2>
+<p>In this section, two examples are presented to help the user understand the use of BCI2000 within PsychoPy. The examples modify the demo stroopExtended (already provided by PsychoPy once you have unpacked the demos) and integrates BCI2000 within it. The stroopExtended demo asks user to press certain keys depending on the color shown on the screen and records the response time.
+</p>
+<h3><span class="mw-headline" id="Using_Response_Component_Variable_Option">Using Response Component Variable Option</span></h3>
+<p>In this tutorial, we will add a new state called <b>correctKey</b> in BCI2000 using PsychoPy. This state will be changed to 1 if the key pressed by user is correct, otherwise 0.
+</p>
+<ol>
+<li>
+Open the stroopExtended demo in PsychoPy. It should look like this. <br />
+<a href="https://www.bci2000.org/mediawiki/index.php/File:PsychoPyDemoStart.png" class="image" title="PsychoPy Stroop Extended Demo"><img alt="&quot;PsychoPy Stroop Extended Demo&quot;" src="../images/4/41/PsychoPyDemoStart.png" decoding="async" width="1425" height="805" /></a> 
+</li>
+
+<br />
+<li>
+Start BCI2000 - Navigate to the <b>instruct</b> tab and click on <b>BCI2000Start</b>. Enter the path to the <b>prog</b> directory of BCI2000 (within which BCI2000Remote.py exists) in the <i>Path</i> field and <code>correctKey 0 1</code> <br /> in the <i>States</i> field as shown in the image. <b>correctKey</b> is the name we want the new state to have in BCI2000, <b>0</b> is the default value the state should have and <b>1</b> is the maximum value the state can take in any case. <br />
+
+<a href="https://www.bci2000.org/mediawiki/index.php/File:PsychoPyBciStart1.png" class="image" title="PsychoPy - Add State into BCI2000"><img alt="&quot;PsychoPy - Add State into BCI2000&quot;" src="../images/1/16/PsychoPyBciStart1.png" decoding="async" width="1427" height="809" /></a> 
+</li>
+<br />
+<li>
+Update BCI2000 State - Navigate to the <b>trial</b> tab and click on <b>BCI2000UpdateState</b>. Fill in the fields <i>State Name</i> with <b>$correctKey</b> (the BCI2000 state we want to update; '$' is used to indicate to PsychoPy to treat it as a variable) and <i>Response Component Variable</i> with <b>$resp.corr</b> ('resp' is the name of the keyboard that takes the input and 'corr' is its property that stores whether the key pressed is correct or not. you can see this variable being used in the program when you compile it to script) as shown in the image. This will essentially update the state 'correctKey' with the value of 'resp.corr'.  <br />
+<a href="https://www.bci2000.org/mediawiki/index.php/File:PsychoPyBciUpdateState1.png" class="image" title="PsychoPy - Update State in BCI2000"><img alt="&quot;PsychoPy - Update State in BCI2000&quot;" src="../images/d/d4/PsychoPyBciUpdateState1.png" decoding="async" width="1427" height="805" /></a>
+</li> 
+<br />
+<li>
+Run the experiment. BCI2000 will start. Add the newly created state to watch (in the BCI2000 operator, click on View -&gt; States and Events.., right click on correctKey and add to watch, then click Ok on States and Events screen) and proceed as with your PsychoPy experiment. The output of this experiment would be similar to the image shown below. <b>Note:</b> Make sure you don't run the experiments in full screen mode if you are using a single screen. <br />
+<a href="https://www.bci2000.org/mediawiki/index.php/File:PsychoPyBciDemoRun1.png" class="image" title="PsychoPy Stroop Extended Demo Run 1"><img alt="&quot;PsychoPy Stroop Extended Demo Run 1&quot;" src="../images/8/89/PsychoPyBciDemoRun1.png" decoding="async" width="1727" height="857" /></a> 
+</li>
+<br />
+</ol>
+<h3><span class="mw-headline" id="Using_Use_Expression_Option">Using Use Expression Option</span></h3>
+<p>In this tutorial, we will add a new state called <b>responseTime</b> in BCI2000 using PsychoPy. This state will represent the time the user takes to press the correct key in seconds (with no decimals).
+</p>
+<ol>
+<li>
+Open the stroopExtended demo in PsychoPy. It should look like the image below. <br />
+<a href="https://www.bci2000.org/mediawiki/index.php/File:PsychoPyDemoStart.png" class="image" title="PsychoPy Stroop Extended Demo"><img alt="&quot;PsychoPy Stroop Extended Demo&quot;" src="../images/4/41/PsychoPyDemoStart.png" decoding="async" width="1425" height="805" /></a>
+</li>
+<br />
+<li>
+Start BCI2000 - Navigate to the <b>instruct</b> tab and click on <b>BCI2000Start</b>. Enter the path to the <b>prog</b> directory of BCI2000 (within which BCI2000Remote.py exists) in the <i>Path</i> field and <code>responseTime 0 600</code><br /> in the <i>States</i> field as shown in the image. <b>responseTime</b> is the name we want the new state to have in BCI2000, <b>0</b> is the default value the state should have and <b>600</b> is the maximum value the state can take in any case, i.e, the maximum response time could be 10 minutes.<br />
+
+<a href="https://www.bci2000.org/mediawiki/index.php/File:PsychoPyBciStart2.png" class="image" title="PsychoPy - Add State into BCI2000"><img alt="&quot;PsychoPy- Add State into BCI2000&quot;" src="../images/5/5b/PsychoPyBciStart2.png" decoding="async" width="1431" height="803" /></a>
+</li>
+<br />
+<li>
+Update BCI2000 State - Navigate to the <b>trial</b> tab and click on <b>BCI2000UpdateState</b>. Check on the <b>Use Expression</b> option to run the expression that is written in the <b>Expression</b> field. Write the lines of python code in the <b>Expression</b> field as shown in the image. These lines first set the 'RUNNING' state of BCI2000 to 1 to make sure that BCI2000 is running. It then checks if the type of the 'resp.rt' is float. If yes, that means 'resp.rt' stores the response time and sets the state 'responseTime' to the rounded value of 'resp.rt' ('resp' is the name of the keyboard which takes the input and 'rt' is its property that stores the time it took user to press the key; you can see this variable being used in the program when you compile it to script) using the bci.Execute and SET STATE commands.  <br />
+<code>bci.Execute('SET STATE RUNNING 1') <br />
+if(type(resp.rt) == float): <br />
+&#160; &#160; bci.Execute('SET STATE responseTime %d'&#160;% round(resp.rt))
+</code><br />
+<a href="https://www.bci2000.org/mediawiki/index.php/File:PsychoPyBciUpdateState2.png" class="image" title="PsychoPy - Update State in BCI2000"><img alt="&quot;PsychoPy - Update State in BCI2000&quot;" src="../images/7/70/PsychoPyBciUpdateState2.png" decoding="async" width="1607" height="955" /></a>
+</li> 
+<br />
+<li>
+Run the experiment. BCI2000 will start. Add the newly created state to watch (in the BCI2000 operator, click on View -&gt; States and Events.., right click on responseTime and add to watch. Click Ok on the States and Events screen) and proceed with your PsychoPy experiment. The output of this experiment would be similar to the image shown below. <b>Note:</b> Make sure you don't run the experiments in full screen mode if you are using a single screen. <br />
+<a href="https://www.bci2000.org/mediawiki/index.php/File:PsychoPyBciDemoRun2.png" class="image" title="PsychoPy Stroop Extended Demo Run 2"><img alt="&quot;PsychoPy Stroop Extended Demo Run 2&quot;" src="../images/0/0d/PsychoPyBciDemoRun2.png" decoding="async" width="1625" height="881" /></a>
+</li>
+<br />
+</ol>
+<h2><span class="mw-headline" id="References">References</span></h2>
+<p>1. <a rel="nofollow" class="external text" href="https://www.psychopy.org/">PsychoPy site</a>
+</p>
+<h2><span class="mw-headline" id="See_Also">See Also</span></h2>
+<ul><li><a href="https://www.bci2000.org/mediawiki/index.php/Programming_Reference%253ABCI2000Remote_Class.html" title="Programming Reference:BCI2000Remote Class">Programming Reference:BCI2000Remote Class</a></li>
+<li><a href="https://www.bci2000.org/mediawiki/index.php/User_Reference%253AOperator_Module_Scripting.html" title="User Reference:Operator Module Scripting">User Reference:Operator Module Scripting</a></li></ul>
+<!-- 
+NewPP limit report
+Cached time: 20230524154458
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.045 seconds
+Real time usage: 0.052 seconds
+Preprocessor visited node count: 58/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 343/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2270-0!canonical and timestamp 20230524154458 and revision id 9173
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=PsychoPy&amp;oldid=9173">http://www.bci2000.org/mediawiki/index.php?title=PsychoPy&amp;oldid=9173</a>"</div>
+ </div>
+</body>
+</html>

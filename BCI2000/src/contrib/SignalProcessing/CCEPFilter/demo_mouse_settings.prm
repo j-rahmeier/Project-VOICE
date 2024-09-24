@@ -1,0 +1,8 @@
+Filtering:CCEP%20General%20Settings float ChannelThreshold= 100uV // Magnitude threshold which defines a CCEP
+Filtering:CCEP%20General%20Settings string OnsetExpression= MouseKeys>0 // Expression that defines stimulus onset
+Filtering:CCEP%20Duration%20Settings int BaselineEpochLength= 10ms 0ms 0 % // Length of data epoch before stimulus onset
+Filtering:CCEP%20Duration%20Settings int TriggerLatencyLength= 10ms % 0 % // Latency of stimulation onset from stimulus onset
+Filtering:CCEP%20Duration%20Settings int CCEPEpochLength= 80ms 500ms 0 % // Length of data epoch after stimulus onset and latency
+Filtering:CCEP%20Counting%20Settings int EpochsToAverage= 1 1 0 % // Number of epochs to average
+Filtering:CCEP%20Counting%20Settings int OnsetPeriod= 1 1 1 % // Only count every number of onset expressions
+SignalSharing:Processing%20Stages string ShareCCEPFilter= localhost:1879 localhost:1879 % % // Populate to use CCEPFilter

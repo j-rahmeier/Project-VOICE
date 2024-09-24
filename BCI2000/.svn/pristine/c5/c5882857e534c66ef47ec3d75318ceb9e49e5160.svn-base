@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:ResponseTimeBox - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">ResponseTimeBox</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div class="thumb tright"><div class="thumbinner" style="width:465px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:RTBox.png" class="image"><img alt="" src="../images/d/df/RTBox.png" decoding="async" width="463" height="279" class="thumbimage" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://www.bci2000.org/mediawiki/index.php/File:RTBox.png" class="internal" title="Enlarge"></a></div>Response Time Box</div></div></div>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Contributions%253AResponseTimeBox.html#Synopsis"><span class="tocnumber">1</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Contributions%253AResponseTimeBox.html#Location"><span class="tocnumber">2</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Contributions%253AResponseTimeBox.html#Versioning"><span class="tocnumber">3</span> <span class="toctext">Versioning</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Contributions%253AResponseTimeBox.html#Authors"><span class="tocnumber">3.1</span> <span class="toctext">Authors</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Contributions%253AResponseTimeBox.html#Version_History"><span class="tocnumber">3.2</span> <span class="toctext">Version History</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Contributions%253AResponseTimeBox.html#Source_Code_Revisions"><span class="tocnumber">3.3</span> <span class="toctext">Source Code Revisions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="Contributions%253AResponseTimeBox.html#Functional_Description"><span class="tocnumber">4</span> <span class="toctext">Functional Description</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="Contributions%253AResponseTimeBox.html#Video_Overview"><span class="tocnumber">5</span> <span class="toctext">Video Overview</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="Contributions%253AResponseTimeBox.html#Integration_into_BCI2000"><span class="tocnumber">6</span> <span class="toctext">Integration into BCI2000</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="Contributions%253AResponseTimeBox.html#Configuring_ResponseTimeBoxLogger"><span class="tocnumber">7</span> <span class="toctext">Configuring ResponseTimeBoxLogger</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="Contributions%253AResponseTimeBox.html#Parameters"><span class="tocnumber">8</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="Contributions%253AResponseTimeBox.html#State_Variables"><span class="tocnumber">9</span> <span class="toctext">State Variables</span></a>
+<ul>
+<li class="toclevel-2 tocsection-13"><a href="Contributions%253AResponseTimeBox.html#RTButton1"><span class="tocnumber">9.1</span> <span class="toctext">RTButton1</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="Contributions%253AResponseTimeBox.html#RTButton2"><span class="tocnumber">9.2</span> <span class="toctext">RTButton2</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="Contributions%253AResponseTimeBox.html#RTButton3"><span class="tocnumber">9.3</span> <span class="toctext">RTButton3</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="Contributions%253AResponseTimeBox.html#RTButton4"><span class="tocnumber">9.4</span> <span class="toctext">RTButton4</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="Contributions%253AResponseTimeBox.html#RTLightEvent"><span class="tocnumber">9.5</span> <span class="toctext">RTLightEvent</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="Contributions%253AResponseTimeBox.html#RTSoundEvent"><span class="tocnumber">9.6</span> <span class="toctext">RTSoundEvent</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="Contributions%253AResponseTimeBox.html#RTAuxEvent"><span class="tocnumber">9.7</span> <span class="toctext">RTAuxEvent</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="Contributions%253AResponseTimeBox.html#Device_Time"><span class="tocnumber">9.8</span> <span class="toctext">Device Time</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="Contributions%253AResponseTimeBox.html#Event_Time"><span class="tocnumber">9.9</span> <span class="toctext">Event Time</span></a>
+<ul>
+<li class="toclevel-3 tocsection-22"><a href="Contributions%253AResponseTimeBox.html#RTEventTime1"><span class="tocnumber">9.9.1</span> <span class="toctext">RTEventTime1</span></a></li>
+<li class="toclevel-3 tocsection-23"><a href="Contributions%253AResponseTimeBox.html#RTEventTime2"><span class="tocnumber">9.9.2</span> <span class="toctext">RTEventTime2</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-24"><a href="Contributions%253AResponseTimeBox.html#Continuous_Time"><span class="tocnumber">9.10</span> <span class="toctext">Continuous Time</span></a>
+<ul>
+<li class="toclevel-3 tocsection-25"><a href="Contributions%253AResponseTimeBox.html#RTConTime1"><span class="tocnumber">9.10.1</span> <span class="toctext">RTConTime1</span></a></li>
+<li class="toclevel-3 tocsection-26"><a href="Contributions%253AResponseTimeBox.html#RTConTime2"><span class="tocnumber">9.10.2</span> <span class="toctext">RTConTime2</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-27"><a href="Contributions%253AResponseTimeBox.html#TTL"><span class="tocnumber">10</span> <span class="toctext">TTL</span></a>
+<ul>
+<li class="toclevel-2 tocsection-28"><a href="Contributions%253AResponseTimeBox.html#RTBox_TTL_In"><span class="tocnumber">10.1</span> <span class="toctext">RTBox TTL In</span></a></li>
+<li class="toclevel-2 tocsection-29"><a href="Contributions%253AResponseTimeBox.html#RTBox_TTL_Out"><span class="tocnumber">10.2</span> <span class="toctext">RTBox TTL Out</span></a></li>
+<li class="toclevel-2 tocsection-30"><a href="Contributions%253AResponseTimeBox.html#Parallel_Port_Pin_Out"><span class="tocnumber">10.3</span> <span class="toctext">Parallel Port Pin Out</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-31"><a href="Contributions%253AResponseTimeBox.html#Latency"><span class="tocnumber">11</span> <span class="toctext">Latency</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>A logger that stores event information (button, sound, light, TTL) from the <i>Response Time Box</i> into BCI2000 states.
+The ResponseTime Box has 4 buttons, an audio port, a light port, a TTL in, TTL out, and a USB port. Power and serial communication is supplied through the USB port. This logger deals exclusively with version v5/6. More information on this version, along with the schematics and TTL pinouts, can be found in the <a rel="nofollow" class="external text" href="https://lobes.osu.edu/documents/RTBox_v56_user_manual.pdf/">Response Time Box Manual</a>
+</p>
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><a rel="nofollow" class="external free" href="http://www.bci2000.org/svn/trunk/src/contrib/Extensions/ResponseBox">http://www.bci2000.org/svn/trunk/src/contrib/Extensions/ResponseBox</a>
+</p>
+<h2><span class="mw-headline" id="Versioning">Versioning</span></h2>
+<h3><span class="mw-headline" id="Authors">Authors</span></h3>
+<p>Ryan Gladwell (gladwell@neurotechcenter.org)
+</p><p>Will Engelhardt (engelhardt@neurotechcenter.org)
+</p>
+<h3><span class="mw-headline" id="Version_History">Version History</span></h3>
+<ul><li>2022/07/25: Initial public release</li></ul>
+<h3><span class="mw-headline" id="Source_Code_Revisions">Source Code Revisions</span></h3>
+<ul><li>Initial development: 6860</li>
+<li>Known to compile under: 6860</li>
+<li>Broken since: --</li></ul>
+<h2><span class="mw-headline" id="Functional_Description">Functional Description</span></h2>
+<p>Oftentimes, the reaction time of a subject is measured by calculating the interval between a stimulus and the subject's reaction. However, difficulty can arise when devices with high latency are used to collect the exact time of the subject's reaction, or when the device clock is mismatched with the computer clock. The RTBox is designed to consolidate the entire experiment by directly measuring the stimulus onset (audio or light), the button press(es), and the time interval simultaneously with essentially no latency, thereby circumnavigating the aforementioned difficulties. 
+</p>
+<h2><span class="mw-headline" id="Video_Overview">Video Overview</span></h2>
+<p><br />
+</p>
+<div class="thumb embedvideo  ev_center autoResize" style="width: 708px;"><div class="embedvideo autoResize" style=" width: 706px;"><div class="embedvideowrap" style="width: 700px;"><iframe title="Play video" src="https://www.youtube.com/embed/Wy47CgEULII?" width="700" height="394" frameborder="0" allowfullscreen="true"></iframe></div></div></div>
+<p><br />
+Event names have been updated to include "RT" at the front to aid in identification and avoid confusion
+</p>
+<h2><span class="mw-headline" id="Integration_into_BCI2000">Integration into BCI2000</span></h2>
+<p>Compile the extension into your source module by enabling contributed extensions in your CMake configuration.  You can do this by going into your root build folder and opening <code>Configure.sh.cmd</code>. In the CMake GUI, enable <b>EXTENSIONS_RESPONSETIMEBOX</b> and then click generate. Then recompile BCI2000. Once the extension is built into the source module, enable it by appending <code>--LogResponseTimeBox=1</code> along the source module line within the batch file. 
+</p>
+<h2><span class="mw-headline" id="Configuring_ResponseTimeBoxLogger">Configuring ResponseTimeBoxLogger</span></h2>
+<p>The ResponseTimeBoxLogger is configured by the LogResponseTimeBox, RTButtonPress, RTLight, RTSound, RTSensitivity, and RTCOMPort parameters. If the LogResponseTimeBox parameter box is left unchecked, the RTBox will not be read.
+</p><p>The logger is written to automatically find and connect to the RTBox comport. However, if the detection process is lengthy for some reason, or if the auto-detection fails, it will be necessary for the user to enter the hardware address of the RTBox into the RTCOMPort parameter manually. Make sure the RTBox is not being used by another program before attempting to connect. 
+</p><p>To find the hardware address for the RTBox, press <b>WIN</b> + <b>R</b> and enter <i>devmgmt.msc</i>. In Device Manager, expand the section labeled <b>Ports (Com &amp; LPT)</b>. If this section does not exist, the serial cable might not be properly connected. Find the one labeled with "USB Serial Port." The label (COM4 in this example) is the device name, and this is what the user should enter into the RTCOMPort parameter. 
+</p>
+<div class="center"><div class="thumb tnone"><div class="thumbinner" style="width:702px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:RTBoxCom.png" class="image"><img alt="" src="../images/thumb/b/b5/RTBoxCom.png/700px-RTBoxCom.png" decoding="async" width="700" height="510" class="thumbimage" srcset="../images/b/b5/RTBoxCom.png 1.5x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://www.bci2000.org/mediawiki/index.php/File:RTBoxCom.png" class="internal" title="Enlarge"></a></div>Figure 1. Device manager window showing RTBox USB comport</div></div></div></div>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<p>The ResponseTimeBox is configured in the Source tab.  The configurable parameters are:
+</p>
+<ul><li><code>LogResponseTimeBox</code> - This parameter is a boolean that enables or disables all response time box functions.</li>
+<li><code>RTButtonPress</code> - This parameter is a boolean that enables or disables all button press or release events.</li>
+<li><code>RTLight</code> - This parameter is a boolean that enables or disables any light detection by a photodiode in the light port.</li>
+<li><code>RTSound</code> - This parameter is a boolean that enables or disables any sound detection by the sound port</li>
+<li><code>RTSensitivity</code> - This parameter is an enumeration that sets the sensitivity of the light and sound ports. The higher the sensitivity, the less light and sound needed to trigger an event. Background light in bright rooms can cause the photodiode to stay triggered when the sensitivity is too high, so it is better to lower the sensitivity in such a setting. However, when sensitivity is lower, sound triggers need to be higher, so if one intends to use both light and sound, they ought to balance the sensitivity. This is why "More" sensitive is the default setting, because it allows for both sound detection and light detection in a bright room.</li>
+<li><code>RTCOMPort</code> - This parameter sets the comport connection that the RTBox is connected to. Entering "auto" will cause BCI2000 to attempt to automatically find and connect to the RTBox comport. See above if automatic connection fails.</li></ul>
+<h2><span class="mw-headline" id="State_Variables">State Variables</span></h2>
+<h3><span class="mw-headline" id="RTButton1">RTButton1</span></h3>
+<p>This state has a value of 1 when button 1 is pressed, or when TTL pin 1 is stimulated, and 0 when released. 
+</p>
+<h3><span class="mw-headline" id="RTButton2">RTButton2</span></h3>
+<p>This state has a value of 1 when button 2 is pressed, or when TTL pin 2 is stimulated, and 0 when released. 
+</p>
+<h3><span class="mw-headline" id="RTButton3">RTButton3</span></h3>
+<p>This state has a value of 1 when button 3 is pressed, or when TTL pin 3 is stimulated, and 0 when released. 
+</p>
+<h3><span class="mw-headline" id="RTButton4">RTButton4</span></h3>
+<p>This state has a value of 1 when button 4 is pressed, or when TTL pin 4 is stimulated, and 0 when released. 
+</p>
+<h3><span class="mw-headline" id="RTLightEvent">RTLightEvent</span></h3>
+<p>This state will spike to value 1 when the photodiode detects light, or when TTL pin 6 is stimulated, then return to 0.
+</p>
+<h3><span class="mw-headline" id="RTSoundEvent">RTSoundEvent</span></h3>
+<p>This state will spike to value 1 when the sound port detects sound, or when TTL pin 5 (low active) or 9 (high active) are stimulated, then return to 0.
+</p>
+<h3><span class="mw-headline" id="RTAuxEvent">RTAuxEvent</span></h3>
+<p>This state will spike to value 1 when TTL pin 8 is stimulated, then return to 0. 
+</p>
+<h3><span class="mw-headline" id="Device_Time">Device Time</span></h3>
+<p>The device time is absolute (meaning the value reflects the total time the RTBox has been powered on) and is delivered in 6-bytes continuously or with every event. To find the millisecond value of the device time, it is necessary to compare it to the SourceTime state. Do this by first finding the value of the event time for the event of interest. It is 6-byte, so it occupies 48 bits and is split up into two states, RTEventTime1 and RTEventTime2. Find the value in RTContTime1 and RTContTime2 that most closely matches the event time. Take the index of this value and find the SourceTime at this index. The process is outlined below. 
+</p>
+<h3><span class="mw-headline" id="Event_Time">Event Time</span></h3>
+<h4><span class="mw-headline" id="RTEventTime1">RTEventTime1</span></h4>
+<p>This state will spike to the first 3 bytes of the current 6-byte device time whenever an event occurs (buttons, light, sound, or aux). 
+</p>
+<h4><span class="mw-headline" id="RTEventTime2">RTEventTime2</span></h4>
+<p>This state will spike to the last 3 bytes of the current 6-byte device time whenever an event occurs (buttons, light, sound, or aux). 
+</p>
+<h3><span class="mw-headline" id="Continuous_Time">Continuous Time</span></h3>
+<h4><span class="mw-headline" id="RTConTime1">RTConTime1</span></h4>
+<p>This state updates continuously along with the first 3 bytes of the 6-byte device time.
+</p>
+<h4><span class="mw-headline" id="RTConTime2">RTConTime2</span></h4>
+<p>This state updates continuously along with the last 3 bytes of the 6-byte device time.
+</p>
+<h2><span class="mw-headline" id="TTL">TTL</span></h2>
+<p>The TTL can be observed if the ParallelPortFilter extension is included. Information on ParallelPortFiler can be found on <a rel="nofollow" class="external text" href="https://www.bci2000.org/mediawiki/index.php/Contributions:ParallelPortFilter/">the ParallelPortFilter BCI2000 wiki page</a>. Pin outs for the TTL in DA-15 and TTL out DB-25 and specific instructions for writing to/reading from the box can be found below. 
+</p><p><br />
+</p>
+<h3><span class="mw-headline" id="RTBox_TTL_In">RTBox TTL In</span></h3>
+<p>The diagram below shows the pin out for the TTL in port for the RTBox. To use this port with the ParallelPortFilter extension, one will need to buy a custom DA-15 to DB-25 male/male cable, or make their own to make sure the configurable parallel port pins line up with the TTL in pins. It should be noted that the TTL pins by default rest at 1 and go to 0 when stimulated (low active). Therefore, it is recommended to invert the stimulation condition to halt stimulating those pins when one desires their activation. For instance, if one wants the states to be value 1 when StimulusCode==1, they ought to set the pin condition (in the ParallelPort tab) to&#160;!(StimulusCode==1). To write to the RTBox TTL In pins, do not append <code>--LogParallelPort=LPT1</code> in the batch file. 
+</p>
+<div class="center"><div class="thumb tnone"><div class="thumbinner" style="width:653px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:TTLin.png" class="image"><img alt="" src="../images/8/86/TTLin.png" decoding="async" width="651" height="331" class="thumbimage" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://www.bci2000.org/mediawiki/index.php/File:TTLin.png" class="internal" title="Enlarge"></a></div>Figure 5. Pin out for the RTBox TTL In port</div></div></div></div>
+<p><br />
+</p><p><br />
+</p>
+<h3><span class="mw-headline" id="RTBox_TTL_Out">RTBox TTL Out</span></h3>
+<p>The diagram below shows the pin out for the TTL out port for the RTBox. To use this port with the ParallelPortFilter extension, one will need to buy a custom DB-25 to DB-25 male/male cable, or make their own to make sure the readable parallel port pins line up with the TTL out pins. If one is having trouble reliably detecting all events, it is recommended to attempt increasing the BCI2000 sampling rate. To use ParallelPortFilter in read mode, make sure to append <code>--LogParallelPort=LPT1</code> (or whichever ParallelPort is currently in use. The port can be found by looking under <b>Ports (Com &amp; LPT)</b> in device manager) to the source module line in the batch file.
+</p>
+<div class="center"><div class="thumb tnone"><div class="thumbinner" style="width:647px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:TTLOut.png" class="image"><img alt="" src="../images/c/c3/TTLOut.png" decoding="async" width="645" height="335" class="thumbimage" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://www.bci2000.org/mediawiki/index.php/File:TTLOut.png" class="internal" title="Enlarge"></a></div>Figure 6. Pin out for the RTBox TTL Out port</div></div></div></div>
+<p><br />
+</p>
+<h3><span class="mw-headline" id="Parallel_Port_Pin_Out">Parallel Port Pin Out</span></h3>
+<p>The figure below shows the parallel port pin out. The ParallelPortFilter extension follows this paradigm, so using it means that only 8 pins are accessible for reading and writing at a time. With this extension, pins D0-D7 can be written to or read from. Settings for these pins will need to be adjusted in the ParallelPort tab in BCI2000.
+</p>
+<div class="center"><div class="thumb tnone"><div class="thumbinner" style="width:502px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:ParallelPort.png" class="image"><img alt="" src="../images/thumb/7/78/ParallelPort.png/500px-ParallelPort.png" decoding="async" width="500" height="262" class="thumbimage" srcset="../images/thumb/7/78/ParallelPort.png/750px-ParallelPort.png 1.5x, ../images/thumb/7/78/ParallelPort.png/1000px-ParallelPort.png 2x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://www.bci2000.org/mediawiki/index.php/File:ParallelPort.png" class="internal" title="Enlarge"></a></div>Figure 7. Pin out for the parallel port</div></div></div></div>
+<p><br />
+</p>
+<div class="center"><div class="thumb tnone"><div class="thumbinner" style="width:1502px;"><a href="https://www.bci2000.org/mediawiki/index.php/File:RTBoxTime.png" class="image"><img alt="" src="../images/thumb/9/92/RTBoxTime.png/1500px-RTBoxTime.png" decoding="async" width="1500" height="685" class="thumbimage" srcset="../images/9/92/RTBoxTime.png 1.5x" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://www.bci2000.org/mediawiki/index.php/File:RTBoxTime.png" class="internal" title="Enlarge"></a></div>Figure 2. Procedure for interpreting ResponseTime Box Time</div></div></div></div>
+<h2><span class="mw-headline" id="Latency">Latency</span></h2>
+<p>The device has a fairly low latency, measured at 9.033 ± 6.3430 ms compared to the g.USBamp, a device that is generally accepted to have ~0 ms latency. To determine the device latency, trials were run where photodiodes were connected to both the ResponseTime Box and the g.USBamp. For the trials, the sampling rate was set to 4800 Hz and the block size was 50. The difference in time between the StimulusCode, which determined when the flashes would occur, and the ResponseTime box was determined to evaluate the video latency. The difference in time between the g.USB amp and the ResponseTime box was determined to evaluate the acquisition latency. Histograms showing both latencies are included below. 
+</p>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 535.33333333333px"><div style="width: 535.33333333333px">
+			<div class="thumb" style="width: 533.33333333333px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:RTBoxlatencyStimulus.jpg" class="image"><img alt="" src="../images/4/48/RTBoxlatencyStimulus.jpg" decoding="async" width="534" height="400" /></a></div></div>
+			<div class="gallerytext">
+<p>Figure 3. ResponseTime Box latency determined using StimulusCode onset
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 510.66666666667px"><div style="width: 510.66666666667px">
+			<div class="thumb" style="width: 508.66666666667px;"><div style="margin:0px auto;"><a href="https://www.bci2000.org/mediawiki/index.php/File:RTBoxlatencygUSB.jpg" class="image"><img alt="" src="../images/d/d6/RTBoxlatencygUSB.jpg" decoding="async" width="509" height="400" /></a></div></div>
+			<div class="gallerytext">
+<p>Figure 4. ResponseTime Box latency determined using g.USB detection
+</p>
+			</div>
+		</div></li>
+</ul>
+<!-- 
+NewPP limit report
+Cached time: 20230524175509
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.046 seconds
+Real time usage: 0.052 seconds
+Preprocessor visited node count: 111/1000000
+Post‐expand include size: 15/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 1394/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2478-0!canonical and timestamp 20230524175509 and revision id 9969
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:ResponseTimeBox&amp;oldid=9969">http://www.bci2000.org/mediawiki/index.php?title=Contributions:ResponseTimeBox&amp;oldid=9969</a>"</div>
+ </div>
+</body>
+</html>

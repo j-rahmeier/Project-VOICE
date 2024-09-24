@@ -1,0 +1,20 @@
+#! ../prog/BCI2000Shell
+@cls & ..\prog\BCI2000Shell %0 %* #! && exit /b 0 || exit /b 1\n
+#########################################################################################
+## Description: BCI2000 startup Operator module script. For Operator scripting
+##   reference, see
+##   https://www.bci2000.org/mediawiki/index.php/User_Reference:Operator_Module_Scripting
+#########################################################################################
+Change directory $BCI2000LAUNCHDIR
+Show window; Set title ${Extract file base $0}
+Reset system
+
+Startup system localhost
+%SignalSourceCommand%
+%SignalProcessingCommand%
+%ApplicationCommand%
+
+Wait for Connected
+
+%ScriptingCommands%
+

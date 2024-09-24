@@ -1,0 +1,4 @@
+Filtering:SpatialFilter int SpatialFilterType= 2 2 0 3 // spatial filter type 0: none, 1: full matrix, 2: sparse matrix, 3: common average reference (CAR) (enumeration)
+Filtering:SpatialFilter matrix SpatialFilter= 4 3 1 1 1 2 1 -1 3 2 2 2 3 -1 0 % % // columns represent input channels, rows represent output channels
+Filtering:SpatialFilter intlist SpatialFilterCAROutput= 0 // when using CAR filter type: list of output channels, or empty for all channels
+Filtering:SpatialFilter int SpatialFilterMissingChannels= 1 0 0 1 // how to handle missing channels 0: ignore, 1: report error (enumeration)

@@ -1,0 +1,26 @@
+###########################################################################
+## $Id: CMakeLists.txt 8330 2024-08-29 16:32:54Z lingling $
+## Authors:
+## Description: Build information for the ANTTask application module
+##              
+##              
+###########################################################################
+IF( WIN32 )
+
+BCI2000_ADD_APPLICATION_MODULE( 
+  ANTTask
+  ANTTask.cpp
+  SUPPORT assets/*=>/prog/images/ANTTask  
+  SUPPORT assets/black/*=>/prog/images/ANTTask/black
+  SUPPORT assets/white/*=>/prog/images/ANTTask/white
+  SUPPORT batch/*=>/batch
+  SUPPORT parms/*=>/parms/fragments
+)
+
+BCI2000_ADD_APPLICATION_MODULE( # NB: functionally this has nothing to do with the ANT task. It's specific to tES, but not to any particular task. Should be renamed and moved accordingly.
+  ANTTitration
+  ANTTitration.cpp
+)
+
+ENDIF( WIN32 )
+

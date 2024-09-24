@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Programming Reference:Debug Output - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul><li class="toc1">Concepts</li><ul><li class="toc2"><a href="Programming_Reference%253AFilter_Chain.html">Filter Chain</a></li><li class="toc2"><a href="Programming_Reference%253ASignals.html">Signals</a></li><li class="toc2"><a href="Programming_Reference%253AError_Handling.html">Error Handling</a></li><li class="toc2"><a href="Programming_Reference%253ALocalization.html">Localization</a></li><li class="toc2"><a href="Programming_Reference%253ARapid_Development.html">Rapid Development</a></li></ul><li class="toc1">Reference</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFilter_Class.html">GenericFilter</a></li><li class="toc2"><a href="Programming_Reference%253AEnvironment_Class.html">Environment</a></li><li class="toc2"><a href="Programming_Reference%253AGenericVisualization_Class.html">GenericVisualization</a></li><li class="toc2"><a href="Programming_Reference%253AErrors_and_Warnings.html">Errors and Warnings</a></li><li class="toc2">Debug Output</li></ul><li class="toc1">Data Acquisition</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericADC_Class.html">GenericADC</a></li></ul><li class="toc1">Data Storage</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFileWriter_Class.html">GenericFileWriter</a></li><li class="toc2"><a href="Programming_Reference%253ABCI2000FileReader_Class.html">BCI2000FileReader</a></li></ul><li class="toc1">Signal Processing</li><ul><li class="toc2"><a href="Programming_Reference%253AIIRFilterBase_Class.html">IIR Filters</a></li></ul><li class="toc1">Application Modules</li><ul><li class="toc2"><a href="Programming_Reference%253AApplicationBase_Class.html">ApplicationBase</a></li><li class="toc2"><a href="Programming_Reference%253AFeedbackTask_Class.html">FeedbackTask</a></li><li class="toc2"><a href="Programming_Reference%253AStimulusTask_Class.html">StimulusTask</a></li><li class="toc2"><a href="Programming_Reference%253A3D_API.html">3D API</a></li></ul><li class="toc1">Howtos</li><ul><li class="toc2"><a href="Programming_Howto%253ABuilding_BCI2000.html">Building BCI2000</a></li><li class="toc2"><a href="Programming_Howto%253ASVN_Client_Setup.html">SVN Client Setup</a></li><li class="toc2"><a href="Programming_Howto%253AUsing_TortoiseSVN.html">Using TortoiseSVN</a></li></ul><li class="toc1"><a href="Programming_FAQ.html">FAQ</a></li><li class="toc1">Tutorials</li><ul><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html">Data Acquisition</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html">Signal Processing</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html">Matlab Signal Processing</a></li></ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">Debug Output</h1>
+ <p class = "subtitle">Programming Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>When writing your own BCI2000 module, you will sometimes want to report values of variables, execution of a certain function, or other information that is 
+</p>
+<ul><li>irrelevant to the user, but</li>
+<li>helps you check whether your code does what it is supposed to.</li></ul>
+<p>Often, programmers use individual log files for debugging output, and review those files while their program runs, or afterwards.
+</p><p>This page describes how the BCI2000 C++ framework allows you to easily display debugging information in the operator module's log window, without bothering about creating your own log file.
+Nevertheless, you are free to use your own log file if you feel that this better fits your needs.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Programming_Reference%253ADebug_Output.html#Debugging_Stream_bcidbg"><span class="tocnumber">1</span> <span class="toctext">Debugging Stream bcidbg</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Programming_Reference%253ADebug_Output.html#The_Debug_Level"><span class="tocnumber">2</span> <span class="toctext">The Debug Level</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="Programming_Reference%253ADebug_Output.html#Message_Debug_Level"><span class="tocnumber">2.1</span> <span class="toctext">Message Debug Level</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="Programming_Reference%253ADebug_Output.html#Global_Debug_Level"><span class="tocnumber">2.2</span> <span class="toctext">Global Debug Level</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="Programming_Reference%253ADebug_Output.html#Logging_into_Files"><span class="tocnumber">3</span> <span class="toctext">Logging into Files</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="Programming_Reference%253ADebug_Output.html#See_also"><span class="tocnumber">4</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Debugging_Stream_bcidbg">Debugging Stream <tt>bcidbg</tt></span></h2>
+<p>Similar to the <tt>bcierr</tt> and <tt>bciout</tt> streams used for error handling and user warnings, BCI2000 provides a <tt>std::ostream</tt> derived object that accepts strings and numbers for formatted output.
+Like the output of <tt>bcierr</tt> and <tt>bciout</tt>, data from <tt>bcidbg</tt> is directed into the operator module's log window.
+Similar to error and warning messages, debugging messages will be time stamped and provided with a function context.
+</p><p>However, there are important differences:
+</p>
+<ul><li>Unlike for <tt>bcierr</tt>, the framework does not interpret the fact that something was written to the stream.</li>
+<li><tt>bcidbg</tt> can conditionally <b>ignore</b> the data inserted into it, according to a user-defined global setting. That way, you need not remove your debugging code, nor devise your own conditional output scheme.</li>
+<li>Messages are formatted unobtrusively, and will not automatically pop up the operator module's log window.</li></ul>
+<p>The <tt>bcidbg</tt> stream is available globally, and used as any other <tt>std::ostream</tt> descendant:
+</p>
+<pre>#include "BCIError.h"
+...
+mSomeDataMember = SomeFunction();
+bcidbg &lt;&lt; "Set mSomeDataMember to " &lt;&lt; mSomeDataMember &lt;&lt; endl;
+</pre>
+<p>Note that, just as for <tt>bcierr</tt> and <tt>bciout</tt>, writing to <tt>bcidbg</tt> will not take effect unless it is flushed by inserting <tt>flush</tt> or <tt>endl</tt>. (The latter will insert a newline character before flushing the stream.)
+</p>
+<h2><span class="mw-headline" id="The_Debug_Level">The Debug Level</span></h2>
+<p>A <i>Debug Level</i> concept is used to control the output of debug messages.
+Basically, a user-specified debug level is compared to the debug levels of individual messages,  and messages with a debug level <i>above</i> the user-specified debug level will be <i>suppressed</i> from the output. As the debug level defaults to 0, no debug messages will be visible to an end user unless configured accordingly.
+</p><p>Individual messages are associated with a numerical value, their <i>Debug Level</i>, depending on their significance. Important and sparse messages are given a low debug level value, less important and probably more frequent messages are given a higher debug level.
+</p>
+<h3><span class="mw-headline" id="Message_Debug_Level">Message Debug Level</span></h3>
+<p>The default message debug level is 1.
+</p>
+<pre>bcidbg &lt;&lt; "This is an important message on any level of debugging" &lt;&lt; endl;
+</pre>
+<p>To give a message a higher debug level, put the level in brackets after the <tt>bcidbg</tt> name:
+</p>
+<pre>bcidbg( 10 ) &lt;&lt; "This is a fairly uninteresting message" &lt;&lt; endl;
+</pre>
+<p>Although there is practically no upper limit to debug level values, 
+a usual range for debug levels is from 1 to 10.
+</p>
+<h3><span class="mw-headline" id="Global_Debug_Level">Global Debug Level</span></h3>
+<p>The amount of actual debugging output is governed by a global debug level.
+In BCI2000, this value is corresponds to the <b>DebugLevel</b> parameter. This parameter is not normally available, and must be specified from the command line when starting a module:
+</p>
+<pre>FeedbackDemo 127.0.0.1 --DebugLevel=10
+</pre>
+<p>will start the FeedbackDemo module with a debug level of 10.
+</p><p>Note that the debug level parameter will propagate to the other modules only after "Set Config" has been pressed from the operator module. Thus, other modules must be started with the DebugLevel argument as well, if you need to view debugging messages from operation phases prior to the Initialization Phase.
+</p>
+<h2><span class="mw-headline" id="Logging_into_Files">Logging into Files</span></h2>
+<p>Debug messages may be logged into files residing in data directories, along with data files. This behavior is governed by the <b>DebugLog</b> parameter. As in the case of the <b>DebugLevel</b> parameter, this parameter must be specified from the command line when starting a module:
+</p>
+<pre>FeedbackDemo 127.0.0.1 --DebugLevel=10 --DebugLog=1
+</pre>
+<p>will enable debug messages, and log them to files.
+</p><p>Debug log files carry the name of the corresponding run file, and a <i>.dbg</i> extension.
+</p><p><i>Note:</i> Data files are written by the <a href="Technical_Reference%253ACore_Modules.html#Data_Acquisition_Module" title="Technical Reference:Core Modules">source module</a>; debug log files are maintained by the <a href="User_Reference%253AOperator_Module.html" title="User Reference:Operator Module">operator module</a>. When source and operator module do not reside in the same directory, and the <a href="User_Reference%253ADataIOFilter.html#DataDirectory" title="User Reference:DataIOFilter"><b>DataDirectory</b></a> parameter contains a relative path, this path will be resolved differently by the two modules, and data and log files will not be located in a common directory.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Programming_Reference%253AErrors_and_Warnings.html" title="Programming Reference:Errors and Warnings">Programming Reference:Errors and Warnings</a>, <a href="Technical_Reference%253AStates_of_Operation.html" title="Technical Reference:States of Operation">Technical Reference:States of Operation</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524000709
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.013 seconds
+Real time usage: 0.024 seconds
+Preprocessor visited node count: 21/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1457-0!canonical and timestamp 20230524000709 and revision id 6128
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:Debug_Output&amp;oldid=6128">http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:Debug_Output&amp;oldid=6128</a>"</div>
+ </div>
+</body>
+</html>

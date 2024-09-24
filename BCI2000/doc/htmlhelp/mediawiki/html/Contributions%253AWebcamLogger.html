@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:WebcamLogger - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">WebcamLogger</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Contributions%253AWebcamLogger.html#Synopsis"><span class="tocnumber">1</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Contributions%253AWebcamLogger.html#Location"><span class="tocnumber">2</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Contributions%253AWebcamLogger.html#Versioning"><span class="tocnumber">3</span> <span class="toctext">Versioning</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Contributions%253AWebcamLogger.html#Authors"><span class="tocnumber">3.1</span> <span class="toctext">Authors</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Contributions%253AWebcamLogger.html#Version_History"><span class="tocnumber">3.2</span> <span class="toctext">Version History</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Contributions%253AWebcamLogger.html#Source_Code_Revisions"><span class="tocnumber">3.3</span> <span class="toctext">Source Code Revisions</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="Contributions%253AWebcamLogger.html#Known_Issues"><span class="tocnumber">3.4</span> <span class="toctext">Known Issues</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="Contributions%253AWebcamLogger.html#Functional_Description"><span class="tocnumber">4</span> <span class="toctext">Functional Description</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="Contributions%253AWebcamLogger.html#Integration_into_BCI2000"><span class="tocnumber">5</span> <span class="toctext">Integration into BCI2000</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="Contributions%253AWebcamLogger.html#Usage"><span class="tocnumber">6</span> <span class="toctext">Usage</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="Contributions%253AWebcamLogger.html#Parameters"><span class="tocnumber">7</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-12"><a href="Contributions%253AWebcamLogger.html#LogWebcam"><span class="tocnumber">7.1</span> <span class="toctext">LogWebcam</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="Contributions%253AWebcamLogger.html#CameraNumber"><span class="tocnumber">7.2</span> <span class="toctext">CameraNumber</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="Contributions%253AWebcamLogger.html#RecordAll"><span class="tocnumber">7.3</span> <span class="toctext">RecordAll</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="Contributions%253AWebcamLogger.html#StartIndex"><span class="tocnumber">7.4</span> <span class="toctext">StartIndex</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="Contributions%253AWebcamLogger.html#EndIndex"><span class="tocnumber">7.5</span> <span class="toctext">EndIndex</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="Contributions%253AWebcamLogger.html#Decimation"><span class="tocnumber">7.6</span> <span class="toctext">Decimation</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="Contributions%253AWebcamLogger.html#DateTimeLocation"><span class="tocnumber">7.7</span> <span class="toctext">DateTimeLocation</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="Contributions%253AWebcamLogger.html#DisplayStream"><span class="tocnumber">7.8</span> <span class="toctext">DisplayStream</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="Contributions%253AWebcamLogger.html#WebcamFormat"><span class="tocnumber">7.9</span> <span class="toctext">WebcamFormat</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="Contributions%253AWebcamLogger.html#WebcamURL"><span class="tocnumber">7.10</span> <span class="toctext">WebcamURL</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-22"><a href="Contributions%253AWebcamLogger.html#Event_Variables"><span class="tocnumber">8</span> <span class="toctext">Event Variables</span></a>
+<ul>
+<li class="toclevel-2 tocsection-23"><a href="Contributions%253AWebcamLogger.html#WebcamFrame.3C0-n.3E"><span class="tocnumber">8.1</span> <span class="toctext">WebcamFrame&lt;0-n&gt;</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-24"><a href="Contributions%253AWebcamLogger.html#See_also"><span class="tocnumber">9</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>An extension that records video from one or more webcams to an mp4 file, and stores frame numbers as (event-type) state variables.
+</p>
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><a rel="nofollow" class="external free" href="http://www.bci2000.org/svn/trunk/src/contrib/Extensions/WebcamLogger">http://www.bci2000.org/svn/trunk/src/contrib/Extensions/WebcamLogger</a>
+</p>
+<h2><span class="mw-headline" id="Versioning">Versioning</span></h2>
+<h3><span class="mw-headline" id="Authors">Authors</span></h3>
+<ul><li>Adam Wilson (adam.wilson@uc.edu)</li>
+<li>Alexander Belsten (belsten@neurotechcenter.org)</li>
+<li>Juergen Mellinger (mellinger@neurotechcenter.org)</li></ul>
+<h3><span class="mw-headline" id="Version_History">Version History</span></h3>
+<p>07/06/2011 - Full commit with support for MSVC and MinGW.
+</p><p>07/13/2011 - Bugfixes
+</p><p>11/28/2018 - Updated openCV library to v2.4.3 for x86/x64 Windows and added functionality for recording from multiple cameras
+</p><p>3/16/2021 - Updated openCV library to v4.5.1 for x86/x64 Windows.
+</p><p>2/2/2022 - Rewrite WebcamLogger to use a helper app that records camera data to a file and allows previewing
+</p><p>2/28/2023 - Add support for Webcam URLs.
+</p>
+<h3><span class="mw-headline" id="Source_Code_Revisions">Source Code Revisions</span></h3>
+<ul><li>Initial development: --</li>
+<li>Tested under: 7227</li>
+<li>Known to compile under: 7227</li>
+<li>Broken since: 5828 for MinGW</li></ul>
+<h3><span class="mw-headline" id="Known_Issues">Known Issues</span></h3>
+<p>None.
+</p>
+<h2><span class="mw-headline" id="Functional_Description">Functional Description</span></h2>
+<p>For many experiments, visual information about how a subject is behaving during an experiment is desired. This extension acquires video from most webcams, and writes to an MP4 video file. It also records the current frame number as a state variable, so that the video can be synchronized with brain data at sample resolution (max. 1ms). Other options include the ability to overlay the date and time directly on the video (useful for long-term monitoring), and time decimation (i.e., save every Nth frame).
+</p><p>PROTIP: This module can also be used to perform screen capture with the proper virtual screencast webcam driver.  Dubious website, but this product works well: <a rel="nofollow" class="external free" href="http://www.pcwinsoft.com/screencamera/">http://www.pcwinsoft.com/screencamera/</a>
+</p>
+<h2><span class="mw-headline" id="Integration_into_BCI2000">Integration into BCI2000</span></h2>
+<p>Compile the extension into your source module by enabling contributed extensions in your CMake configuration. In your root build folder, run <tt>Configure.sh.cmd</tt> in order to bring up the CMake GUI; there, enable EXTENSIONS_WEBCAMLOGGER.
+</p><p>Once the extension is built into the source module, enable it by starting the source module with the <code>--LogWebcam=1</code> command line argument.
+</p>
+<h2><span class="mw-headline" id="Usage">Usage</span></h2>
+<p>Webcams should be installed and configured per the device instructions. The Webcam logger uses the Windows Media Foundation (WMF) library for display and saving. Desired resolution may be chosen per webcam, and will be matched agains available resolutions.
+</p><p>Camera options are found in the <i>Source</i> tab of the Configuration window.
+</p>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<p>The Webcam logger is configured in the <i>Source</i> tab within the WebcamLogger section.  The configurable parameters are:
+</p>
+<h3><span class="mw-headline" id="LogWebcam">LogWebcam</span></h3>
+<p>Enables/Disables logging of Webcam states.
+</p>
+<h3><span class="mw-headline" id="CameraNumber">CameraNumber</span></h3>
+<p>Used to select one camera to record from on systems with multiple cameras. Use value 0 for the default camera.
+</p>
+<h3><span class="mw-headline" id="RecordAll">RecordAll</span></h3>
+<p>Enables the recording of cameras from <code>StartIndex</code> to <code>EndIndex</code>.
+Note that, unlike other indices in BCI2000, camera indices are 0-based rather than 1-based.
+</p>
+<h3><span class="mw-headline" id="StartIndex">StartIndex</span></h3>
+<p>Index to start searching for cameras at.
+</p>
+<h3><span class="mw-headline" id="EndIndex">EndIndex</span></h3>
+<p>Index to stop searching for cameras at.
+</p>
+<h3><span class="mw-headline" id="Decimation">Decimation</span></h3>
+<p>The decimation factor for saving and viewing video; the logger saves/displays every Nth frame.
+</p>
+<h3><span class="mw-headline" id="DateTimeLocation">DateTimeLocation</span></h3>
+<p>The location of the date/time overlay in saved video (0: none, 1: UpperRight, 2: UpperLeft, 3: LowerRight, 4: LowerLeft).
+</p>
+<h3><span class="mw-headline" id="DisplayStream">DisplayStream</span></h3>
+<p>Display the video stream from each connected camera. Display stream is identical to what is being recorded in the .mp4 file.
+</p>
+<h3><span class="mw-headline" id="WebcamFormat">WebcamFormat</span></h3>
+<p>For each camera index, you may specify a video width, height, and fps. These are matched against the formats provided by the
+camera, and the closest one is chosen.
+</p>
+<h3><span class="mw-headline" id="WebcamURL">WebcamURL</span></h3>
+<p>In the first column of the <i>WebcamURL</i> matrix parameter, you may specify a camera index, and a corresponding URL in the second column. If a URL is given for a certain index, video data will be acquired from the URL rather than a webcam with the specified index attached to the machine.
+</p><p>When reading video data from an URL, only streaming formats supported by the Microsoft Media Foundation library are supported. This includes MPEG4, h.264, and h.265 codecs.
+</p><p>For URL-based video streams, the Microsoft Media Foundation library allows to configure both an initial buffering time (MFNETSOURCE_BUFFERINGTIME), and a maximum buffer-ahead time (MFNETSOURCE_MAXBUFFERTIMEMS). In the <i>WebcamURL</i> matrix parameter, these are represented by the <i>BufferingTime</i> and <i>MaxBufferTime</i> columns. For clarity, these values must be entered as time values with a trailing "s" or "ms". Note that <i>BufferingTime</i> will be rounded to full seconds, whereas <i>MaxBufferTime</i> will be rounded to full milliseconds.
+</p>
+<h2><span class="mw-headline" id="Event_Variables">Event Variables</span></h2>
+<h3><span id="WebcamFrame&lt;0-n&gt;"></span><span class="mw-headline" id="WebcamFrame.3C0-n.3E">WebcamFrame&lt;0-n&gt;</span></h3>
+<p>The frame number of the video recorded on camera with index i. i must be less than or equal to n due to the nature of event declarations. The default value of n is 3, allowing for the recording of up to 4 cameras. To record from more cameras, change the <code>NUM_OF_WEBCAM_EVENTS</code> macro in WebcamLogger.cpp to the number of cameras you want to record from and recompile. Event values can be used to synchronize the video with the recorded neural data. It is a 32-bit value, allowing 4294967295 frames before overflowing. If the webcam can capture at 30 frames/sec, this allows more than four years of video before it will go back to frame 0. In other words, this should not be an issue for most users.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Reference%253ALogging_Input.html" title="User Reference:Logging Input">User Reference:Logging Input</a>, <a href="Contributions%253AExtensions.html" title="Contributions:Extensions">Contributions:Extensions</a>, <a href="Programming_Reference%253AEvents.html" title="Programming Reference:Events">Programming Reference:Events</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524100303
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.021 seconds
+Real time usage: 0.025 seconds
+Preprocessor visited node count: 74/1000000
+Post‐expand include size: 15/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2016-0!canonical and timestamp 20230524100303 and revision id 10179
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:WebcamLogger&amp;oldid=10179">http://www.bci2000.org/mediawiki/index.php?title=Contributions:WebcamLogger&amp;oldid=10179</a>"</div>
+ </div>
+</body>
+</html>

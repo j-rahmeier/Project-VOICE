@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>User Reference:StimulusPresentationTask - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul><li class="toc1"><a href="User_Reference%253AOperator_Module.html">Operator Module</a></li><li class="toc1"><a href="User_Reference%253AOperator_Module_Scripting.html">Operator Scripting</a></li><li class="toc1"><a href="User_Reference%253AModule_Command_Line_Options.html">Module Command Line Options</a></li><li class="toc1"><a href="User_Reference%253AData_File_Formats.html">Data File Formats</a></li><li class="toc1"><a href="User_Reference%253AFilters.html">Configuration Guide</a></li><li class="toc1"><a href="User_FAQ.html">FAQ</a></li><li class="toc1">Applications</li><ul><li class="toc2"><a href="User_Reference%253ACursorTask.html">Cursor Task</a></li><li class="toc2"><a href="User_Reference%253AP3SpellerTask.html">P3Speller Task</a></li><li class="toc2"><a href="https://www.bci2000.org/mediawiki/index.php/User_Reference:StimulusPresentation">Stimulus Presentation</a></li></ul><li class="toc1">Tools</li><ul><li class="toc2"><a href="User_Reference%253ABCI2000Certification.html">BCI2000Certification</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Launcher.html">BCI2000Launcher</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Viewer.html">BCI2000Viewer</a></li><li class="toc2"><a href="User_Reference%253ABCI2000FileInfo.html">BCI2000FileInfo</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Export.html">BCI2000Export</a></li><li class="toc2"><a href="User_Reference%253ABCI2000Analysis.html">BCI2000Analysis</a></li><li class="toc2"><a href="User_Reference%253ABCI2000_Offline_Analysis.html">BCI2000 Offline Analysis</a></li><li class="toc2"><a href="User_Reference%253AEloc_Helper.html">Eloc Helper</a></li><li class="toc2"><a href="User_Reference%253AEEGLabImport.html">EEGLabImport</a></li><li class="toc2"><a href="User_Reference%253AMatlab_Tools.html">Matlab Tools</a></li><li class="toc2"><a href="User_Reference%253AMatlab_MEX_Files.html">Matlab MEX Files</a></li><li class="toc2"><a href="User_Reference%253ACommand_Line_Processing.html">Command Line Processing</a></li></ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">StimulusPresentationTask</h1>
+ <p class = "subtitle">User Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="User_Reference%253AStimulusPresentationTask.html#Synopsis"><span class="tocnumber">1</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="User_Reference%253AStimulusPresentationTask.html#Functional_Description"><span class="tocnumber">2</span> <span class="toctext">Functional Description</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="User_Reference%253AStimulusPresentationTask.html#Stimulus_Definition"><span class="tocnumber">2.1</span> <span class="toctext">Stimulus Definition</span></a>
+<ul>
+<li class="toclevel-3 tocsection-4"><a href="User_Reference%253AStimulusPresentationTask.html#Stimulus_Codes"><span class="tocnumber">2.1.1</span> <span class="toctext">Stimulus Codes</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-5"><a href="User_Reference%253AStimulusPresentationTask.html#Stimulus_Sequence"><span class="tocnumber">2.2</span> <span class="toctext">Stimulus Sequence</span></a>
+<ul>
+<li class="toclevel-3 tocsection-6"><a href="User_Reference%253AStimulusPresentationTask.html#Deterministic_Sequence:"><span class="tocnumber">2.2.1</span> <span class="toctext">Deterministic Sequence:</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="User_Reference%253AStimulusPresentationTask.html#Random_Sequence:"><span class="tocnumber">2.2.2</span> <span class="toctext">Random Sequence:</span></a></li>
+<li class="toclevel-3 tocsection-8"><a href="User_Reference%253AStimulusPresentationTask.html#P3Speller_Compatible"><span class="tocnumber">2.2.3</span> <span class="toctext">P3Speller Compatible</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-9"><a href="User_Reference%253AStimulusPresentationTask.html#Stimulus_Delivery"><span class="tocnumber">2.3</span> <span class="toctext">Stimulus Delivery</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="User_Reference%253AStimulusPresentationTask.html#Processing_of_Classification_Results"><span class="tocnumber">3</span> <span class="toctext">Processing of Classification Results</span></a>
+<ul>
+<li class="toclevel-2 tocsection-11"><a href="User_Reference%253AStimulusPresentationTask.html#Free_Mode"><span class="tocnumber">3.1</span> <span class="toctext">Free Mode</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="User_Reference%253AStimulusPresentationTask.html#Copy_Mode"><span class="tocnumber">3.2</span> <span class="toctext">Copy Mode</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-13"><a href="User_Reference%253AStimulusPresentationTask.html#Parameters"><span class="tocnumber">4</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2"><a href="User_Reference%253AStimulusPresentationTask.html#WindowWidth.2C_WindowHeight"><span class="tocnumber">4.1</span> <span class="toctext">WindowWidth, WindowHeight</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AStimulusPresentationTask.html#WindowLeft.2C_WindowTop"><span class="tocnumber">4.2</span> <span class="toctext">WindowLeft, WindowTop</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AStimulusPresentationTask.html#WindowBackgroundColor"><span class="tocnumber">4.3</span> <span class="toctext">WindowBackgroundColor</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AStimulusPresentationTask.html#PreRunDuration"><span class="tocnumber">4.4</span> <span class="toctext">PreRunDuration</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AStimulusPresentationTask.html#PostRunDuration"><span class="tocnumber">4.5</span> <span class="toctext">PostRunDuration</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AStimulusPresentationTask.html#PreSequenceDuration"><span class="tocnumber">4.6</span> <span class="toctext">PreSequenceDuration</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AStimulusPresentationTask.html#PostSequenceDuration"><span class="tocnumber">4.7</span> <span class="toctext">PostSequenceDuration</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AStimulusPresentationTask.html#StimulusDuration"><span class="tocnumber">4.8</span> <span class="toctext">StimulusDuration</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AStimulusPresentationTask.html#EarlyOffsetExpression"><span class="tocnumber">4.9</span> <span class="toctext">EarlyOffsetExpression</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AStimulusPresentationTask.html#ISIMinDuration.2C_ISIMaxDuration"><span class="tocnumber">4.10</span> <span class="toctext">ISIMinDuration, ISIMaxDuration</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AStimulusPresentationTask.html#InterpretMode"><span class="tocnumber">4.11</span> <span class="toctext">InterpretMode</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AStimulusPresentationTask.html#DisplayResults"><span class="tocnumber">4.12</span> <span class="toctext">DisplayResults</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AStimulusPresentationTask.html#MinimumEvidence"><span class="tocnumber">4.13</span> <span class="toctext">MinimumEvidence</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AStimulusPresentationTask.html#AccumulateEvidence"><span class="tocnumber">4.14</span> <span class="toctext">AccumulateEvidence</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AStimulusPresentationTask.html#PhotoDiodePatch"><span class="tocnumber">4.15</span> <span class="toctext">PhotoDiodePatch</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AStimulusPresentationTask.html#PhotoDiodePatchHeight"><span class="tocnumber">4.16</span> <span class="toctext">PhotoDiodePatchHeight</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AStimulusPresentationTask.html#PhotoDiodePatchWidth"><span class="tocnumber">4.17</span> <span class="toctext">PhotoDiodePatchWidth</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AStimulusPresentationTask.html#PhotoDiodePatchLeft"><span class="tocnumber">4.18</span> <span class="toctext">PhotoDiodePatchLeft</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AStimulusPresentationTask.html#PhotoDiodePatchTop"><span class="tocnumber">4.19</span> <span class="toctext">PhotoDiodePatchTop</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AStimulusPresentationTask.html#PhotoDiodePatchShape"><span class="tocnumber">4.20</span> <span class="toctext">PhotoDiodePatchShape</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AStimulusPresentationTask.html#PhotoDiodePatchActiveColor"><span class="tocnumber">4.21</span> <span class="toctext">PhotoDiodePatchActiveColor</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AStimulusPresentationTask.html#PhotoDiodePatchInactiveColor"><span class="tocnumber">4.22</span> <span class="toctext">PhotoDiodePatchInactiveColor</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AStimulusPresentationTask.html#PhotoDiodePatchExpression"><span class="tocnumber">4.23</span> <span class="toctext">PhotoDiodePatchExpression</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="User_Reference%253AStimulusPresentationTask.html#SequenceType"><span class="tocnumber">4.24</span> <span class="toctext">SequenceType</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="User_Reference%253AStimulusPresentationTask.html#Sequence"><span class="tocnumber">4.25</span> <span class="toctext">Sequence</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="User_Reference%253AStimulusPresentationTask.html#NumberOfSequences"><span class="tocnumber">4.26</span> <span class="toctext">NumberOfSequences</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="User_Reference%253AStimulusPresentationTask.html#ToBeCopied"><span class="tocnumber">4.27</span> <span class="toctext">ToBeCopied</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="User_Reference%253AStimulusPresentationTask.html#UserComment"><span class="tocnumber">4.28</span> <span class="toctext">UserComment</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="User_Reference%253AStimulusPresentationTask.html#Stimuli"><span class="tocnumber">4.29</span> <span class="toctext">Stimuli</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="User_Reference%253AStimulusPresentationTask.html#FocusOn"><span class="tocnumber">4.30</span> <span class="toctext">FocusOn</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="User_Reference%253AStimulusPresentationTask.html#Result"><span class="tocnumber">4.31</span> <span class="toctext">Result</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="User_Reference%253AStimulusPresentationTask.html#StimulusWidth"><span class="tocnumber">4.32</span> <span class="toctext">StimulusWidth</span></a></li>
+<li class="toclevel-2 tocsection-23"><a href="User_Reference%253AStimulusPresentationTask.html#CaptionHeight"><span class="tocnumber">4.33</span> <span class="toctext">CaptionHeight</span></a></li>
+<li class="toclevel-2 tocsection-24"><a href="User_Reference%253AStimulusPresentationTask.html#CaptionColor"><span class="tocnumber">4.34</span> <span class="toctext">CaptionColor</span></a></li>
+<li class="toclevel-2 tocsection-25"><a href="User_Reference%253AStimulusPresentationTask.html#BackgroundColor"><span class="tocnumber">4.35</span> <span class="toctext">BackgroundColor</span></a></li>
+<li class="toclevel-2 tocsection-26"><a href="User_Reference%253AStimulusPresentationTask.html#CaptionSwitch"><span class="tocnumber">4.36</span> <span class="toctext">CaptionSwitch</span></a></li>
+<li class="toclevel-2 tocsection-27"><a href="User_Reference%253AStimulusPresentationTask.html#IconSwitch"><span class="tocnumber">4.37</span> <span class="toctext">IconSwitch</span></a></li>
+<li class="toclevel-2 tocsection-28"><a href="User_Reference%253AStimulusPresentationTask.html#AudioSwitch"><span class="tocnumber">4.38</span> <span class="toctext">AudioSwitch</span></a></li>
+<li class="toclevel-2 tocsection-29"><a href="User_Reference%253AStimulusPresentationTask.html#AVSwitch"><span class="tocnumber">4.39</span> <span class="toctext">AVSwitch</span></a></li>
+<li class="toclevel-2 tocsection-30"><a href="User_Reference%253AStimulusPresentationTask.html#AudioVolume"><span class="tocnumber">4.40</span> <span class="toctext">AudioVolume</span></a></li>
+<li class="toclevel-2 tocsection-31"><a href="User_Reference%253AStimulusPresentationTask.html#AVPlayToEnd"><span class="tocnumber">4.41</span> <span class="toctext">AVPlayToEnd</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-32"><a href="User_Reference%253AStimulusPresentationTask.html#States"><span class="tocnumber">5</span> <span class="toctext">States</span></a>
+<ul>
+<li class="toclevel-2"><a href="User_Reference%253AStimulusPresentationTask.html#PreStimulusTime"><span class="tocnumber">5.1</span> <span class="toctext">PreStimulusTime</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AStimulusPresentationTask.html#StimulusTime"><span class="tocnumber">5.2</span> <span class="toctext">StimulusTime</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AStimulusPresentationTask.html#PresentationRequested"><span class="tocnumber">5.3</span> <span class="toctext">PresentationRequested</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AStimulusPresentationTask.html#PresentationDisplayed"><span class="tocnumber">5.4</span> <span class="toctext">PresentationDisplayed</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AStimulusPresentationTask.html#PresentationTime"><span class="tocnumber">5.5</span> <span class="toctext">PresentationTime</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AStimulusPresentationTask.html#PresentationFrame"><span class="tocnumber">5.6</span> <span class="toctext">PresentationFrame</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AStimulusPresentationTask.html#AudioBufferTime"><span class="tocnumber">5.7</span> <span class="toctext">AudioBufferTime</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AStimulusPresentationTask.html#AudioPresentationTime"><span class="tocnumber">5.8</span> <span class="toctext">AudioPresentationTime</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AStimulusPresentationTask.html#StimulusCode"><span class="tocnumber">5.9</span> <span class="toctext">StimulusCode</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AStimulusPresentationTask.html#StimulusType"><span class="tocnumber">5.10</span> <span class="toctext">StimulusType</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AStimulusPresentationTask.html#StimulusBegin"><span class="tocnumber">5.11</span> <span class="toctext">StimulusBegin</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AStimulusPresentationTask.html#PhaseInSequence"><span class="tocnumber">5.12</span> <span class="toctext">PhaseInSequence</span></a></li>
+<li class="toclevel-2"><a href="User_Reference%253AStimulusPresentationTask.html#PauseApplication"><span class="tocnumber">5.13</span> <span class="toctext">PauseApplication</span></a></li>
+<li class="toclevel-2 tocsection-33"><a href="User_Reference%253AStimulusPresentationTask.html#SelectedStimulus"><span class="tocnumber">5.14</span> <span class="toctext">SelectedStimulus</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-34"><a href="User_Reference%253AStimulusPresentationTask.html#Timeline"><span class="tocnumber">6</span> <span class="toctext">Timeline</span></a></li>
+<li class="toclevel-1 tocsection-35"><a href="User_Reference%253AStimulusPresentationTask.html#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>The main purpose of this task is to present a sequential series of auditory and/or visual stimuli to the user of the BCI system.
+</p><p>The StimulusPresentationTask is suited to implement evoked response (ERP) paradigms, as well as to display tasks for selective activation experiments, such as SMR screening sessions.
+</p><p>The sequence and nature of the stimuli can be defined by the investigator. In addition to stimulus delivery, the task can optionally be used in conjunction with BCI2000's P300 Signal Processing module (<a href="User_Reference%253AP3TemporalFilter.html" title="User Reference:P3TemporalFilter">P3TemporalFilter</a>) to provide feedback to a selected stimulus in either a copy or a free mode.
+</p>
+<h2><span class="mw-headline" id="Functional_Description">Functional Description</span></h2>
+<h3><span class="mw-headline" id="Stimulus_Definition">Stimulus Definition</span></h3>
+<p>Stimuli are set up through a parameter defined by the application module. This implicitly defines the total number of stimuli as well as the details of each stimulus.
+</p><p>Each stimulus is defined by the following properties:
+</p>
+<ol><li>Caption</li>
+<li>Icon file</li>
+<li>Audio file</li></ol>
+<p>In addition to stimuli that are part of the actual stimulation sequence, the <a href="User_Reference%253AStimulusPresentationTask.html#FocusOn">FocusOn</a> 
+and <a href="User_Reference%253AStimulusPresentationTask.html#Result">Result</a> parameters contain definitions for a stimulus that indicates what to focus on,
+and a stimulus that presents the result. These stimuli are only used when the task is set to copy or free mode. 
+</p><p>The following table contains an example definition of two stimuli:
+</p>
+<table border="1">
+<tbody><tr>
+<td></td>
+<td>stimulus1</td>
+<td>stimulus2
+</td></tr>
+<tr>
+<td>caption</td>
+<td>Donkey</td>
+<td>&#160;
+</td></tr>
+<tr>
+<td>icon</td>
+<td>images\donkey.bmp</td>
+<td>images\elephant.bmp
+</td></tr>
+<tr>
+<td>audio</td>
+<td>sounds\snicker.wav</td>
+<td>sounds\trumpet.wav
+</td></tr></tbody></table>
+<p>A blank entry for caption/icon/audio file is accepted, and defines that no presentation of the respective element takes place (e.g., see caption in stimulus2). The stimulus definition parameter does <i>not</i> contain a description on how the stimuli are presented.
+For further details, see the <a href="User_Reference%253AStimulusPresentationTask.html#Stimuli">Stimuli</a> parameter description.
+</p>
+<h4><span class="mw-headline" id="Stimulus_Codes">Stimulus Codes</span></h4>
+<p>When defining a stimulus sequence, stimuli are referred to an integer ID called <i>stimulus code</i>.
+The stimulus code associated with a stimulus corresponds to the column in which that stimulus is defined in the <a href="User_Reference%253AStimulusPresentationTask.html#Stimuli">Stimuli</a> matrix parameter.
+</p><p>In the recorded data file, stimulus presentation is indicated by the <a href="User_Reference%253AStimulusPresentationTask.html#StimulusCode">StimulusCode</a> state.
+During presentation of a stimulus, this state is set to the associated stimulus code.
+</p>
+<h3><span class="mw-headline" id="Stimulus_Sequence">Stimulus Sequence</span></h3>
+<p>Stimuli are presented in a certain sequence. This sequence can either be deterministic, i.e., defined by the investigator, or pseudo-random. 
+</p>
+<h4><span class="mw-headline" id="Deterministic_Sequence:">Deterministic Sequence:</span></h4>
+<p>The investigator defines the order by 
+entering a list of stimulus IDs to be presented. As an example: 
+</p><p>1 5 3 4 2 
+</p><p>defines a sequence in which stimulus 1 is presented first, followed by stimulus 5, etc.
+</p>
+<h4><span class="mw-headline" id="Random_Sequence:">Random Sequence:</span></h4>
+<p>The investigator defines absolute stimulus frequencies for each stimulus, with the sum <img class="mwe-math-fallback-image-inline tex" alt="N" src="../images/math/8/d/9/8d9c307cb7f3c4a32822a51922d1ceaa.png" /> of those values equaling the total number of stimulus presentations in the final sequence. The resulting random sequence is obtained by applying a random permutation to an arbitrary sequence that reproduces the given frequencies, with all <img class="mwe-math-fallback-image-inline tex" alt="N!" src="../images/math/3/e/9/3e90a418f96ec0edccf92cedc72422ca.png" /> index permutations being equally probable (Block Randomization).
+</p><p>As an example: 
+</p><p>6 2 3
+</p><p>defines a sequence of 11 stimulus presentations with stimulus 1 being presented 6 times, stimulus 2, 2 times, and stimulus 3, 3 times. The resulting sequence <img class="mwe-math-fallback-image-inline tex" alt="S_1" src="../images/math/8/d/c/8dc4eef060814e559aff4c5fac3f51fe.png" /> will be a permutation of <img class="mwe-math-fallback-image-inline tex" alt="S_0 = [1, 1, 1, 1, 1, 1, 2, 2, 3, 3, 3]" src="../images/math/3/a/6/3a67fb10296dea2becad4cbd0a2a2467.png" />, and the probability for <img class="mwe-math-fallback-image-inline tex" alt="S_1" src="../images/math/8/d/c/8dc4eef060814e559aff4c5fac3f51fe.png" /> to equal <img class="mwe-math-fallback-image-inline tex" alt="S_0" src="../images/math/1/8/c/18c5f9700e93ac23c1ca12fe82793464.png" /> will be <img class="mwe-math-fallback-image-inline tex" alt="\frac{6!\times2!\times3!}{(6+2+3)!}=1/4620" src="../images/math/9/7/7/9778a30627450db8b7b42a1925e490ca.png" />.
+</p><p>Multiple sequences can be generated from the given frequencies. The investigator can define how many sequences are generated and presented.
+</p>
+<h4><span class="mw-headline" id="P3Speller_Compatible">P3Speller Compatible</span></h4>
+<p>Sequences are random, with each stimulus being presented <i>NumberOfSequences</i> times, in a block-randomized fashion. When in copy mode, each entry in the <i>ToBeCopied</i> parameter corresponds to a <i>NumberOfSequences</i>-times repetition of all stimulus codes. In other <i>InterpretMode</i>s, stimulus presentation is repeated indefinitely. This mode is intended as a compatibility mode for transitioning experiments from or to the <a href="User_Reference%253AP3SpellerTask.html" title="User Reference:P3SpellerTask">P3SpellerTask</a>.
+</p>
+<h3><span class="mw-headline" id="Stimulus_Delivery">Stimulus Delivery</span></h3>
+<p>For any stimulus, delivery occurs simultaneously for caption, icon, and audio. 
+When both caption and icon are defined, the caption appears overlaying the icon.
+</p><p>An investigator can specify:
+</p>
+<ul><li><a href="User_Reference%253AStimulusPresentationTask.html#WindowWidth">Size and position</a> of the target window.</li></ul>
+<ul><li><a href="User_Reference%253AStimulusPresentationTask.html#StimulusWidth">Width and height</a> of caption and icon in percent of screen width/height, or that the icon should appear in its original pixel size.</li></ul>
+<ul><li>Whether captions, icons, or audio files will be presented (i.e., a <a href="User_Reference%253AStimulusPresentationTask.html#IconSwitch">global switch</a>). There are no individual switches for each stimulus. However, individual captions/icons/wave files are not presented if they are not defined (i.e., their respective entries are blank).</li></ul>
+<ul><li>The <a href="User_Reference%253AStimulusPresentationTask.html#AudioVolume">volume for audio playback</a> as a percentage of maximum volume.</li></ul>
+<ul><li><a href="User_Reference%253AStimulusPresentationTask.html#BackgroundColor">Window background color</a> in RGB.<br />(For convenience, RGB values may be entered in hexadecimal notation, e.g. <tt>0xff0000</tt> for red.)</li></ul>
+<ul><li><a href="User_Reference%253AStimulusPresentationTask.html#CaptionColor">Caption color</a> in RGB.</li></ul>
+<ul><li>The <a href="User_Reference%253AStimulusPresentationTask.html#StimulusDuration">duration</a> of stimulus presentation.<br />(Playback of audio extending above the specified duration will be muted.)</li></ul>
+<ul><li>The duration of an <a href="User_Reference%253AStimulusPresentationTask.html#ISIMinDuration">inter-stimulus interval</a> following stimulus presentation.<br />(During the inter-stimulus interval, the screen is blank and audio is turned off.)</li></ul>
+<ul><li>Variance in inter-stimulus intervals, with probability distributed uniformly over the interval between minimum and maximum inter-stimulus interval.</li></ul>
+<ul><li>For documentation purposes, a user can enter a <a href="User_Reference%253AStimulusPresentationTask.html#UserComment">comment</a> to the specific run in a string parameter.</li></ul>
+<h2><span class="mw-headline" id="Processing_of_Classification_Results">Processing of Classification Results</span></h2>
+<p>The task can be configured to interpret results communicated to it by the <a href="User_Reference%253AP3TemporalFilter.html" title="User Reference:P3TemporalFilter">P3 Signal Processing</a> module. These results represent a judgment of which of the stimuli was most likely selected. Handling of these results is identical to the <a href="User_Reference%253AP3SpellerTask.html" title="User Reference:P3SpellerTask">P3 Spelling Task</a>. 
+</p><p>When it transmits a classification result, Signal Processing sets the state <i>StimulusCodeRes</i> to the stimulus code that was originally transmitted to it by the user application. For example, when Signal Processing sets <i>StimulusCodeRes</i>  to 3, it transmits classification results for stimulus 3. In addition, it sets <i>StimulusTypeRes</i>  to reflect the type of stimulus 
+(0=non-target, 1=target) when the system is in copy mode. Signal Processing transmits the classification result as one number (i.e., the first control signal).
+</p>
+<h3><span class="mw-headline" id="Free_Mode">Free Mode</span></h3>
+<p>The task can be configured to operate in free mode. In this case, the sequence of stimulus deliveries is followed by a time period, in which the Signal Processing classification result is presented. The final classification result is the stimulus with the highest classification result.
+</p><p>In order to present this result, the system uses the stimulus defined in the <tt>result</tt> column of the stimuli parameter. This presentation is followed by delivery of the determined stimulus. In other words, after a sequence of stimulus deliveries, the system might play a .wav file that says: "the result is," followed by a .wav file that says "yes." (assuming "yes" represents
+the stimulus that produced the highest classification result).
+</p><p>Finally, the task sends this result to the operator module as an ASCII text message so that it appears in a log window.
+</p><p>Free mode does not terminate until the investigator suspends operation.
+</p>
+<h3><span class="mw-headline" id="Copy_Mode">Copy Mode</span></h3>
+<p>Copy mode is similar to free mode. In copy mode, the investigator can define a list of stimuli to be copied (e.g., "3 5 4"). In this example, the user has to attend to stimulus 3 for the first sequence, 5 for the second sequence, etc.
+</p><p>In addition to presenting the result, the delivery of stimuli is preceded by a presentation that describes the stimulus to which the user must attend. This presentation uses the stimulus that is defined in the <a href="User_Reference%253AStimulusPresentationTask.html#FocusOn">FocusOn</a> parameter. This presentation is followed by delivery of the desired target stimulus. As an example, the system might say "Please focus on" ... "yes," before it starts with the sequence of stimulus deliveries.
+</p><p>Copy mode terminates (i.e., suspends the task) when the user has finished copying all stimuli specified by the investigator.
+</p>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<h4><span id="WindowWidth,_WindowHeight"></span><span class="mw-headline" id="WindowWidth.2C_WindowHeight">WindowWidth, WindowHeight</span></h4>
+<p>The width and height of the subject-visible application window, in pixels.
+</p>
+<h4><span id="WindowLeft,_WindowTop"></span><span class="mw-headline" id="WindowLeft.2C_WindowTop">WindowLeft, WindowTop</span></h4>
+<p>The screen position of the application window's top left corner, in pixels.
+</p>
+<h4><span class="mw-headline" id="WindowBackgroundColor">WindowBackgroundColor</span></h4>
+<p>The window's background color, given as an RGB value.
+For convenience, RGB values may be entered in hexadecimal notation, e.g. <tt>0xff0000</tt> for red.
+</p>
+<h4><span class="mw-headline" id="PreRunDuration">PreRunDuration</span></h4>
+<p>The duration of the pause preceding the first sequence.
+Given in <a href="BCI2000_Glossary.html#Sample_Block" title="BCI2000 Glossary">sample blocks</a>, or in time units when immediately followed with 's', 'ms', or similar.
+</p>
+<h4><span class="mw-headline" id="PostRunDuration">PostRunDuration</span></h4>
+<p>Duration of the pause following last sequence.
+Given in <a href="BCI2000_Glossary.html#Sample_Block" title="BCI2000 Glossary">sample blocks</a>, or in time units when immediately followed with 's', 'ms', or similar.
+</p>
+<h4><span class="mw-headline" id="PreSequenceDuration">PreSequenceDuration</span></h4>
+<p>Duration of the pause preceding sequences (or sets of intensifications).
+Given in <a href="BCI2000_Glossary.html#Sample_Block" title="BCI2000 Glossary">sample blocks</a>, or in time units when immediately followed with 's', 'ms', or similar.
+</p><p>In <a href="User_Reference%253AStimulusPresentationTask.html#InterpretMode">free or copy mode</a>, the <i>PreSequenceDuration</i> and <i>PostSequenceDuration</i> parameters may not go below twice the value of the <a href="User_Reference%253AStimulusPresentationTask.html#StimulusDuration">StimulusDuration</a> parameters, in order to allow for presentation of <a href="User_Reference%253AStimulusPresentationTask.html#FocusOn">FocusOn</a> and <a href="User_Reference%253AStimulusPresentationTask.html#Result">Result</a> announcement stimuli.
+</p>
+<h4><span class="mw-headline" id="PostSequenceDuration">PostSequenceDuration</span></h4>
+<p>Duration of the pause following sequences (or sets of intensifications).
+Given in <a href="BCI2000_Glossary.html#Sample_Block" title="BCI2000 Glossary">sample blocks</a>, or in time units when immediately followed with 's', 'ms', or similar.
+</p><p>When used in conjunction with the <a href="User_Reference%253AP3TemporalFilter.html" title="User Reference:P3TemporalFilter">P3TemporalFilter</a>, this value needs to be larger than the <a href="User_Reference%253AP3TemporalFilter.html#EpochLength" title="User Reference:P3TemporalFilter">EpochLength</a> parameter. This allows classification to complete before the next sequence of stimuli is presented.
+</p>
+<h4><span class="mw-headline" id="StimulusDuration">StimulusDuration</span></h4>
+<p>For visual stimuli, the duration of stimulus presentation.
+For auditory stimuli, the maximum duration, i.e. playback of audio extending above the specified duration will be muted.
+Given in <a href="BCI2000_Glossary.html#Sample_Block" title="BCI2000 Glossary">sample blocks</a>, or in time units when immediately followed with 's', 'ms', or similar.
+</p>
+<h4><span class="mw-headline" id="EarlyOffsetExpression">EarlyOffsetExpression</span></h4>
+<p>Allows the specification of an <a href="User_Reference%253AExpression_Syntax.html" title="User Reference:Expression Syntax">Expression</a> that is constantly monitored during stimulus presentation. When the value of the Expression transitions from zero to non-zero, the stimulus is aborted early, even if the StimulusDuration has not yet elapsed. For example, set this Expression to <tt>KeyDown==32</tt> and start your source module with the <tt>--LogKeyboard=1</tt> flag: then the subject will be able to advance the stimulus sequence manually by pressing the space key.
+</p>
+<h4><span id="ISIMinDuration,_ISIMaxDuration"></span><span class="mw-headline" id="ISIMinDuration.2C_ISIMaxDuration">ISIMinDuration, ISIMaxDuration</span></h4>
+<p>Minimum and maximum duration of the inter-stimulus interval.
+During the inter-stimulus interval, the screen is blank, and audio is muted.
+</p><p>Actual inter-stimulus intervals vary randomly between minimum and maximum value, with uniform probability for all intermediate values.
+Given in <a href="BCI2000_Glossary.html#Sample_Block" title="BCI2000 Glossary">sample blocks</a>, or in time units when immediately followed with 's', 'ms', or similar.
+Note that temporal resolution is limited to a single <a href="BCI2000_Glossary.html#Sample_Block" title="BCI2000 Glossary">sample block</a>.
+</p>
+<h4><span class="mw-headline" id="InterpretMode">InterpretMode</span></h4>
+<p>An enumerated value selecting on-line classification of evoked responses:
+</p>
+<ul><li>0: no target is announced "attended", and no classification is performed;</li>
+<li>1: <b>online</b> or <b>free mode</b>: classification is performed, but no "attended target" is defined;</li>
+<li>2: <b>copy mode</b>: "attended" targets are defined, classification is performed.</li></ul>
+<h4><span class="mw-headline" id="DisplayResults">DisplayResults</span></h4>
+<p>Switches result display of copy/free spelling on or off.
+In the P3Speller, setting <i>DisplayResults</i> to 'off' will disable execution of all speller commands (such as switching matrices) as well.
+</p>
+<h4><span class="mw-headline" id="MinimumEvidence">MinimumEvidence</span></h4>
+<p><b>NOTE:</b> If you are using your own classifier, this feature will not work properly unless your classifier's output matches certain criteria. Make sure to read <a href="Programming_Reference%253AStimulusTask_Class.html#Using_a_Different_Classifier_with_StimulusTask" title="Programming Reference:StimulusTask Class">these notes on how to use a different classifier</a>.
+</p><p>By default, target selection is performed without considering the actual amount of evidence that favors the selected target over other targets. Although the selected target will always be a target with maximum classification score (i.e., evidence), other targets may have the same or a similar score. It may be useful to omit classification in such situations altogether, by specifying a minimum amount of evidence that must exist in favor of the selected target, when compared to the next-best target. When used together with the <i>AccumulateEvidence</i> option, this allows to dynamically control the number of stimulus presentations, by simply repeating stimulus sequences until a sufficient amount of evidence has been collected.
+</p><p>Setting <i>MinimumEvidence</i> to 0 or to a negative number will result in default behavior, i.e. there will be a target selection each time classification scores are received from the SignalProcessing module. For values greater 0, the amount of selection errors will become smaller as the value of <i>MinimumEvidence</i> is increased; this increases the amount of information contained in each selection. At the same time, it becomes more and more unlikely that a selection will occur at all within a certain amount of time; this decreases the amount of information transmitted per time (information flow, or bitrate). In between, a certain value will correspond to an optimal compromise between selection errors, and selection duration. At this point, the flow of information is maximized.
+</p><p>The meaning of the actual number entered into the <i>MinimumEvidence</i> parameter is relative to the amount of within-class variance present in the classification score. An evidence of 0 means a 50:50 chance for correct classification. Increasing the evidence value by two standard deviations corresponds to an improvement by a factor of roughly 88:12, four standard deviations correspond to (88:12)^2=(98:2) ... etc, approaching perfect classification as evidence increases towards infinity.
+</p><p>In classifier training, classifier weights may be normalized such that within-class variance is 1 (this is done by recent versions of the P300Classifier tool). In this case, you may use the following equations to convert between the <i>MinimumEvidence</i> parameter <img class="mwe-math-fallback-image-inline tex" alt="\eta" src="../images/math/7/1/7/7174cbd6aeaaa56e37102b72386bb2b9.png" />, and the correct classification chance <img class="mwe-math-fallback-image-inline tex" alt="\chi" src="../images/math/7/9/c/79c40dd2b43f3c03eaf88b5fc4c199b8.png" />:
+</p><p><img class="mwe-math-fallback-image-inline tex" alt="\chi = \frac{50}{50} \left(\frac{88}{12}\right)^{\eta/2}" src="../images/math/8/f/d/8fd22c98bcc3d1d2cc72a34453c672b8.png" />.
+</p><p>For large <img class="mwe-math-fallback-image-inline tex" alt="\chi" src="../images/math/7/9/c/79c40dd2b43f3c03eaf88b5fc4c199b8.png" />, this relationship may be approximated and expressed in terms of error probability <img class="mwe-math-fallback-image-inline tex" alt="p" src="../images/math/8/3/8/83878c91171338902e0fe0fb97a8c47a.png" />:
+</p><p><img class="mwe-math-fallback-image-inline tex" alt="\eta \approx -\frac{\log_{10} p}{\log_{10} e} = -2.3\log_{10} p\quad\textrm{for}\; p \leq 5%" src="../images/math/f/c/9/fc913adce99e22a2de3f0c08738f62ec.png" />.
+</p><p>Thus, the evidence value roughly corresponds to twice the number of leading zeros in the desired error probability, if classifier weights are normalized. Some values are provided in the following table:
+</p>
+<table>
+<tbody><tr>
+<th>Selection Error
+</th>
+<th>Evidence
+</th></tr>
+<tr>
+<td>5%
+</td>
+<td>3
+</td></tr>
+<tr>
+<td>1%
+</td>
+<td>4.6
+</td></tr>
+<tr>
+<td>0.5%
+</td>
+<td>5.3
+</td></tr>
+<tr>
+<td>0.1%
+</td>
+<td>6.9
+</td></tr>
+<tr>
+<td>0.05%
+</td>
+<td>7.6
+</td></tr>
+<tr>
+<td>0.01%
+</td>
+<td>9.2
+</td></tr></tbody></table>
+<h4><span class="mw-headline" id="AccumulateEvidence">AccumulateEvidence</span></h4>
+<p>By default, only those classification scores are used which have been received from the signal processing module immediately prior to classification. When <i>AccumulateEvidence</i> is set, classification scores are accumulated until a selection is actually performed. Typically, accumulated classification scores will have higher evidence values, such that a selection threshold set with <i>MinimumEvidence</i> will be eventually crossed after scores have been accumulated for some time.
+</p><p>This allows for dynamically choosing the number of stimulus repetitions in a P300 paradigm, by setting the number of stimulus repetitions to 1, and setting the <i>MinimumEvidence</i> parameter to a value greater zero.
+</p><p>In addition, accumulated overall evidence will not increase if there is no consistent evidence in favor of a certain target. Thus, it is possible to operate a P300 BCI in a quasi-asynchronous mode by using <i>AccumulateEvidence</i>, and choosing a <i>MinimumEvidence</i> value that is large enough to make accidental selection unlikely. In this configuration, no selection will be made unless the BCI user is actually concentrating on a target for a number of stimulus presentations, resulting in consistently accumulating evidence for that target.
+</p><p><b>NOTE:</b> If you are using your own classifier, this feature will not work properly unless your classifier's output matches certain criteria. Make sure to read <a href="Programming_Reference%253AStimulusTask_Class.html#Using_a_Different_Classifier_with_StimulusTask" title="Programming Reference:StimulusTask Class">these notes on how to use a different classifier</a>.
+</p>
+<h4><span class="mw-headline" id="PhotoDiodePatch">PhotoDiodePatch</span></h4>
+<p>Display a photo diode patch on the stimulus window.
+Recording from a photo diode located on that patch will allow triggering on actual stimulus delivery (see <a href="User_Reference%253AP3TemporalFilter.html#OnsetExpression" title="User Reference:P3TemporalFilter">User_Reference:P3TemporalFilter#OnsetExpression</a>).
+</p>
+<h4><span class="mw-headline" id="PhotoDiodePatchHeight">PhotoDiodePatchHeight</span></h4>
+<p>Photo diode patch height in relative coordinates (between 0 and 1).
+</p>
+<h4><span class="mw-headline" id="PhotoDiodePatchWidth">PhotoDiodePatchWidth</span></h4>
+<p>Photo diode patch width in relative coordinates (between 0 and 1).
+</p>
+<h4><span class="mw-headline" id="PhotoDiodePatchLeft">PhotoDiodePatchLeft</span></h4>
+<p>Photo diode patch left position in relative coordinates (between 0 and 1).
+</p>
+<h4><span class="mw-headline" id="PhotoDiodePatchTop">PhotoDiodePatchTop</span></h4>
+<p>Photo diode patch top position in relative coordinates (between 0 and 1).
+</p>
+<h4><span class="mw-headline" id="PhotoDiodePatchShape">PhotoDiodePatchShape</span></h4>
+<p>Photo diode patch shape: 0 rectangle, 1 ellipse.
+</p>
+<h4><span class="mw-headline" id="PhotoDiodePatchActiveColor">PhotoDiodePatchActiveColor</span></h4>
+<p>Photo diode patch color when active (RGB color in format 0xrrggbb).
+</p>
+<h4><span class="mw-headline" id="PhotoDiodePatchInactiveColor">PhotoDiodePatchInactiveColor</span></h4>
+<p>Photo diode patch color when inactive, (RGB color in format 0xrrggbb, use 0xff000000 for transparent).
+</p>
+<h4><span class="mw-headline" id="PhotoDiodePatchExpression">PhotoDiodePatchExpression</span></h4>
+<p>Photo diode patch expression, determines active state by evaluating to nonnull. Defaults to <tt>StimulusBegin&gt;0</tt>.
+</p>
+<h4><span class="mw-headline" id="SequenceType">SequenceType</span></h4>
+<p>Enumerated value selecting between
+</p>
+<ul><li>0 deterministic sequence mode: the sequence is explicitly defined in the <i>Sequence</i> parameter;</li>
+<li>1 random sequence mode: the sequence is random, with pre-defined stimulus frequencies.</li>
+<li>2 P3Speller compatible mode: the sequence is random, with each stimulus being presented exactly <i>NumberOfSequences</i> times, in a block-randomized fashion. In copy spelling mode, one such sequence is presented for each entry in the <i>ToBeCopied</i> parameter. In other <i>InterpretMode</i>s, such sequences are repeated indefinitely; the current run must be stopped manually.</li></ul>
+<h4><span class="mw-headline" id="Sequence">Sequence</span></h4>
+<p>In deterministic mode, a list of stimulus codes defining the sequence of presentations.
+In random mode, a list of integer stimulus frequencies.
+In P3Speller compatible mode, this parameter is ignored.
+</p>
+<h4><span class="mw-headline" id="NumberOfSequences">NumberOfSequences</span></h4>
+<p>The number of sequence repetitions in a run (a run corresponds to a single data file).
+</p>
+<h4><span class="mw-headline" id="ToBeCopied">ToBeCopied</span></h4>
+<p>A list of stimulus codes defining a sequence of attended stimuli.
+At the beginning of each presentation sequence, another entry from this list is announced as the attended stimulus (see <a href="User_Reference%253AStimulusPresentationTask.html#FocusOn">FocusOn</a>).
+</p><p>This parameter is only used in <a href="User_Reference%253AStimulusPresentationTask.html#InterpretMode">copy mode</a>.
+</p>
+<h4><span class="mw-headline" id="UserComment">UserComment</span></h4>
+<p>An arbitrary string intended for documentation purposes.
+</p>
+<h4><span class="mw-headline" id="Stimuli">Stimuli</span></h4>
+<p>A matrix defining the properties of stimuli to be presented.
+Columns of the <i>Stimuli</i> matrix correspond to individual stimuli and their stimulus codes.
+For each stimulus, the following properties are defined by its row entries:
+</p>
+<ul><li>Caption: a text string, with its size and color depending on the <i>CaptionHeight</i> and <i>CaptionColor</i> parameters;</li>
+<li>Icon: a graphic file (a number of formats are supported through libav), with its size depending on the <i>StimulusWidth</i> parameter;</li>
+<li>Audio: an audio file (a number of formats are supported through libav), with playback starting at the onset of the visual stimuli.</li>
+<li>AV: an AV file (video with or without audio), with playback starting at the onset of the visual stimuli.</li></ul>
+<p>A blank entry for caption/icon/audio/AV is accepted, and defines that no presentation of the respective element takes place.
+Note that for Windows .bmp files, the top left pixel is taken to be the transparent background color, so results may not be as expected. Try a different format, or put add a 1-pixel frame in a different color to the image.
+</p><p>Additionally, a number of global stimulus parameters may be overridden with specific values for individual stimuli.
+To do this, for each parameter to be individualized, add an additional row to the Stimuli matrix. The row label indicates the parameter to be changed, and has to be one of:
+</p>
+<ul><li>StimulusDuration,</li>
+<li>EarlyOffsetExpression,</li>
+<li>ISIMinDuration, ISIMaxDuration,</li>
+<li>StimulusWidth, CaptionHeight, CaptionColor, AudioVolume.</li></ul>
+<p>Whenever one of these rows is present, the corresponding global parameter will be ignored.
+</p>
+<h4><span class="mw-headline" id="FocusOn">FocusOn</span></h4>
+<p>In copy mode (see <a href="User_Reference%253AStimulusPresentationTask.html#InterpretMode">InterpretMode</a>), the attended stimulus is presented prior to the stimulus sequence (<a href="User_Reference%253AStimulusPresentationTask.html#PreSequenceTime">PreSequenceTime</a>),
+preceded with a special announcement stimulus.
+This stimulus' properties are defined by the <i>FocusOn</i> parameter, which is a matrix in the same format as the <i>Stimuli</i> parameter.
+Usually, this matrix has a single column; when multiple columns are present, all stimuli are presented concurrently.
+To control the duration of the "FocusOn" announcement and the attended stimulus independently of the global <a href="User_Reference%253AStimulusPresentationTask.html#StimulusDuration">StimulusDuration</a> parameter, a <i>StimulusDuration</i> column may be present in the <i>FocusOn</i> matrix.
+</p>
+<h4><span class="mw-headline" id="Result">Result</span></h4>
+<p>In copy and free modes (see <a href="User_Reference%253AStimulusPresentationTask.html#InterpretMode">InterpretMode</a>), the classification result is presented following the sequence (<a href="User_Reference%253AStimulusPresentationTask.html#PostSequenceTime">PostSequenceTime</a>). Presentation of the predicted stimulus is preceded with an announcement stimulus.
+This stimulus' properties are defined by the <i>Result</i> parameter, which is a matrix in the same format as the <i>Stimuli</i> and <i>FocusOn</i> parameters.
+As for the "FocusOn" parameter, to control the duration of the "Result" announcement and the predicted stimulus independently of the global <a href="User_Reference%253AStimulusPresentationTask.html#StimulusDuration">StimulusDuration</a> parameter, a <i>StimulusDuration</i> column may be present in the <i>Result</i> matrix.
+</p>
+<h4><span class="mw-headline" id="StimulusWidth">StimulusWidth</span></h4>
+<p>For icon stimuli, stimulus width in percent of screen width.
+Stimulus height is deduced from the stimulus' aspect ratio, which is always conserved.
+If this parameter is zero, all stimuli will be displayed unscaled, i.e. at their original pixel size.
+This parameter's value may be overridden by an additional row in the <i>Stimuli</i>, <i>FocusOn</i>, and <i>Result</i> matrices.
+</p>
+<h4><span class="mw-headline" id="CaptionHeight">CaptionHeight</span></h4>
+<p>For text stimuli, the height of the stimulus' caption in percent of screen height.
+This parameter's value may be overridden by an additional row in the <i>Stimuli</i>, <i>FocusOn</i>, and <i>Result</i> matrices.
+</p>
+<h4><span class="mw-headline" id="CaptionColor">CaptionColor</span></h4>
+<p>For text stimuli, the color of the stimulus' caption, given as an RGB value.
+This parameter's value may be overridden by an additional row in the <i>Stimuli</i>, <i>FocusOn</i>, and <i>Result</i> matrices.
+</p>
+<h4><span class="mw-headline" id="BackgroundColor">BackgroundColor</span></h4>
+<p>The background color of the stimulus rectangle, given as an RGB value. The height of the rectangle is defined by the CaptionHeight parameter, and its width depends on the caption's text width.
+</p>
+<h4><span class="mw-headline" id="CaptionSwitch">CaptionSwitch</span></h4>
+<p>A boolean parameter to globally switch presentation of stimulus captions on or off.
+To present captions for individual stimuli only, remove captions for other stimuli from the <a href="User_Reference%253AStimulusPresentationTask.html#Stimuli">Stimuli</a> matrix.
+</p>
+<h4><span class="mw-headline" id="IconSwitch">IconSwitch</span></h4>
+<p>A boolean parameter to globally switch presentation of icon stimuli on or off.
+To present icons for individual stimuli only, leave icon entries for other stimuli blank in the <a href="User_Reference%253AStimulusPresentationTask.html#Stimuli">Stimuli</a> matrix.
+</p>
+<h4><span class="mw-headline" id="AudioSwitch">AudioSwitch</span></h4>
+<p>A boolean parameter to globally switch presentation of audio stimuli on or off.
+To present audio for individual stimuli only, remove audio entries for other stimuli from the <a href="User_Reference%253AStimulusPresentationTask.html#Stimuli">Stimuli</a> matrix.
+</p>
+<h4><span class="mw-headline" id="AVSwitch">AVSwitch</span></h4>
+<p>A boolean parameter to globally switch presentation of AV stimuli on or off.
+To present audio for individual stimuli only, remove AV entries for other stimuli from the <a href="User_Reference%253AStimulusPresentationTask.html#Stimuli">Stimuli</a> matrix.
+</p>
+<h4><span class="mw-headline" id="AudioVolume">AudioVolume</span></h4>
+<p>The volume for audio playback, in percent of maximum volume.
+This parameter's value may be overridden by an additional row in the <i>Stimuli</i>, <i>FocusOn</i>, and <i>Result</i> matrices.
+</p>
+<h4><span class="mw-headline" id="AVPlayToEnd">AVPlayToEnd</span></h4>
+<p>If yes, AV stimuli will be played as long as they last; if no, AV stimuli will be aborted after the specified stimulus duration has expired.
+</p>
+<h2><span class="mw-headline" id="States">States</span></h2>
+<h3><span class="mw-headline" id="PreStimulusTime">PreStimulusTime</span></h3>
+<p>A 16-bit time stamp in the same format as the <i>SourceTime</i> state. 
+This time stamp is set immediately before the application module is going to update the stimulus/feedback display.
+Note that a data block is saved together with the state vector that existed immediately after it was acquired.
+Thus, <i>PreStimulusTime</i> will be the prestimulus time of the block prior to the current block.
+</p>
+<h3><span class="mw-headline" id="StimulusTime">StimulusTime</span></h3>
+<p>A 16-bit time stamp in the same format as the <i>SourceTime</i> state. 
+This time stamp is set immediately after the application module has updated the stimulus/feedback display.
+Note that a data block is saved together with the state vector that existed immediately after it was acquired.
+Thus, <i>StimulusTime</i> will be the stimulus time of the block prior to the current block.
+</p>
+<h3><span class="mw-headline" id="PresentationRequested">PresentationRequested</span></h3>
+<p>This 32-bit state contains a list of ids for all presentations that have been requested during the current block. The list ends with a value of 2^31. A 32-bit presentation id is formed by combining the 16-bit <i>SourceTime</i> state of the presentation request's data block in the most significant bits, with the time difference between that source time stamp and the time when the presentation request happened, in the least significant bits:
+</p><p><code>PresentationID = SourceTime &lt;&lt; 8 | (RequestTime - SourceTime) &amp; 0xff</code>
+</p><p>This definition makes presentation ids unique within the range of a minute, and allows to extract the value of the request's time stamp from its id.
+</p>
+<h3><span class="mw-headline" id="PresentationDisplayed">PresentationDisplayed</span></h3>
+<p>This 32-bit state contains a list of ids for all presentations that have been displayed during the current block. The list ends with a value of 2^31. Presentation ids appear in the <i>PresentationRequested</i> state when presentation is requested, and subsequently in the <i>PresentationDisplayed</i> state when presentation has occurred.
+</p>
+<h3><span class="mw-headline" id="PresentationTime">PresentationTime</span></h3>
+<p>A 16-bit time stamp in the same format as the <i>SourceTime</i> state.
+For each id occurring in the <i>PresentationDisplayed</i> state, this state contains the time stamp of the respective update to video memory. From this point in time, up to two additional frame durations may be required before the display's surface actually shows a difference in signal. This depends on the internals of the display, and cannot be determined from software.
+</p>
+<h3><span class="mw-headline" id="PresentationFrame">PresentationFrame</span></h3>
+<p>A 12-bit state that contains, for each id occurring in the <i>PresentationDisplayed</i> state, the frame number of the respective update to video memory. Frame numbers have an arbitrary offset, and wrap around at a value of 2^11.
+<a href="https://www.bci2000.org/mediawiki/index.php/File:PresentationFlow.png" class="image"><img alt="PresentationFlow.png" src="../images/2/2c/PresentationFlow.png" decoding="async" width="600" height="424" /></a>
+</p>
+<h3><span class="mw-headline" id="AudioBufferTime">AudioBufferTime</span></h3>
+<p>A 16-bit time stamp in the same format as the <i>SourceTime</i> state.
+For each audio presentation that has occurred during the current block, this state contains the time stamp when non-zero audio data were about to enter the system's audio buffer.
+</p>
+<h3><span class="mw-headline" id="AudioPresentationTime">AudioPresentationTime</span></h3>
+<p>A 16-bit time stamp in the same format as the <i>SourceTime</i> state.
+For each audio presentation that has occurred during the current block, this state contains the estimated time stamp when non-zero audio data were being played from the system's speakers or headphones. The estimate takes the length of the system's audio buffers into account but will not be able to detect external sources of delays, such as additional audio processing steps.
+</p>
+<h3><span class="mw-headline" id="StimulusCode">StimulusCode</span></h3>
+<p>The numerical ID of the stimulus being presented (16 bit).
+</p>
+<h3><span class="mw-headline" id="StimulusType">StimulusType</span></h3>
+<p>This state is 1 during presentation of an attended stimulus, and 0 otherwise.
+The notion of an "attended" stimulus requires data recording in <a href="User_Reference%253AStimulusPresentationTask.html#InterpretMode">copy mode</a>.
+</p>
+<h3><span class="mw-headline" id="StimulusBegin">StimulusBegin</span></h3>
+<p>This state is 1 during the first block of stimulus presentation, and 0 otherwise.
+</p>
+<h3><span class="mw-headline" id="PhaseInSequence">PhaseInSequence</span></h3>
+<p>This state is 1 during pre-sequence, 2 during sequence and 3 during post-sequence (see <a href="User_Reference%253AStimulusPresentationTask.html#Timeline">Timeline</a>).
+</p>
+<h3><span class="mw-headline" id="PauseApplication">PauseApplication</span></h3>
+<p>While this state is set to 1, no task processing occurs, i.e. the task is paused, and may be resumed by setting PauseApplication to 0.
+</p>
+<h3><span class="mw-headline" id="SelectedStimulus">SelectedStimulus</span></h3>
+<p>When classification is performed, this state contains the stimulus code of the stimulus classified as the "selected" one.
+</p>
+<h2><span class="mw-headline" id="Timeline">Timeline</span></h2>
+<p><a href="https://www.bci2000.org/mediawiki/index.php/File:StimulusTask_Timeline.png" class="image"><img alt="StimulusTask Timeline.png" src="../images/thumb/2/22/StimulusTask_Timeline.png/676px-StimulusTask_Timeline.png" decoding="async" width="676" height="206" srcset="../images/thumb/2/22/StimulusTask_Timeline.png/1014px-StimulusTask_Timeline.png 1.5x, ../images/thumb/2/22/StimulusTask_Timeline.png/1352px-StimulusTask_Timeline.png 2x" /></a>
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Reference%253AP3TemporalFilter.html" title="User Reference:P3TemporalFilter">User Reference:P3TemporalFilter</a>, <a href="User_Reference%253AP3SpellerTask.html" title="User Reference:P3SpellerTask">User Reference:P3SpellerTask</a>, <a href="Programming_Reference%253AStimulusTask_Class.html" title="Programming Reference:StimulusTask Class">Programming Reference:StimulusTask Class</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20220610133129
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.090 seconds
+Real time usage: 0.104 seconds
+Preprocessor visited node count: 267/1000000
+Post‐expand include size: 16002/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 1931/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   24.367      1 -total
+ 39.49%    9.623      1 Template:StimulusTaskParams
+ 15.76%    3.841      4 Template:StimulusParamOverride
+ 11.61%    2.830      1 Template:ApplicationBaseStates
+ 10.10%    2.461      1 Template:ApplicationWindowParams
+  9.96%    2.426      1 Template:StimulusTaskStates
+  9.67%    2.356      6 Template:TimeParam
+  9.22%    2.246      1 Template:StimulusTaskTimeline
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1502-0!canonical!math=0 and timestamp 20220610133129 and revision id 9193
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=User_Reference:StimulusPresentationTask&amp;oldid=9193">http://www.bci2000.org/mediawiki/index.php?title=User_Reference:StimulusPresentationTask&amp;oldid=9193</a>"</div>
+ </div>
+</body>
+</html>

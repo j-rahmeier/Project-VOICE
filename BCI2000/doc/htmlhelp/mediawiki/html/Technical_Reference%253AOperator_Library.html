@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Technical Reference:Operator Library - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul><li class="toc1">System Design and Communication Protocols</li><ul><li class="toc2"><a href="Technical_Reference%253ASystem_Design.html">System Design</a></li><li class="toc2"><a href="Technical_Reference%253ACore_Modules.html">Core Modules</a></li><li class="toc2"><a href="Technical_Reference%253AStates_of_Operation.html">States of Operation</a></li></ul><li class="toc1">Transmission Protocol Specification</li><ul><li class="toc2"><a href="Technical_Reference%253ABCI2000_Messages.html">BCI2000 Messages</a></li><li class="toc2"><a href="Technical_Reference%253AParameter_Definition.html">Parameter Definition</a></li><li class="toc2"><a href="Technical_Reference%253AState_Definition.html">State Definition</a></li><li class="toc2"><a href="Technical_Reference%253AVisualization_Properties.html">Visualization Properties</a></li></ul><li class="toc1">File Formats</li><ul><li class="toc2"><a href="Technical_Reference%253ABCI2000_File_Format.html">Data File Format</a></li><li class="toc2"><a href="Technical_Reference%253AParameter_File.html">Parameter File Format</a></li></ul><li class="toc1">External Interfaces</li><ul><li class="toc2"><a href="Technical_Reference%253AApp_Connector.html">App Connector</a></li><li class="toc2">Operator Library</li><li class="toc2"><a href="Technical_Reference%253ABCI2000Remote_Library.html">BCI2000Remote</a></li></ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">Operator Library</h1>
+ <p class = "subtitle">Technical Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>The Operator Library is a shared library that encapsulates the Operator Module's core functionality into an interface that allows to embed Operator functionality into one's own application. This way, is is possible to write your own Operator module, or to control BCI2000 from your own application, without having to deal with details of the BCI2000 protocol. The BCI2000 Operator library can be used from any programming language that allows using a shared library (DLL). Although the Operator library is written in C++, its DLL interface is plain C, and can be used with compiled languages such as C, C++, C#, Pascal, but also with interpreted languages that can call functions in a DLL, such as Python, Matlab, VisualBasic, etc. Interfacing with Java requires a JNI (Java Native Interface) wrapper, which is currently not provided by BCI2000. 
+</p><p>For a C++ example that uses the Operator Library to implement a simple Operator Module, see <a rel="nofollow" class="external text" href="http://www.bci2000.org/tracproj/browser/trunk/src/contrib/OperatorLibApplications/OperatorLibDemo/main.cpp">the OperatorLibDemo</a> program.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Technical_Reference%253AOperator_Library.html#System_State_.28State_of_Operation.29"><span class="tocnumber">1</span> <span class="toctext">System State (State of Operation)</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="Technical_Reference%253AOperator_Library.html#BCI_StateUnavailable"><span class="tocnumber">1.1</span> <span class="toctext">BCI_StateUnavailable</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="Technical_Reference%253AOperator_Library.html#BCI_StateIdle"><span class="tocnumber">1.2</span> <span class="toctext">BCI_StateIdle</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="Technical_Reference%253AOperator_Library.html#BCI_StateStartup"><span class="tocnumber">1.3</span> <span class="toctext">BCI_StateStartup</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Technical_Reference%253AOperator_Library.html#BCI_StateInitialization"><span class="tocnumber">1.4</span> <span class="toctext">BCI_StateInitialization</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Technical_Reference%253AOperator_Library.html#BCI_StateResting"><span class="tocnumber">1.5</span> <span class="toctext">BCI_StateResting</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="Technical_Reference%253AOperator_Library.html#BCI_StateSuspended"><span class="tocnumber">1.6</span> <span class="toctext">BCI_StateSuspended</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="Technical_Reference%253AOperator_Library.html#BCI_StateParamsModified"><span class="tocnumber">1.7</span> <span class="toctext">BCI_StateParamsModified</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="Technical_Reference%253AOperator_Library.html#BCI_StateRunning"><span class="tocnumber">1.8</span> <span class="toctext">BCI_StateRunning</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="Technical_Reference%253AOperator_Library.html#BCI_StateTermination"><span class="tocnumber">1.9</span> <span class="toctext">BCI_StateTermination</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="Technical_Reference%253AOperator_Library.html#BCI_StateBusy"><span class="tocnumber">1.10</span> <span class="toctext">BCI_StateBusy</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="Technical_Reference%253AOperator_Library.html#int_BCI_GetStateOfOperation.28.29"><span class="tocnumber">1.11</span> <span class="toctext">int BCI_GetStateOfOperation()</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="Technical_Reference%253AOperator_Library.html#int_BCI_SetConfig.28.29"><span class="tocnumber">1.12</span> <span class="toctext">int BCI_SetConfig()</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="Technical_Reference%253AOperator_Library.html#int_BCI_StartRun.28.29"><span class="tocnumber">1.13</span> <span class="toctext">int BCI_StartRun()</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="Technical_Reference%253AOperator_Library.html#int_BCI_StopRun.28.29"><span class="tocnumber">1.14</span> <span class="toctext">int BCI_StopRun()</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-16"><a href="Technical_Reference%253AOperator_Library.html#Parameterization"><span class="tocnumber">2</span> <span class="toctext">Parameterization</span></a>
+<ul>
+<li class="toclevel-2 tocsection-17"><a href="Technical_Reference%253AOperator_Library.html#int_BCI_PutParameter.28_const_char.2A_parameterLine_.29"><span class="tocnumber">2.1</span> <span class="toctext">int BCI_PutParameter( const char* parameterLine )</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="Technical_Reference%253AOperator_Library.html#const_char.2A_BCI_GetParameter.28_long_index_.29"><span class="tocnumber">2.2</span> <span class="toctext">const char* BCI_GetParameter( long index )</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="Technical_Reference%253AOperator_Library.html#int_BCI_PutState.28_const_char.2A_stateLine_.29"><span class="tocnumber">2.3</span> <span class="toctext">int BCI_PutState( const char* stateLine )</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="Technical_Reference%253AOperator_Library.html#const_char.2A_BCI_GetState.28_long_index_.29"><span class="tocnumber">2.4</span> <span class="toctext">const char* BCI_GetState( long index )</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="Technical_Reference%253AOperator_Library.html#int_BCI_PutEvent.28_const_char.2A_eventLine_.29"><span class="tocnumber">2.5</span> <span class="toctext">int BCI_PutEvent( const char* eventLine )</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="Technical_Reference%253AOperator_Library.html#const_char.2A_BCI_GetEvent.28_long_index_.29"><span class="tocnumber">2.6</span> <span class="toctext">const char* BCI_GetEvent( long index )</span></a></li>
+<li class="toclevel-2 tocsection-23"><a href="Technical_Reference%253AOperator_Library.html#int_BCI_PutVisProperty.28_const_char.2A_visID.2C_int_cfgID.2C_const_char.2A_value_.29"><span class="tocnumber">2.7</span> <span class="toctext">int BCI_PutVisProperty( const char* visID, int cfgID, const char* value )</span></a></li>
+<li class="toclevel-2 tocsection-24"><a href="Technical_Reference%253AOperator_Library.html#const_char.2A_BCI_GetVisProperty.28_const_char.2A_visID.2C_int_cfgID_.29"><span class="tocnumber">2.8</span> <span class="toctext">const char* BCI_GetVisProperty( const char* visID, int cfgID )</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-25"><a href="Technical_Reference%253AOperator_Library.html#Online_Information"><span class="tocnumber">3</span> <span class="toctext">Online Information</span></a>
+<ul>
+<li class="toclevel-2 tocsection-26"><a href="Technical_Reference%253AOperator_Library.html#int_BCI_SetStateValue.28_const_char.2A_stateName.2C_long_value_.29"><span class="tocnumber">3.1</span> <span class="toctext">int BCI_SetStateValue( const char* stateName, long value )</span></a></li>
+<li class="toclevel-2 tocsection-27"><a href="Technical_Reference%253AOperator_Library.html#long_BCI_GetStateValue.28_const_char.2A_stateName_.29"><span class="tocnumber">3.2</span> <span class="toctext">long BCI_GetStateValue( const char* stateName )</span></a></li>
+<li class="toclevel-2 tocsection-28"><a href="Technical_Reference%253AOperator_Library.html#int_BCI_SetEvent.28_const_char.2A_eventName.2C_long_value_.29"><span class="tocnumber">3.3</span> <span class="toctext">int BCI_SetEvent( const char* eventName, long value )</span></a></li>
+<li class="toclevel-2 tocsection-29"><a href="Technical_Reference%253AOperator_Library.html#int_BCI_GetSignalChannels.28.29"><span class="tocnumber">3.4</span> <span class="toctext">int BCI_GetSignalChannels()</span></a></li>
+<li class="toclevel-2 tocsection-30"><a href="Technical_Reference%253AOperator_Library.html#int_BCI_GetSignalElements.28.29"><span class="tocnumber">3.5</span> <span class="toctext">int BCI_GetSignalElements()</span></a></li>
+<li class="toclevel-2 tocsection-31"><a href="Technical_Reference%253AOperator_Library.html#float_BCI_GetSignal.28_int_channel.2C_int_element_.29"><span class="tocnumber">3.6</span> <span class="toctext">float BCI_GetSignal( int channel, int element )</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-32"><a href="Technical_Reference%253AOperator_Library.html#Watches"><span class="tocnumber">4</span> <span class="toctext">Watches</span></a>
+<ul>
+<li class="toclevel-2 tocsection-33"><a href="Technical_Reference%253AOperator_Library.html#long_BCI_AddWatch.28_const_char.2A_expressions_.29"><span class="tocnumber">4.1</span> <span class="toctext">long BCI_AddWatch( const char* expressions )</span></a></li>
+<li class="toclevel-2 tocsection-34"><a href="Technical_Reference%253AOperator_Library.html#int_BCI_SetWatchDecimation.28_long_watchID.2C_int_decimation_.29"><span class="tocnumber">4.2</span> <span class="toctext">int BCI_SetWatchDecimation( long watchID, int decimation )</span></a></li>
+<li class="toclevel-2 tocsection-35"><a href="Technical_Reference%253AOperator_Library.html#int_BCI_RemoveWatch.28_long_watchID_.29"><span class="tocnumber">4.3</span> <span class="toctext">int BCI_RemoveWatch( long watchID )</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-36"><a href="Technical_Reference%253AOperator_Library.html#Callbacks"><span class="tocnumber">5</span> <span class="toctext">Callbacks</span></a>
+<ul>
+<li class="toclevel-2 tocsection-37"><a href="Technical_Reference%253AOperator_Library.html#Callback_Constants"><span class="tocnumber">5.1</span> <span class="toctext">Callback Constants</span></a></li>
+<li class="toclevel-2 tocsection-38"><a href="Technical_Reference%253AOperator_Library.html#BCI_OnSystemStateChange.28_void.2A_refdata_.29"><span class="tocnumber">5.2</span> <span class="toctext">BCI_OnSystemStateChange( void* refdata )</span></a></li>
+<li class="toclevel-2 tocsection-39"><a href="Technical_Reference%253AOperator_Library.html#BCI_OnCoreInput.28_void.2A_refdata_.29"><span class="tocnumber">5.3</span> <span class="toctext">BCI_OnCoreInput( void* refdata )</span></a></li>
+<li class="toclevel-2 tocsection-40"><a href="Technical_Reference%253AOperator_Library.html#BCI_OnConnect.28_void.2A_refdata_.29"><span class="tocnumber">5.4</span> <span class="toctext">BCI_OnConnect( void* refdata )</span></a></li>
+<li class="toclevel-2 tocsection-41"><a href="Technical_Reference%253AOperator_Library.html#BCI_OnSetConfig.28_void.2A_refdata_.29"><span class="tocnumber">5.5</span> <span class="toctext">BCI_OnSetConfig( void* refdata )</span></a></li>
+<li class="toclevel-2 tocsection-42"><a href="Technical_Reference%253AOperator_Library.html#BCI_OnStart.28_void.2A_refdata_.29"><span class="tocnumber">5.6</span> <span class="toctext">BCI_OnStart( void* refdata )</span></a></li>
+<li class="toclevel-2 tocsection-43"><a href="Technical_Reference%253AOperator_Library.html#BCI_OnSuspend.28_void.2A_refdata_.29"><span class="tocnumber">5.7</span> <span class="toctext">BCI_OnSuspend( void* refdata )</span></a></li>
+<li class="toclevel-2 tocsection-44"><a href="Technical_Reference%253AOperator_Library.html#BCI_OnResume.28_void.2A_refdata_.29"><span class="tocnumber">5.8</span> <span class="toctext">BCI_OnResume( void* refdata )</span></a></li>
+<li class="toclevel-2 tocsection-45"><a href="Technical_Reference%253AOperator_Library.html#BCI_OnShutdown.28_void.2A_refdata_.29"><span class="tocnumber">5.9</span> <span class="toctext">BCI_OnShutdown( void* refdata )</span></a></li>
+<li class="toclevel-2 tocsection-46"><a href="Technical_Reference%253AOperator_Library.html#BCI_OnQuitRequest.28_void.2A_refdata.2C_const_char.2A.2A_pMsg_.29"><span class="tocnumber">5.10</span> <span class="toctext">BCI_OnQuitRequest( void* refdata, const char** pMsg )</span></a></li>
+<li class="toclevel-2 tocsection-47"><a href="Technical_Reference%253AOperator_Library.html#BCI_OnLogMessage.28_void.2A_refdata.2C_const_char.2A_msg_.29"><span class="tocnumber">5.11</span> <span class="toctext">BCI_OnLogMessage( void* refdata, const char* msg )</span></a></li>
+<li class="toclevel-2 tocsection-48"><a href="Technical_Reference%253AOperator_Library.html#BCI_OnWarningMessage.28_void.2A_refdata.2C_const_char.2A_msg_.29"><span class="tocnumber">5.12</span> <span class="toctext">BCI_OnWarningMessage( void* refdata, const char* msg )</span></a></li>
+<li class="toclevel-2 tocsection-49"><a href="Technical_Reference%253AOperator_Library.html#BCI_OnErrorMessage.28_void.2A_refdata.2C_const_char.2A_msg_.29"><span class="tocnumber">5.13</span> <span class="toctext">BCI_OnErrorMessage( void* refdata, const char* msg )</span></a></li>
+<li class="toclevel-2 tocsection-50"><a href="Technical_Reference%253AOperator_Library.html#BCI_OnDebugMessage.28_void.2A_refdata.2C_const_char.2A_msg_.29"><span class="tocnumber">5.14</span> <span class="toctext">BCI_OnDebugMessage( void* refdata, const char* msg )</span></a></li>
+<li class="toclevel-2 tocsection-51"><a href="Technical_Reference%253AOperator_Library.html#BCI_OnParameter.28_void.2A_refdata.2C_const_char.2A_parameterline_.29"><span class="tocnumber">5.15</span> <span class="toctext">BCI_OnParameter( void* refdata, const char* parameterline )</span></a></li>
+<li class="toclevel-2 tocsection-52"><a href="Technical_Reference%253AOperator_Library.html#BCI_OnState.28_void.2A_refdata.2C_const_char.2A_stateline_.29"><span class="tocnumber">5.16</span> <span class="toctext">BCI_OnState( void* refdata, const char* stateline )</span></a></li>
+<li class="toclevel-2 tocsection-53"><a href="Technical_Reference%253AOperator_Library.html#BCI_OnVisPropertyMessage.28_void.2A_refdata.2C_const_char.2A_visID.2C_int_cfgID.2C_const_char.2A_value_.29"><span class="tocnumber">5.17</span> <span class="toctext">BCI_OnVisPropertyMessage( void* refdata, const char* visID, int cfgID, const char* value )</span></a></li>
+<li class="toclevel-2 tocsection-54"><a href="Technical_Reference%253AOperator_Library.html#BCI_OnVisProperty.28_void.2A_refdata.2C_const_char.2A_visID.2C_int_cfgID.2C_const_char.2A_value_.29"><span class="tocnumber">5.18</span> <span class="toctext">BCI_OnVisProperty( void* refdata, const char* visID, int cfgID, const char* value )</span></a></li>
+<li class="toclevel-2 tocsection-55"><a href="Technical_Reference%253AOperator_Library.html#BCI_OnInitializeVis.28_void.2A_refdata.2C_const_char.2A_visID.2C_const_char.2A_kind_.29"><span class="tocnumber">5.19</span> <span class="toctext">BCI_OnInitializeVis( void* refdata, const char* visID, const char* kind )</span></a></li>
+<li class="toclevel-2 tocsection-56"><a href="Technical_Reference%253AOperator_Library.html#BCI_OnVisMemo.28_void.2A_refdata.2C_const_char.2A_visID.2C_const_char.2A_msg_.29"><span class="tocnumber">5.20</span> <span class="toctext">BCI_OnVisMemo( void* refdata, const char* visID, const char* msg )</span></a></li>
+<li class="toclevel-2 tocsection-57"><a href="Technical_Reference%253AOperator_Library.html#BCI_OnVisSignal.28_void.2A_refdata.2C_const_char.2A_visID.2C_int_channels.2C_int_elements.2C_float.2A_data_.29"><span class="tocnumber">5.21</span> <span class="toctext">BCI_OnVisSignal( void* refdata, const char* visID, int channels, int elements, float* data )</span></a></li>
+<li class="toclevel-2 tocsection-58"><a href="Technical_Reference%253AOperator_Library.html#BCI_OnVisBitmap.28_void.2A_refdata.2C_const_char.2A_visID.2C_int_width.2C_int_height.2C_signed_short.2A_data_.29"><span class="tocnumber">5.22</span> <span class="toctext">BCI_OnVisBitmap( void* refdata, const char* visID, int width, int height, signed short* data )</span></a></li>
+<li class="toclevel-2 tocsection-59"><a href="Technical_Reference%253AOperator_Library.html#int_BCI_OnUnknownCommand.28_void.2A_refdata.2C_const_char.2A_command_.29"><span class="tocnumber">5.23</span> <span class="toctext">int BCI_OnUnknownCommand( void* refdata, const char* command )</span></a></li>
+<li class="toclevel-2 tocsection-60"><a href="Technical_Reference%253AOperator_Library.html#BCI_OnScriptHelp.28_void.2A_refdata.2C_const_char.2A.2A_pMsg_.29"><span class="tocnumber">5.24</span> <span class="toctext">BCI_OnScriptHelp( void* refdata, const char** pMsg )</span></a></li>
+<li class="toclevel-2 tocsection-61"><a href="Technical_Reference%253AOperator_Library.html#BCI_OnScriptError.28_void.2A_refdata.2C_const_char.2A_msg_.29"><span class="tocnumber">5.25</span> <span class="toctext">BCI_OnScriptError( void* refdata, const char* msg )</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-62"><a href="Technical_Reference%253AOperator_Library.html#Functions_that_manage_callbacks"><span class="tocnumber">6</span> <span class="toctext">Functions that manage callbacks</span></a>
+<ul>
+<li class="toclevel-2 tocsection-63"><a href="Technical_Reference%253AOperator_Library.html#int_BCI_SetCallback.28_long.2C_BCI_Function.2C_void.2A_.29"><span class="tocnumber">6.1</span> <span class="toctext">int BCI_SetCallback( long, BCI_Function, void* )</span></a></li>
+<li class="toclevel-2 tocsection-64"><a href="Technical_Reference%253AOperator_Library.html#int_BCI_SetExternalCallback.28_long.2C_BCI_Function.2C_void.2A_.29"><span class="tocnumber">6.2</span> <span class="toctext">int BCI_SetExternalCallback( long, BCI_Function, void* )</span></a></li>
+<li class="toclevel-2 tocsection-65"><a href="Technical_Reference%253AOperator_Library.html#int_BCI_CheckPendingCallback.28.29"><span class="tocnumber">6.3</span> <span class="toctext">int BCI_CheckPendingCallback()</span></a></li>
+<li class="toclevel-2 tocsection-66"><a href="Technical_Reference%253AOperator_Library.html#BCI_Function_BCI_GetCallbackFunction.28_long_.29"><span class="tocnumber">6.4</span> <span class="toctext">BCI_Function BCI_GetCallbackFunction( long )</span></a></li>
+<li class="toclevel-2 tocsection-67"><a href="Technical_Reference%253AOperator_Library.html#void.2A_BCI_GetCallbackData.28_long_.29"><span class="tocnumber">6.5</span> <span class="toctext">void* BCI_GetCallbackData( long )</span></a></li>
+<li class="toclevel-2 tocsection-68"><a href="Technical_Reference%253AOperator_Library.html#int_BCI_GetCallbackIsExternal.28_long_.29"><span class="tocnumber">6.6</span> <span class="toctext">int BCI_GetCallbackIsExternal( long )</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-69"><a href="Technical_Reference%253AOperator_Library.html#Miscellaneous_Functions"><span class="tocnumber">7</span> <span class="toctext">Miscellaneous Functions</span></a>
+<ul>
+<li class="toclevel-2 tocsection-70"><a href="Technical_Reference%253AOperator_Library.html#const_char.2A_BCI_GetInfo.28_void_.29"><span class="tocnumber">7.1</span> <span class="toctext">const char* BCI_GetInfo( void )</span></a></li>
+<li class="toclevel-2 tocsection-71"><a href="Technical_Reference%253AOperator_Library.html#const_char.2A_BCI_GetConnectionInfo.28_int_index_.29"><span class="tocnumber">7.2</span> <span class="toctext">const char* BCI_GetConnectionInfo( int index )</span></a></li>
+<li class="toclevel-2 tocsection-72"><a href="Technical_Reference%253AOperator_Library.html#const_char.2A_BCI_GetCoreModuleStatus.28_int_index_.29"><span class="tocnumber">7.3</span> <span class="toctext">const char* BCI_GetCoreModuleStatus( int index )</span></a></li>
+<li class="toclevel-2 tocsection-73"><a href="Technical_Reference%253AOperator_Library.html#int_BCI_Startup.28_const_char.2A_arguments_.29"><span class="tocnumber">7.4</span> <span class="toctext">int BCI_Startup( const char* arguments )</span></a></li>
+<li class="toclevel-2 tocsection-74"><a href="Technical_Reference%253AOperator_Library.html#int_BCI_Shutdown.28_void_.29"><span class="tocnumber">7.5</span> <span class="toctext">int BCI_Shutdown( void )</span></a></li>
+<li class="toclevel-2 tocsection-75"><a href="Technical_Reference%253AOperator_Library.html#int_BCI_Initialize.28_void_.29"><span class="tocnumber">7.6</span> <span class="toctext">int BCI_Initialize( void )</span></a></li>
+<li class="toclevel-2 tocsection-76"><a href="Technical_Reference%253AOperator_Library.html#int_BCI_Dispose.28_void_.29"><span class="tocnumber">7.7</span> <span class="toctext">int BCI_Dispose( void )</span></a></li>
+<li class="toclevel-2 tocsection-77"><a href="Technical_Reference%253AOperator_Library.html#int_BCI_TelnetListen.28_const_char.2A_address_.29"><span class="tocnumber">7.8</span> <span class="toctext">int BCI_TelnetListen( const char* address )</span></a></li>
+<li class="toclevel-2 tocsection-78"><a href="Technical_Reference%253AOperator_Library.html#int_BCI_TelnetClose.28_void_.29"><span class="tocnumber">7.9</span> <span class="toctext">int BCI_TelnetClose( void )</span></a></li>
+<li class="toclevel-2 tocsection-79"><a href="Technical_Reference%253AOperator_Library.html#int_BCI_WebsocketListen.28_const_char.2A_address_.29"><span class="tocnumber">7.10</span> <span class="toctext">int BCI_WebsocketListen( const char* address )</span></a></li>
+<li class="toclevel-2 tocsection-80"><a href="Technical_Reference%253AOperator_Library.html#int_BCI_WebsocketClose.28_void_.29"><span class="tocnumber">7.11</span> <span class="toctext">int BCI_WebsocketClose( void )</span></a></li>
+<li class="toclevel-2 tocsection-81"><a href="Technical_Reference%253AOperator_Library.html#int_BCI_ExecuteScript.28_const_char.2A_script_.29"><span class="tocnumber">7.12</span> <span class="toctext">int BCI_ExecuteScript( const char* script )</span></a></li>
+<li class="toclevel-2 tocsection-82"><a href="Technical_Reference%253AOperator_Library.html#const_char.2A_BCI_ExecuteScriptWithResult.28_const_char.2A_script_.29"><span class="tocnumber">7.13</span> <span class="toctext">const char* BCI_ExecuteScriptWithResult( const char* script )</span></a></li>
+<li class="toclevel-2 tocsection-83"><a href="Technical_Reference%253AOperator_Library.html#void_BCI_Log.28_int_messageType.2C_const_char.2A_message_.29"><span class="tocnumber">7.14</span> <span class="toctext">void BCI_Log( int messageType, const char* message )</span></a></li>
+<li class="toclevel-2 tocsection-84"><a href="Technical_Reference%253AOperator_Library.html#int_BCI_ReleaseObject.28_const_char.2A_.29"><span class="tocnumber">7.15</span> <span class="toctext">int BCI_ReleaseObject( const char* )</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-85"><a href="Technical_Reference%253AOperator_Library.html#See_also"><span class="tocnumber">8</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span id="System_State_(State_of_Operation)"></span><span class="mw-headline" id="System_State_.28State_of_Operation.29">System State (State of Operation)</span></h2>
+<p>BCI2000 system state may be queried using <tt>BCI_GetStateOfOperation()</tt>, and modified using the <tt>BCI_SetConfig()</tt>, <tt>BCI_StartRun()</tt>, and <tt>BCI_StopRun()</tt> functions. These functions manipulate system state in a way that is analogous to the main buttons in the standard <a href="User_Reference%253AOperator_Module.html" title="User Reference:Operator Module">Operator module</a>.
+</p><p>System state is one of the following:
+</p>
+<h3><span class="mw-headline" id="BCI_StateUnavailable">BCI_StateUnavailable</span></h3>
+<p>The system is not available for changes to system state.
+</p>
+<h3><span class="mw-headline" id="BCI_StateIdle">BCI_StateIdle</span></h3>
+<p>The system is initialized, but not started up, ie., not waiting for connections.
+</p>
+<h3><span class="mw-headline" id="BCI_StateStartup">BCI_StateStartup</span></h3>
+<p>The Operator module is waiting for core modules to connect.
+</p>
+<h3><span class="mw-headline" id="BCI_StateInitialization">BCI_StateInitialization</span></h3>
+<p>Core modules are connected, the system is waiting to be parameterized via <tt>SetConfig()</tt>.
+</p>
+<h3><span class="mw-headline" id="BCI_StateResting">BCI_StateResting</span></h3>
+<p>The system has been parameterized and is waiting for a <tt>StartRun()</tt> command.
+</p>
+<h3><span class="mw-headline" id="BCI_StateSuspended">BCI_StateSuspended</span></h3>
+<p>The system has been suspended via <tt>StopRun()</tt>, or from one of the modules setting the "Running" state variable to 0.
+</p>
+<h3><span class="mw-headline" id="BCI_StateParamsModified">BCI_StateParamsModified</span></h3>
+<p>The system has been suspended, and parameters have been modified from one or more of the core modules.
+</p>
+<h3><span class="mw-headline" id="BCI_StateRunning">BCI_StateRunning</span></h3>
+<p>The system is running.
+</p>
+<h3><span class="mw-headline" id="BCI_StateTermination">BCI_StateTermination</span></h3>
+<p>The system is waiting for termination.
+</p>
+<h3><span class="mw-headline" id="BCI_StateBusy">BCI_StateBusy</span></h3>
+<p>The system is currently busy, and not in one of the above states. It is not available for changes to system state.
+</p><p>System state may be <b>manipulated</b> calling one of the following functions:
+</p>
+<h3><span id="int_BCI_GetStateOfOperation()"></span><span class="mw-headline" id="int_BCI_GetStateOfOperation.28.29">int BCI_GetStateOfOperation()</span></h3>
+<p>Determines the externally visible state of the state machine, i.e.
+the state of operation of the BCI2000 system.
+</p>
+<h3><span id="int_BCI_SetConfig()"></span><span class="mw-headline" id="int_BCI_SetConfig.28.29">int BCI_SetConfig()</span></h3>
+<p>Asynchronously applies current parameter settings to the BCI2000 system, i.e. initiates the parameterization process, and returns immediately, indicating whether parameterization has been initiated.
+</p>
+<dl><dt>returns</dt>
+<dd>1 if successful, 0 otherwise.</dd></dl>
+<h3><span id="int_BCI_StartRun()"></span><span class="mw-headline" id="int_BCI_StartRun.28.29">int BCI_StartRun()</span></h3>
+<p>Asynchronously starts a new run.
+</p>
+<dl><dt>returns</dt>
+<dd>1 if successful, 0 otherwise.</dd></dl>
+<h3><span id="int_BCI_StopRun()"></span><span class="mw-headline" id="int_BCI_StopRun.28.29">int BCI_StopRun()</span></h3>
+<p>Asynchronously stops the current run.
+</p>
+<dl><dt>returns</dt>
+<dd>1 if successful, 0 otherwise.</dd></dl>
+<h2><span class="mw-headline" id="Parameterization">Parameterization</span></h2>
+<p>Parameterization functions allow to populate and modify of the Operator Library's internal parameter list, state list, event list, and visproperty list. When calling <tt>SetConfig()</tt>, parameter values are applied to the BCI2000 system.
+</p>
+<h3><span id="int_BCI_PutParameter(_const_char*_parameterLine_)"></span><span class="mw-headline" id="int_BCI_PutParameter.28_const_char.2A_parameterLine_.29">int BCI_PutParameter( const char* parameterLine )</span></h3>
+<p>Parses a BCI2000 parameter definition line, and adds the resulting parameter object to the internal parameter list, or changes the value of a parameter if it exists.
+</p>
+<dl><dt>arguments</dt>
+<dd>Pointer to a null-terminated parameter line string.</dd>
+<dt>returns</dt>
+<dd>1 if successful, 0 otherwise.</dd></dl>
+<h3><span id="const_char*_BCI_GetParameter(_long_index_)"></span><span class="mw-headline" id="const_char.2A_BCI_GetParameter.28_long_index_.29">const char* BCI_GetParameter( long index )</span></h3>
+<p>Returns the parameter with the given index from the operator's internal parameter list, or NULL when the index is out of range.
+</p>
+<dl><dt>arguments</dt>
+<dd>Parameter index.</dd>
+<dt>returns</dt>
+<dd>Pointer to a null-terminated string containing a parameter line, or NULL. The output buffer is allocated by the library, and should be released by the caller using <tt>BCI_ReleaseObject()</tt>.</dd></dl>
+<h3><span id="int_BCI_PutState(_const_char*_stateLine_)"></span><span class="mw-headline" id="int_BCI_PutState.28_const_char.2A_stateLine_.29">int BCI_PutState( const char* stateLine )</span></h3>
+<p>Parses a BCI2000 state definition line, and adds the resulting state to the operator library's state list.
+</p>
+<dl><dt>arguments</dt>
+<dd>Pointer to a null-terminated state line string.</dd>
+<dt>returns</dt>
+<dd>1 if successful, 0 otherwise.</dd></dl>
+<h3><span id="const_char*_BCI_GetState(_long_index_)"></span><span class="mw-headline" id="const_char.2A_BCI_GetState.28_long_index_.29">const char* BCI_GetState( long index )</span></h3>
+<p>Returns the state with the given index from the DLL's internal state list. , or NULL when the index is out of range.
+</p>
+<dl><dt>arguments</dt>
+<dd>State index.</dd>
+<dt>returns</dt>
+<dd>Pointer to a null-terminated string containing a state line, or NULL. The output buffer is allocated by the library, and should be released by the caller using <tt>BCI_ReleaseObject()</tt>.</dd></dl>
+<h3><span id="int_BCI_PutEvent(_const_char*_eventLine_)"></span><span class="mw-headline" id="int_BCI_PutEvent.28_const_char.2A_eventLine_.29">int BCI_PutEvent( const char* eventLine )</span></h3>
+<p>Parses a BCI2000 event definition line, and adds the resulting event to the operator library's event list.
+</p>
+<dl><dt>arguments</dt>
+<dd>Pointer to a null-terminated event line string.</dd>
+<dt>returns</dt>
+<dd>1 if successful, 0 otherwise.</dd></dl>
+<h3><span id="const_char*_BCI_GetEvent(_long_index_)"></span><span class="mw-headline" id="const_char.2A_BCI_GetEvent.28_long_index_.29">const char* BCI_GetEvent( long index )</span></h3>
+<p>Returns the event with the given index from the DLL's internal event list. , or NULL when the index is out of range.
+</p>
+<dl><dt>arguments</dt>
+<dd>Event index.</dd>
+<dt>returns</dt>
+<dd>Pointer to a null-terminated string containing an event line, or NULL. The output buffer is allocated by the library, and should be released by the caller using <tt>BCI_ReleaseObject()</tt>.</dd></dl>
+<h3><span id="int_BCI_PutVisProperty(_const_char*_visID,_int_cfgID,_const_char*_value_)"></span><span class="mw-headline" id="int_BCI_PutVisProperty.28_const_char.2A_visID.2C_int_cfgID.2C_const_char.2A_value_.29">int BCI_PutVisProperty( const char* visID, int cfgID, const char* value )</span></h3>
+<p>Sets the a property to the given value, or adds the property to the property list if it is not present. A list of visualization properties is available at <a href="Technical_Reference%253AVisualization_Properties.html" title="Technical Reference:Visualization Properties">Technical Reference:Visualization Properties</a>.
+</p>
+<dl><dt>arguments</dt>
+<dd>Pointer to a null-terminated vis ID string, numeric config ID, and a pointer to a null-terminated value string.</dd>
+<dt>returns</dt>
+<dd>1 if successful, 0 otherwise.</dd></dl>
+<h3><span id="const_char*_BCI_GetVisProperty(_const_char*_visID,_int_cfgID_)"></span><span class="mw-headline" id="const_char.2A_BCI_GetVisProperty.28_const_char.2A_visID.2C_int_cfgID_.29">const char* BCI_GetVisProperty( const char* visID, int cfgID )</span></h3>
+<p>Returns the property with the given cfgID from the DLL's internal property list. A list of visualization properties is available at <a href="Technical_Reference%253AVisualization_Properties.html" title="Technical Reference:Visualization Properties">Technical Reference:Visualization Properties</a>.
+</p>
+<dl><dt>arguments</dt>
+<dd>Pointer to a null-terminated vis ID string, numeric config ID.</dd>
+<dt>returns</dt>
+<dd>Pointer to a null-terminated string containing a property line, or NULL. The output buffer is allocated by the library, and should be released by the caller using <tt>BCI_ReleaseObject()</tt>.</dd></dl>
+<h2><span class="mw-headline" id="Online_Information">Online Information</span></h2>
+<p>These functions allow to access information processed when the system is running. Modifying states and setting events will affect what is recorded in the data file.
+</p>
+<h3><span id="int_BCI_SetStateValue(_const_char*_stateName,_long_value_)"></span><span class="mw-headline" id="int_BCI_SetStateValue.28_const_char.2A_stateName.2C_long_value_.29">int BCI_SetStateValue( const char* stateName, long value )</span></h3>
+<p>Sets the value of a state to a given value. Setting a state via <tt>BCI_SetStateValue()</tt> may result in a change to BCI2000 system state.
+</p>
+<dl><dt>arguments</dt>
+<dd>Pointer to a null-terminated state name string; new state value.</dd>
+<dt>returns</dt>
+<dd>1 if successful, 0 otherwise.</dd></dl>
+<h3><span id="long_BCI_GetStateValue(_const_char*_stateName_)"></span><span class="mw-headline" id="long_BCI_GetStateValue.28_const_char.2A_stateName_.29">long BCI_GetStateValue( const char* stateName )</span></h3>
+<p>Returns the value of a state. <b>NOTE:</b> During operation, state values will only be updated when sent by the last module in the chain of core modules. This is governed by the <tt>OperatorBackLink</tt> parameter on the <tt>System</tt> tab, which must be set to 1.
+</p>
+<dl><dt>arguments</dt>
+<dd>Pointer to a null-terminated state name string.</dd>
+<dt>returns</dt>
+<dd>State value, or 0 if the state does not exist.</dd></dl>
+<h3><span id="int_BCI_SetEvent(_const_char*_eventName,_long_value_)"></span><span class="mw-headline" id="int_BCI_SetEvent.28_const_char.2A_eventName.2C_long_value_.29">int BCI_SetEvent( const char* eventName, long value )</span></h3>
+<p>Asynchronously sets the value of an event. In the data file, the point in time where SetEvent() was called will be associated with a single sample.
+</p>
+<dl><dt>arguments</dt>
+<dd>Pointer to a null-terminated event name string; new event value.</dd>
+<dt>returns</dt>
+<dd>1 if successful, 0 otherwise.</dd></dl>
+<h3><span id="int_BCI_GetSignalChannels()"></span><span class="mw-headline" id="int_BCI_GetSignalChannels.28.29">int BCI_GetSignalChannels()</span></h3>
+<p>Returns the number of channels in the control signal.
+</p>
+<h3><span id="int_BCI_GetSignalElements()"></span><span class="mw-headline" id="int_BCI_GetSignalElements.28.29">int BCI_GetSignalElements()</span></h3>
+<p>Returns the number of elements in the control signal.
+</p>
+<h3><span id="float_BCI_GetSignal(_int_channel,_int_element_)"></span><span class="mw-headline" id="float_BCI_GetSignal.28_int_channel.2C_int_element_.29">float BCI_GetSignal( int channel, int element )</span></h3>
+<p>Returns a value from the control signal. <b>NOTE:</b> During operation, control signal values will only be updated when sent by the last module in the chain of core modules. This is governed by the <tt>OperatorBackLink</tt> parameter on the <tt>System</tt> tab, which must be set to 1.
+</p>
+<dl><dt>arguments</dt>
+<dd>Channel index, element index (zero-based).</dd>
+<dt>returns</dt>
+<dd>Signal value.</dd></dl>
+<h2><span class="mw-headline" id="Watches">Watches</span></h2>
+<p>Watches are expressions that are tied to <i>callback events</i> (see below). Whenever the expression's value changes, the associated callback event is triggered. Use <tt>BCI_AddWatch</tt> to create a watch a receive a unique callback event ID, followed with <tt>BCI_SetCallback()</tt> or <tt>BCI_SetExternalCallback()</tt> to register a callback function with the watch's event.
+Whenever the watch is triggered, your callback function will be called with the expression's current value in string format.
+</p>
+<h3><span id="long_BCI_AddWatch(_const_char*_expressions_)"></span><span class="mw-headline" id="long_BCI_AddWatch.28_const_char.2A_expressions_.29">long BCI_AddWatch( const char* expressions )</span></h3>
+<p>Create a watch consisting of one or more expressions. An event is triggered whenever
+one of the expressions changes its value. Expressions are evaluated as described for
+the EVALUATE EXPRESSION scripting command.
+You may associate a callback with the created watch by specifying its watch ID as an
+event ID to any of the callback registration functions. To the callback function, an
+additional argument of type const char* will be provided, which contains a string
+representation of all current expression values, separated by tab characters, and terminated
+with a Windows newline sequence (CRLF).
+The argument is a string containing a list of expressions, separated by tab characters.
+The function returns a watch ID if successful, BCI_None otherwise. The function will fail if the list of expressions
+contains an invalid expression.
+</p>
+<h3><span id="int_BCI_SetWatchDecimation(_long_watchID,_int_decimation_)"></span><span class="mw-headline" id="int_BCI_SetWatchDecimation.28_long_watchID.2C_int_decimation_.29">int BCI_SetWatchDecimation( long watchID, int decimation )</span></h3>
+<p>Set decimation for a watch. By default, decimation is 1, and expressions will be evaluated
+for each sample in a data block. For higher values of decimation, every n-th sample will be evaluated.
+The function returns 1 if successful, 0 if no watch was registered with the given ID.
+</p>
+<h3><span id="int_BCI_RemoveWatch(_long_watchID_)"></span><span class="mw-headline" id="int_BCI_RemoveWatch.28_long_watchID_.29">int BCI_RemoveWatch( long watchID )</span></h3>
+<p>Removes a watch that was created using BCI_AddWatch(), and unregisters its associated callback function.
+The Watch ID argument is a watch ID as returned by BCI_AddWatch.
+Returns 1 if successful, 0 if no watch was registered with the given ID.
+</p>
+<h2><span class="mw-headline" id="Callbacks">Callbacks</span></h2>
+<p>Whenever the Operator Library receives data, or its state is modified, a <i>callback event</i> is triggered. In response to this event, a callback function is called. Callback functions are registered with <tt>BCI_SetCallback()</tt> or <tt>BCI_SetExternalCallback()</tt>. The difference between the two registration functions is that the first registers a callback function to be called within the context of an internal thread of the Operator Library, while the second registers a callback function to be executed in a thread owned by the application that uses the Operator library, i.e. a thread that is "external" to the Operator library. That "external" thread needs to call <tt>BCI_CheckPendingCallback()</tt> regularly in order to execute callback functions. Typically, <tt>BCI_CheckPendingCallback()</tt> would be called from a GUI application's main thread within its message handling loop.
+</p><p>Callback events are listed with their event names, and their handler's arguments. A callback function has at least one argument, which is a void* named refdata. The refdata pointer is supplied by user code when registering the callback function, and provided to the callback function unchanged. Typically, it would be used to store an object pointer in C++, or to an application specific data structure in C.
+</p><p>In Windows, callbacks must follow the <i>stdcall</i> calling convention. In the Operator Library's header file, a macro STDCALL is provided that should be inserted after a callback function's return type in the function declaration. This macro allows setting the calling convention without confusing compilers when compiling for non-Windows systems.
+</p><p>When programming in C++, callback functions must be either global functions, or functions declared "static" within class scope. They may not be ordinary member functions of a class. In object oriented programming however, you will typically want an ordinary member function to be called as a callback. This is possible using the "refdata" pointer to store an object pointer, and then call a member function on that object from the callback function as in the following example:
+</p>
+<pre>class MyOperator
+{
+ public:
+  MyOperator()
+  {
+    BCI_SetCallback( BCI_OnSystemStateChange, BCI_Function( &amp;OnSystemStateChangeCallback ), this );
+  }
+  ~MyOperator()
+  {
+    BCI_SetCallback( BCI_OnSystemStateChange, NULL, NULL );
+  }
+ private:
+  void OnSystemStateChange()
+  {
+    ... // ordinary member function that gets executed when system state changes
+  }
+  static void STDCALL OnSystemStateChangeCallback( void* refdata )
+  {
+    MyOperator* pObject = reinterpret_cast&lt;MyOperator*&gt;( refdata );
+    pObject-&gt;OnSystemStateChange();
+  }
+};
+</pre>
+<p>In the following, callbacks are listed as if they were ordinary functions. However, you will not use them this way. Rather, the "function name" is the name of the callback that is supplied as the first argument to <tt>BCI_SetCallback()</tt> or <tt>BCI_SetExternalCallback()</tt>. Your own callback function will have a different name, must return "void" or "int" as indicated, and must take the arguments listed as arguments to the callback. A pointer to your own callback function will then be specified as the second argument to <tt>BCI_SetCallback()</tt>, casted to the <tt>BCI_Function</tt> type.
+</p>
+<h3><span class="mw-headline" id="Callback_Constants">Callback Constants</span></h3>
+<dl><dt>BCI_Handled</dt>
+<dd>Return this constant to indicate that your callback handled the event. Only used with callback functions listed with an "int" return type.</dd>
+<dt>BCI_NotHandled</dt>
+<dd>Return this constant to indicate that your callback did not handle the event in question. Only used with callback functions listed with an "int" return type.</dd></dl>
+<h3><span id="BCI_OnSystemStateChange(_void*_refdata_)"></span><span class="mw-headline" id="BCI_OnSystemStateChange.28_void.2A_refdata_.29">BCI_OnSystemStateChange( void* refdata )</span></h3>
+<p>Occurs on any change to BCI2000 system state.
+</p>
+<h3><span id="BCI_OnCoreInput(_void*_refdata_)"></span><span class="mw-headline" id="BCI_OnCoreInput.28_void.2A_refdata_.29">BCI_OnCoreInput( void* refdata )</span></h3>
+<p>Occurs on input from any of the BCI2000 core modules.
+</p>
+<h3><span id="BCI_OnConnect(_void*_refdata_)"></span><span class="mw-headline" id="BCI_OnConnect.28_void.2A_refdata_.29">BCI_OnConnect( void* refdata )</span></h3>
+<p>Occurs when core modules have connected to the Operator Library.
+</p>
+<h3><span id="BCI_OnSetConfig(_void*_refdata_)"></span><span class="mw-headline" id="BCI_OnSetConfig.28_void.2A_refdata_.29">BCI_OnSetConfig( void* refdata )</span></h3>
+<p>Triggered when <tt>SetConfig()</tt> has been called.
+</p>
+<h3><span id="BCI_OnStart(_void*_refdata_)"></span><span class="mw-headline" id="BCI_OnStart.28_void.2A_refdata_.29">BCI_OnStart( void* refdata )</span></h3>
+<p>Triggered when <tt>StartRun()</tt> has been called.
+</p>
+<h3><span id="BCI_OnSuspend(_void*_refdata_)"></span><span class="mw-headline" id="BCI_OnSuspend.28_void.2A_refdata_.29">BCI_OnSuspend( void* refdata )</span></h3>
+<p>Triggered when BCI2000 goes into suspended state.
+</p>
+<h3><span id="BCI_OnResume(_void*_refdata_)"></span><span class="mw-headline" id="BCI_OnResume.28_void.2A_refdata_.29">BCI_OnResume( void* refdata )</span></h3>
+<p>Triggered when BCI2000 enters the running state again.
+</p>
+<h3><span id="BCI_OnShutdown(_void*_refdata_)"></span><span class="mw-headline" id="BCI_OnShutdown.28_void.2A_refdata_.29">BCI_OnShutdown( void* refdata )</span></h3>
+<p>Triggered when <tt>BCI_Shutdown()</tt> is called.
+</p>
+<h3><span id="BCI_OnQuitRequest(_void*_refdata,_const_char**_pMsg_)"></span><span class="mw-headline" id="BCI_OnQuitRequest.28_void.2A_refdata.2C_const_char.2A.2A_pMsg_.29">BCI_OnQuitRequest( void* refdata, const char** pMsg )</span></h3>
+<p>Triggered when a script executes the QUIT command. The application may choose to ignore the quit request, and should set the "message" pointer to a constant or static C string in this case. That string should provide information why the quit request was ignored.
+</p>
+<h3><span id="BCI_OnLogMessage(_void*_refdata,_const_char*_msg_)"></span><span class="mw-headline" id="BCI_OnLogMessage.28_void.2A_refdata.2C_const_char.2A_msg_.29">BCI_OnLogMessage( void* refdata, const char* msg )</span></h3>
+<p>Triggered for each log message arriving from one of the modules, including the Operator module itself.
+</p>
+<h3><span id="BCI_OnWarningMessage(_void*_refdata,_const_char*_msg_)"></span><span class="mw-headline" id="BCI_OnWarningMessage.28_void.2A_refdata.2C_const_char.2A_msg_.29">BCI_OnWarningMessage( void* refdata, const char* msg )</span></h3>
+<p>Triggered for warning messages. Note that also a <tt>BCI_OnLogMessage</tt> event is triggered for warning messages.
+</p>
+<h3><span id="BCI_OnErrorMessage(_void*_refdata,_const_char*_msg_)"></span><span class="mw-headline" id="BCI_OnErrorMessage.28_void.2A_refdata.2C_const_char.2A_msg_.29">BCI_OnErrorMessage( void* refdata, const char* msg )</span></h3>
+<p>Triggered for error messages. Note that also a <tt>BCI_OnLogMessage</tt> event is triggered for error messages.
+</p>
+<h3><span id="BCI_OnDebugMessage(_void*_refdata,_const_char*_msg_)"></span><span class="mw-headline" id="BCI_OnDebugMessage.28_void.2A_refdata.2C_const_char.2A_msg_.29">BCI_OnDebugMessage( void* refdata, const char* msg )</span></h3>
+<p>Triggered for each <a href="Programming_Reference%253ADebug_Output.html" title="Programming Reference:Debug Output">debug message</a> received by the Operator module.
+</p>
+<h3><span id="BCI_OnParameter(_void*_refdata,_const_char*_parameterline_)"></span><span class="mw-headline" id="BCI_OnParameter.28_void.2A_refdata.2C_const_char.2A_parameterline_.29">BCI_OnParameter( void* refdata, const char* parameterline )</span></h3>
+<p>Triggered whenever a parameter message arrives at the Operator module.
+</p>
+<h3><span id="BCI_OnState(_void*_refdata,_const_char*_stateline_)"></span><span class="mw-headline" id="BCI_OnState.28_void.2A_refdata.2C_const_char.2A_stateline_.29">BCI_OnState( void* refdata, const char* stateline )</span></h3>
+<p>Triggered whenever a state message arrives at the Operator module.
+</p>
+<h3><span id="BCI_OnVisPropertyMessage(_void*_refdata,_const_char*_visID,_int_cfgID,_const_char*_value_)"></span><span class="mw-headline" id="BCI_OnVisPropertyMessage.28_void.2A_refdata.2C_const_char.2A_visID.2C_int_cfgID.2C_const_char.2A_value_.29">BCI_OnVisPropertyMessage( void* refdata, const char* visID, int cfgID, const char* value )</span></h3>
+<p>Triggered whenever a visproperty message arrives at the Operator module. For a list of available visualization properties, see <a href="Technical_Reference%253AVisualization_Properties.html" title="Technical Reference:Visualization Properties">Technical Reference:Visualization Properties</a>. Constants for the cfgID parameter are defined in the <tt>src/shared/types/CfgID.h</tt> header file.
+</p>
+<h3><span id="BCI_OnVisProperty(_void*_refdata,_const_char*_visID,_int_cfgID,_const_char*_value_)"></span><span class="mw-headline" id="BCI_OnVisProperty.28_void.2A_refdata.2C_const_char.2A_visID.2C_int_cfgID.2C_const_char.2A_value_.29">BCI_OnVisProperty( void* refdata, const char* visID, int cfgID, const char* value )</span></h3>
+<p>Triggered when a visualization property is modified from a script. For a list of available visualization properties, see <a href="Technical_Reference%253AVisualization_Properties.html" title="Technical Reference:Visualization Properties">Technical Reference:Visualization Properties</a>. Constants for the cfgID parameter are defined in the <tt>src/shared/types/CfgID.h</tt> header file.
+</p>
+<h3><span id="BCI_OnInitializeVis(_void*_refdata,_const_char*_visID,_const_char*_kind_)"></span><span class="mw-headline" id="BCI_OnInitializeVis.28_void.2A_refdata.2C_const_char.2A_visID.2C_const_char.2A_kind_.29">BCI_OnInitializeVis( void* refdata, const char* visID, const char* kind )</span></h3>
+<p>Triggered when the first data message for a visualization window arrives. The <tt>kind</tt> argument contains a string describing the kind of visualization required for; it is one of "Graph", "Memo", or "Bitmap".
+</p>
+<h3><span id="BCI_OnVisMemo(_void*_refdata,_const_char*_visID,_const_char*_msg_)"></span><span class="mw-headline" id="BCI_OnVisMemo.28_void.2A_refdata.2C_const_char.2A_visID.2C_const_char.2A_msg_.29">BCI_OnVisMemo( void* refdata, const char* visID, const char* msg )</span></h3>
+<p>Triggered for each memo data message to a visualization window. The <tt>visID</tt> argument specifies the window's visualization ID, the <tt>msg</tt> argument specifies the memo data.
+</p>
+<h3><span id="BCI_OnVisSignal(_void*_refdata,_const_char*_visID,_int_channels,_int_elements,_float*_data_)"></span><span class="mw-headline" id="BCI_OnVisSignal.28_void.2A_refdata.2C_const_char.2A_visID.2C_int_channels.2C_int_elements.2C_float.2A_data_.29">BCI_OnVisSignal( void* refdata, const char* visID, int channels, int elements, float* data )</span></h3>
+<p>Triggered for each signal data message to a visualization window. Data are given such that the pair of indices <tt>(ch,el)</tt> corresponds to the single index <tt>ch*elements+el</tt>. Note that this is different from the layout of bitmap data.
+</p>
+<h3><span id="BCI_OnVisBitmap(_void*_refdata,_const_char*_visID,_int_width,_int_height,_signed_short*_data_)"></span><span class="mw-headline" id="BCI_OnVisBitmap.28_void.2A_refdata.2C_const_char.2A_visID.2C_int_width.2C_int_height.2C_signed_short.2A_data_.29">BCI_OnVisBitmap( void* refdata, const char* visID, int width, int height, signed short* data )</span></h3>
+<p>Triggered for each bitmap data message to a visualization window. Data are given in ARGB 1444 format, where the 12 bits with lowest significance represent color, and the four most significant of these 12 bits represent the R component. When any of the 3 bits with higher significance is set, the pixel is assumed to be transparent. 
+</p><p>In actual images, the most significant bit is never set but allows for transmission of difference images between frames.  Difference frames are computed by subtracting pixel values as if they were signed 16 bit integers, i.e. without regard to their interpretation as ARGB colors.
+In transmission, empty bitmaps (width and height set to 0) are sent to indicate that the next bitmap will be a reference frame; between reference frames, difference frames are sent.
+</p><p>When addressing pixels, the pair of indices <tt>(x,y)</tt> corresponds to the single index <tt>y*width+x</tt>. Note that this is different from the layout of signal messages.
+</p>
+<h3><span id="int_BCI_OnUnknownCommand(_void*_refdata,_const_char*_command_)"></span><span class="mw-headline" id="int_BCI_OnUnknownCommand.28_void.2A_refdata.2C_const_char.2A_command_.29">int BCI_OnUnknownCommand( void* refdata, const char* command )</span></h3>
+<p>Triggered when the <a href="User_Reference%253AOperator_Module_Scripting.html" title="User Reference:Operator Module Scripting">Operator Module Scripting</a> engine meets an unknown command. The event handler can be used to extend the set of commands by handling those commands that are unknown to the scripting engine. To report that a command has been handled, return <tt>BCI_Handled</tt> from the callback function. Otherwise, return a value of <tt>BCI_NotHandled</tt>.
+</p>
+<h3><span id="BCI_OnScriptHelp(_void*_refdata,_const_char**_pMsg_)"></span><span class="mw-headline" id="BCI_OnScriptHelp.28_void.2A_refdata.2C_const_char.2A.2A_pMsg_.29">BCI_OnScriptHelp( void* refdata, const char** pMsg )</span></h3>
+<p>Triggered when the scripting engine's "Help" command is executed. Assign the address of a string constant to the memory location received in <tt>pMsg</tt>. The contents of the string will be printed last in the list of commands, preceded with "Application-defined commands: ".
+</p>
+<h3><span id="BCI_OnScriptError(_void*_refdata,_const_char*_msg_)"></span><span class="mw-headline" id="BCI_OnScriptError.28_void.2A_refdata.2C_const_char.2A_msg_.29">BCI_OnScriptError( void* refdata, const char* msg )</span></h3>
+<p>Triggered when script execution results in an error condition. Note that unknown commands are reported through the <tt>BCI_OnUnknownCommand</tt> event handler.
+</p>
+<h2><span class="mw-headline" id="Functions_that_manage_callbacks">Functions that manage callbacks</span></h2>
+<h3><span id="int_BCI_SetCallback(_long,_BCI_Function,_void*_)"></span><span class="mw-headline" id="int_BCI_SetCallback.28_long.2C_BCI_Function.2C_void.2A_.29">int BCI_SetCallback( long, BCI_Function, void* )</span></h3>
+<p>Register a callback function. To clear a callback function, specify NULL as a function pointer.
+</p>
+<dl><dt>arguments</dt>
+<dd>Event ID, callback function pointer, data pointer. The callback function pointer must be cast to the <tt>BCI_Function</tt> function pointer type. The data pointer may be any data that should be available to the callback function.</dd>
+<dt>returns</dt>
+<dd>1 if successful, 0 otherwise.</dd></dl>
+<h3><span id="int_BCI_SetExternalCallback(_long,_BCI_Function,_void*_)"></span><span class="mw-headline" id="int_BCI_SetExternalCallback.28_long.2C_BCI_Function.2C_void.2A_.29">int BCI_SetExternalCallback( long, BCI_Function, void* )</span></h3>
+<p>Register a callback function to be executed in an external thread on execution of <tt>BCI_CheckPendingCallback()</tt>. To clear a callback function, specify NULL as a function pointer.
+</p>
+<dl><dt>arguments</dt>
+<dd>Event ID, callback function pointer, data pointer. The callback function pointer must be cast to the <tt>BCI_Function</tt> function pointer type. The data pointer may point to any data that should be available to the callback function.</dd>
+<dt>returns</dt>
+<dd>1 if successful, 0 otherwise.</dd></dl>
+<h3><span id="int_BCI_CheckPendingCallback()"></span><span class="mw-headline" id="int_BCI_CheckPendingCallback.28.29">int BCI_CheckPendingCallback()</span></h3>
+<p>Call this function regularly from within an external thread you want external callbacks to run in. Typically, is is called from a GUI application's main event loop.
+</p>
+<dl><dt>arguments</dt>
+<dd>None.</dd>
+<dt>returns</dt>
+<dd>1 if a callback was executed, 0 otherwise.</dd></dl>
+<h3><span id="BCI_Function_BCI_GetCallbackFunction(_long_)"></span><span class="mw-headline" id="BCI_Function_BCI_GetCallbackFunction.28_long_.29">BCI_Function BCI_GetCallbackFunction( long )</span></h3>
+<p>Get a registered callback function pointer.
+</p>
+<dl><dt>arguments</dt>
+<dd>Event ID.</dd>
+<dt>returns</dt>
+<dd>Callback function pointer, or NULL if no callback function has been registered for the specified event.</dd></dl>
+<h3><span id="void*_BCI_GetCallbackData(_long_)"></span><span class="mw-headline" id="void.2A_BCI_GetCallbackData.28_long_.29">void* BCI_GetCallbackData( long )</span></h3>
+<p>Get registered callback data. Callback data is the first argument to callback functions, and specified when calling <tt>SetCallback()</tt> or <tt>SetExternalCallback()</tt>.
+</p>
+<dl><dt>arguments</dt>
+<dd>Event ID.</dd>
+<dt>returns</dt>
+<dd>Callback data, or NULL if no callback data has been registered for the specified event.</dd></dl>
+<h3><span id="int_BCI_GetCallbackIsExternal(_long_)"></span><span class="mw-headline" id="int_BCI_GetCallbackIsExternal.28_long_.29">int BCI_GetCallbackIsExternal( long )</span></h3>
+<p>Get information how callback was registered.
+</p>
+<dl><dt>arguments</dt>
+<dd>Event ID.</dd>
+<dt>returns</dt>
+<dd>1 if the function was registered with <tt>BCI_SetExternalCallback()</tt>, and 0 if it was registered with <tt>BCI_SetCallback()</tt>, or when no callback was registered.</dd></dl>
+<h2><span class="mw-headline" id="Miscellaneous_Functions">Miscellaneous Functions</span></h2>
+<h3><span id="const_char*_BCI_GetInfo(_void_)"></span><span class="mw-headline" id="const_char.2A_BCI_GetInfo.28_void_.29">const char* BCI_GetInfo( void )</span></h3>
+<p>Reports build and source version information.
+</p>
+<dl><dt>arguments</dt>
+<dd>None.</dd>
+<dt>returns</dt>
+<dd>Pointer to a null-terminated string holding the information requested. The output buffer is allocated by the library, and should be released by the caller using <tt>BCI_ReleaseObject()</tt>.</dd></dl>
+<h3><span id="const_char*_BCI_GetConnectionInfo(_int_index_)"></span><span class="mw-headline" id="const_char.2A_BCI_GetConnectionInfo.28_int_index_.29">const char* BCI_GetConnectionInfo( int index )</span></h3>
+<p>Obtains information about a <a href="Technical_Reference%253ACore_Modules.html" title="Technical Reference:Core Modules">core module</a> connection.
+</p>
+<dl><dt>argument</dt>
+<dd>Zero-based index of core module connection.</dd>
+<dt>returns</dt>
+<dd>Pointer to a null-terminated string containing connection information, or NULL for an invalid index. The output buffer is allocated by the library, and should be released by the caller using <tt>BCI_ReleaseObject()</tt>.</dd></dl>
+<h3><span id="const_char*_BCI_GetCoreModuleStatus(_int_index_)"></span><span class="mw-headline" id="const_char.2A_BCI_GetCoreModuleStatus.28_int_index_.29">const char* BCI_GetCoreModuleStatus( int index )</span></h3>
+<p>Obtains a <a href="Technical_Reference%253ACore_Modules.html" title="Technical Reference:Core Modules">core module's</a> current status message.
+</p>
+<dl><dt>argument</dt>
+<dd>Zero-based index of core module connection.</dd>
+<dt>returns</dt>
+<dd>Pointer to a null-terminated string containing status information, or NULL for an invalid index. The output buffer is allocated by the library, and should be released by the caller using <tt>BCI_ReleaseObject()</tt>.</dd></dl>
+<h3><span id="int_BCI_Startup(_const_char*_arguments_)"></span><span class="mw-headline" id="int_BCI_Startup.28_const_char.2A_arguments_.29">int BCI_Startup( const char* arguments )</span></h3>
+<p>Listens on core module connection ports.
+</p>
+<dl><dt>arguments</dt>
+<dd>A string defining a local IP address (such as "localhost", or "134.2.123.151", or "*" to listen on all local addresses), and <a href="Technical_Reference%253ACore_Modules.html" title="Technical Reference:Core Modules">core module</a> names and listening ports in the form "&lt;name1&gt;:&lt;port1&gt; &lt;name2:port2&gt; ... &lt;nameN:portN&gt;" If NULL or empty, a value of "Source:4000 SignalProcessing:4001 Application:4002" representing a standard BCI2000 configuration is used, and the Operator module listens on all addresses.</dd>
+<dt>returns</dt>
+<dd>1 if successful, 0 otherwise.</dd></dl>
+<h3><span id="int_BCI_Shutdown(_void_)"></span><span class="mw-headline" id="int_BCI_Shutdown.28_void_.29">int BCI_Shutdown( void )</span></h3>
+<p>Close connections to core modules, and go into idle state.
+</p>
+<dl><dt>returns</dt>
+<dd>1 if successful, 0 otherwise.</dd></dl>
+<h3><span id="int_BCI_Initialize(_void_)"></span><span class="mw-headline" id="int_BCI_Initialize.28_void_.29">int BCI_Initialize( void )</span></h3>
+<p>Initialize the library. Must be called before any other library function is used. This function should be called from your application's main thread.
+</p>
+<dl><dt>returns</dt>
+<dd>1 if no error occurred, 0 otherwise.</dd></dl>
+<h3><span id="int_BCI_Dispose(_void_)"></span><span class="mw-headline" id="int_BCI_Dispose.28_void_.29">int BCI_Dispose( void )</span></h3>
+<p>Dispose of all resources allocated by the library. This function must be called from the thread that called BCI_Initialize().
+</p>
+<dl><dt>returns</dt>
+<dd>1 if no error occurred, 0 otherwise.</dd></dl>
+<h3><span id="int_BCI_TelnetListen(_const_char*_address_)"></span><span class="mw-headline" id="int_BCI_TelnetListen.28_const_char.2A_address_.29">int BCI_TelnetListen( const char* address )</span></h3>
+<p>Start a telnet server, listening at the given address. By opening a telnet connection, it is possible to execute <a href="User_Reference%253AOperator_Module_Scripting.html" title="User Reference:Operator Module Scripting">scripting commands</a> interactively.
+</p>
+<dl><dt>arguments</dt>
+<dd>Address as a string in &lt;IP&gt;:&lt;port&gt; format. May be NULL, in which case it defaults to "localhost:3999".</dd>
+<dt>returns</dt>
+<dd>1 if no error occurred, 0 otherwise.</dd></dl>
+<h3><span id="int_BCI_TelnetClose(_void_)"></span><span class="mw-headline" id="int_BCI_TelnetClose.28_void_.29">int BCI_TelnetClose( void )</span></h3>
+<p>Stop the telnet server, closing any open connections.
+</p>
+<dl><dt>returns</dt>
+<dd>1 if no error occurred, 0 otherwise.</dd></dl>
+<h3><span id="int_BCI_WebsocketListen(_const_char*_address_)"></span><span class="mw-headline" id="int_BCI_WebsocketListen.28_const_char.2A_address_.29">int BCI_WebsocketListen( const char* address )</span></h3>
+<p>Start a <a rel="nofollow" class="external text" href="https://en.wikipedia.org/wiki/WebSocket">WebSocket</a> server, listening at the given address. By opening a WebSocket connection to <i>ws://ip:port/</i>, it is possible to execute <a href="User_Reference%253AOperator_Module_Scripting.html" title="User Reference:Operator Module Scripting">scripting commands</a> and receive command results.
+</p>
+<dl><dt>arguments</dt>
+<dd>Address as a string in &lt;IP&gt;:&lt;port&gt; format. May be NULL, in which case it defaults to "localhost:3998".</dd>
+<dt>returns</dt>
+<dd>1 if no error occurred, 0 otherwise.</dd></dl>
+<h3><span id="int_BCI_WebsocketClose(_void_)"></span><span class="mw-headline" id="int_BCI_WebsocketClose.28_void_.29">int BCI_WebsocketClose( void )</span></h3>
+<p>Stop the WebSocket server, closing any open connections.
+</p>
+<dl><dt>returns</dt>
+<dd>1 if no error occurred, 0 otherwise.</dd></dl>
+<h3><span id="int_BCI_ExecuteScript(_const_char*_script_)"></span><span class="mw-headline" id="int_BCI_ExecuteScript.28_const_char.2A_script_.29">int BCI_ExecuteScript( const char* script )</span></h3>
+<p>Interprets and executes the specified script according to the <a href="User_Reference%253AOperator_Module_Scripting.html" title="User Reference:Operator Module Scripting">Operator scripting reference</a>.
+</p>
+<dl><dt>arguments</dt>
+<dd>Null-terminated string specifying script commands.</dd>
+<dt>returns</dt>
+<dd>0 if a syntax error is present, 1 otherwise.</dd></dl>
+<h3><span id="const_char*_BCI_ExecuteScriptWithResult(_const_char*_script_)"></span><span class="mw-headline" id="const_char.2A_BCI_ExecuteScriptWithResult.28_const_char.2A_script_.29">const char* BCI_ExecuteScriptWithResult( const char* script )</span></h3>
+<p>Interprets and executes the specified script according to the <a href="User_Reference%253AOperator_Module_Scripting.html" title="User Reference:Operator Module Scripting">Operator scripting reference</a>.
+</p>
+<dl><dt>arguments</dt>
+<dd>Null-terminated string specifying script commands.</dd>
+<dt>returns</dt>
+<dd>NULL if a syntax error is present, pointer to a null-terminated result string otherwise. The result string is allocated by the library, and should be released by the caller using BCI_ReleaseObject(). The result is always identical to the result of the last executed script command.</dd></dl>
+<h3><span id="void_BCI_Log(_int_messageType,_const_char*_message_)"></span><span class="mw-headline" id="void_BCI_Log.28_int_messageType.2C_const_char.2A_message_.29">void BCI_Log( int messageType, const char* message )</span></h3>
+<p>Acts as if receiving the respective type of message from a module, i.e. typically calls the handler installed for that type of message.
+</p>
+<dl><dt>arguments</dt>
+<dd>Type of message, which is one of BCI_LogMessage, BCI_Warning, BCI_Error, BCI_DebugMessage; null-terminated message string.</dd></dl>
+<h3><span id="int_BCI_ReleaseObject(_const_char*_)"></span><span class="mw-headline" id="int_BCI_ReleaseObject.28_const_char.2A_.29">int BCI_ReleaseObject( const char* )</span></h3>
+<p>Indicate that an object that has been allocated by the library is no longer needed by the library's client.
+</p>
+<dl><dt>arguments</dt>
+<dd>Object to be released, or NULL.</dd>
+<dt>returns</dt>
+<dd>1 if successful, 0 otherwise.</dd></dl>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Reference%253AOperator_Module_Scripting.html" title="User Reference:Operator Module Scripting">User Reference:Operator Module Scripting</a>, <a href="Technical_Reference%253AStates_of_Operation.html" title="Technical Reference:States of Operation">Technical Reference:States of Operation</a>, <a href="Programming_Reference%253ADebug_Output.html" title="Programming Reference:Debug Output">Programming Reference:Debug Output</a>, <a href="Technical_Reference%253ABCI2000Remote_Library.html" title="Technical Reference:BCI2000Remote Library">Technical Reference:BCI2000Remote Library</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524000345
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.069 seconds
+Real time usage: 0.072 seconds
+Preprocessor visited node count: 274/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 566/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1995-0!canonical and timestamp 20230524000345 and revision id 9224
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Technical_Reference:Operator_Library&amp;oldid=9224">http://www.bci2000.org/mediawiki/index.php?title=Technical_Reference:Operator_Library&amp;oldid=9224</a>"</div>
+ </div>
+</body>
+</html>

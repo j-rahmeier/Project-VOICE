@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Contributions:gNautilusNEEDAccess - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul><li class="toc1"><a href="Contributions%253AADCs.html">Data Acquisition</a></li><li class="toc1"><a href="Contributions%253AFileWriters.html">File Formats</a></li><li class="toc1"><a href="Contributions%253ASignalProcessing.html">Signal Processing</a></li><li class="toc1"><a href="Contributions%253AApplications.html">Applications</a></li><li class="toc1"><a href="Contributions%253ATools.html">Tools</a></li></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">gNautilusNEEDAccess</h1>
+ <p class = "subtitle">Contributions</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Contributions%253AgNautilusNEEDAccess.html#Synopsis"><span class="tocnumber">1</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Contributions%253AgNautilusNEEDAccess.html#Location"><span class="tocnumber">2</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Contributions%253AgNautilusNEEDAccess.html#Versioning"><span class="tocnumber">3</span> <span class="toctext">Versioning</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Contributions%253AgNautilusNEEDAccess.html#Author"><span class="tocnumber">3.1</span> <span class="toctext">Author</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Contributions%253AgNautilusNEEDAccess.html#Version_History"><span class="tocnumber">3.2</span> <span class="toctext">Version History</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Contributions%253AgNautilusNEEDAccess.html#Source_Code_Revisions"><span class="tocnumber">3.3</span> <span class="toctext">Source Code Revisions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="Contributions%253AgNautilusNEEDAccess.html#Functional_Description"><span class="tocnumber">4</span> <span class="toctext">Functional Description</span></a>
+<ul>
+<li class="toclevel-2 tocsection-8"><a href="Contributions%253AgNautilusNEEDAccess.html#Configuration"><span class="tocnumber">4.1</span> <span class="toctext">Configuration</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-9"><a href="Contributions%253AgNautilusNEEDAccess.html#Parameters"><span class="tocnumber">5</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2 tocsection-10"><a href="Contributions%253AgNautilusNEEDAccess.html#SourceCh"><span class="tocnumber">5.1</span> <span class="toctext">SourceCh</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="Contributions%253AgNautilusNEEDAccess.html#SamplingRate"><span class="tocnumber">5.2</span> <span class="toctext">SamplingRate</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="Contributions%253AgNautilusNEEDAccess.html#SampleBlockSize"><span class="tocnumber">5.3</span> <span class="toctext">SampleBlockSize</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="Contributions%253AgNautilusNEEDAccess.html#ChannelNames"><span class="tocnumber">5.4</span> <span class="toctext">ChannelNames</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="Contributions%253AgNautilusNEEDAccess.html#HostIP.2C_HostPort.2C_LocalIP.2C_LocalPort"><span class="tocnumber">5.5</span> <span class="toctext">HostIP, HostPort, LocalIP, LocalPort</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="Contributions%253AgNautilusNEEDAccess.html#NautilusSN"><span class="tocnumber">5.6</span> <span class="toctext">NautilusSN</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="Contributions%253AgNautilusNEEDAccess.html#NetworkChannel"><span class="tocnumber">5.7</span> <span class="toctext">NetworkChannel</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-17"><a href="Contributions%253AgNautilusNEEDAccess.html#Future_Work"><span class="tocnumber">6</span> <span class="toctext">Future Work</span></a></li>
+<li class="toclevel-1 tocsection-18"><a href="Contributions%253AgNautilusNEEDAccess.html#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>The g.Nautilus acquisition module enables signal acquisition from the g.Nautilus device via the g.NEEDaccess API.
+</p>
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><a rel="nofollow" class="external free" href="http://www.bci2000.org/svn/trunk/src/contrib/SignalSource/gNautilus">http://www.bci2000.org/svn/trunk/src/contrib/SignalSource/gNautilus</a>
+</p>
+<h2><span class="mw-headline" id="Versioning">Versioning</span></h2>
+<h3><span class="mw-headline" id="Author">Author</span></h3>
+<p>Griffin Milsap (griffin.milsap@gmail.com)
+</p>
+<h3><span class="mw-headline" id="Version_History">Version History</span></h3>
+<ul><li>V0.5 -- Analog Signal Acquisition</li></ul>
+<h3><span class="mw-headline" id="Source_Code_Revisions">Source Code Revisions</span></h3>
+<ul><li>Initial development: 4727</li>
+<li>Tested under: 4727</li>
+<li>Known to compile under: 4727</li>
+<li>Broken since: N/A</li></ul>
+<h2><span class="mw-headline" id="Functional_Description">Functional Description</span></h2>
+<p>The g.Nautilus is a wireless headset by g.tec, and is the first in their product line to use g.NEEDaccess exclusively for realtime access.  This documentation explains the parameterization and specifics on how to set up the system.
+</p><p><b>NOTE:</b> As of the time of writing, this module is at release V0.5.  As such, it is not necessarily feature complete.  The current g.NEEDAccess API BETA 7XX has not implemented all functionality that will eventually be supported in this module.  Also, timing is pretty awful.  As of right now, the acquisition module is not recommended for real-time closed-loop use with BCI2000.
+</p>
+<h3><span class="mw-headline" id="Configuration">Configuration</span></h3>
+<p>Install g.NEEDAccess on your machine, along with necessary g.tec drivers.  Ensure the GDSDataServer is running by checking in services.msc.  You'll need your HASP dongle in order to to access g.NEEDAccess<a rel="nofollow" class="external text" href="http://www.reactiongifs.com/r/fgwtf.gif">.</a>
+</p><p><b>NOTE:</b> As of right now, g.NEEDAccess BETA 7XX appears to only support Windows 7+ 64 bit operating systems.  As such, a 64 bit build of BCI2000 is required to make the g.Nautilus binary.  g.Nautiulus can only be built using Visual Studio on Windows.
+</p><p>Ensure the device is charged and connected to the base station (refer to the included documentation for help with this).  Start BCI2000 with the gNautilus source module.
+</p>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<p>The following parameters are available for configuring the Blackrock source module. You will find these parameters in the Source -- Signal Properties section. 
+</p>
+<h3><span class="mw-headline" id="SourceCh">SourceCh</span></h3>
+<p>The g.Nautilus claims to support 64 channels via its API.  The module has only been tested up to 32 channels.
+</p><p><b>NOTE:</b> If less than 32 channels are acquired, only the first SourceCh channels will be acquired from.
+</p>
+<h3><span class="mw-headline" id="SamplingRate">SamplingRate</span></h3>
+<p>Only the following sample rates are currently supported by the API: 250 Hz and 500 Hz.
+</p>
+<h3><span class="mw-headline" id="SampleBlockSize">SampleBlockSize</span></h3>
+<p>Sample block size must be set to an integer multiple of the minimum sample block size corresponding to the current SamplingRate.
+</p><p><b>NOTE:</b> As of V0.5, and g.NEEDAccess BETA 7XX, a SampleBlockSize set to the minimum block size results in non-realtime operation.  Please specify a multiple of at least 2 * minimum block size.
+</p>
+<ul><li>250 Hz -- 8 samples per block (block length of 32 ms, system clocked at 31.25 Hz)</li>
+<li>500 Hz -- 15 samples per block (block length of 30 ms, system clocked at 33.33 Hz)</li></ul>
+<h3><span class="mw-headline" id="ChannelNames">ChannelNames</span></h3>
+<p>Leave this blank and channels are numbered.  See Operator Log for information about correct channel names.
+</p>
+<h3><span id="HostIP,_HostPort,_LocalIP,_LocalPort"></span><span class="mw-headline" id="HostIP.2C_HostPort.2C_LocalIP.2C_LocalPort">HostIP, HostPort, LocalIP, LocalPort</span></h3>
+<p>This defines the UDP connection to the GDSDataServer.  If the service is running on your machine (see services.msc), the GDSDataServer will be listening to UDP packets on port 50223 (Default) at localhost (127.0.0.1).  By default, the server will send messages to the listening process (localhost -- 127.0.0.1) on port 50224.  The defaults here will be used in most circumstances.  Consult your network administrator if your acquisition system is different.
+</p><p><b>NOTE:</b> Ensure UDP communications on port 50223 and 50224 are unblocked and uninterrupted by any firewalls between the server and the client.
+</p>
+<h3><span class="mw-headline" id="NautilusSN">NautilusSN</span></h3>
+<p>This is the "name" of the device to acquire from.  The serial number on the base-station is used here (Format: NB-20XX.YY.ZZ).  Check the operator log for discovered devices and troubleshooting hints.
+</p>
+<h3><span class="mw-headline" id="NetworkChannel">NetworkChannel</span></h3>
+<p>Channels 11-18 are available for communicating with several g.Nautilus devices in the same room.  In order to ensure uninterrupted connections, use different NetworkChannel settings for each g.Nautilus in the room.  
+</p>
+<h2><span class="mw-headline" id="Future_Work">Future Work</span></h2>
+<ul><li>Autoconfiguration!</li>
+<li>Parametrization of Sensitivity</li>
+<li>Selective Channel Acquisition</li>
+<li>Digital Input as States</li>
+<li>Head Mounted Accelerometer input as States</li>
+<li>Signal quality indicator states</li>
+<li>Battery life check</li>
+<li>BCI2000 Integrated impedance check mode</li></ul>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="User_Reference%253AFilters.html" title="User Reference:Filters">User Reference:Filters</a>, <a href="Contributions%253AADCs.html" title="Contributions:ADCs">Contributions:ADCs</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230524002731
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.017 seconds
+Real time usage: 0.019 seconds
+Preprocessor visited node count: 56/1000000
+Post‐expand include size: 15/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:2093-0!canonical and timestamp 20230524002731 and revision id 7540
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Contributions:gNautilusNEEDAccess&amp;oldid=7540">http://www.bci2000.org/mediawiki/index.php?title=Contributions:gNautilusNEEDAccess&amp;oldid=7540</a>"</div>
+ </div>
+</body>
+</html>

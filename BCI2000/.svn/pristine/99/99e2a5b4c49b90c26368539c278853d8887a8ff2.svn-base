@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Programming Reference:FeedbackTask Class - BCI2000 Help</title>
+<link rel='shortcut icon' href='../../rsrc/favicon.ico' />
+<style type='text/css'>
+html { font-size:95%; font-family:arial,helvetica,sans-serif }
+.printfooter { display:none }
+#tocmain { font-size:81%; font-weight:bold; color:black; background-color:white; border:1px solid black; padding:1em; z-index:10; position:fixed; left:-1px; top:-1px; width:150px; }
+#tocmain a { color:blue; text-decoration:none }
+#tocmain ul { margin:0 0 0 0.4em; padding:0.1em 0 0 0.1em; list-style-position:outside; list-style-type:disc }
+#tocmain li { text-indent:0; margin:0 0 0 1em; padding: 0 0 0 0 }
+#tocmain p { margin:0; padding:0.1em 0 0 0.1em }
+#tocmain .toc1 { margin-left:1.25em; }
+#tocmain .toc2 { margin-left:2.25em; }
+#tocmain .toc3 { margin-left:3.25em; }
+#article { font-size:91%; position:absolute; left:200px; right:0; padding:1em; margin:0 }
+</style>
+</head>
+<body>
+ <div id='tocmain'>
+ <a href='Main_Page.html'><img src='../../rsrc/bci2000logo.svg' alt='[Main Page]' /></a> <hr class="sep" /><p class="toc0"><a href="User_Tutorial%253ABCI2000_Tour.html">GettingStarted</a></p><ul></ul><p class="toc0"><a href="User_Reference%253AContents.html">User Manual</a></p><ul></ul><p class="toc0"><a href="Technical_Reference%253AContents.html">Technical Reference</a></p><ul></ul><p class="toc0"><a href="Programming_Reference%253AContents.html">Programming Manual</a></p><ul><li class="toc1">Concepts</li><ul><li class="toc2"><a href="Programming_Reference%253AFilter_Chain.html">Filter Chain</a></li><li class="toc2"><a href="Programming_Reference%253ASignals.html">Signals</a></li><li class="toc2"><a href="Programming_Reference%253AError_Handling.html">Error Handling</a></li><li class="toc2"><a href="Programming_Reference%253ALocalization.html">Localization</a></li><li class="toc2"><a href="Programming_Reference%253ARapid_Development.html">Rapid Development</a></li></ul><li class="toc1">Reference</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFilter_Class.html">GenericFilter</a></li><li class="toc2"><a href="Programming_Reference%253AEnvironment_Class.html">Environment</a></li><li class="toc2"><a href="Programming_Reference%253AGenericVisualization_Class.html">GenericVisualization</a></li><li class="toc2"><a href="Programming_Reference%253AErrors_and_Warnings.html">Errors and Warnings</a></li><li class="toc2"><a href="Programming_Reference%253ADebug_Output.html">Debug Output</a></li></ul><li class="toc1">Data Acquisition</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericADC_Class.html">GenericADC</a></li></ul><li class="toc1">Data Storage</li><ul><li class="toc2"><a href="Programming_Reference%253AGenericFileWriter_Class.html">GenericFileWriter</a></li><li class="toc2"><a href="Programming_Reference%253ABCI2000FileReader_Class.html">BCI2000FileReader</a></li></ul><li class="toc1">Signal Processing</li><ul><li class="toc2"><a href="Programming_Reference%253AIIRFilterBase_Class.html">IIR Filters</a></li></ul><li class="toc1">Application Modules</li><ul><li class="toc2"><a href="Programming_Reference%253AApplicationBase_Class.html">ApplicationBase</a></li><li class="toc2">FeedbackTask</li><li class="toc2"><a href="Programming_Reference%253AStimulusTask_Class.html">StimulusTask</a></li><li class="toc2"><a href="Programming_Reference%253A3D_API.html">3D API</a></li></ul><li class="toc1">Howtos</li><ul><li class="toc2"><a href="Programming_Howto%253ABuilding_BCI2000.html">Building BCI2000</a></li><li class="toc2"><a href="Programming_Howto%253ASVN_Client_Setup.html">SVN Client Setup</a></li><li class="toc2"><a href="Programming_Howto%253AUsing_TortoiseSVN.html">Using TortoiseSVN</a></li></ul><li class="toc1"><a href="Programming_FAQ.html">FAQ</a></li><li class="toc1">Tutorials</li><ul><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Data_Acquisition_Module.html">Data Acquisition</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Signal_Processing_Filter.html">Signal Processing</a></li><li class="toc2"><a href="Programming_Tutorial%253AImplementing_a_Matlab-based_Filter.html">Matlab Signal Processing</a></li></ul></ul><p class="toc0"><a href="Contributions%253AContents.html">Contributions</a></p><ul></ul><hr class="sep" /><p class="toc0"><a href="BCI2000_Glossary.html">BCI2000 Glossary</a></p> </div>
+ <div id='article'>
+ <h1 class = "pagetitle">FeedbackTask Class</h1>
+ <p class = "subtitle">Programming Reference</p>
+ <hr class = "sep" />
+ <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Programming_Reference%253AFeedbackTask_Class.html#Location"><span class="tocnumber">1</span> <span class="toctext">Location</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Programming_Reference%253AFeedbackTask_Class.html#Synopsis"><span class="tocnumber">2</span> <span class="toctext">Synopsis</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Programming_Reference%253AFeedbackTask_Class.html#Events"><span class="tocnumber">3</span> <span class="toctext">Events</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Programming_Reference%253AFeedbackTask_Class.html#Events_Summary"><span class="tocnumber">3.1</span> <span class="toctext">Events Summary</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Programming_Reference%253AFeedbackTask_Class.html#Events_forwarded_from_the_GenericFilter_interface"><span class="tocnumber">3.2</span> <span class="toctext">Events forwarded from the GenericFilter interface</span></a>
+<ul>
+<li class="toclevel-3 tocsection-6"><a href="Programming_Reference%253AFeedbackTask_Class.html#OnPreflight.28SignalProperties_.28r.29.29"><span class="tocnumber">3.2.1</span> <span class="toctext">OnPreflight(SignalProperties (r))</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="Programming_Reference%253AFeedbackTask_Class.html#OnInitialize.28SignalProperties_.28r.29.29"><span class="tocnumber">3.2.2</span> <span class="toctext">OnInitialize(SignalProperties (r))</span></a></li>
+<li class="toclevel-3 tocsection-8"><a href="Programming_Reference%253AFeedbackTask_Class.html#OnStartRun"><span class="tocnumber">3.2.3</span> <span class="toctext">OnStartRun</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="Programming_Reference%253AFeedbackTask_Class.html#OnStopRun"><span class="tocnumber">3.2.4</span> <span class="toctext">OnStopRun</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="Programming_Reference%253AFeedbackTask_Class.html#OnHalt"><span class="tocnumber">3.2.5</span> <span class="toctext">OnHalt</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-11"><a href="Programming_Reference%253AFeedbackTask_Class.html#Phase_transition_Events"><span class="tocnumber">3.3</span> <span class="toctext">Phase transition Events</span></a>
+<ul>
+<li class="toclevel-3 tocsection-12"><a href="Programming_Reference%253AFeedbackTask_Class.html#OnTrialBegin"><span class="tocnumber">3.3.1</span> <span class="toctext">OnTrialBegin</span></a></li>
+<li class="toclevel-3 tocsection-13"><a href="Programming_Reference%253AFeedbackTask_Class.html#OnTrialEnd"><span class="tocnumber">3.3.2</span> <span class="toctext">OnTrialEnd</span></a></li>
+<li class="toclevel-3 tocsection-14"><a href="Programming_Reference%253AFeedbackTask_Class.html#OnFeedbackBegin"><span class="tocnumber">3.3.3</span> <span class="toctext">OnFeedbackBegin</span></a></li>
+<li class="toclevel-3 tocsection-15"><a href="Programming_Reference%253AFeedbackTask_Class.html#OnFeedbackEnd"><span class="tocnumber">3.3.4</span> <span class="toctext">OnFeedbackEnd</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-16"><a href="Programming_Reference%253AFeedbackTask_Class.html#Input_Events"><span class="tocnumber">3.4</span> <span class="toctext">Input Events</span></a>
+<ul>
+<li class="toclevel-3 tocsection-17"><a href="Programming_Reference%253AFeedbackTask_Class.html#DoPreRun.28GenericSignal_.28r.29.2C_bool_doProgress_.28rw.29.29"><span class="tocnumber">3.4.1</span> <span class="toctext">DoPreRun(GenericSignal (r), bool doProgress (rw))</span></a></li>
+<li class="toclevel-3 tocsection-18"><a href="Programming_Reference%253AFeedbackTask_Class.html#DoPreFeedback.28GenericSignal_.28r.29.2C_bool_doProgress_.28rw.29.29"><span class="tocnumber">3.4.2</span> <span class="toctext">DoPreFeedback(GenericSignal (r), bool doProgress (rw))</span></a></li>
+<li class="toclevel-3 tocsection-19"><a href="Programming_Reference%253AFeedbackTask_Class.html#DoFeedback.28GenericSignal_.28r.29.2C_bool_doProgress_.28rw.29.29"><span class="tocnumber">3.4.3</span> <span class="toctext">DoFeedback(GenericSignal (r), bool doProgress (rw))</span></a></li>
+<li class="toclevel-3 tocsection-20"><a href="Programming_Reference%253AFeedbackTask_Class.html#DoPostFeedback.28GenericSignal_.28r.29.2C_bool_doProgress_.28rw.29.29"><span class="tocnumber">3.4.4</span> <span class="toctext">DoPostFeedback(GenericSignal (r), bool doProgress (rw))</span></a></li>
+<li class="toclevel-3 tocsection-21"><a href="Programming_Reference%253AFeedbackTask_Class.html#DoITI.28GenericSignal_.28r.29.2C_bool_doProgress_.28rw.29.29"><span class="tocnumber">3.4.5</span> <span class="toctext">DoITI(GenericSignal (r), bool doProgress (rw))</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-22"><a href="Programming_Reference%253AFeedbackTask_Class.html#Properties"><span class="tocnumber">4</span> <span class="toctext">Properties</span></a>
+<ul>
+<li class="toclevel-2"><a href="Programming_Reference%253AFeedbackTask_Class.html#ostream_AppLog.2C_AppLog.File.2C_AppLog.Screen_.28w.29"><span class="tocnumber">4.1</span> <span class="toctext">ostream AppLog, AppLog.File, AppLog.Screen (w)</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AFeedbackTask_Class.html#RandomGenerator_RandomNumberGenerator_.28rw.29"><span class="tocnumber">4.2</span> <span class="toctext">RandomGenerator RandomNumberGenerator (rw)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-23"><a href="Programming_Reference%253AFeedbackTask_Class.html#Methods"><span class="tocnumber">5</span> <span class="toctext">Methods</span></a>
+<ul>
+<li class="toclevel-2 tocsection-24"><a href="Programming_Reference%253AFeedbackTask_Class.html#FeedbackTask.28GUI::GraphDisplay.2A.3DNULL.29"><span class="tocnumber">5.1</span> <span class="toctext">FeedbackTask(GUI::GraphDisplay*=NULL)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-25"><a href="Programming_Reference%253AFeedbackTask_Class.html#Parameters"><span class="tocnumber">6</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2"><a href="Programming_Reference%253AFeedbackTask_Class.html#PreRunDuration"><span class="tocnumber">6.1</span> <span class="toctext">PreRunDuration</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AFeedbackTask_Class.html#PreFeedbackDuration"><span class="tocnumber">6.2</span> <span class="toctext">PreFeedbackDuration</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AFeedbackTask_Class.html#FeedbackDuration"><span class="tocnumber">6.3</span> <span class="toctext">FeedbackDuration</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AFeedbackTask_Class.html#PostFeedbackDuration"><span class="tocnumber">6.4</span> <span class="toctext">PostFeedbackDuration</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AFeedbackTask_Class.html#ITIDuration"><span class="tocnumber">6.5</span> <span class="toctext">ITIDuration</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AFeedbackTask_Class.html#NumberOfTrials"><span class="tocnumber">6.6</span> <span class="toctext">NumberOfTrials</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AFeedbackTask_Class.html#MinRunLength"><span class="tocnumber">6.7</span> <span class="toctext">MinRunLength</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AFeedbackTask_Class.html#NumberTargets"><span class="tocnumber">6.8</span> <span class="toctext">NumberTargets</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AFeedbackTask_Class.html#TargetSequence"><span class="tocnumber">6.9</span> <span class="toctext">TargetSequence</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-26"><a href="Programming_Reference%253AFeedbackTask_Class.html#States"><span class="tocnumber">7</span> <span class="toctext">States</span></a>
+<ul>
+<li class="toclevel-2"><a href="Programming_Reference%253AFeedbackTask_Class.html#TargetCode"><span class="tocnumber">7.1</span> <span class="toctext">TargetCode</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AFeedbackTask_Class.html#ResultCode"><span class="tocnumber">7.2</span> <span class="toctext">ResultCode</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AFeedbackTask_Class.html#Feedback"><span class="tocnumber">7.3</span> <span class="toctext">Feedback</span></a></li>
+<li class="toclevel-2"><a href="Programming_Reference%253AFeedbackTask_Class.html#PauseApplication"><span class="tocnumber">7.4</span> <span class="toctext">PauseApplication</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-27"><a href="Programming_Reference%253AFeedbackTask_Class.html#Timeline"><span class="tocnumber">8</span> <span class="toctext">Timeline</span></a></li>
+<li class="toclevel-1 tocsection-28"><a href="Programming_Reference%253AFeedbackTask_Class.html#See_also"><span class="tocnumber">9</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Location">Location</span></h2>
+<p><tt>BCI2000/src/shared/modules/application</tt>
+</p>
+<h2><span class="mw-headline" id="Synopsis">Synopsis</span></h2>
+<p>The <tt>FeedbackTask</tt> class is a base class for <a href="Technical_Reference%253ACore_Modules.html#Application_Module" title="Technical Reference:Core Modules">application modules</a> that that provide feedback in a <a href="BCI2000_Glossary.html#Trial" title="BCI2000 Glossary">trial-based</a> paradigm. You do not use objects of type <tt>FeedbackTask</tt> directly; rather, you implement your own class that inherits from it, and implements specialized behavior building on the base functionality provided by the <tt>FeedbackTask</tt> class.
+</p><p>The <tt>FeedbackTask</tt> class performs sequencing, creates a block-randomized sequence of target codes, and dispatches <a href="Programming_Reference%253AGenericFilter_Class.html#Process" title="Programming Reference:GenericFilter Class"><tt>GenericFilter::Process()</tt></a>
+calls to its virtual member functions.
+Child classes (descendants) of <tt>FeedbackTask</tt> implement event
+handlers by overriding its virtual functions.
+</p><p>In the BCI2000 core distribution, the <a href="User_Reference%253ACursorTask.html" title="User Reference:CursorTask">CursorTask</a> application module is based on the <tt>FeedbackTask</tt> base class, and implements its own specialized behavior on top of it. As a simplified example, the <a href="Programming_Reference%253AFeedbackDemo_Application.html" title="Programming Reference:FeedbackDemo Application">FeedbackDemo</a> application module demonstrates how to create your own feedback-trial application module based on <tt>FeedbackTask</tt>.
+</p>
+<h2><span class="mw-headline" id="Events">Events</span></h2>
+<h3><span class="mw-headline" id="Events_Summary">Events Summary</span></h3>
+<p>The following table indicates which events exist, and the temporal sequence in which they occur. Trial-based applicatons proceed in "phases"; each trial consists of a <i>PreFeedback</i>, <i>Feedback</i>, and <i>PostFeedback</i> phase, and is followed with an <i>ITI (Inter-Trial Interval)</i> phase lasting until the next trial begins.
+</p><p>Events marked with * may occur multiple times in a row.
+</p><p>Progress from one application state to the next will occur according to the <a href="Programming_Reference%253AFeedbackTask_Class.html#Parameters">sequencing
+parameters</a>, or if requested by a handler via its <tt>doProgress</tt> output argument (see <a href="Programming_Reference%253AFeedbackTask_Class.html#Input_events">Input events</a> below).
+</p>
+<table border="0">
+<tbody><tr>
+<th align="left">Sequence of events
+</th>
+<th>&#160;&#160;
+</th>
+<th align="left">Phase
+</th>
+<th>&#160;&#160;&#160;
+</th>
+<th align="left">Typical application behavior
+</th></tr>
+<tr>
+<td>OnPreflight</td>
+<td>&#160;
+</td></tr>
+<tr>
+<td>OnInitialize</td>
+<td>&#160;
+</td></tr>
+<tr>
+<td>OnStartRun</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>display initial message such as "please prepare"
+</td></tr>
+<tr>
+<td>DoPreRun*</td>
+<td>&#160;</td>
+<td>PreRun
+</td></tr>
+<tr>
+<td>Loop {
+</td></tr>
+<tr>
+<td>&#160; &#160;  OnTrialBegin</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>display target
+</td></tr>
+<tr>
+<td>&#160; &#160; DoPreFeedback*</td>
+<td>&#160;</td>
+<td>PreFeedback
+</td></tr>
+<tr>
+<td>&#160; &#160; OnFeedbackBegin</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>show cursor
+</td></tr>
+<tr>
+<td>&#160; &#160; DoFeedback*</td>
+<td>&#160;</td>
+<td>Feedback</td>
+<td>&#160;</td>
+<td>update cursor position
+</td></tr>
+<tr>
+<td>&#160; &#160; OnFeedbackEnd</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>hide cursor, mark target as hit
+</td></tr>
+<tr>
+<td>&#160; &#160;   DoPostFeedback*</td>
+<td>&#160;</td>
+<td>PostFeedback
+</td></tr>
+<tr>
+<td>&#160; &#160;  OnTrialEnd</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>hide targets
+</td></tr>
+<tr>
+<td>&#160; &#160;   DoITI*</td>
+<td>&#160;</td>
+<td>ITI
+</td></tr>
+<tr>
+<td>}
+</td></tr>
+<tr>
+<td>OnStopRun</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>display final message, e.g. "finished"
+</td></tr>
+<tr>
+<td>OnHalt
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="Events_forwarded_from_the_GenericFilter_interface">Events forwarded from the GenericFilter interface</span></h3>
+<h4><span id="OnPreflight(SignalProperties_(r))"></span><span class="mw-headline" id="OnPreflight.28SignalProperties_.28r.29.29">OnPreflight(SignalProperties (r))</span></h4>
+<h4><span id="OnInitialize(SignalProperties_(r))"></span><span class="mw-headline" id="OnInitialize.28SignalProperties_.28r.29.29">OnInitialize(SignalProperties (r))</span></h4>
+<p>These events are forwarded from the inherited <a href="Programming_Reference%253AGenericFilter_Class.html#Preflight" title="Programming Reference:GenericFilter Class"><tt>GenericFilter::Preflight</tt></a> and <a href="Programming_Reference%253AGenericFilter_Class.html#Initialize" title="Programming Reference:GenericFilter Class"><tt>GenericFilter::Initialize</tt></a> events, with input signal properties as an argument. Within the <a href="Programming_Reference%253AFilter_Chain.html" title="Programming Reference:Filter Chain">BCI2000 filter chain</a>, the <tt>FeedbackTask</tt> class always writes its input signal through to its output signal, so no <i>output</i> signal properties are provided to these event handlers.
+</p>
+<h4><span class="mw-headline" id="OnStartRun">OnStartRun</span></h4>
+<h4><span class="mw-headline" id="OnStopRun">OnStopRun</span></h4>
+<h4><span class="mw-headline" id="OnHalt">OnHalt</span></h4>
+<p>These events are forwarded from <a href="Programming_Reference%253AGenericFilter_Class.html" title="Programming Reference:GenericFilter Class"><tt>GenericFilter</tt>'s</a> <i>StartRun</i>, <i>StopRun</i>, and <i>Halt</i> events.
+</p>
+<h3><span class="mw-headline" id="Phase_transition_Events">Phase transition Events</span></h3>
+<p>These events are triggered by phase transitions during a run, e.g., the <i>OnFeedbackBegin</i> event handler is called whenever the phase changes from <i>PreFeedback</i> to <i>Feedback</i>.
+</p>
+<h4><span class="mw-headline" id="OnTrialBegin">OnTrialBegin</span></h4>
+<p>Typically, an application will announce or display the desired target from this event handler.
+</p>
+<h4><span class="mw-headline" id="OnTrialEnd">OnTrialEnd</span></h4>
+<p>From this event handler, an application will typically clear the feedback screen.
+</p>
+<h4><span class="mw-headline" id="OnFeedbackBegin">OnFeedbackBegin</span></h4>
+<p>A feedback application will typically display the feedback cursor at its initial position.
+</p>
+<h4><span class="mw-headline" id="OnFeedbackEnd">OnFeedbackEnd</span></h4>
+<p>From this event handler, visual feedback about the classification result is typically provided, e.g. by changing the color of a target that has been hit.
+</p>
+<h3><span class="mw-headline" id="Input_Events">Input Events</span></h3>
+<p>Each call to <a href="Programming_Reference%253AGenericFilter_Class.html#Process" title="Programming Reference:GenericFilter Class"><tt>GenericFilter::Process()</tt></a> is dispatched to one of these
+event handlers, depending on the phase in the feedback trial, with each handler function corresponding to a phase.
+</p><p>With the exception of <i>DoFeedback</i>, these event handlers will typically not be used by a task class that inherits from <tt>FeedbackTask</tt>, unless it needs to modify the standard sequencing behavior, such that it progresses faster or slower from one phase to the next, or subdivides a phase into two or more sub-phases.
+</p><p>Modifying sequencing behavior is possible through the handlers' <i>doProgress</i> argument. <i>doProgress</i> will typically be set to <i>false</i>, except for the last call to the handler during the current phase in the sequence.
+A handler may modify the application's sequencing behavior by setting the <i>doProgress</i> argument: setting it from <i>false</i> to <i>true</i> will proceed to the next phase earlier than prescribed by the <a href="Programming_Reference%253AFeedbackTask_Class.html#Parameters">sequencing parameters</a>, and setting it to <i>false</i> from <i>true</i> will defer progressing, such that the handler will be called again, until its <i>doProgress</i> argument is actually <i>true</i> on exit.
+</p>
+<h4><span id="DoPreRun(GenericSignal_(r),_bool_doProgress_(rw))"></span><span class="mw-headline" id="DoPreRun.28GenericSignal_.28r.29.2C_bool_doProgress_.28rw.29.29">DoPreRun(GenericSignal (r), bool doProgress (rw))</span></h4>
+<h4><span id="DoPreFeedback(GenericSignal_(r),_bool_doProgress_(rw))"></span><span class="mw-headline" id="DoPreFeedback.28GenericSignal_.28r.29.2C_bool_doProgress_.28rw.29.29">DoPreFeedback(GenericSignal (r), bool doProgress (rw))</span></h4>
+<h4><span id="DoFeedback(GenericSignal_(r),_bool_doProgress_(rw))"></span><span class="mw-headline" id="DoFeedback.28GenericSignal_.28r.29.2C_bool_doProgress_.28rw.29.29">DoFeedback(GenericSignal (r), bool doProgress (rw))</span></h4>
+<p>From this event handler, a typical feedback application will update cursor position according to the current control signal.
+In case of variable-length trials, it will also test whether a target has been hit, and set <i>doProgress</i> to <i>true</i> if this is the case.
+</p>
+<h4><span id="DoPostFeedback(GenericSignal_(r),_bool_doProgress_(rw))"></span><span class="mw-headline" id="DoPostFeedback.28GenericSignal_.28r.29.2C_bool_doProgress_.28rw.29.29">DoPostFeedback(GenericSignal (r), bool doProgress (rw))</span></h4>
+<h4><span id="DoITI(GenericSignal_(r),_bool_doProgress_(rw))"></span><span class="mw-headline" id="DoITI.28GenericSignal_.28r.29.2C_bool_doProgress_.28rw.29.29">DoITI(GenericSignal (r), bool doProgress (rw))</span></h4>
+<h2><span class="mw-headline" id="Properties">Properties</span></h2>
+<p><tt>FeedbackTask</tt> properties are protected, i.e. intended for use from descendant classes only.
+</p>
+<h3><span id="ostream_AppLog,_AppLog.File,_AppLog.Screen_(w)"></span><span class="mw-headline" id="ostream_AppLog.2C_AppLog.File.2C_AppLog.Screen_.28w.29">ostream AppLog, AppLog.File, AppLog.Screen (w)</span></h3>
+<p>Inheriting from <a href="Programming_Reference%253AApplicationBase_Class.html" title="Programming Reference:ApplicationBase Class"><tt>ApplicationBase</tt></a>, descendants of <tt>FeedbackTask</tt> have access
+to the <a href="Programming_Reference%253AApplicationBase_Class.html#Application_Log" title="Programming Reference:ApplicationBase Class"><tt>AppLog</tt></a>, <a href="Programming_Reference%253AApplicationBase_Class.html#Application_Log" title="Programming Reference:ApplicationBase Class"><tt>AppLog.File</tt></a>, and <a href="Programming_Reference%253AApplicationBase_Class.html#Application_Log" title="Programming Reference:ApplicationBase Class"><tt>AppLog.Screen</tt></a> streams which are members of <tt>ApplicationBase</tt>.
+These streams allow convenient output into an application log file (<tt>AppLog.File</tt>), an application log window (<tt>AppLog.Screen</tt>), and both simultaneously (<tt>AppLog</tt>).
+</p>
+<h3><span id="RandomGenerator_RandomNumberGenerator_(rw)"></span><span class="mw-headline" id="RandomGenerator_RandomNumberGenerator_.28rw.29">RandomGenerator RandomNumberGenerator (rw)</span></h3>
+<p>An object of type <a href="Programming_Reference%253ARandomGenerator_Class.html" title="Programming Reference:RandomGenerator Class"><tt>RandomGenerator</tt></a> which behaves according to the user setting in the <a href="Programming_Reference%253ARandomGenerator_Class.html" title="Programming Reference:RandomGenerator Class"><i>RandomSeed</i> parameter</a>.
+</p>
+<h2><span class="mw-headline" id="Methods">Methods</span></h2>
+<p>Methods are declared protected, i.e. for use by descendants only.
+</p>
+<h3><span id="FeedbackTask(GUI::GraphDisplay*=NULL)"></span><span class="mw-headline" id="FeedbackTask.28GUI::GraphDisplay.2A.3DNULL.29">FeedbackTask(GUI::GraphDisplay*=NULL)</span></h3>
+<p>The <tt>FeedbackTask</tt> constructor allows to specify a pointer to a [[Programming Reference:GUI::GraphDisplay Class|<tt>GUI::GraphDisplay</tt> object representing the screen area where the output should appear, e.g. the application window.
+The constructor parameter is not used by the <tt>FeedbackTask</tt> class itself but forwarded to the <a href="Programming_Reference%253AApplicationBase_Class.html" title="Programming Reference:ApplicationBase Class"><tt>ApplicationBase</tt></a> class constructor; for details, see <a href="Programming_Reference%253AApplicationBase_Class.html" title="Programming Reference:ApplicationBase Class">Programming Reference:ApplicationBase Class</a>.
+</p>
+<h2><span class="mw-headline" id="Parameters">Parameters</span></h2>
+<h4><span class="mw-headline" id="PreRunDuration">PreRunDuration</span></h4>
+<p>The duration of the pause preceding the first trial.
+Given in <a href="BCI2000_Glossary.html#Sample_Block" title="BCI2000 Glossary">sample blocks</a>, or in time units when immediately followed with 's', 'ms', or similar.
+</p>
+<h4><span class="mw-headline" id="PreFeedbackDuration">PreFeedbackDuration</span></h4>
+<p>The duration of target display before feedback begins.
+Given in <a href="BCI2000_Glossary.html#Sample_Block" title="BCI2000 Glossary">sample blocks</a>, or in time units when immediately followed with 's', 'ms', or similar.
+</p>
+<h4><span class="mw-headline" id="FeedbackDuration">FeedbackDuration</span></h4>
+<p>Typical duration of feedback. 
+Given in <a href="BCI2000_Glossary.html#Sample_Block" title="BCI2000 Glossary">sample blocks</a>, or in time units when immediately followed with 's', 'ms', or similar.
+</p><p>This parameter is not a hard limit to feedback duration but determines cursor speed such that, for a normalized control signal, cursor movement will take the specified time from the cursor's starting point to the screen's edge.
+Feedback trials will typically have this duration, provided that the cursor starts at the center of the screen, targets are located at the screen's edges, and ignoring cursor and target width (for further details, see <a href="User_Reference%253ANormalizer.html" title="User Reference:Normalizer">User Reference:Normalizer</a>).
+</p>
+<h4><span class="mw-headline" id="PostFeedbackDuration">PostFeedbackDuration</span></h4>
+<p>The duration of result display after feedback.
+Given in <a href="BCI2000_Glossary.html#Sample_Block" title="BCI2000 Glossary">sample blocks</a>, or in time units when immediately followed with 's', 'ms', or similar.
+</p>
+<h4><span class="mw-headline" id="ITIDuration">ITIDuration</span></h4>
+<p>The duration of the inter-trial interval.
+Given in <a href="BCI2000_Glossary.html#Sample_Block" title="BCI2000 Glossary">sample blocks</a>, or in time units when immediately followed with 's', 'ms', or similar.
+</p>
+<h4><span class="mw-headline" id="NumberOfTrials">NumberOfTrials</span></h4>
+<p>The number of trials in a run. If this parameter is set, then MinRunLength should be blank, and vice-versa.
+</p>
+<h4><span class="mw-headline" id="MinRunLength">MinRunLength</span></h4>
+<p>The duration of a run, i.e. the time corresponding to a continuously recorded data file.
+A run will not stop during a trial, so its actual length may be larger than this value by the length of a trial.
+If this parameter is set, then NumberOfTrials should be blank, and vice-versa.
+Given in <a href="BCI2000_Glossary.html#Sample_Block" title="BCI2000 Glossary">sample blocks</a>, or in time units when immediately followed with 's', 'ms', or similar.
+</p>
+<h4><span class="mw-headline" id="NumberTargets">NumberTargets</span></h4>
+<p>The number of targets on the feedback screen.
+</p>
+<h4><span class="mw-headline" id="TargetSequence">TargetSequence</span></h4>
+<p>A list of indices, each one being from 1 to NumberTargets.  This list specifies an optional fixed sequence of stimuli, through which the presentation will cycle.   Leave this parameter blank if you want the default behavior, which is for stimuli to be selected randomly.
+</p>
+<h2><span class="mw-headline" id="States">States</span></h2>
+<h3><span class="mw-headline" id="TargetCode">TargetCode</span></h3>
+<p>During a feedback trial, this state indicates the user's task, i.e. the target the cursor is supposed to hit.
+A <i>TargetCode</i> value of zero indicates that there is no target specified; <i>TargetCode</i> switching from zero to nonzero indicates the beginning of a trial.
+</p>
+<h3><span class="mw-headline" id="ResultCode">ResultCode</span></h3>
+<p>At the end of a feedback trial, <i>ResultCode</i> is set to the target code of the outcome, i.e. the target that was hit by the cursor.
+When a time of <i>PostTrialDuration</i> has passed, <i>ResultCode</i> is reset to zero.
+</p>
+<h3><span class="mw-headline" id="Feedback">Feedback</span></h3>
+<p>This state's value is 1 when the cursor is displayed on the feedback screen.
+Typically, this also implies that the cursor moves according to the <a href="BCI2000_Glossary.html#Control_Signal" title="BCI2000 Glossary">control signal</a>.
+</p>
+<h3><span class="mw-headline" id="PauseApplication">PauseApplication</span></h3>
+<p>While this state is set to 1, no task processing occurs, i.e. the task is paused, and may be resumed by setting PauseApplication to 0.
+</p>
+<h2><span class="mw-headline" id="Timeline">Timeline</span></h2>
+<p><a href="https://www.bci2000.org/mediawiki/index.php/File:CursorTask_Timeline.png" class="image"><img alt="CursorTask Timeline.png" src="../images/thumb/b/b3/CursorTask_Timeline.png/640px-CursorTask_Timeline.png" decoding="async" width="640" height="251" srcset="../images/thumb/b/b3/CursorTask_Timeline.png/960px-CursorTask_Timeline.png 1.5x, ../images/thumb/b/b3/CursorTask_Timeline.png/1280px-CursorTask_Timeline.png 2x" /></a>
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<p><a href="Programming_Reference%253AApplicationBase_Class.html" title="Programming Reference:ApplicationBase Class">Programming Reference:ApplicationBase Class</a>,<a href="Programming_Reference%253AGenericFilter_Class.html" title="Programming Reference:GenericFilter Class">Programming Reference:GenericFilter Class</a>,<a href="Programming_Reference%253AFeedbackDemo_Application.html" title="Programming Reference:FeedbackDemo Application">Programming Reference:FeedbackDemo Application</a>
+</p><p><a href="User_Reference%253ACursorTask.html" title="User Reference:CursorTask">User Reference:CursorTask</a>
+</p>
+<!-- 
+NewPP limit report
+Cached time: 20230523230323
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.061 seconds
+Real time usage: 0.070 seconds
+Preprocessor visited node count: 142/1000000
+Post‐expand include size: 5388/2097152 bytes
+Template argument size: 24/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 0/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   16.148      1 -total
+ 47.20%    7.621      1 Template:FeedbackTaskParams
+ 25.28%    4.082      6 Template:TimeParam
+ 20.44%    3.300      1 Template:ApplicationBaseProperties
+ 15.76%    2.545      1 Template:FeedbackTaskStates
+ 14.45%    2.334      1 Template:FeedbackTaskTimeline
+-->
+
+<!-- Saved in parser cache with key wikidb-bci_:pcache:idhash:1810-0!canonical and timestamp 20230523230323 and revision id 4109
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:FeedbackTask_Class&amp;oldid=4109">http://www.bci2000.org/mediawiki/index.php?title=Programming_Reference:FeedbackTask_Class&amp;oldid=4109</a>"</div>
+ </div>
+</body>
+</html>
