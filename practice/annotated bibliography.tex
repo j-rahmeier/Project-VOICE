@@ -1,0 +1,31 @@
+\documentclass[12pt, research paper]{report}
+\usepackage{graphicx}
+\title{Project VOICE: Annotated Bibliography}
+\author{Sharon Lin}
+\date{October 2024}
+
+\begin{document}
+	
+	\maketitle
+	
+	\section*{Introduction}
+	
+	\noindent\textbf{Project Description:} Today, non-verbal children are believed to have minimal intelligence and cognitive abilities. We are aiming to prove this to be false. The Voice Project initiative aims to reverse biases in academia and show that communication is still possible without words or signs. Our current work consists of integrating computer software with biomedical engineering and neurology to explore non-verbal and non-symbolic communication through brain monitoring applications.
+	
+	\vspace{10pt}
+	
+	\section*{Annotated Bibliography} 
+	Title: Decoding English Alphabet Letters Using EEG Phase Information
+	
+	\noindent Author: YiYang Wang, PingXiao Wang, and YuGuo Yu
+	
+	Fourteen students from Shanghai Fudan University participated in the study (9 males and 5 females, mean age 25.4). They all had normal colour vision and no neurological or psychiatric history. EEG data were recorded in a soundproof room using a 64 channel system, with participants viewing five lowercase letters ('a', 'e', 'i', 'o', and 't') displayed on the screen. Each letter appeared for 1 second, followed by a 3-second blank interval, and participants were instructed to read silently while minimising head and eye movements. The study included 450 trials divided into 3 blocks, taking approximately 60 minutes to complete, with careful monitoring of electrode conductance throughout. 
+	
+	Data preprocessing was conducted using EEGLAB, involving bandpass filtering (0.5-220 Hz), epoch extraction, and baseline correction. Artefacts were removed through visual inspection and independent component analysis (ICA), which identified and eliminated components related to heartbeats and eye movements. The clean EEG data were then transformed using the Hilbert transform to derive amplitude and phase sequences. This analysis included filtering the data into 6 frequency bands--delta, theta, alpha, beta, gamma, and further subdivisions of gamma--to explore their roles in letter classification performance. The pre-processing aimed to ensure high quality data for subsequent machine-learning analysis. 
+	
+	A five class classification analysis was conducted to distinguish between five letters using EEG data, employing the LIBSVM algorithm for support vector machine classification. The focus was on 17 electrode sites in the occipital and occipital-temporal cortices, with the Gaussian function used as the nonlinear transform and its paramter optimised through a gradient ascent approach. A 30 fold cross validation method was implemented to ensure robust estimates of discrimination accuracy, where the EEG data were divided into 30 parts for training and testing. To validate results and mitigate artificial classification effects, labels were randomly shuffled 100 times to create random-label training sets, and a Kolmogoro-Smirnov test was performed to assess the distribution of classification accuracies. Additionally, a two-way ANOVA and Tukey-Kramer's method were used for pairwise comparisons of classification accuracy between phase and power data across the 17 electrodes. 
+	
+	The study analysed classification accuracy for EEG phase and power sequences during letter presentation, focusing on a 200 ms window starting at 100 ms after the letter's appearance. Results showed a mean accuracy of 46.61 percent for phase sequences, significantly higher than the 22.98 percent for power sequences (\(p < 10-9\)). The best classification performance occurred in the theta and alpha frequency bands with phase coding outperforming power-coding, especially in the alpha band. Accuracy maps indicated that classification power was highest in the left and right posterior regions, particularly for the theta band, while significant classification effects diminished after 380 ms. Overall, the findings suggest that EEG phase information contains more relevant data for letter-information than power-information. 	
+	
+	This relates to Project VOICE as our goal is to ultimately create a prototype (device) that can translate brain waves into words/sentences 
+\end{document}
