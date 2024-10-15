@@ -16,44 +16,44 @@ Database file #1: annot.bib
 ** Sorting version - not for use with work to be submitted to the IEEE.
 
 Done.
-You've used 2 entries,
+You've used 3 entries,
             4480 wiz_defined-function locations,
-            893 strings with 9096 characters,
-and the built_in function-call counts, 1379 in all, are:
-= -- 111
-> -- 40
+            901 strings with 9669 characters,
+and the built_in function-call counts, 2398 in all, are:
+= -- 194
+> -- 90
 < -- 2
-+ -- 18
-- -- 12
-* -- 89
-:= -- 238
-add.period$ -- 4
-call.type$ -- 2
-change.case$ -- 12
++ -- 42
+- -- 28
+* -- 156
+:= -- 409
+add.period$ -- 7
+call.type$ -- 3
+change.case$ -- 23
 chr.to.int$ -- 0
-cite$ -- 2
-duplicate$ -- 93
-empty$ -- 110
-format.name$ -- 14
-if$ -- 280
+cite$ -- 3
+duplicate$ -- 151
+empty$ -- 186
+format.name$ -- 31
+if$ -- 496
 int.to.chr$ -- 0
-int.to.str$ -- 2
-missing$ -- 19
-newline$ -- 28
-num.names$ -- 4
-pop$ -- 52
+int.to.str$ -- 3
+missing$ -- 34
+newline$ -- 38
+num.names$ -- 6
+pop$ -- 101
 preamble$ -- 1
-purify$ -- 10
+purify$ -- 20
 quote$ -- 2
-skip$ -- 92
+skip$ -- 157
 stack$ -- 0
-substring$ -- 12
-swap$ -- 58
+substring$ -- 18
+swap$ -- 95
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 6
-type$ -- 18
+type$ -- 27
 warning$ -- 0
-while$ -- 4
-width$ -- 3
-write$ -- 39
+while$ -- 6
+width$ -- 4
+write$ -- 57
